@@ -7859,12 +7859,12 @@
   ],
   "transport": {
     "backend": "metal",
-    "cases": 20,
+    "cases": 22,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.0031977082835510373,
-    "input_bytes": 327684,
-    "output_bytes": 1310720,
+    "gpu_seconds": 0.0030878749676048756,
+    "input_bytes": 360452,
+    "output_bytes": 1441792,
     "registry_id": "4294968313"
   },
   "source_sha256": {
@@ -7878,14 +7878,83 @@
     "cuda": "599d6973b944af93ff69350fa0f3688cfdea0de54cb4a57503b3ef3ff62bbc42",
     "metal": "b98507764d6ae75e8b66820661ba2217ecb54077b60932d1f42faa0015a7cf92"
   },
-  "input_sha256": "0af28bf54dfab0c779e2bbfc05a5f545d47647f62cfe4eaf1a8af1d4a2240957",
-  "output_sha256": "9d87868c2478e25ea93ddcd4ec17f951d37ed37c643593a756a1ef15f62bbcfe",
+  "input_sha256": "1d3c29624c66dc3e3b57dea44ea46daeee8f920b49baa933f150e00db0a53777",
+  "output_sha256": "a9e74ea14de4705fadeb3a270c9c6bde7c027cd1ab52ef78a8a186774e6287e3",
   "gpu_execution_verified": true,
   "backend": "metal",
   "application_event_runtime_connected": true,
-  "autonomous_battle_connected": false,
   "weapon_burst_target_connected": true,
+  "autonomous_battle_connected": false,
+  "actual_statuses": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    64
+  ],
   "passed": true,
+  "stage": "verified",
+  "validation_sha256": {
+    "app/portable_runtime.py": "3a13ad4a0a40353ca092c754c41b2876377c890244cd8077703a5d8404a04861",
+    "app/portable_combat.py": "7d6ff1aaa93e28328fb10b87c3c7b61852dc080228e1b865eaedfa1196b7ff17",
+    "app/portable_specs.py": "42ef992eedb9fbb5d2f6aa45c999676fa5efd1377fdf573c62aad72030b3d2b7",
+    "app/portable_backend.py": "1eec4045e1fdc66d48222d02f5fb94100ac5bd0cd4a1a1a7b515564faa76c77e",
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
+    "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
+    "scripts/verify-portable-combat.py": "0f6f45db1f736eb8d1eabea3bf3bb667717e6fe60d0ffe20d886ea20bfb7545d",
+    "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
+    "scripts/run-metal-probe.swift": "14ea0beae31b1e1f6ec5a2fbcd9bd624ed4e7a2f35563e988812376dc0649a5a"
+  },
+  "batch_layout": {
+    "positive_count": 20,
+    "rejection_indices": [
+      20,
+      21
+    ]
+  },
+  "expected_statuses": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    64
+  ],
   "cases": [
     {
       "name": "auto-magazine-reload",
@@ -15824,29 +15893,16 @@
       }
     }
   ],
-  "validation_sha256": {
-    "app/portable_runtime.py": "3a13ad4a0a40353ca092c754c41b2876377c890244cd8077703a5d8404a04861",
-    "app/portable_combat.py": "7d6ff1aaa93e28328fb10b87c3c7b61852dc080228e1b865eaedfa1196b7ff17",
-    "app/portable_specs.py": "42ef992eedb9fbb5d2f6aa45c999676fa5efd1377fdf573c62aad72030b3d2b7",
-    "app/portable_backend.py": "1eec4045e1fdc66d48222d02f5fb94100ac5bd0cd4a1a1a7b515564faa76c77e",
-    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
-    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
-    "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
-    "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "aaf1891fcc0bc0047683b506eeca042d4855bb2c6ba42fa7ef530f7fd4da84d3",
-    "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
-    "scripts/run-metal-probe.swift": "14ea0beae31b1e1f6ec5a2fbcd9bd624ed4e7a2f35563e988812376dc0649a5a"
-  },
   "cpu_trace_used_as_gpu_input": false,
   "rejection_execution": {
     "transport": {
       "backend": "metal",
-      "cases": 2,
+      "cases": 22,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 4.68750367872417e-05,
-      "input_bytes": 32772,
-      "output_bytes": 131072,
+      "gpu_seconds": 0.0030878749676048756,
+      "input_bytes": 360452,
+      "output_bytes": 1441792,
       "registry_id": "4294968313"
     },
     "source_sha256": {
@@ -15860,10 +15916,14 @@
       "cuda": "599d6973b944af93ff69350fa0f3688cfdea0de54cb4a57503b3ef3ff62bbc42",
       "metal": "b98507764d6ae75e8b66820661ba2217ecb54077b60932d1f42faa0015a7cf92"
     },
-    "input_sha256": "143deaf055171a6b15b0c00e9ace3d7512ce7ceaf2bd4c99198db2425f8a3a88",
-    "output_sha256": "7d7ad1dee6ab4c8ec688a4a2bc05439f92f3438b613eaa9d20388e2cfb4f0fd8",
+    "input_sha256": "1d3c29624c66dc3e3b57dea44ea46daeee8f920b49baa933f150e00db0a53777",
+    "output_sha256": "a9e74ea14de4705fadeb3a270c9c6bde7c027cd1ab52ef78a8a186774e6287e3",
     "gpu_execution_verified": true,
-    "backend": "metal"
+    "backend": "metal",
+    "case_indices": [
+      20,
+      21
+    ]
   },
   "rejected_cases": [
     {

@@ -57,11 +57,13 @@
 .venv/bin/python -m unittest discover -s tests -p 'test_portable*.py'
 ```
 
-共通fixtureは `tests/fixtures/portable-combat.json` に一度だけ保持します。20ケースで弾数・発射数・装填期限・チャージ状態・段階・cast mask・クールダウン・ゲージ・敵HP・命中数・世代・捕捉した時計対象を照合します。期待値は手書きで、CPUの実行トレースはGPU入力にも合格基準にも使いません。ケースに加え、世代あふれ（status 2）と不正なGPU側対象容量（64）を拒否することを実GPUで検査します。旧イベント16ケースと再入／数値あふれの2ケースも維持します。
+共通fixtureは `tests/fixtures/portable-combat.json` に一度だけ保持します。20ケースで弾数・発射数・装填期限・チャージ状態・段階・cast mask・クールダウン・ゲージ・敵HP・命中数・世代・捕捉した時計対象を照合します。期待値は手書きで、CPUの実行トレースはGPU入力にも合格基準にも使いません。ケースに加え、世代あふれ（status 2）と不正なGPU側対象容量（64）を拒否することを実GPUで検査します。旧イベント16ケースと再入／数値あふれの2ケースも維持します。現在の戦闘検証は正例・拒否例を合わせた22入力の1バッチで、`rejection_execution.case_indices` が拒否例の位置を示します。
 
 Metalの記録は `research/portable-combat-metal.json`、APIは `portable-api-metal.json` です。対応するAPI入力200と未対応の部位入力400を確認します。通常画面はCPUのままです。新しいwire ABIは `0x50455632`、入力4,096語、出力16,384語で、全領域の重複と転送上限を単体検査します。過去の `portable-cross-gpu-checkpoint.json` は旧ABIの検証記録です。
 
-Windowsは必要な短い比較だけに使います。同じfixtureを次の1コマンドで実行し、既存本体のフルビルドや常時テストは行いません。
+Windowsは必要な短い比較だけに使います。今回、RTX 3070 Ti・GPU使用率0%から低優先度で試行し、120秒の上限で停止しました。完了したCUDA出力ハッシュを取得できていないため、今回の20ケースをCUDA検証済みとは扱いません。再実行はせず、元のWindows作業フォルダーと本体は変更していません。診断は `research/windows-portable-combat-timeout.json`、実際の未完了報告は `portable-combat-cuda.json` に保存しています。コンパイルとGPU実行のどの段階で上限に達したかは未確定です。
+
+次回の負担を減らすため、その後の共通検証を正例20・拒否例2の単一バッチへ変更しました。shader build・NVRTC／ドライバー初期化を2回行う構造を避け、期待値の照合前にも読み戻し結果を保存します。この変更はMetalで再確認済みで、Windowsではまだ実行していません。同じfixtureを次の1コマンドで実行し、既存本体のフルビルドや常時テストは行いません。
 
 ```sh
 python scripts/verify-portable-combat.py --backend cuda

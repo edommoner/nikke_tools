@@ -1,0 +1,18 @@
+{
+  "command": "python scripts/verify-portable-combat.py --backend cuda",
+  "commit": "328b6f1b9ed06aeff54df392f0d105e3288a108b",
+  "device": "NVIDIA GeForce RTX 3070 Ti",
+  "result": "timeout",
+  "timeout_seconds": 120,
+  "below_normal_priority_requested": true,
+  "python_utf8": true,
+  "source_modified": false,
+  "compiler_success_log_saved": false,
+  "error": "subprocess.TimeoutExpired: verification command timed out after 120 seconds",
+  "notes": "Generated CUDA and Metal exist; retained dispatch input has 2 cases. No completed CUDA report; positive/negative results and output hashes cannot be certified.",
+  "remote_turn_id": "01a14fec-7f37-73d1-ba93-d7ae2622e8ff",
+  "report_sha256": "862f222796ed97e6b22cfcdb668ece1b7782df7a198b7f23395cb7a11e00f38d",
+  "gpu_utilization_before_percent": 0,
+  "rerun": false,
+  "original_windows_checkout_unchanged": true
+}

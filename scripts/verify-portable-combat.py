@@ -31,6 +31,11 @@ def contains(actual,expected,path=''):
     else:assert actual==expected,(path,actual,expected)
 
 
+def evidence_subset(result):
+    return {key:result[key] for key in ('transport','source_sha256','generated_sha256',
+                                       'input_sha256','output_sha256','gpu_execution_verified','backend')}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--backend',choices=('metal','cuda'),default='metal')
     args=parser.parse_args();path=ROOT/f'research/portable-combat-{args.backend}.json'
@@ -40,7 +45,32 @@ def main():
              'tests/fixtures/portable-combat.json','scripts/run-metal-probe.swift']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     cases=fixtures();programs=[compile_case(c) for c in cases]
-    result=run_programs(programs,backend=args.backend)
+    # The same identity may be re-used only with a new bounded generation.
+    p,m=compile_case(cases[0]);from portable_specs import LIMITS as L
+    p[2]=1;p[L['TARGET_BASE']+2]=0x7fffffff
+    p[L['COMMAND_BASE']:L['COMMAND_BASE']+8]=[21,0,0,0,0,0,0,0x408f4000] # t=0, hp=1000
+    malformed,malformed_meta=compile_case(cases[0]);malformed[4]=9
+    # One shader build/context/dispatch for positives and expected GPU failures.
+    # In particular, a second cold CUDA initialization cannot consume the short
+    # Windows verification budget after throwing away completed positive output.
+    statuses=[0]*len(cases)+[2,64]
+    try:
+        run_programs(programs+[(p,m),(malformed,malformed_meta)],backend=args.backend)
+    except PortableExecutionError as e:
+        result=dict(results=e.results[:len(cases)],**e.evidence,
+                    application_event_runtime_connected=True,weapon_burst_target_connected=True,
+                    autonomous_battle_connected=False,actual_statuses=e.statuses)
+    except Exception as e:
+        path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-failed',error=str(e)))+'\n',encoding='utf-8')
+        raise
+    else:raise AssertionError('Expected GPU rejection statuses were absent')
+    result.update(passed=False,stage='readback-before-comparison',validation_sha256=hashes,
+                  batch_layout=dict(positive_count=len(cases),rejection_indices=[len(cases),len(cases)+1]),
+                  expected_statuses=statuses)
+    # Preserve raw evidence even if a later expectation fails.
+    path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    assert result['actual_statuses']==statuses,result['actual_statuses']
+    negative={**evidence_subset(result), 'case_indices':[len(cases),len(cases)+1]}
     rows=[]
     for c,r in zip(cases,result['results']):
         assert len(r['queries'])==len(c['expected_queries'])
@@ -48,17 +78,8 @@ def main():
         if 'expected_targets' in c:contains(r['targets'],c['expected_targets'],c['name']+'.targets')
         if 'expected_timers' in c:contains(r['timers'],c['expected_timers'],c['name']+'.timers')
         rows.append(dict(name=c['name'],passed=True,actual=r))
-    # The same identity may be re-used only with a new bounded generation.
-    p,m=compile_case(cases[0]);from portable_specs import LIMITS as L
-    p[2]=1;p[L['TARGET_BASE']+2]=0x7fffffff
-    p[L['COMMAND_BASE']:L['COMMAND_BASE']+8]=[21,0,0,0,0,0,0,0x408f4000] # t=0, hp=1000
-    malformed,malformed_meta=compile_case(cases[0]);malformed[4]=9
-    try:run_programs([(p,m),(malformed,malformed_meta)],backend=args.backend)
-    except PortableExecutionError as e:
-        assert e.statuses==[2,64],e.statuses;negative=e.evidence
-    else:raise AssertionError('Generation overflow accepted')
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
-    result.update(passed=True,cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
+    result.update(passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
                   rejection_execution=negative,rejected_cases=[dict(name='target-generation-overflow',status=2),dict(name='wire-target-capacity',status=64)],
                   scope='Bounded fixed-rate/automatic full-charge weapons, simple 1-2-3 burst policy, body/add HP pools and captured periodic generations; no general battle acceptance')
     path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
