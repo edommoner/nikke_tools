@@ -2,7 +2,7 @@
 
 ## 2026-10-19 味方HP・防御・回復
 
-共通Slangへ味方の初期HP／防御、最大HP・スナップショット、回復倍率・回復通知と子の順序、HP条件を接続しました。ABIは `0x5045563A`。Metalの212正例・7拒否、25ケースの独立CPU参照（HP失効時の既知差異1件を明示）、API、単体19件、203体の武器回帰が成功しています。[規約・効率化・未接続範囲](portable-health-runtime.md)を確認してください。最新CUDA照合状況は `research/portable-combat-checkpoint.json`、前段187ケースの両GPU一致は `portable-combat-v9-checkpoint.json` へ固定しました。実編成・通常画面・全キャラ対応は未完了です。
+共通Slangへ味方の初期HP／防御、最大HP・スナップショット、回復倍率・回復通知と子の順序、HP条件を接続しました。ABIは `0x5045563A`。Metalの212正例・7拒否、25ケースの独立CPU参照（HP失効時の既知差異1件を明示）、API、単体19件、203体の武器回帰が成功しています。[規約・効率化・未接続範囲](portable-health-runtime.md)を確認してください。固定版 `37c2e36` はWindowsのRTX 3070 Tiでも低優先度・1回の検証が76.388秒で成功しました。212正例・7拒否の共通ソース・入力・全出力・検証コード・statusと既知CPU差異がMetalと一致し、元のWindows作業状態を保持しています。最新記録は `research/portable-combat-checkpoint.json`、前段187ケースの両GPU一致は `portable-combat-v9-checkpoint.json` へ固定しました。実編成・通常画面・全キャラ対応は未完了です。
 
 ## 2026-10-19 チャージ後の自動補充と全203武器
 
