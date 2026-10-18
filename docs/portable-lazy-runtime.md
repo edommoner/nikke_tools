@@ -34,7 +34,7 @@ CPUの辞書型 `get_buffs` に対応するクエリは、対応するstatを実
 
 HPの独立CPU参照は142ケースとなり、既知差異は3件です。新しい `lazy-max-hp-first-consumption-and-derived-percentage` は、遅延最大HPバフの参照後にCPUのHP比率20%が残る場合と、GPUが次の観測で200/1,100×100へ同期する場合を分けています。CPU値へ合わせるためにGPUの派生状態同期を外しません。既存の最大HP失効時の2件とともに `known_health_cpu_differences` に保存します。
 
-旧イベント16＋拒否2、単体27、HTTP API、203体の効果を除く武器、203部隊の45装備定義の初期化も確認しました。Windowsの短い照合状態は `research/portable-combat-checkpoint.json`、前段325正例の両GPU一致は `portable-combat-v15-checkpoint.json` です。
+旧イベント16＋拒否2、単体27、HTTP API、203体の効果を除く武器、203部隊の45装備定義の初期化も確認しました。固定版 `053faba` はWindowsのRTX 3070 Tiでも低優先度・1回、73.697秒で成功しました。353正例・16拒否の共通ソース・入力・全出力・検証コード・status、遅延対象を含むCPU参照はMetalと一致し、元のWindows作業状態を保持しています。Windowsの照合記録は `research/portable-combat-checkpoint.json`、前段325正例の両GPU一致は `portable-combat-v15-checkpoint.json` です。
 
 グループごとの最新キー参照で不要な全cache走査を省き、辞書型クエリで解決しない未参照効果だけが残る場合の走査も省きました。測定制御は `benchmark_lazy_scan.slang`、8プログラム・各20秒／1,201射撃・古い回復効果の共有結果を保持する負荷です。各3回の中央値は468.414msから288.114ms（約38.5%短縮）となり、入力と全出力のSHA-256が一致しました。これは新しい処理の固定負荷で、本体全体・実編成の速度やピークメモリの証明ではありません。
 
