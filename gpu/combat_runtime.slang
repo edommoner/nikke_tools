@@ -13,6 +13,7 @@ void initializeCombat(inout Runtime s, uint input)
     {
         uint at = input+P_WEAPON_BASE+who*P_WEAPON_WORDS;
         s.modeIndex[who] = -1;
+        s.fullChargeMult[who] = f64Div(loadNumber(input+P_WEAPON_EXTRA_BASE+who*4+2),HUNDRED); s.attackContext[who] = commands[input+P_ATTACK_CONTEXT_BASE+who];
         s.pellets[who] = commands[input+P_WEAPON_EXTRA_BASE+who*4]; s.muzzles[who] = commands[input+P_WEAPON_EXTRA_BASE+who*4+1];
         s.weaponEnabled[who] = commands[at]; s.weaponMode[who] = commands[at+1];
         s.capacity[who] = commands[at+2]; s.ammo[who] = s.capacity[who]; s.stage[who] = commands[at+3]; s.currentStage[who] = s.stage[who];
@@ -39,13 +40,14 @@ void teamNotify(inout Runtime s, uint event, uint64_t when, uint output)
 }
 struct Weapon
 {
-    uint mode, capacity, pellets, muzzles, infinite, reloadAllowed;
+    uint mode, capacity, pellets, muzzles, infinite, reloadAllowed, optimal;
     int shotLimit;
-    uint64_t coefficient, interval, reloadTime, chargeTime, gain, coreBonus, firstCoefficient;
+    uint64_t coefficient, interval, reloadTime, chargeTime, gain, coreBonus, firstCoefficient, fullChargeMult;
 };
 Weapon selectWeapon(inout Runtime s, uint who, uint64_t when)
 {
     Weapon w = {};
+    w.fullChargeMult = s.fullChargeMult[who]; w.optimal = s.attackContext[who] & 1;
     w.mode = s.weaponMode[who]; w.capacity = s.capacity[who]; w.pellets = s.pellets[who]; w.muzzles = s.muzzles[who];
     w.coefficient = s.coefficient[who]; w.interval = s.interval[who]; w.reloadTime = s.reloadTime[who];
     w.chargeTime = s.chargeTime[who]; w.gain = s.gain[who]; w.coreBonus = s.coreBonus;
@@ -59,6 +61,7 @@ Weapon selectWeapon(inout Runtime s, uint who, uint64_t when)
         w.interval = w.mode == 0 ? f64Div(ONE,loadNumber(at+6)) : f64Add(w.chargeTime,loadNumber(at+18));
         w.gain = loadNumber(at+12); w.coreBonus = f64Div(f64Add(loadNumber(at+14),HUNDRED ^ F64_SIGN),HUNDRED);
         w.firstCoefficient = loadNumber(at+16); w.shotLimit = int(commands[at+20]);
+        w.fullChargeMult = f64Div(loadNumber(at+24),HUNDRED); w.optimal = commands[at+26];
         w.infinite = commands[at+21]; w.reloadAllowed = commands[at+22];
     }
     if (w.pellets == 0 || w.pellets > 64 || w.muzzles == 0 || w.muzzles > 8) { s.error = 64; return w; }
@@ -168,7 +171,7 @@ void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
     if (last && w.mode == 0) dispatch(s,0,21,who,0,when,output);
     if (w.mode == 0 && w.infinite == 0) { if (s.modeEpoch[who] == epoch) s.ammo[who]--; dispatch(s,0,26,who,0,when,output); }
     uint64_t coefficient = mode >= 0 && modeShots == 0 && !f64Less(w.firstCoefficient,0) ? w.firstCoefficient : w.coefficient;
-    uint64_t amount = damageValue(s,who,f64Div(coefficient,f64FromI64(w.pellets)),when,true,w.coreBonus);
+    uint64_t amount = damageValue(s,who,f64Div(coefficient,f64FromI64(w.pellets)),when,true,w.coreBonus,w.mode == 1 ? H_CHARGE : 0,w.fullChargeMult,w.optimal != 0);
     if (s.error != 0) return;
     uint count = w.pellets*w.muzzles;
     // Capture the packet once. Child buffs and mode switches do not resample

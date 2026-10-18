@@ -71,7 +71,7 @@ def main():
         assert error.statuses==[1,16],error.statuses
         negative_evidence=error.evidence
     else:raise AssertionError('Unsafe GPU programs were accepted')
-    tracked=['app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_specs.py','app/portable_backend.py',
+    tracked=['app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_specs.py','app/portable_backend.py',
              'app/detail_gpu.py','app/effect_spec.py','scripts/timer_registry_cases.py',
              'scripts/verify-portable-events.py','scripts/run-metal-probe.swift','tests/fixtures/portable-events.json']
     result.update(passed=True,cases=rows,cpu_trace_used_as_gpu_input=False,

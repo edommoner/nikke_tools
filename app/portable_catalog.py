@@ -35,11 +35,10 @@ def audit_prepared(prepared, stats, body):
                 spread_end=st.spread_end,spread_shots=st._spread_shots_needed)
     gaps=[]
     if st.fire_mode=='auto_warmup':gaps.append('warmup_weapon')
-    if weapon['charge_multiplier']!=100:gaps.append('charge_multiplier_order')
     if st.clip_count!=1:gaps.append('partial_reload_clips')
     if st.spread_start!=st.spread_end:gaps.append('dynamic_spread')
     gaps.append('real_battle_input_adapter_not_connected')
-    return dict(character=name,own_effects=len(effects),effects=effects,weapon=weapon,weapon_gaps=gaps,
+    return dict(character=name,own_effects=len(effects),effects=effects,weapon=weapon,weapon_gaps=gaps,scalar_charge_multiplier_input_available=True,
                 squad_effects=len(bm._effects),all_effects_preflight_passed=all(e['preflight_passed'] for e in effects),
                 actual_battle_adapter_connected=False,normal_ui_metal_connected=False,
                 cpu_simulation_executed=False,full_character_verified=False)

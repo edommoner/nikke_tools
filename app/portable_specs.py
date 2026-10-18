@@ -3,14 +3,15 @@ Effect/stat/event IDs and force-selection masks come from detail_gpu's compiler.
 """
 from pathlib import Path
 from portable_trigger_specs import CONDITIONS
+from portable_damage_specs import STATS, FLAGS
 from world_condition_specs import target_inheritance_events
 
-ABI = 0x50455635
+ABI = 0x50455636
 LIMITS = dict(BATCH=128, TRIGGERS=8, CONDITIONS=3, DEFINITIONS=32, COMMANDS=64, DEPTH=32, TRACE=128,
               INPUT_WORDS=8192, OUTPUT_WORDS=16384, DEFINITION_BASE=32,
               DEFINITION_WORDS=32, COMMAND_BASE=1056, QUERY_BASE=16,
               QUERY_WORDS=32, TRACE_BASE=2064, TRACE_WORDS=8, STATE_BASE=3088,
-              EVENT_BASE=3200, EVENT_WORDS=64, CONDITION_BASE=5248, CONDITION_WORDS=12,
+              ATTACK_CONTEXT_BASE=5632, EVENT_BASE=3200, EVENT_WORDS=64, CONDITION_BASE=5248, CONDITION_WORDS=12,
               COUNTER_STATE_BASE=15360, PERIOD_STATE_BASE=15616,
               WEAPON_EXTRA_BASE=1744, MODE_BASE=1800, MODE_WORDS=32, BURST_TRACE_BASE=3600,
               WEAPON_BASE=1600, WEAPON_WORDS=16, TARGET_BASE=1680, TARGET_WORDS=8,
@@ -18,13 +19,13 @@ LIMITS = dict(BATCH=128, TRIGGERS=8, CONDITIONS=3, DEFINITIONS=32, COMMANDS=64, 
 FIELDS = dict(OWNER=0, KIND=1, STAT=2, NAME=3, MAX_STACK=4, BUDGET=5,
               VALUE=6, DURATION=8, INTERVAL=10, IMMEDIATE=12, PRESERVE=13,
               EVENT=14, THRESHOLD=15, COUNT_MODE=16, EVENT_NAME=17,
-              TARGET_NAME=18, FORCE_MASK=19, RECIPIENTS=20, TARGET=21, STAGE_ARG=22, STAGE_OVERRIDE=23, REENTRY=24, TOGGLE=25, TRIGGER_COUNT=26, CONDITION_COUNT=27, FLAGS=28, PERIOD=29)
+              TARGET_NAME=18, FORCE_MASK=19, RECIPIENTS=20, TARGET=21, STAGE_ARG=22, STAGE_OVERRIDE=23, REENTRY=24, TOGGLE=25, TRIGGER_COUNT=26, CONDITION_COUNT=27, FLAGS=28, PERIOD=29, DAMAGE_FLAGS=31)
 
 
 def shader_schema():
     lines = ['// Generated from app/portable_specs.py; do not hand-edit.',
              f'static const uint PORTABLE_ABI = {ABI}U;']
-    for prefix, mapping in [('P_', LIMITS), ('D_', FIELDS), ('C_', CONDITIONS)]:
+    for prefix, mapping in [('P_', LIMITS), ('D_', FIELDS), ('C_', CONDITIONS), ('S_', STATS), ('H_', FLAGS)]:
         lines += [f'static const uint {prefix}{name} = {value}U;' for name, value in mapping.items()]
     events=set(target_inheritance_events())
     # Named hit_count uses compact event 49; shared policy calls it hit_count (8).

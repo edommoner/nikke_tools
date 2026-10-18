@@ -8,6 +8,7 @@ import re
 import struct
 
 from portable_backend import execute
+from portable_damage_specs import BUFFS,DAMAGE_FAMILIES
 from portable_specs import ABI, LIMITS as L, FIELDS as F, check_schema
 
 
@@ -42,10 +43,10 @@ def validate_effect(eff, *, combat=None):
     if combat is None and set(eff.get('trigger',{}).get('condition',[])) & {'during_charge','burst_casted','burst_not_casted','has_burst1_ally','no_burst1_ally'}:
         raise UnsupportedPortable('Predicate requires combat-owned charge/burst state')
     if kind=='buff':
-        if (stat not in ('atk_pct','crit_rate','crit_dmg') and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat))) or target not in ('self','all_allies'):
+        if (stat not in BUFFS and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat))) or target not in ('self','all_allies'):
             raise UnsupportedPortable('Unported buff or recipient selector')
     elif kind=='damage':
-        if stat not in ('damage','dot_damage','auto_damage') or target not in ('target','boss'):
+        if stat not in DAMAGE_FAMILIES or target not in ('target','boss'):
             raise UnsupportedPortable('Unported damage family or geometry')
     elif kind=='instant':
         if stat not in ('remove_named_buff','force_skill_use','burst_reentry') or target!='self':
@@ -92,7 +93,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
                 'EVENT_NAME':int(row[148]),'TARGET_NAME':int(row[36]),
                 'FORCE_MASK':int(row[legacy.B3_MASK]),'RECIPIENTS':31 if row[4]==1 else 1<<int(row[0]),
                 'TARGET':int(effects[index][0].get('target')=='boss'), 'STAGE_ARG':int(row[151]),
-                'STAGE_OVERRIDE':int(row[252]),'REENTRY':int(row[253]),'TOGGLE':int(bool(int(row[213]) & 128))}
+                'STAGE_OVERRIDE':int(row[252]),'REENTRY':int(row[253]),'TOGGLE':int(bool(int(row[213]) & 128)), 'DAMAGE_FLAGS':int(row[39])}
         for key,value in fields.items():compact[F[key]]=value & 0xffffffff
         for key,offset in [('VALUE',6),('DURATION',7),('INTERVAL',59)]:compact[F[key]:F[key]+2]=double_words(row[offset])
         at=L['DEFINITION_BASE']+index*L['DEFINITION_WORDS'];words[at:at+len(compact)]=compact

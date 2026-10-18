@@ -2863,23 +2863,24 @@
     "cases": 16,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.005681500013452023,
+    "gpu_seconds": 0.006498791626654565,
     "input_bytes": 524292,
     "output_bytes": 1048576,
     "registry_id": "4294968313"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "23463f2c103e686e53f38e653a4c6e8fea9890e0126f2266d0c21d1a098fd826",
+    "gpu/event_runtime.slang": "6fc889935b9046e6f6cb7ee9ab6cebf06c612309e7047291195a1acfb0da54d6",
     "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "b7afd7d2d67adacad5ef07ad719ffecffc820fba2a008b553ebd58389be7aef7",
-    "gpu/combat_runtime.slang": "ce1c785578d8f4421bcb65139741c77fb2ab4e425cc8a7e81a92e6459ea92345"
+    "gpu/portable_schema.slang": "97effbec28968c28b923b99236f4ac5b741233dbeeab550e95295ca3082f310d",
+    "gpu/damage_runtime.slang": "4d31319e50b0302200b2874475b3e3112a5b1fb77923e2ba05d7488bed604281",
+    "gpu/combat_runtime.slang": "5d8e8f4d7007b494c8faaef958ac19bf0350ade9eddca9463b132fbf2e3405ec"
   },
   "generated_sha256": {
-    "cuda": "30db944ff0a6d590a136c61139be666b3f51150790d03ee2716187747edca4c7",
-    "metal": "56e43d856ade33cb6da54b8ebdac9813908176f55500c3f754b148d61d85dd55"
+    "cuda": "8f94fb440f9b3a6a47cddcb06963edbc8471e73ee07e7bf612e17105fcbae02c",
+    "metal": "de573c5898330b98997f597a9fc772332c5a4643a4da5a31804be3cad6d1e373"
   },
-  "input_sha256": "3bc3f4e8449ffeaae7eb4e4918a1efc416710c51294b66ee39e9f77f9235bda6",
+  "input_sha256": "89d84794488009134da6b8eb883d890ce13852b6419be0a20f07302772ffefce",
   "output_sha256": "f3d3357d6b867aa2ca7d5039619159d13aae856369d23ce21a545277c912649e",
   "gpu_execution_verified": true,
   "backend": "metal",
@@ -5921,36 +5922,38 @@
       "cases": 2,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.0002348333364352584,
+      "gpu_seconds": 0.0002631250536069274,
       "input_bytes": 65540,
       "output_bytes": 131072,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "23463f2c103e686e53f38e653a4c6e8fea9890e0126f2266d0c21d1a098fd826",
+      "gpu/event_runtime.slang": "6fc889935b9046e6f6cb7ee9ab6cebf06c612309e7047291195a1acfb0da54d6",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "b7afd7d2d67adacad5ef07ad719ffecffc820fba2a008b553ebd58389be7aef7",
-      "gpu/combat_runtime.slang": "ce1c785578d8f4421bcb65139741c77fb2ab4e425cc8a7e81a92e6459ea92345"
+      "gpu/portable_schema.slang": "97effbec28968c28b923b99236f4ac5b741233dbeeab550e95295ca3082f310d",
+      "gpu/damage_runtime.slang": "4d31319e50b0302200b2874475b3e3112a5b1fb77923e2ba05d7488bed604281",
+      "gpu/combat_runtime.slang": "5d8e8f4d7007b494c8faaef958ac19bf0350ade9eddca9463b132fbf2e3405ec"
     },
     "generated_sha256": {
-      "cuda": "30db944ff0a6d590a136c61139be666b3f51150790d03ee2716187747edca4c7",
-      "metal": "56e43d856ade33cb6da54b8ebdac9813908176f55500c3f754b148d61d85dd55"
+      "cuda": "8f94fb440f9b3a6a47cddcb06963edbc8471e73ee07e7bf612e17105fcbae02c",
+      "metal": "de573c5898330b98997f597a9fc772332c5a4643a4da5a31804be3cad6d1e373"
     },
-    "input_sha256": "1a62d27a30481c1f757af14dbdc872fb1a2d7cbb84ef0e9dd9fe9499f56968db",
+    "input_sha256": "ae15b509595117d569c1d3c772c274b54601b5f3915b4f6e0ab134fd6c70ee8b",
     "output_sha256": "09acde43861edb1a4298c4b52131ce4bbdfedf8b7b5749620c4d0a1b26ef9920",
     "gpu_execution_verified": true,
     "backend": "metal"
   },
   "adapter_sha256": {
-    "app/portable_runtime.py": "d2fc58a77e95b3c0fba24d7072269b37ae591851e2168a4f7bde7d713b79a73a",
+    "app/portable_runtime.py": "24eda69bb417354d439970da37a41f847fa2b09601b49334c92d903e8518d918",
     "app/portable_trigger_specs.py": "77d9457c502dd0bfd2e6570f5ae1488f012ebd90dc2facf7a0c3f068943011eb",
-    "app/portable_specs.py": "117729ef440c2b821b3da1d4e179088fe902693a284c5a4e14a304595fa957fd",
+    "app/portable_damage_specs.py": "4517745603ee5b39f3475a058cdd229094c22434ee36afdb14030df77a2e1fb1",
+    "app/portable_specs.py": "bde8a1768ca5b6c56bb0425de69c3c9d486b7a5b2eb61bb4845d504a07623b03",
     "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
     "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "scripts/timer_registry_cases.py": "fc572fc7143af99c4b5c804c0faa80162f1af88c141fe4bf58606509eedcc68b",
-    "scripts/verify-portable-events.py": "db993a3edf06b2cac511177eb90a78a9ac9cb7a63de3c0d629b2a4e59e611c55",
+    "scripts/verify-portable-events.py": "a0c19364ccfbb0436268ca56a79457abbb588235c71a8e6d1565d8fe757cd6a7",
     "scripts/run-metal-probe.swift": "8dcdc4bb282683af915068dd4fd096d1f12be3f3826c36bd158948cd0c7b1907",
     "tests/fixtures/portable-events.json": "7dd3eb1e11b8964dec596d639cd3e626138f73d3fab158eec4973265292d1ba8"
   }

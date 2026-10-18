@@ -1,5 +1,11 @@
 # 共通の武器・バースト・敵対象実行器
 
+## 2026-10-19 単発ダメージ式と登録順集計
+
+通常／スキル別の補正、ダメージ種別、基本チャージ倍率と加算・倍率補正、適正距離と属性を共通Slangへ接続しました。Metalは従来69ケースと新しい37ケース、拒否3ケースが成功しています。新規37ケースは手書き期待値とCPUの単発式にも一致し、登録順の1ケースは独立BuffManagerの状態でも確認しています。ABIは `0x50455636` です。CUDAの最新照合状態は `research/portable-combat-checkpoint.json` を参照してください。前段69ケースの両GPU一致は `portable-combat-v5-checkpoint.json` に固定しています。
+
+登録順の保持と単回集計により、同一入力・出力を使う固定測定でGPU時間中央値が19.86msから14.60msへ短縮しました。本体全体の速度・全キャラ対応の証明ではありません。計算順、検証方法と未対応範囲は[共通ダメージ処理](portable-damage-runtime.md)へまとめています。実編成・通常画面・全特殊効果は引き続き未完了です。
+
 ## 2026-10-19 共通通知・条件とWindows再確認
 
 共通Slangへ1効果あたり最大8通知・3条件、通知ごとのカウンター、同期した名前付き終了／スタック到達、passiveと周期時計を接続しました。武器変更・散弾・バースト再突入を含む従来53ケースに、16ケースを追加し、Metalで69正例・3拒否を確認しています。外部通知の14ケースは独立CPU参照とも照合しました。現在のABIは `0x50455635`、入力8,192語・出力16,384語です。WindowsのRTX 3070 Tiでも同じ固定版 `cfff376` を低優先度で1回だけ実行し、69正例・3拒否が13.193秒で成功しました。共通ソース・入力・出力・検証コードのハッシュはMetalと完全一致です。元のWindows作業ツリーとHEADは保持しています。照合記録は `research/portable-combat-checkpoint.json`、正確なWindows要約は `windows-portable-combat-v5.json` です。
@@ -46,7 +52,9 @@ GPU内フレーム進行を追加した時点のMetal検証は53正例・3拒否
 | `enabled` | 射撃を実行するか。バースト候補の登録とは独立。 |
 | `mode` | `auto` または `charge`。 |
 | `capacity` | 弾倉容量。整数1〜10,000。 |
-| `coefficient` | 1命中の最終係数（%）。チャージではフルチャージ倍率を反映した入力値。 |
+| `coefficient` | 基本係数（%）。`full_charge_mult` は別途適用。既定100なら従来の適用済み係数も保持。 |
+| `full_charge_mult` | フルチャージの基本倍率（%）、既定100。 |
+| `optimal`、`element_match` | 適正距離・属性一致のboolean。 |
 | `interval` | 自動射撃の間隔、またはチャージ開始から次の開始までの周期。 |
 | `charge` | チャージ所要秒。`interval >= charge` が必要。 |
 | `reload` | 装填所要秒。0秒でも開始した次のフレームまで完了しない。 |
@@ -104,9 +112,9 @@ GPU内フレーム進行を追加した時点のMetal検証は53正例・3拒否
 .venv/bin/python -m unittest discover -s tests -p 'test_portable*.py'
 ```
 
-共通fixtureは `tests/fixtures/portable-triggers.json`、`tests/fixtures/portable-combat.json`、`portable-combat-extensions.json`、`portable-autonomous.json` に一度だけ保持します。69ケースで弾数・発射数・装填期限・チャージ状態・段階・cast mask・クールダウン・ゲージ・敵HP・命中数・世代・捕捉した時計対象を照合します。期待値は手書きで、CPUの実行トレースはGPU入力にも合格基準にも使いません。ケースに加え、世代あふれ（status 2）、不正なGPU側対象容量（64）、全ログ保存要求での保存容量超過（8）を拒否することを実GPUで検査します。旧イベント16ケースと再入／数値あふれの2ケースも維持します。現在の戦闘検証は正例・拒否例を合わせた72入力の1バッチで、`rejection_execution.case_indices` が拒否例の位置を示します。
+共通fixtureは `tests/fixtures/portable-triggers.json`、`tests/fixtures/portable-combat.json`、`portable-combat-extensions.json`、`portable-autonomous.json` に一度だけ保持します。69ケースで弾数・発射数・装填期限・チャージ状態・段階・cast mask・クールダウン・ゲージ・敵HP・命中数・世代・捕捉した時計対象を照合します。期待値は手書きで、CPUの実行トレースはGPU入力にも合格基準にも使いません。ケースに加え、世代あふれ（status 2）、不正なGPU側対象容量（64）、全ログ保存要求での保存容量超過（8）を拒否することを実GPUで検査します。旧イベント16ケースと再入／数値あふれの2ケースも維持します。現在の戦闘検証は正例・拒否例を合わせた109入力の1バッチで、`rejection_execution.case_indices` が拒否例の位置を示します。
 
-Metalの記録は `research/portable-combat-metal.json`、現在のCUDA確認状態は `portable-combat-cuda.json`、APIは `portable-api-metal.json` です。APIから180秒進行した10,801フレーム・最終ダメージ・敵HPも確認します。対応するAPI入力200と未対応の部位入力400、武器変更と散弾の子通知のAPI実行も確認しました。通常画面はCPUのままです。現在のwire ABIは `0x50455635`、入力8,192語、出力16,384語で、全領域の重複と転送上限を単体検査します。過去の `portable-cross-gpu-checkpoint.json` は旧ABIの検証記録です。
+Metalの記録は `research/portable-combat-metal.json`、現在のCUDA確認状態は `portable-combat-cuda.json`、APIは `portable-api-metal.json` です。APIから180秒進行した10,801フレーム・最終ダメージ・敵HPも確認します。対応するAPI入力200と未対応の部位入力400、武器変更と散弾の子通知のAPI実行も確認しました。通常画面はCPUのままです。現在のwire ABIは `0x50455636`、入力8,192語、出力16,384語で、全領域の重複と転送上限を単体検査します。過去の `portable-cross-gpu-checkpoint.json` は旧ABIの検証記録です。
 
 以下は最初のWindows試行の履歴です。Windowsは必要な短い比較だけに使います。当初、RTX 3070 Ti・GPU使用率0%から低優先度で試行し、120秒の上限で停止しました。完了したCUDA出力ハッシュを取得できていないため、今回の20ケースをCUDA検証済みとは扱いません。再実行はせず、元のWindows作業フォルダーと本体は変更していません。診断は `research/windows-portable-combat-timeout.json`、当時の未完了報告はGit履歴に残しています。現在の同名ファイルは最新版の確認状態を示します。コンパイルとGPU実行のどの段階で上限に達したかは未確定です。
 
@@ -118,4 +126,4 @@ python scripts/verify-portable-combat.py --backend cuda
 
 ## 残っている接続
 
-ウォームアップ、武器変更の入口遅延／入口装填／動的容量／チャージ倍率／永続モードの実行時条件、手動操作、部分装填、動的な速度・チャージ補正、バーストの優先度・指定回リスト／特殊な待機ポリシー、フルバーストへの予約着弾、部位・飛翔体・シールド、敵の出現／死亡の効果通知、未対応の対象条件・対象別の複数キャリア、味方HP／回復は未対応です。未知の機構・フィールド・効果タイミングはホストで拒否します。通常画面への切替と全キャラ受付はこれらの接続・検証後に行います。この小さな実行器のGPU時間を本体の速度とみなしません。
+ウォームアップ、武器変更の入口遅延／入口装填／動的容量／永続モードの実行時条件、手動操作、部分装填、動的な速度・チャージ補正、バーストの優先度・指定回リスト／特殊な待機ポリシー、フルバーストへの予約着弾、部位・飛翔体・シールド、敵の出現／死亡の効果通知、未対応の対象条件・対象別の複数キャリア、味方HP／回復は未対応です。未知の機構・フィールド・効果タイミングはホストで拒否します。通常画面への切替と全キャラ受付はこれらの接続・検証後に行います。この小さな実行器のGPU時間を本体の速度とみなしません。

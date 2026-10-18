@@ -24,10 +24,10 @@ def main():
         parser.error('Use a loopback HTTP origin')
     path=ROOT/f'research/portable-api-{args.backend}.json'
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n', encoding='utf-8')
-    tracked=['server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_backend.py',
+    tracked=['server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_backend.py',
              'scripts/verify-portable-api.py','tests/fixtures/portable-events.json',
              'app/portable_combat.py','app/portable_specs.py','app/world_condition_specs.py','app/impact_specs.py',
-             'tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
+             'tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases'][0]
     payload=dict(chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES],
@@ -79,6 +79,14 @@ def main():
     final=timeline_result['results'][0]
     assert final['frames']==10801 and final['queries'][-1]['damage']==[181000,0,0,0,0]
     assert final['targets'][0]['hp']==999819000 and final['targets'][0]['hits']==181
+    scalar_case=next(c for c in json.loads((ROOT/'tests/fixtures/portable-damage.json').read_text(encoding='utf-8'))['cases'] if c['name']=='charge-all-seven-factor-order')
+    scalar_payload=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[0]) for e in scalar_case['effects']],
+                        script=scalar_case['script'],base_atk=[1000]*5,combat=scalar_case['combat'],
+                        environment=scalar_case['environment'],backend=args.backend)
+    scalar_result=request(scalar_payload)
+    assert scalar_result['gpu_execution_verified'] and scalar_result['weapon_burst_target_connected']
+    assert scalar_result['results'][0]['queries'][0]['damage']==scalar_case['expected_queries'][0]['damage']
+    result['scalar_execution']=scalar_result
     result['timeline_execution']=timeline_result
     result['extension_execution']=extension_result
     result.update(combat_execution=combat_result,combat_unsupported_status=400,combat_unsupported_error=combat_error)
