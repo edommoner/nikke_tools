@@ -70,6 +70,7 @@ void ensureLazyRecipients(inout Runtime s, uint row, uint64_t when)
             { s.lazyLink[i] = entry+1; s.cacheRefs[entry]++; }
     }
     s.activeRecipients[row] = s.cacheMask[entry] & ~s.downMask;
+    resolveBulletTargets(s,row);
     unlinkLazyCache(s,row); s.lazyPending[row] = 0; s.lazyPendingCount--; s.lazyMappedPendingCount -= d.queryResolve;
 }
 

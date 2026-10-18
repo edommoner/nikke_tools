@@ -34,6 +34,7 @@ def double_words(value):
 def validate_effect(eff, *, combat=None):
     allowed = {'name','source','type','stat','fixed_value','values','duration','duration_values',
                'target','trigger','note','polarity','favorite','_source_tag','_quant_group','max_ammo_reduction_exclusive','trigger_values','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
+    if eff.get('type')=='buff':allowed=allowed | {'duration_bullets'}
     effect_allowed=allowed | ({'scaling'} if eff.get('stat')=='heal_hp_pct' else set()) | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','cover_during_delay','first_damage_coeff','max_ammo_buff_applies','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
     if set(eff)-effect_allowed:
         raise UnsupportedPortable('Unported effect fields: '+', '.join(sorted(set(eff)-effect_allowed)))
@@ -41,6 +42,10 @@ def validate_effect(eff, *, combat=None):
     try:validate_input(eff)
     except ValueError as error:raise UnsupportedPortable(str(error)) from error
     kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
+    if kind=='buff' and 'duration_bullets' in eff:
+        bullets=eff['duration_bullets']
+        if type(bullets) is not int or bullets!=-1 and not 1<=bullets<=2**31-1:raise UnsupportedPortable('Invalid bullet lifetime')
+        if bullets!=-1 and combat is None:raise UnsupportedPortable('Bullet lifetime requires combat-owned physical shots')
     if combat is None and isinstance(target,str) and ('burst_casted' in target or target=='all_allies_burst_not_casted'):
         raise UnsupportedPortable('Recipient selector requires combat-owned burst state')
     if combat is None and stat in ('attack_speed_pct','mg_warmup_speed_pct','reload_speed_pct','reload_ratio_pct','accuracy_pct','max_ammo_pct','max_ammo_flat','charge_speed_pct','charge_speed_caster_based_pct','charge_time_flat','charge_time_fixed','charge_speed_buff_immune','charge_speed_debuff_immune','charge_speed_overflow_conversion_pct'):
@@ -128,6 +133,9 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         if key is not None:merge_groups[key]=merge_groups.get(key,0)+1
     for index,row in enumerate(program['effects']):
         if row[1] in (0,4,6,8):pack_recipients(words,index,row,L,effects[index][0],stat_keys[(effects[index][0].get('type'),effects[index][0].get('stat',''))],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],effects[index][0].get('target')),0) if effects[index][0].get('type')=='buff' else 0)
+        bullet=L['BULLET_DEFINITION_BASE']+index*2
+        lifetime=int(row[62]) if effects[index][0].get('type')=='buff' else -1
+        words[bullet:bullet+2]=[lifetime if lifetime>0 else 0,int(row[63]) if lifetime>0 else 0]
         compact=[0]*L['DEFINITION_WORDS']
         fields={'OWNER':int(row[0]),'KIND':int(row[1]),'STAT':int(row[2]),'NAME':int(row[3]),
                 'MAX_STACK':int(row[9]),'BUDGET':int(row[57]),'IMMEDIATE':int(row[60]),
@@ -217,7 +225,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         if combat is not None and op==0 and event in (0,1,2,3,4):raise UnsupportedPortable('Combat emits its own startup and burst notifications')
         at=L['COMMAND_BASE']+i*8
         words[at:at+8]=[op,*double_words(t),event,owner,*(double_words(extra) if op==18 else [arg & 0xffffffff,query & 0xffffffff]),0]
-    return words,dict(states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
+    return words,dict(states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
 
 
 def decode(words,metadata):
@@ -285,11 +293,13 @@ def decode(words,metadata):
     if words[9]>L['CARRIERS']:raise RuntimeError('Invalid resident carrier count')
     carriers=[]
     for i in range(words[9]):
-        at=L['CARRIER_STATE_BASE']+i*12;definition=words[at+1]
+        at=L['CARRIER_STATE_BASE']+i*L['CARRIER_WORDS'];definition=words[at+1]
         if definition>=len(metadata['effects']) or words[at]>=L['CARRIERS']:raise RuntimeError('Invalid resident identity')
         carriers.append(dict(slot=words[at],definition=definition,effect=metadata['effects'][definition],recipients=words[at+2],
                              stacks=words[at+3],active=bool(words[at+4]&1),lazy_pending=bool(words[at+4]&2),end=number(at+5),activated=number(at+7),order=words[at+9],hp_snapshot=number(at+10)))
-    return dict(lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
+        if metadata.get('bullet_lifetimes',[0]*len(metadata['effects']))[definition]:
+            left=words[at+12];carriers[-1].update(bullet_left=left-2**32 if left>=2**31 else left,recipient_bullets=list(words[at+13:at+18]),recipient_stack_overrides=list(words[at+18:at+23]))
+    return dict(bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
 
 
 def run_programs(programs, *, backend='metal'):

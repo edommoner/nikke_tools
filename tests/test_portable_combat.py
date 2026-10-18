@@ -45,7 +45,7 @@ class CombatBoundaryTests(unittest.TestCase):
             with self.subTest(patch=patch),self.assertRaises(ValueError):v.compile_case(c)
 
     def test_wire_regions_do_not_overlap_or_exceed_transport_capacity(self):
-        inputs=[(L['RECIPIENT_BASE'],L['DEFINITIONS']*8),(L['FORCE_BASE'],L['DEFINITIONS']*L['MASK_WORDS']),(0,32),(L['DEFINITION_BASE'],L['DEFINITIONS']*L['DEFINITION_WORDS']),
+        inputs=[(L['BULLET_DEFINITION_BASE'],L['DEFINITIONS']*2),(L['RECIPIENT_BASE'],L['DEFINITIONS']*8),(L['FORCE_BASE'],L['DEFINITIONS']*L['MASK_WORDS']),(0,32),(L['DEFINITION_BASE'],L['DEFINITIONS']*L['DEFINITION_WORDS']),
                 (L['COMMAND_BASE'],L['COMMANDS']*8),(L['WEAPON_BASE'],5*L['WEAPON_WORDS']),
                 (L['TARGET_BASE'],8*L['TARGET_WORDS']),
                 (L['WEAPON_EXTRA_BASE'],5*4),(L['MODE_BASE'],L['DEFINITIONS']*L['MODE_WORDS']),
@@ -56,7 +56,7 @@ class CombatBoundaryTests(unittest.TestCase):
                 (L['DEFINITION_EXTRA_BASE'],L['DEFINITIONS']*L['DEFINITION_EXTRA_WORDS']),
                 (L['WEAPON_QUANTITY_BASE'],5*L['WEAPON_QUANTITY_WORDS']),
                 (L['INCOMING_BASE'],L['COMMANDS']*L['INCOMING_WORDS']),(L['HEALTH_BASE'],5*L['HEALTH_WORDS']),(L['HEALTH_DEFINITION_BASE'],L['DEFINITIONS']*L['HEALTH_DEFINITION_WORDS'])]
-        outputs=[(L['CARRIER_STATE_BASE'],L['CARRIERS']*12),(L['TIMER_MASK_BASE'],L['COMMANDS']*L['MASK_WORDS']),(0,16),(L['QUERY_BASE'],L['COMMANDS']*L['QUERY_WORDS']),
+        outputs=[(L['CARRIER_STATE_BASE'],L['CARRIERS']*L['CARRIER_WORDS']),(L['TIMER_MASK_BASE'],L['COMMANDS']*L['MASK_WORDS']),(0,16),(L['QUERY_BASE'],L['COMMANDS']*L['QUERY_WORDS']),
                  (L['TRACE_BASE'],L['TRACE']*L['TRACE_WORDS']),(L['STATE_BASE'],L['DEFINITIONS']*10),
                  (L['TIMER_TARGET_BASE'],L['DEFINITIONS']*2),(L['BURST_TRACE_BASE'],64*8),
                  (L['COMBAT_QUERY_BASE'],L['COMMANDS']*L['COMBAT_QUERY_WORDS']),
@@ -67,7 +67,7 @@ class CombatBoundaryTests(unittest.TestCase):
             end=0
             for start,size in sorted(regions):
                 self.assertGreaterEqual(start,end);end=start+size
-            self.assertLessEqual(end,capacity);self.assertLessEqual(capacity,65536 if regions is inputs else 32768)
+            self.assertLessEqual(end,capacity);self.assertLessEqual(capacity,65536 if regions is inputs else 65536)
 
     def test_accuracy_requires_geometry_instead_of_reusing_static_probability(self):
         c=copy.deepcopy(v.fixtures()[0]);c['effects'][0]['stat']='accuracy_pct'

@@ -10,7 +10,7 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
     if (s.multiCarrier[definition] == 0)
     {
         bool primaryLive = s.alive[definition] != 0 && f64Less(when,s.end[definition]);
-        if (primaryLive && (incoming.lazyGroup != 0 || s.lazyPending[definition] == 0 && s.activeRecipients[definition] == recipients)) return definition;
+        if (primaryLive && (incoming.bulletDuration != 0 || incoming.lazyGroup != 0 || s.lazyPending[definition] == 0 && s.activeRecipients[definition] == recipients)) return definition;
         if (!primaryLive && (incoming.mergeEligible & 2) == 0) return definition;
     }
 #endif
@@ -19,7 +19,7 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
     {
         uint slot = s.orderedRows[pass]; Definition prior = residentDefinition(s,slot);
         if (s.alive[slot] == 0 || !f64Less(when,s.end[slot])) continue;
-        bool same = incoming.lazyGroup != 0 ? prior.lazyGroup == incoming.lazyGroup : s.lazyPending[slot] == 0 && s.activeRecipients[slot] == recipients;
+        bool same = incoming.bulletDuration != 0 && s.carrierDefinition[slot] == definition ? true : incoming.lazyGroup != 0 ? prior.lazyGroup == incoming.lazyGroup : s.lazyPending[slot] == 0 && s.activeRecipients[slot] == recipients;
         if (!same) continue;
         if (s.carrierDefinition[slot] == definition) return slot;
         if (merged == P_CARRIERS && (incoming.mergeEligible & 1) != 0 && (prior.mergeEligible & 1) != 0 && incoming.name == prior.name &&
@@ -29,7 +29,7 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
     if (s.alive[definition] == 0 || !f64Less(when,s.end[definition])) return definition;
     for (uint slot = s.count; slot < s.carrierCount; slot++)
         if (s.alive[slot] == 0 || !f64Less(when,s.end[slot]))
-        { discardLazy(s,slot); s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot; }
+        { resetBulletCarrier(s,slot); discardLazy(s,slot); s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot; }
     if (s.carrierCount == P_CARRIERS) { s.error = 64; return definition; }
     uint slot = s.carrierCount++; s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot;
 }
@@ -37,7 +37,7 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
 void queueCarrierEnd(inout Runtime s, uint slot)
 {
     Definition d = residentDefinition(s,slot);
-    discardLazy(s,slot); s.alive[slot] = 0; s.stacks[slot] = 0;
+    unlinkBulletCarrier(s,slot); discardLazy(s,slot); s.alive[slot] = 0; s.stacks[slot] = 0;
     if (s.removalCount == P_CARRIERS) { s.error = 64; return; }
     // Capture the notification payload before callbacks can recycle this slot.
     s.removalQueue[s.removalCount++] = d.owner | (d.name << 3);

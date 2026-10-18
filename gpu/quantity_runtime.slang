@@ -3,7 +3,7 @@ bool liveRecipient(inout Runtime s, uint row, uint who, uint64_t when)
 {
     return s.alive[row] != 0 && f64Less(when,s.end[row]) && (s.activeRecipients[row] & (1U << who)) != 0 && basicConditions(s,row,when,true,who);
 }
-uint64_t scalarValue(inout Runtime s, uint row, uint who)
+uint64_t stackedValue(inout Runtime s, uint row, uint who, uint stack)
 {
     Definition d = residentDefinition(s,row); uint64_t value = d.value;
     if (d.stat == S_charge_speed_caster_based_pct && d.kind == 0)
@@ -12,7 +12,13 @@ uint64_t scalarValue(inout Runtime s, uint row, uint who)
         if (f64Zero(caster) || f64Zero(target)) return 0;
         value = f64Mul(f64Div(f64Div(f64Mul(caster,value),HUNDRED),target),HUNDRED);
     }
-    return f64Mul(value,f64FromI64(s.stacks[row]));
+    return f64Mul(value,f64FromI64(stack));
+}
+uint64_t scalarValue(inout Runtime s, uint row, uint who) { return stackedValue(s,row,who,s.stacks[row]); }
+uint64_t recipientValue(inout Runtime s, uint row, uint who)
+{
+    uint override = s.recipientStacks[row*5+who];
+    return stackedValue(s,row,who,override != 0 ? override : s.stacks[row]);
 }
 uint chargeFlags(inout Runtime s, uint who, uint64_t when)
 {
@@ -62,11 +68,11 @@ QuantityTotals quantityTotals(inout Runtime s, uint who, uint key, uint64_t when
             if (candidate.group != group || candidate.kind != 0 ||
                 (candidate.stat != key && !(key == S_charge_speed_pct && candidate.stat == S_charge_speed_caster_based_pct)) || !queryRecipient(s,other,who,when)) continue;
             if (candidate.stat == S_charge_speed_caster_based_pct && f64Zero(s.rawCharge[candidate.owner])) continue;
-            values[group] = f64Add(values[group],scalarValue(s,other,who)); flags[group] |= candidate.exclusive | (candidate.quantityFlags & 32);
+            values[group] = f64Add(values[group],recipientValue(s,other,who)); flags[group] |= candidate.exclusive | (candidate.quantityFlags & 32);
         }
 #else
         if (seen[group] == 0) { seen[group] = 1; order[count++] = group; }
-        values[group] = f64Add(values[group],scalarValue(s,row,who)); flags[group] |= d.exclusive | (d.quantityFlags & 32);
+        values[group] = f64Add(values[group],recipientValue(s,row,who)); flags[group] |= d.exclusive | (d.quantityFlags & 32);
 #endif
     }
     int best = -1; bool exclusive = false;
@@ -99,7 +105,7 @@ uint64_t plainQuantity(inout Runtime s, uint who, uint key, uint64_t when)
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
         uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row);
-        if (d.kind == 0 && d.stat == key && queryRecipient(s,row,who,when)) result = f64Add(result,scalarValue(s,row,who));
+        if (d.kind == 0 && d.stat == key && queryRecipient(s,row,who,when)) result = f64Add(result,d.queryResolve != 0 && d.alliedFlags == 0 ? recipientValue(s,row,who) : scalarValue(s,row,who));
     }
     return result;
 }
@@ -109,7 +115,7 @@ uint64_t chargeOverflow(inout Runtime s, uint who, uint64_t when)
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
         uint row = s.orderedRows[pass];
-        if ((residentDefinition(s,row).quantityFlags & 64) != 0 && queryRecipient(s,row,who,when)) result = f64Add(result,scalarValue(s,row,who));
+        if ((residentDefinition(s,row).quantityFlags & 64) != 0 && queryRecipient(s,row,who,when)) result = f64Add(result,recipientValue(s,row,who));
     }
     return result;
 }

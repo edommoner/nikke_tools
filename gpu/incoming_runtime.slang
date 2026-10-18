@@ -39,7 +39,8 @@ void knockDown(inout Runtime s, uint who, uint64_t when)
         if ((d.kind == 0 || d.kind == 4) && s.alive[row] != 0 && s.lazyPending[row] == 0)
         {
             s.activeRecipients[row] &= ~bit;
-            if (s.activeRecipients[row] == 0) { s.alive[row] = 0; s.stacks[row] = 0; }
+            if (d.bulletDuration != 0) { s.recipientBullets[row*5+who] = 0; s.recipientStacks[row*5+who] = 0; }
+            if (s.activeRecipients[row] == 0) { unlinkBulletCarrier(s,row); s.alive[row] = 0; s.stacks[row] = 0; }
         }
     }
     for (uint row = 0; row < s.count; row++)

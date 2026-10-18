@@ -242,6 +242,7 @@ void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
     if (w.mode == 1) dispatch(s,0,11,who,0,when,output);
     for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,8,who,0,when,output);
     if (w.mode == 1) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,12,who,0,when,output);
+    if (s.bulletCount != 0) consumeBulletBuffs(s,who,when,output);
     if (last) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,14,who,0,when,output);
     if (s.modeEpoch[who] != epoch) return; // Preserve a callback's new session.
     if (mode >= 0)

@@ -146,4 +146,16 @@ class PortableRecipientInputTests(unittest.TestCase):
                 validate_effect({**effect,'target':target})
 
 
+class PortableBulletInputTests(unittest.TestCase):
+    def test_bullet_lifetime_requires_discrete_positive_count_or_unbounded(self):
+        from portable_runtime import validate_effect
+        effect=dict(name='bullet',type='buff',stat='atk_pct',fixed_value=10,
+                    target='self',trigger=dict(timing=['battle_start'],condition=[]))
+        for count in (True,False,0,-2,1.5,2**31,None):
+            with self.subTest(count=count),self.assertRaises(UnsupportedPortable):
+                validate_effect({**effect,'duration_bullets':count},combat={})
+        for count in (1,2**31-1,-1):validate_effect({**effect,'duration_bullets':count},combat={})
+        with self.assertRaises(UnsupportedPortable):validate_effect({**effect,'duration_bullets':1})
+
+
 if __name__=='__main__':unittest.main()

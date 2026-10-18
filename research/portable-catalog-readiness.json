@@ -8,16 +8,15 @@
   "cpu_simulation_executed": false,
   "gpu_execution_performed": false,
   "issues": {
-    "Unported buff or recipient selector": 293,
+    "Unported buff or recipient selector": 306,
     "Unported damage family or geometry": 140,
     "Unported instant or recipient selector": 86,
-    "Unported effect fields: duration_bullets": 44,
-    "Unported effect fields: gauge_id": 29,
+    "Unported effect fields: gauge_id": 30,
     "Unported effect fields: gauge_id, gauge_max": 23,
     "Unported effect fields: scaling, scaling_ref": 22,
     "Unported trigger timing: received_hit_count:1": 18,
     "Unported trigger timing: event:part_destroy": 13,
-    "Unported effect fields: scaling": 12,
+    "Unported effect fields: scaling": 13,
     "Unported effect fields: event_scope": 11,
     "Unported effect fields: remove_scope": 10,
     "Unported trigger timing: event:enemy_spawn": 9,
@@ -40,6 +39,7 @@
     "Unported trigger timing: squad_burst_cast:2": 3,
     "Unported trigger timing: squad_burst_cast:3": 3,
     "Unported predicate: target_state:거품": 3,
+    "Unported predicate: target_state:예고장": 3,
     "Unported trigger timing: event:1more": 3,
     "Unported effect fields: damage_formula, weapon_type": 2,
     "Unported trigger timing: weapon_hit:부착형 유탄 4": 2,
@@ -69,7 +69,6 @@
     "Unported trigger timing: event:stat_applied:dot_dmg_pct": 2,
     "Unported trigger timing: event:stat_applied:split_dmg_pct": 2,
     "Unported predicate: not_target_state:예고장": 2,
-    "Unported predicate: target_state:예고장": 2,
     "Unported effect fields: duration_scaling, duration_scaling_ref": 2,
     "Unported predicate: target_state:안티 AT 필드": 2,
     "Unported trigger timing: received_hit_count:40": 1,
@@ -86,6 +85,11 @@
     "Unported predicate: gauge_above:오버 에너지 단계:3": 1,
     "Unported predicate: gauge_above:오버 에너지 단계:4": 1,
     "Unported effect fields: entry_reload": 1,
+    "Unported predicate: gauge_eq:과전류:1": 1,
+    "Unported predicate: gauge_eq:과전류:2": 1,
+    "Unported predicate: gauge_eq:과전류:3": 1,
+    "Unported predicate: gauge_eq:과전류:4": 1,
+    "Unported predicate: gauge_eq:과전류:5": 1,
     "Unported trigger timing: event:projectile_destroy": 1,
     "Unported effect fields: max_ammo_scaling_ref": 1,
     "Unported predicate: target_stunned": 1,
@@ -115,7 +119,6 @@
     "Unported trigger timing: event:엔드 하울링": 1,
     "Unported trigger timing: event:레드 울프": 1,
     "Unported trigger timing: event:cover": 1,
-    "Unported effect fields: duration_bullets, gauge_id": 1,
     "Unported effect fields: target_counter": 1,
     "Unported trigger timing: event:target_counter_complete:빙의": 1,
     "Unported predicate: gauge_above:유령:1": 1,
@@ -134,7 +137,6 @@
     "Unported predicate: gauge_mod:무대_단계:2:1": 1,
     "Unported predicate: gauge_mod:무대_단계:2:0": 1,
     "Unported predicate: self_undying": 1,
-    "Unported effect fields: duration_bullets, scaling": 1,
     "Unported trigger timing: core_hit_count:1": 1,
     "Unported trigger timing: crit_hit_count:44": 1,
     "Unported predicate: no_broken_cover_ally": 1,
@@ -147,16 +149,15 @@
     "Unported predicate: target_code:수냉": 1
   },
   "diagnostic_semantic_issues": {
-    "Unported buff or recipient selector": 293,
+    "Unported buff or recipient selector": 306,
     "Unported damage family or geometry": 140,
     "Unported instant or recipient selector": 86,
-    "Unported effect fields: duration_bullets": 44,
-    "Unported effect fields: gauge_id": 29,
+    "Unported effect fields: gauge_id": 30,
     "Unported effect fields: gauge_id, gauge_max": 23,
     "Unported effect fields: scaling, scaling_ref": 22,
     "Unported trigger timing: received_hit_count:1": 18,
     "Unported trigger timing: event:part_destroy": 13,
-    "Unported effect fields: scaling": 12,
+    "Unported effect fields: scaling": 13,
     "Unported effect fields: event_scope": 11,
     "Unported effect fields: remove_scope": 10,
     "Unported trigger timing: event:enemy_spawn": 9,
@@ -179,6 +180,7 @@
     "Unported trigger timing: squad_burst_cast:2": 3,
     "Unported trigger timing: squad_burst_cast:3": 3,
     "Unported predicate: target_state:거품": 3,
+    "Unported predicate: target_state:예고장": 3,
     "Unported trigger timing: event:1more": 3,
     "Unported effect fields: damage_formula, weapon_type": 2,
     "Unported trigger timing: weapon_hit:부착형 유탄 4": 2,
@@ -208,7 +210,6 @@
     "Unported trigger timing: event:stat_applied:dot_dmg_pct": 2,
     "Unported trigger timing: event:stat_applied:split_dmg_pct": 2,
     "Unported predicate: not_target_state:예고장": 2,
-    "Unported predicate: target_state:예고장": 2,
     "Unported effect fields: duration_scaling, duration_scaling_ref": 2,
     "Unported predicate: target_state:안티 AT 필드": 2,
     "Unported trigger timing: received_hit_count:40": 1,
@@ -225,6 +226,11 @@
     "Unported predicate: gauge_above:오버 에너지 단계:3": 1,
     "Unported predicate: gauge_above:오버 에너지 단계:4": 1,
     "Unported effect fields: entry_reload": 1,
+    "Unported predicate: gauge_eq:과전류:1": 1,
+    "Unported predicate: gauge_eq:과전류:2": 1,
+    "Unported predicate: gauge_eq:과전류:3": 1,
+    "Unported predicate: gauge_eq:과전류:4": 1,
+    "Unported predicate: gauge_eq:과전류:5": 1,
     "Unported trigger timing: event:projectile_destroy": 1,
     "Unported effect fields: max_ammo_scaling_ref": 1,
     "Unported predicate: target_stunned": 1,
@@ -254,7 +260,6 @@
     "Unported trigger timing: event:엔드 하울링": 1,
     "Unported trigger timing: event:레드 울프": 1,
     "Unported trigger timing: event:cover": 1,
-    "Unported effect fields: duration_bullets, gauge_id": 1,
     "Unported effect fields: target_counter": 1,
     "Unported trigger timing: event:target_counter_complete:빙의": 1,
     "Unported predicate: gauge_above:유령:1": 1,
@@ -273,7 +278,6 @@
     "Unported predicate: gauge_mod:무대_단계:2:1": 1,
     "Unported predicate: gauge_mod:무대_단계:2:0": 1,
     "Unported predicate: self_undying": 1,
-    "Unported effect fields: duration_bullets, scaling": 1,
     "Unported trigger timing: core_hit_count:1": 1,
     "Unported trigger timing: crit_hit_count:44": 1,
     "Unported predicate: no_broken_cover_ally": 1,
@@ -286,17 +290,17 @@
     "Unported predicate: target_code:수냉": 1
   },
   "missing_families": {
-    "damage_modifiers": 216,
+    "damage_modifiers": 209,
     "damage": 199,
     "effect_lifecycle": 102,
-    "weapon": 72,
+    "weapon": 70,
     "protection": 59,
     "resource_accumulation": 56,
     "burst_cooldown": 51,
     "control_survival": 46,
-    "ammo_reload": 41,
-    "charge": 36,
+    "ammo_reload": 40,
     "healing": 34,
+    "charge": 21,
     "hp": 12,
     "healing_buffers": 9,
     "character_state": 5
@@ -595,11 +599,10 @@
             "full_burst_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "오직 화력!",
@@ -5501,10 +5504,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "캄 스나이핑 2",
@@ -9794,13 +9797,10 @@
             "last_bullet_fire"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "준비 태세 2",
@@ -9811,11 +9811,10 @@
             "last_bullet_fire"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "약점 간파",
@@ -10510,13 +10509,10 @@
           "conditions": [
             "not_self_state:미사일 가이드"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "미사일 가이드",
@@ -10529,13 +10525,10 @@
           "conditions": [
             "not_self_state:미사일 가이드"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "미사일 가이드 3",
@@ -11884,10 +11877,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "장비 옵션",
@@ -12962,10 +12955,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "메티스 버스트 버스터 3",
@@ -12979,12 +12972,12 @@
             "gauge_eq:과전류:1"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported predicate: gauge_eq:과전류:1",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported predicate: gauge_eq:과전류:1"
         },
         {
           "name": "메티스 버스트 버스터 4",
@@ -12998,12 +12991,12 @@
             "gauge_eq:과전류:2"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported predicate: gauge_eq:과전류:2",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported predicate: gauge_eq:과전류:2"
         },
         {
           "name": "메티스 버스트 버스터 5",
@@ -13017,12 +13010,12 @@
             "gauge_eq:과전류:3"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported predicate: gauge_eq:과전류:3",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported predicate: gauge_eq:과전류:3"
         },
         {
           "name": "메티스 버스트 버스터 6",
@@ -13036,12 +13029,12 @@
             "gauge_eq:과전류:4"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported predicate: gauge_eq:과전류:4",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported predicate: gauge_eq:과전류:4"
         },
         {
           "name": "메티스 버스트 버스터 7",
@@ -13055,12 +13048,12 @@
             "gauge_eq:과전류:5"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported predicate: gauge_eq:과전류:5",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported predicate: gauge_eq:과전류:5"
         },
         {
           "name": "메티스 버스트 버스터 8",
@@ -21116,10 +21109,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "북극곰의 겨울잠 2",
@@ -21130,11 +21123,10 @@
             "full_burst_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "북극곰의 포효",
@@ -23690,10 +23682,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "장비 옵션",
@@ -25861,12 +25853,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "포식 2",
@@ -25877,11 +25869,10 @@
             "full_charge_fire"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "포식 3",
@@ -27005,10 +26996,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "섬광 2",
@@ -27019,11 +27010,10 @@
             "pellet_hit_count:80"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "섬광 3",
@@ -27034,11 +27024,10 @@
             "pellet_hit_count:80"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "섬광 4",
@@ -27050,10 +27039,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "섬광 5",
@@ -27065,10 +27054,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "광익",
@@ -28450,12 +28439,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "버닝 샷 2",
@@ -28467,12 +28456,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "버닝 샷 3",
@@ -40714,11 +40703,10 @@
             "full_burst_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "관통 계산식 2",
@@ -40787,10 +40775,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "과충전 공식 3",
@@ -41047,11 +41035,10 @@
             "full_charge_fire"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "페더 올레인지",
@@ -43074,13 +43061,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "드디어 풀려났어…!",
@@ -43091,13 +43075,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "드디어 풀려났어…! 2",
@@ -43322,13 +43303,10 @@
           "conditions": [
             "not_self_state:스위프트 캐럿"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "바니 시프트 3",
@@ -43341,11 +43319,10 @@
           "conditions": [
             "not_self_state:스위프트 캐럿"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "바니 시프트 (인게이지 해제)",
@@ -46896,11 +46873,10 @@
           "conditions": [
             "self_state:세븐스 드워프 풀 액티브 3"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "어나더 화이트 순차공격대미지",
@@ -46913,11 +46889,10 @@
           "conditions": [
             "self_state:세븐스 드워프 풀 액티브 3"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "세븐스 드워프 풀 액티브",
@@ -46943,10 +46918,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets, gauge_id",
+          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets, gauge_id"
+          "issue": "Unported effect fields: gauge_id"
         },
         {
           "name": "세븐스 드워프 풀 액티브 5",
@@ -46958,12 +46933,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "어나더 화이트 차지시간고정 제거",
@@ -46988,11 +46963,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "어나더 화이트 차지시간고정",
@@ -51978,10 +51952,10 @@
             "target_state:예고장"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
+          "diagnostic_semantic_issue": "Unported predicate: target_state:예고장",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "issue": "Unported predicate: target_state:예고장"
         },
         {
           "name": "괴도의 시선",
@@ -56936,11 +56910,10 @@
             "full_charge_fire"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "미정령의 축복 2",
@@ -56952,12 +56925,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets, scaling",
+          "diagnostic_semantic_issue": "Unported effect fields: scaling",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: duration_bullets, scaling"
+          "issue": "Unported effect fields: scaling"
         },
         {
           "name": "대정령의 철퇴",
@@ -57016,11 +56989,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "빙결의 마녀 2",
@@ -57031,11 +57003,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -59088,11 +59059,10 @@
             "event:state_end:섬멸 태세"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "섬멸 태세",
@@ -59720,11 +59690,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "특수 개조 2",
@@ -59735,11 +59704,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -59935,13 +59903,10 @@
             "event:full_reload"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: duration_bullets",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: duration_bullets"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "매그넘탄 2",
@@ -63475,8 +63440,8 @@
     "app/portable_catalog.py": "01aa57c7dafbe14720a5817c2b2592cb8a47ec94163e2dbc9b0490b6779cfb59",
     "app/portable_combat.py": "e59690a2d46ace2902b4d3aee0270b559bd5a09f46c561a0b9bf036d8effb0d1",
     "app/portable_damage_specs.py": "8f2c2c97f6b017276853501dfe9fd2ceea2dd1a993217f801df6df2000b62e49",
-    "app/portable_runtime.py": "9142e9454b1449b46e041a737683f1ef81832bb9a85e1f9150c933f7c85a3623",
-    "app/portable_specs.py": "f0015d2d3335fa4671458cc28ca8e5d394bffb8069a2f92541c59fbf36a9d023",
+    "app/portable_runtime.py": "baea860cd7d34c701688b82da3803f81908cfa7653a55e85e0de352d570ca539",
+    "app/portable_specs.py": "c1562470bfd071a59ef4b39eca8a14c9b3d77b8a2feb8247fe85ba71b66a34f7",
     "app/portable_trigger_specs.py": "61aaa3740ee6f6c6753d321a2848f3ed4e16474e63fc526f5fc14cee69ff01ad",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",

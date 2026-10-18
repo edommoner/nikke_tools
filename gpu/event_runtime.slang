@@ -27,6 +27,7 @@ struct Definition
     uint damageFlags, group, exclusive, quantityFlags, fixedLiteral, polarity;
     int alias;
     uint64_t fixedValue;
+    uint bulletDuration, bulletBound;
     uint healthScaling, alliedFlags, mergeEligible, statKey, lazyGroup, queryResolve;
 };
 struct Frame
@@ -38,6 +39,8 @@ struct Frame
 struct Runtime
 {
     Definition defs[P_DEFINITIONS];
+    uint bulletHead, bulletTail, bulletCount, bulletLinked[P_CARRIERS], bulletPrev[P_CARRIERS], bulletNext[P_CARRIERS], bulletInitialized[P_CARRIERS];
+    int bulletLeft[P_CARRIERS]; uint recipientBullets[P_CARRIERS*5], recipientStacks[P_CARRIERS*5];
     uint carrierCount, carrierDefinition[P_CARRIERS], multiCarrier[P_DEFINITIONS], removalCount, removalQueue[P_CARRIERS];
     uint lazyPending[P_CARRIERS], lazyLink[P_CARRIERS], lazyPendingCount, lazyMappedPendingCount, lazyEnabled;
     uint cacheCount, cacheCursor, cacheEvaluations, cacheReuses;
@@ -169,6 +172,7 @@ void markEntry(inout Runtime s, uint row)
     s.entryOrder[row] = ++s.entryClock;
 }
 
+#include "bullet_runtime.slang"
 #include "rank_runtime.slang"
 #include "lazy_runtime.slang"
 #include "carrier_runtime.slang"
@@ -202,7 +206,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
 #endif
         if (d.alliedFlags != 0 || d.kind != 0 || d.stat >= 64 || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
             !queryRecipient(s,selected,who,when)) continue;
-        uint64_t value = scalarValue(s,selected,who);
+        uint64_t value = d.stat == S_atk_caster_based_pct ? scalarValue(s,selected,who) : recipientValue(s,selected,who);
         if (d.stat == S_crit_rate || d.stat == S_normal_atk_crit_rate)
         {
             value = f64Div(value,HUNDRED); addSum(rate,value);
@@ -530,7 +534,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (s.error != 0) break;
             d = residentDefinition(s,row);
             bool live = s.alive[row] != 0 && f64Less(f.time,s.end[row]);
-            if (!live) { discardLazy(s,row); s.stacks[row] = 0; s.hpSnapshot[row] = 0; markEntry(s,row); }
+            if (!live) { resetBulletCarrier(s,row); discardLazy(s,row); s.stacks[row] = 0; s.hpSnapshot[row] = 0; markEntry(s,row); }
             uint previousStack = s.stacks[row];
             if (activationLazy)
             {
@@ -540,6 +544,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             else s.activeRecipients[row] = recipientMask;
             s.stacks[row] = min(s.stacks[row]+1,d.maxStack); s.alive[row] = 1; s.activated[row] = f.time;
             s.end[row] = f64Less(duration,0) ? FOREVER : f64Add(f.time,duration);
+            if (d.bulletDuration != 0) prepareBulletActivation(s,row,recipientMask,live,activationLazy,previousStack);
             if (activationLazy)
             {
                 if (previousStack != s.stacks[row]) pushFrame(s,frames,depth,0,9,d.owner,int(d.name),f.time,s.stacks[row]);
@@ -701,6 +706,7 @@ void tick(inout Runtime s, uint64_t when, uint output)
     if (s.hpWatchCount != 0) dispatch(s,7,0,0,0,when,output);
 }
 
+#include "bullet_consume.slang"
 #include "combat_runtime.slang"
 
 [shader("compute")]
@@ -759,6 +765,9 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             }
             else s.lazyGroupDefinition[d.lazyGroup-1] = j+1;
         }
+        uint bullet = input+P_BULLET_DEFINITION_BASE+j*2;
+        d.bulletDuration = commands[bullet]; d.bulletBound = commands[bullet+1];
+        if (d.bulletDuration > 0x7fffffff || d.bulletBound > 1 || d.bulletDuration == 0 && d.bulletBound != 0 || d.bulletDuration != 0 && (s.combat == 0 || d.kind != 0 && d.kind != 4)) { s.error = 64; break; }
         uint extra = input+P_DEFINITION_EXTRA_BASE+j*P_DEFINITION_EXTRA_WORDS;
         uint health = input+P_HEALTH_DEFINITION_BASE+j*P_HEALTH_DEFINITION_WORDS;
         d.healthScaling = commands[health]; d.alliedFlags = commands[health+1];
@@ -872,13 +881,15 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     }
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
-        uint slot = s.orderedRows[pass], at = output+P_CARRIER_STATE_BASE+pass*12;
+        uint slot = s.orderedRows[pass], at = output+P_CARRIER_STATE_BASE+pass*P_CARRIER_WORDS;
         results[at] = slot; results[at+1] = s.carrierDefinition[slot]; results[at+2] = s.activeRecipients[slot];
         results[at+3] = s.stacks[slot]; results[at+4] = s.alive[slot] | (s.lazyPending[slot] << 1);
         storeNumber(at+5,s.end[slot]); storeNumber(at+7,s.activated[slot]); results[at+9] = s.entryOrder[slot]; storeNumber(at+10,s.hpSnapshot[slot]);
+        results[at+12] = uint(s.bulletLeft[slot]);
+        for (uint who = 0; who < 5; who++) { results[at+13+who] = s.recipientBullets[slot*5+who]; results[at+18+who] = s.recipientStacks[slot*5+who]; }
     }
     results[output+9] = s.orderedCount;
-    results[output+10] = s.cacheCount; results[output+11] = s.cacheEvaluations; results[output+12] = s.cacheReuses; results[output+13] = s.lazyPendingCount; results[output+14] = s.lazyMappedPendingCount;
+    results[output+10] = s.cacheCount; results[output+11] = s.cacheEvaluations; results[output+12] = s.cacheReuses; results[output+13] = s.lazyPendingCount; results[output+14] = s.lazyMappedPendingCount; results[output+15] = s.bulletCount;
     results[output] = s.error; results[output+1] = queries; results[output+2] = s.traceCount; results[output+3] = s.maxDepth; results[output+4] = s.burstTraceCount; results[output+6] = s.traceTotal;
     results[output+7] = s.burstTraceTotal; results[output+8] = s.frameCount;
 }

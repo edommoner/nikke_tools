@@ -26,7 +26,7 @@ def main():
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n', encoding='utf-8')
     tracked=['server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_backend.py',
              'scripts/verify-portable-api.py','tests/fixtures/portable-events.json',
-             'tests/fixtures/portable-lazy.json','tests/fixtures/portable-carriers.json','app/portable_recipient_specs.py','tests/fixtures/portable-recipients.json','app/portable_combat.py','app/portable_specs.py','app/world_condition_specs.py','app/impact_specs.py',
+             'tests/fixtures/portable-bullets.json','tests/fixtures/portable-lazy.json','tests/fixtures/portable-carriers.json','app/portable_recipient_specs.py','tests/fixtures/portable-recipients.json','app/portable_combat.py','app/portable_specs.py','app/world_condition_specs.py','app/impact_specs.py',
              'tests/fixtures/portable-capacity.json','tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases'][0]
@@ -231,6 +231,31 @@ def main():
         for k,v in c.get('expected_lazy_cache',{}).items():assert actual['results'][0]['lazy_cache'][k]==v
         lazy_evidence.append(dict(name=name,execution=actual))
     result['lazy_execution']=lazy_evidence
+    import importlib.util
+    spec=importlib.util.spec_from_file_location('combat_verifier',ROOT/'scripts/verify-portable-combat.py')
+    verifier=importlib.util.module_from_spec(spec);spec.loader.exec_module(verifier)
+    bullet_cases=json.loads((ROOT/'tests/fixtures/portable-bullets.json').read_text(encoding='utf-8'))['cases']
+    bullet_evidence=[]
+    for name in ('each-recipient-spends-only-its-own-physical-shots','ten-pellets-two-muzzles-consume-one-budget','recipient-quantity-rounding-uses-independent-stack'):
+        c=next(c for c in bullet_cases if c['name']==name)
+        body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(c['effects'],c['owners'])],
+                  script=c['script'],base_atk=c.get('base_atk',[1000]*5),environment=c.get('environment',{}),combat=c['combat'],backend=args.backend)
+        actual=request(body);assert actual['gpu_execution_verified']
+        resident=actual['results'][0]
+        verifier.contains(resident['queries'],c['expected_queries'],name)
+        if 'expected_carriers' in c:
+            live=[x for x in resident['carriers'] if x['active'] and x['effect'] in c['carrier_effect_names']]
+            assert len(live)==len(c['expected_carriers']);verifier.contains(live,c['expected_carriers'],name)
+        verifier.contains(resident['bullet_lifetimes'],c.get('expected_bullet_lifetimes',dict(active_carriers=len(c['expected_carriers']))),name)
+        bullet_evidence.append(dict(name=name,execution=actual))
+    result['bullet_execution']=bullet_evidence
+    for bad_lifetime in (0,1.5):
+        malformed=copy.deepcopy(body);malformed['effects'][1]['effect']['duration_bullets']=bad_lifetime
+        try:request(malformed)
+        except urllib.error.HTTPError as error:
+            assert error.code==400;assert 'bullet lifetime' in json.load(error)['error'].lower()
+        else:raise AssertionError('Invalid bullet lifetime accepted')
+    result['bullet_unsupported_status']=400
     result['quantity_unsupported_status']=400
     result['timeline_execution']=timeline_result
     result['extension_execution']=extension_result
