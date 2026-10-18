@@ -5,8 +5,8 @@
   "batched_inputs": 266,
   "gpu_dispatches": 1,
   "metal_verified": true,
-  "cuda_verified": false,
-  "cuda_comparison": "not-yet-requested-after-body-incoming-change",
+  "cuda_verified": true,
+  "cuda_comparison": "exact-source-input-output-validation-hashes-and-statuses",
   "metal_report": "portable-combat-metal.json",
   "previous_cuda_checkpoint": "portable-combat-v11-checkpoint.json",
   "gpu_timeline_connected": true,
@@ -36,6 +36,7 @@
     "http_incoming_body_verified": true
   },
   "next_work": [
+    "definition/carrier capacity beyond the observed 82+ prepared effects and dynamic recipient/instance state",
     "protection layers and incoming boss schedule/target/debuff connection",
     "revival, persistence and passive restoration",
     "additional health scaling, lifesteal, sharing/storage",
@@ -530,5 +531,63 @@
     "before": 0.008156249998137355,
     "after": 0.007214500044938177,
     "scope": "64 programs, 32 definitions, 30 body attacks over three seconds; not full battle or full catalog"
+  },
+  "verified_commit": "e014b1bdfb0c4c89a00949e345f113f3d877176a",
+  "windows_report": "windows-portable-combat-v12.json",
+  "cuda_validation_sha256": {
+    "app/portable_runtime.py": "0fa5a521498ce5f94dd9a4631df7f1d7d003732f99a5a54be5fef0b8d1ad5662",
+    "app/portable_combat.py": "e59690a2d46ace2902b4d3aee0270b559bd5a09f46c561a0b9bf036d8effb0d1",
+    "app/portable_specs.py": "d7802e1847d003a3ddf55247d8fe0b80d3101baeb525e6a8972adaf37ed7b36a",
+    "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
+    "app/portable_trigger_specs.py": "61aaa3740ee6f6c6753d321a2848f3ed4e16474e63fc526f5fc14cee69ff01ad",
+    "app/portable_damage_specs.py": "7bd74a9067ca83f7e050667fe7970dfdb6b740c605b7deceb65ffac87d4d4021",
+    "scripts/portable_health_oracle.py": "604fac3904201a048ffbb6606e754fed5b8fca9cea9418afb8a282858d24f891",
+    "scripts/portable_weapon_oracle.py": "5fa773a498d5103388f2faee38a69cc56898b1ff9ebff842fe6ccb8fb8736f1f",
+    "scripts/verify-detail.py": "20de1868cf509afa5696af87d94db27974d97c8505702e40eed27886f7c09972",
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
+    "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
+    "scripts/verify-portable-combat.py": "53dc5b2bd9a88b4f87fce4e79de9581a5559cf929a71ff82fa3edfefce87df02",
+    "tests/fixtures/portable-incoming.json": "fbd69208aeeba331eb5e8b73c073f03c95a16b35cbae8a1d27349fa343da60de",
+    "tests/fixtures/portable-hp-edges.json": "2342470a63a6a2a0505b81a0e6356a6254d9b4fc8c9d3db95bea334004a9d6f0",
+    "tests/fixtures/portable-health.json": "614201f346546358376038785f3196032efd3b0aa51276474da723a41267c365",
+    "tests/fixtures/portable-charge-control.json": "00b643a72ad7026de9cb122386cc3dce521ae13bc5813383886e637d635f4994",
+    "tests/fixtures/portable-quantities.json": "53affbf8b6cfb6b87639a4bfe1090c3b30a44596c09f7f334ee9073daad3a9fa",
+    "tests/fixtures/portable-weapons.json": "75960cd6b9daaf1315a03af930f193df2c637bff7b845cc9f19b524561f5f7bf",
+    "tests/fixtures/portable-damage.json": "ab596e0f01bb9f94ee9813c6027d46a85415b77d5a72c36e06b32bf45b6ac5c7",
+    "tests/fixtures/portable-triggers.json": "680d8d5e212f9604e23f895b141651114e8703a4051facd37deb5ac890a403ec",
+    "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
+    "tests/fixtures/portable-combat-extensions.json": "8d0f54acf3c75cca3441e0c5c629b8832c893836d1f6b8ec2e7eed10bf4aa1ab",
+    "tests/fixtures/portable-autonomous.json": "86b4a8b921a9410d2db605c96fd95ac24d1ae64b44c5e7b661f54a953062d762",
+    "scripts/run-metal-probe.swift": "7d239896d03babd28326607a9133330d9fda37eee772055eac9a5112d58f5adb"
+  },
+  "windows_execution": {
+    "command": "python scripts/verify-portable-combat.py --backend cuda",
+    "commit": "e014b1bdfb0c4c89a00949e345f113f3d877176a",
+    "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
+    "gpu_before": "9, 4621",
+    "below_normal_priority": true,
+    "python_utf8": true,
+    "python_dontwritebytecode": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "timeout_seconds": 120,
+    "elapsed_seconds": 50.33971570013091,
+    "stdout": "{\"passed\": true, \"cases\": 258, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
+    "stderr": ""
+  },
+  "windows_postcheck": {
+    "remaining_verification_processes": 0,
+    "original_head_after": "61a43e91301841c272badce519e4d8984bb5efae",
+    "original_status_after": []
+  },
+  "real_input_capacity_gap": {
+    "audited_squads": 203,
+    "minimum_prepared_effects": 82,
+    "definition_capacity": 32,
+    "evidence": "portable-catalog-readiness.json",
+    "evidence_sha256": "bf3389a0246a58a28afd29fa900c23d77983bcdd8ea5f285daaa1bc87e6aa257",
+    "scope": "Selected audit squads, not a minimum across every possible squad"
   }
 }

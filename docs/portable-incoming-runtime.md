@@ -42,4 +42,4 @@ HP関連のCPU参照は合計69ケースです。既存のHP失効時の差異2�
 
 被弾用定義がない場合に、被ダメージ補正・無敵・不屈の探索を省きました。同じ共通ソースの比較用ビルドと、32定義・64入力・3秒間に30発の体力層攻撃を各3回測定し、入力／全出力ハッシュが一致しました。MetalのGPU時間中央値は8.156msから7.215msへ約11.5%短縮しました。固定した体力層の測定であり、本体全体やボス戦の速度ではありません。
 
-最新CUDA照合状況は `research/portable-combat-checkpoint.json`、前段230ケースの両GPU一致は `portable-combat-v11-checkpoint.json` に固定しています。全キャラ・全特殊効果・実編成・通常画面のGPU接続は未完了です。
+固定版 `e014b1b` はWindowsのRTX 3070 Tiでも低優先度・1回、50.340秒で成功しました。258正例・8拒否の共通ソース・入力・全出力・検証コード・statusと既知CPU差異がMetalと一致し、元のWindows作業状態を保持しています。最新記録は `research/portable-combat-checkpoint.json`、前段230ケースの両GPU一致は `portable-combat-v11-checkpoint.json` に固定しています。全キャラ・全特殊効果・実編成・通常画面のGPU接続は未完了です。
