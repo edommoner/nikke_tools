@@ -1,0 +1,2 @@
+# Independent pow oracle only. Production execution uses the standard library.
+gmpy2==2.2.1

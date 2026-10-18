@@ -418,6 +418,9 @@ def dispatch(body):
     if action == 'gpu_probe':
         from gpu_selector import probe
         return probe()
+    if action == 'evaluate_portable_events':
+        from portable_runtime import evaluate as evaluate_events
+        return evaluate_events(body)
     if action == 'select':
         from gpu_selector import select_teams
         return select_teams(body)

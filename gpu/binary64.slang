@@ -15,6 +15,57 @@ uint64_t shiftJam(uint64_t x, uint distance)
 
 bool f64Nan(uint64_t x) { return (x & ~F64_SIGN) > F64_INF; }
 bool f64Zero(uint64_t x) { return (x & ~F64_SIGN) == 0; }
+bool f64Finite(uint64_t x) { return (x & ~F64_SIGN) < F64_INF; }
+uint64_t f64Abs(uint64_t x) { return x & ~F64_SIGN; }
+
+// mode 0: nearest/even, 1: toward zero, 2: floor. Preserve signed zero.
+uint64_t f64Integral(uint64_t x, uint mode)
+{
+    uint64_t magnitude = f64Abs(x), sign = x & F64_SIGN;
+    if (f64Nan(x)) return F64_NAN;
+    int exponent = int((x >> 52) & 2047) - 1023;
+    if (exponent >= 52 || magnitude == 0) return x;
+    if (exponent < 0)
+    {
+        bool one = mode == 2 ? sign != 0 : mode == 0 && magnitude > (uint64_t(1022) << 52);
+        return sign | (one ? uint64_t(1023) << 52 : 0);
+    }
+    uint shift = uint(52 - exponent);
+    uint64_t unit = uint64_t(1) << shift, mask = unit - 1, tail = magnitude & mask;
+    uint64_t rounded = magnitude & ~mask;
+    bool increment = mode == 2 ? sign != 0 && tail != 0 :
+        mode == 0 && (tail > (unit >> 1) || (tail == (unit >> 1) && (rounded & unit) != 0));
+    if (increment) rounded += unit;
+    return sign | rounded;
+}
+
+// Explicit range failure, never CUDA's architecture-specific invalid sentinel.
+uint64_t f64ToI64(uint64_t x, uint mode, out uint status)
+{
+    status = 0;
+    if (!f64Finite(x)) { status = 1; return 0; }
+    uint64_t rounded = f64Integral(x, mode), magnitude = f64Abs(rounded);
+    if (magnitude == 0) return 0;
+    int exponent = int((rounded >> 52) & 2047) - 1023;
+    bool negative = (rounded & F64_SIGN) != 0;
+    if (exponent > 63 || (exponent == 63 && (!negative || (rounded & F64_FRAC) != 0)))
+    { status = 1; return 0; }
+    if (exponent < 0) return 0;
+    uint64_t significand = (rounded & F64_FRAC) | (uint64_t(1) << 52);
+    uint64_t integer = exponent >= 52 ? significand << uint(exponent - 52) : significand >> uint(52 - exponent);
+    return negative ? (~integer + 1) : integer;
+}
+
+uint64_t f64FromI64(uint64_t integer)
+{
+    uint64_t sign = integer & F64_SIGN;
+    uint64_t magnitude = sign != 0 ? (~integer + 1) : integer;
+    if (magnitude == 0) return 0;
+    uint highest = 0;
+    for (uint64_t scan = magnitude; scan > 1; scan >>= 1) highest++;
+    uint64_t extended = highest > 55 ? shiftJam(magnitude, highest - 55) : magnitude << (55 - highest);
+    return f64Pack(sign, int(highest) + 1023, extended);
+}
 
 bool f64Equal(uint64_t a, uint64_t b)
 {

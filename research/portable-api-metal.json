@@ -1,0 +1,134 @@
+{
+  "results": [
+    {
+      "status": 0,
+      "queries": [
+        {
+          "time": 0,
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "time": 0.1,
+          "damage": [
+            1171,
+            0,
+            0,
+            0,
+            0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            100,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "time": 0.2,
+          "damage": [
+            3513,
+            0,
+            0,
+            0,
+            0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            100,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "no critical",
+          "due": 0,
+          "expiry": 0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1
+        },
+        {
+          "effect": "strength on hit",
+          "due": 0,
+          "expiry": 0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1
+        }
+      ],
+      "max_stack_depth": 1
+    }
+  ],
+  "transport": {
+    "backend": "metal",
+    "cases": 1,
+    "command_status": "completed",
+    "device": "Apple M5",
+    "gpu_seconds": 0.002139249991159886,
+    "input_bytes": 8196,
+    "output_bytes": 16384,
+    "registry_id": "4294968313"
+  },
+  "source_sha256": {
+    "gpu/event_runtime.slang": "604e67c839f08b72641fa2bb38557112340a5369fa5590e184f76f7e0dba3e5f",
+    "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
+    "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+    "gpu/portable_schema.slang": "a20f49526dbfbde5da737082bef04e0baaf6f335a58a668420785ac251a301d5"
+  },
+  "generated_sha256": {
+    "cuda": "4485e055acdd3f75b14a60cd91023d5d97b77230f2c38f19f5c9f3e71edf74c9",
+    "metal": "fb7cda024567d944e8a648453bd1d74d43eb077082b02f73f73fe67da5b2bf68"
+  },
+  "input_sha256": "800a6d3c2c7913ad01f079c7346c65f5614e0258866481225b173b6383242353",
+  "output_sha256": "dce7dd10f75621344d97e08c7a043f421e3a30c174eeecc2a45602da083aa420",
+  "gpu_execution_verified": true,
+  "backend": "metal",
+  "application_event_runtime_connected": true,
+  "autonomous_battle_connected": false,
+  "passed": true,
+  "api_status": 200,
+  "unsupported_status": 400,
+  "unsupported_error": "Unported buff or recipient selector",
+  "adapter_sha256": {
+    "server.mjs": "dccdd382743de8a091547489886f8ab6faa0f9f7326b06b147bc584b8af255a4",
+    "app/engine_worker.py": "1d54e891b41aebc8ce9e527320183013380a5ba984a5ef3a6e542e325e734787",
+    "app/portable_runtime.py": "e797e7e86f60b4af7a032313027756b6664885f976fd6ee6cfd999a5b2984ecd",
+    "app/portable_backend.py": "1eec4045e1fdc66d48222d02f5fb94100ac5bd0cd4a1a1a7b515564faa76c77e",
+    "scripts/verify-portable-api.py": "237dafd505b107fc140577f2e46fcd6dd560732ff5a7f1a0affed49981f24296",
+    "tests/fixtures/portable-events.json": "7dd3eb1e11b8964dec596d639cd3e626138f73d3fab158eec4973265292d1ba8"
+  }
+}

@@ -3,15 +3,22 @@
   "production_runtime_connected": false,
   "gpu_execution_verified": true,
   "stage": "gpu-execution",
-  "scope": "Binary64 arithmetic/comparison candidate only; no pow, conversions, game state, or production performance validation.",
+  "scope": "Binary64 arithmetic, checked int64 conversion, floor and clamped pow(x,binary64(2.55)); no autonomous battle validation.",
   "source_sha256": {
-    "gpu/binary64.slang": "2b5912b78b6889933064432c2986ec4d3a2b3cf03505ead140f5f678d91b772f",
-    "gpu/numeric_probe.slang": "f66dd2beda877c42920b0878276e66be69682269fae712e6f1e7668d8f3d33ac",
-    "tests/fixtures/portable-numeric.json": "b2f2ac6290fff71b8c351ad1e20d4f5c17a7b72052acb481463031aa4f1619e7",
-    "scripts/verify-portable-numeric.py": "9dae66672ec7e5c9e2bffe639e0e1ff40d1fb9f234f5da326a0c5df9dac07c7e",
-    "scripts/run-metal-probe.swift": "1db1b43316d2321c276ca5b21f420d6d4350356c24713ae6fa64afae7d115610"
+    "gpu/numeric_probe.slang": "d71250e44525fb367912fe9cfbe445d1c5a6cafb0563b5d1db3bce76ad237b98",
+    "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
+    "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc"
   },
-  "cases": 14034,
+  "validation_sha256": {
+    "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
+    "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+    "gpu/numeric_probe.slang": "d71250e44525fb367912fe9cfbe445d1c5a6cafb0563b5d1db3bce76ad237b98",
+    "tests/fixtures/portable-numeric.json": "dfa3cc2c750b2a06eead99d05e3e785afd174a56fdb8337ae424de0ec7509c30",
+    "scripts/verify-portable-numeric.py": "7fa093b7a342db940d5be2a95a58d84e21a9402c3b94f5e7c1e33931db93b958",
+    "scripts/run-metal-probe.swift": "14ea0beae31b1e1f6ec5a2fbcd9bd624ed4e7a2f35563e988812376dc0649a5a",
+    "app/portable_backend.py": "1eec4045e1fdc66d48222d02f5fb94100ac5bd0cd4a1a1a7b515564faa76c77e"
+  },
+  "cases": 34874,
   "groups": {
     "one-unit-above-float32": 1,
     "half-ulp-rounds-to-even-down": 1,
@@ -25,30 +32,47 @@
     "negative-zero-product": 1,
     "overflow": 1,
     "invalid-inf-subtraction": 1,
-    "edge": 1734,
-    "random-bits": 6144,
-    "close-magnitudes": 6144
+    "int-nearest-half-even-down": 1,
+    "int-nearest-negative-half-even": 1,
+    "int-truncate-negative": 1,
+    "int-floor-negative": 1,
+    "int-positive-limit-fails": 1,
+    "int-negative-limit-valid": 1,
+    "int-below-negative-limit-fails": 1,
+    "int-nan-fails": 1,
+    "floor-preserves-negative-zero": 1,
+    "floor-beyond-int64-range": 1,
+    "int64-max-to-binary64": 1,
+    "pow-half": 1,
+    "pow-clamp": 1,
+    "pow-negative-domain-fails": 1,
+    "edge": 4590,
+    "random-bits": 14336,
+    "close-magnitudes": 14336,
+    "pow-domain": 1458,
+    "pow-transition": 128
   },
   "rounding": "nearest-ties-to-even",
-  "oracle": "exact rational, rounded once to binary64",
+  "oracle": "exact rational for arithmetic; integer/range checks; MPFR directed 256-bit bounds for pow",
+  "mpfr": "MPFR 4.2.1",
   "random_count_per_operation_per_group": 1024,
-  "backend": "metal",
   "transport": {
     "backend": "metal",
-    "cases": 14034,
+    "cases": 34874,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.0001982916728593409,
-    "input_bytes": 280684,
-    "output_bytes": 112272,
+    "gpu_seconds": 0.005865750019438565,
+    "input_bytes": 697484,
+    "output_bytes": 418488,
     "registry_id": "4294968313"
   },
-  "outputs_sha256": {
-    "cuda": "10641de80925e27d85c144e12e977e14979cb5ff386232f0f15332e21b8b00d7",
-    "metal": "fe9b16e7b2c955d34d20e455977d546e5addc7298f03450c44768d46dcf27ae5"
+  "generated_sha256": {
+    "cuda": "c9243778efc0020818950c7ecee9d013fee363194988c5f623707d2ce6c2c4a2",
+    "metal": "5d5d53f4fa8bb8ed648a13d0e69d937cbd0ab1ba2a133737d3a0b57fd24a29f4"
   },
-  "input_sha256": "de06dbe0e2f45bec5b2249fe6a0a2af0a5b7a94a7241fa660a130e67fde8e832",
-  "output_sha256": "567107c1e6bb27e3731bdb7e52f23a9ccdd24f9ecb5c1f1c89b5f19650366f4e",
+  "input_sha256": "1b83a7699dff9fa527104ac666385a3085529384cce5a05bd540b7eb2a876f88",
+  "output_sha256": "8994d32d07149b9b980e827d245a1adb025993b93901ccc317bb59423cdd5a68",
+  "backend": "metal",
   "mismatch_count": 0,
   "mismatches": []
 }

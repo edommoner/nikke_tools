@@ -1,6 +1,6 @@
 # NIKKE TOOLS — ローカル編成ラボ
 
-MacBookへの開発移行とCUDA／Metalの共通化を進めています。[移行手順と未解決事項](docs/mac-migration.md)を参照してください。現時点で通常画面のGPU計算はCUDA専用です。小さな共通ソースのMetal実証4ケースはApple M5で実GPU実行済みです。さらに共通binary64候補の14,034ケースがMetalでbit一致しました。[数値規約と残作業](docs/portable-numerics.md)を参照してください。本体のMetal接続と全キャラの数値互換性は未完了です。Macでは `./Start-NikkeTools.command` で起動します。
+MacBookへの開発移行とCUDA／Metalの共通化を進めています。[移行手順と未解決事項](docs/mac-migration.md)を参照してください。現時点で通常画面のGPU計算はCUDA専用です。小さな共通ソースのMetal実証4ケースはApple M5で実GPU実行済みです。さらに共通binary64候補の14,034ケースがMetalでbit一致しました。[数値規約と残作業](docs/portable-numerics.md)を参照してください。整数変換とコア命中確率powを含む34,874件、共通イベント実行器16ケースをMetalで検証し、[ローカルAPIへ接続](docs/portable-event-runtime.md)しました。通常画面の自律戦闘と全キャラ対応は未完了です。Macでは `./Start-NikkeTools.command` で起動します。
 
 GitHubには現行のソース、GPU生成物、検証スクリプトと記録を保存しています。`research/ports/`・`research/staging/` の過去版／実験用コピー、CUDAキャッシュ、所持データ等の `local-data/`、認証情報はGit管理の対象外です。過去版との比較スクリプトには、ローカルに保存した過去版が別途必要です。計算エンジンの固定版は `powershell -File scripts/setup-engine.ps1` で取得できます。
 
