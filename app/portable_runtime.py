@@ -89,16 +89,12 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     if len(program['effects'])!=len(effects) or not 1<=len(effects)<=L['DEFINITIONS']:
         raise UnsupportedPortable('Portable definition capacity or expansion exceeded')
     seen_names={}
-    for i,((eff,owner),row) in enumerate(zip(effects,program['effects'])):
+    for index,(eff,owner) in enumerate(effects):
         key=(owner,eff.get('name'));previous=seen_names.get(key,[])
-        equipment=eff.get('type')=='buff' and eff.get('_source_tag')=='equipment'
-        prior_equipment=all(effects[j][0].get('type')=='buff' and effects[j][0].get('_source_tag')=='equipment' for j in previous)
-        distinct_stat=all(effects[j][0].get('stat')!=eff.get('stat') for j in previous)
-        independent_quantity=eff.get('stat') in ('max_ammo_pct','charge_speed_pct','charge_speed_caster_based_pct')
-        if previous and not (equipment and prior_equipment and
-                             (distinct_stat and int(row[43])==-1 or independent_quantity and int(row[43]) in previous)):
-            raise UnsupportedPortable('Multiple named carriers require distinct equipment components or verified quantity groups')
-        seen_names.setdefault(key,[]).append(i)
+        if previous and (eff.get('type')!='buff' or any(effects[j][0].get('type')!='buff' for j in previous)):
+            raise UnsupportedPortable('Multiple named non-buff carriers are not ported')
+        seen_names.setdefault(key,[]).append(index)
+    stat_keys={key:i for i,key in enumerate(dict.fromkeys((e.get('type'),e.get('stat','')) for e,_ in effects))}
     if not 1<=len(script)<=L['COMMANDS'] or len(base_atk)!=5:
         raise ValueError('Invalid portable command/base-stat dimensions')
     words=[0]*L['INPUT_WORDS'];words[0:3]=[ABI,len(effects),len(script)];words[5]=1
@@ -118,8 +114,16 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         at=L['HEALTH_BASE']+who*L['HEALTH_WORDS']
         words[at:at+6]=[*double_words(base),*double_words(current),*double_words(defense_value)]
     words[24:26]=double_words(.15);words[26:28]=double_words(.5)
+    merge_groups={}
+    def merge_key(index,row):
+        eff,owner=effects[index]
+        if not row[205] or not eff.get('name') or eff.get('_source_tag')=='equipment' and int(row[2]) in (18,20,37):return None
+        return owner,eff['name'],eff.get('stat',''),int(row[9])
     for index,row in enumerate(program['effects']):
-        if row[1] in (0,4,6,8):pack_recipients(words,index,row,L)
+        key=merge_key(index,row)
+        if key is not None:merge_groups[key]=merge_groups.get(key,0)+1
+    for index,row in enumerate(program['effects']):
+        if row[1] in (0,4,6,8):pack_recipients(words,index,row,L,effects[index][0],stat_keys[(effects[index][0].get('type'),effects[index][0].get('stat',''))],merge_groups.get(merge_key(index,row),0)>1)
         compact=[0]*L['DEFINITION_WORDS']
         fields={'OWNER':int(row[0]),'KIND':int(row[1]),'STAT':int(row[2]),'NAME':int(row[3]),
                 'MAX_STACK':int(row[9]),'BUDGET':int(row[57]),'IMMEDIATE':int(row[60]),
@@ -137,7 +141,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         # Quantity component identity is the source/group tuple, not its display name.
         # The pinned legacy equipment alias collapses components before rounding.
         extra=L['DEFINITION_EXTRA_BASE']+index*L['DEFINITION_EXTRA_WORDS']
-        words[extra:extra+8]=[int(row[45]),int(row[55]),(-1 if int(row[2]) in (18,20,37) else int(row[43])) & 0xffffffff,int(row[213]),
+        words[extra:extra+8]=[int(row[45]),int(row[55]),0xffffffff,int(row[213]),
                               *double_words(row[138]),int(row[139]),int(row[209])]
         force=L['FORCE_BASE']+index*L['MASK_WORDS']
         words[force:force+L['MASK_WORDS']]=[int(row[legacy.B3_MASK+k]) for k in range(L['MASK_WORDS'])]
@@ -274,7 +278,14 @@ def decode(words,metadata):
     health=[dict(hp=number(at+who*10),max_hp=number(at+who*10+2),hp_pct=number(at+who*10+4),defense=number(at+who*10+6),healing=number(at+who*10+8)) for who in range(5)]
     at=L['INCOMING_STATE_BASE']
     for who,ally in enumerate(health):ally.update(received_damage=number(at+who*4),received_hits=words[at+who*4+2],down=bool(words[at+who*4+3]))
-    return dict(allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
+    if words[9]>L['CARRIERS']:raise RuntimeError('Invalid resident carrier count')
+    carriers=[]
+    for i in range(words[9]):
+        at=L['CARRIER_STATE_BASE']+i*12;definition=words[at+1]
+        if definition>=len(metadata['effects']) or words[at]>=L['CARRIERS']:raise RuntimeError('Invalid resident identity')
+        carriers.append(dict(slot=words[at],definition=definition,effect=metadata['effects'][definition],recipients=words[at+2],
+                             stacks=words[at+3],active=bool(words[at+4]),end=number(at+5),activated=number(at+7),order=words[at+9],hp_snapshot=number(at+10)))
+    return dict(carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
 
 
 def run_programs(programs, *, backend='metal'):

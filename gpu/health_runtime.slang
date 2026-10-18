@@ -8,7 +8,7 @@ uint64_t effectiveMaxHP(inout Runtime s, uint who, uint64_t when)
     uint64_t percent = 0, flat = 0;
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
-        uint row = s.orderedRows[pass]; Definition d = s.defs[row];
+        uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row);
         if (d.kind != 0 || !liveRecipient(s,row,who,when)) continue;
         uint64_t value = scalarValue(s,row,who);
         if (d.stat == S_max_hp_pct || d.stat == S_max_hp_only_pct) percent = f64Add(percent,value);
@@ -29,7 +29,7 @@ uint64_t effectiveDefense(inout Runtime s, uint who, uint64_t when)
     uint64_t percent = 0, flat = 0;
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
-        uint row = s.orderedRows[pass]; Definition d = s.defs[row];
+        uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row);
         if (d.kind != 0 || !liveRecipient(s,row,who,when)) continue;
         uint64_t value = scalarValue(s,row,who);
         if ((d.alliedFlags & 1) != 0) percent = f64Add(percent,value);
@@ -66,7 +66,7 @@ void syncHealth(inout Runtime s, uint64_t when)
 [noinline]
 uint64_t prepareHealthGrant(inout Runtime s, uint row, uint64_t when)
 {
-    Definition d = s.defs[row]; uint64_t grant = 0;
+    Definition d = residentDefinition(s,row); uint64_t grant = 0;
     if (d.stat == S_max_hp_pct || d.stat == S_hp_caster_based_pct)
         grant = f64Div(f64Mul(s.baseHP[d.owner],d.value),HUNDRED);
     if (d.stat == S_max_hp_from_max_hp_pct)
@@ -81,7 +81,7 @@ uint64_t prepareHealthGrant(inout Runtime s, uint row, uint64_t when)
 [noinline]
 void applyHealthBuff(inout Runtime s, uint row, uint64_t when)
 {
-    Definition d = s.defs[row];
+    Definition d = residentDefinition(s,row);
 #ifndef PORTABLE_HEALTH_SCAN_REFERENCE
     if (!(d.stat >= S_max_hp_pct && d.stat <= S_max_hp_only_pct || d.stat == S_max_hp_from_max_hp_pct)) return;
 #endif

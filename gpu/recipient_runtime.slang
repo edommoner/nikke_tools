@@ -1,10 +1,10 @@
 bool validRecipientPlan(uint at)
 {
     uint kind = commands[at], count = commands[at+1], mask = commands[at+2];
-    if (kind > 16 || kind == 4 || kind == 12 || kind == 13 || kind == 14 || count > 5 || mask > 31 || commands[at+3] > 1) return false;
+    if (kind > 16 || kind == 4 || kind == 14 || count > 5 || mask > 31 || commands[at+3] > (kind == 12 || kind == 13 ? 2 : 1)) return false;
     if ((kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16) && count == 0) return false;
     uint order = commands[at+4], seen = 0; bool ended = false;
-    if (order >> 15 != 0) return false;
+    if (order >> 15 != 0 || commands[at+6] >= P_DEFINITIONS || commands[at+7] > 3) return false;
     for (uint i = 0; i < 5; i++)
     {
         uint encoded = (order >> (3*i)) & 7;
@@ -21,7 +21,7 @@ uint64_t recipientAttack(inout Runtime s, uint who, uint64_t when)
     uint64_t percent = 0, flat = 0;
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
-        uint row = s.orderedRows[pass]; Definition d = s.defs[row];
+        uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row);
         if (d.kind != 0 || !liveRecipient(s,row,who,when)) continue;
         if (d.stat == S_atk_pct) percent = f64Add(percent,scalarValue(s,row,who));
         else if (d.stat == S_atk_flat) flat = f64Add(flat,scalarValue(s,row,who));
@@ -64,7 +64,15 @@ uint selectRecipients(inout Runtime s, uint row, uint64_t when, out uint order)
         if (kind == 9 || kind == 11) pool &= s.castMask;
         if (kind == 10) pool &= ~s.castMask;
         if (kind == 11) pool &= candidates;
-        if (exclude != 0) pool &= ~(1U << d.owner);
+        if (kind == 12 || kind == 13)
+        {
+            for (uint who = 0; who < 5; who++)
+            {
+                bool present = stateMember(s,who,int(commands[at+5]),exclude);
+                if (kind == 12 && !present || kind == 13 && present) pool &= ~(1U << who);
+            }
+        }
+        else if (exclude != 0) pool &= ~(1U << d.owner);
         pool &= ~s.downMask;
         uint64_t keys[5];
         bool ranked = kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16;

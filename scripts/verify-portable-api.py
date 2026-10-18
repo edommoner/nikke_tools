@@ -26,7 +26,7 @@ def main():
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n', encoding='utf-8')
     tracked=['server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_backend.py',
              'scripts/verify-portable-api.py','tests/fixtures/portable-events.json',
-             'app/portable_recipient_specs.py','tests/fixtures/portable-recipients.json','app/portable_combat.py','app/portable_specs.py','app/world_condition_specs.py','app/impact_specs.py',
+             'tests/fixtures/portable-carriers.json','app/portable_recipient_specs.py','tests/fixtures/portable-recipients.json','app/portable_combat.py','app/portable_specs.py','app/world_condition_specs.py','app/impact_specs.py',
              'tests/fixtures/portable-capacity.json','tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases'][0]
@@ -203,6 +203,20 @@ def main():
         if 'expected_timers' in c:assert actual['results'][0]['timers'][0]['activations']==1
         recipient_evidence.append(dict(name=name,execution=actual))
     result['recipient_execution']=recipient_evidence
+    carrier_cases=json.loads((ROOT/'tests/fixtures/portable-carriers.json').read_text(encoding='utf-8'))['cases']
+    carrier_evidence=[]
+    for name in ('eager-target-change-keeps-independent-carriers','same-name-cross-definition-merge-retains-first-value'):
+        c=next(c for c in carrier_cases if c['name']==name)
+        body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(c['effects'],c['owners'])],
+                  script=c['script'],base_atk=[1000]*5,environment=c['environment'],backend=args.backend)
+        actual=request(body);assert actual['gpu_execution_verified']
+        assert actual['results'][0]['queries'][0]['attack_buffs']==c['expected_queries'][0]['attack_buffs']
+        resident=[x for x in actual['results'][0]['carriers'] if x['active'] and x['effect'] in c['carrier_effect_names']]
+        assert len(resident)==len(c['expected_carriers'])
+        for a,e in zip(resident,c['expected_carriers']):
+            for k,v in e.items():assert a[k]==v
+        carrier_evidence.append(dict(name=name,execution=actual))
+    result['carrier_execution']=carrier_evidence
     result['quantity_unsupported_status']=400
     result['timeline_execution']=timeline_result
     result['extension_execution']=extension_result

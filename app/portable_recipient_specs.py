@@ -18,6 +18,8 @@ def admitted(target, *, instant=False):
               r'allies_top_base_charge_time:[0-5]')
     if any(re.fullmatch(pattern, target) for pattern in static):
         return True
+    if target in ('all_allies_burst_casted','all_allies_burst_not_casted') or re.fullmatch(r'allies_burst_casted_weapon:[^:]+',target) or re.fullmatch(r'allies_(?:with|without)_buff:.*',target):
+        return True
     if not instant:
         return False
     return (target in ('all_allies_burst_casted', 'all_allies_burst_not_casted') or
@@ -26,10 +28,14 @@ def admitted(target, *, instant=False):
             bool(re.fullmatch(r'allies_weapon_top_atk:[^:]+:[1-5]', target)))
 
 
-def pack(words, index, row, limits):
+def pack(words, index, row, limits, effect, stat_key, merge_search):
     kind = int(row[4])
-    if kind not in (0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 15, 16):
+    if kind not in (0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16):
         raise ValueError('Unported compiled recipient selector')
     at = limits['RECIPIENT_BASE'] + index * 8
-    words[at:at+8] = [kind, int(row[5]), int(row[48]), int(row[49]),
-                      int(row[140]) if row[141] else 0, 0, 0, 0]
+    independent_quantity=effect.get('_source_tag')=='equipment' and int(row[2]) in (18,20,37)
+    words[at:at+8] = [kind, 0 if kind in (12,13) else int(row[5]), int(row[48]),
+                      int(row[223]) if kind in (12,13) else int(row[49]),
+                      int(row[140]) if row[141] else 0,
+                      int(row[5]) if kind in (12,13) else 0, stat_key,
+                      int(bool(row[205]) and bool(effect.get('name')) and not independent_quantity) | (int(merge_search)<<1)]

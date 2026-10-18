@@ -6,7 +6,7 @@ from calculator import timeline
 from timer_registry_cases import NAMES
 
 
-def observe(case):
+def observe(case, *, with_carriers=False):
     chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES]
     raw=[(copy.deepcopy(e),NAMES[o]) for e,o in zip(case['effects'],case.get('owners',[0]*len(case['effects'])))]
     class BM(BuffManager):
@@ -47,4 +47,13 @@ def observe(case):
             for i,n in enumerate(NAMES):
                 if arg & (1<<i):land(n,extra,extra2,t)
         elif op!=18:raise ValueError('Unsupported health reference stimulus')
+    if with_carriers:
+        carriers=[]
+        for ab in bm._active:
+            definition=next(i for i,(e,_) in enumerate(raw) if e is ab.effect)
+            carriers.append(dict(definition=definition,effect=ab.effect['name'],
+                                 recipients=sum(1<<NAMES.index(n) for n in (ab.target_chars or [])),
+                                 stacks=ab.stack,end=1e30 if ab.expires_at==float('inf') else ab.expires_at,
+                                 activated=ab.activated_at,hp_snapshot=ab.hp_bonus_flat))
+        return dict(queries=queries,carriers=carriers)
     return queries

@@ -112,9 +112,9 @@ void enterStage(inout Runtime s, uint stage, uint64_t when, uint output)
 uint effectiveStage(inout Runtime s, uint who, uint64_t when)
 {
     uint stage = s.stage[who], order = 0;
-    for (uint row = 0; row < s.count; row++)
-        if (s.defs[row].owner == who && s.defs[row].stageOverride != 0 && s.alive[row] != 0 && f64Less(when,s.end[row]) && basicConditions(s,row,when,true) && s.entryOrder[row] >= order)
-        { order = s.entryOrder[row]; stage = s.defs[row].stageOverride; }
+    for (uint row = 0; row < s.carrierCount; row++)
+        if (residentDefinition(s,row).owner == who && residentDefinition(s,row).stageOverride != 0 && s.alive[row] != 0 && f64Less(when,s.end[row]) && basicConditions(s,row,when,true) && s.entryOrder[row] >= order)
+        { order = s.entryOrder[row]; stage = residentDefinition(s,row).stageOverride; }
     return stage;
 }
 [noinline]
@@ -147,8 +147,8 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
             dispatch(s,0,3,picked,0,when,output); s.target = target;
             logBurst(s,stage+(s.reentrySlot != 0 ? 6 : 0),picked,when,output);
             bool reentry = s.pendingReentry[picked] != 0; s.pendingReentry[picked] = 0;
-            for (uint row = 0; row < s.count; row++)
-                if (s.defs[row].owner == picked && s.defs[row].reentry != 0 && s.alive[row] != 0 && f64Less(when,s.end[row]) && basicConditions(s,row,when,true)) reentry = true;
+            for (uint row = 0; row < s.carrierCount; row++)
+                if (residentDefinition(s,row).owner == picked && residentDefinition(s,row).reentry != 0 && s.alive[row] != 0 && f64Less(when,s.end[row]) && basicConditions(s,row,when,true)) reentry = true;
             if (reentry && (s.reentryDone & (1U << stage)) == 0)
             { s.reentryDone |= 1U << stage; s.reentrySlot = 1; s.action = f64Add(when,s.reentryDelay); }
             else

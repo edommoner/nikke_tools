@@ -5,7 +5,7 @@ bool liveRecipient(inout Runtime s, uint row, uint who, uint64_t when)
 }
 uint64_t scalarValue(inout Runtime s, uint row, uint who)
 {
-    Definition d = s.defs[row]; uint64_t value = d.value;
+    Definition d = residentDefinition(s,row); uint64_t value = d.value;
     if (d.stat == S_charge_speed_caster_based_pct && d.kind == 0)
     {
         uint64_t caster = s.rawCharge[d.owner], target = f64Zero(s.rawCharge[who]) ? caster : s.rawCharge[who];
@@ -19,7 +19,7 @@ uint chargeFlags(inout Runtime s, uint who, uint64_t when)
     uint flags = 0;
     for (uint i = 0; i < s.orderedCount; i++)
     {
-        uint row = s.orderedRows[i]; Definition d = s.defs[row];
+        uint row = s.orderedRows[i]; Definition d = residentDefinition(s,row);
         if (!liveRecipient(s,row,who,when)) continue;
         flags |= d.quantityFlags & 24;
         if (d.kind == 0 && d.stat == S_charge_time_fixed) flags |= 4;
@@ -45,7 +45,7 @@ QuantityTotals quantityTotals(inout Runtime s, uint who, uint key, uint64_t when
     for (uint i = 0; i < initializedGroups; i++) { values[i] = 0; seen[i] = 0; flags[i] = 0; }
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
-        uint row = s.orderedRows[pass]; Definition d = s.defs[row];
+        uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row);
         if (d.kind != 0 || (d.stat != key && !(key == S_charge_speed_pct && d.stat == S_charge_speed_caster_based_pct)) || !liveRecipient(s,row,who,when)) continue;
         // Missing caster metadata is an absent component, not a zero-valued
         // component that may change the first-seen group order.
@@ -57,7 +57,7 @@ QuantityTotals quantityTotals(inout Runtime s, uint who, uint key, uint64_t when
         // Benchmark control: rediscover each group's resident members.
         for (uint member = 0; member < s.orderedCount; member++)
         {
-            uint other = s.orderedRows[member]; Definition candidate = s.defs[other];
+            uint other = s.orderedRows[member]; Definition candidate = residentDefinition(s,other);
             if (candidate.group != group || candidate.kind != 0 ||
                 (candidate.stat != key && !(key == S_charge_speed_pct && candidate.stat == S_charge_speed_caster_based_pct)) || !liveRecipient(s,other,who,when)) continue;
             if (candidate.stat == S_charge_speed_caster_based_pct && f64Zero(s.rawCharge[candidate.owner])) continue;
@@ -97,7 +97,7 @@ uint64_t plainQuantity(inout Runtime s, uint who, uint key, uint64_t when)
     uint64_t result = 0;
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
-        uint row = s.orderedRows[pass]; Definition d = s.defs[row];
+        uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row);
         if (d.kind == 0 && d.stat == key && liveRecipient(s,row,who,when)) result = f64Add(result,scalarValue(s,row,who));
     }
     return result;
@@ -108,7 +108,7 @@ uint64_t chargeOverflow(inout Runtime s, uint who, uint64_t when)
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
         uint row = s.orderedRows[pass];
-        if ((s.defs[row].quantityFlags & 64) != 0 && liveRecipient(s,row,who,when)) result = f64Add(result,scalarValue(s,row,who));
+        if ((residentDefinition(s,row).quantityFlags & 64) != 0 && liveRecipient(s,row,who,when)) result = f64Add(result,scalarValue(s,row,who));
     }
     return result;
 }
@@ -136,13 +136,13 @@ uint64_t effectiveCharge(inout Runtime s, uint who, uint64_t base, uint64_t when
     if ((s.quantityMask & 8) != 0 && (chargeFlags(s,who,when) & 4) != 0)
     {
         int best = -1;
-        for (uint row = 0; row < s.count; row++)
+        for (uint row = 0; row < s.carrierCount; row++)
         {
-            Definition d = s.defs[row];
+            Definition d = residentDefinition(s,row);
             if (d.owner != who || d.stat != S_charge_time_fixed || d.kind != 0 || s.alive[row] == 0 || d.fixedLiteral == 0) continue;
             if (best < 0 || f64Less(s.activated[best],s.activated[row]) || f64Equal(s.activated[best],s.activated[row]) && s.entryOrder[row] > s.entryOrder[best]) best = int(row);
         }
-        return best < 0 ? base : s.defs[best].fixedValue;
+        return best < 0 ? base : residentDefinition(s,uint(best)).fixedValue;
     }
     uint64_t step = uint64_t(0x3f847ae1) << 32 | 0x47ae147b; // .01 seconds
     QuantityTotals cut = quantityTotals(s,who,S_charge_speed_pct,when,base,step);

@@ -8,7 +8,7 @@
   "cpu_simulation_executed": false,
   "gpu_execution_performed": false,
   "issues": {
-    "Unported buff or recipient selector": 329,
+    "Unported buff or recipient selector": 325,
     "Unported damage family or geometry": 140,
     "Unported instant or recipient selector": 86,
     "Unported effect fields: duration_bullets": 44,
@@ -133,7 +133,6 @@
     "Unported predicate: self_state:무대 파트 : 댄스": 1,
     "Unported predicate: gauge_mod:무대_단계:2:1": 1,
     "Unported predicate: gauge_mod:무대_단계:2:0": 1,
-    "Unported health recipient selector": 1,
     "Unported predicate: self_undying": 1,
     "Unported effect fields: duration_bullets, scaling": 1,
     "Unported trigger timing: core_hit_count:1": 1,
@@ -148,7 +147,7 @@
     "Unported predicate: target_code:수냉": 1
   },
   "diagnostic_semantic_issues": {
-    "Unported buff or recipient selector": 329,
+    "Unported buff or recipient selector": 325,
     "Unported damage family or geometry": 140,
     "Unported instant or recipient selector": 86,
     "Unported effect fields: duration_bullets": 44,
@@ -273,7 +272,6 @@
     "Unported predicate: self_state:무대 파트 : 댄스": 1,
     "Unported predicate: gauge_mod:무대_단계:2:1": 1,
     "Unported predicate: gauge_mod:무대_단계:2:0": 1,
-    "Unported health recipient selector": 1,
     "Unported predicate: self_undying": 1,
     "Unported effect fields: duration_bullets, scaling": 1,
     "Unported trigger timing: core_hit_count:1": 1,
@@ -288,17 +286,17 @@
     "Unported predicate: target_code:수냉": 1
   },
   "missing_families": {
-    "damage_modifiers": 234,
+    "damage_modifiers": 231,
     "damage": 199,
     "effect_lifecycle": 102,
-    "weapon": 73,
+    "weapon": 72,
     "protection": 59,
     "resource_accumulation": 56,
     "burst_cooldown": 51,
     "control_survival": 47,
     "ammo_reload": 43,
     "charge": 42,
-    "healing": 40,
+    "healing": 39,
     "hp": 15,
     "healing_buffers": 9,
     "character_state": 5
@@ -37192,11 +37190,10 @@
             "full_burst_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "원 포 올 2",
@@ -37221,11 +37218,10 @@
             "full_burst_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "릴렉스",
@@ -54751,11 +54747,10 @@
             "full_charge_fire_count:3"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported health recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported health recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "서약 효력 2",
@@ -58767,11 +58762,10 @@
             "full_burst_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "정비 및 보급",
@@ -58782,11 +58776,10 @@
             "full_burst_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "정비 및 보급 2",
@@ -63534,8 +63527,8 @@
     "app/portable_catalog.py": "01aa57c7dafbe14720a5817c2b2592cb8a47ec94163e2dbc9b0490b6779cfb59",
     "app/portable_combat.py": "e59690a2d46ace2902b4d3aee0270b559bd5a09f46c561a0b9bf036d8effb0d1",
     "app/portable_damage_specs.py": "8f2c2c97f6b017276853501dfe9fd2ceea2dd1a993217f801df6df2000b62e49",
-    "app/portable_runtime.py": "9ae0211247b0001b8ecd4e11e224fc43c7c69b3caa508dd53260cb410ff88992",
-    "app/portable_specs.py": "75a0d731416ebd39c755ff65abb02f5498f17c75ddb15d6815cf905e7f09b740",
+    "app/portable_runtime.py": "862e4c36d39257d9b0481bc04c7df6d713a13f59b33eb102b55b20f2657cb146",
+    "app/portable_specs.py": "857ba1250a52b9f9e342ee87c37666afa74112204e40d4ed7179e494443b3944",
     "app/portable_trigger_specs.py": "61aaa3740ee6f6c6753d321a2848f3ed4e16474e63fc526f5fc14cee69ff01ad",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",

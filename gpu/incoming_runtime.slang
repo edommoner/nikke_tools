@@ -9,7 +9,7 @@ bool liveMarker(inout Runtime s, uint who, uint stat, uint64_t when)
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
         uint row = s.orderedRows[pass];
-        if (s.defs[row].kind == 0 && s.defs[row].stat == stat && liveRecipient(s,row,who,when)) return true;
+        if (residentDefinition(s,row).kind == 0 && residentDefinition(s,row).stat == stat && liveRecipient(s,row,who,when)) return true;
     }
     return false;
 }
@@ -33,14 +33,18 @@ void knockDown(inout Runtime s, uint who, uint64_t when)
 {
     uint bit = 1U << who; s.downMask |= bit; s.hp[who] = 0; s.hpPct[who] = 0;
     s.hpPendingMask &= ~bit; s.hpDirtyMask &= ~bit;
-    for (uint row = 0; row < s.count; row++)
+    for (uint row = 0; row < s.carrierCount; row++)
     {
-        Definition d = s.defs[row];
+        Definition d = residentDefinition(s,row);
         if ((d.kind == 0 || d.kind == 4) && s.alive[row] != 0)
         {
             s.activeRecipients[row] &= ~bit;
             if (s.activeRecipients[row] == 0) { s.alive[row] = 0; s.stacks[row] = 0; }
         }
+    }
+    for (uint row = 0; row < s.count; row++)
+    {
+        Definition d = s.defs[row];
         if (d.owner == who) for (uint slot = 0; slot < d.triggerCount; slot++)
         {
             uint event = commands[s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS+slot*8];

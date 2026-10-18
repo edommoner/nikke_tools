@@ -39,7 +39,9 @@ class PortableBoundaryTests(unittest.TestCase):
                 with self.assertRaises(UnsupportedPortable):self.compile()
                 self.effects=saved
         self.effects.append(copy.deepcopy(self.effects[0]))
-        with self.assertRaises(UnsupportedPortable):self.compile()
+        program,metadata=self.compile()
+        self.assertEqual(program[1],len(self.effects))
+        self.assertEqual(len(metadata['effects']),len(self.effects))
 
     def test_descriptor_boundaries_fail_before_gpu(self):
         from portable_trigger_specs import validate_input
@@ -118,12 +120,12 @@ class PortableIncomingInputTests(unittest.TestCase):
             with self.subTest(command=command),self.assertRaises(ValueError):v.compile_case(case)
 
 class PortableRecipientInputTests(unittest.TestCase):
-    def test_persistent_ranked_and_state_filtered_carriers_remain_fail_closed(self):
+    def test_lazy_ranked_carriers_remain_fail_closed(self):
         from portable_runtime import validate_effect
         effect=dict(name='recipient',type='buff',stat='atk_pct',fixed_value=10,
                     target='self',trigger=dict(timing=['battle_start'],condition=[]))
-        for target in ('allies_top_atk:1','allies_lowest_hp:2','all_allies_burst_casted',
-                       'allies_with_buff:state','allies_random:2',['self','all_allies']):
+        for target in ('allies_top_atk:1','allies_lowest_hp:2',
+                       'allies_random:2',['self','all_allies']):
             with self.subTest(target=target),self.assertRaises(UnsupportedPortable):
                 validate_effect({**effect,'target':target},combat={})
 

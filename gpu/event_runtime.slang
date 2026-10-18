@@ -27,7 +27,7 @@ struct Definition
     uint damageFlags, group, exclusive, quantityFlags, fixedLiteral, polarity;
     int alias;
     uint64_t fixedValue;
-    uint healthScaling, alliedFlags;
+    uint healthScaling, alliedFlags, mergeEligible, statKey;
 };
 struct Frame
 {
@@ -38,14 +38,15 @@ struct Frame
 struct Runtime
 {
     Definition defs[P_DEFINITIONS];
-    uint incomingMask, downMask, activeRecipients[P_DEFINITIONS], receivedHits[5];
+    uint carrierCount, carrierDefinition[P_CARRIERS], multiCarrier[P_DEFINITIONS], removalCount, removalQueue[P_CARRIERS];
+    uint incomingMask, downMask, activeRecipients[P_CARRIERS], receivedHits[5];
     uint64_t receivedDamage[5];
     uint hpWatchCount, hpWatchSlots[P_DEFINITIONS*P_TRIGGERS], hpDirtyMask, hpPendingMask, hpEdgeGuard;
     uint64_t hpPrevious[5], hpNext[5];
     uint healthMask; int healSource;
-    uint64_t baseHP[5], hp[5], hpPct[5], baseDefense[5], hpSnapshot[P_DEFINITIONS], healing[5];
+    uint64_t baseHP[5], hp[5], hpPct[5], baseDefense[5], hpSnapshot[P_CARRIERS], healing[5];
     uint quantityMask, weaponInitialized[5], modeMagazine[5], delayCover[5], pendingAutoReload[5];
-    uint64_t rawCharge[5], activated[P_DEFINITIONS];
+    uint64_t rawCharge[5], activated[P_CARRIERS];
     uint rawRate[5], clipCount[5], geometry[5], probabilityValid[5], probabilityEvaluations[5];
     uint64_t chargeStartedAt[5], minCycle[5], gaugeMultiplier[5], coreDamageBonus[5];
     uint64_t warm[5], lastFire[5], lastInterval[5], postReloadUntil[5];
@@ -65,13 +66,15 @@ struct Runtime
     uint64_t coefficient[5], interval[5], reloadTime[5], chargeTime[5], gain[5], cooldown[5];
     uint64_t nextShot[5], reloadUntil[5], ready[5], chargeUntil[5], gauge, action, fullEnd;
     uint count, error, timerClock, entryClock, traceCount, maxDepth, generation;
-    uint orderedCount, orderedRows[P_DEFINITIONS];
-    uint activations[P_DEFINITIONS], counters[P_DEFINITIONS*P_TRIGGERS], periodInitialized[P_DEFINITIONS], stacks[P_DEFINITIONS], alive[P_DEFINITIONS], entryOrder[P_DEFINITIONS];
+    uint orderedCount, orderedRows[P_CARRIERS];
+    uint activations[P_DEFINITIONS], counters[P_DEFINITIONS*P_TRIGGERS], periodInitialized[P_DEFINITIONS], stacks[P_CARRIERS], alive[P_CARRIERS], entryOrder[P_CARRIERS];
     uint timerActive[P_DEFINITIONS], timerEpoch[P_DEFINITIONS], timerOrder[P_DEFINITIONS], timerGeneration[P_DEFINITIONS];
     uint64_t periodDue[P_DEFINITIONS], periodPrevious[P_DEFINITIONS];
-    uint64_t due[P_DEFINITIONS], expiry[P_DEFINITIONS], end[P_DEFINITIONS], total[5], baseAttack[5];
+    uint64_t due[P_DEFINITIONS], expiry[P_DEFINITIONS], end[P_CARRIERS], total[5], baseAttack[5];
     uint64_t defense, probability, coreBonus, baseCrit, baseCritDamage;
 };
+Definition residentDefinition(inout Runtime s, uint slot) { return s.defs[s.carrierDefinition[slot]]; }
+
 struct Sum { uint64_t total; uint64_t correction; };
 void addSum(inout Sum sum, uint64_t term)
 {
@@ -84,8 +87,8 @@ void addSum(inout Sum sum, uint64_t term)
 // Runtime tests are deliberately distinct from activation-time gates.
 bool stateMember(inout Runtime s, uint who, int name, uint flags)
 {
-    for (uint j = 0; j < s.count; j++)
-        if (s.alive[j] != 0 && int(s.defs[j].name) == name && (s.activeRecipients[j] & (1U << who)) != 0) return true;
+    for (uint j = 0; j < s.carrierCount; j++)
+        if (s.alive[j] != 0 && int(residentDefinition(s,j).name) == name && (s.activeRecipients[j] & (1U << who)) != 0) return true;
     if (s.combat == 0) return flags == 2;
     int mode = s.modeIndex[who];
     if (flags == 1) return mode >= 0;
@@ -95,11 +98,11 @@ bool stateMember(inout Runtime s, uint who, int name, uint flags)
 [noinline]
 bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uint recipient = 0xffffffff)
 {
-    Definition d = s.defs[row];
+    uint definition = s.carrierDefinition[row]; Definition d = s.defs[definition];
     if (runtime && (!f64Less(d.duration,0) || (d.flags & 2) == 0)) return true;
     for (uint i = 0; i < d.conditionCount; i++)
     {
-        uint at = s.inputBase+P_CONDITION_BASE+row*P_CONDITION_WORDS+i*4;
+        uint at = s.inputBase+P_CONDITION_BASE+definition*P_CONDITION_WORDS+i*4;
         uint kind = commands[at]; int name = int(commands[at+1]); uint64_t arg = loadNumber(at+2);
         if (runtime && kind != C_FULL && kind != C_NOT_FULL && kind != C_SELF_STATE && kind != C_NOT_SELF_STATE && kind != C_SELF_STACK && kind != C_CAST && kind != C_NOT_CAST && kind != C_CHARGING && kind != C_ENEMIES_ABOVE && kind != C_ENEMIES_BELOW && kind != C_HP_ABOVE && kind != C_HP_BELOW && kind != C_HP_MAX && kind != C_ALLY_HP_BELOW) continue;
         if (kind == C_FULL && s.phase != 5 || kind == C_NOT_FULL && s.phase == 5) return false;
@@ -112,7 +115,11 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
         if (kind == C_SELF_STACK)
         {
             uint count = 0;
-            for (uint j = 0; j < s.count; j++) if (s.defs[j].owner == d.owner && int(s.defs[j].name) == name && s.alive[j] != 0 && (s.activeRecipients[j] & (1U << d.owner)) != 0) { count = s.stacks[j]; break; }
+            for (uint pass = 0; pass < s.orderedCount; pass++)
+            {
+                uint j = s.orderedRows[pass]; Definition carrier = residentDefinition(s,j);
+                if (carrier.owner == d.owner && int(carrier.name) == name && s.alive[j] != 0 && (s.activeRecipients[j] & (1U << d.owner)) != 0) { count = s.stacks[j]; break; }
+            }
             if (s.combat != 0 && s.modeIndex[d.owner] >= 0 && int(s.defs[s.modeIndex[d.owner]].name) == name) count = 1;
             if (f64Less(f64FromI64(count),arg)) return false;
         }
@@ -139,15 +146,15 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
     return true;
 }
 
-// Each definition has at most one resident carrier in the current wire.
-// Move reactivated carriers to the end, preserving exact floating sum order.
+// Ordered resident slots are independent of immutable definition identities.
+// New or recycled carriers enter at the end; refresh keeps insertion order.
 void markEntry(inout Runtime s, uint row)
 {
     uint at = 0;
     while (at < s.orderedCount && s.orderedRows[at] != row) at++;
     if (at == s.orderedCount)
     {
-        if (s.orderedCount == P_DEFINITIONS) { s.error = 64; return; }
+        if (s.orderedCount == P_CARRIERS) { s.error = 64; return; }
         s.orderedCount++;
     }
     for (uint i = at; i+1 < s.orderedCount; i++) s.orderedRows[i] = s.orderedRows[i+1];
@@ -156,6 +163,7 @@ void markEntry(inout Runtime s, uint row)
     s.entryOrder[row] = ++s.entryClock;
 }
 
+#include "carrier_runtime.slang"
 #include "quantity_runtime.slang"
 #include "health_runtime.slang"
 #include "hp_edge_runtime.slang"
@@ -171,17 +179,17 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
 #ifdef PORTABLE_STAT_SCAN_REFERENCE
     // Reproducible benchmark control. Production uses the ordered branch.
     uint previous = 0;
-    for (uint pass = 0; pass < s.count; pass++)
+    for (uint pass = 0; pass < s.carrierCount; pass++)
     {
-        uint next = 0xffffffff, selected = s.count;
-        for (uint j = 0; j < s.count; j++)
+        uint next = 0xffffffff, selected = s.carrierCount;
+        for (uint j = 0; j < s.carrierCount; j++)
             if (s.entryOrder[j] > previous && s.entryOrder[j] < next) { next = s.entryOrder[j]; selected = j; }
-        if (selected == s.count) break;
-        previous = next; Definition d = s.defs[selected];
+        if (selected == s.carrierCount) break;
+        previous = next; Definition d = residentDefinition(s,selected);
 #else
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
-        uint selected = s.orderedRows[pass]; Definition d = s.defs[selected];
+        uint selected = s.orderedRows[pass]; Definition d = residentDefinition(s,selected);
 #endif
         if (d.alliedFlags != 0 || d.kind != 0 || d.stat >= 64 || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
             (s.activeRecipients[selected] & (1U << who)) == 0 || !basicConditions(s,selected,when,true,who)) continue;
@@ -268,7 +276,9 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
 {
     if (depth == 31) { s.error = 1; return; }
     depth++;
-    Frame f = {}; f.mode = mode; f.event = event; f.owner = owner; f.argument = argument; f.time = when; f.value = value;
+    Frame f = {};
+    if (mode == 9) { f.value = uint(argument); f.repeatLeft = s.removalCount-uint(argument); }
+    f.mode = mode; f.event = event; f.owner = owner; f.argument = argument; f.time = when; f.value = mode == 9 ? uint(argument) : value;
     uint inherited = event < 32 ? P_TARGET_INHERIT_0 : P_TARGET_INHERIT_1;
     f.target = s.combat == 0 || mode != 0 || (event < 64 && (inherited & (1U << (event%32))) != 0) ? s.target : 0;
     frames[depth] = f; s.maxDepth = max(s.maxDepth,uint(depth+1));
@@ -297,6 +307,8 @@ void registerTimer(inout Runtime s, uint row, uint64_t when)
     s.expiry[row] = f64Less(d.duration,0) ? FOREVER : f64Add(when,d.duration);
     if (d.kind == 3)
     {
+        if (s.alive[row] == 0) markEntry(s,row);
+        s.activated[row] = when;
         s.stacks[row] = min(s.stacks[row]+1,d.maxStack);
         s.end[row] = s.expiry[row]; s.alive[row] = 1;
     }
@@ -335,6 +347,12 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
             (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
         { depth--; continue; }
+        if (f.mode == 9)
+        {
+            if (f.cursor == f.repeatLeft) { s.removalCount = f.value; depth--; continue; }
+            uint payload = s.removalQueue[f.value+f.cursor]; frames[depth].cursor++;
+            pushFrame(s,frames,depth,0,29,payload & 7,int(payload >> 3),f.time); continue;
+        }
         if (f.mode == 8)
         {
             uint at = s.inputBase+P_COMMAND_BASE+uint(f.argument)*8;
@@ -405,7 +423,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         }
         if (f.mode == 5 || f.mode == 6)
         {
-            Definition health = s.defs[uint(f.argument)];
+            Definition health = residentDefinition(s,uint(f.argument));
             uint index = frames[depth].cursor;
             uint encoded = index < 5 ? (f.value >> (3*index)) & 7 : 0;
             if (encoded == 0) { depth--; continue; }
@@ -494,25 +512,29 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             s.activations[row]++;
         }
         if (!f64Zero(d.interval) && f.event != 28) { registerTimer(s,row,f.time); continue; }
-        if (d.alias >= 0) { row = uint(d.alias); d = s.defs[row]; }
         if (d.kind == 0 || d.kind == 4)
         {
+            uint64_t duration = d.duration;
+            row = findCarrier(s,row,recipientMask,f.time);
+            if (s.error != 0) break;
+            d = residentDefinition(s,row);
             bool live = s.alive[row] != 0 && f64Less(f.time,s.end[row]);
             if (!live) { s.stacks[row] = 0; s.hpSnapshot[row] = 0; markEntry(s,row); }
+            uint previousStack = s.stacks[row];
             s.activeRecipients[row] = recipientMask;
             s.stacks[row] = min(s.stacks[row]+1,d.maxStack); s.alive[row] = 1; s.activated[row] = f.time;
-            s.end[row] = f64Less(d.duration,0) ? FOREVER : f64Add(f.time,d.duration);
+            s.end[row] = f64Less(duration,0) ? FOREVER : f64Add(f.time,duration);
             if (s.hpWatchCount != 0 && (d.stat >= S_max_hp_pct && d.stat <= S_max_hp_only_pct || d.stat == S_max_hp_from_max_hp_pct))
             {
                 uint64_t grant = prepareHealthGrant(s,row,f.time);
-                pushFrame(s,frames,depth,0,9,d.owner,int(d.name),f.time,s.stacks[row]);
+                if (previousStack != s.stacks[row]) pushFrame(s,frames,depth,0,9,d.owner,int(d.name),f.time,s.stacks[row]);
                 pushFrame(s,frames,depth,5,0,d.owner,int(row),f.time);
                 if (s.error == 0) { frames[depth].healthValue = grant; frames[depth].value = recipientOrder; }
             }
             else
             {
                 applyHealthBuff(s,row,f.time);
-                pushFrame(s,frames,depth,0,9,d.owner,int(d.name),f.time,s.stacks[row]);
+                if (previousStack != s.stacks[row]) pushFrame(s,frames,depth,0,9,d.owner,int(d.name),f.time,s.stacks[row]);
             }
         }
         else if (d.kind == 6)
@@ -554,11 +576,14 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             int mode = s.modeIndex[d.owner];
             if (s.combat != 0 && mode >= 0 && s.defs[mode].name == uint(d.targetName))
             { uint name = s.defs[mode].name; clearMode(s,d.owner,f.time); pushFrame(s,frames,depth,0,29,d.owner,int(name),f.time); }
-            for (uint j = 0; j < s.count; j++) if (s.defs[j].owner == d.owner && s.defs[j].name == uint(d.targetName))
+            uint begin = s.removalCount;
+            for (uint pass = 0; pass < s.orderedCount && s.error == 0; pass++)
             {
-                bool was = s.alive[j] != 0; s.alive[j] = 0; s.stacks[j] = 0; s.timerActive[j] = 0;
-                if (was) pushFrame(s,frames,depth,0,29,d.owner,int(s.defs[j].name),f.time);
+                uint slot = s.orderedRows[pass];
+                if (s.alive[slot] != 0 && residentDefinition(s,slot).name == uint(d.targetName)) queueCarrierEnd(s,slot);
             }
+            for (uint j = 0; j < s.count; j++) if (s.defs[j].name == uint(d.targetName)) s.timerActive[j] = 0;
+            if (s.removalCount > begin) pushFrame(s,frames,depth,9,0,0,int(begin),f.time);
         }
         else if (d.kind == 33) pushFrame(s,frames,depth,2,0,d.owner,int(row),f.time);
         else if (d.kind == 3)
@@ -621,16 +646,24 @@ void tick(inout Runtime s, uint64_t when, uint output)
 {
     if (s.hpWatchCount != 0) dispatch(s,7,0,0,0,when,output);
     timerPass(s,when,true,output);
-    for (uint j = 0; j < s.count; j++) if (s.alive[j] != 0 && !f64Less(when,s.end[j]))
-    { s.alive[j] = 0; s.stacks[j] = 0; syncHealth(s,when); dispatch(s,0,29,s.defs[j].owner,int(s.defs[j].name),when,output); }
+    uint begin = s.removalCount;
+    for (uint pass = 0; pass < s.orderedCount && s.error == 0; pass++)
+    {
+        uint slot = s.orderedRows[pass];
+        if (s.alive[slot] != 0 && !f64Less(when,s.end[slot])) queueCarrierEnd(s,slot);
+    }
+    if (s.removalCount > begin) { syncHealth(s,when); dispatch(s,9,0,0,int(begin),when,output); }
     if (s.combat != 0) for (uint who = 0; who < 5 && s.error == 0; who++)
         if (s.modeIndex[who] >= 0 && !f64Less(when,s.modeEnd[who]))
         { uint name = s.defs[s.modeIndex[who]].name; clearMode(s,who,when); dispatch(s,0,29,who,int(name),when,output); }
     for (uint j = 0; j < s.count && s.error == 0; j++)
         if ((s.downMask & (1U << s.defs[j].owner)) == 0 && (s.defs[j].flags & 1) != 0 && activationConditions(s,j,when))
         {
-            if (s.alive[j] == 0) dispatch(s,1,28,s.defs[j].owner,int(j),when,output);
-            else s.end[j] = larger(s.end[j],f64Add(when,s.defs[j].duration));
+            uint resident = s.carrierCount;
+            for (uint pass = 0; pass < s.orderedCount; pass++)
+            { uint slot = s.orderedRows[pass]; if (s.carrierDefinition[slot] == j && s.alive[slot] != 0) { resident = slot; break; } }
+            if (resident == s.carrierCount) dispatch(s,1,28,s.defs[j].owner,int(j),when,output);
+            else s.end[resident] = larger(s.end[resident],f64Add(when,s.defs[j].duration));
         }
     for (uint j = 0; j < s.count && s.error == 0; j++)
         if (!f64Zero(s.defs[j].period)) for (uint slot = 0; slot < s.defs[j].triggerCount && s.error == 0; slot++)
@@ -659,6 +692,8 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     Runtime s = {}; s.generation = 1; s.count = commands[input+1]; s.combat = commands[input+3]; s.inputBase = input; s.traceMode = commands[input+5];
     if (commands[input] != PORTABLE_ABI || s.count == 0 || s.count > P_DEFINITIONS || commands[input+2] > P_COMMANDS || s.traceMode > 1)
     { results[output] = 64; return; }
+    s.carrierCount = s.count;
+    for (uint row = 0; row < s.count; row++) s.carrierDefinition[row] = row;
     for (uint i = 0; i < 5; i++)
     {
         s.baseAttack[i] = loadNumber(input+8+2*i);
@@ -686,6 +721,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         d.triggerCount = commands[at+D_TRIGGER_COUNT]; d.conditionCount = commands[at+D_CONDITION_COUNT];
         d.flags = commands[at+D_FLAGS]; d.period = loadNumber(at+D_PERIOD); d.damageFlags = commands[at+D_DAMAGE_FLAGS];
         d.target = commands[at+D_TARGET]; d.recipients = commands[at+D_RECIPIENTS];
+        d.mergeEligible = commands[input+P_RECIPIENT_BASE+j*8+7]; d.statKey = commands[input+P_RECIPIENT_BASE+j*8+6];
         if ((d.kind == 0 || d.kind == 4 || d.kind == 6 || d.kind == 8) && !validRecipientPlan(input+P_RECIPIENT_BASE+j*8)) { s.error = 64; break; }
         uint extra = input+P_DEFINITION_EXTRA_BASE+j*P_DEFINITION_EXTRA_WORDS;
         uint health = input+P_HEALTH_DEFINITION_BASE+j*P_HEALTH_DEFINITION_WORDS;
@@ -798,6 +834,14 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         results[dst] = s.targetGeneration[j]; results[dst+1] = s.targetAlive[j];
         storeNumber(dst+2,s.targetHP[j]); storeNumber(dst+4,s.targetDamage[j]); results[dst+6] = s.targetHits[j];
     }
+    for (uint pass = 0; pass < s.orderedCount; pass++)
+    {
+        uint slot = s.orderedRows[pass], at = output+P_CARRIER_STATE_BASE+pass*12;
+        results[at] = slot; results[at+1] = s.carrierDefinition[slot]; results[at+2] = s.activeRecipients[slot];
+        results[at+3] = s.stacks[slot]; results[at+4] = s.alive[slot];
+        storeNumber(at+5,s.end[slot]); storeNumber(at+7,s.activated[slot]); results[at+9] = s.entryOrder[slot]; storeNumber(at+10,s.hpSnapshot[slot]);
+    }
+    results[output+9] = s.orderedCount;
     results[output] = s.error; results[output+1] = queries; results[output+2] = s.traceCount; results[output+3] = s.maxDepth; results[output+4] = s.burstTraceCount; results[output+6] = s.traceTotal;
     results[output+7] = s.burstTraceTotal; results[output+8] = s.frameCount;
 }

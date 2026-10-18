@@ -1,9 +1,10 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721342U;
+static const uint PORTABLE_ABI = 1346721343U;
 static const uint P_BATCH = 512U;
 static const uint P_TRIGGERS = 8U;
 static const uint P_CONDITIONS = 3U;
 static const uint P_DEFINITIONS = 256U;
+static const uint P_CARRIERS = 512U;
 static const uint P_COMMANDS = 64U;
 static const uint P_DEPTH = 32U;
 static const uint P_TRACE = 128U;
@@ -63,7 +64,8 @@ static const uint P_HEALTH_STATE_BASE = 22832U;
 static const uint P_INCOMING_QUERY_BASE = 22888U;
 static const uint P_INCOMING_STATE_BASE = 24168U;
 static const uint P_TIMER_MASK_BASE = 24192U;
-static const uint P_OUTPUT_WORDS = 28672U;
+static const uint P_CARRIER_STATE_BASE = 24704U;
+static const uint P_OUTPUT_WORDS = 32768U;
 static const uint D_OWNER = 0U;
 static const uint D_KIND = 1U;
 static const uint D_STAT = 2U;
