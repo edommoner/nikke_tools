@@ -1,5 +1,5 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721341U;
+static const uint PORTABLE_ABI = 1346721342U;
 static const uint P_BATCH = 512U;
 static const uint P_TRIGGERS = 8U;
 static const uint P_CONDITIONS = 3U;
@@ -45,7 +45,8 @@ static const uint P_HEALTH_BASE = 40824U;
 static const uint P_HEALTH_DEFINITION_BASE = 40864U;
 static const uint P_INCOMING_BASE = 41376U;
 static const uint P_FORCE_BASE = 41632U;
-static const uint P_INPUT_WORDS = 45056U;
+static const uint P_RECIPIENT_BASE = 43680U;
+static const uint P_INPUT_WORDS = 49152U;
 static const uint P_QUERY_BASE = 16U;
 static const uint P_TRACE_BASE = 2064U;
 static const uint P_STATE_BASE = 3088U;

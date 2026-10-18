@@ -117,4 +117,32 @@ class PortableIncomingInputTests(unittest.TestCase):
             case=copy.deepcopy(base);case['script']=[command]
             with self.subTest(command=command),self.assertRaises(ValueError):v.compile_case(case)
 
+class PortableRecipientInputTests(unittest.TestCase):
+    def test_persistent_ranked_and_state_filtered_carriers_remain_fail_closed(self):
+        from portable_runtime import validate_effect
+        effect=dict(name='recipient',type='buff',stat='atk_pct',fixed_value=10,
+                    target='self',trigger=dict(timing=['battle_start'],condition=[]))
+        for target in ('allies_top_atk:1','allies_lowest_hp:2','all_allies_burst_casted',
+                       'allies_with_buff:state','allies_random:2',['self','all_allies']):
+            with self.subTest(target=target),self.assertRaises(UnsupportedPortable):
+                validate_effect({**effect,'target':target},combat={})
+
+    def test_burst_recipient_needs_gpu_combat_state(self):
+        from portable_runtime import validate_effect
+        effect=dict(name='heal',type='instant',stat='heal_hp_pct',fixed_value=10,
+                    trigger=dict(timing=['battle_start'],condition=[]))
+        for target in ('all_allies_burst_casted','all_allies_burst_not_casted','allies_burst_casted_weapon:MG'):
+            with self.subTest(target=target),self.assertRaises(UnsupportedPortable):
+                validate_effect({**effect,'target':target})
+
+    def test_malformed_recipient_counts_do_not_silently_truncate(self):
+        from portable_runtime import validate_effect
+        effect=dict(name='heal',type='instant',stat='heal_hp_pct',fixed_value=10,
+                    trigger=dict(timing=['battle_start'],condition=[]))
+        for target in ('allies_lowest_hp:0','allies_top_atk:6','allies_right:-1',
+                       'allies_adjacent:1.5','allies_class:화력형:6','allies_top_base_charge_time:NaN'):
+            with self.subTest(target=target),self.assertRaises(UnsupportedPortable):
+                validate_effect({**effect,'target':target})
+
+
 if __name__=='__main__':unittest.main()

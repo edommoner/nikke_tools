@@ -227,6 +227,7 @@ void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
     uint64_t amount = damageValue(s,who,f64Div(coefficient,f64FromI64(w.pellets)),when,true,w.coreBonus,w.mode == 1 ? H_CHARGE : 0,w.fullChargeMult,w.optimal != 0);
     if (s.error != 0) return;
     uint count = w.pellets*w.muzzles;
+    uint completedShots = s.shots[who]+1;
     // Capture the packet once. Child buffs and mode switches do not resample
     // later pellets, consume extra ammunition, or redirect this physical shot.
     for (uint hit = 0; hit < count && s.error == 0; hit++)
@@ -234,7 +235,7 @@ void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
         land(s,who,target,amount);
         if (w.mode != 1 || count > 1) dispatch(s,0,20,who,0,when,output);
     }
-    s.shots[who]++;
+    s.shots[who] = completedShots;
     if (s.phase == 0) s.gauge = smaller(HUNDRED,f64Add(s.gauge,f64Mul(f64Mul(w.gain,f64FromI64(count)),w.gaugeMultiplier)));
     if (w.mode == 1 && w.infinite == 0) { if (s.modeEpoch[who] == epoch) s.ammo[who]--; dispatch(s,0,26,who,0,when,output); }
     dispatch(s,0,7,who,0,when,output);

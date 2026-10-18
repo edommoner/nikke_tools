@@ -26,7 +26,7 @@ def main():
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n', encoding='utf-8')
     tracked=['server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_backend.py',
              'scripts/verify-portable-api.py','tests/fixtures/portable-events.json',
-             'app/portable_combat.py','app/portable_specs.py','app/world_condition_specs.py','app/impact_specs.py',
+             'app/portable_recipient_specs.py','tests/fixtures/portable-recipients.json','app/portable_combat.py','app/portable_specs.py','app/world_condition_specs.py','app/impact_specs.py',
              'tests/fixtures/portable-capacity.json','tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases'][0]
@@ -190,6 +190,19 @@ def main():
         assert error.code==400;assert 'capacity' in json.load(error)['error'].lower()
     else:raise AssertionError('257 definitions accepted')
     result['capacity_unsupported_status']=400
+    recipient_cases=json.loads((ROOT/'tests/fixtures/portable-recipients.json').read_text(encoding='utf-8'))['cases']
+    recipient_evidence=[]
+    for name in ('adjacent-heal-owner-first-before-neighbours','empty-casted-recipient-preserves-activation-budget'):
+        c=next(c for c in recipient_cases if c['name']==name)
+        body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(c['effects'],c['owners'])],
+                  script=c['script'],base_atk=[1000]*5,environment=c['environment'],backend=args.backend)
+        if 'combat' in c:body['combat']=c['combat']
+        actual=request(body);assert actual['gpu_execution_verified']
+        for query,expected in zip(actual['results'][0]['queries'],c['expected_queries']):
+            for i,ally in enumerate(expected['allies']):assert query['allies'][i]['hp']==ally['hp']
+        if 'expected_timers' in c:assert actual['results'][0]['timers'][0]['activations']==1
+        recipient_evidence.append(dict(name=name,execution=actual))
+    result['recipient_execution']=recipient_evidence
     result['quantity_unsupported_status']=400
     result['timeline_execution']=timeline_result
     result['extension_execution']=extension_result

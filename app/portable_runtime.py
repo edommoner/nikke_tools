@@ -8,6 +8,7 @@ import re
 import struct
 
 from portable_backend import execute
+from portable_recipient_specs import admitted as recipient_admitted, pack as pack_recipients
 from portable_damage_specs import BUFFS,DAMAGE_FAMILIES
 from portable_specs import ABI, LIMITS as L, FIELDS as F, check_schema
 
@@ -40,19 +41,21 @@ def validate_effect(eff, *, combat=None):
     try:validate_input(eff)
     except ValueError as error:raise UnsupportedPortable(str(error)) from error
     kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
+    if combat is None and isinstance(target,str) and ('burst_casted' in target or target=='all_allies_burst_not_casted'):
+        raise UnsupportedPortable('Recipient selector requires combat-owned burst state')
     if combat is None and stat in ('attack_speed_pct','mg_warmup_speed_pct','reload_speed_pct','reload_ratio_pct','accuracy_pct','max_ammo_pct','max_ammo_flat','charge_speed_pct','charge_speed_caster_based_pct','charge_time_flat','charge_time_fixed','charge_speed_buff_immune','charge_speed_debuff_immune','charge_speed_overflow_conversion_pct'):
         raise UnsupportedPortable('Weapon modifier requires combat mechanics')
     if combat is None and set(eff.get('trigger',{}).get('condition',[])) & {'during_charge','burst_casted','burst_not_casted','has_burst1_ally','no_burst1_ally'}:
         raise UnsupportedPortable('Predicate requires combat-owned charge/burst state')
     if kind=='buff':
-        if (stat not in BUFFS and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat))) or target not in ('self','all_allies'):
+        if (stat not in BUFFS and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat))) or not recipient_admitted(target):
             raise UnsupportedPortable('Unported buff or recipient selector')
     elif kind=='damage':
         if stat not in DAMAGE_FAMILIES or target not in ('target','boss'):
             raise UnsupportedPortable('Unported damage family or geometry')
     elif kind=='instant':
         if stat in ('heal_hp_pct','current_hp_reduce'):
-            if target not in ('self','all_allies'):raise UnsupportedPortable('Unported health recipient selector')
+            if not recipient_admitted(target,instant=True):raise UnsupportedPortable('Unported health recipient selector')
             if eff.get('scaling') not in (None,'max_hp'):raise UnsupportedPortable('Unported healing basis')
         elif stat not in ('remove_named_buff','force_skill_use','burst_reentry') or target!='self':
             raise UnsupportedPortable('Unported instant or recipient selector')
@@ -116,6 +119,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         words[at:at+6]=[*double_words(base),*double_words(current),*double_words(defense_value)]
     words[24:26]=double_words(.15);words[26:28]=double_words(.5)
     for index,row in enumerate(program['effects']):
+        if row[1] in (0,4,6,8):pack_recipients(words,index,row,L)
         compact=[0]*L['DEFINITION_WORDS']
         fields={'OWNER':int(row[0]),'KIND':int(row[1]),'STAT':int(row[2]),'NAME':int(row[3]),
                 'MAX_STACK':int(row[9]),'BUDGET':int(row[57]),'IMMEDIATE':int(row[60]),
@@ -149,7 +153,9 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         combat_meta=pack_combat(words,combat,double_words)
         for eff,owner in effects:
             if eff.get('stat')=='accuracy_pct':
-                recipients=range(5) if eff.get('target')=='all_allies' else [next(i for i,c in enumerate(chars) if c['name']==owner)]
+                # Static filters may select any ally. Require geometry for all
+                # candidates rather than silently compiling an unmodelled hit rate.
+                recipients=range(5) if eff.get('target','self')!='self' else [next(i for i,c in enumerate(chars) if c['name']==owner)]
                 if any(words[L['WEAPON_MECHANICS_BASE']+i*L['WEAPON_MECHANICS_WORDS']+17]==0 for i in recipients):
                     raise UnsupportedPortable('Accuracy modifier requires explicit spread/core geometry for every recipient')
     if combat is not None and defense != 0:
