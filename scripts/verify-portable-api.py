@@ -27,7 +27,7 @@ def main():
     tracked=['server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_backend.py',
              'scripts/verify-portable-api.py','tests/fixtures/portable-events.json',
              'app/portable_combat.py','app/portable_specs.py','app/world_condition_specs.py','app/impact_specs.py',
-             'tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
+             'tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases'][0]
     payload=dict(chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES],
@@ -87,6 +87,19 @@ def main():
     assert scalar_result['gpu_execution_verified'] and scalar_result['weapon_burst_target_connected']
     assert scalar_result['results'][0]['queries'][0]['damage']==scalar_case['expected_queries'][0]['damage']
     result['scalar_execution']=scalar_result
+    weapon_cases=json.loads((ROOT/'tests/fixtures/portable-weapons.json').read_text(encoding='utf-8'))['cases']
+    for name,key in [('unchanged-ratio-reuses-exact-pow','weapon_execution'),('thirty-one-rounds-require-four-clips','reload_execution')]:
+        weapon_case=next(c for c in weapon_cases if c['name']==name)
+        body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[0]) for e in weapon_case['effects']],
+                  script=weapon_case['script'],base_atk=[1000]*5,combat=weapon_case['combat'],backend=args.backend)
+        actual=request(body)
+        assert actual['gpu_execution_verified']
+        for a,e in zip(actual['results'][0]['queries'],weapon_case['expected_queries']):assert a['damage']==e['damage']
+        if 'expected_final' in weapon_case:
+            for k,v in weapon_case['expected_final']['weapons'][0].items():assert actual['results'][0]['weapons'][0][k]==v
+        if 'expected_timers' in weapon_case:
+            assert actual['results'][0]['timers'][-1]['activations']==weapon_case['expected_timers'][-1]['activations']
+        result[key]=actual
     result['timeline_execution']=timeline_result
     result['extension_execution']=extension_result
     result.update(combat_execution=combat_result,combat_unsupported_status=400,combat_unsupported_error=combat_error)

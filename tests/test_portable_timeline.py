@@ -29,6 +29,20 @@ class PortableTimelineBoundaryTests(unittest.TestCase):
         for c in cases:
             with self.subTest(c=c['script'],trace=c['combat']['trace']),self.assertRaises(ValueError):v.compile_case(c)
 
+    def test_real_weapon_normalization_never_ticks_cpu(self):
+        import engine_worker
+        from portable_weapon_input import normalize_static_weapon
+        from calculator.timeline import CharState,DEFAULT_ENEMY
+        from portable_combat import pack_combat
+        from portable_runtime import double_words
+        from portable_specs import LIMITS as L
+        name='모더니아';char=dict(name=name,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[name])
+        with patch.object(CharState,'tick',side_effect=AssertionError('CPU weapon tick called')):
+            weapon=normalize_static_weapon(char,1000,DEFAULT_ENEMY)
+        self.assertEqual(weapon['mode'],'auto_warmup')
+        pack_combat([0]*L['INPUT_WORDS'],dict(weapons=[weapon]+[dict(enabled=False) for _ in range(4)],targets=[{'hp':1000}]),double_words)
+        self.assertGreater(weapon['rate_max'],weapon['rate'])
+
     def test_real_definition_audit_never_executes_cpu_battle(self):
         import engine_worker
         from detail_coverage import body_for

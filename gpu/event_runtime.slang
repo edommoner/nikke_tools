@@ -35,6 +35,11 @@ struct Frame
 struct Runtime
 {
     Definition defs[32];
+    uint rawRate[5], clipCount[5], geometry[5], probabilityValid[5], probabilityEvaluations[5];
+    uint64_t chargeStartedAt[5], minCycle[5], gaugeMultiplier[5], coreDamageBonus[5];
+    uint64_t warm[5], lastFire[5], lastInterval[5], postReloadUntil[5];
+    uint64_t rateMin[5], rateMax[5], warmLimit[5], coolTime[5], postReloadDelay[5];
+    uint64_t spreadStart[5], spreadEnd[5], spreadShots[5], coreDiameter[5], lastSpread[5], lastProbability[5], probabilityRatio[5];
     int modeIndex[5];
     uint currentStage[5], enemySnapshot, attackContext[5];
     uint64_t fullChargeMult[5];
@@ -223,7 +228,7 @@ void clearMode(inout Runtime s, uint who, uint64_t when)
 {
     s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who];
     s.ammo[who] = s.capacity[who]; s.reloadUntil[who] = F64_SIGN | ONE;
-    s.charging[who] = 0; s.nextShot[who] = when; s.modeShots[who] = 0;
+    s.charging[who] = 0; s.nextShot[who] = when; s.modeShots[who] = 0; s.postReloadUntil[who] = F64_SIGN | ONE;
 }
 
 void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mode, uint event, uint owner, int argument, uint64_t when, uint value = 0)
@@ -546,6 +551,13 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         storeNumber(output+P_PERIOD_STATE_BASE+j*4,s.periodDue[j]); storeNumber(output+P_PERIOD_STATE_BASE+j*4+2,s.periodPrevious[j]);
         results[output+P_TIMER_TARGET_BASE+j*2] = s.timerTarget[j];
         results[output+P_TIMER_TARGET_BASE+j*2+1] = s.timerGeneration[j];
+    }
+    if (s.combat != 0) for (uint who = 0; who < 5; who++)
+    {
+        uint at = output+P_WEAPON_STATE_BASE+who*P_WEAPON_STATE_WORDS;
+        storeNumber(at,s.warm[who]); storeNumber(at+2,s.lastFire[who]); storeNumber(at+4,s.lastInterval[who]);
+        storeNumber(at+6,s.postReloadUntil[who]); storeNumber(at+8,s.lastSpread[who]); storeNumber(at+10,s.lastProbability[who]);
+        results[at+12] = s.probabilityEvaluations[who]; storeNumber(at+14,s.chargeStartedAt[who]);
     }
     if (s.combat != 0) for (uint j = 0; j < s.targetCount; j++)
     {

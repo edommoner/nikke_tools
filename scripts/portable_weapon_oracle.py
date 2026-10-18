@@ -1,0 +1,59 @@
+"""Independent CPU weapon regression for authored mechanical inputs.
+Called only after the shared GPU dispatch. No CPU state enters the GPU input.
+"""
+import copy
+from calculator.buff_manager import BuffManager
+from calculator.timeline import CharState
+from timer_registry_cases import NAMES
+import engine_worker
+
+
+def observe(case):
+    w=case['combat']['weapons'][0]
+    if any(x.get('enabled',False) for x in case['combat']['weapons'][1:]):raise ValueError('Oracle fixture needs one enabled shooter')
+    names=list(NAMES)
+    chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=copy.deepcopy(engine_worker.META[n])) for n in names]
+    weapon=chars[0]['_weapon']
+    weapon.update(weapon_type='MG' if w.get('mode')=='auto_warmup' else 'AR',damage_coeff=w.get('coefficient',100),
+                  max_ammo=w.get('capacity',1),reload_time=w.get('reload',1),core_dmg_mult=w.get('core_mult',200),
+                  fire_rate=w.get('rate',1/w.get('interval',1)),fire_rate_max=w.get('rate_max',w.get('rate',1/w.get('interval',1))),
+                  pellets=w.get('pellets',1),muzzles=w.get('muzzles',1),full_charge_mult=w.get('full_charge_mult',100))
+    raw=[(copy.deepcopy(e),names[o]) for e,o in zip(case['effects'],case.get('owners',[0]*len(case['effects'])))]
+    class BM(BuffManager):
+        def _register_all(self):self._effects=raw;self._build_notify_index()
+    bs={n:dict(atk=1000,defense=0,hp=1000000) for n in names}
+    enemy=dict(defense=0,core_px=w.get('core_diameter',0),code=None)
+    # The engine uses 'def', while the public fixture avoids reserved identifiers.
+    enemy['def']=case['combat']['targets'][0].get('defense',0)
+    bm=BM(chars,state=dict(base_stats=bs,enemy=enemy,full_burst=False,rng_acc={},rng_expected=True,camera=set()))
+    st=CharState(chars[0],1000,None)
+    st.weapon=weapon;st.weapon_type=weapon['weapon_type'];st.base_weapon_type=weapon['weapon_type'];st.base_element_match=False
+    st.post_fire_delay=0;st.post_reload_delay=0;st.input_type='DOWN'
+    st.charge_time_base=w.get('charge',1);st._min_fire_cycle=w.get('min_cycle',0)
+    st.post_fire_delay=w.get('interval',1)-w.get('charge',1) if w.get('mode')=='charge' else 0
+    st.cover_during_delay=False
+    st.fire_mode=w.get('mode','auto');st.fire_rate=weapon['fire_rate'];st.fire_rate_max=weapon['fire_rate_max']
+    st.warmup_bullets=w.get('warmup',1);st.mech={**st.mech,'cooldown_time':w.get('cooldown_time',1)}
+    st.clip_count=w.get('clip_count',1);st.is_clip=st.clip_count>1;st.post_reload_delay=w.get('post_reload_delay',0)
+    st.spread_start=w.get('spread_start',1);st.spread_end=w.get('spread_end',1);st._spread_shots_needed=w.get('spread_shots',0)
+    st.burst_energy=w.get('gauge',0)
+    st.pellets=w.get('pellets',1);st.muzzles=w.get('muzzles',1)
+    total=0;shots=0;gauge=0;queries=[];started=False
+    commands=[];next_frame=0
+    for command in case['script']:
+        if command[1]==24:
+            while next_frame<=10800 and next_frame/60<=command[0]:
+                commands.append([next_frame/60,4,0,0,0,-1,0,0]);next_frame+=1
+        else:commands.append(command)
+    for t,op,event,owner,arg,index,extra,extra2 in commands:
+        if op==4:
+            if not started:
+                for n in names:bm.notify('battle_start',t,n)
+                st.ammo=st._full_ammo(bm,t);started=True
+            bm.tick(t)
+            hits=st.tick(t,bm,enemy,{'rng_mode':'expected'})
+            total+=sum(h.damage for h in hits);shots+=int(bool(hits))
+            if hits:gauge=min(100,gauge+st._burst_gain(bm.get_buffs(names[0],'__enemy__',t),len(hits),full_charge=st.fire_mode=='charge' and case.get('weapon_reference_context',{}).get('camera',False)))
+        elif op==2:queries.append(dict(damage=[total,0,0,0,0],combat={'gauge':gauge,'weapons':[dict(ammo=st.ammo,shots=shots,next=st.next_fire_time,reload_until=st.reloading_until)]}))
+        else:raise ValueError('Oracle accepts frame/query fixtures only')
+    return queries,dict(warm=st.warmup_shots,last_interval=st._last_inter)

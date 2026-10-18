@@ -21,7 +21,7 @@ def main():
     semantic=Counter(e['diagnostic_semantic_issue'] for r in rows for e in r.get('effects',[]) if e.get('diagnostic_semantic_issue'))
     families=Counter(e['family'] for r in rows for e in r.get('effects',[]) if not e['preflight_passed'])
     weapons=Counter(g for r in rows for g in r.get('weapon_gaps',[]))
-    tracked=['app/portable_catalog.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_combat.py','app/engine_worker.py',
+    tracked=['app/portable_catalog.py','app/portable_weapon_input.py','app/portable_specs.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_combat.py','app/engine_worker.py',
              'app/effect_spec.py','scripts/audit-portable-catalog.py','scripts/detail_coverage.py',
              'data/engine-effect-overrides.json','research/upstream/nikke-calc-master/data/parsed_nikke.json']
     from effect_spec import COMPAT_LAYERS
@@ -31,6 +31,7 @@ def main():
     tracked=sorted(set(tracked))
     result=dict(catalog_characters=len(rows),audited_characters=sum('setup_error' not in r for r in rows),
                 full_character_verified=sum(r['full_character_verified'] for r in rows),
+                weapon_input_preflight_passed=sum(r.get('weapon_input_preflight_passed',False) for r in rows),
                 own_effect_preflight_passed=sum(r.get('all_effects_preflight_passed',False) for r in rows),
                 assumptions='favorite stage 0, no cube, fixed five-member real roster; definition preflight only; not battle compatibility',
                 cpu_simulation_executed=False,gpu_execution_performed=False,issues=dict(issues.most_common()),
@@ -38,7 +39,7 @@ def main():
                 missing_families=dict(families.most_common()),weapon_gaps=dict(weapons.most_common()),characters=rows,
                 source_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked})
     path=ROOT/'research/portable-catalog-readiness.json';path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    print(json.dumps({k:result[k] for k in ('catalog_characters','audited_characters','full_character_verified','own_effect_preflight_passed','missing_families','weapon_gaps')}))
+    print(json.dumps({k:result[k] for k in ('catalog_characters','audited_characters','full_character_verified','weapon_input_preflight_passed','own_effect_preflight_passed','missing_families','weapon_gaps')}))
     if result['audited_characters']!=result['catalog_characters']:raise SystemExit(1)
 
 

@@ -33,13 +33,15 @@ def double_words(value):
 def validate_effect(eff, *, combat=None):
     allowed = {'name','source','type','stat','fixed_value','values','duration','duration_values',
                'target','trigger','note','trigger_values','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
-    effect_allowed=allowed | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','pellets','muzzles','post_fire_delay','first_damage_coeff','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
+    effect_allowed=allowed | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','first_damage_coeff','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
     if set(eff)-effect_allowed:
         raise UnsupportedPortable('Unported effect fields: '+', '.join(sorted(set(eff)-effect_allowed)))
     from portable_trigger_specs import validate_input
     try:validate_input(eff)
     except ValueError as error:raise UnsupportedPortable(str(error)) from error
     kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
+    if combat is None and stat in ('attack_speed_pct','mg_warmup_speed_pct','reload_speed_pct','reload_ratio_pct','accuracy_pct'):
+        raise UnsupportedPortable('Weapon modifier requires combat mechanics')
     if combat is None and set(eff.get('trigger',{}).get('condition',[])) & {'during_charge','burst_casted','burst_not_casted','has_burst1_ally','no_burst1_ally'}:
         raise UnsupportedPortable('Predicate requires combat-owned charge/burst state')
     if kind=='buff':
@@ -107,6 +109,11 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     if combat is not None:
         from portable_combat import pack_combat
         combat_meta=pack_combat(words,combat,double_words)
+        for eff,owner in effects:
+            if eff.get('stat')=='accuracy_pct':
+                recipients=range(5) if eff.get('target')=='all_allies' else [next(i for i,c in enumerate(chars) if c['name']==owner)]
+                if any(words[L['WEAPON_MECHANICS_BASE']+i*L['WEAPON_MECHANICS_WORDS']+17]==0 for i in recipients):
+                    raise UnsupportedPortable('Accuracy modifier requires explicit spread/core geometry for every recipient')
     if combat is not None and defense != 0:
         raise UnsupportedPortable('Combat uses explicit per-target defense')
     previous=-1; previous_frame=None; frame_mode=None
@@ -175,6 +182,12 @@ def decode(words,metadata):
                 at=states+64+who*8
                 w.update(ready=number(at),charge_until=number(at+2),charging=bool(words[at+4]),aim=words[at+5],mode_index=words[at+6]-1,mode_shots=words[at+7])
             q['combat'].update(reentry_slot=bool(words[states+104]),reentry_done=words[states+105],casts=list(words[states+106:states+111]))
+    weapon_states=[]
+    if metadata.get('combat') is not None:
+        for who in range(5):
+            at=L['WEAPON_STATE_BASE']+who*L['WEAPON_STATE_WORDS']
+            weapon_states.append(dict(warm=number(at),last_fire=number(at+2),last_interval=number(at+4),
+                                      post_reload_until=number(at+6),spread=number(at+8),probability=number(at+10),probability_evaluations=words[at+12],charge_started_at=number(at+14)))
     trace=[]
     for i in range(words[2]):
         at=L['TRACE_BASE']+i*L['TRACE_WORDS'];row=words[at]
@@ -199,7 +212,7 @@ def decode(words,metadata):
         for i,t in enumerate(metadata['combat']['targets']):
             at=L['TARGET_STATE_BASE']+i*10
             targets.append(dict(kind=t.get('kind',0),identity=t.get('identity',i),generation=words[at],active=bool(words[at+1]),hp=number(at+2),damage=number(at+4),hits=words[at+6]))
-    return dict(status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
+    return dict(weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
 
 
 def run_programs(programs, *, backend='metal'):

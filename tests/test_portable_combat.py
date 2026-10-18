@@ -19,8 +19,11 @@ class CombatBoundaryTests(unittest.TestCase):
 
     def test_unported_mechanics_and_invalid_target_identity_fail_closed(self):
         base=v.fixtures()[0]
-        changes=[('weapon',dict(mode='auto_warmup')),('weapon',dict(pellets=65)),('weapon',dict(toggle=True)),
-                 ('weapon',dict(stage=5)),('weapon',dict(full_charge_mult=-1)),
+        changes=[('weapon',dict(mode='manual')),('weapon',dict(pellets=65)),('weapon',dict(toggle=True)),
+                 ('weapon',dict(stage=5)),('weapon',dict(rate=3)),('weapon',dict(rate_max=3)),
+                 ('weapon',dict(warmup=0)),('weapon',dict(clip_count=0)),('weapon',dict(clip_count=1.5)),
+                 ('weapon',dict(core_diameter=1)),('weapon',dict(min_cycle=float('nan'))),
+                 ('weapon',dict(gauge_mult=-1)),('weapon',dict(core_mult=True)),('weapon',dict(full_charge_mult=-1)),
                  ('weapon',dict(full_charge_mult=True)),('weapon',dict(optimal=1)),('weapon',dict(element_match=1)),('weapon',dict(capacity=True)),('weapon',dict(interval=0)),
                  ('weapon',dict(reload=float('nan'))),('weapon',dict(mode='charge',charge=2,interval=1)),
                  ('target',dict(kind=1)),('target',dict(kind=5)),('target',dict(generation=0)),
@@ -48,19 +51,24 @@ class CombatBoundaryTests(unittest.TestCase):
                 (L['WEAPON_EXTRA_BASE'],5*4),(L['MODE_BASE'],L['DEFINITIONS']*L['MODE_WORDS']),
                 (L['EVENT_BASE'],L['DEFINITIONS']*L['EVENT_WORDS']),
                 (L['CONDITION_BASE'],L['DEFINITIONS']*L['CONDITION_WORDS']),
-                (L['ATTACK_CONTEXT_BASE'],5)]
+                (L['ATTACK_CONTEXT_BASE'],5),(L['WEAPON_MECHANICS_BASE'],5*L['WEAPON_MECHANICS_WORDS']),
+                (L['MODE_TIMING_BASE'],L['DEFINITIONS']*L['MODE_TIMING_WORDS'])]
         outputs=[(0,16),(L['QUERY_BASE'],L['COMMANDS']*L['QUERY_WORDS']),
                  (L['TRACE_BASE'],L['TRACE']*L['TRACE_WORDS']),(L['STATE_BASE'],L['DEFINITIONS']*10),
                  (L['TIMER_TARGET_BASE'],L['DEFINITIONS']*2),(L['BURST_TRACE_BASE'],64*8),
                  (L['COMBAT_QUERY_BASE'],L['COMMANDS']*L['COMBAT_QUERY_WORDS']),
                  (L['TARGET_STATE_BASE'],8*10),
                  (L['COMBAT_STATE_QUERY_BASE'],L['COMMANDS']*L['COMBAT_STATE_QUERY_WORDS']),
-                 (L['COUNTER_STATE_BASE'],L['DEFINITIONS']*8),(L['PERIOD_STATE_BASE'],L['DEFINITIONS']*4)]
+                 (L['WEAPON_STATE_BASE'],5*L['WEAPON_STATE_WORDS']),(L['COUNTER_STATE_BASE'],L['DEFINITIONS']*8),(L['PERIOD_STATE_BASE'],L['DEFINITIONS']*4)]
         for regions,capacity in [(inputs,L['INPUT_WORDS']),(outputs,L['OUTPUT_WORDS'])]:
             end=0
             for start,size in sorted(regions):
                 self.assertGreaterEqual(start,end);end=start+size
             self.assertLessEqual(end,capacity);self.assertLessEqual(capacity,16384)
+
+    def test_accuracy_requires_geometry_instead_of_reusing_static_probability(self):
+        c=copy.deepcopy(v.fixtures()[0]);c['effects'][0]['stat']='accuracy_pct'
+        with self.assertRaises(ValueError):v.compile_case(c)
 
     def test_frames_accept_no_precomputed_shot_or_state_payload(self):
         for op,arg,payload in [(4,1,0),(4,0,100),(20,8,0),(21,0,0),(22,8,0)]:

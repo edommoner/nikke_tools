@@ -1,6 +1,6 @@
 {
   "passed": false,
   "gpu_execution_verified": false,
-  "stage": "pending-short-v6-verification",
-  "previous_verified_checkpoint": "portable-combat-v5-checkpoint.json"
+  "stage": "not-yet-requested-after-weapon-mechanics-change",
+  "previous_verified_checkpoint": "portable-combat-v6-checkpoint.json"
 }

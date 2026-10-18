@@ -33,12 +33,20 @@ def audit_prepared(prepared, stats, body):
     weapon=dict(mode=st.fire_mode,pellets=st.pellets,muzzles=st.muzzles,clip_count=st.clip_count,
                 charge_multiplier=st.weapon.get('full_charge_mult',100),spread_start=st.spread_start,
                 spread_end=st.spread_end,spread_shots=st._spread_shots_needed)
-    gaps=[]
-    if st.fire_mode=='auto_warmup':gaps.append('warmup_weapon')
-    if st.clip_count!=1:gaps.append('partial_reload_clips')
-    if st.spread_start!=st.spread_end:gaps.append('dynamic_spread')
-    gaps.append('real_battle_input_adapter_not_connected')
+    from portable_weapon_input import normalize_static_weapon
+    from portable_combat import pack_combat
+    from portable_runtime import double_words
+    from portable_specs import LIMITS as L
+    issue=None;normalized=None
+    try:
+        normalized=normalize_static_weapon(actor,base[name]['atk'],enemy)
+        pack_combat([0]*L['INPUT_WORDS'],dict(weapons=[normalized]+[dict(enabled=False) for _ in range(4)],
+                    targets=[dict(hp=1e12)]),double_words)
+    except (ValueError,TypeError,ZeroDivisionError) as e:issue=str(e)
+    gaps=['real_battle_input_adapter_not_connected']
+    if issue:gaps.append(issue)
     return dict(character=name,own_effects=len(effects),effects=effects,weapon=weapon,weapon_gaps=gaps,scalar_charge_multiplier_input_available=True,
+                normalized_weapon=normalized,weapon_input_preflight_passed=issue is None,weapon_adapter_issue=issue,
                 squad_effects=len(bm._effects),all_effects_preflight_passed=all(e['preflight_passed'] for e in effects),
                 actual_battle_adapter_connected=False,normal_ui_metal_connected=False,
                 cpu_simulation_executed=False,full_character_verified=False)

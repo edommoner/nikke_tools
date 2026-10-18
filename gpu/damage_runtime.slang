@@ -1,3 +1,29 @@
+// Re-evaluate geometry at impact; cache only the exact normalized ratio.
+// The cache is per actor and shared by both backends, never CPU-produced.
+uint64_t normalProbability(inout Runtime s, uint who, uint64_t accuracy)
+{
+    if (s.combat == 0 || s.geometry[who] == 0) return s.probability;
+    uint64_t spread = s.spreadStart[who];
+    if (!f64Zero(s.spreadShots[who]))
+    {
+        uint64_t progress = f64Div(smaller(s.warm[who],s.spreadShots[who]),s.spreadShots[who]);
+        spread = f64Add(spread,f64Mul(f64Add(s.spreadEnd[who],spread ^ F64_SIGN),progress));
+    }
+    uint64_t slope = uint64_t(0x3f829888) << 32 | 0xf861a60d; // binary64 .00908
+    spread = larger(ONE,f64Mul(spread,f64Add(ONE,f64Mul(slope,accuracy) ^ F64_SIGN)));
+    s.lastSpread[who] = spread;
+    uint64_t ratio = f64Div(s.coreDiameter[who],spread);
+    if (s.probabilityValid[who] == 0 || !f64Equal(ratio,s.probabilityRatio[who]))
+    {
+        uint status; uint64_t probability = coreProbability(ratio,status);
+        if (status != 0) { s.error = 128; return 0; }
+        if (s.probabilityEvaluations[who] == 0x7fffffff) { s.error = 2; return 0; }
+        s.probabilityEvaluations[who]++; s.probabilityValid[who] = 1;
+        s.probabilityRatio[who] = ratio; s.lastProbability[who] = probability;
+    }
+    return s.lastProbability[who];
+}
+
 // Seven-factor scalar damage, shared by CUDA and Metal. All intermediate
 // arithmetic is software binary64 and follows the authored reference order.
 [noinline]
@@ -15,7 +41,7 @@ uint64_t damageValue(inout Runtime s, uint who, uint64_t coefficient, uint64_t w
     uint64_t f3 = f64Add(ONE,f64Mul(critRate,larger(0,f64Add(s.baseCritDamage,f64Div(critDamage,HUNDRED)))));
     if (s.phase == 5) f3 = f64Add(f3,uint64_t(0x3fe00000) << 32);
     if (normal && optimal) f3 = f64Add(f3,uint64_t(0x3fd33333) << 32 | 0x33333333);
-    uint64_t core = (flags & H_CORE) != 0 ? ONE : normal ? s.probability : 0;
+    uint64_t core = (flags & H_CORE) != 0 ? ONE : normal ? normalProbability(s,who,b[S_accuracy_pct]) : 0;
     if (!f64Zero(core)) f3 = f64Add(f3,f64Mul(core,f64Add(coreBonus,f64Div(b[S_core_dmg_pct],HUNDRED))));
     uint64_t f4 = (flags & H_CHARGE) != 0 ? f64Add(f64Mul(fullChargeMult,f64Add(ONE,f64Div(b[S_charge_dmg_mag_pct],HUNDRED))),f64Div(b[S_charge_dmg_pct],HUNDRED)) : ONE;
     uint64_t f5 = f64Add(ONE,f64Div(b[S_atk_dmg_pct],HUNDRED));

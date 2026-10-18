@@ -14,7 +14,7 @@ from portable_runtime import compile_program,run_programs,PortableExecutionError
 
 
 def fixtures():
-    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json')),[])
+    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json')),[])
 
 
 def compile_case(case):
@@ -65,6 +65,21 @@ def verify_damage_reference(cases):
     return verified
 
 
+
+def verify_weapon_reference(cases):
+    from portable_weapon_oracle import observe
+    verified=[]
+    for case in cases:
+        if not case.get('weapon_reference'):continue
+        queries,final=observe(case)
+        contains(queries,case['expected_queries'],case['name']+'.cpu')
+        if 'expected_final' in case:
+            expected=case['expected_final'].get('weapons',[{}])[0]
+            contains(final,{k:v for k,v in expected.items() if k in ('warm','last_interval')},case['name']+'.cpu.final')
+        verified.append(case['name'])
+    return verified
+
+
 def evidence_subset(result):
     return {key:result[key] for key in ('transport','source_sha256','generated_sha256',
                                        'input_sha256','output_sha256','gpu_execution_verified','backend')}
@@ -75,8 +90,8 @@ def main():
     args=parser.parse_args();path=ROOT/f'research/portable-combat-{args.backend}.json'
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n',encoding='utf-8')
     tracked=['app/portable_runtime.py','app/portable_combat.py','app/portable_specs.py','app/portable_backend.py',
-             'app/portable_trigger_specs.py','app/portable_damage_specs.py','scripts/verify-detail.py','app/detail_gpu.py','app/effect_spec.py','app/impact_specs.py','app/world_condition_specs.py','scripts/verify-portable-combat.py',
-             'tests/fixtures/portable-damage.json','tests/fixtures/portable-triggers.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json','scripts/run-metal-probe.swift']
+             'app/portable_trigger_specs.py','app/portable_damage_specs.py','scripts/portable_weapon_oracle.py','scripts/verify-detail.py','app/detail_gpu.py','app/effect_spec.py','app/impact_specs.py','app/world_condition_specs.py','scripts/verify-portable-combat.py',
+             'tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-triggers.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json','scripts/run-metal-probe.swift']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     cases=fixtures();programs=[compile_case(c) for c in cases]
     # The same identity may be re-used only with a new bounded generation.
@@ -129,7 +144,8 @@ def main():
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     reference=verify_trigger_reference(cases)
     damage_reference=verify_damage_reference(cases)
-    result.update(damage_cpu_regressions=damage_reference,trigger_cpu_regressions=reference,passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
+    weapon_reference=verify_weapon_reference(cases)
+    result.update(weapon_cpu_regressions=weapon_reference,damage_cpu_regressions=damage_reference,trigger_cpu_regressions=reference,passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
                   rejection_execution=negative,rejected_cases=[dict(name='target-generation-overflow',status=2),dict(name='wire-target-capacity',status=64),dict(name='full-trace-capacity',status=8)],
                   scope='Shared bounded weapon modes, physical pellets/muzzles, burst reentry and body/add targets; no general battle acceptance')
     path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

@@ -1,6 +1,7 @@
 {
   "results": [
     {
+      "weapons": [],
       "status": 0,
       "queries": [
         {
@@ -222,6 +223,7 @@
       "max_stack_depth": 2
     },
     {
+      "weapons": [],
       "status": 0,
       "queries": [
         {
@@ -443,6 +445,7 @@
       "max_stack_depth": 2
     },
     {
+      "weapons": [],
       "status": 0,
       "queries": [
         {
@@ -696,6 +699,7 @@
       "max_stack_depth": 4
     },
     {
+      "weapons": [],
       "status": 0,
       "queries": [
         {
@@ -1005,6 +1009,7 @@
       "max_stack_depth": 4
     },
     {
+      "weapons": [],
       "status": 0,
       "queries": [
         {
@@ -1274,6 +1279,7 @@
       "max_stack_depth": 3
     },
     {
+      "weapons": [],
       "status": 0,
       "queries": [
         {
@@ -1575,6 +1581,7 @@
       "max_stack_depth": 4
     },
     {
+      "weapons": [],
       "status": 0,
       "queries": [
         {
@@ -1900,6 +1907,7 @@
       "max_stack_depth": 4
     },
     {
+      "weapons": [],
       "status": 0,
       "queries": [
         {
@@ -2185,6 +2193,7 @@
       "max_stack_depth": 3
     },
     {
+      "weapons": [],
       "status": 0,
       "queries": [
         {
@@ -2310,6 +2319,7 @@
       "max_stack_depth": 2
     },
     {
+      "weapons": [],
       "status": 0,
       "queries": [
         {
@@ -2390,6 +2400,7 @@
       "max_stack_depth": 2
     },
     {
+      "weapons": [],
       "status": 0,
       "queries": [
         {
@@ -2473,6 +2484,7 @@
       "max_stack_depth": 2
     },
     {
+      "weapons": [],
       "status": 0,
       "queries": [
         {
@@ -2532,6 +2544,7 @@
       "max_stack_depth": 2
     },
     {
+      "weapons": [],
       "status": 0,
       "queries": [
         {
@@ -2591,6 +2604,7 @@
       "max_stack_depth": 2
     },
     {
+      "weapons": [],
       "status": 0,
       "queries": [
         {
@@ -2650,6 +2664,7 @@
       "max_stack_depth": 2
     },
     {
+      "weapons": [],
       "status": 0,
       "queries": [
         {
@@ -2733,6 +2748,7 @@
       "max_stack_depth": 2
     },
     {
+      "weapons": [],
       "status": 0,
       "queries": [
         {
@@ -2863,24 +2879,25 @@
     "cases": 16,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.006498791626654565,
+    "gpu_seconds": 0.006530541693791747,
     "input_bytes": 524292,
     "output_bytes": 1048576,
     "registry_id": "4294968313"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "6fc889935b9046e6f6cb7ee9ab6cebf06c612309e7047291195a1acfb0da54d6",
+    "gpu/event_runtime.slang": "6acddc9384238b6d3b99cd248799ea1bc37559ac8e96b9aed274cc2cb8370233",
     "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "97effbec28968c28b923b99236f4ac5b741233dbeeab550e95295ca3082f310d",
-    "gpu/damage_runtime.slang": "4d31319e50b0302200b2874475b3e3112a5b1fb77923e2ba05d7488bed604281",
-    "gpu/combat_runtime.slang": "5d8e8f4d7007b494c8faaef958ac19bf0350ade9eddca9463b132fbf2e3405ec"
+    "gpu/portable_schema.slang": "782b508556f89416f97221916a9e6113c08b7cc5510de9182d4a2c1aad7a4a0e",
+    "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
+    "gpu/combat_runtime.slang": "8befb9c2ff2cc84609c682d97887d7b0f318519bb4d9005ec58c8f2f07edf108",
+    "gpu/weapon_runtime.slang": "0800a5878e33eb0893a19d4b710fa9decf21f6f86c44f9d1cf974225cfb9fa8c"
   },
   "generated_sha256": {
-    "cuda": "8f94fb440f9b3a6a47cddcb06963edbc8471e73ee07e7bf612e17105fcbae02c",
-    "metal": "de573c5898330b98997f597a9fc772332c5a4643a4da5a31804be3cad6d1e373"
+    "cuda": "5f09d70b74c6b1ed259933275db5ce9b6d40d4c0aa47dafd8421365b8d3437c1",
+    "metal": "bd2e2ac58ed5599521ffc4f964f5a89031a3beec424b8c7ffa9216e5d882e169"
   },
-  "input_sha256": "89d84794488009134da6b8eb883d890ce13852b6419be0a20f07302772ffefce",
+  "input_sha256": "a3ba9e1a3ab96305d2af56bf2e003363708ffd9c8350453bb966faf2b4d4197d",
   "output_sha256": "f3d3357d6b867aa2ca7d5039619159d13aae856369d23ce21a545277c912649e",
   "gpu_execution_verified": true,
   "backend": "metal",
@@ -2902,6 +2919,7 @@
         4000
       ],
       "actual": {
+        "weapons": [],
         "status": 0,
         "queries": [
           {
@@ -3135,6 +3153,7 @@
         4000
       ],
       "actual": {
+        "weapons": [],
         "status": 0,
         "queries": [
           {
@@ -3368,6 +3387,7 @@
         5000
       ],
       "actual": {
+        "weapons": [],
         "status": 0,
         "queries": [
           {
@@ -3633,6 +3653,7 @@
         14000
       ],
       "actual": {
+        "weapons": [],
         "status": 0,
         "queries": [
           {
@@ -3954,6 +3975,7 @@
         4000
       ],
       "actual": {
+        "weapons": [],
         "status": 0,
         "queries": [
           {
@@ -4235,6 +4257,7 @@
         12000
       ],
       "actual": {
+        "weapons": [],
         "status": 0,
         "queries": [
           {
@@ -4548,6 +4571,7 @@
         12000
       ],
       "actual": {
+        "weapons": [],
         "status": 0,
         "queries": [
           {
@@ -4885,6 +4909,7 @@
         14000
       ],
       "actual": {
+        "weapons": [],
         "status": 0,
         "queries": [
           {
@@ -5179,6 +5204,7 @@
         3513
       ],
       "actual": {
+        "weapons": [],
         "status": 0,
         "queries": [
           {
@@ -5312,6 +5338,7 @@
         4
       ],
       "actual": {
+        "weapons": [],
         "status": 0,
         "queries": [
           {
@@ -5399,6 +5426,7 @@
         1000
       ],
       "actual": {
+        "weapons": [],
         "status": 0,
         "queries": [
           {
@@ -5489,6 +5517,7 @@
         1000
       ],
       "actual": {
+        "weapons": [],
         "status": 0,
         "queries": [
           {
@@ -5555,6 +5584,7 @@
         1000
       ],
       "actual": {
+        "weapons": [],
         "status": 0,
         "queries": [
           {
@@ -5621,6 +5651,7 @@
         1001
       ],
       "actual": {
+        "weapons": [],
         "status": 0,
         "queries": [
           {
@@ -5687,6 +5718,7 @@
         6000
       ],
       "actual": {
+        "weapons": [],
         "status": 0,
         "queries": [
           {
@@ -5779,6 +5811,7 @@
         3500
       ],
       "actual": {
+        "weapons": [],
         "status": 0,
         "queries": [
           {
@@ -5922,33 +5955,34 @@
       "cases": 2,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.0002631250536069274,
+      "gpu_seconds": 0.0003065000055357814,
       "input_bytes": 65540,
       "output_bytes": 131072,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "6fc889935b9046e6f6cb7ee9ab6cebf06c612309e7047291195a1acfb0da54d6",
+      "gpu/event_runtime.slang": "6acddc9384238b6d3b99cd248799ea1bc37559ac8e96b9aed274cc2cb8370233",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "97effbec28968c28b923b99236f4ac5b741233dbeeab550e95295ca3082f310d",
-      "gpu/damage_runtime.slang": "4d31319e50b0302200b2874475b3e3112a5b1fb77923e2ba05d7488bed604281",
-      "gpu/combat_runtime.slang": "5d8e8f4d7007b494c8faaef958ac19bf0350ade9eddca9463b132fbf2e3405ec"
+      "gpu/portable_schema.slang": "782b508556f89416f97221916a9e6113c08b7cc5510de9182d4a2c1aad7a4a0e",
+      "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
+      "gpu/combat_runtime.slang": "8befb9c2ff2cc84609c682d97887d7b0f318519bb4d9005ec58c8f2f07edf108",
+      "gpu/weapon_runtime.slang": "0800a5878e33eb0893a19d4b710fa9decf21f6f86c44f9d1cf974225cfb9fa8c"
     },
     "generated_sha256": {
-      "cuda": "8f94fb440f9b3a6a47cddcb06963edbc8471e73ee07e7bf612e17105fcbae02c",
-      "metal": "de573c5898330b98997f597a9fc772332c5a4643a4da5a31804be3cad6d1e373"
+      "cuda": "5f09d70b74c6b1ed259933275db5ce9b6d40d4c0aa47dafd8421365b8d3437c1",
+      "metal": "bd2e2ac58ed5599521ffc4f964f5a89031a3beec424b8c7ffa9216e5d882e169"
     },
-    "input_sha256": "ae15b509595117d569c1d3c772c274b54601b5f3915b4f6e0ab134fd6c70ee8b",
+    "input_sha256": "c3e4c3ce02f10c07dd91ca0ee996d6161d8a42305042a0a012f176ae932665f7",
     "output_sha256": "09acde43861edb1a4298c4b52131ce4bbdfedf8b7b5749620c4d0a1b26ef9920",
     "gpu_execution_verified": true,
     "backend": "metal"
   },
   "adapter_sha256": {
-    "app/portable_runtime.py": "24eda69bb417354d439970da37a41f847fa2b09601b49334c92d903e8518d918",
+    "app/portable_runtime.py": "433f79a175ea2f84c905b007a40c916eee0dae4145fc3939ffe66c7af45dc685",
     "app/portable_trigger_specs.py": "77d9457c502dd0bfd2e6570f5ae1488f012ebd90dc2facf7a0c3f068943011eb",
-    "app/portable_damage_specs.py": "4517745603ee5b39f3475a058cdd229094c22434ee36afdb14030df77a2e1fb1",
-    "app/portable_specs.py": "bde8a1768ca5b6c56bb0425de69c3c9d486b7a5b2eb61bb4845d504a07623b03",
+    "app/portable_damage_specs.py": "c3d6b6c00a4cc3bd9bb676db99587332a5a7720d0b1956a25c8473955b3495ef",
+    "app/portable_specs.py": "f823993c871a2ac8b960a342a54242a01c9aa5dfda8a264b90b827a0a5cd9753",
     "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
     "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",

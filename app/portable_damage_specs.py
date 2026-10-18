@@ -4,6 +4,7 @@ Stat identities remain the existing effect compiler's identities.
 from effect_spec import DETAIL_STAT, EXTRA_STAT
 
 BUFFS=frozenset(('atk_pct','atk_caster_based_pct','def_ignore_pct','crit_rate','crit_dmg',
+    'attack_speed_pct','mg_warmup_speed_pct','reload_speed_pct','reload_ratio_pct','accuracy_pct',
     'core_dmg_pct','charge_dmg_pct','charge_dmg_mag_pct','atk_dmg_pct',
     'normal_atk_dmg_pct','burst_dmg_pct','sequential_dmg_pct',
     'projectile_attachment_dmg_pct','projectile_explosion_dmg_pct','element_bonus_pct',
