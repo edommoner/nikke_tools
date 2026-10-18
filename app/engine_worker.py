@@ -342,6 +342,9 @@ def evaluate(body):
         for char in run.squad:
             if char['name'] in no_cube:
                 char['cube'] = {'name': '__none__', 'level': 1}
+        if body.get('_portable_static_inputs'):
+            from portable_roster_input import prepare_static_inputs
+            return prepare_static_inputs(run, changed)
         if body.get('_audit_portable'):
             from portable_catalog import audit_prepared
             return audit_prepared(run, changed, body)

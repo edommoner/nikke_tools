@@ -54,4 +54,17 @@ class PortableTimelineBoundaryTests(unittest.TestCase):
         self.assertFalse(result['actual_battle_adapter_connected'])
 
 
+
+class PortableRealPreparationTests(unittest.TestCase):
+    def test_static_owned_growth_stage_includes_all_effects_without_battle(self):
+        import engine_worker
+        from detail_coverage import body_for
+        names=['모더니아','루주','마스트 : 로망틱 메이드','도라','얀']
+        with patch.object(engine_worker.sim,'execute',side_effect=AssertionError('CPU battle called')):
+            result=engine_worker.evaluate({**body_for(names,grown=True),'_portable_static_inputs':True})
+        self.assertFalse(result['cpu_battle_executed']);self.assertFalse(result['full_battle_connected'])
+        self.assertTrue(result['all_character_effects_included']);self.assertGreater(len(result['effects']),32)
+        self.assertEqual(len(result['chars']),5);self.assertEqual(len(result['weapons']),5)
+        self.assertEqual(len([e for e in result['effects'] if e['effect'].get('_source_tag')=='equipment']),45)
+
 if __name__=='__main__':unittest.main()

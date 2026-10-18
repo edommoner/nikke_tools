@@ -80,17 +80,22 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     import detail_gpu as legacy
     check_schema()
     effects = list(effects)
+    if not 1<=len(effects)<=L['DEFINITIONS']:raise UnsupportedPortable('Portable definition capacity exceeded')
     for eff, owner in effects:validate_effect(eff,combat=combat)
     program=legacy.compile_effects(chars,effects)
     if len(program['effects'])!=len(effects) or not 1<=len(effects)<=L['DEFINITIONS']:
         raise UnsupportedPortable('Portable definition capacity or expansion exceeded')
     seen_names={}
     for i,((eff,owner),row) in enumerate(zip(effects,program['effects'])):
-        key=(owner,eff.get('name'))
-        independent_quantity=eff.get('type')=='buff' and eff.get('stat') in ('max_ammo_pct','charge_speed_pct','charge_speed_caster_based_pct') and eff.get('_source_tag')=='equipment'
-        if key in seen_names and not (independent_quantity and int(row[43])==seen_names[key]):
-            raise UnsupportedPortable('Multiple named carriers are only accepted for independent equipment quantity components')
-        seen_names.setdefault(key,i)
+        key=(owner,eff.get('name'));previous=seen_names.get(key,[])
+        equipment=eff.get('type')=='buff' and eff.get('_source_tag')=='equipment'
+        prior_equipment=all(effects[j][0].get('type')=='buff' and effects[j][0].get('_source_tag')=='equipment' for j in previous)
+        distinct_stat=all(effects[j][0].get('stat')!=eff.get('stat') for j in previous)
+        independent_quantity=eff.get('stat') in ('max_ammo_pct','charge_speed_pct','charge_speed_caster_based_pct')
+        if previous and not (equipment and prior_equipment and
+                             (distinct_stat and int(row[43])==-1 or independent_quantity and int(row[43]) in previous)):
+            raise UnsupportedPortable('Multiple named carriers require distinct equipment components or verified quantity groups')
+        seen_names.setdefault(key,[]).append(i)
     if not 1<=len(script)<=L['COMMANDS'] or len(base_atk)!=5:
         raise ValueError('Invalid portable command/base-stat dimensions')
     words=[0]*L['INPUT_WORDS'];words[0:3]=[ABI,len(effects),len(script)];words[5]=1
@@ -130,6 +135,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         extra=L['DEFINITION_EXTRA_BASE']+index*L['DEFINITION_EXTRA_WORDS']
         words[extra:extra+8]=[int(row[45]),int(row[55]),(-1 if int(row[2]) in (18,20,37) else int(row[43])) & 0xffffffff,int(row[213]),
                               *double_words(row[138]),int(row[139]),int(row[209])]
+        force=L['FORCE_BASE']+index*L['MASK_WORDS']
+        words[force:force+L['MASK_WORDS']]=[int(row[legacy.B3_MASK+k]) for k in range(L['MASK_WORDS'])]
         health=L['HEALTH_DEFINITION_BASE']+index*L['HEALTH_DEFINITION_WORDS']
         words[health:health+2]=[int(row[50]),int(effects[index][0].get('stat')=='def_pct') | (int(effects[index][0].get('stat')=='received_dmg_pct')<<1)]
         if row[1]==2:
@@ -207,7 +214,7 @@ def decode(words,metadata):
     for i in range(words[1]):
         at=L['QUERY_BASE']+i*L['QUERY_WORDS']
         queries.append(dict(time=number(at),damage=[number(at+2+2*k) for k in range(5)],
-                            active_timer_mask=words[at+12],generation=words[at+13],
+                            active_timer_mask=words[at+12],active_timer_mask_words=list(words[L['TIMER_MASK_BASE']+i*L['MASK_WORDS']:L['TIMER_MASK_BASE']+(i+1)*L['MASK_WORDS']]),generation=words[at+13],
                             stack_depth=words[at+14],timer_clock=words[at+15],
                             attack_buffs=[number(at+16+2*k) for k in range(5)]))
     if metadata.get('combat') is not None:

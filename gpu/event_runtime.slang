@@ -22,7 +22,7 @@ struct Definition
     uint64_t value, duration, interval;
     uint immediate, preserve, event, threshold, countMode;
     int eventName, targetName;
-    uint forceMask, recipients, target, stageArg, stageOverride, reentry, toggle, triggerCount, conditionCount, flags;
+    uint recipients, target, stageArg, stageOverride, reentry, toggle, triggerCount, conditionCount, flags;
     uint64_t period;
     uint damageFlags, group, exclusive, quantityFlags, fixedLiteral, polarity;
     int alias;
@@ -37,15 +37,15 @@ struct Frame
 };
 struct Runtime
 {
-    Definition defs[32];
-    uint incomingMask, downMask, activeRecipients[32], receivedHits[5];
+    Definition defs[P_DEFINITIONS];
+    uint incomingMask, downMask, activeRecipients[P_DEFINITIONS], receivedHits[5];
     uint64_t receivedDamage[5];
-    uint hpWatchCount, hpWatchSlots[256], hpDirtyMask, hpPendingMask, hpEdgeGuard;
+    uint hpWatchCount, hpWatchSlots[P_DEFINITIONS*P_TRIGGERS], hpDirtyMask, hpPendingMask, hpEdgeGuard;
     uint64_t hpPrevious[5], hpNext[5];
     uint healthMask; int healSource;
-    uint64_t baseHP[5], hp[5], hpPct[5], baseDefense[5], hpSnapshot[32], healing[5];
+    uint64_t baseHP[5], hp[5], hpPct[5], baseDefense[5], hpSnapshot[P_DEFINITIONS], healing[5];
     uint quantityMask, weaponInitialized[5], modeMagazine[5], delayCover[5], pendingAutoReload[5];
-    uint64_t rawCharge[5], activated[32];
+    uint64_t rawCharge[5], activated[P_DEFINITIONS];
     uint rawRate[5], clipCount[5], geometry[5], probabilityValid[5], probabilityEvaluations[5];
     uint64_t chargeStartedAt[5], minCycle[5], gaugeMultiplier[5], coreDamageBonus[5];
     uint64_t warm[5], lastFire[5], lastInterval[5], postReloadUntil[5];
@@ -59,17 +59,17 @@ struct Runtime
     uint64_t modeEnd[5], reentryDelay;
     uint combatStarted, combat, targetCount, target, aim[5], targetAlive[8], targetGeneration[8], targetHits[8];
     uint64_t targetHP[8], targetDamage[8], targetDefense[8];
-    uint timerTarget[32];
+    uint timerTarget[P_DEFINITIONS];
     uint weaponEnabled[5], weaponMode[5], capacity[5], ammo[5], shots[5], stage[5], charging[5];
     uint phase, castMask, traceMode, traceTotal, burstTraceTotal, nextFrame, frameCount;
     uint64_t coefficient[5], interval[5], reloadTime[5], chargeTime[5], gain[5], cooldown[5];
     uint64_t nextShot[5], reloadUntil[5], ready[5], chargeUntil[5], gauge, action, fullEnd;
     uint count, error, timerClock, entryClock, traceCount, maxDepth, generation;
-    uint orderedCount, orderedRows[32];
-    uint activations[32], counters[256], periodInitialized[32], stacks[32], alive[32], entryOrder[32];
-    uint timerActive[32], timerEpoch[32], timerOrder[32], timerGeneration[32];
-    uint64_t periodDue[32], periodPrevious[32];
-    uint64_t due[32], expiry[32], end[32], total[5], baseAttack[5];
+    uint orderedCount, orderedRows[P_DEFINITIONS];
+    uint activations[P_DEFINITIONS], counters[P_DEFINITIONS*P_TRIGGERS], periodInitialized[P_DEFINITIONS], stacks[P_DEFINITIONS], alive[P_DEFINITIONS], entryOrder[P_DEFINITIONS];
+    uint timerActive[P_DEFINITIONS], timerEpoch[P_DEFINITIONS], timerOrder[P_DEFINITIONS], timerGeneration[P_DEFINITIONS];
+    uint64_t periodDue[P_DEFINITIONS], periodPrevious[P_DEFINITIONS];
+    uint64_t due[P_DEFINITIONS], expiry[P_DEFINITIONS], end[P_DEFINITIONS], total[5], baseAttack[5];
     uint64_t defense, probability, coreBonus, baseCrit, baseCritDamage;
 };
 struct Sum { uint64_t total; uint64_t correction; };
@@ -439,7 +439,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 uint j = frames[depth].cursor++; Definition d = s.defs[j];
                 if (f.mode == 2)
                 {
-                    if ((s.defs[f.argument].forceMask & (1U << j)) != 0) { row = j; break; }
+                    if ((commands[s.inputBase+P_FORCE_BASE+uint(f.argument)*P_MASK_WORDS+j/32] & (1U << (j%32))) != 0) { row = j; break; }
                     continue;
                 }
                 if (f.event != 26 && d.owner != f.owner) continue;
@@ -576,7 +576,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
 
 void timerPass(inout Runtime s, uint64_t when, bool damagePass, uint output)
 {
-    uint rows[32], epochs[32], count = 0;
+    uint rows[P_DEFINITIONS], epochs[P_DEFINITIONS], count = 0;
     // Snapshot registration order AND epoch before any child is run.
     for (uint j = 0; j < s.count; j++) if (s.timerActive[j] != 0 && (s.defs[j].kind == 3) == damagePass)
     {
@@ -669,7 +669,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         d.reentry = commands[at+D_REENTRY]; d.toggle = commands[at+D_TOGGLE];
         d.triggerCount = commands[at+D_TRIGGER_COUNT]; d.conditionCount = commands[at+D_CONDITION_COUNT];
         d.flags = commands[at+D_FLAGS]; d.period = loadNumber(at+D_PERIOD); d.damageFlags = commands[at+D_DAMAGE_FLAGS];
-        d.target = commands[at+D_TARGET]; d.forceMask = commands[at+D_FORCE_MASK]; d.recipients = commands[at+D_RECIPIENTS];
+        d.target = commands[at+D_TARGET]; d.recipients = commands[at+D_RECIPIENTS];
         uint extra = input+P_DEFINITION_EXTRA_BASE+j*P_DEFINITION_EXTRA_WORDS;
         uint health = input+P_HEALTH_DEFINITION_BASE+j*P_HEALTH_DEFINITION_WORDS;
         d.healthScaling = commands[health]; d.alliedFlags = commands[health+1];
@@ -680,7 +680,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         if (d.kind == 6 || d.kind == 8) s.healthMask |= 16;
         d.group = commands[extra]; d.exclusive = commands[extra+1]; d.alias = int(commands[extra+2]); d.quantityFlags = commands[extra+3];
         d.fixedValue = loadNumber(extra+4); d.fixedLiteral = commands[extra+6]; d.polarity = commands[extra+7];
-        if (d.group >= P_DEFINITIONS || d.alias >= int(j)) { s.error = 64; break; }
+        if (d.group >= s.count || d.alias >= int(j)) { s.error = 64; break; }
         if (d.kind == 0 && d.stat == S_invincible) s.incomingMask |= 1;
         if (d.kind == 0 && d.stat == S_undying) s.incomingMask |= 2;
         if (d.kind == 0 && d.stat == S_received_dmg_pct) s.incomingMask |= 4;
@@ -748,9 +748,11 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             queries = max(queries,index+1); uint dst = output+P_QUERY_BASE+index*P_QUERY_WORDS;
             storeNumber(dst,when);
             for (uint who = 0; who < 5; who++) { storeNumber(dst+2+2*who,s.total[who]); storeNumber(dst+16+2*who,readStat(s,who,0,when)); }
-            uint mask = 0; for (uint j = 0; j < s.count; j++) if (s.timerActive[j] != 0) mask |= 1U << j;
+            uint masks[P_MASK_WORDS]; for (uint word = 0; word < P_MASK_WORDS; word++) masks[word] = 0;
+            for (uint j = 0; j < s.count; j++) if (s.timerActive[j] != 0) masks[j/32] |= 1U << (j%32);
+            for (uint word = 0; word < P_MASK_WORDS; word++) results[output+P_TIMER_MASK_BASE+index*P_MASK_WORDS+word] = masks[word];
             if (s.combat != 0) writeCombatQuery(s,output+P_COMBAT_QUERY_BASE+index*P_COMBAT_QUERY_WORDS,output+P_COMBAT_STATE_QUERY_BASE+index*P_COMBAT_STATE_QUERY_WORDS);
-            results[dst+12] = mask; results[dst+13] = s.combat != 0 ? s.targetGeneration[s.target] : s.generation; results[dst+14] = 0; results[dst+15] = s.timerClock;
+            results[dst+12] = masks[0]; results[dst+13] = s.combat != 0 ? s.targetGeneration[s.target] : s.generation; results[dst+14] = 0; results[dst+15] = s.timerClock;
         }
         else s.error = 64;
     }

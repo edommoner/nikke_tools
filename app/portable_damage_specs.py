@@ -9,7 +9,7 @@ BUFFS=frozenset(('invincible','undying','received_dmg_pct','def_pct','def_caster
     'attack_speed_pct','mg_warmup_speed_pct','reload_speed_pct','reload_ratio_pct','accuracy_pct',
     'core_dmg_pct','charge_dmg_pct','charge_dmg_mag_pct','atk_dmg_pct',
     'normal_atk_dmg_pct','burst_dmg_pct','sequential_dmg_pct',
-    'projectile_attachment_dmg_pct','projectile_explosion_dmg_pct','element_bonus_pct',
+    'projectile_attachment_dmg_pct','projectile_explosion_dmg_pct','element_bonus_pct','element_bonus',
     'normal_atk_crit_rate','normal_atk_crit_dmg','split_dmg_pct','pierce_dmg_pct',
     'dot_dmg_pct','armor_break_dmg_pct','part_dmg_pct','intercept_dmg_pct',
     'burst_dmg_aoe_pct','burst_dmg_single_pct'))

@@ -14,7 +14,7 @@ from portable_runtime import compile_program,run_programs,PortableExecutionError
 
 
 def fixtures():
-    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json','portable-quantities.json','portable-charge-control.json','portable-health.json','portable-hp-edges.json','portable-incoming.json')),[])
+    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json','portable-quantities.json','portable-charge-control.json','portable-health.json','portable-hp-edges.json','portable-incoming.json','portable-capacity.json')),[])
 
 
 def compile_case(case):
@@ -72,7 +72,10 @@ def verify_weapon_reference(cases):
     for case in cases:
         if not case.get('weapon_reference'):continue
         queries,final=observe(case)
-        contains(queries,case.get('known_cpu_difference',{}).get('expected_queries',case['expected_queries']),case['name']+'.cpu')
+        # The weapon oracle observes damage/weapon state; allied HP/defense
+        # remain checked by GPU hand expectations and the separate health oracle.
+        cpu_expected=case.get('known_cpu_difference',{}).get('expected_queries',case['expected_queries'])
+        contains(queries,[{k:v for k,v in q.items() if k in ('damage','combat')} for q in cpu_expected],case['name']+'.cpu')
         if 'known_cpu_difference' in case:
             differences.append(dict(name=case['name'],reason=case['known_cpu_difference']['reason'],actual_cpu_queries=queries,expected_cpu_queries=case['known_cpu_difference']['expected_queries'],expected_gpu_queries=case['expected_queries']))
         if 'expected_final' in case:
@@ -113,8 +116,8 @@ def main():
     args=parser.parse_args();path=ROOT/f'research/portable-combat-{args.backend}.json'
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n',encoding='utf-8')
     tracked=['app/portable_runtime.py','app/portable_combat.py','app/portable_specs.py','app/portable_backend.py',
-             'app/portable_trigger_specs.py','app/portable_damage_specs.py','scripts/portable_health_oracle.py','scripts/portable_weapon_oracle.py','scripts/verify-detail.py','app/detail_gpu.py','app/effect_spec.py','app/impact_specs.py','app/world_condition_specs.py','scripts/verify-portable-combat.py',
-             'tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-triggers.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json','scripts/run-metal-probe.swift']
+             'app/portable_trigger_specs.py','app/portable_damage_specs.py','scripts/portable_capacity_oracle.py','scripts/portable_health_oracle.py','scripts/portable_weapon_oracle.py','scripts/verify-detail.py','app/detail_gpu.py','app/effect_spec.py','app/impact_specs.py','app/world_condition_specs.py','scripts/verify-portable-combat.py',
+             'tests/fixtures/portable-capacity.json','tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-triggers.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json','scripts/run-metal-probe.swift']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     cases=fixtures();programs=[compile_case(c) for c in cases]
     # The same identity may be re-used only with a new bounded generation.
@@ -135,9 +138,10 @@ def main():
     health_zero=copy.deepcopy(next(c for c in cases if c['name']=='max-hp-only-keeps-current-hp'));health_zero['effects'][0]['fixed_value']=-100
     health_overflow=copy.deepcopy(health_zero);health_overflow['effects'][0]['fixed_value']=1e308
     incoming_overflow=copy.deepcopy(next(c for c in cases if c['name']=='incoming-body-reduction-is-after-defense'));incoming_overflow['effects'][0]['fixed_value']=1e308;incoming_overflow['script'][1][6]=1e30
+    definition_overflow,definition_meta=compile_case(cases[0]);definition_overflow[1]=L['DEFINITIONS']+1
     rejections=[dict(name='target-generation-overflow',status=2),dict(name='wire-target-capacity',status=64),
-                dict(name='full-trace-capacity',status=8),dict(name='quantity-int64-range',status=2),dict(name='ammunition-state-range',status=2),dict(name='nonpositive-maximum-hp',status=16),dict(name='health-arithmetic-overflow',status=16),dict(name='incoming-arithmetic-overflow',status=16)]
-    negative_programs=[(p,m),(malformed,malformed_meta),compile_case(full_trace),compile_case(quantity_overflow),compile_case(capacity_overflow),compile_case(health_zero),compile_case(health_overflow),compile_case(incoming_overflow)]
+                dict(name='full-trace-capacity',status=8),dict(name='quantity-int64-range',status=2),dict(name='ammunition-state-range',status=2),dict(name='nonpositive-maximum-hp',status=16),dict(name='health-arithmetic-overflow',status=16),dict(name='incoming-arithmetic-overflow',status=16),dict(name='wire-definition-capacity',status=64)]
+    negative_programs=[(p,m),(malformed,malformed_meta),compile_case(full_trace),compile_case(quantity_overflow),compile_case(capacity_overflow),compile_case(health_zero),compile_case(health_overflow),compile_case(incoming_overflow),(definition_overflow,definition_meta)]
     indices=list(range(len(cases),len(cases)+len(rejections)))
     statuses=[0]*len(cases)+[c['status'] for c in rejections]
     try:
@@ -176,12 +180,19 @@ def main():
         if 'expected_timers' in c:contains(r['timers'],c['expected_timers'],c['name']+'.timers')
         rows.append(dict(name=c['name'],passed=True,actual=r))
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
-    reference=verify_trigger_reference([c for c in cases if not c.get('health_reference')])
+    reference=verify_trigger_reference([c for c in cases if not c.get('health_reference') and not c.get('capacity_reference')])
     damage_reference=verify_damage_reference(cases)
+    from portable_capacity_oracle import observe as capacity_observe
+    capacity_reference=[]
+    for case,gpu in zip(cases,result['results']):
+        if case.get('capacity_reference') and 'combat' not in case:
+            cpu=capacity_observe(case)
+            assert cpu==[q['attack_buffs'] for q in gpu['queries']],case['name']
+            capacity_reference.append(case['name'])
     weapon_reference,cpu_differences=verify_weapon_reference(cases)
     health_reference,health_differences=verify_health_reference(cases,result['results'])
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
-    result.update(health_cpu_regressions=health_reference,known_health_cpu_differences=health_differences,known_cpu_differences=cpu_differences,weapon_cpu_regressions=weapon_reference,damage_cpu_regressions=damage_reference,trigger_cpu_regressions=reference,passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
+    result.update(capacity_cpu_regressions=capacity_reference,health_cpu_regressions=health_reference,known_health_cpu_differences=health_differences,known_cpu_differences=cpu_differences,weapon_cpu_regressions=weapon_reference,damage_cpu_regressions=damage_reference,trigger_cpu_regressions=reference,passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
                   rejection_execution=negative,rejected_cases=rejections,
                   scope='Shared bounded weapon modes, physical pellets/muzzles, burst reentry and body/add targets; no general battle acceptance')
     path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

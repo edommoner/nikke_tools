@@ -122,6 +122,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -440,6 +450,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -758,6 +778,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -1076,6 +1106,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -1394,6 +1434,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -1712,6 +1762,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -2030,6 +2090,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -2348,6 +2418,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -2666,6 +2746,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -2984,6 +3074,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -3302,6 +3402,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -3620,6 +3730,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -3938,6 +4058,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -4256,6 +4386,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -4574,6 +4714,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -4892,6 +5042,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -5210,6 +5370,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -5528,6 +5698,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -5846,6 +6026,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -6164,6 +6354,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -6482,6 +6682,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -6800,6 +7010,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -7118,6 +7338,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -7436,6 +7666,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -7754,6 +7994,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -8072,6 +8322,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -8390,6 +8650,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -8708,6 +8978,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -9026,6 +9306,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -9344,6 +9634,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -9662,6 +9962,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -9980,6 +10290,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -10298,6 +10618,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -10616,6 +10946,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -10934,6 +11274,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -11252,6 +11602,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -11570,6 +11930,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -11888,6 +12258,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -12206,6 +12586,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -12524,6 +12914,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -12842,6 +13242,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -13160,6 +13570,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -13478,6 +13898,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -13796,6 +14226,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -14114,6 +14554,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -14432,6 +14882,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -14750,6 +15210,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -15068,6 +15538,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -15386,6 +15866,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -15704,6 +16194,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -16022,6 +16522,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -16340,6 +16850,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -16658,6 +17178,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -16976,6 +17506,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -17294,6 +17834,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -17612,6 +18162,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -17930,6 +18490,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -18248,6 +18818,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -18566,6 +19146,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -18884,6 +19474,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -19202,6 +19802,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -19520,6 +20130,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -19838,6 +20458,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -20156,6 +20786,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -20474,6 +21114,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -20792,6 +21442,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -21110,6 +21770,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -21428,6 +22098,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -21746,6 +22426,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -22064,6 +22754,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -22382,6 +23082,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -22700,6 +23410,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -23018,6 +23738,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -23336,6 +24066,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -23654,6 +24394,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -23972,6 +24722,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -24290,6 +25050,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -24608,6 +25378,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -24926,6 +25706,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -25244,6 +26034,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -25562,6 +26362,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -25880,6 +26690,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -26198,6 +27018,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -26516,6 +27346,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -26834,6 +27674,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -27152,6 +28002,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -27470,6 +28330,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -27788,6 +28658,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -28106,6 +28986,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -28424,6 +29314,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -28742,6 +29642,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -29060,6 +29970,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -29378,6 +30298,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -29696,6 +30626,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -30014,6 +30954,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -30332,6 +31282,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -30650,6 +31610,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -30968,6 +31938,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -31286,6 +32266,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -31604,6 +32594,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -31922,6 +32922,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -32240,6 +33250,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -32558,6 +33578,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -32876,6 +33906,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -33194,6 +34234,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -33512,6 +34562,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -33830,6 +34890,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -34148,6 +35218,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -34466,6 +35546,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -34784,6 +35874,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -35102,6 +36202,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -35420,6 +36530,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -35738,6 +36858,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -36056,6 +37186,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -36374,6 +37514,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -36692,6 +37842,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -37010,6 +38170,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -37328,6 +38498,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -37646,6 +38826,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -37964,6 +39154,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -38282,6 +39482,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -38600,6 +39810,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -38918,6 +40138,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -39236,6 +40466,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -39554,6 +40794,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -39872,6 +41122,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -40190,6 +41450,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -40508,6 +41778,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -40826,6 +42106,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -41144,6 +42434,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -41462,6 +42762,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -41780,6 +43090,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -42098,6 +43418,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -42416,6 +43746,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -42734,6 +44074,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -43052,6 +44402,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -43370,6 +44730,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -43688,6 +45058,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -44006,6 +45386,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -44324,6 +45714,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -44642,6 +46042,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -44960,6 +46370,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -45278,6 +46698,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -45596,6 +47026,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -45914,6 +47354,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -46232,6 +47682,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -46550,6 +48010,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -46868,6 +48338,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -47186,6 +48666,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -47504,6 +48994,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -47822,6 +49322,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -48140,6 +49650,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -48458,6 +49978,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -48776,6 +50306,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -49094,6 +50634,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -49412,6 +50962,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -49730,6 +51290,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -50048,6 +51618,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -50366,6 +51946,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -50684,6 +52274,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -51002,6 +52602,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -51320,6 +52930,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -51638,6 +53258,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -51956,6 +53586,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -52274,6 +53914,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -52592,6 +54242,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -52910,6 +54570,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -53228,6 +54898,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -53546,6 +55226,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -53864,6 +55554,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -54182,6 +55882,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -54500,6 +56210,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -54818,6 +56538,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -55136,6 +56866,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -55454,6 +57194,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -55772,6 +57522,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -56090,6 +57850,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -56408,6 +58178,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -56726,6 +58506,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -57044,6 +58834,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -57362,6 +59162,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -57680,6 +59490,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -57998,6 +59818,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -58316,6 +60146,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -58634,6 +60474,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -58952,6 +60802,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -59270,6 +61130,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -59588,6 +61458,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -59906,6 +61786,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -60224,6 +62114,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -60542,6 +62442,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -60860,6 +62770,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -61178,6 +63098,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -61496,6 +63426,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -61814,6 +63754,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -62132,6 +64082,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -62450,6 +64410,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -62768,6 +64738,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -63086,6 +65066,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -63404,6 +65394,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -63722,6 +65722,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -64040,6 +66050,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -64358,6 +66378,16 @@
             0.0
           ],
           "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
           "generation": 1,
           "stack_depth": 0,
           "timer_clock": 0,
@@ -64560,17 +66590,17 @@
     "cases": 203,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.02808625000761822,
-    "input_bytes": 6651908,
-    "output_bytes": 16629760,
+    "gpu_seconds": 0.028074333327822387,
+    "input_bytes": 36585476,
+    "output_bytes": 23281664,
     "registry_id": "4294968313"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "58336e90b7d6758147bc7a03cefd59feea436fb0cdb2888b52779d2017498498",
+    "gpu/event_runtime.slang": "b2ded665fa0532d603202b13fbdd3c575c697c417523c158e446a8a4cc4d9965",
     "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "4ab794d55f8c72726d297b4bc410b37b509ddde866fe00a7176fa27200b2884d",
-    "gpu/quantity_runtime.slang": "58c63447e927fbeb69f30e072e32442dbfd20109f8752b4b25d88f5cf142b385",
+    "gpu/portable_schema.slang": "fd17875a7dde3f03a7bd3b5c9eace350da27a00a247eddb6c2117fa4ee0256ca",
+    "gpu/quantity_runtime.slang": "ad3033e00d01ebf6b081d6e6dfced1adc7b4a5ede74ac20bd40d1797b8a0f453",
     "gpu/health_runtime.slang": "b7de067859187536dc27be2427ed5642d87c45abf8f558678b87dd003046a2eb",
     "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
     "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
@@ -64579,11 +66609,11 @@
     "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
   },
   "generated_sha256": {
-    "cuda": "fd682ddd96b34877bca1b3d063fd686575204c44fa0340437f3723cf4d97648e",
-    "metal": "7c455b15318e00ff2b3c92210f478c2170ef9b5b79d4bbdec0b0862ce7130c81"
+    "cuda": "c8324d8130a3c67083ea36a1ce408a1a19ee0ba6bcf3672ab796c981487e4ad8",
+    "metal": "f8b595d357d94d4243c7af96fd40e56cfc5256616ac94ac5ce1256ff82d05096"
   },
-  "input_sha256": "9e366fc88831fb010a005fd399a88a8376b6311880299802d03c7712f6d8f2b0",
-  "output_sha256": "116cb3214b7f02ff031d03c0d09982d57e8f571f12f582acb5a9743956cf4db3",
+  "input_sha256": "af616b95dc16f007d21741213916e68640dbd0c75865fc181b2a2e72e5cb19fa",
+  "output_sha256": "064f072dc8d258137a8649d1bbcbdb5c4c4b3a45801582c12de24d2731fc0cff",
   "gpu_execution_verified": true,
   "backend": "metal",
   "application_event_runtime_connected": true,
@@ -64615,7 +66645,7 @@
     "app/enemy_recipient_runtime.py": "7ab242283f8de0b746e10af22178a074ee4368c8a7160c0be084ca0b0ac65d4d",
     "app/enemy_recipient_specs.py": "d9f9c1c2daaac1860fb7ad722348c31029c3287e5de15229a02a9ea0d91566ba",
     "app/engine_compat.py": "ca841c7fe18f68682699ee71b52194c079d1a861e7f7e385b7d322e5b4d101d5",
-    "app/engine_worker.py": "92d56095c83ac5eddab4d1d6066cadccafa272581237f3d4d93b96d9eda1edbd",
+    "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
     "app/event_index_specs.py": "d5f74f83d1e5bd09555407a2b52bcb7fcdbad4c203098d608e8170a063e65c90",
     "app/gpu_combat.py": "610c6b1dc97825577bd3d1639691377726c8232909b5816b388d66582b994cb1",
     "app/gpu_selector.py": "913cf0fdab130614dbf1b73e6016550a4ea07b6fee27f540f6bae079e1c2c2b3",
@@ -64636,9 +66666,10 @@
     "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
     "app/portable_catalog.py": "01aa57c7dafbe14720a5817c2b2592cb8a47ec94163e2dbc9b0490b6779cfb59",
     "app/portable_combat.py": "e59690a2d46ace2902b4d3aee0270b559bd5a09f46c561a0b9bf036d8effb0d1",
-    "app/portable_damage_specs.py": "7bd74a9067ca83f7e050667fe7970dfdb6b740c605b7deceb65ffac87d4d4021",
-    "app/portable_runtime.py": "0fa5a521498ce5f94dd9a4631df7f1d7d003732f99a5a54be5fef0b8d1ad5662",
-    "app/portable_specs.py": "d7802e1847d003a3ddf55247d8fe0b80d3101baeb525e6a8972adaf37ed7b36a",
+    "app/portable_damage_specs.py": "8f2c2c97f6b017276853501dfe9fd2ceea2dd1a993217f801df6df2000b62e49",
+    "app/portable_roster_input.py": "02707af9bec615d14337d87fdacdbf2d2a6131120fe215f87340f1771efc3770",
+    "app/portable_runtime.py": "8f0298f51161bf6d52e2c260f1d5d36f7c47b744ed065b6966edcf459d3a2120",
+    "app/portable_specs.py": "1a777d81ef82fedfb1e3a03ca7be927173a46e0007a0f816cb32c07e1ee43138",
     "app/portable_trigger_specs.py": "61aaa3740ee6f6c6753d321a2848f3ed4e16474e63fc526f5fc14cee69ff01ad",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/protection_runtime.py": "a6909bbdd73ef24ebdd3136cc67932c7ab433f23ae9ecabfc2a5069a5db37c81",
@@ -64724,6 +66755,7 @@
     "scripts/audit-squad-condition.py": "a0f050c36e950066a9afd15c467c1a1b3db98d067546eea892dad640b9bf265f",
     "scripts/audit-team-hits.py": "7311103a5496ef4e281bb933b12ce09e234883e54f69765fbadc09ddff917203",
     "scripts/benchmark-combat.py": "59f36be13bb1540eb89eceadfd1b8d5363e455be11f75346631f8a015d0d9741",
+    "scripts/benchmark-portable-capacity.py": "b58f33ca679bf318bd14cf1b0c1f80ef1a31ad20a2c550c8ede176e9afc35734",
     "scripts/benchmark-portable-charge-control.py": "cf4ffbe2c8044e1d03650102190d5fb35fc9d6b26f5341b5341e3a30f3d1618e",
     "scripts/benchmark-portable-health.py": "86c9de952ef4842faae5f30adb309d11e7ba4b4548be8722e957cfb537fe696b",
     "scripts/benchmark-portable-hp-edges.py": "58dcaa028a777de2083ac5224dfcf496cc2421381822b7cbfaeced7e38d453a3",
@@ -64772,6 +66804,7 @@
     "scripts/make-timers-fixture.py": "0566107152a2c6e3160e821312187d8f597434353c59025bceb532799e7c1b56",
     "scripts/make-weapons-fixture.py": "5fdbaa0fd0d4f718bad00714841496be956712b8faac15eaf3d6a50437b6a5f9",
     "scripts/periodic_target_cases.py": "5e2c1522e9f6aeabafd60f95775670061a9461a9c7b37c2ad1794ab0da626f81",
+    "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
     "scripts/portable_health_oracle.py": "604fac3904201a048ffbb6606e754fed5b8fca9cea9418afb8a282858d24f891",
     "scripts/portable_weapon_oracle.py": "5fa773a498d5103388f2faee38a69cc56898b1ff9ebff842fe6ccb8fb8736f1f",
     "scripts/prepare_metadata.py": "a3dbec2b9c635a2fefae3dfe7511cc1c2b9b7155b3cd77392fe3b771667fdf7c",
@@ -64884,12 +66917,13 @@
     "scripts/verify-periodic-detail.py": "592431aefb6cbba77fc8b0ac925dbcbe342fa87e488d423cedfa270df0261e05",
     "scripts/verify-periodic-sources-detail.py": "bece3113347f76c55022591fb7308cc2bcd181ff56497cb17de691f791450dda",
     "scripts/verify-periodic-targets-detail.py": "e159b1a38c095cfedb489105ae2c90051f6cf34cdbc8a35acb351b1e9b835159",
-    "scripts/verify-portable-api.py": "e96539bb08d6d2f0a476e17f17ffb93e6e36e780ae0ca28465ae09aacc734fe8",
+    "scripts/verify-portable-api.py": "597af864d0c1187399191f1868dd17ecfd76eaa6fcfc80cb53ef5a9444d06194",
     "scripts/verify-portable-catalog-weapons.py": "4986f71dc931d68ffad1bcdea2bf9be5e1dcb586e8d0c1a6001b5ca75799e3e6",
-    "scripts/verify-portable-combat.py": "53dc5b2bd9a88b4f87fce4e79de9581a5559cf929a71ff82fa3edfefce87df02",
+    "scripts/verify-portable-combat.py": "3ba652f8a7802fba3b67a28d3641ef0244cbc7bc71ce02f4e1c478b7d77b17d0",
     "scripts/verify-portable-events.py": "a0c19364ccfbb0436268ca56a79457abbb588235c71a8e6d1565d8fe757cd6a7",
     "scripts/verify-portable-numeric.py": "6f69e28e3de824899cc5e25320eb9ebfc2a5a4f44c5a3e5dc393a0ce7b664d9e",
     "scripts/verify-portable-probe.py": "e2bd6b6f9148a178477a3a11c83a4ac4387bc865b4d18b2252e989387917ff13",
+    "scripts/verify-portable-real-equipment.py": "a68165811420ad925714ac29ba5ed9a4b3b549910e78f0b5220959df57ca30af",
     "scripts/verify-predicate-mixes.py": "d6c3ce874d45bab3a2f4808fa54b236edb7278ac04d921c6a93435cc58ea308f",
     "scripts/verify-predicate-stimuli.py": "1b94a6b8f2d5c681f0317d6fbc825dfccc8ca95747105e17a52da89e3ef36896",
     "scripts/verify-predicates-detail.py": "445fad6aee8b59d4dedf0a851a3f265fbed7706661b65fd217b3b2fee3fbf0b3",

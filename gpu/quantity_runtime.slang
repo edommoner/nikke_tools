@@ -34,8 +34,15 @@ QuantityTotals quantityTotals(inout Runtime s, uint who, uint key, uint64_t when
     if ((s.quantityMask & required) == 0) return result;
     uint immunity = key == S_charge_speed_pct ? chargeFlags(s,who,when) : 0;
     if ((immunity & 4) != 0) return result;
-    uint64_t values[32]; uint seen[32], order[32], flags[32], count = 0;
-    for (uint i = 0; i < 32; i++) { values[i] = 0; seen[i] = 0; flags[i] = 0; }
+    uint64_t values[P_DEFINITIONS]; uint seen[P_DEFINITIONS], order[P_DEFINITIONS], flags[P_DEFINITIONS], count = 0;
+#ifdef PORTABLE_CAPACITY_SCAN_REFERENCE
+    uint initializedGroups = P_DEFINITIONS;
+#else
+    // Compiler groups are dense and the GPU validates group < definition count.
+    // Do not clear unused capacity for each quantity query on a small program.
+    uint initializedGroups = s.count;
+#endif
+    for (uint i = 0; i < initializedGroups; i++) { values[i] = 0; seen[i] = 0; flags[i] = 0; }
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
         uint row = s.orderedRows[pass]; Definition d = s.defs[row];
