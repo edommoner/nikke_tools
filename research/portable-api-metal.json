@@ -77,7 +77,9 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         },
         {
           "effect": "strength on hit",
@@ -87,9 +89,12 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         }
       ],
+      "targets": [],
       "max_stack_depth": 1
     }
   ],
@@ -98,27 +103,637 @@
     "cases": 1,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.002669083361979574,
-    "input_bytes": 8196,
-    "output_bytes": 16384,
+    "gpu_seconds": 0.002029749972280115,
+    "input_bytes": 16388,
+    "output_bytes": 65536,
     "registry_id": "4294968313"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "604e67c839f08b72641fa2bb38557112340a5369fa5590e184f76f7e0dba3e5f",
+    "gpu/event_runtime.slang": "f9b732b287ca8ec3b732f25fde095363761200c5979719e57bf3dd6029f8b3d7",
     "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "a20f49526dbfbde5da737082bef04e0baaf6f335a58a668420785ac251a301d5"
+    "gpu/portable_schema.slang": "e068c26d86f58f068f42aa3be4984869c0dafe38e0b95c09c6975903fae70d4a",
+    "gpu/combat_runtime.slang": "d23a5054a00b6d0f2ae6cb23154f67d15aad70e129044c23fe4c133e9a2d465c"
   },
   "generated_sha256": {
-    "cuda": "4485e055acdd3f75b14a60cd91023d5d97b77230f2c38f19f5c9f3e71edf74c9",
-    "metal": "fb7cda024567d944e8a648453bd1d74d43eb077082b02f73f73fe67da5b2bf68"
+    "cuda": "599d6973b944af93ff69350fa0f3688cfdea0de54cb4a57503b3ef3ff62bbc42",
+    "metal": "b98507764d6ae75e8b66820661ba2217ecb54077b60932d1f42faa0015a7cf92"
   },
-  "input_sha256": "800a6d3c2c7913ad01f079c7346c65f5614e0258866481225b173b6383242353",
-  "output_sha256": "dce7dd10f75621344d97e08c7a043f421e3a30c174eeecc2a45602da083aa420",
+  "input_sha256": "636c72cf019f12096b05dcb0d25fbbe29b70ba00aec64189cced7f55262a519c",
+  "output_sha256": "c99e72f63a670dc0920691d5ae1af55233e1119656aad7b5c259cb26dc802139",
   "gpu_execution_verified": true,
   "backend": "metal",
   "application_event_runtime_connected": true,
   "autonomous_battle_connected": false,
+  "weapon_burst_target_connected": false,
+  "combat_execution": {
+    "results": [
+      {
+        "status": 0,
+        "queries": [
+          {
+            "time": 0,
+            "damage": [
+              1000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 1,
+                  "shots": 1,
+                  "next": 0.25,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                }
+              ],
+              "phase": 0,
+              "cast_mask": 0,
+              "gauge": 0,
+              "action": 0,
+              "full_end": 0,
+              "target": 0,
+              "targets": [
+                {
+                  "generation": 1,
+                  "active": true,
+                  "hp": 99000,
+                  "damage": 1000,
+                  "hits": 1
+                }
+              ]
+            }
+          },
+          {
+            "time": 0.25,
+            "damage": [
+              2000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 0,
+                  "shots": 2,
+                  "next": 0.5,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                }
+              ],
+              "phase": 0,
+              "cast_mask": 0,
+              "gauge": 0,
+              "action": 0,
+              "full_end": 0,
+              "target": 0,
+              "targets": [
+                {
+                  "generation": 1,
+                  "active": true,
+                  "hp": 98000,
+                  "damage": 2000,
+                  "hits": 2
+                }
+              ]
+            }
+          },
+          {
+            "time": 0.5,
+            "damage": [
+              2000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 0,
+                  "shots": 2,
+                  "next": 0.5,
+                  "reload_until": 1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                }
+              ],
+              "phase": 0,
+              "cast_mask": 0,
+              "gauge": 0,
+              "action": 0,
+              "full_end": 0,
+              "target": 0,
+              "targets": [
+                {
+                  "generation": 1,
+                  "active": true,
+                  "hp": 98000,
+                  "damage": 2000,
+                  "hits": 2
+                }
+              ]
+            }
+          },
+          {
+            "time": 0.75,
+            "damage": [
+              2000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 0,
+                  "shots": 2,
+                  "next": 0.5,
+                  "reload_until": 1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                }
+              ],
+              "phase": 0,
+              "cast_mask": 0,
+              "gauge": 0,
+              "action": 0,
+              "full_end": 0,
+              "target": 0,
+              "targets": [
+                {
+                  "generation": 1,
+                  "active": true,
+                  "hp": 98000,
+                  "damage": 2000,
+                  "hits": 2
+                }
+              ]
+            }
+          },
+          {
+            "time": 1,
+            "damage": [
+              3000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 1,
+                  "shots": 3,
+                  "next": 1.25,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                }
+              ],
+              "phase": 0,
+              "cast_mask": 0,
+              "gauge": 0,
+              "action": 0,
+              "full_end": 0,
+              "target": 0,
+              "targets": [
+                {
+                  "generation": 1,
+                  "active": true,
+                  "hp": 97000,
+                  "damage": 3000,
+                  "hits": 3
+                }
+              ]
+            }
+          },
+          {
+            "time": 1.25,
+            "damage": [
+              4000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 0,
+                  "shots": 4,
+                  "next": 1.5,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0
+                }
+              ],
+              "phase": 0,
+              "cast_mask": 0,
+              "gauge": 0,
+              "action": 0,
+              "full_end": 0,
+              "target": 0,
+              "targets": [
+                {
+                  "generation": 1,
+                  "active": true,
+                  "hp": 96000,
+                  "damage": 4000,
+                  "hits": 4
+                }
+              ]
+            }
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "no critical",
+            "due": 0,
+            "expiry": 0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
+          }
+        ],
+        "targets": [
+          {
+            "kind": 0,
+            "identity": 0,
+            "generation": 1,
+            "active": true,
+            "hp": 96000,
+            "damage": 4000,
+            "hits": 4
+          }
+        ],
+        "max_stack_depth": 1
+      }
+    ],
+    "transport": {
+      "backend": "metal",
+      "cases": 1,
+      "command_status": "completed",
+      "device": "Apple M5",
+      "gpu_seconds": 0.0007329999934881926,
+      "input_bytes": 16388,
+      "output_bytes": 65536,
+      "registry_id": "4294968313"
+    },
+    "source_sha256": {
+      "gpu/event_runtime.slang": "f9b732b287ca8ec3b732f25fde095363761200c5979719e57bf3dd6029f8b3d7",
+      "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
+      "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+      "gpu/portable_schema.slang": "e068c26d86f58f068f42aa3be4984869c0dafe38e0b95c09c6975903fae70d4a",
+      "gpu/combat_runtime.slang": "d23a5054a00b6d0f2ae6cb23154f67d15aad70e129044c23fe4c133e9a2d465c"
+    },
+    "generated_sha256": {
+      "cuda": "599d6973b944af93ff69350fa0f3688cfdea0de54cb4a57503b3ef3ff62bbc42",
+      "metal": "b98507764d6ae75e8b66820661ba2217ecb54077b60932d1f42faa0015a7cf92"
+    },
+    "input_sha256": "d7d178c0f553b4aacf44ad78cdf691f7585342b5d9bf797268444cd2a13177ed",
+    "output_sha256": "3f3678c70bad69cbb8d0a92df8ce38b6eae4bc0640ce850e2bd0131a416f836c",
+    "gpu_execution_verified": true,
+    "backend": "metal",
+    "application_event_runtime_connected": true,
+    "autonomous_battle_connected": false,
+    "weapon_burst_target_connected": true
+  },
+  "combat_unsupported_status": 400,
+  "combat_unsupported_error": {
+    "error": "Slot zero must be the unique body; other targets must be adds"
+  },
   "passed": true,
   "api_status": 200,
   "unsupported_status": 400,
@@ -126,9 +741,14 @@
   "adapter_sha256": {
     "server.mjs": "dccdd382743de8a091547489886f8ab6faa0f9f7326b06b147bc584b8af255a4",
     "app/engine_worker.py": "1d54e891b41aebc8ce9e527320183013380a5ba984a5ef3a6e542e325e734787",
-    "app/portable_runtime.py": "e797e7e86f60b4af7a032313027756b6664885f976fd6ee6cfd999a5b2984ecd",
+    "app/portable_runtime.py": "3a13ad4a0a40353ca092c754c41b2876377c890244cd8077703a5d8404a04861",
     "app/portable_backend.py": "1eec4045e1fdc66d48222d02f5fb94100ac5bd0cd4a1a1a7b515564faa76c77e",
-    "scripts/verify-portable-api.py": "f45167e1669aa8c0cab25bf53bb719bbd3b2755007f918efa0e44de497fe4b0d",
-    "tests/fixtures/portable-events.json": "7dd3eb1e11b8964dec596d639cd3e626138f73d3fab158eec4973265292d1ba8"
+    "scripts/verify-portable-api.py": "50e9ae7ca374ee54057ae6b4a14d6c0fe430ace2b268b08d03534a309282ba8a",
+    "tests/fixtures/portable-events.json": "7dd3eb1e11b8964dec596d639cd3e626138f73d3fab158eec4973265292d1ba8",
+    "app/portable_combat.py": "7d6ff1aaa93e28328fb10b87c3c7b61852dc080228e1b865eaedfa1196b7ff17",
+    "app/portable_specs.py": "42ef992eedb9fbb5d2f6aa45c999676fa5efd1377fdf573c62aad72030b3d2b7",
+    "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
+    "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
+    "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe"
   }
 }

@@ -54,8 +54,12 @@ def validate_target_predicate_policies(rows):
         raise ValueError('Logical target predicates for projectile/shield counters require an explicit actor policy')
 
 
+def target_inheritance_events():
+    return [code for _,code in TARGET_EVENT_PREFIXES]+[47,55,56,57,61]
+
+
 def render_cuda():
-    inherited = [code for _,code in TARGET_EVENT_PREFIXES]+[47,55,56,57,61]
+    inherited = target_inheritance_events()
     expression = '||'.join(f'event=={code}' for code in inherited)
     return f'''// Generated from world_condition_specs.py; do not hand-edit.
 #define WORLD_COUNT_ABOVE {ENEMY_COUNT_ABOVE}

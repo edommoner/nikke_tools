@@ -1,0 +1,62 @@
+import copy
+import importlib.util
+import sys
+import unittest
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
+spec=importlib.util.spec_from_file_location('portable_combat_verify',ROOT/'scripts/verify-portable-combat.py')
+v=importlib.util.module_from_spec(spec);spec.loader.exec_module(v)
+from portable_specs import LIMITS as L,check_schema
+
+
+class CombatBoundaryTests(unittest.TestCase):
+    def test_shared_authored_cases_pack_without_mutation(self):
+        check_schema()
+        for case in v.fixtures():
+            before=copy.deepcopy(case);words,meta=v.compile_case(case)
+            self.assertEqual(len(words),L['INPUT_WORDS']);self.assertIsNotNone(meta['combat'])
+            self.assertEqual(case,before)
+
+    def test_unported_mechanics_and_invalid_target_identity_fail_closed(self):
+        base=v.fixtures()[0]
+        changes=[('weapon',dict(mode='auto_warmup')),('weapon',dict(pellets=2)),('weapon',dict(toggle=True)),
+                 ('weapon',dict(stage=4)),('weapon',dict(capacity=True)),('weapon',dict(interval=0)),
+                 ('weapon',dict(reload=float('nan'))),('weapon',dict(mode='charge',charge=2,interval=1)),
+                 ('target',dict(kind=1)),('target',dict(kind=5)),('target',dict(generation=0)),
+                 ('target',dict(identity=True)),('target',dict(hp=0)),('target',dict(shield=1))]
+        for kind,patch in changes:
+            c=copy.deepcopy(base);c['combat']['weapons' if kind=='weapon' else 'targets'][0].update(patch)
+            with self.subTest(patch=patch),self.assertRaises(ValueError):v.compile_case(c)
+        c=copy.deepcopy(base);c['combat']['weapons'].pop()
+        with self.assertRaises(ValueError):v.compile_case(c)
+        c=copy.deepcopy(base);c['combat']['targets'] += [dict(kind=5,identity=9,hp=1)]*2
+        with self.assertRaises(ValueError):v.compile_case(c)
+
+    def test_wire_regions_do_not_overlap_or_exceed_transport_capacity(self):
+        inputs=[(0,32),(L['DEFINITION_BASE'],L['DEFINITIONS']*L['DEFINITION_WORDS']),
+                (L['COMMAND_BASE'],L['COMMANDS']*8),(L['WEAPON_BASE'],5*L['WEAPON_WORDS']),
+                (L['TARGET_BASE'],8*L['TARGET_WORDS'])]
+        outputs=[(0,16),(L['QUERY_BASE'],L['COMMANDS']*L['QUERY_WORDS']),
+                 (L['TRACE_BASE'],L['TRACE']*L['TRACE_WORDS']),(L['STATE_BASE'],L['DEFINITIONS']*10),
+                 (L['TIMER_TARGET_BASE'],L['DEFINITIONS']*2),
+                 (L['COMBAT_QUERY_BASE'],L['COMMANDS']*L['COMBAT_QUERY_WORDS']),
+                 (L['TARGET_STATE_BASE'],8*10),
+                 (L['COMBAT_STATE_QUERY_BASE'],L['COMMANDS']*L['COMBAT_STATE_QUERY_WORDS'])]
+        for regions,capacity in [(inputs,L['INPUT_WORDS']),(outputs,L['OUTPUT_WORDS'])]:
+            end=0
+            for start,size in sorted(regions):
+                self.assertGreaterEqual(start,end);end=start+size
+            self.assertLessEqual(end,capacity);self.assertLessEqual(capacity,16384)
+
+    def test_frames_accept_no_precomputed_shot_or_state_payload(self):
+        for op,arg,payload in [(4,1,0),(4,0,100),(20,8,0),(21,0,0),(22,8,0)]:
+            c=copy.deepcopy(v.fixtures()[0]);c['script']=[[0,op,0,0,arg,-1,payload,0]]
+            with self.subTest(op=op,arg=arg,payload=payload),self.assertRaises(ValueError):v.compile_case(c)
+        for times in ([1],[0,0]):
+            c=copy.deepcopy(v.fixtures()[0]);c['script']=[[t,4,0,0,0,-1,0,0] for t in times]
+            with self.subTest(times=times),self.assertRaises(ValueError):v.compile_case(c)
+        c=copy.deepcopy(v.fixtures()[0]);c['script']=[[0,0,0,0,0,-1,0,0]]
+        with self.assertRaises(ValueError):v.compile_case(c)
+
+
+if __name__=='__main__':unittest.main()

@@ -1,10 +1,14 @@
 # 共通の状態・イベント実行器とMetal接続
 
+## 武器・バースト・敵対象の追加接続
+
+外部フレームから固定連射／自動フルチャージ、基本のバースト段階、敵HP・出現世代を更新する共通経路も追加しました。範囲と20ケースの検証は[共通の戦闘状態実行器](portable-combat-runtime.md)を参照してください。以下は外部イベント用の基礎部分と初回の検証履歴です。
+
 ## 接続済みの経路
 
 `POST /api/portable-events` → `engine_worker.dispatch(evaluate_portable_events)` → `portable_runtime` → 共通Slang → Metal／CUDAアダプター、という外部イベント入力の経路を追加しました。Apple M5でHTTPから実Metal実行・読み戻しまで確認しています。CPUで計算した状態や発射時刻は渡しません。
 
-これは通常画面の180秒自律戦闘、武器／バースト運用、全キャラ対応の接続ではありません。通常画面の詳細計算は引き続きCPUを使用します。APIは対応する効果定義と外部から与えられる刺激を実行する開発用の入口です。`application_event_runtime_connected: true` と `autonomous_battle_connected: false` を別々に返します。
+これは通常画面の180秒自律戦闘・全キャラ対応の接続ではありません。限定した武器／バースト運用は上記の追加経路から実行できます。通常画面の詳細計算は引き続きCPUを使用します。APIは対応する効果定義と外部から与えられる刺激を実行する開発用の入口です。`application_event_runtime_connected: true` と `autonomous_battle_connected: false` を別々に返します。
 
 実際の状態更新と計算は `gpu/event_runtime.slang`、数値は `binary64.slang` と `core_probability.slang` に一度だけ書きます。Metal／CUDAのソースを同じSlangから生成します。`app/portable_backend.py` は生成・起動・転送・読み戻しだけを担当し、CPUフォールバックはありません。並行リクエストの生成物は一時ファイルからatomic renameで公開し、入力・出力ファイルはリクエストごとに分けます。
 
@@ -59,4 +63,4 @@ python scripts/verify-portable-events.py --backend cuda --short
 
 ## 次の接続
 
-全キャラの自律戦闘へ進むには、実行器へ武器・バーストの状態機械、対象世代を伴う敵世界、HP／回復／シールド、残りの効果・条件を順に移す必要があります。現在のAPIでは実部隊の通常計算をMetal対応済みとして受け付けません。対応範囲を広げるたびに既存の仕様ケースを同じ入力へ接続し、未対応を拒否する境界も残します。
+全キャラの自律戦闘へ進むには、追加した武器・バースト・本体／追加の敵の状態を土台に、残りの武器モード・運用ポリシー・敵世界、HP／回復／シールド、残りの効果・条件を順に移す必要があります。現在のAPIでは実部隊の通常計算をMetal対応済みとして受け付けません。対応範囲を広げるたびに既存の仕様ケースを同じ入力へ接続し、未対応を拒否する境界も残します。

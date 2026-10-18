@@ -173,7 +173,9 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         },
         {
           "effect": "clock",
@@ -183,9 +185,12 @@
           "order": 1,
           "active": false,
           "stacks": 0,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 1
         }
       ],
+      "targets": [],
       "max_stack_depth": 2
     },
     {
@@ -361,7 +366,9 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         },
         {
           "effect": "clock",
@@ -371,9 +378,12 @@
           "order": 1,
           "active": false,
           "stacks": 0,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 1
         }
       ],
+      "targets": [],
       "max_stack_depth": 2
     },
     {
@@ -557,7 +567,9 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         },
         {
           "effect": "first",
@@ -567,7 +579,9 @@
           "order": 1,
           "active": true,
           "stacks": 0,
-          "activations": 2
+          "activations": 2,
+          "target_slot": 0,
+          "target_generation": 1
         },
         {
           "effect": "refresh",
@@ -577,9 +591,12 @@
           "order": 0,
           "active": false,
           "stacks": 0,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         }
       ],
+      "targets": [],
       "max_stack_depth": 4
     },
     {
@@ -795,7 +812,9 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         },
         {
           "effect": "first",
@@ -805,7 +824,9 @@
           "order": 1,
           "active": false,
           "stacks": 0,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 1
         },
         {
           "effect": "second",
@@ -815,7 +836,9 @@
           "order": 2,
           "active": true,
           "stacks": 0,
-          "activations": 2
+          "activations": 2,
+          "target_slot": 0,
+          "target_generation": 1
         },
         {
           "effect": "refresh",
@@ -825,9 +848,12 @@
           "order": 0,
           "active": false,
           "stacks": 0,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         }
       ],
+      "targets": [],
       "max_stack_depth": 4
     },
     {
@@ -1003,7 +1029,9 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         },
         {
           "effect": "first",
@@ -1013,7 +1041,9 @@
           "order": 1,
           "active": false,
           "stacks": 0,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 1
         },
         {
           "effect": "second",
@@ -1023,7 +1053,9 @@
           "order": 2,
           "active": false,
           "stacks": 0,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 1
         },
         {
           "effect": "cancel",
@@ -1033,9 +1065,12 @@
           "order": 0,
           "active": false,
           "stacks": 0,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         }
       ],
+      "targets": [],
       "max_stack_depth": 2
     },
     {
@@ -1243,7 +1278,9 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         },
         {
           "effect": "first",
@@ -1253,7 +1290,9 @@
           "order": 1,
           "active": false,
           "stacks": 0,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 1
         },
         {
           "effect": "second",
@@ -1263,7 +1302,9 @@
           "order": 2,
           "active": true,
           "stacks": 0,
-          "activations": 2
+          "activations": 2,
+          "target_slot": 0,
+          "target_generation": 1
         },
         {
           "effect": "refresh",
@@ -1273,9 +1314,12 @@
           "order": 0,
           "active": false,
           "stacks": 0,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         }
       ],
+      "targets": [],
       "max_stack_depth": 4
     },
     {
@@ -1483,7 +1527,9 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         },
         {
           "effect": "first",
@@ -1493,7 +1539,9 @@
           "order": 1,
           "active": false,
           "stacks": 0,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 1
         },
         {
           "effect": "second",
@@ -1503,7 +1551,9 @@
           "order": 3,
           "active": true,
           "stacks": 0,
-          "activations": 2
+          "activations": 2,
+          "target_slot": 0,
+          "target_generation": 1
         },
         {
           "effect": "cancel",
@@ -1513,7 +1563,9 @@
           "order": 0,
           "active": false,
           "stacks": 0,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         },
         {
           "effect": "refresh",
@@ -1523,9 +1575,12 @@
           "order": 0,
           "active": false,
           "stacks": 0,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         }
       ],
+      "targets": [],
       "max_stack_depth": 4
     },
     {
@@ -1717,7 +1772,9 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         },
         {
           "effect": "declared-first",
@@ -1727,7 +1784,9 @@
           "order": 2,
           "active": true,
           "stacks": 0,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 1
         },
         {
           "effect": "registered-first",
@@ -1737,7 +1796,9 @@
           "order": 1,
           "active": false,
           "stacks": 0,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 1
         },
         {
           "effect": "ordered strength",
@@ -1747,9 +1808,12 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         }
       ],
+      "targets": [],
       "max_stack_depth": 2
     },
     {
@@ -1829,7 +1893,9 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         },
         {
           "effect": "strength on hit",
@@ -1839,9 +1905,12 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         }
       ],
+      "targets": [],
       "max_stack_depth": 1
     },
     {
@@ -1900,9 +1969,12 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         }
       ],
+      "targets": [],
       "max_stack_depth": 1
     },
     {
@@ -1940,7 +2012,9 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         },
         {
           "effect": "zero duration",
@@ -1950,9 +2024,12 @@
           "order": 0,
           "active": false,
           "stacks": 0,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         }
       ],
+      "targets": [],
       "max_stack_depth": 1
     },
     {
@@ -1990,9 +2067,12 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         }
       ],
+      "targets": [],
       "max_stack_depth": 1
     },
     {
@@ -2030,9 +2110,12 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         }
       ],
+      "targets": [],
       "max_stack_depth": 1
     },
     {
@@ -2070,9 +2153,12 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         }
       ],
+      "targets": [],
       "max_stack_depth": 1
     },
     {
@@ -2110,7 +2196,9 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         },
         {
           "effect": "squad strength",
@@ -2120,9 +2208,12 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 1
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0
         }
       ],
+      "targets": [],
       "max_stack_depth": 1
     },
     {
@@ -2202,7 +2293,9 @@
           "order": 0,
           "active": false,
           "stacks": 1,
-          "activations": 3
+          "activations": 3,
+          "target_slot": 0,
+          "target_generation": 0
         },
         {
           "effect": "stacked strength",
@@ -2212,9 +2305,12 @@
           "order": 0,
           "active": false,
           "stacks": 2,
-          "activations": 3
+          "activations": 3,
+          "target_slot": 0,
+          "target_generation": 0
         }
       ],
+      "targets": [],
       "max_stack_depth": 1
     }
   ],
@@ -2223,27 +2319,29 @@
     "cases": 16,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.005564624967519194,
-    "input_bytes": 131076,
-    "output_bytes": 262144,
+    "gpu_seconds": 0.0054920000256970525,
+    "input_bytes": 262148,
+    "output_bytes": 1048576,
     "registry_id": "4294968313"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "604e67c839f08b72641fa2bb38557112340a5369fa5590e184f76f7e0dba3e5f",
+    "gpu/event_runtime.slang": "f9b732b287ca8ec3b732f25fde095363761200c5979719e57bf3dd6029f8b3d7",
     "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "a20f49526dbfbde5da737082bef04e0baaf6f335a58a668420785ac251a301d5"
+    "gpu/portable_schema.slang": "e068c26d86f58f068f42aa3be4984869c0dafe38e0b95c09c6975903fae70d4a",
+    "gpu/combat_runtime.slang": "d23a5054a00b6d0f2ae6cb23154f67d15aad70e129044c23fe4c133e9a2d465c"
   },
   "generated_sha256": {
-    "cuda": "4485e055acdd3f75b14a60cd91023d5d97b77230f2c38f19f5c9f3e71edf74c9",
-    "metal": "fb7cda024567d944e8a648453bd1d74d43eb077082b02f73f73fe67da5b2bf68"
+    "cuda": "599d6973b944af93ff69350fa0f3688cfdea0de54cb4a57503b3ef3ff62bbc42",
+    "metal": "b98507764d6ae75e8b66820661ba2217ecb54077b60932d1f42faa0015a7cf92"
   },
-  "input_sha256": "02ecd25a042826ef4c8d63cf3a3a25df36f486b84b7b05fd7b695299d5693f86",
-  "output_sha256": "4412d51afa3a50e928497acca4596d4027a2854563339c555a7424d033fe8ae4",
+  "input_sha256": "bedbd9c8c52c55d01fb9a4037170cbb2dfac9584ddc4ea17791fd1d62159cbc2",
+  "output_sha256": "ba722b132c3d9b40f2de7431a495c57e5e14e9c361b7e34c6b615588ce736627",
   "gpu_execution_verified": true,
   "backend": "metal",
   "application_event_runtime_connected": true,
   "autonomous_battle_connected": false,
+  "weapon_burst_target_connected": false,
   "passed": true,
   "cases": [
     {
@@ -2430,7 +2528,9 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           },
           {
             "effect": "clock",
@@ -2440,9 +2540,12 @@
             "order": 1,
             "active": false,
             "stacks": 0,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 1
           }
         ],
+        "targets": [],
         "max_stack_depth": 2
       }
     },
@@ -2630,7 +2733,9 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           },
           {
             "effect": "clock",
@@ -2640,9 +2745,12 @@
             "order": 1,
             "active": false,
             "stacks": 0,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 1
           }
         ],
+        "targets": [],
         "max_stack_depth": 2
       }
     },
@@ -2838,7 +2946,9 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           },
           {
             "effect": "first",
@@ -2848,7 +2958,9 @@
             "order": 1,
             "active": true,
             "stacks": 0,
-            "activations": 2
+            "activations": 2,
+            "target_slot": 0,
+            "target_generation": 1
           },
           {
             "effect": "refresh",
@@ -2858,9 +2970,12 @@
             "order": 0,
             "active": false,
             "stacks": 0,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           }
         ],
+        "targets": [],
         "max_stack_depth": 4
       }
     },
@@ -3088,7 +3203,9 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           },
           {
             "effect": "first",
@@ -3098,7 +3215,9 @@
             "order": 1,
             "active": false,
             "stacks": 0,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 1
           },
           {
             "effect": "second",
@@ -3108,7 +3227,9 @@
             "order": 2,
             "active": true,
             "stacks": 0,
-            "activations": 2
+            "activations": 2,
+            "target_slot": 0,
+            "target_generation": 1
           },
           {
             "effect": "refresh",
@@ -3118,9 +3239,12 @@
             "order": 0,
             "active": false,
             "stacks": 0,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           }
         ],
+        "targets": [],
         "max_stack_depth": 4
       }
     },
@@ -3308,7 +3432,9 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           },
           {
             "effect": "first",
@@ -3318,7 +3444,9 @@
             "order": 1,
             "active": false,
             "stacks": 0,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 1
           },
           {
             "effect": "second",
@@ -3328,7 +3456,9 @@
             "order": 2,
             "active": false,
             "stacks": 0,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 1
           },
           {
             "effect": "cancel",
@@ -3338,9 +3468,12 @@
             "order": 0,
             "active": false,
             "stacks": 0,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           }
         ],
+        "targets": [],
         "max_stack_depth": 2
       }
     },
@@ -3560,7 +3693,9 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           },
           {
             "effect": "first",
@@ -3570,7 +3705,9 @@
             "order": 1,
             "active": false,
             "stacks": 0,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 1
           },
           {
             "effect": "second",
@@ -3580,7 +3717,9 @@
             "order": 2,
             "active": true,
             "stacks": 0,
-            "activations": 2
+            "activations": 2,
+            "target_slot": 0,
+            "target_generation": 1
           },
           {
             "effect": "refresh",
@@ -3590,9 +3729,12 @@
             "order": 0,
             "active": false,
             "stacks": 0,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           }
         ],
+        "targets": [],
         "max_stack_depth": 4
       }
     },
@@ -3812,7 +3954,9 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           },
           {
             "effect": "first",
@@ -3822,7 +3966,9 @@
             "order": 1,
             "active": false,
             "stacks": 0,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 1
           },
           {
             "effect": "second",
@@ -3832,7 +3978,9 @@
             "order": 3,
             "active": true,
             "stacks": 0,
-            "activations": 2
+            "activations": 2,
+            "target_slot": 0,
+            "target_generation": 1
           },
           {
             "effect": "cancel",
@@ -3842,7 +3990,9 @@
             "order": 0,
             "active": false,
             "stacks": 0,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           },
           {
             "effect": "refresh",
@@ -3852,9 +4002,12 @@
             "order": 0,
             "active": false,
             "stacks": 0,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           }
         ],
+        "targets": [],
         "max_stack_depth": 4
       }
     },
@@ -4058,7 +4211,9 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           },
           {
             "effect": "declared-first",
@@ -4068,7 +4223,9 @@
             "order": 2,
             "active": true,
             "stacks": 0,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 1
           },
           {
             "effect": "registered-first",
@@ -4078,7 +4235,9 @@
             "order": 1,
             "active": false,
             "stacks": 0,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 1
           },
           {
             "effect": "ordered strength",
@@ -4088,9 +4247,12 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           }
         ],
+        "targets": [],
         "max_stack_depth": 2
       }
     },
@@ -4179,7 +4341,9 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           },
           {
             "effect": "strength on hit",
@@ -4189,9 +4353,12 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           }
         ],
+        "targets": [],
         "max_stack_depth": 1
       }
     },
@@ -4258,9 +4425,12 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           }
         ],
+        "targets": [],
         "max_stack_depth": 1
       }
     },
@@ -4305,7 +4475,9 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           },
           {
             "effect": "zero duration",
@@ -4315,9 +4487,12 @@
             "order": 0,
             "active": false,
             "stacks": 0,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           }
         ],
+        "targets": [],
         "max_stack_depth": 1
       }
     },
@@ -4362,9 +4537,12 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           }
         ],
+        "targets": [],
         "max_stack_depth": 1
       }
     },
@@ -4409,9 +4587,12 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           }
         ],
+        "targets": [],
         "max_stack_depth": 1
       }
     },
@@ -4456,9 +4637,12 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           }
         ],
+        "targets": [],
         "max_stack_depth": 1
       }
     },
@@ -4503,7 +4687,9 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           },
           {
             "effect": "squad strength",
@@ -4513,9 +4699,12 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 1
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0
           }
         ],
+        "targets": [],
         "max_stack_depth": 1
       }
     },
@@ -4604,7 +4793,9 @@
             "order": 0,
             "active": false,
             "stacks": 1,
-            "activations": 3
+            "activations": 3,
+            "target_slot": 0,
+            "target_generation": 0
           },
           {
             "effect": "stacked strength",
@@ -4614,9 +4805,12 @@
             "order": 0,
             "active": false,
             "stacks": 2,
-            "activations": 3
+            "activations": 3,
+            "target_slot": 0,
+            "target_generation": 0
           }
         ],
+        "targets": [],
         "max_stack_depth": 1
       }
     }
@@ -4638,29 +4832,30 @@
       "cases": 2,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.00020424998365342617,
-      "input_bytes": 16388,
-      "output_bytes": 32768,
+      "gpu_seconds": 0.0001728750066831708,
+      "input_bytes": 32772,
+      "output_bytes": 131072,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "604e67c839f08b72641fa2bb38557112340a5369fa5590e184f76f7e0dba3e5f",
+      "gpu/event_runtime.slang": "f9b732b287ca8ec3b732f25fde095363761200c5979719e57bf3dd6029f8b3d7",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "a20f49526dbfbde5da737082bef04e0baaf6f335a58a668420785ac251a301d5"
+      "gpu/portable_schema.slang": "e068c26d86f58f068f42aa3be4984869c0dafe38e0b95c09c6975903fae70d4a",
+      "gpu/combat_runtime.slang": "d23a5054a00b6d0f2ae6cb23154f67d15aad70e129044c23fe4c133e9a2d465c"
     },
     "generated_sha256": {
-      "cuda": "4485e055acdd3f75b14a60cd91023d5d97b77230f2c38f19f5c9f3e71edf74c9",
-      "metal": "fb7cda024567d944e8a648453bd1d74d43eb077082b02f73f73fe67da5b2bf68"
+      "cuda": "599d6973b944af93ff69350fa0f3688cfdea0de54cb4a57503b3ef3ff62bbc42",
+      "metal": "b98507764d6ae75e8b66820661ba2217ecb54077b60932d1f42faa0015a7cf92"
     },
-    "input_sha256": "05b7e21736e30e2e410273799a11206ba4c018213a9a382d4fd6c10042dfbd16",
-    "output_sha256": "9e9df673a0062bfa5f116fbec5ed970ab79ac19bedccb57e1efbb32d59be9f3e",
+    "input_sha256": "8a6b99c58435ce6387b4f5c4ad35390e1644aac9b4883a497665f548292edb83",
+    "output_sha256": "eb5c194e751c3afa48c74b74782ac965aec0d37f0c6481f36ee56bf03c86eb3f",
     "gpu_execution_verified": true,
     "backend": "metal"
   },
   "adapter_sha256": {
-    "app/portable_runtime.py": "e797e7e86f60b4af7a032313027756b6664885f976fd6ee6cfd999a5b2984ecd",
-    "app/portable_specs.py": "312d0b53b7af5ccda3ab533b0418da17b1915f932f53715b158fcab9e710e61d",
+    "app/portable_runtime.py": "3a13ad4a0a40353ca092c754c41b2876377c890244cd8077703a5d8404a04861",
+    "app/portable_specs.py": "42ef992eedb9fbb5d2f6aa45c999676fa5efd1377fdf573c62aad72030b3d2b7",
     "app/portable_backend.py": "1eec4045e1fdc66d48222d02f5fb94100ac5bd0cd4a1a1a7b515564faa76c77e",
     "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",

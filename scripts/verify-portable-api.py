@@ -25,7 +25,9 @@ def main():
     path=ROOT/f'research/portable-api-{args.backend}.json'
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n', encoding='utf-8')
     tracked=['server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_backend.py',
-             'scripts/verify-portable-api.py','tests/fixtures/portable-events.json']
+             'scripts/verify-portable-api.py','tests/fixtures/portable-events.json',
+             'app/portable_combat.py','app/portable_specs.py','app/world_condition_specs.py','app/impact_specs.py',
+             'tests/fixtures/portable-combat.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases'][0]
     payload=dict(chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES],
@@ -44,6 +46,23 @@ def main():
         assert error.code==400
         detail=json.load(error);assert 'Unported buff' in detail['error']
     else:raise AssertionError('Unported effect was accepted')
+    combat_case=json.loads((ROOT/'tests/fixtures/portable-combat.json').read_text(encoding='utf-8'))['cases'][0]
+    combat_payload=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[0]) for e in combat_case['effects']],
+                        script=combat_case['script'],base_atk=[1000]*5,combat=combat_case['combat'],backend=args.backend)
+    combat_result=request(combat_payload)
+    assert combat_result['gpu_execution_verified'] and combat_result['weapon_burst_target_connected']
+    assert not combat_result['autonomous_battle_connected']
+    for actual,expected in zip(combat_result['results'][0]['queries'],combat_case['expected_queries']):
+        assert actual['damage']==expected['damage']
+        for key in ('ammo','shots','reload_until','next'):
+            assert actual['combat']['weapons'][0][key]==expected['combat']['weapons'][0][key]
+    bad_combat=copy.deepcopy(combat_payload);bad_combat['combat']['targets'][0]['kind']=1
+    try:request(bad_combat)
+    except urllib.error.HTTPError as error:
+        assert error.code==400
+        combat_error=json.load(error)
+    else:raise AssertionError('Unported target kind accepted')
+    result.update(combat_execution=combat_result,combat_unsupported_status=400,combat_unsupported_error=combat_error)
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in hashes}
     result.update(passed=True,api_status=200,unsupported_status=400,unsupported_error=detail['error'],adapter_sha256=hashes)
     path.write_text(json.dumps(result,indent=2)+'\n', encoding='utf-8')
