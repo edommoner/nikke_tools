@@ -37,7 +37,7 @@ struct Frame
 struct Runtime
 {
     Definition defs[32];
-    uint quantityMask, weaponInitialized[5], modeMagazine[5];
+    uint quantityMask, weaponInitialized[5], modeMagazine[5], delayCover[5], pendingAutoReload[5];
     uint64_t rawCharge[5], activated[32];
     uint rawRate[5], clipCount[5], geometry[5], probabilityValid[5], probabilityEvaluations[5];
     uint64_t chargeStartedAt[5], minCycle[5], gaugeMultiplier[5], coreDamageBonus[5];
@@ -239,7 +239,7 @@ void land(inout Runtime s, uint who, uint target, uint64_t amount)
 // End the old session before callbacks. A child may install a new session.
 void clearMode(inout Runtime s, uint who, uint64_t when)
 {
-    s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who];
+    s.pendingAutoReload[who] = 0; s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who];
     s.ammo[who] = fullCapacity(s,who,s.capacity[who],true,when); s.weaponInitialized[who] = 1; s.reloadUntil[who] = F64_SIGN | ONE;
     s.charging[who] = 0; s.nextShot[who] = when; s.modeShots[who] = 0; s.postReloadUntil[who] = F64_SIGN | ONE;
 }
@@ -503,6 +503,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         d.group = commands[extra]; d.exclusive = commands[extra+1]; d.alias = int(commands[extra+2]); d.quantityFlags = commands[extra+3];
         d.fixedValue = loadNumber(extra+4); d.fixedLiteral = commands[extra+6]; d.polarity = commands[extra+7];
         if (d.group >= P_DEFINITIONS || d.alias >= int(j)) { s.error = 64; break; }
+        if (d.kind == 0 && d.stat == S_reload_speed_pct) s.quantityMask |= 64;
         if (d.kind == 0 && d.stat == S_max_ammo_flat) s.quantityMask |= 16;
         if (d.kind == 0 && d.stat == S_charge_time_flat) s.quantityMask |= 32;
         if (d.kind == 0 && d.stat == S_max_ammo_pct) s.quantityMask |= 1;
@@ -581,7 +582,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         uint at = output+P_WEAPON_STATE_BASE+who*P_WEAPON_STATE_WORDS;
         storeNumber(at,s.warm[who]); storeNumber(at+2,s.lastFire[who]); storeNumber(at+4,s.lastInterval[who]);
         storeNumber(at+6,s.postReloadUntil[who]); storeNumber(at+8,s.lastSpread[who]); storeNumber(at+10,s.lastProbability[who]);
-        results[at+12] = s.probabilityEvaluations[who]; storeNumber(at+14,s.chargeStartedAt[who]);
+        results[at+12] = s.probabilityEvaluations[who]; results[at+13] = s.pendingAutoReload[who]; storeNumber(at+14,s.chargeStartedAt[who]);
     }
     if (s.combat != 0) for (uint j = 0; j < s.targetCount; j++)
     {

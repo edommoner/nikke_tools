@@ -27,7 +27,7 @@ def main():
     tracked=['server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_backend.py',
              'scripts/verify-portable-api.py','tests/fixtures/portable-events.json',
              'app/portable_combat.py','app/portable_specs.py','app/world_condition_specs.py','app/impact_specs.py',
-             'tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
+             'tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases'][0]
     payload=dict(chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES],
@@ -115,6 +115,22 @@ def main():
     except urllib.error.HTTPError as error:
         assert error.code==400;quantity_error=json.load(error);assert 'Invalid quantity group' in quantity_error['error']
     else:raise AssertionError('Malformed quantity group accepted')
+    charge_case=json.loads((ROOT/'tests/fixtures/portable-charge-control.json').read_text(encoding='utf-8'))['cases'][0]
+    charge_body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[0]) for e in charge_case['effects']],
+                     script=charge_case['script'],base_atk=[1000]*5,combat=charge_case['combat'],backend=args.backend)
+    actual=request(charge_body);assert actual['gpu_execution_verified']
+    for a,e in zip(actual['results'][0]['queries'],charge_case['expected_queries']):
+        assert a['damage']==e['damage']
+        for k,v in e['combat']['weapons'][0].items():assert a['combat']['weapons'][0][k]==v
+    assert actual['results'][0]['weapons'][0]['pending_auto_reload'] is True
+    assert actual['results'][0]['timers'][-1]['activations']==2
+    result['charge_control_execution']=actual
+    malformed=copy.deepcopy(charge_body);malformed['combat']['weapons'][0]['cover_during_delay']=1
+    try:request(malformed)
+    except urllib.error.HTTPError as error:
+        assert error.code==400;assert 'must be boolean' in json.load(error)['error']
+    else:raise AssertionError('Malformed charge delay cover policy accepted')
+    result['charge_control_unsupported_status']=400
     result['quantity_unsupported_status']=400
     result['timeline_execution']=timeline_result
     result['extension_execution']=extension_result

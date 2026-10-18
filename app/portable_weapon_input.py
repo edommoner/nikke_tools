@@ -10,8 +10,6 @@ def normalize_static_weapon(char,base_atk,enemy,*,camera=False):
     state=CharState(char,base_atk,enemy.get('code'))
     weapon=state.weapon
     if state.fire_mode not in ('auto','auto_warmup','charge'):raise UnsupportedPortable('Unported real firing mode')
-    if state.fire_mode=='charge' and state.cover_during_delay:
-        raise UnsupportedPortable('Real charge cover/automatic-reload policy is not connected')
     stage=char.get('burst_stage') or state.burst_stage
     if str(stage) not in ('1','2','3','A'):raise UnsupportedPortable('Unported real burst stage')
     config=dict(enabled=True,mode=state.fire_mode,capacity=weapon['max_ammo'],coefficient=weapon['damage_coeff'],
@@ -24,7 +22,7 @@ def normalize_static_weapon(char,base_atk,enemy,*,camera=False):
                 warmup=state.warmup_bullets,cooldown_time=state.mech.get('cooldown_time',1),
                 spread_start=state.spread_start,spread_end=state.spread_end,spread_shots=state._spread_shots_needed,
                 core_diameter=enemy.get('core_px',0),clip_count=state.clip_count,
-                post_reload_delay=state.post_reload_delay)
+                post_reload_delay=state.post_reload_delay,cover_during_delay=state.cover_during_delay)
     if state.fire_mode=='charge':
         config.update(charge=state.charge_time_base,interval=state.charge_time_base+state.post_fire_delay,min_cycle=state._min_fire_cycle)
     else:

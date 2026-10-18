@@ -23,7 +23,7 @@ def pack_combat(words, config, double_words):
     words[28:30]=double_words(number(config.get('initial_gauge',0),0,100))
     words[30:32]=double_words(number(config.get('reentry_delay',.5),0,180))
     for i,w in enumerate(weapons):
-        allowed={'enabled','mode','coefficient','capacity','interval','reload','charge','gauge','stage','cooldown','pellets','muzzles','full_charge_mult','optimal','element_match','rate','rate_max','warmup','cooldown_time','spread_start','spread_end','spread_shots','core_diameter','clip_count','post_reload_delay','min_cycle','gauge_mult','core_mult','raw_charge'}
+        allowed={'enabled','mode','coefficient','capacity','interval','reload','charge','gauge','stage','cooldown','pellets','muzzles','full_charge_mult','optimal','element_match','rate','rate_max','warmup','cooldown_time','spread_start','spread_end','spread_shots','core_diameter','clip_count','post_reload_delay','min_cycle','gauge_mult','core_mult','raw_charge','cover_during_delay'}
         if not isinstance(w,dict) or set(w)-allowed or type(w.get('enabled',False)) is not bool:
             raise ValueError('Unsupported weapon fields')
         enabled=w.get('enabled',False);mode=w.get('mode','auto')
@@ -63,6 +63,9 @@ def pack_combat(words, config, double_words):
         words[at+16:at+18]=[clips,int(geometry)];words[at+20]=int(raw_rate is not None)
         at=L['WEAPON_QUANTITY_BASE']+i*L['WEAPON_QUANTITY_WORDS']
         words[at:at+2]=double_words(number(w.get('raw_charge',w.get('charge',1) if mode=='charge' else 0),0,180))
+        cover=w.get('cover_during_delay',False)
+        if type(cover) is not bool:raise ValueError('Charge delay cover policy must be boolean')
+        words[at+2]=int(cover)
 
     identities=set()
     for i,t in enumerate(targets):
@@ -100,7 +103,7 @@ def pack_mode(words,index,row,double_words):
     for offset,value in [(4,row[26]),(6,row[28]),(8,row[237]),(10,row[225]),(12,row[249]),(14,row[228]),(16,row[236]),(18,row[227])]:
         words[at+offset:at+offset+2]=double_words(value)
     words[at+20:at+24]=[limit & 0xffffffff,int(capacity==-1),int(row[238]),int(row[233])]
-    words[at+24:at+26]=double_words(row[226]);words[at+26]=int(bool(row[30]))
+    words[at+24:at+26]=double_words(row[226]);words[at+26]=int(bool(row[30]));words[at+27]=int(bool(row[231]))
     if not 0<row[28]<=row[24]<=1e6 or not 0<row[40]<=1e6 or not 0<row[41]<=180:raise ValueError('Invalid mode warmup curve')
     at=L['MODE_TIMING_BASE']+index*L['MODE_TIMING_WORDS']
     for offset,value in [(0,row[28]),(2,row[24]),(4,row[40]),(6,row[41])]:words[at+offset:at+offset+2]=double_words(value)

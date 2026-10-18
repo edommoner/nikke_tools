@@ -22,16 +22,16 @@ def _observe(case):
     class BM(BuffManager):
         def _register_all(self):self._effects=raw;self._build_notify_index()
     bs={n:dict(atk=1000,defense=0,hp=1000000) for n in names}
-    enemy=dict(defense=0,core_px=w.get('core_diameter',0),code=None)
+    enemy=dict(defense=0,core_px=w.get('core_diameter',0),code=None,optimal_range_weapons=[weapon['weapon_type']] if w.get('optimal',False) else [])
     # The engine uses 'def', while the public fixture avoids reserved identifiers.
     enemy['def']=case['combat']['targets'][0].get('defense',0)
     bm=BM(chars,state=dict(base_stats=bs,enemy=enemy,full_burst=False,rng_acc={},rng_expected=True,camera=set()))
     st=CharState(chars[0],1000,None)
-    st.weapon=weapon;st.weapon_type=weapon['weapon_type'];st.base_weapon_type=weapon['weapon_type'];st.base_element_match=False
+    st.weapon=weapon;st.weapon_type=weapon['weapon_type'];st.base_weapon_type=weapon['weapon_type'];st.base_element_match=w.get('element_match',False)
     st.post_fire_delay=0;st.post_reload_delay=0;st.input_type='DOWN'
     st.charge_time_base=w.get('charge',1);st._min_fire_cycle=w.get('min_cycle',0)
     st.post_fire_delay=w.get('interval',1)-w.get('charge',1) if w.get('mode')=='charge' else 0
-    st.cover_during_delay=False
+    st.cover_during_delay=w.get('cover_during_delay',False)
     st.fire_mode=w.get('mode','auto');st.fire_rate=weapon['fire_rate'];st.fire_rate_max=weapon['fire_rate_max']
     st.warmup_bullets=w.get('warmup',1);st.mech={**st.mech,'cooldown_time':w.get('cooldown_time',1)}
     st.clip_count=w.get('clip_count',1);st.is_clip=st.clip_count>1;st.post_reload_delay=w.get('post_reload_delay',0)

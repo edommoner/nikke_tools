@@ -33,7 +33,7 @@ def double_words(value):
 def validate_effect(eff, *, combat=None):
     allowed = {'name','source','type','stat','fixed_value','values','duration','duration_values',
                'target','trigger','note','polarity','favorite','_source_tag','_quant_group','max_ammo_reduction_exclusive','trigger_values','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
-    effect_allowed=allowed | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','first_damage_coeff','max_ammo_buff_applies','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
+    effect_allowed=allowed | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','cover_during_delay','first_damage_coeff','max_ammo_buff_applies','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
     if set(eff)-effect_allowed:
         raise UnsupportedPortable('Unported effect fields: '+', '.join(sorted(set(eff)-effect_allowed)))
     from portable_trigger_specs import validate_input
@@ -62,6 +62,7 @@ def validate_effect(eff, *, combat=None):
     if eff.get('_source_tag') is not None and not isinstance(eff['_source_tag'],str):raise UnsupportedPortable('Invalid quantity source tag')
     if eff.get('_quant_group') is not None and type(eff['_quant_group']) not in (str,int):raise UnsupportedPortable('Invalid quantity group')
     if 'max_ammo_reduction_exclusive' in eff and (kind!='buff' or stat!='max_ammo_pct' or type(eff['max_ammo_reduction_exclusive']) is not bool):raise UnsupportedPortable('Invalid exclusive ammo reduction')
+    if 'cover_during_delay' in eff and type(eff['cover_during_delay']) is not bool:raise UnsupportedPortable('Charge delay cover policy must be boolean')
     if 'max_ammo_buff_applies' in eff and type(eff['max_ammo_buff_applies']) is not bool:raise UnsupportedPortable('Invalid mode ammo-buff policy')
     if stat=='charge_time_fixed' and 'fixed_value' in eff and not 0<=eff['fixed_value']<=180:raise UnsupportedPortable('Invalid fixed charge time')
     if stat=='charge_time_fixed' and 'values' in eff:raise UnsupportedPortable('Fixed charge time needs a literal fixed_value or bare presence marker')
@@ -203,7 +204,7 @@ def decode(words,metadata):
         for who in range(5):
             at=L['WEAPON_STATE_BASE']+who*L['WEAPON_STATE_WORDS']
             weapon_states.append(dict(warm=number(at),last_fire=number(at+2),last_interval=number(at+4),
-                                      post_reload_until=number(at+6),spread=number(at+8),probability=number(at+10),probability_evaluations=words[at+12],charge_started_at=number(at+14)))
+                                      post_reload_until=number(at+6),spread=number(at+8),probability=number(at+10),probability_evaluations=words[at+12],pending_auto_reload=bool(words[at+13]),charge_started_at=number(at+14)))
     trace=[]
     for i in range(words[2]):
         at=L['TRACE_BASE']+i*L['TRACE_WORDS'];row=words[at]
