@@ -27,7 +27,7 @@ def main():
     tracked=['server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_backend.py',
              'scripts/verify-portable-api.py','tests/fixtures/portable-events.json',
              'app/portable_combat.py','app/portable_specs.py','app/world_condition_specs.py','app/impact_specs.py',
-             'tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
+             'tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases'][0]
     payload=dict(chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES],
@@ -40,7 +40,7 @@ def main():
     assert result['gpu_execution_verified'] and result['backend']==args.backend
     assert result['application_event_runtime_connected'] and not result['autonomous_battle_connected']
     assert [sum(q['damage']) for q in result['results'][0]['queries']]==case['expected_totals']
-    invalid=copy.deepcopy(payload);invalid['effects'][1]['effect']['stat']='max_hp_pct'
+    invalid=copy.deepcopy(payload);invalid['effects'][1]['effect']['stat']='shield_from_max_hp_pct'
     try:request(invalid)
     except urllib.error.HTTPError as error:
         assert error.code==400
@@ -131,6 +131,20 @@ def main():
         assert error.code==400;assert 'must be boolean' in json.load(error)['error']
     else:raise AssertionError('Malformed charge delay cover policy accepted')
     result['charge_control_unsupported_status']=400
+    health_case=json.loads((ROOT/'tests/fixtures/portable-health.json').read_text(encoding='utf-8'))['cases']
+    health_case=next(c for c in health_case if c['name']=='heal-recipient-children-finish-before-next-recipient')
+    health_body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[0]) for e in health_case['effects']],
+                     script=health_case['script'],base_atk=[1000]*5,environment=health_case['environment'],backend=args.backend)
+    actual=request(health_body);assert actual['gpu_execution_verified']
+    for i,expected in enumerate(health_case['expected_queries'][0]['allies']):
+        for k,v in expected.items():assert actual['results'][0]['queries'][0]['allies'][i][k]==v
+    result['health_execution']=actual
+    malformed=copy.deepcopy(health_body);malformed['environment']['allies'][0]['base_hp']=0
+    try:request(malformed)
+    except urllib.error.HTTPError as error:
+        assert error.code==400;assert 'Invalid initial ally health' in json.load(error)['error']
+    else:raise AssertionError('Invalid initial ally health accepted')
+    result['health_unsupported_status']=400
     result['quantity_unsupported_status']=400
     result['timeline_execution']=timeline_result
     result['extension_execution']=extension_result

@@ -1,14 +1,14 @@
 {
-  "wire_abi": "0x50455639",
-  "positive_cases": 187,
-  "rejections": 5,
-  "batched_inputs": 192,
+  "wire_abi": "0x5045563A",
+  "positive_cases": 212,
+  "rejections": 7,
+  "batched_inputs": 219,
   "gpu_dispatches": 1,
   "metal_verified": true,
-  "cuda_verified": true,
-  "cuda_comparison": "exact-source-input-output-validation-hashes-and-statuses",
+  "cuda_verified": false,
+  "cuda_comparison": "not-yet-requested-after-allied-health-change",
   "metal_report": "portable-combat-metal.json",
-  "previous_cuda_checkpoint": "portable-combat-v8-checkpoint.json",
+  "previous_cuda_checkpoint": "portable-combat-v9-checkpoint.json",
   "gpu_timeline_connected": true,
   "autonomous_battle_connected": false,
   "all_characters_supported": false,
@@ -22,20 +22,23 @@
   "regressions": {
     "existing_events": 16,
     "existing_rejections": 2,
-    "portable_unit_tests": 18,
+    "portable_unit_tests": 19,
     "http_timeline_180_seconds_verified": true,
     "trigger_cpu_references": 15,
     "damage_cpu_references": 37,
     "weapon_cpu_references": 75,
     "http_weapon_and_partial_reload_verified": true,
     "http_quantity_verified": true,
-    "http_charge_control_verified": true
+    "http_charge_control_verified": true,
+    "health_cpu_references": 25,
+    "http_health_verified": true
   },
   "next_work": [
+    "incoming damage, HP edges, down/revival and protection",
+    "additional health scaling, lifesteal, sharing/storage",
+    "dynamic recipient selection and multiple carriers",
     "explicit cover/tap/hold/camera control policies",
-    "HP/defense, healing, protection and additional carriers/recipient state",
-    "real effects, targets and enemy world state",
-    "owned roster GPU adapter and normal UI",
+    "real effects, enemy world state, owned roster GPU adapter and normal UI",
     "full catalog effect/variant verification and end-to-end optimization"
   ],
   "cuda_report": "portable-combat-cuda.json",
@@ -115,65 +118,43 @@
     "after": 0.0673880833783187,
     "verified_commit": "132461d"
   },
-  "source_sha256": {
-    "gpu/event_runtime.slang": "fef758c60c6dc4d0409addf14d7bfa89194ed7d88e42e116c566ff86daa0a355",
-    "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
-    "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "902340975e78ee916610115efe98fdaf6007e263f39183e99b5c857b994afb11",
-    "gpu/quantity_runtime.slang": "ed5ebe3b5e8ef0b5e4ba3ae77d4dc214c493c645f8180debb257454bcf1accb2",
-    "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-    "gpu/combat_runtime.slang": "10a92c58044738fe7bb84011604ea33b45304d41d427314d7516829b546db9e2",
-    "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
-  },
-  "input_sha256": "4ab287e723574955f6743139c31f9798a5a298e4de146e2a06e0a25a67987384",
-  "output_sha256": "e4686643e7fd0e4c6dc6a513209b673358d9f236fe647fda99984f9841ea2ec6",
-  "metal_validation_sha256": {
-    "app/portable_runtime.py": "5c052a84e44912c8523e068bfa392f1dd9d503fdc0227bb218b09a799beaf78e",
-    "app/portable_combat.py": "e59690a2d46ace2902b4d3aee0270b559bd5a09f46c561a0b9bf036d8effb0d1",
-    "app/portable_specs.py": "dcaba5a300f76f6b8d9e3c25e06a66c98265dafad322695525690177294425aa",
-    "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
-    "app/portable_trigger_specs.py": "77d9457c502dd0bfd2e6570f5ae1488f012ebd90dc2facf7a0c3f068943011eb",
-    "app/portable_damage_specs.py": "36e834bb5aa6aa67a0fef5da2bbb7bd9c5d19b3a43b7ac785b79226f54cd6f60",
-    "scripts/portable_weapon_oracle.py": "5fa773a498d5103388f2faee38a69cc56898b1ff9ebff842fe6ccb8fb8736f1f",
-    "scripts/verify-detail.py": "20de1868cf509afa5696af87d94db27974d97c8505702e40eed27886f7c09972",
-    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
-    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
-    "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
-    "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "53189875e9649d94049114f877d0f9cfa73125adcaf67df702ae1fb167b3daba",
-    "tests/fixtures/portable-charge-control.json": "00b643a72ad7026de9cb122386cc3dce521ae13bc5813383886e637d635f4994",
-    "tests/fixtures/portable-quantities.json": "53affbf8b6cfb6b87639a4bfe1090c3b30a44596c09f7f334ee9073daad3a9fa",
-    "tests/fixtures/portable-weapons.json": "75960cd6b9daaf1315a03af930f193df2c637bff7b845cc9f19b524561f5f7bf",
-    "tests/fixtures/portable-damage.json": "ab596e0f01bb9f94ee9813c6027d46a85415b77d5a72c36e06b32bf45b6ac5c7",
-    "tests/fixtures/portable-triggers.json": "680d8d5e212f9604e23f895b141651114e8703a4051facd37deb5ac890a403ec",
-    "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
-    "tests/fixtures/portable-combat-extensions.json": "8d0f54acf3c75cca3441e0c5c629b8832c893836d1f6b8ec2e7eed10bf4aa1ab",
-    "tests/fixtures/portable-autonomous.json": "86b4a8b921a9410d2db605c96fd95ac24d1ae64b44c5e7b661f54a953062d762",
-    "scripts/run-metal-probe.swift": "8dcdc4bb282683af915068dd4fd096d1f12be3f3826c36bd158948cd0c7b1907"
-  },
   "weapon_only_metal_verified": 203,
   "weapon_only_report": "portable-catalog-weapons-metal.json",
   "charge_control_benchmark": {
     "before": 0.06850366666913033,
     "after": 0.057195083354599774,
-    "scope": "64 programs, 32 definitions, three seconds of GPU timeline each; not full battle or full catalog"
+    "scope": "64 programs, 32 definitions, three seconds of GPU timeline each; not full battle or full catalog",
+    "verified_commit": "082509d"
   },
-  "verified_commit": "082509d545862d5be9d6ae87e42f2a4c256f636d",
-  "windows_report": "windows-portable-combat-v9.json",
-  "cuda_validation_sha256": {
-    "app/portable_runtime.py": "5c052a84e44912c8523e068bfa392f1dd9d503fdc0227bb218b09a799beaf78e",
+  "source_sha256": {
+    "gpu/event_runtime.slang": "b624cbc5cb70ff1b75958947f49622811edacec66c856de10d811dc0fa9881be",
+    "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
+    "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+    "gpu/portable_schema.slang": "5eb79818163da22ec4fdeec9496baf6b9a33aa4ff0bbd9a9313ed0f4746b5213",
+    "gpu/quantity_runtime.slang": "3ab8aaad15c453f7e49eae74758566e149a621a1286358649c52c52551e133b3",
+    "gpu/health_runtime.slang": "468f85aa2e26ccce68c9a7da36f50a373ceea1a8d50ab170a4033ebb5383f297",
+    "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
+    "gpu/combat_runtime.slang": "10a92c58044738fe7bb84011604ea33b45304d41d427314d7516829b546db9e2",
+    "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
+  },
+  "input_sha256": "283b27398d128d508df5b73ee3361c794fd75dbc75902ccb16beebb15c57e76a",
+  "output_sha256": "342365c07b466909fb4af7854efd3e92a065a254096db3c9a59c3e60399c4e18",
+  "metal_validation_sha256": {
+    "app/portable_runtime.py": "c8aae4d7ee7a9a78a155a5cc93004e84647d039251d76751dffef23dab82a226",
     "app/portable_combat.py": "e59690a2d46ace2902b4d3aee0270b559bd5a09f46c561a0b9bf036d8effb0d1",
-    "app/portable_specs.py": "dcaba5a300f76f6b8d9e3c25e06a66c98265dafad322695525690177294425aa",
+    "app/portable_specs.py": "e945e87200fadfc0841d7c9967d91a0ab21c30106a903cb46a1f8b6a0e0837a9",
     "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
-    "app/portable_trigger_specs.py": "77d9457c502dd0bfd2e6570f5ae1488f012ebd90dc2facf7a0c3f068943011eb",
-    "app/portable_damage_specs.py": "36e834bb5aa6aa67a0fef5da2bbb7bd9c5d19b3a43b7ac785b79226f54cd6f60",
+    "app/portable_trigger_specs.py": "83b6fa51124f33981ede9e2808e578442cce6d57f9c2dcd661a9884e9ada313a",
+    "app/portable_damage_specs.py": "5476b5318ed0d07731e0baed3a66d73a48cbd2922eb1921f905e40794ba4740a",
+    "scripts/portable_health_oracle.py": "3abc3d32e28369d582d2b150628df6483868a5d25968ca607c2bacc7ce2a6fe6",
     "scripts/portable_weapon_oracle.py": "5fa773a498d5103388f2faee38a69cc56898b1ff9ebff842fe6ccb8fb8736f1f",
     "scripts/verify-detail.py": "20de1868cf509afa5696af87d94db27974d97c8505702e40eed27886f7c09972",
     "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "53189875e9649d94049114f877d0f9cfa73125adcaf67df702ae1fb167b3daba",
+    "scripts/verify-portable-combat.py": "092f2ab3173a5b722f8a7fa09ab9573b4285cedb54d8a2b96da4bd52a0c7db2a",
+    "tests/fixtures/portable-health.json": "614201f346546358376038785f3196032efd3b0aa51276474da723a41267c365",
     "tests/fixtures/portable-charge-control.json": "00b643a72ad7026de9cb122386cc3dce521ae13bc5813383886e637d635f4994",
     "tests/fixtures/portable-quantities.json": "53affbf8b6cfb6b87639a4bfe1090c3b30a44596c09f7f334ee9073daad3a9fa",
     "tests/fixtures/portable-weapons.json": "75960cd6b9daaf1315a03af930f193df2c637bff7b845cc9f19b524561f5f7bf",
@@ -182,26 +163,137 @@
     "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
     "tests/fixtures/portable-combat-extensions.json": "8d0f54acf3c75cca3441e0c5c629b8832c893836d1f6b8ec2e7eed10bf4aa1ab",
     "tests/fixtures/portable-autonomous.json": "86b4a8b921a9410d2db605c96fd95ac24d1ae64b44c5e7b661f54a953062d762",
-    "scripts/run-metal-probe.swift": "8dcdc4bb282683af915068dd4fd096d1f12be3f3826c36bd158948cd0c7b1907"
+    "scripts/run-metal-probe.swift": "7d239896d03babd28326607a9133330d9fda37eee772055eac9a5112d58f5adb"
   },
-  "windows_execution": {
-    "command": "python scripts/verify-portable-combat.py --backend cuda",
-    "commit": "082509d545862d5be9d6ae87e42f2a4c256f636d",
-    "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
-    "gpu_before": "6, 4799",
-    "below_normal_priority": true,
-    "python_utf8": true,
-    "python_dontwritebytecode": true,
-    "exit_code": 0,
-    "timed_out": false,
-    "timeout_seconds": 120,
-    "elapsed_seconds": 37.23512839991599,
-    "stdout": "{\"passed\": true, \"cases\": 187, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
-    "stderr": ""
-  },
-  "windows_postcheck": {
-    "remaining_verification_processes": 0,
-    "original_head_after": "61a43e91301841c272badce519e4d8984bb5efae",
-    "original_status_after": []
+  "known_health_cpu_differences": [
+    {
+      "name": "max-hp-expiry-clamps-to-current-maximum",
+      "reason": "Pinned CPU does not clamp current HP when a max_hp_pct carrier expires",
+      "actual_cpu_queries": [
+        {
+          "allies": [
+            {
+              "hp": 1500.0,
+              "max_hp": 1500.0,
+              "hp_pct": 100.0,
+              "defense": 100.0
+            },
+            {
+              "hp": 400,
+              "max_hp": 2000.0,
+              "hp_pct": 20.0,
+              "defense": 200.0
+            },
+            {
+              "hp": 3000,
+              "max_hp": 3000.0,
+              "hp_pct": 100.0,
+              "defense": 300.0
+            },
+            {
+              "hp": 2000,
+              "max_hp": 4000.0,
+              "hp_pct": 50.0,
+              "defense": 400.0
+            },
+            {
+              "hp": 5000,
+              "max_hp": 5000.0,
+              "hp_pct": 100.0,
+              "defense": 500.0
+            }
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "allies": [
+            {
+              "hp": 1500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0
+            },
+            {
+              "hp": 400,
+              "max_hp": 2000.0,
+              "hp_pct": 20.0,
+              "defense": 200.0
+            },
+            {
+              "hp": 3000,
+              "max_hp": 3000.0,
+              "hp_pct": 100.0,
+              "defense": 300.0
+            },
+            {
+              "hp": 2000,
+              "max_hp": 4000.0,
+              "hp_pct": 50.0,
+              "defense": 400.0
+            },
+            {
+              "hp": 5000,
+              "max_hp": 5000.0,
+              "hp_pct": 100.0,
+              "defense": 500.0
+            }
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "expected_cpu_queries": [
+        {
+          "allies": [
+            {
+              "hp": 1500,
+              "max_hp": 1500
+            }
+          ]
+        },
+        {
+          "allies": [
+            {
+              "hp": 1500,
+              "max_hp": 1000
+            }
+          ]
+        }
+      ],
+      "expected_gpu_queries": [
+        {
+          "allies": [
+            {
+              "hp": 1500,
+              "max_hp": 1500
+            }
+          ]
+        },
+        {
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 1000
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "health_benchmark": {
+    "before": 0.1842718333355151,
+    "after": 0.08159916667500511,
+    "scope": "64 programs, 32 definitions, three seconds of GPU timeline each; not full battle or full catalog"
   }
 }

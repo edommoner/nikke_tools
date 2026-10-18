@@ -54,19 +54,20 @@ class CombatBoundaryTests(unittest.TestCase):
                 (L['ATTACK_CONTEXT_BASE'],5),(L['WEAPON_MECHANICS_BASE'],5*L['WEAPON_MECHANICS_WORDS']),
                 (L['MODE_TIMING_BASE'],L['DEFINITIONS']*L['MODE_TIMING_WORDS']),
                 (L['DEFINITION_EXTRA_BASE'],L['DEFINITIONS']*L['DEFINITION_EXTRA_WORDS']),
-                (L['WEAPON_QUANTITY_BASE'],5*L['WEAPON_QUANTITY_WORDS'])]
+                (L['WEAPON_QUANTITY_BASE'],5*L['WEAPON_QUANTITY_WORDS']),
+                (L['HEALTH_BASE'],5*L['HEALTH_WORDS']),(L['HEALTH_DEFINITION_BASE'],L['DEFINITIONS']*L['HEALTH_DEFINITION_WORDS'])]
         outputs=[(0,16),(L['QUERY_BASE'],L['COMMANDS']*L['QUERY_WORDS']),
                  (L['TRACE_BASE'],L['TRACE']*L['TRACE_WORDS']),(L['STATE_BASE'],L['DEFINITIONS']*10),
                  (L['TIMER_TARGET_BASE'],L['DEFINITIONS']*2),(L['BURST_TRACE_BASE'],64*8),
                  (L['COMBAT_QUERY_BASE'],L['COMMANDS']*L['COMBAT_QUERY_WORDS']),
                  (L['TARGET_STATE_BASE'],8*10),
                  (L['COMBAT_STATE_QUERY_BASE'],L['COMMANDS']*L['COMBAT_STATE_QUERY_WORDS']),
-                 (L['WEAPON_STATE_BASE'],5*L['WEAPON_STATE_WORDS']),(L['COUNTER_STATE_BASE'],L['DEFINITIONS']*8),(L['PERIOD_STATE_BASE'],L['DEFINITIONS']*4)]
+                 (L['HEALTH_QUERY_BASE'],L['COMMANDS']*L['HEALTH_QUERY_WORDS']),(L['HEALTH_STATE_BASE'],50),(L['WEAPON_STATE_BASE'],5*L['WEAPON_STATE_WORDS']),(L['COUNTER_STATE_BASE'],L['DEFINITIONS']*8),(L['PERIOD_STATE_BASE'],L['DEFINITIONS']*4)]
         for regions,capacity in [(inputs,L['INPUT_WORDS']),(outputs,L['OUTPUT_WORDS'])]:
             end=0
             for start,size in sorted(regions):
                 self.assertGreaterEqual(start,end);end=start+size
-            self.assertLessEqual(end,capacity);self.assertLessEqual(capacity,16384)
+            self.assertLessEqual(end,capacity);self.assertLessEqual(capacity,32768)
 
     def test_accuracy_requires_geometry_instead_of_reusing_static_probability(self):
         c=copy.deepcopy(v.fixtures()[0]);c['effects'][0]['stat']='accuracy_pct'

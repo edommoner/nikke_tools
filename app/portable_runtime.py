@@ -33,7 +33,7 @@ def double_words(value):
 def validate_effect(eff, *, combat=None):
     allowed = {'name','source','type','stat','fixed_value','values','duration','duration_values',
                'target','trigger','note','polarity','favorite','_source_tag','_quant_group','max_ammo_reduction_exclusive','trigger_values','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
-    effect_allowed=allowed | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','cover_during_delay','first_damage_coeff','max_ammo_buff_applies','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
+    effect_allowed=allowed | ({'scaling'} if eff.get('stat')=='heal_hp_pct' else set()) | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','cover_during_delay','first_damage_coeff','max_ammo_buff_applies','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
     if set(eff)-effect_allowed:
         raise UnsupportedPortable('Unported effect fields: '+', '.join(sorted(set(eff)-effect_allowed)))
     from portable_trigger_specs import validate_input
@@ -51,7 +51,10 @@ def validate_effect(eff, *, combat=None):
         if stat not in DAMAGE_FAMILIES or target not in ('target','boss'):
             raise UnsupportedPortable('Unported damage family or geometry')
     elif kind=='instant':
-        if stat not in ('remove_named_buff','force_skill_use','burst_reentry') or target!='self':
+        if stat in ('heal_hp_pct','current_hp_reduce'):
+            if target not in ('self','all_allies'):raise UnsupportedPortable('Unported health recipient selector')
+            if eff.get('scaling') not in (None,'max_hp'):raise UnsupportedPortable('Unported healing basis')
+        elif stat not in ('remove_named_buff','force_skill_use','burst_reentry') or target!='self':
             raise UnsupportedPortable('Unported instant or recipient selector')
     elif kind=='weapon_change':
         if combat is None or target!='self':raise UnsupportedPortable('Weapon mode requires combat and self recipient')
@@ -73,7 +76,7 @@ def validate_effect(eff, *, combat=None):
             raise ValueError('Invalid '+key)
 
 
-def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None):
+def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None):
     import detail_gpu as legacy
     check_schema()
     effects = list(effects)
@@ -97,6 +100,15 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     for at,value in [(18,defense),(20,core_ratio),(22,core_bonus)]:
         if value<0:raise ValueError('Negative enemy/geometry input')
         words[at:at+2]=double_words(value)
+    allies=allies if allies is not None else [{} for _ in range(5)]
+    if not isinstance(allies,list) or len(allies)!=5:raise ValueError('Expected five initial ally states')
+    for who,ally in enumerate(allies):
+        if not isinstance(ally,dict) or set(ally)-{'base_hp','hp','base_defense'}:raise ValueError('Unsupported initial ally state')
+        base=ally.get('base_hp',1000000);current=ally.get('hp',base);defense_value=ally.get('base_defense',0)
+        for value in (base,current,defense_value):double_words(value)
+        if not 0<base<=1e30 or not 0<=current<=base or not 0<=defense_value<=1e30:raise ValueError('Invalid initial ally health/defense')
+        at=L['HEALTH_BASE']+who*L['HEALTH_WORDS']
+        words[at:at+6]=[*double_words(base),*double_words(current),*double_words(defense_value)]
     words[24:26]=double_words(.15);words[26:28]=double_words(.5)
     for index,row in enumerate(program['effects']):
         compact=[0]*L['DEFINITION_WORDS']
@@ -118,6 +130,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         extra=L['DEFINITION_EXTRA_BASE']+index*L['DEFINITION_EXTRA_WORDS']
         words[extra:extra+8]=[int(row[45]),int(row[55]),(-1 if int(row[2]) in (18,20,37) else int(row[43])) & 0xffffffff,int(row[213]),
                               *double_words(row[138]),int(row[139]),int(row[209])]
+        health=L['HEALTH_DEFINITION_BASE']+index*L['HEALTH_DEFINITION_WORDS']
+        words[health:health+2]=[int(row[50]),int(effects[index][0].get('stat')=='def_pct')]
         if row[1]==2:
             if row[7]<0 and row[14]>0:raise UnsupportedPortable('Infinite conditional weapon mode is not ported')
             from portable_combat import pack_mode
@@ -199,6 +213,9 @@ def decode(words,metadata):
                 at=states+64+who*8
                 w.update(ready=number(at),charge_until=number(at+2),charging=bool(words[at+4]),aim=words[at+5],mode_index=words[at+6]-1,mode_shots=words[at+7])
             q['combat'].update(reentry_slot=bool(words[states+104]),reentry_done=words[states+105],casts=list(words[states+106:states+111]))
+    for index,q in enumerate(queries):
+        at=L['HEALTH_QUERY_BASE']+index*L['HEALTH_QUERY_WORDS']
+        q['allies']=[dict(hp=number(at+who*10),max_hp=number(at+who*10+2),hp_pct=number(at+who*10+4),defense=number(at+who*10+6),healing=number(at+who*10+8)) for who in range(5)]
     weapon_states=[]
     if metadata.get('combat') is not None:
         for who in range(5):
@@ -229,7 +246,9 @@ def decode(words,metadata):
         for i,t in enumerate(metadata['combat']['targets']):
             at=L['TARGET_STATE_BASE']+i*10
             targets.append(dict(kind=t.get('kind',0),identity=t.get('identity',i),generation=words[at],active=bool(words[at+1]),hp=number(at+2),damage=number(at+4),hits=words[at+6]))
-    return dict(weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
+    at=L['HEALTH_STATE_BASE']
+    health=[dict(hp=number(at+who*10),max_hp=number(at+who*10+2),hp_pct=number(at+who*10+4),defense=number(at+who*10+6),healing=number(at+who*10+8)) for who in range(5)]
+    return dict(allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
 
 
 def run_programs(programs, *, backend='metal'):

@@ -1,0 +1,87 @@
+// Allied body state and healing. All arithmetic uses shared software binary64.
+uint64_t effectiveMaxHP(inout Runtime s, uint who, uint64_t when)
+{
+#ifndef PORTABLE_HEALTH_SCAN_REFERENCE
+    if ((s.healthMask & 1) == 0) return s.baseHP[who];
+#endif
+    uint64_t percent = 0, flat = 0;
+    for (uint pass = 0; pass < s.orderedCount; pass++)
+    {
+        uint row = s.orderedRows[pass]; Definition d = s.defs[row];
+        if (d.kind != 0 || !liveRecipient(s,row,who,when)) continue;
+        uint64_t value = scalarValue(s,row,who);
+        if (d.stat == S_max_hp_pct || d.stat == S_max_hp_only_pct) percent = f64Add(percent,value);
+        else if (d.stat == S_hp_caster_based_pct || d.stat == S_hp_only_caster_based_pct)
+            flat = f64Add(flat,f64Div(f64Mul(s.baseHP[d.owner],value),HUNDRED));
+        else if (d.stat == S_max_hp_from_max_hp_pct) flat = f64Add(flat,s.hpSnapshot[row]);
+    }
+    uint64_t maximum = f64Add(f64Mul(s.baseHP[who],f64Add(ONE,f64Div(percent,HUNDRED))),flat);
+    if (!f64Finite(maximum) || !f64Less(0,maximum)) s.error = 16;
+    return maximum;
+}
+uint64_t effectiveDefense(inout Runtime s, uint who, uint64_t when)
+{
+#ifndef PORTABLE_HEALTH_SCAN_REFERENCE
+    if ((s.healthMask & 2) == 0) return s.baseDefense[who];
+#endif
+    uint64_t percent = 0, flat = 0;
+    for (uint pass = 0; pass < s.orderedCount; pass++)
+    {
+        uint row = s.orderedRows[pass]; Definition d = s.defs[row];
+        if (d.kind != 0 || !liveRecipient(s,row,who,when)) continue;
+        uint64_t value = scalarValue(s,row,who);
+        if (d.defenseBuff != 0) percent = f64Add(percent,value);
+        else if (d.stat == S_def_caster_based_pct) flat = f64Add(flat,f64Mul(s.baseDefense[d.owner],f64Div(value,HUNDRED)));
+    }
+    uint64_t result = f64Add(f64Mul(s.baseDefense[who],f64Add(ONE,f64Div(percent,HUNDRED))),flat);
+    if (!f64Finite(result)) s.error = 16;
+    return result;
+}
+void syncHealth(inout Runtime s, uint64_t when)
+{
+    if (s.healthMask == 0) return;
+    for (uint who = 0; who < 5 && s.error == 0; who++)
+    {
+        uint64_t maximum = effectiveMaxHP(s,who,when);
+        if (s.error != 0) return;
+        s.hp[who] = larger(0,smaller(maximum,s.hp[who]));
+        s.hpPct[who] = f64Mul(f64Div(s.hp[who],maximum),HUNDRED);
+        if (!f64Finite(s.hpPct[who])) s.error = 16;
+    }
+}
+void applyHealthBuff(inout Runtime s, uint row, uint64_t when)
+{
+    Definition d = s.defs[row];
+#ifndef PORTABLE_HEALTH_SCAN_REFERENCE
+    if (!(d.stat >= S_max_hp_pct && d.stat <= S_max_hp_only_pct || d.stat == S_max_hp_from_max_hp_pct)) return;
+#endif
+    uint64_t grant = 0;
+    if (d.stat == S_max_hp_pct || d.stat == S_hp_caster_based_pct)
+        grant = f64Div(f64Mul(s.baseHP[d.owner],d.value),HUNDRED);
+    if (d.stat == S_max_hp_from_max_hp_pct)
+    {
+        uint64_t previous = s.hpSnapshot[row]; s.hpSnapshot[row] = 0;
+        s.hpSnapshot[row] = f64Div(f64Mul(effectiveMaxHP(s,d.owner,when),scalarValue(s,row,d.owner)),HUNDRED);
+        grant = larger(0,f64Add(s.hpSnapshot[row],previous ^ F64_SIGN));
+    }
+    if (!f64Finite(grant)) { s.error = 16; return; }
+    if (!f64Zero(grant)) for (uint who = 0; who < 5; who++) if ((d.recipients & (1U << who)) != 0)
+        s.hp[who] = smaller(f64Add(s.hp[who],grant),effectiveMaxHP(s,who,when));
+    syncHealth(s,when);
+}
+uint64_t healMultiplier(inout Runtime s, uint recipient, uint source, uint64_t when)
+{
+    uint64_t received = larger(0,f64Add(ONE,f64Div(plainQuantity(s,recipient,S_heal_received_pct,when),HUNDRED)));
+    uint64_t outgoing = larger(0,f64Add(ONE,f64Div(plainQuantity(s,source,S_outgoing_heal_pct,when),HUNDRED)));
+    return f64Mul(received,outgoing);
+}
+void writeHealth(inout Runtime s, uint64_t when, uint output)
+{
+    if (s.error != 0) return;
+    for (uint who = 0; who < 5; who++)
+    {
+        uint at = output+who*10;
+        storeNumber(at,s.hp[who]); storeNumber(at+2,effectiveMaxHP(s,who,when));
+        storeNumber(at+4,s.hpPct[who]); storeNumber(at+6,effectiveDefense(s,who,when)); storeNumber(at+8,s.healing[who]);
+    }
+}
