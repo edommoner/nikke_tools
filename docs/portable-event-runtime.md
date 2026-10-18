@@ -48,7 +48,9 @@
 
 CUDAでも同じ検証コマンドの `--backend cuda` を使い、入力・期待値・比較・実行器は変更しません。Windowsアダプターは固定Slangが生成したCUDAをNVRTCでコンパイルし、Driver APIで一回だけ実行します。SlangのStructuredBuffer用constant領域は実際のシンボルサイズを照合してから書き込みます。出力初期化もMetalと共通のゼロ規約です。
 
-今回Windows PCは使用しておらず、CUDAのNVRTCコンパイル／GPU実行は未確認です。CodexのWindows接続は確認済みです。Windows側チャットへの送信が承認されました。短い入力検証だけを実施し、長時間の負荷測定・常時テスト・本体のフルビルドは行いません。必要な初回候補は次の2コマンドです。
+2026-10-19、共有ブランチの `0a35c79365b1adb7f7893681af3c954e169728bb` をWindowsの隔離作業フォルダーで検証しました。RTX 3070 Tiの実CUDAで数値5,178ケース、状態・イベント14ケース、拒否2ケースが成功し、共通GPUソースと入力・出力のSHA-256がMetalと完全一致しました。記録は `research/portable-numeric-cuda-short.json`、`portable-events-cuda-short.json`、照合結果と来歴は `portable-cross-gpu-checkpoint.json` です。追加の味方全体・スタック上限2ケースはMetalのみで、CUDAは14ケースです。
+
+Windowsのコマンド全体は数値約2.35秒、イベント約35.18秒でした。低優先度で短い検証だけを行い、既存の作業フォルダーとCUDA本体を変更せず、フルビルド・常時テストは行っていません。初回はWindowsのCP932既定値でfixture読み込みが失敗したため、`PYTHONUTF8=1` で成功を確認しました。その後、共通スクリプトにUTF-8を明示する修正をMacで加えています。GPUソース・入力・出力は変更しておらず、CUDA報告のホスト側ハッシュは実行時のコミットの値として保存しています。再実行は次の2コマンドです。
 
 ```sh
 python scripts/verify-portable-numeric.py --backend cuda --random-count 0 --report-suffix short

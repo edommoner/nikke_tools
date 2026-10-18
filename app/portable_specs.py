@@ -24,5 +24,5 @@ def shader_schema():
 
 def check_schema():
     path = Path(__file__).resolve().parents[1]/'gpu/portable_schema.slang'
-    if path.read_text() != shader_schema():
+    if path.read_text(encoding='utf-8') != shader_schema():
         raise ValueError('Regenerate gpu/portable_schema.slang from portable_specs.shader_schema()')

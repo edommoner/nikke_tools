@@ -9,7 +9,7 @@
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
     "gpu/numeric_probe.slang": "d71250e44525fb367912fe9cfbe445d1c5a6cafb0563b5d1db3bce76ad237b98",
     "tests/fixtures/portable-numeric.json": "dfa3cc2c750b2a06eead99d05e3e785afd174a56fdb8337ae424de0ec7509c30",
-    "scripts/verify-portable-numeric.py": "7fa093b7a342db940d5be2a95a58d84e21a9402c3b94f5e7c1e33931db93b958",
+    "scripts/verify-portable-numeric.py": "6f69e28e3de824899cc5e25320eb9ebfc2a5a4f44c5a3e5dc393a0ce7b664d9e",
     "scripts/run-metal-probe.swift": "14ea0beae31b1e1f6ec5a2fbcd9bd624ed4e7a2f35563e988812376dc0649a5a",
     "app/portable_backend.py": "1eec4045e1fdc66d48222d02f5fb94100ac5bd0cd4a1a1a7b515564faa76c77e"
   },
@@ -18,7 +18,7 @@
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
     "gpu/numeric_probe.slang": "d71250e44525fb367912fe9cfbe445d1c5a6cafb0563b5d1db3bce76ad237b98",
     "tests/fixtures/portable-numeric.json": "dfa3cc2c750b2a06eead99d05e3e785afd174a56fdb8337ae424de0ec7509c30",
-    "scripts/verify-portable-numeric.py": "7fa093b7a342db940d5be2a95a58d84e21a9402c3b94f5e7c1e33931db93b958",
+    "scripts/verify-portable-numeric.py": "6f69e28e3de824899cc5e25320eb9ebfc2a5a4f44c5a3e5dc393a0ce7b664d9e",
     "scripts/run-metal-probe.swift": "14ea0beae31b1e1f6ec5a2fbcd9bd624ed4e7a2f35563e988812376dc0649a5a",
     "app/portable_backend.py": "1eec4045e1fdc66d48222d02f5fb94100ac5bd0cd4a1a1a7b515564faa76c77e"
   },

@@ -98,7 +98,7 @@
     "cases": 1,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.002139249991159886,
+    "gpu_seconds": 0.002669083361979574,
     "input_bytes": 8196,
     "output_bytes": 16384,
     "registry_id": "4294968313"
@@ -128,7 +128,7 @@
     "app/engine_worker.py": "1d54e891b41aebc8ce9e527320183013380a5ba984a5ef3a6e542e325e734787",
     "app/portable_runtime.py": "e797e7e86f60b4af7a032313027756b6664885f976fd6ee6cfd999a5b2984ecd",
     "app/portable_backend.py": "1eec4045e1fdc66d48222d02f5fb94100ac5bd0cd4a1a1a7b515564faa76c77e",
-    "scripts/verify-portable-api.py": "237dafd505b107fc140577f2e46fcd6dd560732ff5a7f1a0affed49981f24296",
+    "scripts/verify-portable-api.py": "f45167e1669aa8c0cab25bf53bb719bbd3b2755007f918efa0e44de497fe4b0d",
     "tests/fixtures/portable-events.json": "7dd3eb1e11b8964dec596d639cd3e626138f73d3fab158eec4973265292d1ba8"
   }
 }

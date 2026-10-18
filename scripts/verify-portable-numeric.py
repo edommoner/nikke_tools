@@ -111,7 +111,7 @@ def expected_status(op, a):
 
 
 def cases(random_count=1024):
-    fixture = json.loads((ROOT/'tests/fixtures/portable-numeric.json').read_text())
+    fixture = json.loads((ROOT/'tests/fixtures/portable-numeric.json').read_text(encoding='utf-8'))
     result = []
     for row in fixture['cases']:
         op, a, b, answer = row['op'], int(row['a'], 16), int(row['b'], 16), int(row['expected'], 16)
@@ -181,7 +181,7 @@ def main():
     path = ROOT/f'research/portable-numeric-{kind}{suffix}.json'
     if not args.validate_only:
         # A failed compiler/driver run must not leave an older success report.
-        path.write_text(json.dumps({**report, 'passed': False, 'stage': 'execution-pending'}, indent=2)+'\n')
+        path.write_text(json.dumps({**report, 'passed': False, 'stage': 'execution-pending'}, indent=2)+'\n', encoding='utf-8')
         words = [len(inputs)]
         for _, op, a, b, _ in inputs:
             words += [op, a & 0xffffffff, a >> 32, b & 0xffffffff, b >> 32]
@@ -197,7 +197,7 @@ def main():
         report.update(passed=not mismatches, **evidence,
                       mismatch_count=len(mismatches), mismatches=mismatches[:20])
     assert hashes == {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in hashes}
-    path.write_text(json.dumps(report, indent=2)+'\n')
+    path.write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
     print(json.dumps(report))
     raise SystemExit(0 if report['passed'] else 1)
 

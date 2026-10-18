@@ -23,11 +23,11 @@ def main():
     if url.scheme!='http' or url.hostname not in ('127.0.0.1','localhost') or url.username or url.password or url.path not in ('','/') or url.query or url.fragment:
         parser.error('Use a loopback HTTP origin')
     path=ROOT/f'research/portable-api-{args.backend}.json'
-    path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n')
+    path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n', encoding='utf-8')
     tracked=['server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_backend.py',
              'scripts/verify-portable-api.py','tests/fixtures/portable-events.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
-    case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text())['cases'][0]
+    case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases'][0]
     payload=dict(chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES],
                  effects=[dict(effect=e,owner=NAMES[0]) for e in case['effects']],script=case['script'],
                  base_atk=case['base_atk'],environment=case['environment'],backend=args.backend)
@@ -46,7 +46,7 @@ def main():
     else:raise AssertionError('Unported effect was accepted')
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in hashes}
     result.update(passed=True,api_status=200,unsupported_status=400,unsupported_error=detail['error'],adapter_sha256=hashes)
-    path.write_text(json.dumps(result,indent=2)+'\n')
+    path.write_text(json.dumps(result,indent=2)+'\n', encoding='utf-8')
     print(json.dumps(dict(passed=True,backend=args.backend,device=result['transport']['device'],
                          totals=case['expected_totals'],unsupported_status=400)))
 

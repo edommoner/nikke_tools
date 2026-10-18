@@ -30,9 +30,9 @@ def main():
     parser.add_argument('--short',action='store_true',help='Use the original 14-case CUDA handoff scope')
     args=parser.parse_args()
     report_path=ROOT/f'research/portable-events-{args.backend}{"-short" if args.short else ""}.json'
-    report_path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n')
+    report_path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n', encoding='utf-8')
     inputs=list(cases());programs=[compile_case(case) for case in inputs]
-    extras=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text())['cases']
+    extras=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases']
     if args.short:extras=extras[:6]
     chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES]
     for case in extras:
@@ -79,7 +79,7 @@ def main():
                   rejected_cases=[dict(name='recursive-force-stack-limit',status=1),dict(name='damage-int64-overflow',status=16)],
                   rejection_execution=negative_evidence,
                   adapter_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked})
-    report_path.write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
+    report_path.write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n', encoding='utf-8')
     print(json.dumps(dict(passed=True,cases=len(rows),device=result['transport']['device'],
                          gpu_execution_verified=True,application_event_runtime_connected=True,
                          autonomous_battle_connected=False)))

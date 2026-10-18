@@ -2,9 +2,9 @@
 
 ## 2026-10-19 共通実行器の追加更新
 
-整数変換・floorと、コア命中確率のclampされたpowを共通Slangへ追加しました。数値34,874ケース、状態・イベント16ケース、再入／数値あふれの拒否2ケースをApple M5で確認しています。アプリの `POST /api/portable-events` から実Metalまで接続済みです。通常画面の自律戦闘と全キャラ対応は未完了で、GPUの標準受付は増やしていません。[共通実行器の範囲と検証手順](portable-event-runtime.md)と[更新した数値規約](portable-numerics.md)を先に確認してください。WindowsのCodexリモート接続は確認済みで、CUDAは共通ソース生成とアダプター追加までです。Windows側チャットへの短い検証依頼は承認済みで、CUDA実行検証はこれからです。
+整数変換・floorと、コア命中確率のclampされたpowを共通Slangへ追加しました。数値34,874ケース、状態・イベント16ケース、再入／数値あふれの拒否2ケースをApple M5で確認しています。アプリの `POST /api/portable-events` から実Metalまで接続済みです。通常画面の自律戦闘と全キャラ対応は未完了で、GPUの標準受付は増やしていません。[共通実行器の範囲と検証手順](portable-event-runtime.md)と[更新した数値規約](portable-numerics.md)を先に確認してください。WindowsのRTX 3070 Tiで短いCUDA検証を実施し、数値5,178ケース・状態14ケース・拒否2ケースが成功しました。GPUソース・入力・出力のハッシュがMetalと一致しています。Windowsの元の作業フォルダーと本体は変更せず、フルビルドや常時テストは行っていません。来歴は `research/portable-cross-gpu-checkpoint.json` を参照してください。
 
-## 2026-10-19 Mac実機の引き継ぎ更新
+## 2026-10-19 Mac実機の初回記録（上記の追加更新より前）
 
 - このMacの作業ブランチは `codex/mac-metal`、開始点は `origin/codex/mac-portability` の `61a43e9` です。以下のWindows時点の履歴は比較用として残します。
 - M5・24GB・macOS 26.6.2 arm64、Python 3.12.15、Node 24.22.0でCPUカタログ203体を確認。元のMetal実証4/4ケースはApple M5のGPUで成功しました。
