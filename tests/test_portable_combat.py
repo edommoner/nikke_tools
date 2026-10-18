@@ -52,7 +52,9 @@ class CombatBoundaryTests(unittest.TestCase):
                 (L['EVENT_BASE'],L['DEFINITIONS']*L['EVENT_WORDS']),
                 (L['CONDITION_BASE'],L['DEFINITIONS']*L['CONDITION_WORDS']),
                 (L['ATTACK_CONTEXT_BASE'],5),(L['WEAPON_MECHANICS_BASE'],5*L['WEAPON_MECHANICS_WORDS']),
-                (L['MODE_TIMING_BASE'],L['DEFINITIONS']*L['MODE_TIMING_WORDS'])]
+                (L['MODE_TIMING_BASE'],L['DEFINITIONS']*L['MODE_TIMING_WORDS']),
+                (L['DEFINITION_EXTRA_BASE'],L['DEFINITIONS']*L['DEFINITION_EXTRA_WORDS']),
+                (L['WEAPON_QUANTITY_BASE'],5*L['WEAPON_QUANTITY_WORDS'])]
         outputs=[(0,16),(L['QUERY_BASE'],L['COMMANDS']*L['QUERY_WORDS']),
                  (L['TRACE_BASE'],L['TRACE']*L['TRACE_WORDS']),(L['STATE_BASE'],L['DEFINITIONS']*10),
                  (L['TIMER_TARGET_BASE'],L['DEFINITIONS']*2),(L['BURST_TRACE_BASE'],64*8),

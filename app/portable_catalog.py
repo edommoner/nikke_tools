@@ -22,14 +22,14 @@ def audit_prepared(prepared, stats, body):
         except (ValueError,TypeError) as e:issue=str(e)
         semantic_issue=issue
         if issue is not None:
-            diagnostic={k:v for k,v in eff.items() if k not in ('note','polarity','favorite','_source_tag','_quant_group')}
+            diagnostic={k:v for k,v in eff.items() if k not in ('note','favorite')}
             try:validate_effect(diagnostic,combat={});semantic_issue=None
             except (ValueError,TypeError) as e:semantic_issue=str(e)
         effects.append(dict(name=eff.get('name',''),type=eff.get('type'),stat=eff.get('stat'),
                             family=describe_effect(eff)['family'],timings=eff.get('trigger',{}).get('timing',[]),
                             conditions=eff.get('trigger',{}).get('condition',[]),
                             preflight_passed=issue is None,diagnostic_semantic_issue=semantic_issue,
-                            diagnostic_metadata_stripped=True,**(dict(issue=issue) if issue else {})))
+                            diagnostic_metadata_stripped=issue is not None,diagnostic_removed_fields=[k for k in ('note','favorite') if issue is not None and k in eff],**(dict(issue=issue) if issue else {})))
     weapon=dict(mode=st.fire_mode,pellets=st.pellets,muzzles=st.muzzles,clip_count=st.clip_count,
                 charge_multiplier=st.weapon.get('full_charge_mult',100),spread_start=st.spread_start,
                 spread_end=st.spread_end,spread_shots=st._spread_shots_needed)

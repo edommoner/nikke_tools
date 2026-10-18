@@ -24,7 +24,9 @@ struct Definition
     int eventName, targetName;
     uint forceMask, recipients, target, stageArg, stageOverride, reentry, toggle, triggerCount, conditionCount, flags;
     uint64_t period;
-    uint damageFlags;
+    uint damageFlags, group, exclusive, quantityFlags, fixedLiteral, polarity;
+    int alias;
+    uint64_t fixedValue;
 };
 struct Frame
 {
@@ -35,6 +37,8 @@ struct Frame
 struct Runtime
 {
     Definition defs[32];
+    uint quantityMask, weaponInitialized[5], modeMagazine[5];
+    uint64_t rawCharge[5], activated[32];
     uint rawRate[5], clipCount[5], geometry[5], probabilityValid[5], probabilityEvaluations[5];
     uint64_t chargeStartedAt[5], minCycle[5], gaugeMultiplier[5], coreDamageBonus[5];
     uint64_t warm[5], lastFire[5], lastInterval[5], postReloadUntil[5];
@@ -136,6 +140,8 @@ void markEntry(inout Runtime s, uint row)
     s.entryOrder[row] = ++s.entryClock;
 }
 
+#include "quantity_runtime.slang"
+
 // Collect in resident order once per query/hit. Four critical sums use the
 // same compensated accumulation as the reference; other scalar sums are ordered.
 [noinline]
@@ -161,7 +167,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
 #endif
         if (d.kind != 0 || d.stat >= 64 || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
             (d.recipients & (1U << who)) == 0 || !basicConditions(s,selected,when,true)) continue;
-        uint64_t value = f64Mul(d.value,f64FromI64(s.stacks[selected]));
+        uint64_t value = scalarValue(s,selected,who);
         if (d.stat == S_crit_rate || d.stat == S_normal_atk_crit_rate)
         {
             value = f64Div(value,HUNDRED); addSum(rate,value);
@@ -171,6 +177,13 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
         { addSum(critical,value); if (d.stat == S_crit_dmg) addSum(skillCritical,value); }
         else if (d.stat == S_atk_caster_based_pct) values[S_atk_flat] = f64Add(values[S_atk_flat],f64Mul(s.baseAttack[d.owner],f64Div(value,HUNDRED)));
         else values[d.stat] = f64Add(values[d.stat],value);
+    }
+    if ((s.quantityMask & 1) != 0) values[S_max_ammo_pct] = quantityTotals(s,who,S_max_ammo_pct,when,0,ONE).percent;
+    if ((s.quantityMask & 2) != 0 || (s.quantityMask & 8) != 0) values[S_charge_speed_pct] = quantityTotals(s,who,S_charge_speed_pct,when,0,ONE).percent;
+    if ((s.quantityMask & 4) != 0)
+    {
+        uint64_t conversion = chargeOverflow(s,who,when), overflow = larger(0,f64Add(values[S_charge_speed_pct],HUNDRED ^ F64_SIGN));
+        if (f64Less(0,conversion) && f64Less(0,overflow)) values[S_charge_dmg_pct] = f64Add(values[S_charge_dmg_pct],f64Div(f64Mul(overflow,conversion),HUNDRED));
     }
     values[S_crit_rate] = larger(0,smaller(ONE,f64Add(rate.total,rate.correction)));
     values[S_crit_rate_skill] = larger(0,smaller(ONE,f64Add(skillRate.total,skillRate.correction)));
@@ -227,7 +240,7 @@ void land(inout Runtime s, uint who, uint target, uint64_t amount)
 void clearMode(inout Runtime s, uint who, uint64_t when)
 {
     s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who];
-    s.ammo[who] = s.capacity[who]; s.reloadUntil[who] = F64_SIGN | ONE;
+    s.ammo[who] = fullCapacity(s,who,s.capacity[who],true,when); s.weaponInitialized[who] = 1; s.reloadUntil[who] = F64_SIGN | ONE;
     s.charging[who] = 0; s.nextShot[who] = when; s.modeShots[who] = 0; s.postReloadUntil[who] = F64_SIGN | ONE;
 }
 
@@ -340,11 +353,12 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             s.activations[row]++;
         }
         if (!f64Zero(d.interval) && f.event != 28) { registerTimer(s,row,f.time); continue; }
+        if (d.alias >= 0) { row = uint(d.alias); d = s.defs[row]; }
         if (d.kind == 0 || d.kind == 4)
         {
             bool live = s.alive[row] != 0 && f64Less(f.time,s.end[row]);
             if (!live) { s.stacks[row] = 0; markEntry(s,row); }
-            s.stacks[row] = min(s.stacks[row]+1,d.maxStack); s.alive[row] = 1;
+            s.stacks[row] = min(s.stacks[row]+1,d.maxStack); s.alive[row] = 1; s.activated[row] = f.time;
             s.end[row] = f64Less(d.duration,0) ? FOREVER : f64Add(f.time,d.duration);
             pushFrame(s,frames,depth,0,9,d.owner,int(d.name),f.time,s.stacks[row]);
         }
@@ -485,6 +499,16 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         d.triggerCount = commands[at+D_TRIGGER_COUNT]; d.conditionCount = commands[at+D_CONDITION_COUNT];
         d.flags = commands[at+D_FLAGS]; d.period = loadNumber(at+D_PERIOD); d.damageFlags = commands[at+D_DAMAGE_FLAGS];
         d.target = commands[at+D_TARGET]; d.forceMask = commands[at+D_FORCE_MASK]; d.recipients = commands[at+D_RECIPIENTS];
+        uint extra = input+P_DEFINITION_EXTRA_BASE+j*P_DEFINITION_EXTRA_WORDS;
+        d.group = commands[extra]; d.exclusive = commands[extra+1]; d.alias = int(commands[extra+2]); d.quantityFlags = commands[extra+3];
+        d.fixedValue = loadNumber(extra+4); d.fixedLiteral = commands[extra+6]; d.polarity = commands[extra+7];
+        if (d.group >= P_DEFINITIONS || d.alias >= int(j)) { s.error = 64; break; }
+        if (d.kind == 0 && d.stat == S_max_ammo_flat) s.quantityMask |= 16;
+        if (d.kind == 0 && d.stat == S_charge_time_flat) s.quantityMask |= 32;
+        if (d.kind == 0 && d.stat == S_max_ammo_pct) s.quantityMask |= 1;
+        if (d.kind == 0 && (d.stat == S_charge_speed_pct || d.stat == S_charge_speed_caster_based_pct)) s.quantityMask |= 2;
+        if ((d.quantityFlags & 64) != 0) s.quantityMask |= 4;
+        if (d.kind == 0 && d.stat == S_charge_time_fixed) s.quantityMask |= 8;
         if (d.owner >= 5 || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; } s.defs[j] = d;
     }
     uint queries = 0;
@@ -493,7 +517,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         uint at = input+P_COMMAND_BASE+step*8, op = commands[at]; uint64_t when = loadNumber(at+1);
         if (s.combat == 0 || op == 4) sampleWorld(s);
         if (op == 4 && s.combat != 0 && s.combatStarted == 0)
-        { s.combatStarted = 1; teamNotify(s,0,when,output); }
+        { s.combatStarted = 1; teamNotify(s,0,when,output); initializeMagazines(s,when); }
         if (s.combat == 0 || op == 4) tick(s,when,output);
         if (s.error != 0) break;
         if (op == 0)

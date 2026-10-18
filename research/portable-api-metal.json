@@ -132,25 +132,26 @@
     "cases": 1,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.002339666651096195,
+    "gpu_seconds": 0.0026113750063814223,
     "input_bytes": 32772,
     "output_bytes": 65536,
     "registry_id": "4294968313"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "6acddc9384238b6d3b99cd248799ea1bc37559ac8e96b9aed274cc2cb8370233",
+    "gpu/event_runtime.slang": "df4df6183e49675cbae18b7a7794695e82981310eabe51a648b3d930c27d1e34",
     "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "782b508556f89416f97221916a9e6113c08b7cc5510de9182d4a2c1aad7a4a0e",
+    "gpu/portable_schema.slang": "fc40827177453cd8bb026aefb87ccc593e6acdbb76e8d214a732cdfa98fa7e96",
+    "gpu/quantity_runtime.slang": "ed5ebe3b5e8ef0b5e4ba3ae77d4dc214c493c645f8180debb257454bcf1accb2",
     "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-    "gpu/combat_runtime.slang": "8befb9c2ff2cc84609c682d97887d7b0f318519bb4d9005ec58c8f2f07edf108",
-    "gpu/weapon_runtime.slang": "0800a5878e33eb0893a19d4b710fa9decf21f6f86c44f9d1cf974225cfb9fa8c"
+    "gpu/combat_runtime.slang": "1c250d512ee986c16e7945eda511e6d186b637e0c857b69796cdd998941619dd",
+    "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
   },
   "generated_sha256": {
-    "cuda": "5f09d70b74c6b1ed259933275db5ce9b6d40d4c0aa47dafd8421365b8d3437c1",
-    "metal": "bd2e2ac58ed5599521ffc4f964f5a89031a3beec424b8c7ffa9216e5d882e169"
+    "cuda": "ac3b41c4ad4069c4f55dcf9c6df1e7c0deeee5f04ba509bac1503dea1f181bfa",
+    "metal": "3a8bb20018197f07e480e1c582b2174314ce6029e28e591b16bedc633843605e"
   },
-  "input_sha256": "257047c862483d35b43e5bbe9f7cf87a81deab26f10412b2b9a028481b7a51a2",
+  "input_sha256": "930c64bcb4208c981e16f5c946654ba3ff1d28262d91674da7dfb16556840702",
   "output_sha256": "426b3e592f87ba97d70d4934d6ed1f44e600e531924bcf71b50ff99df197812d",
   "gpu_execution_verified": true,
   "backend": "metal",
@@ -591,25 +592,26 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.0012252916931174695,
+      "gpu_seconds": 0.001361000002361834,
       "input_bytes": 32772,
       "output_bytes": 65536,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "6acddc9384238b6d3b99cd248799ea1bc37559ac8e96b9aed274cc2cb8370233",
+      "gpu/event_runtime.slang": "df4df6183e49675cbae18b7a7794695e82981310eabe51a648b3d930c27d1e34",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "782b508556f89416f97221916a9e6113c08b7cc5510de9182d4a2c1aad7a4a0e",
+      "gpu/portable_schema.slang": "fc40827177453cd8bb026aefb87ccc593e6acdbb76e8d214a732cdfa98fa7e96",
+      "gpu/quantity_runtime.slang": "ed5ebe3b5e8ef0b5e4ba3ae77d4dc214c493c645f8180debb257454bcf1accb2",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "8befb9c2ff2cc84609c682d97887d7b0f318519bb4d9005ec58c8f2f07edf108",
-      "gpu/weapon_runtime.slang": "0800a5878e33eb0893a19d4b710fa9decf21f6f86c44f9d1cf974225cfb9fa8c"
+      "gpu/combat_runtime.slang": "1c250d512ee986c16e7945eda511e6d186b637e0c857b69796cdd998941619dd",
+      "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5f09d70b74c6b1ed259933275db5ce9b6d40d4c0aa47dafd8421365b8d3437c1",
-      "metal": "bd2e2ac58ed5599521ffc4f964f5a89031a3beec424b8c7ffa9216e5d882e169"
+      "cuda": "ac3b41c4ad4069c4f55dcf9c6df1e7c0deeee5f04ba509bac1503dea1f181bfa",
+      "metal": "3a8bb20018197f07e480e1c582b2174314ce6029e28e591b16bedc633843605e"
     },
-    "input_sha256": "91b3abc0ffb987285ff3a4812d369dddacb2faacaccffb1aa2b4c862ac36b8ea",
+    "input_sha256": "b15508bdf3573c5fd7419e6348175fe7615c81dae97c0dd94185914aa0a14b7c",
     "output_sha256": "1caee151230df2d2b43447e43cfeb2f29c58932d02b5f64a588e9e4811d84425",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -1053,25 +1055,26 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.0023478333023376763,
+      "gpu_seconds": 0.002478750015143305,
       "input_bytes": 32772,
       "output_bytes": 65536,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "6acddc9384238b6d3b99cd248799ea1bc37559ac8e96b9aed274cc2cb8370233",
+      "gpu/event_runtime.slang": "df4df6183e49675cbae18b7a7794695e82981310eabe51a648b3d930c27d1e34",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "782b508556f89416f97221916a9e6113c08b7cc5510de9182d4a2c1aad7a4a0e",
+      "gpu/portable_schema.slang": "fc40827177453cd8bb026aefb87ccc593e6acdbb76e8d214a732cdfa98fa7e96",
+      "gpu/quantity_runtime.slang": "ed5ebe3b5e8ef0b5e4ba3ae77d4dc214c493c645f8180debb257454bcf1accb2",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "8befb9c2ff2cc84609c682d97887d7b0f318519bb4d9005ec58c8f2f07edf108",
-      "gpu/weapon_runtime.slang": "0800a5878e33eb0893a19d4b710fa9decf21f6f86c44f9d1cf974225cfb9fa8c"
+      "gpu/combat_runtime.slang": "1c250d512ee986c16e7945eda511e6d186b637e0c857b69796cdd998941619dd",
+      "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5f09d70b74c6b1ed259933275db5ce9b6d40d4c0aa47dafd8421365b8d3437c1",
-      "metal": "bd2e2ac58ed5599521ffc4f964f5a89031a3beec424b8c7ffa9216e5d882e169"
+      "cuda": "ac3b41c4ad4069c4f55dcf9c6df1e7c0deeee5f04ba509bac1503dea1f181bfa",
+      "metal": "3a8bb20018197f07e480e1c582b2174314ce6029e28e591b16bedc633843605e"
     },
-    "input_sha256": "888ee2d21fe0c10ee531ae9790cdf96fabc7b7d4a56118ba1b1806e3fdb02f33",
+    "input_sha256": "5fe1323ae6002195897ae29e99a3dc68a45ab7e71c6431aa2c06f8b556780008",
     "output_sha256": "da15f7c2c40b9862e5d679f38045a5f9154fa64901b107ef2d793498f26b2385",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -1321,25 +1324,26 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.007844750012736768,
+      "gpu_seconds": 0.00811479170806706,
       "input_bytes": 32772,
       "output_bytes": 65536,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "6acddc9384238b6d3b99cd248799ea1bc37559ac8e96b9aed274cc2cb8370233",
+      "gpu/event_runtime.slang": "df4df6183e49675cbae18b7a7794695e82981310eabe51a648b3d930c27d1e34",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "782b508556f89416f97221916a9e6113c08b7cc5510de9182d4a2c1aad7a4a0e",
+      "gpu/portable_schema.slang": "fc40827177453cd8bb026aefb87ccc593e6acdbb76e8d214a732cdfa98fa7e96",
+      "gpu/quantity_runtime.slang": "ed5ebe3b5e8ef0b5e4ba3ae77d4dc214c493c645f8180debb257454bcf1accb2",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "8befb9c2ff2cc84609c682d97887d7b0f318519bb4d9005ec58c8f2f07edf108",
-      "gpu/weapon_runtime.slang": "0800a5878e33eb0893a19d4b710fa9decf21f6f86c44f9d1cf974225cfb9fa8c"
+      "gpu/combat_runtime.slang": "1c250d512ee986c16e7945eda511e6d186b637e0c857b69796cdd998941619dd",
+      "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5f09d70b74c6b1ed259933275db5ce9b6d40d4c0aa47dafd8421365b8d3437c1",
-      "metal": "bd2e2ac58ed5599521ffc4f964f5a89031a3beec424b8c7ffa9216e5d882e169"
+      "cuda": "ac3b41c4ad4069c4f55dcf9c6df1e7c0deeee5f04ba509bac1503dea1f181bfa",
+      "metal": "3a8bb20018197f07e480e1c582b2174314ce6029e28e591b16bedc633843605e"
     },
-    "input_sha256": "a1693a40db1ef3c11b03668ed474084bfa7012549b0b76ca3f6c6dfecbea7a17",
+    "input_sha256": "fb843c12b056233cf5655993ac2bf947dbd10c544642355cd39e34891cf9afdd",
     "output_sha256": "0421955c12db990645a4a7386c9c49ff2b1775ab8c5ce791af66b035dbc6acf9",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -1348,6 +1352,811 @@
     "weapon_burst_target_connected": true,
     "gpu_timeline_connected": false
   },
+  "quantity_execution": {
+    "results": [
+      {
+        "weapons": [
+          {
+            "warm": 0,
+            "last_fire": -999,
+            "last_interval": 0,
+            "post_reload_until": -1,
+            "spread": 0,
+            "probability": 0,
+            "probability_evaluations": 0,
+            "charge_started_at": 0
+          },
+          {
+            "warm": 0,
+            "last_fire": -999,
+            "last_interval": 0,
+            "post_reload_until": -1,
+            "spread": 0,
+            "probability": 0,
+            "probability_evaluations": 0,
+            "charge_started_at": 0
+          },
+          {
+            "warm": 0,
+            "last_fire": -999,
+            "last_interval": 0,
+            "post_reload_until": -1,
+            "spread": 0,
+            "probability": 0,
+            "probability_evaluations": 0,
+            "charge_started_at": 0
+          },
+          {
+            "warm": 0,
+            "last_fire": -999,
+            "last_interval": 0,
+            "post_reload_until": -1,
+            "spread": 0,
+            "probability": 0,
+            "probability_evaluations": 0,
+            "charge_started_at": 0
+          },
+          {
+            "warm": 0,
+            "last_fire": -999,
+            "last_interval": 0,
+            "post_reload_until": -1,
+            "spread": 0,
+            "probability": 0,
+            "probability_evaluations": 0,
+            "charge_started_at": 0
+          }
+        ],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0,
+            "damage": [
+              1000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 15,
+                  "shots": 1,
+                  "next": 1,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                }
+              ],
+              "phase": 0,
+              "cast_mask": 0,
+              "gauge": 0,
+              "action": 0,
+              "full_end": 0,
+              "target": 0,
+              "targets": [
+                {
+                  "generation": 1,
+                  "active": true,
+                  "hp": 999999000,
+                  "damage": 1000,
+                  "hits": 1
+                }
+              ],
+              "reentry_slot": false,
+              "reentry_done": 0,
+              "casts": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "no critical",
+            "due": 0,
+            "expiry": 0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0,
+            "every_interval": 0
+          },
+          {
+            "effect": "large",
+            "due": 0,
+            "expiry": 0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0,
+            "every_interval": 0
+          },
+          {
+            "effect": "cancel",
+            "due": 0,
+            "expiry": 0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0,
+            "every_interval": 0
+          }
+        ],
+        "targets": [
+          {
+            "kind": 0,
+            "identity": 0,
+            "generation": 1,
+            "active": true,
+            "hp": 999999000,
+            "damage": 1000,
+            "hits": 1
+          }
+        ],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 1,
+        "max_stack_depth": 2
+      }
+    ],
+    "transport": {
+      "backend": "metal",
+      "cases": 1,
+      "command_status": "completed",
+      "device": "Apple M5",
+      "gpu_seconds": 0.0012062500463798642,
+      "input_bytes": 32772,
+      "output_bytes": 65536,
+      "registry_id": "4294968313"
+    },
+    "source_sha256": {
+      "gpu/event_runtime.slang": "df4df6183e49675cbae18b7a7794695e82981310eabe51a648b3d930c27d1e34",
+      "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
+      "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+      "gpu/portable_schema.slang": "fc40827177453cd8bb026aefb87ccc593e6acdbb76e8d214a732cdfa98fa7e96",
+      "gpu/quantity_runtime.slang": "ed5ebe3b5e8ef0b5e4ba3ae77d4dc214c493c645f8180debb257454bcf1accb2",
+      "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
+      "gpu/combat_runtime.slang": "1c250d512ee986c16e7945eda511e6d186b637e0c857b69796cdd998941619dd",
+      "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
+    },
+    "generated_sha256": {
+      "cuda": "ac3b41c4ad4069c4f55dcf9c6df1e7c0deeee5f04ba509bac1503dea1f181bfa",
+      "metal": "3a8bb20018197f07e480e1c582b2174314ce6029e28e591b16bedc633843605e"
+    },
+    "input_sha256": "cd74884dd5e3ac98040e99c0a76376353b854302680140ced6bc14cad2c2b1b0",
+    "output_sha256": "6385d5df44a11c5c06fec9804320732fe73eeff1fe99799c1e8a1c52a022510a",
+    "gpu_execution_verified": true,
+    "backend": "metal",
+    "application_event_runtime_connected": true,
+    "autonomous_battle_connected": false,
+    "weapon_burst_target_connected": true,
+    "gpu_timeline_connected": false
+  },
+  "charge_quantity_execution": {
+    "results": [
+      {
+        "weapons": [
+          {
+            "warm": 0,
+            "last_fire": -999,
+            "last_interval": 0,
+            "post_reload_until": -1,
+            "spread": 0,
+            "probability": 0,
+            "probability_evaluations": 0,
+            "charge_started_at": 0
+          },
+          {
+            "warm": 0,
+            "last_fire": -999,
+            "last_interval": 0,
+            "post_reload_until": -1,
+            "spread": 0,
+            "probability": 0,
+            "probability_evaluations": 0,
+            "charge_started_at": 0
+          },
+          {
+            "warm": 0,
+            "last_fire": -999,
+            "last_interval": 0,
+            "post_reload_until": -1,
+            "spread": 0,
+            "probability": 0,
+            "probability_evaluations": 0,
+            "charge_started_at": 0
+          },
+          {
+            "warm": 0,
+            "last_fire": -999,
+            "last_interval": 0,
+            "post_reload_until": -1,
+            "spread": 0,
+            "probability": 0,
+            "probability_evaluations": 0,
+            "charge_started_at": 0
+          },
+          {
+            "warm": 0,
+            "last_fire": -999,
+            "last_interval": 0,
+            "post_reload_until": -1,
+            "spread": 0,
+            "probability": 0,
+            "probability_evaluations": 0,
+            "charge_started_at": 0
+          }
+        ],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0,
+            "damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 10,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0.09000000000000001,
+                  "charging": true,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                }
+              ],
+              "phase": 0,
+              "cast_mask": 0,
+              "gauge": 0,
+              "action": 0,
+              "full_end": 0,
+              "target": 0,
+              "targets": [
+                {
+                  "generation": 1,
+                  "active": true,
+                  "hp": 1000000000,
+                  "damage": 0,
+                  "hits": 0
+                }
+              ],
+              "reentry_slot": false,
+              "reentry_done": 0,
+              "casts": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "time": 0.08,
+            "damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 10,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0.09000000000000001,
+                  "charging": true,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                }
+              ],
+              "phase": 0,
+              "cast_mask": 0,
+              "gauge": 0,
+              "action": 0,
+              "full_end": 0,
+              "target": 0,
+              "targets": [
+                {
+                  "generation": 1,
+                  "active": true,
+                  "hp": 1000000000,
+                  "damage": 0,
+                  "hits": 0
+                }
+              ],
+              "reentry_slot": false,
+              "reentry_done": 0,
+              "casts": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "time": 0.1,
+            "damage": [
+              1000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 9,
+                  "shots": 1,
+                  "next": 0.1,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0.09000000000000001,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                },
+                {
+                  "ammo": 1,
+                  "shots": 0,
+                  "next": 0,
+                  "reload_until": -1,
+                  "ready": 0,
+                  "charge_until": 0,
+                  "charging": false,
+                  "aim": 0,
+                  "mode_index": -1,
+                  "mode_shots": 0
+                }
+              ],
+              "phase": 0,
+              "cast_mask": 0,
+              "gauge": 0,
+              "action": 0,
+              "full_end": 0,
+              "target": 0,
+              "targets": [
+                {
+                  "generation": 1,
+                  "active": true,
+                  "hp": 999999000,
+                  "damage": 1000,
+                  "hits": 1
+                }
+              ],
+              "reentry_slot": false,
+              "reentry_done": 0,
+              "casts": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "no critical",
+            "due": 0,
+            "expiry": 0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0,
+            "every_interval": 0
+          },
+          {
+            "effect": "a",
+            "due": 0,
+            "expiry": 0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0,
+            "every_interval": 0
+          },
+          {
+            "effect": "b",
+            "due": 0,
+            "expiry": 0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0,
+            "every_interval": 0
+          }
+        ],
+        "targets": [
+          {
+            "kind": 0,
+            "identity": 0,
+            "generation": 1,
+            "active": true,
+            "hp": 999999000,
+            "damage": 1000,
+            "hits": 1
+          }
+        ],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 3,
+        "max_stack_depth": 2
+      }
+    ],
+    "transport": {
+      "backend": "metal",
+      "cases": 1,
+      "command_status": "completed",
+      "device": "Apple M5",
+      "gpu_seconds": 0.0017217499553225935,
+      "input_bytes": 32772,
+      "output_bytes": 65536,
+      "registry_id": "4294968313"
+    },
+    "source_sha256": {
+      "gpu/event_runtime.slang": "df4df6183e49675cbae18b7a7794695e82981310eabe51a648b3d930c27d1e34",
+      "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
+      "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+      "gpu/portable_schema.slang": "fc40827177453cd8bb026aefb87ccc593e6acdbb76e8d214a732cdfa98fa7e96",
+      "gpu/quantity_runtime.slang": "ed5ebe3b5e8ef0b5e4ba3ae77d4dc214c493c645f8180debb257454bcf1accb2",
+      "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
+      "gpu/combat_runtime.slang": "1c250d512ee986c16e7945eda511e6d186b637e0c857b69796cdd998941619dd",
+      "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
+    },
+    "generated_sha256": {
+      "cuda": "ac3b41c4ad4069c4f55dcf9c6df1e7c0deeee5f04ba509bac1503dea1f181bfa",
+      "metal": "3a8bb20018197f07e480e1c582b2174314ce6029e28e591b16bedc633843605e"
+    },
+    "input_sha256": "ada79f02997f9d5acfabe76cd5cccff1529a3ba77074a4c4ad1b9c3c04107efa",
+    "output_sha256": "4bfc71021bc04bdffacc701b35256e2c28af1d6d415ef9c25a2e1239a5b860fd",
+    "gpu_execution_verified": true,
+    "backend": "metal",
+    "application_event_runtime_connected": true,
+    "autonomous_battle_connected": false,
+    "weapon_burst_target_connected": true,
+    "gpu_timeline_connected": false
+  },
+  "quantity_unsupported_status": 400,
   "timeline_execution": {
     "results": [
       {
@@ -1565,25 +2374,26 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.12854945834260434,
+      "gpu_seconds": 0.13245550001738593,
       "input_bytes": 32772,
       "output_bytes": 65536,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "6acddc9384238b6d3b99cd248799ea1bc37559ac8e96b9aed274cc2cb8370233",
+      "gpu/event_runtime.slang": "df4df6183e49675cbae18b7a7794695e82981310eabe51a648b3d930c27d1e34",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "782b508556f89416f97221916a9e6113c08b7cc5510de9182d4a2c1aad7a4a0e",
+      "gpu/portable_schema.slang": "fc40827177453cd8bb026aefb87ccc593e6acdbb76e8d214a732cdfa98fa7e96",
+      "gpu/quantity_runtime.slang": "ed5ebe3b5e8ef0b5e4ba3ae77d4dc214c493c645f8180debb257454bcf1accb2",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "8befb9c2ff2cc84609c682d97887d7b0f318519bb4d9005ec58c8f2f07edf108",
-      "gpu/weapon_runtime.slang": "0800a5878e33eb0893a19d4b710fa9decf21f6f86c44f9d1cf974225cfb9fa8c"
+      "gpu/combat_runtime.slang": "1c250d512ee986c16e7945eda511e6d186b637e0c857b69796cdd998941619dd",
+      "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5f09d70b74c6b1ed259933275db5ce9b6d40d4c0aa47dafd8421365b8d3437c1",
-      "metal": "bd2e2ac58ed5599521ffc4f964f5a89031a3beec424b8c7ffa9216e5d882e169"
+      "cuda": "ac3b41c4ad4069c4f55dcf9c6df1e7c0deeee5f04ba509bac1503dea1f181bfa",
+      "metal": "3a8bb20018197f07e480e1c582b2174314ce6029e28e591b16bedc633843605e"
     },
-    "input_sha256": "7c47a2ec9401dc2786fea505cb6352e4c033c869b0e7b51ecbe2bcdb5bb3abec",
+    "input_sha256": "be4aac1ceb92b0725e0262801fdeadd17ef48699c55cb67bb2b52ebab24bda1f",
     "output_sha256": "212bc1cd5204f7c023650b36f413efd0ea3c86d809bd422b48b68967a51de714",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -1966,25 +2776,26 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.0012029166100546718,
+      "gpu_seconds": 0.0012968750088475645,
       "input_bytes": 32772,
       "output_bytes": 65536,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "6acddc9384238b6d3b99cd248799ea1bc37559ac8e96b9aed274cc2cb8370233",
+      "gpu/event_runtime.slang": "df4df6183e49675cbae18b7a7794695e82981310eabe51a648b3d930c27d1e34",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "782b508556f89416f97221916a9e6113c08b7cc5510de9182d4a2c1aad7a4a0e",
+      "gpu/portable_schema.slang": "fc40827177453cd8bb026aefb87ccc593e6acdbb76e8d214a732cdfa98fa7e96",
+      "gpu/quantity_runtime.slang": "ed5ebe3b5e8ef0b5e4ba3ae77d4dc214c493c645f8180debb257454bcf1accb2",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "8befb9c2ff2cc84609c682d97887d7b0f318519bb4d9005ec58c8f2f07edf108",
-      "gpu/weapon_runtime.slang": "0800a5878e33eb0893a19d4b710fa9decf21f6f86c44f9d1cf974225cfb9fa8c"
+      "gpu/combat_runtime.slang": "1c250d512ee986c16e7945eda511e6d186b637e0c857b69796cdd998941619dd",
+      "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5f09d70b74c6b1ed259933275db5ce9b6d40d4c0aa47dafd8421365b8d3437c1",
-      "metal": "bd2e2ac58ed5599521ffc4f964f5a89031a3beec424b8c7ffa9216e5d882e169"
+      "cuda": "ac3b41c4ad4069c4f55dcf9c6df1e7c0deeee5f04ba509bac1503dea1f181bfa",
+      "metal": "3a8bb20018197f07e480e1c582b2174314ce6029e28e591b16bedc633843605e"
     },
-    "input_sha256": "044ce7b2fc9fb6e916f3bd03c7903bfe21c1ba9cb6ee1a7950c76925713a5a06",
+    "input_sha256": "d86be158dee01fbeaf1f3e40784f177c9911812e5375a72eb3330b35a40d414a",
     "output_sha256": "8ae786b8c730022cdf688b95da32d64761e2b8edc906975255fe4f9da5da168a",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -2755,25 +3566,26 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.0021050000214017928,
+      "gpu_seconds": 0.002439000003505498,
       "input_bytes": 32772,
       "output_bytes": 65536,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "6acddc9384238b6d3b99cd248799ea1bc37559ac8e96b9aed274cc2cb8370233",
+      "gpu/event_runtime.slang": "df4df6183e49675cbae18b7a7794695e82981310eabe51a648b3d930c27d1e34",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "782b508556f89416f97221916a9e6113c08b7cc5510de9182d4a2c1aad7a4a0e",
+      "gpu/portable_schema.slang": "fc40827177453cd8bb026aefb87ccc593e6acdbb76e8d214a732cdfa98fa7e96",
+      "gpu/quantity_runtime.slang": "ed5ebe3b5e8ef0b5e4ba3ae77d4dc214c493c645f8180debb257454bcf1accb2",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "8befb9c2ff2cc84609c682d97887d7b0f318519bb4d9005ec58c8f2f07edf108",
-      "gpu/weapon_runtime.slang": "0800a5878e33eb0893a19d4b710fa9decf21f6f86c44f9d1cf974225cfb9fa8c"
+      "gpu/combat_runtime.slang": "1c250d512ee986c16e7945eda511e6d186b637e0c857b69796cdd998941619dd",
+      "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5f09d70b74c6b1ed259933275db5ce9b6d40d4c0aa47dafd8421365b8d3437c1",
-      "metal": "bd2e2ac58ed5599521ffc4f964f5a89031a3beec424b8c7ffa9216e5d882e169"
+      "cuda": "ac3b41c4ad4069c4f55dcf9c6df1e7c0deeee5f04ba509bac1503dea1f181bfa",
+      "metal": "3a8bb20018197f07e480e1c582b2174314ce6029e28e591b16bedc633843605e"
     },
-    "input_sha256": "e8db62ddc299b1941a2315d658e43c02a007f29182f94603c2ed31450b99549b",
+    "input_sha256": "59fa03454e29ada607ca1dc82503216eab57f74e314cece6233a4c254f2ee32f",
     "output_sha256": "512098de50f984e2d2d68d0ecb94c8199b24dfec56a2fdf5e9a56688d67f5afc",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -2793,16 +3605,17 @@
   "adapter_sha256": {
     "server.mjs": "dccdd382743de8a091547489886f8ab6faa0f9f7326b06b147bc584b8af255a4",
     "app/engine_worker.py": "92d56095c83ac5eddab4d1d6066cadccafa272581237f3d4d93b96d9eda1edbd",
-    "app/portable_runtime.py": "433f79a175ea2f84c905b007a40c916eee0dae4145fc3939ffe66c7af45dc685",
+    "app/portable_runtime.py": "c7e4702894859e2840ccc9e4cc4d81b30344a79d810578b8a189db7cadaf9667",
     "app/portable_trigger_specs.py": "77d9457c502dd0bfd2e6570f5ae1488f012ebd90dc2facf7a0c3f068943011eb",
-    "app/portable_damage_specs.py": "c3d6b6c00a4cc3bd9bb676db99587332a5a7720d0b1956a25c8473955b3495ef",
+    "app/portable_damage_specs.py": "36e834bb5aa6aa67a0fef5da2bbb7bd9c5d19b3a43b7ac785b79226f54cd6f60",
     "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
-    "scripts/verify-portable-api.py": "ae3ab0c9ec987ec13eec1d41df73f9bb06aeee42fe188d6b325a38d342d1bc6b",
+    "scripts/verify-portable-api.py": "dfd6402404bd5a790f85f772b07212003e91d3f2cb06a9e8561ab82f219ca820",
     "tests/fixtures/portable-events.json": "7dd3eb1e11b8964dec596d639cd3e626138f73d3fab158eec4973265292d1ba8",
-    "app/portable_combat.py": "f25450a50db50e92f57567b68d37607e366d80fd04825b947d4c74737c7206b0",
-    "app/portable_specs.py": "f823993c871a2ac8b960a342a54242a01c9aa5dfda8a264b90b827a0a5cd9753",
+    "app/portable_combat.py": "9e8501b4c3353f4fa0cb5e8e26820dfd32c9e0f4d3e426019a665943bb3998c3",
+    "app/portable_specs.py": "37de58a0a0d80708823cc0ade6d44e3763b5e7d793bb1dc48cacc8dc4d1cf70b",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
+    "tests/fixtures/portable-quantities.json": "53affbf8b6cfb6b87639a4bfe1090c3b30a44596c09f7f334ee9073daad3a9fa",
     "tests/fixtures/portable-weapons.json": "75960cd6b9daaf1315a03af930f193df2c637bff7b845cc9f19b524561f5f7bf",
     "tests/fixtures/portable-damage.json": "ab596e0f01bb9f94ee9813c6027d46a85415b77d5a72c36e06b32bf45b6ac5c7",
     "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",

@@ -51,6 +51,16 @@ class PortableBoundaryTests(unittest.TestCase):
                         dict(timing=['battle_start'],condition=['self_hp_max'])):
             with self.subTest(trigger=trigger),self.assertRaises(ValueError):validate_input(dict(trigger=trigger))
 
+    def test_quantity_metadata_and_policy_are_fail_closed(self):
+        from portable_runtime import validate_effect
+        base=dict(name='quantity',source='스킬1',type='buff',stat='max_ammo_pct',fixed_value=10,
+                  duration=-1,target='self',trigger=dict(timing=['battle_start'],condition=[]))
+        for patch in (dict(_quant_group={}),dict(_source_tag=[]),dict(max_ammo_reduction_exclusive=1),
+                      dict(stat='atk_pct',max_ammo_reduction_exclusive=True)):
+            with self.subTest(patch=patch),self.assertRaises(ValueError):validate_effect({**base,**patch},combat={})
+        for patch in (dict(stat='charge_time_fixed',fixed_value=-1),dict(stat='charge_time_fixed',values={'10':.2})):
+            with self.subTest(patch=patch),self.assertRaises(ValueError):validate_effect({**base,**patch},combat={})
+
     def test_time_dimensions_and_discrete_ranges_are_checked(self):
         for script in ([[1,0,0,0,0,-1,0,0],[0,2,0,0,-1,0,0,0]],
                        [[float('nan'),0,0,0,0,-1,0,0]],

@@ -32,15 +32,15 @@ def double_words(value):
 
 def validate_effect(eff, *, combat=None):
     allowed = {'name','source','type','stat','fixed_value','values','duration','duration_values',
-               'target','trigger','note','trigger_values','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
-    effect_allowed=allowed | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','first_damage_coeff','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
+               'target','trigger','note','polarity','favorite','_source_tag','_quant_group','max_ammo_reduction_exclusive','trigger_values','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
+    effect_allowed=allowed | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','first_damage_coeff','max_ammo_buff_applies','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
     if set(eff)-effect_allowed:
         raise UnsupportedPortable('Unported effect fields: '+', '.join(sorted(set(eff)-effect_allowed)))
     from portable_trigger_specs import validate_input
     try:validate_input(eff)
     except ValueError as error:raise UnsupportedPortable(str(error)) from error
     kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
-    if combat is None and stat in ('attack_speed_pct','mg_warmup_speed_pct','reload_speed_pct','reload_ratio_pct','accuracy_pct'):
+    if combat is None and stat in ('attack_speed_pct','mg_warmup_speed_pct','reload_speed_pct','reload_ratio_pct','accuracy_pct','max_ammo_pct','max_ammo_flat','charge_speed_pct','charge_speed_caster_based_pct','charge_time_flat','charge_time_fixed','charge_speed_buff_immune','charge_speed_debuff_immune','charge_speed_overflow_conversion_pct'):
         raise UnsupportedPortable('Weapon modifier requires combat mechanics')
     if combat is None and set(eff.get('trigger',{}).get('condition',[])) & {'during_charge','burst_casted','burst_not_casted','has_burst1_ally','no_burst1_ally'}:
         raise UnsupportedPortable('Predicate requires combat-owned charge/burst state')
@@ -59,6 +59,12 @@ def validate_effect(eff, *, combat=None):
     else:raise UnsupportedPortable('Unported effect kind')
     if (stat=='burst_reentry' or isinstance(stat,str) and stat.startswith('burst_stage_override:')) and (combat is None or target!='self'):
         raise UnsupportedPortable('Burst stage state requires combat and self recipient')
+    if eff.get('_source_tag') is not None and not isinstance(eff['_source_tag'],str):raise UnsupportedPortable('Invalid quantity source tag')
+    if eff.get('_quant_group') is not None and type(eff['_quant_group']) not in (str,int):raise UnsupportedPortable('Invalid quantity group')
+    if 'max_ammo_reduction_exclusive' in eff and (kind!='buff' or stat!='max_ammo_pct' or type(eff['max_ammo_reduction_exclusive']) is not bool):raise UnsupportedPortable('Invalid exclusive ammo reduction')
+    if 'max_ammo_buff_applies' in eff and type(eff['max_ammo_buff_applies']) is not bool:raise UnsupportedPortable('Invalid mode ammo-buff policy')
+    if stat=='charge_time_fixed' and 'fixed_value' in eff and not 0<=eff['fixed_value']<=180:raise UnsupportedPortable('Invalid fixed charge time')
+    if stat=='charge_time_fixed' and 'values' in eff:raise UnsupportedPortable('Fixed charge time needs a literal fixed_value or bare presence marker')
     # Count/stack bounds are discrete. Do not truncate malformed definitions.
     for key in ('max_stack','max_trigger'):
         value=eff.get(key,1 if key=='max_stack' else -1)
@@ -74,8 +80,13 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     program=legacy.compile_effects(chars,effects)
     if len(program['effects'])!=len(effects) or not 1<=len(effects)<=L['DEFINITIONS']:
         raise UnsupportedPortable('Portable definition capacity or expansion exceeded')
-    if len({(n,e.get('name')) for e,n in effects})!=len(effects):
-        raise UnsupportedPortable('Multiple definitions for the same named carrier are not yet ported')
+    seen_names={}
+    for i,((eff,owner),row) in enumerate(zip(effects,program['effects'])):
+        key=(owner,eff.get('name'))
+        independent_quantity=eff.get('type')=='buff' and eff.get('stat') in ('max_ammo_pct','charge_speed_pct','charge_speed_caster_based_pct') and eff.get('_source_tag')=='equipment'
+        if key in seen_names and not (independent_quantity and int(row[43])==seen_names[key]):
+            raise UnsupportedPortable('Multiple named carriers are only accepted for independent equipment quantity components')
+        seen_names.setdefault(key,i)
     if not 1<=len(script)<=L['COMMANDS'] or len(base_atk)!=5:
         raise ValueError('Invalid portable command/base-stat dimensions')
     words=[0]*L['INPUT_WORDS'];words[0:3]=[ABI,len(effects),len(script)];words[5]=1
@@ -101,6 +112,11 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         at=L['DEFINITION_BASE']+index*L['DEFINITION_WORDS'];words[at:at+len(compact)]=compact
         from portable_trigger_specs import pack_descriptors
         pack_descriptors(words,index,row,L,F,double_words)
+        # Quantity component identity is the source/group tuple, not its display name.
+        # The pinned legacy equipment alias collapses components before rounding.
+        extra=L['DEFINITION_EXTRA_BASE']+index*L['DEFINITION_EXTRA_WORDS']
+        words[extra:extra+8]=[int(row[45]),int(row[55]),(-1 if int(row[2]) in (18,20,37) else int(row[43])) & 0xffffffff,int(row[213]),
+                              *double_words(row[138]),int(row[139]),int(row[209])]
         if row[1]==2:
             if row[7]<0 and row[14]>0:raise UnsupportedPortable('Infinite conditional weapon mode is not ported')
             from portable_combat import pack_mode

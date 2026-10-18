@@ -14,7 +14,7 @@ from portable_runtime import compile_program,run_programs,PortableExecutionError
 
 
 def fixtures():
-    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json')),[])
+    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json','portable-quantities.json')),[])
 
 
 def compile_case(case):
@@ -68,16 +68,18 @@ def verify_damage_reference(cases):
 
 def verify_weapon_reference(cases):
     from portable_weapon_oracle import observe
-    verified=[]
+    verified=[];differences=[]
     for case in cases:
         if not case.get('weapon_reference'):continue
         queries,final=observe(case)
-        contains(queries,case['expected_queries'],case['name']+'.cpu')
+        contains(queries,case.get('known_cpu_difference',{}).get('expected_queries',case['expected_queries']),case['name']+'.cpu')
+        if 'known_cpu_difference' in case:
+            differences.append(dict(name=case['name'],reason=case['known_cpu_difference']['reason'],actual_cpu_queries=queries,expected_cpu_queries=case['known_cpu_difference']['expected_queries'],expected_gpu_queries=case['expected_queries']))
         if 'expected_final' in case:
             expected=case['expected_final'].get('weapons',[{}])[0]
             contains(final,{k:v for k,v in expected.items() if k in ('warm','last_interval')},case['name']+'.cpu.final')
         verified.append(case['name'])
-    return verified
+    return verified,differences
 
 
 def evidence_subset(result):
@@ -91,7 +93,7 @@ def main():
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n',encoding='utf-8')
     tracked=['app/portable_runtime.py','app/portable_combat.py','app/portable_specs.py','app/portable_backend.py',
              'app/portable_trigger_specs.py','app/portable_damage_specs.py','scripts/portable_weapon_oracle.py','scripts/verify-detail.py','app/detail_gpu.py','app/effect_spec.py','app/impact_specs.py','app/world_condition_specs.py','scripts/verify-portable-combat.py',
-             'tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-triggers.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json','scripts/run-metal-probe.swift']
+             'tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-triggers.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json','scripts/run-metal-probe.swift']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     cases=fixtures();programs=[compile_case(c) for c in cases]
     # The same identity may be re-used only with a new bounded generation.
@@ -105,9 +107,17 @@ def main():
     import copy
     full_trace=copy.deepcopy(next(c for c in cases if c['name']=='autonomous-dot-summary'))
     full_trace['combat']['trace']='full';full_trace['script']=[[33,24,0,0,0,-1,0,0]]
-    statuses=[0]*len(cases)+[2,64,8]
+    quantity_overflow=copy.deepcopy(next(c for c in cases if c['name']=='ammo-rounds-separate-source-groups'))
+    quantity_overflow['effects'][1]['fixed_value']=1e100
+    capacity_overflow=copy.deepcopy(quantity_overflow);capacity_overflow['combat']['weapons'][0]['capacity']=1
+    capacity_overflow['effects'][1]['fixed_value']=2**31*100
+    rejections=[dict(name='target-generation-overflow',status=2),dict(name='wire-target-capacity',status=64),
+                dict(name='full-trace-capacity',status=8),dict(name='quantity-int64-range',status=2),dict(name='ammunition-state-range',status=2)]
+    negative_programs=[(p,m),(malformed,malformed_meta),compile_case(full_trace),compile_case(quantity_overflow),compile_case(capacity_overflow)]
+    indices=list(range(len(cases),len(cases)+len(rejections)))
+    statuses=[0]*len(cases)+[c['status'] for c in rejections]
     try:
-        run_programs(programs+[(p,m),(malformed,malformed_meta),compile_case(full_trace)],backend=args.backend)
+        run_programs(programs+negative_programs,backend=args.backend)
     except PortableExecutionError as e:
         result=dict(results=e.results[:len(cases)],**e.evidence,
                     application_event_runtime_connected=True,weapon_burst_target_connected=True,
@@ -117,12 +127,12 @@ def main():
         raise
     else:raise AssertionError('Expected GPU rejection statuses were absent')
     result.update(passed=False,stage='readback-before-comparison',validation_sha256=hashes,
-                  batch_layout=dict(positive_count=len(cases),rejection_indices=[len(cases),len(cases)+1,len(cases)+2]),
+                  batch_layout=dict(positive_count=len(cases),rejection_indices=indices),
                   expected_statuses=statuses)
     # Preserve raw evidence even if a later expectation fails.
     path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     assert result['actual_statuses']==statuses,result['actual_statuses']
-    negative={**evidence_subset(result), 'case_indices':[len(cases),len(cases)+1,len(cases)+2]}
+    negative={**evidence_subset(result), 'case_indices':indices}
     rows=[]
     for c,r in zip(cases,result['results']):
         assert len(r['queries'])==len(c['expected_queries'])
@@ -144,9 +154,10 @@ def main():
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     reference=verify_trigger_reference(cases)
     damage_reference=verify_damage_reference(cases)
-    weapon_reference=verify_weapon_reference(cases)
-    result.update(weapon_cpu_regressions=weapon_reference,damage_cpu_regressions=damage_reference,trigger_cpu_regressions=reference,passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
-                  rejection_execution=negative,rejected_cases=[dict(name='target-generation-overflow',status=2),dict(name='wire-target-capacity',status=64),dict(name='full-trace-capacity',status=8)],
+    weapon_reference,cpu_differences=verify_weapon_reference(cases)
+    assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
+    result.update(known_cpu_differences=cpu_differences,weapon_cpu_regressions=weapon_reference,damage_cpu_regressions=damage_reference,trigger_cpu_regressions=reference,passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
+                  rejection_execution=negative,rejected_cases=rejections,
                   scope='Shared bounded weapon modes, physical pellets/muzzles, burst reentry and body/add targets; no general battle acceptance')
     path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(dict(passed=True,cases=len(rows),device=result['transport']['device'],backend=args.backend)))

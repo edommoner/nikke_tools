@@ -27,7 +27,7 @@ def main():
     tracked=['server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_backend.py',
              'scripts/verify-portable-api.py','tests/fixtures/portable-events.json',
              'app/portable_combat.py','app/portable_specs.py','app/world_condition_specs.py','app/impact_specs.py',
-             'tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
+             'tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases'][0]
     payload=dict(chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES],
@@ -100,6 +100,22 @@ def main():
         if 'expected_timers' in weapon_case:
             assert actual['results'][0]['timers'][-1]['activations']==weapon_case['expected_timers'][-1]['activations']
         result[key]=actual
+    quantity_cases=json.loads((ROOT/'tests/fixtures/portable-quantities.json').read_text(encoding='utf-8'))['cases']
+    for name,key in [('integer-capacity-preserves-base-across-large-cancellation','quantity_execution'),('charge-merges-source-before-centisecond-rounding','charge_quantity_execution')]:
+        quantity_case=next(c for c in quantity_cases if c['name']==name)
+        body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[0]) for e in quantity_case['effects']],
+                  script=quantity_case['script'],base_atk=[1000]*5,combat=quantity_case['combat'],backend=args.backend)
+        actual=request(body);assert actual['gpu_execution_verified']
+        for a,e in zip(actual['results'][0]['queries'],quantity_case['expected_queries']):
+            assert a['damage']==e['damage']
+            for k,v in e.get('combat',{}).get('weapons',[{}])[0].items():assert a['combat']['weapons'][0][k]==v
+        result[key]=actual
+    malformed=copy.deepcopy(body);malformed['effects'][1]['effect']['_quant_group']={}
+    try:request(malformed)
+    except urllib.error.HTTPError as error:
+        assert error.code==400;quantity_error=json.load(error);assert 'Invalid quantity group' in quantity_error['error']
+    else:raise AssertionError('Malformed quantity group accepted')
+    result['quantity_unsupported_status']=400
     result['timeline_execution']=timeline_result
     result['extension_execution']=extension_result
     result.update(combat_execution=combat_result,combat_unsupported_status=400,combat_unsupported_error=combat_error)

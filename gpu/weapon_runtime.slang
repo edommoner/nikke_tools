@@ -32,6 +32,10 @@ void beginReload(inout Runtime s, Weapon w, uint who, uint64_t when)
 }
 bool completeReload(inout Runtime s, Weapon w, uint who, uint64_t when, uint output)
 {
+    uint rawCapacity = s.modeIndex[who] < 0 ? s.capacity[who] : commands[s.inputBase+P_MODE_BASE+uint(s.modeIndex[who])*P_MODE_WORDS+1];
+    w.capacity = fullCapacity(s,who,rawCapacity,w.ammoBuffs != 0,when);
+    if (s.error != 0) return false;
+    if (s.modeIndex[who] >= 0) s.modeMagazine[who] = w.capacity;
     uint64_t fraction = ONE;
     if (s.modeIndex[who] < 0)
         fraction = smaller(ONE,f64Mul(f64Div(ONE,f64FromI64(s.clipCount[who])),larger(0,f64Add(ONE,f64Div(readStat(s,who,S_reload_ratio_pct,when),HUNDRED)))));

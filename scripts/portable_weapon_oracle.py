@@ -8,7 +8,7 @@ from timer_registry_cases import NAMES
 import engine_worker
 
 
-def observe(case):
+def _observe(case):
     w=case['combat']['weapons'][0]
     if any(x.get('enabled',False) for x in case['combat']['weapons'][1:]):raise ValueError('Oracle fixture needs one enabled shooter')
     names=list(NAMES)
@@ -57,3 +57,19 @@ def observe(case):
         elif op==2:queries.append(dict(damage=[total,0,0,0,0],combat={'gauge':gauge,'weapons':[dict(ammo=st.ammo,shots=shots,next=st.next_fire_time,reload_until=st.reloading_until)]}))
         else:raise ValueError('Oracle accepts frame/query fixtures only')
     return queries,dict(warm=st.warmup_shots,last_interval=st._last_inter)
+
+
+def observe(case):
+    # Only static raw weapon metadata is overridden for this regression.
+    # Restore it even on a failed assertion; no CPU observation becomes GPU input.
+    from calculator import buff_manager
+    metadata=buff_manager._NIKKE;saved={n:metadata[n] for n in NAMES}
+    try:
+        for name,w in zip(NAMES,case['combat']['weapons']):
+            replacement=dict(saved[name]);raw=w.get('raw_charge',w.get('charge',1) if w.get('mode')=='charge' else 0)
+            if raw:replacement['charge_time']=raw
+            else:replacement.pop('charge_time',None)
+            metadata[name]=replacement
+        return _observe(case)
+    finally:
+        for name,original in saved.items():metadata[name]=original

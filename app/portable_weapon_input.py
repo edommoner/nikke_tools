@@ -15,7 +15,7 @@ def normalize_static_weapon(char,base_atk,enemy,*,camera=False):
     stage=char.get('burst_stage') or state.burst_stage
     if str(stage) not in ('1','2','3','A'):raise UnsupportedPortable('Unported real burst stage')
     config=dict(enabled=True,mode=state.fire_mode,capacity=weapon['max_ammo'],coefficient=weapon['damage_coeff'],
-                reload=weapon['reload_time'],pellets=state.pellets,muzzles=state.muzzles,
+                reload=weapon['reload_time'],raw_charge=weapon.get('charge_time') or 0,pellets=state.pellets,muzzles=state.muzzles,
                 full_charge_mult=weapon.get('full_charge_mult',100),gauge=state.burst_energy,
                 gauge_mult=weapon.get('full_charge_mult',100) if state.fire_mode=='charge' and camera else 100,
                 stage=4 if str(stage)=='A' else int(stage),cooldown=weapon.get('burst_cooldown',40),
