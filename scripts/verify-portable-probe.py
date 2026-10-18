@@ -32,7 +32,12 @@ def main():
         if build['source_sha256']['gpu/portable_probe.slang']!=before['gpu/portable_probe.slang'] or hashlib.sha256(source.read_bytes()).hexdigest()!=build['outputs']['metal']['sha256']:raise ValueError('Rebuild the changed portable probe first')
         input_path=directory/'input.bin';output_path=directory/'output.bin';input_path.write_bytes(packed)
         if output_path.exists():output_path.unlink()
-        process=subprocess.run(['swift',str(ROOT/'scripts/run-metal-probe.swift'),str(source),str(input_path),str(output_path)],check=True,capture_output=True,text=True,encoding='utf-8')
+        process=subprocess.run(['swift',str(ROOT/'scripts/run-metal-probe.swift'),str(source),str(input_path),str(output_path)],capture_output=True,text=True,encoding='utf-8')
+        if process.returncode:
+            # Show Swift/MSL diagnostics on the first Mac run, rather than only
+            # a Python CalledProcessError with the useful stderr hidden.
+            sys.stderr.write(process.stderr or process.stdout)
+            raise SystemExit(f'Metal probe failed (exit {process.returncode}); GPU verification was not completed')
         actual=list(struct.unpack('<'+'I'*(len(cases)*7),output_path.read_bytes()))
         for index,case in enumerate(cases):
             if actual[index*7:(index+1)*7]!=case['expected']:raise AssertionError((case['name'],actual[index*7:(index+1)*7],case['expected']))

@@ -33,30 +33,99 @@ SlangのMetal側では型・ポインター等に制約があります。約2,70
 
 ## Macでの最初の起動
 
-Python 3.12系とNode 24系を先に用意します。GPU実証にはXcode、Swift、Metalコンパイラーが必要です。XcodeのComponentsにあるMetal Toolchainを導入し、`xcrun --find metal` と `swift --version` を確認します。Xcodeの版によってMetal Toolchainは追加導入が必要です。
+以下はM5のMacで実行する手順です。Windows側で実行するコマンドではありません。最初にWindowsの画面の「保存・書き出し」で `nikke-lab-session.json` を保存し、Macへコピーしてください。このファイルは個人の所持・育成データを含むためGitへ追加しません。
+
+### 1. Python・Node・Xcodeを準備
+
+[Homebrew公式サイト](https://brew.sh/)の案内でHomebrewを導入します。すでに導入している場合は再導入不要です。M5ではApple Silicon用の`/opt/homebrew`を使います。ターミナルで次を実行します。
 
 ```sh
-git clone --branch codex/mac-portability https://github.com/edommoner/nikke_tools.git
-cd nikke_tools
-python3.12 scripts/setup-engine.py
-python3.12 scripts/check-migration.py --cpu-smoke
-NIKKE_PYTHON=python3.12 node server.mjs
+export PATH="/opt/homebrew/bin:$PATH"
+brew install python@3.12 node@24
+export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
+uname -m
+python3.12 --version
+node --version
 ```
 
-ブラウザーで `http://127.0.0.1:4317` を開き、詳細計算はCPUを選びます。これはMacでの本体GPU対応を有効にする手順ではありません。セットアップと起動のMac実機確認は未実施です。
+`arm64`、`Python 3.12.x`、`v24.x`を確認します。Node 24はHomebrewのkeg-only formulaなのでPATHを明示します。新しいターミナルでも同じPATHが必要です。この手順ではシェルの設定ファイルを自動変更しません。
+
+Mac App Store等でXcodeを導入し、一度起動してライセンス確認と初期設定を完了します。Metal実証にはSwiftとMetalコンパイラーが必要です。通常のXcodeを`/Applications/Xcode.app`へ配置した場合、同じターミナルで次を実行します。
+
+```sh
+export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
+xcodebuild -version
+xcodebuild -downloadComponent metalToolchain
+xcrun --find metal
+swift --version
+```
+
+Xcodeを別名・別の場所に置いた場合は`DEVELOPER_DIR`をその場所に合わせます。Metal ToolchainはXcodeのSettings → Componentsからも導入できます。Xcode本体とMetal Toolchainの初期導入には時間・ディスク容量・ネットワークが必要です。
+
+### 2. 移行用ブランチを取得
+
+```sh
+cd ~
+git clone --branch codex/mac-portability https://github.com/edommoner/nikke_tools.git
+cd nikke_tools
+git branch --show-current
+python3.12 -m venv .venv
+source .venv/bin/activate
+python --version
+python scripts/setup-engine.py
+python scripts/check-migration.py --cpu-smoke
+```
+
+`codex/mac-portability`ブランチであることを確認します。変更はDraft PR #1にあり、mainへはまだマージしていません。プロジェクトのNode部分とPython部分は標準ライブラリーを使うため、この起動に追加の`npm install`や`pip install`は不要です。Slangのコンパイラーは次の段階で別途取得します。
+
+起動確認のJSONは、`platform: Darwin`、`architecture: arm64`、`engine_present: true`、`cpu_catalog.passed: true`と`characters: 203`を目安にします。ここでの`passed`はCPU起動確認であり、GPU実行の成功ではありません。Metal ToolchainとSwiftの項目も確認します。
+
+すでにMacでクローン済みなら、新たに同じ名前のフォルダーへクローンせず、そのフォルダーで`git fetch origin`、`git switch codex/mac-portability`、`git pull --ff-only`を実行します。未コミットの変更がある場合は先に内容を確認して保存します。
 
 ## 小さなMetal実証
 
 ```sh
-python3.12 scripts/setup-slang.py
-python3.12 scripts/build-portable-probe.py
-python3.12 scripts/verify-portable-probe.py --validate-only
-python3.12 scripts/verify-portable-probe.py --backend metal
+python scripts/setup-slang.py
+python scripts/build-portable-probe.py
+python scripts/verify-portable-probe.py --validate-only
+python scripts/verify-portable-probe.py --backend metal
 ```
 
-Slangは公式の2026.20を`.tools/`へ取得し、配布物のSHA-256を照合します。macOS arm64用とWindows用を分け、既存CUDAのインストールは更新しません。生成物は `research/portable-build/` に置き、各環境で作り直します。最後のコマンドだけがMac GPUを実行します。成功時も実証4ケースの検証であり、通常画面の詳細計算には接続されません。
+同じターミナル・リポジトリ直下・仮想環境で順番に実行します。Slangは公式の2026.20を`.tools/`へ取得し、配布物のSHA-256を照合します。macOS arm64用とWindows用を分け、既存CUDAのインストールは更新しません。生成物は `research/portable-build/` に置き、各環境で作り直します。最後のコマンドだけがMac GPUを実行します。成功時も実証4ケースの検証であり、通常画面の詳細計算には接続されません。
 
 `research/portable-probe-build.json` はソース生成、`portable-probe-fixtures.json` は入力の検査、`portable-probe-metal.json` はMacでの実行結果です。`gpu_execution_verified` と `production_runtime_connected` を分けて記録し、CPUフォールバックをGPU成功として扱いません。
+
+最後の出力で`passed: true`、`gpu_execution_verified: true`、`backend: metal`、MacのGPU名、4ケースの一覧を確認します。`production_runtime_connected: false`はこの段階では正常です。`--validate-only`だけの成功はMetal実行の確認になりません。Swift／MSLが失敗した場合は診断を表示します。入力検査だけへ置き換えて成功扱いにせず、実際の診断から修正します。
+
+## 通常画面の起動と設定の復元
+
+Metal実証を終えてから、同じターミナルで起動します。
+
+```sh
+NIKKE_PYTHON=python node server.mjs
+```
+
+ブラウザーで `http://127.0.0.1:4317` を開き、Windowsで書き出したJSONを読み込み、詳細計算はCPUを選びます。通常画面にはまだMetal詳細計算は接続されていません。サーバーはターミナルを使い続けるので、追加のコマンドは別のターミナルで実行するか、`Control+C`でサーバーを停止してから実行します。
+
+新しいターミナルでは次の準備を行います。クローン先を変えた場合は`cd`のパスを置き換えます。
+
+```sh
+export PATH="/opt/homebrew/opt/node@24/bin:/opt/homebrew/bin:$PATH"
+export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
+cd ~/nikke_tools
+source .venv/bin/activate
+```
+
+## つまずいた場合
+
+- `brew`・`node`・`python3.12`が見つからない：上記PATHと導入状況を確認します。
+- `xcodebuild`がCommand Line Toolsを参照している：Xcodeの配置と`DEVELOPER_DIR`を確認し、Xcodeの初期設定を済ませます。
+- Metal Toolchainがない：XcodeのComponentsか`xcodebuild -downloadComponent metalToolchain`で導入します。
+- `Rebuild the changed portable probe first`：`python scripts/build-portable-probe.py`を再実行します。Windowsの生成物はコピーせずMacで生成します。
+- Swift・MSLのエラー：ターミナルの診断と`research/migration-readiness.json`を確認します。Macでの初回実行は未検証です。
+- ポート4317が使用中：既存サーバーを確認するか、`PORT=4318 NIKKE_PYTHON=python node server.mjs`として、ブラウザーも4318へ合わせます。
+
+Macでの実行により`research/`のレポートJSONがMacの結果へ書き換わるのは正常です。個人のセッションJSON、`.venv/`、`.tools/`、キャッシュはGitへ追加しません。続きを開発する際は[引き継ぎ情報](mac-handoff.md)を先に確認してください。
 
 ## 参考
 
@@ -64,3 +133,5 @@ Slangは公式の2026.20を`.tools/`へ取得し、配布物のSHA-256を照合�
 - [Slangのポインター制約](https://docs.shader-slang.org/en/stable/external/slang/docs/language-reference/types-pointer.html)
 - [公式Slang配布物](https://github.com/shader-slang/slang/releases/tag/v2026.20)
 - [Apple：Xcodeの追加コンポーネント](https://developer.apple.com/documentation/xcode/downloading-and-installing-additional-xcode-components)
+- [Homebrew：Python 3.12](https://formulae.brew.sh/formula/python@3.12)
+- [Homebrew：Node 24](https://formulae.brew.sh/formula/node@24)
