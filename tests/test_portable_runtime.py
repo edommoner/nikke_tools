@@ -28,10 +28,10 @@ class PortableBoundaryTests(unittest.TestCase):
         self.assertEqual((self.chars,self.effects,self.script),before)
 
     def test_unported_semantics_fail_before_any_gpu_dispatch(self):
-        variants=[dict(stat='max_hp_pct'),dict(target='allies_top_atk:1'),dict(scaling='stack_count'),
+        variants=[dict(trigger=dict(timing=['passive'],condition=['has_burst1_ally'])),dict(stat='max_hp_pct'),dict(target='allies_top_atk:1'),dict(scaling='stack_count'),
                   dict(trigger=dict(timing=['battle_start'],condition=['full_burst'])),
-                  dict(trigger=dict(timing=['passive'],condition=[])),
-                  dict(trigger=dict(timing=['battle_start','on_attack'],condition=[]))]
+                  dict(trigger=dict(timing=['received_hit'],condition=[])),
+                  dict(trigger=dict(timing=['battle_start'],condition=['self_hp_max']))]
         for change in variants:
             with self.subTest(change=change):
                 saved=self.effects;self.effects=copy.deepcopy(saved)
@@ -40,6 +40,16 @@ class PortableBoundaryTests(unittest.TestCase):
                 self.effects=saved
         self.effects.append(copy.deepcopy(self.effects[0]))
         with self.assertRaises(UnsupportedPortable):self.compile()
+
+    def test_descriptor_boundaries_fail_before_gpu(self):
+        from portable_trigger_specs import validate_input
+        validate_input(dict(trigger=dict(timing=['battle_start']*8,condition=['during_full_burst']*3)))
+        for trigger in (dict(timing=['battle_start']*9),dict(timing=[]),
+                        dict(timing=['battle_start'],condition=['during_full_burst']*4),
+                        dict(timing=['every:0s']),dict(timing=['every:nan']),
+                        dict(timing=['every:inf']),dict(timing=['received_hit']),
+                        dict(timing=['battle_start'],condition=['self_hp_max'])):
+            with self.subTest(trigger=trigger),self.assertRaises(ValueError):validate_input(dict(trigger=trigger))
 
     def test_time_dimensions_and_discrete_ranges_are_checked(self):
         for script in ([[1,0,0,0,0,-1,0,0],[0,2,0,0,-1,0,0,0]],

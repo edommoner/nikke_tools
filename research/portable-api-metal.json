@@ -79,7 +79,19 @@
           "stacks": 1,
           "activations": 1,
           "target_slot": 0,
-          "target_generation": 0
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0,
+          "every_interval": 0
         },
         {
           "effect": "strength on hit",
@@ -91,7 +103,19 @@
           "stacks": 1,
           "activations": 1,
           "target_slot": 0,
-          "target_generation": 0
+          "target_generation": 0,
+          "trigger_counts": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0,
+          "every_interval": 0
         }
       ],
       "targets": [],
@@ -99,7 +123,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 0,
-      "max_stack_depth": 1
+      "max_stack_depth": 2
     }
   ],
   "transport": {
@@ -107,24 +131,24 @@
     "cases": 1,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.002125291677657515,
-    "input_bytes": 16388,
+    "gpu_seconds": 0.0021875000093132257,
+    "input_bytes": 32772,
     "output_bytes": 65536,
     "registry_id": "4294968313"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "b7a3f00502f9b3c4fe1919175c9fb2f8a2775388a2f73f576f7d74ab01da5005",
+    "gpu/event_runtime.slang": "23463f2c103e686e53f38e653a4c6e8fea9890e0126f2266d0c21d1a098fd826",
     "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "e351040abfa4ed70a3b1e702ced0b3d44249f4e21bd22c7c6aaa13db9a835680",
-    "gpu/combat_runtime.slang": "d049d5cb37624625c8ae0e3ee826efe621fd542fec3714ee2ded7384b0bc734d"
+    "gpu/portable_schema.slang": "b7afd7d2d67adacad5ef07ad719ffecffc820fba2a008b553ebd58389be7aef7",
+    "gpu/combat_runtime.slang": "ce1c785578d8f4421bcb65139741c77fb2ab4e425cc8a7e81a92e6459ea92345"
   },
   "generated_sha256": {
-    "cuda": "1cbabd527c434ecd817f9b259b73edc3fb4e150ef21d55fb864b2a7f0c1a4474",
-    "metal": "e73fc9a71d8f541278fbaffb00be4a46ab975754e3b42ac5b79c24e9fb0a52dc"
+    "cuda": "30db944ff0a6d590a136c61139be666b3f51150790d03ee2716187747edca4c7",
+    "metal": "56e43d856ade33cb6da54b8ebdac9813908176f55500c3f754b148d61d85dd55"
   },
-  "input_sha256": "3846be22bc114d25db7e6817da4fb15adab16d3399d75a8ce39f4220e2ba7871",
-  "output_sha256": "c99e72f63a670dc0920691d5ae1af55233e1119656aad7b5c259cb26dc802139",
+  "input_sha256": "e718d326d08d583511f680fc333b0159fb5ac6a0deb7f03464db4a3095a0b6b6",
+  "output_sha256": "426b3e592f87ba97d70d4934d6ed1f44e600e531924bcf71b50ff99df197812d",
   "gpu_execution_verified": true,
   "backend": "metal",
   "application_event_runtime_connected": true,
@@ -258,7 +282,19 @@
             "stacks": 1,
             "activations": 1,
             "target_slot": 0,
-            "target_generation": 0
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0,
+            "every_interval": 0
           }
         ],
         "targets": [
@@ -276,7 +312,7 @@
         "trace_total": 0,
         "burst_trace_total": 0,
         "frames": 10801,
-        "max_stack_depth": 1
+        "max_stack_depth": 2
       }
     ],
     "transport": {
@@ -284,24 +320,24 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.07819800003198907,
-      "input_bytes": 16388,
+      "gpu_seconds": 0.12757270829752088,
+      "input_bytes": 32772,
       "output_bytes": 65536,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "b7a3f00502f9b3c4fe1919175c9fb2f8a2775388a2f73f576f7d74ab01da5005",
+      "gpu/event_runtime.slang": "23463f2c103e686e53f38e653a4c6e8fea9890e0126f2266d0c21d1a098fd826",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "e351040abfa4ed70a3b1e702ced0b3d44249f4e21bd22c7c6aaa13db9a835680",
-      "gpu/combat_runtime.slang": "d049d5cb37624625c8ae0e3ee826efe621fd542fec3714ee2ded7384b0bc734d"
+      "gpu/portable_schema.slang": "b7afd7d2d67adacad5ef07ad719ffecffc820fba2a008b553ebd58389be7aef7",
+      "gpu/combat_runtime.slang": "ce1c785578d8f4421bcb65139741c77fb2ab4e425cc8a7e81a92e6459ea92345"
     },
     "generated_sha256": {
-      "cuda": "1cbabd527c434ecd817f9b259b73edc3fb4e150ef21d55fb864b2a7f0c1a4474",
-      "metal": "e73fc9a71d8f541278fbaffb00be4a46ab975754e3b42ac5b79c24e9fb0a52dc"
+      "cuda": "30db944ff0a6d590a136c61139be666b3f51150790d03ee2716187747edca4c7",
+      "metal": "56e43d856ade33cb6da54b8ebdac9813908176f55500c3f754b148d61d85dd55"
     },
-    "input_sha256": "a3a73e027b34fb9b391c3a51474075673d98905ce09ee1ad9d81892c0a4a013d",
-    "output_sha256": "da1eccf6cef30897090c58216ae82a490342cac85fef50e933ffe068a2015b96",
+    "input_sha256": "1d2224ae5f9c0855ac5e07e99b4e00f8a86ef388b238ad3215372ecf1d370c6f",
+    "output_sha256": "1eb0640f881e7daed650b6040d23e4c00b970fa32bbb1cf744bfcbd80ba44e8f",
     "gpu_execution_verified": true,
     "backend": "metal",
     "application_event_runtime_connected": true,
@@ -545,7 +581,19 @@
             "stacks": 1,
             "activations": 1,
             "target_slot": 0,
-            "target_generation": 0
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0,
+            "every_interval": 0
           },
           {
             "effect": "mode",
@@ -557,7 +605,19 @@
             "stacks": 0,
             "activations": 1,
             "target_slot": 0,
-            "target_generation": 0
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0,
+            "every_interval": 0
           },
           {
             "effect": "new",
@@ -569,7 +629,19 @@
             "stacks": 0,
             "activations": 1,
             "target_slot": 0,
-            "target_generation": 0
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0,
+            "every_interval": 0
           }
         ],
         "targets": [
@@ -587,7 +659,7 @@
         "trace_total": 0,
         "burst_trace_total": 0,
         "frames": 2,
-        "max_stack_depth": 1
+        "max_stack_depth": 2
       }
     ],
     "transport": {
@@ -595,24 +667,24 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.0006550833350047469,
-      "input_bytes": 16388,
+      "gpu_seconds": 0.0006440833676606417,
+      "input_bytes": 32772,
       "output_bytes": 65536,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "b7a3f00502f9b3c4fe1919175c9fb2f8a2775388a2f73f576f7d74ab01da5005",
+      "gpu/event_runtime.slang": "23463f2c103e686e53f38e653a4c6e8fea9890e0126f2266d0c21d1a098fd826",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "e351040abfa4ed70a3b1e702ced0b3d44249f4e21bd22c7c6aaa13db9a835680",
-      "gpu/combat_runtime.slang": "d049d5cb37624625c8ae0e3ee826efe621fd542fec3714ee2ded7384b0bc734d"
+      "gpu/portable_schema.slang": "b7afd7d2d67adacad5ef07ad719ffecffc820fba2a008b553ebd58389be7aef7",
+      "gpu/combat_runtime.slang": "ce1c785578d8f4421bcb65139741c77fb2ab4e425cc8a7e81a92e6459ea92345"
     },
     "generated_sha256": {
-      "cuda": "1cbabd527c434ecd817f9b259b73edc3fb4e150ef21d55fb864b2a7f0c1a4474",
-      "metal": "e73fc9a71d8f541278fbaffb00be4a46ab975754e3b42ac5b79c24e9fb0a52dc"
+      "cuda": "30db944ff0a6d590a136c61139be666b3f51150790d03ee2716187747edca4c7",
+      "metal": "56e43d856ade33cb6da54b8ebdac9813908176f55500c3f754b148d61d85dd55"
     },
-    "input_sha256": "7d5e037d86f6168c89ca04a7077a52836a5e09f0c591ee624c0c44f45a0ce130",
-    "output_sha256": "2bd779a108b11ff814fbaf84ffa1e44854d10dfc9f0ecaab34fc93cc802a0a81",
+    "input_sha256": "0abe06d7ddd5adf322ec20dfd95cc418b4543246d5dd3f3602eed5475d925b38",
+    "output_sha256": "4ab08795d782fdc6b9d116e43743a3189449c720ffe7ddc2a356cc08fc770bd4",
     "gpu_execution_verified": true,
     "backend": "metal",
     "application_event_runtime_connected": true,
@@ -1292,7 +1364,19 @@
             "stacks": 1,
             "activations": 1,
             "target_slot": 0,
-            "target_generation": 0
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0,
+            "every_interval": 0
           }
         ],
         "targets": [
@@ -1310,7 +1394,7 @@
         "trace_total": 0,
         "burst_trace_total": 0,
         "frames": 6,
-        "max_stack_depth": 1
+        "max_stack_depth": 2
       }
     ],
     "transport": {
@@ -1318,24 +1402,24 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.000975083326920867,
-      "input_bytes": 16388,
+      "gpu_seconds": 0.0009182500070892274,
+      "input_bytes": 32772,
       "output_bytes": 65536,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "b7a3f00502f9b3c4fe1919175c9fb2f8a2775388a2f73f576f7d74ab01da5005",
+      "gpu/event_runtime.slang": "23463f2c103e686e53f38e653a4c6e8fea9890e0126f2266d0c21d1a098fd826",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "e351040abfa4ed70a3b1e702ced0b3d44249f4e21bd22c7c6aaa13db9a835680",
-      "gpu/combat_runtime.slang": "d049d5cb37624625c8ae0e3ee826efe621fd542fec3714ee2ded7384b0bc734d"
+      "gpu/portable_schema.slang": "b7afd7d2d67adacad5ef07ad719ffecffc820fba2a008b553ebd58389be7aef7",
+      "gpu/combat_runtime.slang": "ce1c785578d8f4421bcb65139741c77fb2ab4e425cc8a7e81a92e6459ea92345"
     },
     "generated_sha256": {
-      "cuda": "1cbabd527c434ecd817f9b259b73edc3fb4e150ef21d55fb864b2a7f0c1a4474",
-      "metal": "e73fc9a71d8f541278fbaffb00be4a46ab975754e3b42ac5b79c24e9fb0a52dc"
+      "cuda": "30db944ff0a6d590a136c61139be666b3f51150790d03ee2716187747edca4c7",
+      "metal": "56e43d856ade33cb6da54b8ebdac9813908176f55500c3f754b148d61d85dd55"
     },
-    "input_sha256": "64c2888cdb0c16bd6570c0b2b59dba5016a988b09bf5b66b8696b5767a26c490",
-    "output_sha256": "08acc5753149c55f630411827d17440ccd2c47543ab8ead371eb13141ce109cd",
+    "input_sha256": "b80f6754b6da5973adf506acdde1887c7edc38594724e5cc66963eb7bfdd2dee",
+    "output_sha256": "6ceb20f723f7e21a62657be9471b6bcb37139f60544809a74bf434d75031ccb1",
     "gpu_execution_verified": true,
     "backend": "metal",
     "application_event_runtime_connected": true,
@@ -1354,12 +1438,13 @@
   "adapter_sha256": {
     "server.mjs": "dccdd382743de8a091547489886f8ab6faa0f9f7326b06b147bc584b8af255a4",
     "app/engine_worker.py": "92d56095c83ac5eddab4d1d6066cadccafa272581237f3d4d93b96d9eda1edbd",
-    "app/portable_runtime.py": "dde7c3fe6ec792771d557b9ac9d032f880ad03157052395ee814e461e0ce7265",
-    "app/portable_backend.py": "1eec4045e1fdc66d48222d02f5fb94100ac5bd0cd4a1a1a7b515564faa76c77e",
-    "scripts/verify-portable-api.py": "1812011c31bc45053d899cd85aedc441f00280ab9b245aee7d9dc9542b3ad058",
+    "app/portable_runtime.py": "d2fc58a77e95b3c0fba24d7072269b37ae591851e2168a4f7bde7d713b79a73a",
+    "app/portable_trigger_specs.py": "77d9457c502dd0bfd2e6570f5ae1488f012ebd90dc2facf7a0c3f068943011eb",
+    "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
+    "scripts/verify-portable-api.py": "876a453fa9ea88fb9664420274b24d93929e0b7574d94ecabf0141c3f8cb80cd",
     "tests/fixtures/portable-events.json": "7dd3eb1e11b8964dec596d639cd3e626138f73d3fab158eec4973265292d1ba8",
     "app/portable_combat.py": "69ddc04801af202cc31609bba0bbc97770435a70f165883abd3675dfe1f30a38",
-    "app/portable_specs.py": "07864f3cf58c61567b90fc2251c02753991260dfce25faeb61e24bad054c0d28",
+    "app/portable_specs.py": "117729ef440c2b821b3da1d4e179088fe902693a284c5a4e14a304595fa957fd",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",

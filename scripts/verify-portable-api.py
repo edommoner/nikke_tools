@@ -24,7 +24,7 @@ def main():
         parser.error('Use a loopback HTTP origin')
     path=ROOT/f'research/portable-api-{args.backend}.json'
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n', encoding='utf-8')
-    tracked=['server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_backend.py',
+    tracked=['server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_backend.py',
              'scripts/verify-portable-api.py','tests/fixtures/portable-events.json',
              'app/portable_combat.py','app/portable_specs.py','app/world_condition_specs.py','app/impact_specs.py',
              'tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']

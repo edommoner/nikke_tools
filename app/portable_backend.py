@@ -68,9 +68,14 @@ def execute(source, entry, packed, input_words, output_words, backend='metal'):
         if backend == 'metal':
             if platform.system() != 'Darwin':
                 raise RuntimeError('Metal requires macOS')
-            process = subprocess.run(['swift', str(ROOT/'scripts/run-metal-probe.swift'),
-                                      str(outputs['metal']), str(input_path), str(output_path),
-                                      entry, str(input_words), str(output_words)], capture_output=True, text=True, timeout=120)
+            try:
+                process = subprocess.run(['swift', str(ROOT/'scripts/run-metal-probe.swift'),
+                                          str(outputs['metal']), str(input_path), str(output_path),
+                                          entry, str(input_words), str(output_words)], capture_output=True, text=True, timeout=120)
+            except subprocess.TimeoutExpired as error:
+                diagnostic=error.stderr or b''
+                if isinstance(diagnostic,bytes):diagnostic=diagnostic.decode('utf-8','replace')
+                raise RuntimeError('Metal timeout: '+diagnostic.strip()) from error
             if process.returncode:
                 raise RuntimeError(process.stderr or process.stdout)
             raw, transport = output_path.read_bytes(), json.loads(process.stdout)

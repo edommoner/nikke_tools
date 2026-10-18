@@ -14,7 +14,7 @@ class CombatBoundaryTests(unittest.TestCase):
         check_schema()
         for case in v.fixtures():
             before=copy.deepcopy(case);words,meta=v.compile_case(case)
-            self.assertEqual(len(words),L['INPUT_WORDS']);self.assertIsNotNone(meta['combat'])
+            self.assertEqual(len(words),L['INPUT_WORDS']);self.assertEqual(meta['combat'] is not None,'combat' in case)
             self.assertEqual(case,before)
 
     def test_unported_mechanics_and_invalid_target_identity_fail_closed(self):
@@ -35,7 +35,8 @@ class CombatBoundaryTests(unittest.TestCase):
     def test_unported_mode_mechanics_fail_before_gpu(self):
         base=next(c for c in v.fixtures() if c['name']=='mode-duration-restores-base')
         for patch in (dict(full_charge_mult=250),dict(fire_rate_max=8),dict(entry_reload=True),
-                      dict(max_ammo_buff_applies=True),dict(duration_bullets=2),dict(tick_interval=.1)):
+                      dict(max_ammo_buff_applies=True),dict(duration_bullets=2),dict(tick_interval=.1),
+                      dict(duration=-1,trigger=dict(timing=['passive'],condition=['during_full_burst']))):
             c=copy.deepcopy(base);c['effects'][1].update(patch)
             with self.subTest(patch=patch),self.assertRaises(ValueError):v.compile_case(c)
 
@@ -43,13 +44,16 @@ class CombatBoundaryTests(unittest.TestCase):
         inputs=[(0,32),(L['DEFINITION_BASE'],L['DEFINITIONS']*L['DEFINITION_WORDS']),
                 (L['COMMAND_BASE'],L['COMMANDS']*8),(L['WEAPON_BASE'],5*L['WEAPON_WORDS']),
                 (L['TARGET_BASE'],8*L['TARGET_WORDS']),
-                (L['WEAPON_EXTRA_BASE'],5*4),(L['MODE_BASE'],L['DEFINITIONS']*L['MODE_WORDS'])]
+                (L['WEAPON_EXTRA_BASE'],5*4),(L['MODE_BASE'],L['DEFINITIONS']*L['MODE_WORDS']),
+                (L['EVENT_BASE'],L['DEFINITIONS']*L['EVENT_WORDS']),
+                (L['CONDITION_BASE'],L['DEFINITIONS']*L['CONDITION_WORDS'])]
         outputs=[(0,16),(L['QUERY_BASE'],L['COMMANDS']*L['QUERY_WORDS']),
                  (L['TRACE_BASE'],L['TRACE']*L['TRACE_WORDS']),(L['STATE_BASE'],L['DEFINITIONS']*10),
                  (L['TIMER_TARGET_BASE'],L['DEFINITIONS']*2),(L['BURST_TRACE_BASE'],64*8),
                  (L['COMBAT_QUERY_BASE'],L['COMMANDS']*L['COMBAT_QUERY_WORDS']),
                  (L['TARGET_STATE_BASE'],8*10),
-                 (L['COMBAT_STATE_QUERY_BASE'],L['COMMANDS']*L['COMBAT_STATE_QUERY_WORDS'])]
+                 (L['COMBAT_STATE_QUERY_BASE'],L['COMMANDS']*L['COMBAT_STATE_QUERY_WORDS']),
+                 (L['COUNTER_STATE_BASE'],L['DEFINITIONS']*8),(L['PERIOD_STATE_BASE'],L['DEFINITIONS']*4)]
         for regions,capacity in [(inputs,L['INPUT_WORDS']),(outputs,L['OUTPUT_WORDS'])]:
             end=0
             for start,size in sorted(regions):

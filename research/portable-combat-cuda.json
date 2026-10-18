@@ -1,7 +1,6 @@
 {
   "passed": false,
   "gpu_execution_verified": false,
-  "backend": "cuda",
-  "stage": "modified-runtime-not-yet-verified",
+  "stage": "pending-short-v5-verification",
   "previous_verified_checkpoint": "portable-combat-v3-checkpoint.json"
 }

@@ -27,8 +27,10 @@ func run() throws {
     let source = try String(contentsOfFile: CommandLine.arguments[1], encoding: .utf8)
     let options = MTLCompileOptions()
     options.mathMode = .safe
+    FileHandle.standardError.write(Data("portable_stage=library_compile\n".utf8))
     let library = try device.makeLibrary(source: source, options: options)
     guard let function = library.makeFunction(name: entry) else { throw ProbeError("Missing \(entry) entry") }
+    FileHandle.standardError.write(Data("portable_stage=pipeline_compile\n".utf8))
     let pipeline = try device.makeComputePipelineState(function: function)
     guard let command = queue.makeCommandBuffer(), let encoder = command.makeComputeCommandEncoder() else { throw ProbeError("Metal command creation failed") }
     encoder.setComputePipelineState(pipeline)
@@ -36,6 +38,7 @@ func run() throws {
     encoder.setBuffer(output, offset: 0, index: 1)
     encoder.dispatchThreadgroups(MTLSize(width: Int(count), height: 1, depth: 1), threadsPerThreadgroup: MTLSize(width: 1, height: 1, depth: 1))
     encoder.endEncoding()
+    FileHandle.standardError.write(Data("portable_stage=gpu_dispatch\n".utf8))
     command.commit()
     command.waitUntilCompleted()
     guard command.status == .completed else { throw ProbeError(command.error?.localizedDescription ?? "Metal execution failed") }

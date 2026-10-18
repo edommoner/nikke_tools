@@ -1,0 +1,57 @@
+"""Shared acceptance/encoding for legacy trigger and predicate descriptors.
+Values come from detail_gpu.compile_effects; no battle state is produced here.
+"""
+import math
+import re
+from world_condition_specs import ENEMY_COUNT_ABOVE,ENEMY_COUNT_BELOW,TARGET_IS_BOSS,TARGET_IS_ADD
+
+CONDITIONS=dict(FULL=1,NOT_FULL=2,SELF_STATE=3,NOT_SELF_STATE=4,SELF_STACK=5,
+                BACK_ROW=7,STAT_ABOVE=8,CAST=14,NOT_CAST=15,STATIC=25,CHARGING=29,
+                BURST1_ALLY=31,NO_BURST1_ALLY=32,ENEMIES_ABOVE=ENEMY_COUNT_ABOVE,
+                ENEMIES_BELOW=ENEMY_COUNT_BELOW,TARGET_BOSS=TARGET_IS_BOSS,TARGET_ADD=TARGET_IS_ADD)
+EVENTS=frozenset((0,1,2,3,4,6,7,8,9,10,11,12,14,19,20,21,26,29,49))
+COUNT=r'(?:[1-9][0-9]*|\{0\})'
+SIMPLE=r'battle_start|passive|on_attack|hit_count|burst_cast|full_burst_start|full_burst_end|event:full_reload|last_bullet|last_bullet_fire|full_charge|full_charge_fire|full_charge_hit|squad_ammo_consume|pellet_hit'
+COUNTERS=rf'(?:on_attack_count|hit_count|squad_ammo_consume|pellet_hit|pellet_hit_count|full_charge_fire_count|full_charge_count|full_charge_hit_count|burst_cast_count|full_burst_start_count|full_burst_end_count|full_burst_start_exact):{COUNT}'
+TIMING=rf'{SIMPLE}|{COUNTERS}|burst_enter:[123]|burst_enter_count:[123]:{COUNT}|event:state_end:[^:]+|hit_count:[^:]+:{COUNT}|stack_reach:[^:]+:[1-9][0-9]*'
+CONDITION=r'during_full_burst|not_during_full_burst|during_charge|burst_casted|burst_not_casted|has_burst1_ally|no_burst1_ally|has_defender_ally|no_defender_ally|squad_ally_exists|back_row|target_is_boss|target_is_add|(?:self_state|not_self_state):[^:]*|self_stack_above:[^:]+:[0-9]+|enemy_count_(?:above|below):[+-]?[0-9]+|self_stat_above:(?:atk_pct|crit_rate|crit_dmg):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
+
+
+def validate_input(eff):
+    trigger=eff.get('trigger',{})
+    if not isinstance(trigger,dict) or set(trigger)-{'timing','condition'}:raise ValueError('Invalid trigger object')
+    timings=trigger.get('timing',[]);conditions=trigger.get('condition',[])
+    if not isinstance(timings,list) or not 1<=len(timings)<=8:raise ValueError('Expected 1..8 trigger descriptors')
+    if not isinstance(conditions,list) or len(conditions)>3:raise ValueError('Expected at most three predicates')
+    for timing in timings:
+        if not isinstance(timing,str):raise ValueError('Invalid timing')
+        if timing.startswith('every:'):
+            try:period=float(timing[6:].removesuffix('s'))
+            except ValueError:raise ValueError('Invalid periodic timing') from None
+            if not math.isfinite(period) or period<=0:raise ValueError('Periodic timing must be positive and finite')
+        elif not re.fullmatch(TIMING,timing):raise ValueError('Unported trigger timing: '+timing)
+    for condition in conditions:
+        if not isinstance(condition,str) or not re.fullmatch(CONDITION,condition):raise ValueError('Unported predicate: '+str(condition))
+
+
+def pack_descriptors(words,index,row,L,F,double_words):
+    n=int(row[144]);nc=int(row[14])
+    if not 1<=n<=8 or not 0<=nc<=3:raise ValueError('Descriptor capacity exceeded')
+    for slot in range(n):
+        event,threshold,mode,tag,value,passive,stage=row[145+slot*7:152+slot*7]
+        if event not in EVENTS or mode not in (0,1,2,3):raise ValueError('Unported compiled trigger')
+        if event!=6 and (threshold!=int(threshold) or not 0<=threshold<=2**31-1):raise ValueError('Invalid discrete trigger threshold')
+        if (mode or event in (7,8)) and threshold<=0:raise ValueError('Trigger threshold must be positive')
+        if event==6 and (not math.isfinite(threshold) or threshold<=0):raise ValueError('Invalid compiled period')
+        if event==9 and (value!=int(value) or not 0<=value<=2**31-1):raise ValueError('Invalid stack reach value')
+        at=L['EVENT_BASE']+index*L['EVENT_WORDS']+slot*8
+        words[at:at+8]=[int(event),*double_words(threshold),int(mode),int(tag)&0xffffffff,int(value)&0xffffffff,int(passive),int(stage)&0xffffffff]
+    for slot in range(nc):
+        kind,name,arg=row[15+slot*3:18+slot*3]
+        if kind not in CONDITIONS.values() or kind==8 and name not in (0,5,6):raise ValueError('Unported compiled predicate')
+        at=L['CONDITION_BASE']+index*L['CONDITION_WORDS']+slot*4
+        words[at:at+4]=[int(kind),int(name)&0xffffffff,*double_words(arg)]
+    at=L['DEFINITION_BASE']+index*L['DEFINITION_WORDS']
+    words[at+F['TRIGGER_COUNT']]=n;words[at+F['CONDITION_COUNT']]=nc
+    words[at+F['FLAGS']]=int(bool(row[69])) | (int(bool(row[217]))<<1)
+    words[at+F['PERIOD']:at+F['PERIOD']+2]=double_words(row[44])

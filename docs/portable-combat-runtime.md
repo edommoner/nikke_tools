@@ -1,10 +1,16 @@
 # 共通の武器・バースト・敵対象実行器
 
+## 2026-10-19 共通通知・条件とWindows再確認
+
+共通Slangへ1効果あたり最大8通知・3条件、通知ごとのカウンター、同期した名前付き終了／スタック到達、passiveと周期時計を接続しました。武器変更・散弾・バースト再突入を含む従来53ケースに、16ケースを追加し、うち外部通知の14ケースは独立CPU参照とも照合し、Metalで69正例・3拒否を確認しています。現在のABIは `0x50455635`、入力8,192語・出力16,384語です。最新のCUDA実行状態とハッシュ照合は `research/portable-combat-checkpoint.json` を参照してください。
+
+Metalのコンパイル時間増大に対し、共通ソースの主要な関数へ `noinline` を付け、生成されたCUDAにも `__noinline__` が出ることを確認しました。Metalアダプターにはライブラリー生成・パイプライン生成・GPU投入の診断を追加しています。通常画面の実編成経路、全キャラ・全特殊効果のGPU対応は未完了です。
+
 ## GPU内の180秒進行と実データ監査
 
 共通実行器にGPU内の1/60秒フレーム生成を追加しました。`op=24` で指定時刻まで進行でき、180秒は10,801フレームです。CPUが発射・着弾・バースト時刻を作る経路ではありません。分割進行、一括進行、同じ終点への再要求、隣接bitのフレーム境界をMetalで確認しています。明示フレームと同じ0.5秒区間の全読み戻し結果も一致しました。
 
-現在のMetal検証は53正例・3拒否例です。以下に記載した43ケースの両GPU一致は前段のABI v3（`5985f82`）の固定記録です。今回のABI v4のCUDA実機検証はまだ行っていません。最新版と履歴を混同しないよう、`research/portable-combat-checkpoint.json` と `portable-combat-v3-checkpoint.json` を分けています。
+GPU内フレーム進行を追加した時点のMetal検証は53正例・3拒否例でした。以下に記載した43ケースの両GPU一致は前段のABI v3（`5985f82`）の固定記録です。ABI v4追加時点ではCUDA実機検証は未実施でした。最新版と履歴を混同しないよう、`research/portable-combat-checkpoint.json` と `portable-combat-v3-checkpoint.json` を分けています。
 
 カタログ全203体の実定義を、通常の所持・育成準備から監査する `scripts/audit-portable-catalog.py` も追加しました。`research/portable-catalog-readiness.json` の実編成検証済み件数は0です。入力アダプターは未接続で、favorite段階0・キューブなしの定義監査を全キャラ対応やGPU実行の成功へ加算しません。表示等のメタデータを除いて診断した不足理由は、実際の受け付け可否と別に記録します。監査はCPU戦闘もGPU戦闘も実行しません。
 
@@ -98,9 +104,9 @@
 .venv/bin/python -m unittest discover -s tests -p 'test_portable*.py'
 ```
 
-共通fixtureは `tests/fixtures/portable-combat.json`、`portable-combat-extensions.json`、`portable-autonomous.json` に一度だけ保持します。53ケースで弾数・発射数・装填期限・チャージ状態・段階・cast mask・クールダウン・ゲージ・敵HP・命中数・世代・捕捉した時計対象を照合します。期待値は手書きで、CPUの実行トレースはGPU入力にも合格基準にも使いません。ケースに加え、世代あふれ（status 2）、不正なGPU側対象容量（64）、全ログ保存要求での保存容量超過（8）を拒否することを実GPUで検査します。旧イベント16ケースと再入／数値あふれの2ケースも維持します。現在の戦闘検証は正例・拒否例を合わせた56入力の1バッチで、`rejection_execution.case_indices` が拒否例の位置を示します。
+共通fixtureは `tests/fixtures/portable-triggers.json`、`tests/fixtures/portable-combat.json`、`portable-combat-extensions.json`、`portable-autonomous.json` に一度だけ保持します。69ケースで弾数・発射数・装填期限・チャージ状態・段階・cast mask・クールダウン・ゲージ・敵HP・命中数・世代・捕捉した時計対象を照合します。期待値は手書きで、CPUの実行トレースはGPU入力にも合格基準にも使いません。ケースに加え、世代あふれ（status 2）、不正なGPU側対象容量（64）、全ログ保存要求での保存容量超過（8）を拒否することを実GPUで検査します。旧イベント16ケースと再入／数値あふれの2ケースも維持します。現在の戦闘検証は正例・拒否例を合わせた72入力の1バッチで、`rejection_execution.case_indices` が拒否例の位置を示します。
 
-Metalの記録は `research/portable-combat-metal.json`、現在のCUDA確認状態は `portable-combat-cuda.json`、APIは `portable-api-metal.json` です。APIから180秒進行した10,801フレーム・最終ダメージ・敵HPも確認します。対応するAPI入力200と未対応の部位入力400、武器変更と散弾の子通知のAPI実行も確認しました。通常画面はCPUのままです。現在のwire ABIは `0x50455634`、入力4,096語、出力16,384語で、全領域の重複と転送上限を単体検査します。過去の `portable-cross-gpu-checkpoint.json` は旧ABIの検証記録です。
+Metalの記録は `research/portable-combat-metal.json`、現在のCUDA確認状態は `portable-combat-cuda.json`、APIは `portable-api-metal.json` です。APIから180秒進行した10,801フレーム・最終ダメージ・敵HPも確認します。対応するAPI入力200と未対応の部位入力400、武器変更と散弾の子通知のAPI実行も確認しました。通常画面はCPUのままです。現在のwire ABIは `0x50455635`、入力8,192語、出力16,384語で、全領域の重複と転送上限を単体検査します。過去の `portable-cross-gpu-checkpoint.json` は旧ABIの検証記録です。
 
 以下は最初のWindows試行の履歴です。Windowsは必要な短い比較だけに使います。当初、RTX 3070 Ti・GPU使用率0%から低優先度で試行し、120秒の上限で停止しました。完了したCUDA出力ハッシュを取得できていないため、今回の20ケースをCUDA検証済みとは扱いません。再実行はせず、元のWindows作業フォルダーと本体は変更していません。診断は `research/windows-portable-combat-timeout.json`、当時の未完了報告はGit履歴に残しています。現在の同名ファイルは最新版の確認状態を示します。コンパイルとGPU実行のどの段階で上限に達したかは未確定です。
 
@@ -112,4 +118,4 @@ python scripts/verify-portable-combat.py --backend cuda
 
 ## 残っている接続
 
-ウォームアップ、武器変更の入口遅延／入口装填／動的容量／チャージ倍率、手動操作、部分装填、動的な速度・チャージ補正、バーストの優先度・指定回リスト／特殊な待機ポリシー、フルバーストへの予約着弾、部位・飛翔体・シールド、敵の出現／死亡の効果通知、対象条件・対象別の複数キャリア、味方HP／回復は未対応です。未知の機構・フィールド・効果タイミングはホストで拒否します。通常画面への切替と全キャラ受付はこれらの接続・検証後に行います。この小さな実行器のGPU時間を本体の速度とみなしません。
+ウォームアップ、武器変更の入口遅延／入口装填／動的容量／チャージ倍率／永続モードの実行時条件、手動操作、部分装填、動的な速度・チャージ補正、バーストの優先度・指定回リスト／特殊な待機ポリシー、フルバーストへの予約着弾、部位・飛翔体・シールド、敵の出現／死亡の効果通知、未対応の対象条件・対象別の複数キャリア、味方HP／回復は未対応です。未知の機構・フィールド・効果タイミングはホストで拒否します。通常画面への切替と全キャラ受付はこれらの接続・検証後に行います。この小さな実行器のGPU時間を本体の速度とみなしません。

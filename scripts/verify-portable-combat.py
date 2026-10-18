@@ -14,12 +14,12 @@ from portable_runtime import compile_program,run_programs,PortableExecutionError
 
 
 def fixtures():
-    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json')),[])
+    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json')),[])
 
 
 def compile_case(case):
     chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES]
-    return compile_program(chars,[(e,NAMES[o]) for e,o in zip(case['effects'],case.get('owners',[0]*len(case['effects'])))],case['script'],[1000]*5,combat=case['combat'])
+    return compile_program(chars,[(e,NAMES[o]) for e,o in zip(case['effects'],case.get('owners',[0]*len(case['effects'])))],case['script'],[1000]*5,combat=case.get('combat'))
 
 
 def contains(actual,expected,path=''):
@@ -29,6 +29,26 @@ def contains(actual,expected,path=''):
         assert len(actual)>=len(expected),(path,len(actual),len(expected))
         for i,v in enumerate(expected):contains(actual[i],v,path+f'[{i}]')
     else:assert actual==expected,(path,actual,expected)
+
+
+
+def verify_trigger_reference(cases):
+    # An independent CPU regression is evaluated only AFTER the GPU invocation.
+    # Hand-authored expectations remain the common acceptance criteria.
+    import importlib.util
+    spec=importlib.util.spec_from_file_location('portable_trigger_oracle',ROOT/'scripts/verify-detail.py')
+    oracle=importlib.util.module_from_spec(spec);spec.loader.exec_module(oracle)
+    chars=oracle.characters(NAMES)
+    stats={n:dict(atk=1000,defense=0,hp=1000000) for n in NAMES}
+    verified=[]
+    for case in cases:
+        if 'combat' in case:continue
+        program=oracle.program(chars,[(e,NAMES[0]) for e in case['effects']])
+        queries,_=oracle.oracle(program,case['script'],[0,0],stats)
+        actual=[q[0] for q in queries];expected=[q['attack_buffs'][0] for q in case['expected_queries']]
+        assert actual==expected,(case['name'],actual,expected)
+        verified.append(case['name'])
+    return verified
 
 
 def evidence_subset(result):
@@ -41,8 +61,8 @@ def main():
     args=parser.parse_args();path=ROOT/f'research/portable-combat-{args.backend}.json'
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n',encoding='utf-8')
     tracked=['app/portable_runtime.py','app/portable_combat.py','app/portable_specs.py','app/portable_backend.py',
-             'app/detail_gpu.py','app/effect_spec.py','app/impact_specs.py','app/world_condition_specs.py','scripts/verify-portable-combat.py',
-             'tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json','scripts/run-metal-probe.swift']
+             'app/portable_trigger_specs.py','scripts/verify-detail.py','app/detail_gpu.py','app/effect_spec.py','app/impact_specs.py','app/world_condition_specs.py','scripts/verify-portable-combat.py',
+             'tests/fixtures/portable-triggers.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json','scripts/run-metal-probe.swift']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     cases=fixtures();programs=[compile_case(c) for c in cases]
     # The same identity may be re-used only with a new bounded generation.
@@ -93,7 +113,8 @@ def main():
         if 'expected_timers' in c:contains(r['timers'],c['expected_timers'],c['name']+'.timers')
         rows.append(dict(name=c['name'],passed=True,actual=r))
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
-    result.update(passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
+    reference=verify_trigger_reference(cases)
+    result.update(trigger_cpu_regressions=reference,passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
                   rejection_execution=negative,rejected_cases=[dict(name='target-generation-overflow',status=2),dict(name='wire-target-capacity',status=64),dict(name='full-trace-capacity',status=8)],
                   scope='Shared bounded weapon modes, physical pellets/muzzles, burst reentry and body/add targets; no general battle acceptance')
     path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

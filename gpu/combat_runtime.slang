@@ -15,7 +15,7 @@ void initializeCombat(inout Runtime s, uint input)
         s.modeIndex[who] = -1;
         s.pellets[who] = commands[input+P_WEAPON_EXTRA_BASE+who*4]; s.muzzles[who] = commands[input+P_WEAPON_EXTRA_BASE+who*4+1];
         s.weaponEnabled[who] = commands[at]; s.weaponMode[who] = commands[at+1];
-        s.capacity[who] = commands[at+2]; s.ammo[who] = s.capacity[who]; s.stage[who] = commands[at+3];
+        s.capacity[who] = commands[at+2]; s.ammo[who] = s.capacity[who]; s.stage[who] = commands[at+3]; s.currentStage[who] = s.stage[who];
         s.coefficient[who] = loadNumber(at+4); s.interval[who] = loadNumber(at+6);
         s.reloadTime[who] = loadNumber(at+8); s.chargeTime[who] = loadNumber(at+10);
         s.gain[who] = loadNumber(at+12); s.cooldown[who] = loadNumber(at+14);
@@ -85,13 +85,14 @@ uint effectiveStage(inout Runtime s, uint who, uint64_t when)
 {
     uint stage = s.stage[who], order = 0;
     for (uint row = 0; row < s.count; row++)
-        if (s.defs[row].owner == who && s.defs[row].stageOverride != 0 && s.alive[row] != 0 && f64Less(when,s.end[row]) && s.entryOrder[row] >= order)
+        if (s.defs[row].owner == who && s.defs[row].stageOverride != 0 && s.alive[row] != 0 && f64Less(when,s.end[row]) && basicConditions(s,row,when,true) && s.entryOrder[row] >= order)
         { order = s.entryOrder[row]; stage = s.defs[row].stageOverride; }
     return stage;
 }
+[noinline]
 void burstFrame(inout Runtime s, uint64_t when, uint output)
 {
-    uint stages[5]; for (uint who = 0; who < 5; who++) stages[who] = effectiveStage(s,who,when);
+    uint stages[5]; for (uint who = 0; who < 5; who++) { stages[who] = effectiveStage(s,who,when); s.currentStage[who] = stages[who]; }
     if (s.phase == 5 && reached(when,s.fullEnd))
     { s.phase = 0; teamNotify(s,2,when,output); s.castMask = 0; logBurst(s,5,0xffffffff,when,output); }
     if (s.phase == 0 && reached(s.gauge,HUNDRED))
@@ -119,7 +120,7 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
             logBurst(s,stage+(s.reentrySlot != 0 ? 6 : 0),picked,when,output);
             bool reentry = s.pendingReentry[picked] != 0; s.pendingReentry[picked] = 0;
             for (uint row = 0; row < s.count; row++)
-                if (s.defs[row].owner == picked && s.defs[row].reentry != 0 && s.alive[row] != 0 && f64Less(when,s.end[row])) reentry = true;
+                if (s.defs[row].owner == picked && s.defs[row].reentry != 0 && s.alive[row] != 0 && f64Less(when,s.end[row]) && basicConditions(s,row,when,true)) reentry = true;
             if (reentry && (s.reentryDone & (1U << stage)) == 0)
             { s.reentryDone |= 1U << stage; s.reentrySlot = 1; s.action = f64Add(when,s.reentryDelay); }
             else
@@ -133,6 +134,7 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
     if (s.phase == 4 && reached(when,s.action))
     { s.phase = 5; s.fullEnd = f64Add(when,TEN); teamNotify(s,1,when,output); logBurst(s,4,0xffffffff,when,output); }
 }
+[noinline]
 void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
 {
     if (s.weaponEnabled[who] == 0) return;
@@ -195,14 +197,17 @@ void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
     { s.charging[who] = 0; s.nextShot[who] = f64Add(when,f64Add(w.interval,w.chargeTime ^ F64_SIGN)); }
     else s.nextShot[who] = larger(when,f64Add(s.nextShot[who],w.interval));
 }
+[noinline]
 void squadFrame(inout Runtime s, uint64_t when, uint output)
 {
     burstFrame(s,when,output);
     for (uint who = 0; who < 5 && s.error == 0; who++) weaponFrame(s,who,when,output);
 }
 // Fixed clock generation belongs to the GPU, not to an authored shot schedule.
+[noinline]
 void advanceCombat(inout Runtime s, uint64_t through, uint output)
 {
+    sampleWorld(s);
     if (s.combatStarted == 0)
     { s.combatStarted = 1; teamNotify(s,0,0,output); }
     for (uint work = 0; work <= 10800 && s.error == 0; work++)
@@ -210,7 +215,7 @@ void advanceCombat(inout Runtime s, uint64_t through, uint output)
         if (s.nextFrame > 10800) return;
         uint64_t when = f64Div(f64FromI64(s.nextFrame),uint64_t(0x404e0000) << 32); // 60
         if (f64Less(through,when)) return;
-        s.nextFrame++; s.frameCount++;
+        s.nextFrame++; s.frameCount++; sampleWorld(s);
         tick(s,when,output);
         if (s.error == 0) squadFrame(s,when,output);
     }
