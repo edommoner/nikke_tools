@@ -1,6 +1,761 @@
 {
-  "passed": false,
-  "gpu_execution_verified": false,
-  "stage": "not-yet-requested-after-weapon-mechanics-change",
-  "previous_verified_checkpoint": "portable-combat-v6-checkpoint.json"
+  "passed": true,
+  "gpu_execution_verified": true,
+  "backend": "cuda",
+  "stage": "verified",
+  "transport": {
+    "backend": "cuda",
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "cases": 133,
+    "command_status": "completed",
+    "host_dispatch_seconds": 0.27099559968337417
+  },
+  "actual_statuses": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    64,
+    8
+  ],
+  "source_sha256": {
+    "gpu/event_runtime.slang": "6acddc9384238b6d3b99cd248799ea1bc37559ac8e96b9aed274cc2cb8370233",
+    "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
+    "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+    "gpu/portable_schema.slang": "782b508556f89416f97221916a9e6113c08b7cc5510de9182d4a2c1aad7a4a0e",
+    "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
+    "gpu/combat_runtime.slang": "8befb9c2ff2cc84609c682d97887d7b0f318519bb4d9005ec58c8f2f07edf108",
+    "gpu/weapon_runtime.slang": "0800a5878e33eb0893a19d4b710fa9decf21f6f86c44f9d1cf974225cfb9fa8c"
+  },
+  "input_sha256": "70f7f0c0a44f2b8bd09f55f998579bdd44b6444d222821ee6c7cbca53bb7803d",
+  "output_sha256": "1eb90a8f6aa5da3e8657a40336de0f3f7d940d34582e6c1ba7e4ac2f673ff29b",
+  "validation_sha256": {
+    "app/portable_runtime.py": "433f79a175ea2f84c905b007a40c916eee0dae4145fc3939ffe66c7af45dc685",
+    "app/portable_combat.py": "f25450a50db50e92f57567b68d37607e366d80fd04825b947d4c74737c7206b0",
+    "app/portable_specs.py": "f823993c871a2ac8b960a342a54242a01c9aa5dfda8a264b90b827a0a5cd9753",
+    "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
+    "app/portable_trigger_specs.py": "77d9457c502dd0bfd2e6570f5ae1488f012ebd90dc2facf7a0c3f068943011eb",
+    "app/portable_damage_specs.py": "c3d6b6c00a4cc3bd9bb676db99587332a5a7720d0b1956a25c8473955b3495ef",
+    "scripts/portable_weapon_oracle.py": "6b0029fcf2eb0267e1cf9714631a5ca8a29a911167a739879c82907e68d5d42d",
+    "scripts/verify-detail.py": "20de1868cf509afa5696af87d94db27974d97c8505702e40eed27886f7c09972",
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
+    "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
+    "scripts/verify-portable-combat.py": "8b3f64882878e9723335a1e7a44bbe8728bead9067118d70bbdb33777aac1ea3",
+    "tests/fixtures/portable-weapons.json": "75960cd6b9daaf1315a03af930f193df2c637bff7b845cc9f19b524561f5f7bf",
+    "tests/fixtures/portable-damage.json": "ab596e0f01bb9f94ee9813c6027d46a85415b77d5a72c36e06b32bf45b6ac5c7",
+    "tests/fixtures/portable-triggers.json": "680d8d5e212f9604e23f895b141651114e8703a4051facd37deb5ac890a403ec",
+    "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
+    "tests/fixtures/portable-combat-extensions.json": "8d0f54acf3c75cca3441e0c5c629b8832c893836d1f6b8ec2e7eed10bf4aa1ab",
+    "tests/fixtures/portable-autonomous.json": "86b4a8b921a9410d2db605c96fd95ac24d1ae64b44c5e7b661f54a953062d762",
+    "scripts/run-metal-probe.swift": "8dcdc4bb282683af915068dd4fd096d1f12be3f3826c36bd158948cd0c7b1907"
+  },
+  "cases": [
+    {
+      "name": "auto-magazine-reload",
+      "passed": true
+    },
+    {
+      "name": "charge-state-and-pre-damage-callback",
+      "passed": true
+    },
+    {
+      "name": "last-bullet-and-reload-callback",
+      "passed": true
+    },
+    {
+      "name": "on-attack-affects-next-shot",
+      "passed": true
+    },
+    {
+      "name": "gauge-opens-next-frame-and-full-burst",
+      "passed": true
+    },
+    {
+      "name": "burst-cooldown-wait-and-next-cycle",
+      "passed": true
+    },
+    {
+      "name": "missing-stage-stays-blocked",
+      "passed": true
+    },
+    {
+      "name": "dead-target-fallback-and-empty-world",
+      "passed": true
+    },
+    {
+      "name": "aim-add-and-body-child-context",
+      "passed": true
+    },
+    {
+      "name": "target-generation-stale-dot-cancelled",
+      "passed": true
+    },
+    {
+      "name": "target-generation-reapply-restarts",
+      "passed": true
+    },
+    {
+      "name": "dead-recipient-dot-does-not-retarget",
+      "passed": true
+    },
+    {
+      "name": "squad-registration-order-target-death",
+      "passed": true
+    },
+    {
+      "name": "per-target-defense-and-restored-context",
+      "passed": true
+    },
+    {
+      "name": "full-burst-callbacks-and-end-boundary",
+      "passed": true
+    },
+    {
+      "name": "global-ammo-auto-ordering",
+      "passed": true
+    },
+    {
+      "name": "global-ammo-charge-ordering",
+      "passed": true
+    },
+    {
+      "name": "charge-last-bullet-notifies-at-charge-entry",
+      "passed": true
+    },
+    {
+      "name": "queries-do-not-advance-combat",
+      "passed": true
+    },
+    {
+      "name": "named-hit-context-and-parent-restoration",
+      "passed": true
+    },
+    {
+      "name": "mode-duration-restores-base",
+      "passed": true
+    },
+    {
+      "name": "mode-round-limit-restores-magazine",
+      "passed": true
+    },
+    {
+      "name": "mode-toggle-end-child-reentry",
+      "passed": true
+    },
+    {
+      "name": "mode-replacement-first-shot-coefficient",
+      "passed": true
+    },
+    {
+      "name": "reload-callback-selects-new-mode-before-fire",
+      "passed": true
+    },
+    {
+      "name": "charge-mode-entry-and-round-exit",
+      "passed": true
+    },
+    {
+      "name": "finite-timed-mode-stalls-on-empty",
+      "passed": true
+    },
+    {
+      "name": "named-removal-restores-weapon",
+      "passed": true
+    },
+    {
+      "name": "pellet-packets-counters-resource-separation",
+      "passed": true
+    },
+    {
+      "name": "per-pellet-rounding-0.45",
+      "passed": true
+    },
+    {
+      "name": "per-pellet-rounding-0",
+      "passed": true
+    },
+    {
+      "name": "one-physical-shot-keeps-target-after-first-pellet-death",
+      "passed": true
+    },
+    {
+      "name": "pellet-callback-mode-switch-keeps-parent-packet",
+      "passed": true
+    },
+    {
+      "name": "reentry-b1-request-1",
+      "passed": true
+    },
+    {
+      "name": "reentry-b1-request-2",
+      "passed": true
+    },
+    {
+      "name": "reentry-waits-own-cooldown-and-entry-notice",
+      "passed": true
+    },
+    {
+      "name": "zero-valued-b3-reentry-state",
+      "passed": true
+    },
+    {
+      "name": "startup-pending-reentry-consumed-once",
+      "passed": true
+    },
+    {
+      "name": "expired-reentry-state-does-not-open-slot",
+      "passed": true
+    },
+    {
+      "name": "mode-expiry-end-child-starts-fresh-session",
+      "passed": true
+    },
+    {
+      "name": "all-stage-state-uses-current-stage",
+      "passed": true
+    },
+    {
+      "name": "last-bullet-child-cannot-consume-restored-magazine",
+      "passed": true
+    },
+    {
+      "name": "charge-pellet-child-preserves-new-magazine",
+      "passed": true
+    },
+    {
+      "name": "autonomous-180-seconds",
+      "passed": true
+    },
+    {
+      "name": "autonomous-incremental-clock",
+      "passed": true
+    },
+    {
+      "name": "autonomous-repeated-advance-is-idempotent",
+      "passed": true
+    },
+    {
+      "name": "autonomous-half-second-grid",
+      "passed": true
+    },
+    {
+      "name": "explicit-half-second-grid",
+      "passed": true
+    },
+    {
+      "name": "autonomous-dot-summary",
+      "passed": true
+    },
+    {
+      "name": "autonomous-many-burst-cycles-summary",
+      "passed": true
+    },
+    {
+      "name": "autonomous-frame-boundary-adjacent-bits",
+      "passed": true
+    },
+    {
+      "name": "autonomous-one-second",
+      "passed": true
+    },
+    {
+      "name": "autonomous-dot-sharded",
+      "passed": true
+    },
+    {
+      "name": "same-event-cpu-indexed-activation-multiplicity",
+      "passed": true
+    },
+    {
+      "name": "stage-specific-cumulative-counters",
+      "passed": true
+    },
+    {
+      "name": "two-named-stack-reach-tags",
+      "passed": true
+    },
+    {
+      "name": "two-named-end-tags",
+      "passed": true
+    },
+    {
+      "name": "first-matching-passive-semantics",
+      "passed": true
+    },
+    {
+      "name": "repeat-reevaluates-condition-after-synchronous-chain",
+      "passed": true
+    },
+    {
+      "name": "exact-and-cumulative-share-latched-notification-count",
+      "passed": true
+    },
+    {
+      "name": "shared-budget-with-overlapping-thresholds",
+      "passed": true
+    },
+    {
+      "name": "periodic-clock-no-replay",
+      "passed": true
+    },
+    {
+      "name": "multiple-periods-shared-clock",
+      "passed": true
+    },
+    {
+      "name": "infinite-passive-runtime-condition",
+      "passed": true
+    },
+    {
+      "name": "finite-passive-refresh-and-tail",
+      "passed": true
+    },
+    {
+      "name": "finite-buff-condition-latched",
+      "passed": true
+    },
+    {
+      "name": "strict-stat-threshold",
+      "passed": true
+    },
+    {
+      "name": "mode-membership-gates-infinite-passive",
+      "passed": true
+    },
+    {
+      "name": "conditional-passive-reentry-does-not-open-slot",
+      "passed": true
+    },
+    {
+      "name": "normal-factor1",
+      "passed": true
+    },
+    {
+      "name": "skill-excludes-normal-factor1",
+      "passed": true
+    },
+    {
+      "name": "attack-flat-and-defense-ignore",
+      "passed": true
+    },
+    {
+      "name": "defense-ignore-above-one-hundred",
+      "passed": true
+    },
+    {
+      "name": "negative-final-attack-minimum",
+      "passed": true
+    },
+    {
+      "name": "normal-only-critical",
+      "passed": true
+    },
+    {
+      "name": "skill-excludes-normal-critical",
+      "passed": true
+    },
+    {
+      "name": "fractional-common-critical",
+      "passed": true
+    },
+    {
+      "name": "negative-critical-damage-clamp",
+      "passed": true
+    },
+    {
+      "name": "core-extra-and-probability",
+      "passed": true
+    },
+    {
+      "name": "guaranteed-core-skill",
+      "passed": true
+    },
+    {
+      "name": "generic-attack-damage",
+      "passed": true
+    },
+    {
+      "name": "burst-family-no-aoe-leak",
+      "passed": true
+    },
+    {
+      "name": "armor-break-skips-defense",
+      "passed": true
+    },
+    {
+      "name": "armor-break-burst-factors",
+      "passed": true
+    },
+    {
+      "name": "family-factor-dot_damage",
+      "passed": true
+    },
+    {
+      "name": "family-factor-pierce_damage",
+      "passed": true
+    },
+    {
+      "name": "family-factor-sequential_damage",
+      "passed": true
+    },
+    {
+      "name": "family-factor-projectile_attachment_damage",
+      "passed": true
+    },
+    {
+      "name": "family-factor-projectile_explosion_damage",
+      "passed": true
+    },
+    {
+      "name": "split-factor6",
+      "passed": true
+    },
+    {
+      "name": "optimal-and-element",
+      "passed": true
+    },
+    {
+      "name": "element-buff-without-match",
+      "passed": true
+    },
+    {
+      "name": "charge-additive-and-magnitude",
+      "passed": true
+    },
+    {
+      "name": "auto-excludes-charge-factors",
+      "passed": true
+    },
+    {
+      "name": "charge-all-seven-factor-order",
+      "passed": true
+    },
+    {
+      "name": "caster-base-and-recipient-base-are-distinct",
+      "passed": true
+    },
+    {
+      "name": "unmatched-geometry-buffs-do-not-leak",
+      "passed": true
+    },
+    {
+      "name": "negative-charge-factor-minimum",
+      "passed": true
+    },
+    {
+      "name": "mode-charge-multiplier-is-restored-on-exit",
+      "passed": true
+    },
+    {
+      "name": "factor-product-even-rounding-0.25",
+      "passed": true
+    },
+    {
+      "name": "factor-product-even-rounding-0.75",
+      "passed": true
+    },
+    {
+      "name": "reactivation-preserves-floating-resident-order",
+      "passed": true
+    },
+    {
+      "name": "critical-compensated-sum-does-not-lose-unit",
+      "passed": true
+    },
+    {
+      "name": "charge-factor-sampled-at-release",
+      "passed": true
+    },
+    {
+      "name": "full-charge-callback-affects-same-hit-factor",
+      "passed": true
+    },
+    {
+      "name": "external-full-burst-state-affects-skill-factor",
+      "passed": true
+    },
+    {
+      "name": "warmup-rate-is-sampled-before-increment",
+      "passed": true
+    },
+    {
+      "name": "fractional-warmup-cap",
+      "passed": true
+    },
+    {
+      "name": "warmup-cools-across-reload",
+      "passed": true
+    },
+    {
+      "name": "warmup-speed-can-freeze-counter",
+      "passed": true
+    },
+    {
+      "name": "warmup-speed-increments-before-impact",
+      "passed": true
+    },
+    {
+      "name": "attack-speed-callback-does-not-change-reserved-interval",
+      "passed": true
+    },
+    {
+      "name": "negative-attack-speed-has-one-percent-floor",
+      "passed": true
+    },
+    {
+      "name": "spread-counter-advances-on-first-shot",
+      "passed": true
+    },
+    {
+      "name": "unchanged-ratio-reuses-exact-pow",
+      "passed": true
+    },
+    {
+      "name": "accuracy-expiry-invalidates-ratio-cache",
+      "passed": true
+    },
+    {
+      "name": "negative-spread-clamps-at-one-pixel",
+      "passed": true
+    },
+    {
+      "name": "partial-reload-round-half-up",
+      "passed": true
+    },
+    {
+      "name": "thirty-one-rounds-require-four-clips",
+      "passed": true
+    },
+    {
+      "name": "reload-ratio-multiplies-fill-fraction",
+      "passed": true
+    },
+    {
+      "name": "zero-fill-still-loads-one-round",
+      "passed": true
+    },
+    {
+      "name": "zero-duration-clips-wait-for-next-frame",
+      "passed": true
+    },
+    {
+      "name": "post-reload-delay-starts-after-full-completion",
+      "passed": true
+    },
+    {
+      "name": "warmup-mode-restores-base-rate",
+      "passed": true
+    },
+    {
+      "name": "raw-rate-keeps-primary-binary64-value",
+      "passed": true
+    },
+    {
+      "name": "core-multiplier-is-actor-specific",
+      "passed": true
+    },
+    {
+      "name": "minimum-charge-cycle-is-anchored-at-start",
+      "passed": true
+    },
+    {
+      "name": "raw-gauge-scaling-follows-hit-count-multiply",
+      "passed": true
+    },
+    {
+      "name": "gpu-timeline-drives-warmup",
+      "passed": true
+    },
+    {
+      "name": "gpu-timeline-drives-four-clip-reload",
+      "passed": true
+    }
+  ],
+  "batch_layout": {
+    "positive_count": 130,
+    "rejection_indices": [
+      130,
+      131,
+      132
+    ]
+  },
+  "rejected_cases": [
+    {
+      "name": "target-generation-overflow",
+      "status": 2
+    },
+    {
+      "name": "wire-target-capacity",
+      "status": 64
+    },
+    {
+      "name": "full-trace-capacity",
+      "status": 8
+    }
+  ],
+  "metal_comparison": {
+    "source_sha256": true,
+    "input_sha256": true,
+    "output_sha256": true,
+    "validation_sha256": true
+  },
+  "rejection_comparison": {
+    "source_sha256": true,
+    "input_sha256": true,
+    "output_sha256": true
+  },
+  "execution": {
+    "command": "python scripts/verify-portable-combat.py --backend cuda",
+    "commit": "14f7bedda68a271124fa9ef6e3dca170c5719515",
+    "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
+    "gpu_before": "0, 4869",
+    "below_normal_priority": true,
+    "python_utf8": true,
+    "python_dontwritebytecode": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "timeout_seconds": 120,
+    "elapsed_seconds": 21.20368569996208,
+    "stdout": "{\"passed\": true, \"cases\": 130, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
+    "stderr": ""
+  },
+  "postcheck": {
+    "remaining_verification_processes": 0,
+    "original_head_after": "61a43e91301841c272badce519e4d8984bb5efae",
+    "original_status_after": []
+  },
+  "compiler_success_log_saved": false,
+  "summary_only": true,
+  "full_readback_transfer_performed": false,
+  "raw_readback_parity_verified_by_output_sha256": true,
+  "windows_report": "windows-portable-combat-v7.json"
 }

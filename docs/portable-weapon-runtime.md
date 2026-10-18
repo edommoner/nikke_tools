@@ -41,4 +41,4 @@ powの結果は、同じactorの正確なbinary64比率が同じ場合だけ再�
 .venv/bin/python -m unittest discover -s tests -p 'test_portable*.py'
 ```
 
-統合ケースは130正例・3拒否、単体検査は17件です。APIでは固定比率のpow再利用と31発の4回装填も確認します。現在のwire ABIは `0x50455637`、入力8,192語・出力16,384語、最大バッチ256です。各領域の重複と転送上限を単体検査しています。最新のCUDA確認状態は `research/portable-combat-checkpoint.json` を参照してください。前段106ケースのCUDA／Metal一致は `portable-combat-v6-checkpoint.json` に固定しています。
+統合ケースは130正例・3拒否、単体検査は17件です。APIでは固定比率のpow再利用と31発の4回装填も確認します。現在のwire ABIは `0x50455637`、入力8,192語・出力16,384語、最大バッチ256です。各領域の重複と転送上限を単体検査しています。固定版 `14f7bed` の130正例・3拒否はWindowsのRTX 3070 Tiでも21.204秒の低優先度1回で成功しました。共通ソース・入力・出力・検証コードのハッシュはMetalと完全一致です。記録は `research/portable-combat-checkpoint.json` と `windows-portable-combat-v7.json`。前段106ケースのCUDA／Metal一致は `portable-combat-v6-checkpoint.json` に固定しています。

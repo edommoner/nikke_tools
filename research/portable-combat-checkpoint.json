@@ -5,8 +5,8 @@
   "batched_inputs": 133,
   "gpu_dispatches": 1,
   "metal_verified": true,
-  "cuda_verified": false,
-  "cuda_comparison": "not-yet-requested-after-weapon-mechanics-change",
+  "cuda_verified": true,
+  "cuda_comparison": "exact-source-input-output-and-validation-hash-match",
   "metal_report": "portable-combat-metal.json",
   "previous_cuda_checkpoint": "portable-combat-v6-checkpoint.json",
   "source_sha256": {
@@ -74,5 +74,40 @@
     "before": 0.01985520834568888,
     "after": 0.014598499983549118
   },
-  "weapon_input_preflight_passed": 131
+  "weapon_input_preflight_passed": 131,
+  "verification_commit": "14f7bedda68a271124fa9ef6e3dca170c5719515",
+  "windows_report": "windows-portable-combat-v7.json",
+  "windows_report_sha256": "3369c4a144481565f5a56f11d594516d84c0f93104fad003cfd3d5c8bb82499f",
+  "windows_command_seconds": 21.20368569996208,
+  "cuda_transport": {
+    "backend": "cuda",
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "cases": 133,
+    "command_status": "completed",
+    "host_dispatch_seconds": 0.27099559968337417
+  },
+  "cuda_validation_sha256": {
+    "app/portable_runtime.py": "433f79a175ea2f84c905b007a40c916eee0dae4145fc3939ffe66c7af45dc685",
+    "app/portable_combat.py": "f25450a50db50e92f57567b68d37607e366d80fd04825b947d4c74737c7206b0",
+    "app/portable_specs.py": "f823993c871a2ac8b960a342a54242a01c9aa5dfda8a264b90b827a0a5cd9753",
+    "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
+    "app/portable_trigger_specs.py": "77d9457c502dd0bfd2e6570f5ae1488f012ebd90dc2facf7a0c3f068943011eb",
+    "app/portable_damage_specs.py": "c3d6b6c00a4cc3bd9bb676db99587332a5a7720d0b1956a25c8473955b3495ef",
+    "scripts/portable_weapon_oracle.py": "6b0029fcf2eb0267e1cf9714631a5ca8a29a911167a739879c82907e68d5d42d",
+    "scripts/verify-detail.py": "20de1868cf509afa5696af87d94db27974d97c8505702e40eed27886f7c09972",
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
+    "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
+    "scripts/verify-portable-combat.py": "8b3f64882878e9723335a1e7a44bbe8728bead9067118d70bbdb33777aac1ea3",
+    "tests/fixtures/portable-weapons.json": "75960cd6b9daaf1315a03af930f193df2c637bff7b845cc9f19b524561f5f7bf",
+    "tests/fixtures/portable-damage.json": "ab596e0f01bb9f94ee9813c6027d46a85415b77d5a72c36e06b32bf45b6ac5c7",
+    "tests/fixtures/portable-triggers.json": "680d8d5e212f9604e23f895b141651114e8703a4051facd37deb5ac890a403ec",
+    "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
+    "tests/fixtures/portable-combat-extensions.json": "8d0f54acf3c75cca3441e0c5c629b8832c893836d1f6b8ec2e7eed10bf4aa1ab",
+    "tests/fixtures/portable-autonomous.json": "86b4a8b921a9410d2db605c96fd95ac24d1ae64b44c5e7b661f54a953062d762",
+    "scripts/run-metal-probe.swift": "8dcdc4bb282683af915068dd4fd096d1f12be3f3826c36bd158948cd0c7b1907"
+  },
+  "cuda_output_sha256": "1eb90a8f6aa5da3e8657a40336de0f3f7d940d34582e6c1ba7e4ac2f673ff29b",
+  "cuda_summary_only": true
 }
