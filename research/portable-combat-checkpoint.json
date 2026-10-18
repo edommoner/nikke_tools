@@ -5,8 +5,8 @@
   "batched_inputs": 72,
   "gpu_dispatches": 1,
   "metal_verified": true,
-  "cuda_verified": false,
-  "cuda_comparison": "pending-short-v5-verification",
+  "cuda_verified": true,
+  "cuda_comparison": "exact-source-input-output-and-validation-hash-match",
   "metal_report": "portable-combat-metal.json",
   "previous_cuda_checkpoint": "portable-combat-v3-checkpoint.json",
   "source_sha256": {
@@ -60,5 +60,37 @@
     "remaining effect families, targets, world and character variants",
     "normal UI and full catalog verification",
     "measure and optimize completed shared paths"
-  ]
+  ],
+  "verification_commit": "cfff376491ff5f5a9008ec41f276b754ea344599",
+  "cuda_report": "portable-combat-cuda.json",
+  "windows_report": "windows-portable-combat-v5.json",
+  "windows_report_sha256": "0cf86abf77fae1b717cac81096fcec0eb48b443c780ea33a00b7b0573e6214b2",
+  "windows_command_seconds": 13.192671700380743,
+  "cuda_validation_sha256": {
+    "app/portable_runtime.py": "d2fc58a77e95b3c0fba24d7072269b37ae591851e2168a4f7bde7d713b79a73a",
+    "app/portable_combat.py": "69ddc04801af202cc31609bba0bbc97770435a70f165883abd3675dfe1f30a38",
+    "app/portable_specs.py": "117729ef440c2b821b3da1d4e179088fe902693a284c5a4e14a304595fa957fd",
+    "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
+    "app/portable_trigger_specs.py": "77d9457c502dd0bfd2e6570f5ae1488f012ebd90dc2facf7a0c3f068943011eb",
+    "scripts/verify-detail.py": "20de1868cf509afa5696af87d94db27974d97c8505702e40eed27886f7c09972",
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
+    "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
+    "scripts/verify-portable-combat.py": "a5fd03e21162bccfb50a421110e3f140d9b34a401700155d4d0d3ad89e8eff1a",
+    "tests/fixtures/portable-triggers.json": "680d8d5e212f9604e23f895b141651114e8703a4051facd37deb5ac890a403ec",
+    "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
+    "tests/fixtures/portable-combat-extensions.json": "8d0f54acf3c75cca3441e0c5c629b8832c893836d1f6b8ec2e7eed10bf4aa1ab",
+    "tests/fixtures/portable-autonomous.json": "86b4a8b921a9410d2db605c96fd95ac24d1ae64b44c5e7b661f54a953062d762",
+    "scripts/run-metal-probe.swift": "8dcdc4bb282683af915068dd4fd096d1f12be3f3826c36bd158948cd0c7b1907"
+  },
+  "cuda_transport": {
+    "backend": "cuda",
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "cases": 72,
+    "command_status": "completed",
+    "host_dispatch_seconds": 0.1332145999185741
+  },
+  "cuda_output_sha256": "84fcec17553135ba8d80d8142b6b10429954b5140284622f2190d5761168ca25",
+  "cuda_summary_only": true
 }
