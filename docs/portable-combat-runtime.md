@@ -2,7 +2,7 @@
 
 ## 武器変更・散弾・再突入の追加
 
-武器変更の状態と寿命、複数ペレット／銃口、バースト再突入を共通Slangへ追加しました。Metalでは以前の20ケースと追加23ケース、拒否2ケースを単一バッチで確認しています。通常画面・全キャラの受付は開いていません。
+武器変更の状態と寿命、複数ペレット／銃口、バースト再突入を共通Slangへ追加しました。Metalでは以前の20ケースと追加23ケース、拒否2ケースを単一バッチで確認しています。通常画面・全キャラの受付は開いていません。 追加後の確定コミット `5985f82` もWindowsのRTX 3070 Tiで1回だけ確認し、43正例・拒否2の45入力が105.337秒で完了しました。共通Slang・入力・出力と拒否例のハッシュはMetalと完全一致しています。記録は `research/portable-combat-checkpoint.json`、`portable-combat-cuda.json`、`windows-portable-combat-extensions.json` です。
 
 また、ユーザー依頼で以前の確定版 `3c34171` をWindowsで再確認し、RTX 3070 Tiで正例20・拒否2が26.718秒で成功しました。Metalとの共通ソース・入力・出力ハッシュは完全一致です。固定した記録は `research/portable-combat-v2-checkpoint.json` と `portable-combat-{cuda,metal}-v2.json` にあります。これは追加実装前のABI v2の証跡です。
 
@@ -83,7 +83,7 @@
 
 共通fixtureは `tests/fixtures/portable-combat.json` と `portable-combat-extensions.json` に一度だけ保持します。43ケースで弾数・発射数・装填期限・チャージ状態・段階・cast mask・クールダウン・ゲージ・敵HP・命中数・世代・捕捉した時計対象を照合します。期待値は手書きで、CPUの実行トレースはGPU入力にも合格基準にも使いません。ケースに加え、世代あふれ（status 2）と不正なGPU側対象容量（64）を拒否することを実GPUで検査します。旧イベント16ケースと再入／数値あふれの2ケースも維持します。現在の戦闘検証は正例・拒否例を合わせた45入力の1バッチで、`rejection_execution.case_indices` が拒否例の位置を示します。
 
-Metalの記録は `research/portable-combat-metal.json`、APIは `portable-api-metal.json` です。対応するAPI入力200と未対応の部位入力400を確認します。通常画面はCPUのままです。現在のwire ABIは `0x50455633`、入力4,096語、出力16,384語で、全領域の重複と転送上限を単体検査します。過去の `portable-cross-gpu-checkpoint.json` は旧ABIの検証記録です。
+Metalの記録は `research/portable-combat-metal.json`、CUDAは `portable-combat-cuda.json`、APIは `portable-api-metal.json` です。対応するAPI入力200と未対応の部位入力400、武器変更と散弾の子通知のAPI実行も確認しました。通常画面はCPUのままです。現在のwire ABIは `0x50455633`、入力4,096語、出力16,384語で、全領域の重複と転送上限を単体検査します。過去の `portable-cross-gpu-checkpoint.json` は旧ABIの検証記録です。
 
 以下は最初のWindows試行の履歴です。Windowsは必要な短い比較だけに使います。当初、RTX 3070 Ti・GPU使用率0%から低優先度で試行し、120秒の上限で停止しました。完了したCUDA出力ハッシュを取得できていないため、今回の20ケースをCUDA検証済みとは扱いません。再実行はせず、元のWindows作業フォルダーと本体は変更していません。診断は `research/windows-portable-combat-timeout.json`、実際の未完了報告は `portable-combat-cuda.json` に保存しています。コンパイルとGPU実行のどの段階で上限に達したかは未確定です。
 
