@@ -24,7 +24,7 @@ HP更新は共通の明示スタック内で1人ずつ進み、1人の通過通�
 
 同じ共通ソースの比較用ビルドで、各通知時に重複キーを探す版と初期化時に整理する版を比較しました。32定義・64入力・3秒進行を各3回実行し、入力／全出力ハッシュは一致しています。MetalのGPU時間中央値は95.78msから56.82msへ約40.7%短縮しました。測定対象はHP通過の機構であり、実編成全体の速度ではありません。共通HP関数には `noinline` を付け、生成CUDAにも同じ境界を出しています。
 
-最新CUDA照合状況は `research/portable-combat-checkpoint.json`、前段212ケースの両GPU一致は `portable-combat-v10-checkpoint.json` です。敵からの被弾、ダウン／復活、保護、動的対象・複数キャリア、実編成と通常画面は引き続き未完了です。
+固定版 `a55ab81` はWindowsのRTX 3070 Tiでも低優先度・1回、47.298秒で成功しました。230正例・7拒否の共通ソース・入力・全出力・検証コード・statusと既知CPU差異がMetalと一致し、元のWindows作業状態を保持しています。最新記録は `research/portable-combat-checkpoint.json`、前段212ケースの両GPU一致は `portable-combat-v10-checkpoint.json` です。敵からの被弾、ダウン／復活、保護、動的対象・複数キャリア、実編成と通常画面は引き続き未完了です。
 
 `gpu/health_runtime.slang` を共通イベント実行器へ接続しました。CUDA／Metalは同じ状態・数値演算・効果定義・fixtureを使います。CPUで回復量や途中のHPを計算してGPUへ渡しません。
 
