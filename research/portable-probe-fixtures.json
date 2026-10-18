@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "stage": "fixture-validation",
+  "gpu_execution_verified": false,
+  "production_runtime_connected": false,
+  "cases": [
+    "integer-damage-above-float32-exact-range",
+    "64-bit-product-carries-above-32-bit-range",
+    "old-target-generation-does-not-hit-new-generation",
+    "clock-refresh-rejects-old-registration-and-expires"
+  ],
+  "source_sha256": {
+    "tests/fixtures/portable-probe.json": "79642227c2281b411116248c05436fbc18549665c28c7c374834315c92fe8511",
+    "scripts/verify-portable-probe.py": "4f8706bff3e320cd2b4b7a8d9aadf2f65be25dfde3461c0ba720328a78c0fb5e",
+    "gpu/portable_probe.slang": "d0404c3aa7033da7e8871ad4a14af8d17a3598ea024f0808a162732f8ce40eab",
+    "scripts/run-metal-probe.swift": "78de3cb7d4f1d1d59174f40b2a6f498e8240d4dd9ab92a3e0f092c303a883723"
+  }
+}

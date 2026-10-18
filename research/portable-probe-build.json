@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "stage": "source-generation-only",
+  "gpu_execution_verified": false,
+  "production_runtime_connected": false,
+  "compiler_version": "2026.20",
+  "source_sha256": {
+    "gpu/portable_probe.slang": "d0404c3aa7033da7e8871ad4a14af8d17a3598ea024f0808a162732f8ce40eab"
+  },
+  "outputs": {
+    "cuda": {
+      "path": "research/portable-build/portable_probe.cu",
+      "sha256": "d647a8ea013756b8bebbdea86a59abd80d774926e7a8710a2ac30d67670eb0c7"
+    },
+    "metal": {
+      "path": "research/portable-build/portable_probe.metal",
+      "sha256": "1fa63dd862361ad82b457068b1a311974a0231b5711abf167bb71f901281d84b"
+    }
+  }
+}

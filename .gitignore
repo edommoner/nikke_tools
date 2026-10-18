@@ -5,6 +5,8 @@ research/staging/
 __pycache__/
 *.pyc
 .venv/
+.tools/
+research/portable-build/
 local-data/
 .session_cookie
 .env
