@@ -1,6 +1,13 @@
 {
   "results": [
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -9,6 +16,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -21,6 +29,7 @@
           "recipients": 0,
           "stacks": 0,
           "active": false,
+          "lazy_pending": false,
           "end": 1.0,
           "activated": 0.0,
           "order": 2,
@@ -673,6 +682,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -681,6 +697,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -693,6 +710,7 @@
           "recipients": 0,
           "stacks": 0,
           "active": false,
+          "lazy_pending": false,
           "end": 1.0,
           "activated": 0.0,
           "order": 2,
@@ -1345,6 +1363,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -1353,6 +1378,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -1365,6 +1391,7 @@
           "recipients": 0,
           "stacks": 0,
           "active": false,
+          "lazy_pending": false,
           "end": 1.25,
           "activated": 0.25,
           "order": 2,
@@ -2049,6 +2076,13 @@
       "max_stack_depth": 4
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -2057,6 +2091,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -2069,6 +2104,7 @@
           "recipients": 0,
           "stacks": 0,
           "active": false,
+          "lazy_pending": false,
           "end": 1.0,
           "activated": 0.0,
           "order": 2,
@@ -2081,6 +2117,7 @@
           "recipients": 0,
           "stacks": 0,
           "active": false,
+          "lazy_pending": false,
           "end": 1.25,
           "activated": 0.25,
           "order": 3,
@@ -2821,6 +2858,13 @@
       "max_stack_depth": 4
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -2829,6 +2873,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -2841,6 +2886,7 @@
           "recipients": 0,
           "stacks": 0,
           "active": false,
+          "lazy_pending": false,
           "end": 1.0,
           "activated": 0.0,
           "order": 2,
@@ -2853,6 +2899,7 @@
           "recipients": 0,
           "stacks": 0,
           "active": false,
+          "lazy_pending": false,
           "end": 1.0,
           "activated": 0.0,
           "order": 3,
@@ -3553,6 +3600,13 @@
       "max_stack_depth": 4
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -3561,6 +3615,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -3573,6 +3628,7 @@
           "recipients": 0,
           "stacks": 0,
           "active": false,
+          "lazy_pending": false,
           "end": 1.0,
           "activated": 0.0,
           "order": 2,
@@ -3585,6 +3641,7 @@
           "recipients": 0,
           "stacks": 0,
           "active": false,
+          "lazy_pending": false,
           "end": 1.25,
           "activated": 0.25,
           "order": 3,
@@ -4317,6 +4374,13 @@
       "max_stack_depth": 4
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -4325,6 +4389,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -4337,6 +4402,7 @@
           "recipients": 0,
           "stacks": 0,
           "active": false,
+          "lazy_pending": false,
           "end": 1.0,
           "activated": 0.0,
           "order": 2,
@@ -4349,6 +4415,7 @@
           "recipients": 0,
           "stacks": 0,
           "active": false,
+          "lazy_pending": false,
           "end": 1.25,
           "activated": 0.25,
           "order": 4,
@@ -5105,6 +5172,13 @@
       "max_stack_depth": 4
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -5113,6 +5187,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -5125,6 +5200,7 @@
           "recipients": 0,
           "stacks": 0,
           "active": false,
+          "lazy_pending": false,
           "end": 1.0,
           "activated": 0.0,
           "order": 2,
@@ -5137,6 +5213,7 @@
           "recipients": 0,
           "stacks": 0,
           "active": false,
+          "lazy_pending": false,
           "end": 1.25,
           "activated": 0.25,
           "order": 3,
@@ -5149,6 +5226,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 2.5,
           "activated": 0.5,
           "order": 4,
@@ -5865,6 +5943,13 @@
       "max_stack_depth": 3
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -5873,6 +5958,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -5885,6 +5971,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 2.1,
           "activated": 0.1,
           "order": 2,
@@ -6255,6 +6342,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -6263,6 +6357,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -6526,6 +6621,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -6534,6 +6636,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -6546,6 +6649,7 @@
           "recipients": 1,
           "stacks": 0,
           "active": false,
+          "lazy_pending": false,
           "end": 0.0,
           "activated": 0.0,
           "order": 2,
@@ -6750,6 +6854,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -6758,6 +6869,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -6938,6 +7050,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -6946,6 +7065,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -7126,6 +7246,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -7134,6 +7261,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -7314,6 +7442,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -7322,6 +7457,7 @@
           "recipients": 31,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -7334,6 +7470,7 @@
           "recipients": 31,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 2.0,
           "activated": 0.0,
           "order": 2,
@@ -7538,6 +7675,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -7546,6 +7690,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.2,
           "order": 1,
@@ -7558,6 +7703,7 @@
           "recipients": 1,
           "stacks": 2,
           "active": true,
+          "lazy_pending": false,
           "end": 2.2,
           "activated": 0.2,
           "order": 2,
@@ -7933,31 +8079,33 @@
     "cases": 16,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.0075696666608564556,
+    "gpu_seconds": 0.007886999985203147,
     "input_bytes": 3145732,
     "output_bytes": 2097152,
     "registry_id": "4294968313"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "3773c617449dd961d12c218f590690dc6910b7a4e045212ece910ffba042b7a0",
+    "gpu/event_runtime.slang": "8fd054770a953ac3f1d285e2984a5078f777b44f68195683d80b120fc6998746",
     "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "0bbe16a2848ec14c81747e028367495a9f818b3da97f04f5cc538e22300a82bc",
-    "gpu/carrier_runtime.slang": "32812a8c90e31893f600e92acf4a3fd2e72b0a60e31816ab2cc5748eb27f7beb",
-    "gpu/quantity_runtime.slang": "09d7aa82afb2d6050ace710cc3dc7d3b93b949e0b6db0605bb7764f8fe2f2cdd",
+    "gpu/portable_schema.slang": "72b132343363ec209157a95ed25a97c5a9e527732aab0030ae025bccef28316e",
+    "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
+    "gpu/lazy_runtime.slang": "44973491efe5439ba3ad25af71014fb7e4c11c169ac71e038fe231bc570e384a",
+    "gpu/carrier_runtime.slang": "b10e3a065dcceeff157d3c15fd8c6884a4baa438fc8b43500caf457349bf8d4a",
+    "gpu/quantity_runtime.slang": "b863798a1e7aa7cf119b98d8be457633c89bf2e9c1fbfade4709e5cf90df7e20",
     "gpu/health_runtime.slang": "071e46cf983d294241247cfef5a3de6105829bd9e85fed05dc9d6050f8cc90fb",
     "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
-    "gpu/recipient_runtime.slang": "9165326ec3f397912288fe2ee54b06c46eeb96e3e1f902cf14e38304df6ad774",
+    "gpu/recipient_runtime.slang": "72de3353734ab82dcd989e39c40f016a557d3114f6e1404239b061e1cebbdb0b",
     "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-    "gpu/incoming_runtime.slang": "da0e405e22039fac95da0ff182e4958d4b4b2b02963b82154054d77b05036d70",
-    "gpu/combat_runtime.slang": "82c723cbe70e458332a5d0e313251d0a644d258a86e811478aecd3a89ee9bee4",
+    "gpu/incoming_runtime.slang": "9a1e7591a0da2a1fec7bbdea7eb5979fd1c5cbf837c0f81d55a2f0ae7978f613",
+    "gpu/combat_runtime.slang": "267c2b3c78758b6e85f2d651c8e2631deb8fcda47a8db0a7c9bd34e559194f4c",
     "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
   },
   "generated_sha256": {
-    "cuda": "04d88a107c040f23b2a2c3dc470212a3041c8641829cc9968fda1448c20e80a9",
-    "metal": "1742f52a84f778e02adf18e5797a4acd05331f592d7254c5c5f71eaae0bb926a"
+    "cuda": "49a8a89e831b6d61238388f3e05ed978170f626ce8a892b7ab5863fbd1b58644",
+    "metal": "16a924f385735ee19edaca20024a7848098bec451a10394830668c91691682ba"
   },
-  "input_sha256": "16359495bc088646b0d0147d0fc221e4e1845d9768b3ffade600db10433c6ca9",
+  "input_sha256": "e70be42d55a2eebc5b7311a25e539fcab30442f27585e5b5b768cdabae2b366d",
   "output_sha256": "b95aa6217018a683f902fc21181cdbd915d941551d12cb5505f8b516e4438361",
   "gpu_execution_verified": true,
   "backend": "metal",
@@ -7979,6 +8127,13 @@
         4000
       ],
       "actual": {
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
         "carriers": [
           {
             "slot": 0,
@@ -7987,6 +8142,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 1e+30,
             "activated": 0.0,
             "order": 1,
@@ -7999,6 +8155,7 @@
             "recipients": 0,
             "stacks": 0,
             "active": false,
+            "lazy_pending": false,
             "end": 1.0,
             "activated": 0.0,
             "order": 2,
@@ -8663,6 +8820,13 @@
         4000
       ],
       "actual": {
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
         "carriers": [
           {
             "slot": 0,
@@ -8671,6 +8835,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 1e+30,
             "activated": 0.0,
             "order": 1,
@@ -8683,6 +8848,7 @@
             "recipients": 0,
             "stacks": 0,
             "active": false,
+            "lazy_pending": false,
             "end": 1.0,
             "activated": 0.0,
             "order": 2,
@@ -9347,6 +9513,13 @@
         5000
       ],
       "actual": {
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
         "carriers": [
           {
             "slot": 0,
@@ -9355,6 +9528,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 1e+30,
             "activated": 0.0,
             "order": 1,
@@ -9367,6 +9541,7 @@
             "recipients": 0,
             "stacks": 0,
             "active": false,
+            "lazy_pending": false,
             "end": 1.25,
             "activated": 0.25,
             "order": 2,
@@ -10063,6 +10238,13 @@
         14000
       ],
       "actual": {
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
         "carriers": [
           {
             "slot": 0,
@@ -10071,6 +10253,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 1e+30,
             "activated": 0.0,
             "order": 1,
@@ -10083,6 +10266,7 @@
             "recipients": 0,
             "stacks": 0,
             "active": false,
+            "lazy_pending": false,
             "end": 1.0,
             "activated": 0.0,
             "order": 2,
@@ -10095,6 +10279,7 @@
             "recipients": 0,
             "stacks": 0,
             "active": false,
+            "lazy_pending": false,
             "end": 1.25,
             "activated": 0.25,
             "order": 3,
@@ -10847,6 +11032,13 @@
         4000
       ],
       "actual": {
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
         "carriers": [
           {
             "slot": 0,
@@ -10855,6 +11047,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 1e+30,
             "activated": 0.0,
             "order": 1,
@@ -10867,6 +11060,7 @@
             "recipients": 0,
             "stacks": 0,
             "active": false,
+            "lazy_pending": false,
             "end": 1.0,
             "activated": 0.0,
             "order": 2,
@@ -10879,6 +11073,7 @@
             "recipients": 0,
             "stacks": 0,
             "active": false,
+            "lazy_pending": false,
             "end": 1.0,
             "activated": 0.0,
             "order": 3,
@@ -11591,6 +11786,13 @@
         12000
       ],
       "actual": {
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
         "carriers": [
           {
             "slot": 0,
@@ -11599,6 +11801,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 1e+30,
             "activated": 0.0,
             "order": 1,
@@ -11611,6 +11814,7 @@
             "recipients": 0,
             "stacks": 0,
             "active": false,
+            "lazy_pending": false,
             "end": 1.0,
             "activated": 0.0,
             "order": 2,
@@ -11623,6 +11827,7 @@
             "recipients": 0,
             "stacks": 0,
             "active": false,
+            "lazy_pending": false,
             "end": 1.25,
             "activated": 0.25,
             "order": 3,
@@ -12367,6 +12572,13 @@
         12000
       ],
       "actual": {
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
         "carriers": [
           {
             "slot": 0,
@@ -12375,6 +12587,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 1e+30,
             "activated": 0.0,
             "order": 1,
@@ -12387,6 +12600,7 @@
             "recipients": 0,
             "stacks": 0,
             "active": false,
+            "lazy_pending": false,
             "end": 1.0,
             "activated": 0.0,
             "order": 2,
@@ -12399,6 +12613,7 @@
             "recipients": 0,
             "stacks": 0,
             "active": false,
+            "lazy_pending": false,
             "end": 1.25,
             "activated": 0.25,
             "order": 4,
@@ -13167,6 +13382,13 @@
         14000
       ],
       "actual": {
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
         "carriers": [
           {
             "slot": 0,
@@ -13175,6 +13397,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 1e+30,
             "activated": 0.0,
             "order": 1,
@@ -13187,6 +13410,7 @@
             "recipients": 0,
             "stacks": 0,
             "active": false,
+            "lazy_pending": false,
             "end": 1.0,
             "activated": 0.0,
             "order": 2,
@@ -13199,6 +13423,7 @@
             "recipients": 0,
             "stacks": 0,
             "active": false,
+            "lazy_pending": false,
             "end": 1.25,
             "activated": 0.25,
             "order": 3,
@@ -13211,6 +13436,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 2.5,
             "activated": 0.5,
             "order": 4,
@@ -13936,6 +14162,13 @@
         3513
       ],
       "actual": {
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
         "carriers": [
           {
             "slot": 0,
@@ -13944,6 +14177,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 1e+30,
             "activated": 0.0,
             "order": 1,
@@ -13956,6 +14190,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 2.1,
             "activated": 0.1,
             "order": 2,
@@ -14334,6 +14569,13 @@
         4
       ],
       "actual": {
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
         "carriers": [
           {
             "slot": 0,
@@ -14342,6 +14584,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 1e+30,
             "activated": 0.0,
             "order": 1,
@@ -14612,6 +14855,13 @@
         1000
       ],
       "actual": {
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
         "carriers": [
           {
             "slot": 0,
@@ -14620,6 +14870,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 1e+30,
             "activated": 0.0,
             "order": 1,
@@ -14632,6 +14883,7 @@
             "recipients": 1,
             "stacks": 0,
             "active": false,
+            "lazy_pending": false,
             "end": 0.0,
             "activated": 0.0,
             "order": 2,
@@ -14843,6 +15095,13 @@
         1000
       ],
       "actual": {
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
         "carriers": [
           {
             "slot": 0,
@@ -14851,6 +15110,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 1e+30,
             "activated": 0.0,
             "order": 1,
@@ -15038,6 +15298,13 @@
         1000
       ],
       "actual": {
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
         "carriers": [
           {
             "slot": 0,
@@ -15046,6 +15313,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 1e+30,
             "activated": 0.0,
             "order": 1,
@@ -15233,6 +15501,13 @@
         1001
       ],
       "actual": {
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
         "carriers": [
           {
             "slot": 0,
@@ -15241,6 +15516,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 1e+30,
             "activated": 0.0,
             "order": 1,
@@ -15428,6 +15704,13 @@
         6000
       ],
       "actual": {
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
         "carriers": [
           {
             "slot": 0,
@@ -15436,6 +15719,7 @@
             "recipients": 31,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 1e+30,
             "activated": 0.0,
             "order": 1,
@@ -15448,6 +15732,7 @@
             "recipients": 31,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 2.0,
             "activated": 0.0,
             "order": 2,
@@ -15661,6 +15946,13 @@
         3500
       ],
       "actual": {
+        "lazy_cache": {
+          "entries": 0,
+          "evaluations": 0,
+          "reuses": 0,
+          "pending": 0,
+          "mapped_pending": 0
+        },
         "carriers": [
           {
             "slot": 0,
@@ -15669,6 +15961,7 @@
             "recipients": 1,
             "stacks": 1,
             "active": true,
+            "lazy_pending": false,
             "end": 1e+30,
             "activated": 0.2,
             "order": 1,
@@ -15681,6 +15974,7 @@
             "recipients": 1,
             "stacks": 2,
             "active": true,
+            "lazy_pending": false,
             "end": 2.2,
             "activated": 0.2,
             "order": 2,
@@ -16069,40 +16363,42 @@
       "cases": 2,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.0006141249905340374,
+      "gpu_seconds": 0.0006886250339448452,
       "input_bytes": 393220,
       "output_bytes": 262144,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "3773c617449dd961d12c218f590690dc6910b7a4e045212ece910ffba042b7a0",
+      "gpu/event_runtime.slang": "8fd054770a953ac3f1d285e2984a5078f777b44f68195683d80b120fc6998746",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "0bbe16a2848ec14c81747e028367495a9f818b3da97f04f5cc538e22300a82bc",
-      "gpu/carrier_runtime.slang": "32812a8c90e31893f600e92acf4a3fd2e72b0a60e31816ab2cc5748eb27f7beb",
-      "gpu/quantity_runtime.slang": "09d7aa82afb2d6050ace710cc3dc7d3b93b949e0b6db0605bb7764f8fe2f2cdd",
+      "gpu/portable_schema.slang": "72b132343363ec209157a95ed25a97c5a9e527732aab0030ae025bccef28316e",
+      "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
+      "gpu/lazy_runtime.slang": "44973491efe5439ba3ad25af71014fb7e4c11c169ac71e038fe231bc570e384a",
+      "gpu/carrier_runtime.slang": "b10e3a065dcceeff157d3c15fd8c6884a4baa438fc8b43500caf457349bf8d4a",
+      "gpu/quantity_runtime.slang": "b863798a1e7aa7cf119b98d8be457633c89bf2e9c1fbfade4709e5cf90df7e20",
       "gpu/health_runtime.slang": "071e46cf983d294241247cfef5a3de6105829bd9e85fed05dc9d6050f8cc90fb",
       "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
-      "gpu/recipient_runtime.slang": "9165326ec3f397912288fe2ee54b06c46eeb96e3e1f902cf14e38304df6ad774",
+      "gpu/recipient_runtime.slang": "72de3353734ab82dcd989e39c40f016a557d3114f6e1404239b061e1cebbdb0b",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/incoming_runtime.slang": "da0e405e22039fac95da0ff182e4958d4b4b2b02963b82154054d77b05036d70",
-      "gpu/combat_runtime.slang": "82c723cbe70e458332a5d0e313251d0a644d258a86e811478aecd3a89ee9bee4",
+      "gpu/incoming_runtime.slang": "9a1e7591a0da2a1fec7bbdea7eb5979fd1c5cbf837c0f81d55a2f0ae7978f613",
+      "gpu/combat_runtime.slang": "267c2b3c78758b6e85f2d651c8e2631deb8fcda47a8db0a7c9bd34e559194f4c",
       "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "04d88a107c040f23b2a2c3dc470212a3041c8641829cc9968fda1448c20e80a9",
-      "metal": "1742f52a84f778e02adf18e5797a4acd05331f592d7254c5c5f71eaae0bb926a"
+      "cuda": "49a8a89e831b6d61238388f3e05ed978170f626ce8a892b7ab5863fbd1b58644",
+      "metal": "16a924f385735ee19edaca20024a7848098bec451a10394830668c91691682ba"
     },
-    "input_sha256": "338b0fa3a0b07ef97f6cec3e540644f5020981ac0f15ca2f51396def556adc40",
+    "input_sha256": "d35be1418f4842e3bdcd404742f530b016785af759af07de57acc5ef5f6ba63b",
     "output_sha256": "5240a392f794afcf04461552f5742d58492bea5bffc1b4d94ab84d7f1ec1dcf4",
     "gpu_execution_verified": true,
     "backend": "metal"
   },
   "adapter_sha256": {
-    "app/portable_runtime.py": "862e4c36d39257d9b0481bc04c7df6d713a13f59b33eb102b55b20f2657cb146",
+    "app/portable_runtime.py": "9142e9454b1449b46e041a737683f1ef81832bb9a85e1f9150c933f7c85a3623",
     "app/portable_trigger_specs.py": "61aaa3740ee6f6c6753d321a2848f3ed4e16474e63fc526f5fc14cee69ff01ad",
     "app/portable_damage_specs.py": "8f2c2c97f6b017276853501dfe9fd2ceea2dd1a993217f801df6df2000b62e49",
-    "app/portable_specs.py": "857ba1250a52b9f9e342ee87c37666afa74112204e40d4ed7179e494443b3944",
+    "app/portable_specs.py": "f0015d2d3335fa4671458cc28ca8e5d394bffb8069a2f92541c59fbf36a9d023",
     "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
     "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",

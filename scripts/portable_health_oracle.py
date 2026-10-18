@@ -53,7 +53,7 @@ def observe(case, *, with_carriers=False):
             definition=next(i for i,(e,_) in enumerate(raw) if e is ab.effect)
             carriers.append(dict(definition=definition,effect=ab.effect['name'],
                                  recipients=sum(1<<NAMES.index(n) for n in (ab.target_chars or [])),
-                                 stacks=ab.stack,end=1e30 if ab.expires_at==float('inf') else ab.expires_at,
+                                 lazy_pending=ab.target_chars is None,stacks=ab.stack,end=1e30 if ab.expires_at==float('inf') else ab.expires_at,
                                  activated=ab.activated_at,hp_snapshot=ab.hp_bonus_flat))
         return dict(queries=queries,carriers=carriers)
     return queries

@@ -272,7 +272,7 @@ void advanceCombat(inout Runtime s, uint64_t through, uint output)
         if (s.nextFrame > 10800) return;
         uint64_t when = f64Div(f64FromI64(s.nextFrame),uint64_t(0x404e0000) << 32); // 60
         if (f64Less(through,when)) return;
-        s.nextFrame++; s.frameCount++; sampleWorld(s);
+        s.nextFrame++; s.frameCount++; beginLazyRoot(s,when); sampleWorld(s);
         tick(s,when,output);
         if (s.error == 0) squadFrame(s,when,output);
     }

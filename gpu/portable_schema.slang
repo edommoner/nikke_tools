@@ -1,10 +1,11 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721343U;
+static const uint PORTABLE_ABI = 1346721344U;
 static const uint P_BATCH = 512U;
 static const uint P_TRIGGERS = 8U;
 static const uint P_CONDITIONS = 3U;
 static const uint P_DEFINITIONS = 256U;
 static const uint P_CARRIERS = 512U;
+static const uint P_LAZY_CACHE = 1024U;
 static const uint P_COMMANDS = 64U;
 static const uint P_DEPTH = 32U;
 static const uint P_TRACE = 128U;

@@ -28,7 +28,7 @@ class PortableBoundaryTests(unittest.TestCase):
         self.assertEqual((self.chars,self.effects,self.script),before)
 
     def test_unported_semantics_fail_before_any_gpu_dispatch(self):
-        variants=[dict(trigger=dict(timing=['passive'],condition=['has_burst1_ally'])),dict(stat='shield_from_max_hp_pct'),dict(target='allies_top_atk:1'),dict(scaling='stack_count'),
+        variants=[dict(trigger=dict(timing=['passive'],condition=['has_burst1_ally'])),dict(stat='shield_from_max_hp_pct'),dict(target='allies_random:1'),dict(scaling='stack_count'),
                   dict(trigger=dict(timing=['battle_start'],condition=['full_burst'])),
                   dict(trigger=dict(timing=['event:cover_hit'],condition=[])),
                   dict(trigger=dict(timing=['battle_start'],condition=['during_shield']))]
@@ -120,12 +120,11 @@ class PortableIncomingInputTests(unittest.TestCase):
             with self.subTest(command=command),self.assertRaises(ValueError):v.compile_case(case)
 
 class PortableRecipientInputTests(unittest.TestCase):
-    def test_lazy_ranked_carriers_remain_fail_closed(self):
+    def test_unported_random_and_list_recipients_remain_fail_closed(self):
         from portable_runtime import validate_effect
         effect=dict(name='recipient',type='buff',stat='atk_pct',fixed_value=10,
                     target='self',trigger=dict(timing=['battle_start'],condition=[]))
-        for target in ('allies_top_atk:1','allies_lowest_hp:2',
-                       'allies_random:2',['self','all_allies']):
+        for target in ('allies_random:2',['self','all_allies']):
             with self.subTest(target=target),self.assertRaises(UnsupportedPortable):
                 validate_effect({**effect,'target':target},combat={})
 

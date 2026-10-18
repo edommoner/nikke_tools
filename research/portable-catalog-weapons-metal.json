@@ -1,6 +1,13 @@
 {
   "results": [
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -9,6 +16,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -343,6 +351,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -351,6 +366,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -685,6 +701,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -693,6 +716,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -1027,6 +1051,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -1035,6 +1066,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -1369,6 +1401,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -1377,6 +1416,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -1711,6 +1751,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -1719,6 +1766,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -2053,6 +2101,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -2061,6 +2116,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -2395,6 +2451,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -2403,6 +2466,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -2737,6 +2801,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -2745,6 +2816,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -3079,6 +3151,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -3087,6 +3166,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -3421,6 +3501,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -3429,6 +3516,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -3763,6 +3851,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -3771,6 +3866,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -4105,6 +4201,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -4113,6 +4216,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -4447,6 +4551,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -4455,6 +4566,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -4789,6 +4901,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -4797,6 +4916,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -5131,6 +5251,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -5139,6 +5266,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -5473,6 +5601,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -5481,6 +5616,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -5815,6 +5951,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -5823,6 +5966,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -6157,6 +6301,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -6165,6 +6316,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -6499,6 +6651,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -6507,6 +6666,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -6841,6 +7001,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -6849,6 +7016,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -7183,6 +7351,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -7191,6 +7366,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -7525,6 +7701,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -7533,6 +7716,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -7867,6 +8051,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -7875,6 +8066,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -8209,6 +8401,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -8217,6 +8416,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -8551,6 +8751,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -8559,6 +8766,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -8893,6 +9101,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -8901,6 +9116,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -9235,6 +9451,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -9243,6 +9466,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -9577,6 +9801,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -9585,6 +9816,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -9919,6 +10151,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -9927,6 +10166,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -10261,6 +10501,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -10269,6 +10516,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -10603,6 +10851,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -10611,6 +10866,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -10945,6 +11201,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -10953,6 +11216,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -11287,6 +11551,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -11295,6 +11566,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -11629,6 +11901,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -11637,6 +11916,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -11971,6 +12251,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -11979,6 +12266,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -12313,6 +12601,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -12321,6 +12616,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -12655,6 +12951,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -12663,6 +12966,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -12997,6 +13301,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -13005,6 +13316,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -13339,6 +13651,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -13347,6 +13666,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -13681,6 +14001,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -13689,6 +14016,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -14023,6 +14351,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -14031,6 +14366,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -14365,6 +14701,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -14373,6 +14716,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -14707,6 +15051,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -14715,6 +15066,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -15049,6 +15401,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -15057,6 +15416,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -15391,6 +15751,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -15399,6 +15766,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -15733,6 +16101,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -15741,6 +16116,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -16075,6 +16451,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -16083,6 +16466,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -16417,6 +16801,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -16425,6 +16816,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -16759,6 +17151,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -16767,6 +17166,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -17101,6 +17501,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -17109,6 +17516,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -17443,6 +17851,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -17451,6 +17866,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -17785,6 +18201,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -17793,6 +18216,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -18127,6 +18551,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -18135,6 +18566,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -18469,6 +18901,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -18477,6 +18916,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -18811,6 +19251,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -18819,6 +19266,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -19153,6 +19601,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -19161,6 +19616,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -19495,6 +19951,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -19503,6 +19966,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -19837,6 +20301,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -19845,6 +20316,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -20179,6 +20651,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -20187,6 +20666,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -20521,6 +21001,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -20529,6 +21016,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -20863,6 +21351,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -20871,6 +21366,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -21205,6 +21701,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -21213,6 +21716,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -21547,6 +22051,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -21555,6 +22066,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -21889,6 +22401,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -21897,6 +22416,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -22231,6 +22751,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -22239,6 +22766,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -22573,6 +23101,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -22581,6 +23116,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -22915,6 +23451,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -22923,6 +23466,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -23257,6 +23801,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -23265,6 +23816,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -23599,6 +24151,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -23607,6 +24166,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -23941,6 +24501,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -23949,6 +24516,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -24283,6 +24851,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -24291,6 +24866,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -24625,6 +25201,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -24633,6 +25216,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -24967,6 +25551,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -24975,6 +25566,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -25309,6 +25901,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -25317,6 +25916,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -25651,6 +26251,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -25659,6 +26266,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -25993,6 +26601,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -26001,6 +26616,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -26335,6 +26951,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -26343,6 +26966,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -26677,6 +27301,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -26685,6 +27316,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -27019,6 +27651,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -27027,6 +27666,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -27361,6 +28001,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -27369,6 +28016,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -27703,6 +28351,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -27711,6 +28366,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -28045,6 +28701,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -28053,6 +28716,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -28387,6 +29051,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -28395,6 +29066,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -28729,6 +29401,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -28737,6 +29416,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -29071,6 +29751,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -29079,6 +29766,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -29413,6 +30101,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -29421,6 +30116,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -29755,6 +30451,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -29763,6 +30466,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -30097,6 +30801,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -30105,6 +30816,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -30439,6 +31151,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -30447,6 +31166,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -30781,6 +31501,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -30789,6 +31516,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -31123,6 +31851,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -31131,6 +31866,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -31465,6 +32201,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -31473,6 +32216,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -31807,6 +32551,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -31815,6 +32566,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -32149,6 +32901,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -32157,6 +32916,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -32491,6 +33251,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -32499,6 +33266,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -32833,6 +33601,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -32841,6 +33616,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -33175,6 +33951,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -33183,6 +33966,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -33517,6 +34301,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -33525,6 +34316,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -33859,6 +34651,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -33867,6 +34666,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -34201,6 +35001,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -34209,6 +35016,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -34543,6 +35351,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -34551,6 +35366,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -34885,6 +35701,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -34893,6 +35716,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -35227,6 +36051,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -35235,6 +36066,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -35569,6 +36401,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -35577,6 +36416,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -35911,6 +36751,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -35919,6 +36766,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -36253,6 +37101,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -36261,6 +37116,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -36595,6 +37451,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -36603,6 +37466,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -36937,6 +37801,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -36945,6 +37816,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -37279,6 +38151,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -37287,6 +38166,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -37621,6 +38501,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -37629,6 +38516,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -37963,6 +38851,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -37971,6 +38866,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -38305,6 +39201,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -38313,6 +39216,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -38647,6 +39551,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -38655,6 +39566,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -38989,6 +39901,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -38997,6 +39916,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -39331,6 +40251,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -39339,6 +40266,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -39673,6 +40601,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -39681,6 +40616,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -40015,6 +40951,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -40023,6 +40966,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -40357,6 +41301,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -40365,6 +41316,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -40699,6 +41651,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -40707,6 +41666,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -41041,6 +42001,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -41049,6 +42016,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -41383,6 +42351,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -41391,6 +42366,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -41725,6 +42701,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -41733,6 +42716,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -42067,6 +43051,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -42075,6 +43066,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -42409,6 +43401,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -42417,6 +43416,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -42751,6 +43751,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -42759,6 +43766,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -43093,6 +44101,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -43101,6 +44116,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -43435,6 +44451,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -43443,6 +44466,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -43777,6 +44801,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -43785,6 +44816,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -44119,6 +45151,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -44127,6 +45166,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -44461,6 +45501,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -44469,6 +45516,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -44803,6 +45851,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -44811,6 +45866,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -45145,6 +46201,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -45153,6 +46216,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -45487,6 +46551,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -45495,6 +46566,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -45829,6 +46901,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -45837,6 +46916,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -46171,6 +47251,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -46179,6 +47266,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -46513,6 +47601,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -46521,6 +47616,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -46855,6 +47951,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -46863,6 +47966,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -47197,6 +48301,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -47205,6 +48316,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -47539,6 +48651,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -47547,6 +48666,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -47881,6 +49001,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -47889,6 +49016,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -48223,6 +49351,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -48231,6 +49366,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -48565,6 +49701,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -48573,6 +49716,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -48907,6 +50051,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -48915,6 +50066,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -49249,6 +50401,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -49257,6 +50416,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -49591,6 +50751,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -49599,6 +50766,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -49933,6 +51101,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -49941,6 +51116,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -50275,6 +51451,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -50283,6 +51466,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -50617,6 +51801,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -50625,6 +51816,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -50959,6 +52151,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -50967,6 +52166,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -51301,6 +52501,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -51309,6 +52516,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -51643,6 +52851,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -51651,6 +52866,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -51985,6 +53201,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -51993,6 +53216,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -52327,6 +53551,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -52335,6 +53566,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -52669,6 +53901,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -52677,6 +53916,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -53011,6 +54251,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -53019,6 +54266,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -53353,6 +54601,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -53361,6 +54616,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -53695,6 +54951,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -53703,6 +54966,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -54037,6 +55301,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -54045,6 +55316,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -54379,6 +55651,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -54387,6 +55666,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -54721,6 +56001,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -54729,6 +56016,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -55063,6 +56351,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -55071,6 +56366,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -55405,6 +56701,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -55413,6 +56716,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -55747,6 +57051,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -55755,6 +57066,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -56089,6 +57401,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -56097,6 +57416,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -56431,6 +57751,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -56439,6 +57766,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -56773,6 +58101,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -56781,6 +58116,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -57115,6 +58451,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -57123,6 +58466,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -57457,6 +58801,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -57465,6 +58816,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -57799,6 +59151,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -57807,6 +59166,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -58141,6 +59501,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -58149,6 +59516,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -58483,6 +59851,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -58491,6 +59866,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -58825,6 +60201,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -58833,6 +60216,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -59167,6 +60551,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -59175,6 +60566,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -59509,6 +60901,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -59517,6 +60916,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -59851,6 +61251,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -59859,6 +61266,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -60193,6 +61601,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -60201,6 +61616,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -60535,6 +61951,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -60543,6 +61966,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -60877,6 +62301,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -60885,6 +62316,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -61219,6 +62651,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -61227,6 +62666,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -61561,6 +63001,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -61569,6 +63016,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -61903,6 +63351,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -61911,6 +63366,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -62245,6 +63701,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -62253,6 +63716,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -62587,6 +64051,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -62595,6 +64066,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -62929,6 +64401,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -62937,6 +64416,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -63271,6 +64751,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -63279,6 +64766,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -63613,6 +65101,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -63621,6 +65116,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -63955,6 +65451,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -63963,6 +65466,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -64297,6 +65801,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -64305,6 +65816,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -64639,6 +66151,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -64647,6 +66166,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -64981,6 +66501,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -64989,6 +66516,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -65323,6 +66851,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -65331,6 +66866,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -65665,6 +67201,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -65673,6 +67216,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -66007,6 +67551,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -66015,6 +67566,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -66349,6 +67901,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -66357,6 +67916,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -66691,6 +68251,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -66699,6 +68266,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -67033,6 +68601,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -67041,6 +68616,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -67375,6 +68951,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -67383,6 +68966,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -67717,6 +69301,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -67725,6 +69316,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -68059,6 +69651,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -68067,6 +69666,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -68401,6 +70001,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -68409,6 +70016,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -68743,6 +70351,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -68751,6 +70366,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -69085,6 +70701,13 @@
       "max_stack_depth": 2
     },
     {
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
       "carriers": [
         {
           "slot": 0,
@@ -69093,6 +70716,7 @@
           "recipients": 1,
           "stacks": 1,
           "active": true,
+          "lazy_pending": false,
           "end": 1e+30,
           "activated": 0.0,
           "order": 1,
@@ -69432,31 +71056,33 @@
     "cases": 203,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.02828220830997452,
+    "gpu_seconds": 0.02857700001914054,
     "input_bytes": 39911428,
     "output_bytes": 26607616,
     "registry_id": "4294968313"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "3773c617449dd961d12c218f590690dc6910b7a4e045212ece910ffba042b7a0",
+    "gpu/event_runtime.slang": "8fd054770a953ac3f1d285e2984a5078f777b44f68195683d80b120fc6998746",
     "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "0bbe16a2848ec14c81747e028367495a9f818b3da97f04f5cc538e22300a82bc",
-    "gpu/carrier_runtime.slang": "32812a8c90e31893f600e92acf4a3fd2e72b0a60e31816ab2cc5748eb27f7beb",
-    "gpu/quantity_runtime.slang": "09d7aa82afb2d6050ace710cc3dc7d3b93b949e0b6db0605bb7764f8fe2f2cdd",
+    "gpu/portable_schema.slang": "72b132343363ec209157a95ed25a97c5a9e527732aab0030ae025bccef28316e",
+    "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
+    "gpu/lazy_runtime.slang": "44973491efe5439ba3ad25af71014fb7e4c11c169ac71e038fe231bc570e384a",
+    "gpu/carrier_runtime.slang": "b10e3a065dcceeff157d3c15fd8c6884a4baa438fc8b43500caf457349bf8d4a",
+    "gpu/quantity_runtime.slang": "b863798a1e7aa7cf119b98d8be457633c89bf2e9c1fbfade4709e5cf90df7e20",
     "gpu/health_runtime.slang": "071e46cf983d294241247cfef5a3de6105829bd9e85fed05dc9d6050f8cc90fb",
     "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
-    "gpu/recipient_runtime.slang": "9165326ec3f397912288fe2ee54b06c46eeb96e3e1f902cf14e38304df6ad774",
+    "gpu/recipient_runtime.slang": "72de3353734ab82dcd989e39c40f016a557d3114f6e1404239b061e1cebbdb0b",
     "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-    "gpu/incoming_runtime.slang": "da0e405e22039fac95da0ff182e4958d4b4b2b02963b82154054d77b05036d70",
-    "gpu/combat_runtime.slang": "82c723cbe70e458332a5d0e313251d0a644d258a86e811478aecd3a89ee9bee4",
+    "gpu/incoming_runtime.slang": "9a1e7591a0da2a1fec7bbdea7eb5979fd1c5cbf837c0f81d55a2f0ae7978f613",
+    "gpu/combat_runtime.slang": "267c2b3c78758b6e85f2d651c8e2631deb8fcda47a8db0a7c9bd34e559194f4c",
     "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
   },
   "generated_sha256": {
-    "cuda": "04d88a107c040f23b2a2c3dc470212a3041c8641829cc9968fda1448c20e80a9",
-    "metal": "1742f52a84f778e02adf18e5797a4acd05331f592d7254c5c5f71eaae0bb926a"
+    "cuda": "49a8a89e831b6d61238388f3e05ed978170f626ce8a892b7ab5863fbd1b58644",
+    "metal": "16a924f385735ee19edaca20024a7848098bec451a10394830668c91691682ba"
   },
-  "input_sha256": "a2211b8b7fbdd1a06defeb8c59a9677cea4125a951f7e0e46921f82ffa355fd6",
+  "input_sha256": "cea47a468d8b6da8e6a70433c897a62f4d91cb614678d1388db7bab87a7c0a46",
   "output_sha256": "414b5cc32db2ba4cc098883b7cf41fa0092e9807f87057be2e1492861fcc4dee",
   "gpu_execution_verified": true,
   "backend": "metal",
@@ -69511,10 +71137,10 @@
     "app/portable_catalog.py": "01aa57c7dafbe14720a5817c2b2592cb8a47ec94163e2dbc9b0490b6779cfb59",
     "app/portable_combat.py": "e59690a2d46ace2902b4d3aee0270b559bd5a09f46c561a0b9bf036d8effb0d1",
     "app/portable_damage_specs.py": "8f2c2c97f6b017276853501dfe9fd2ceea2dd1a993217f801df6df2000b62e49",
-    "app/portable_recipient_specs.py": "cc11444275278c810bec9d3a049abddaf157d6380024f2e13231e5f4ff59cf10",
+    "app/portable_recipient_specs.py": "f48f12865f8b6cdd7ebaaf155b25b4352b79f4a3db3780a4c6fafcce4bf373ec",
     "app/portable_roster_input.py": "02707af9bec615d14337d87fdacdbf2d2a6131120fe215f87340f1771efc3770",
-    "app/portable_runtime.py": "862e4c36d39257d9b0481bc04c7df6d713a13f59b33eb102b55b20f2657cb146",
-    "app/portable_specs.py": "857ba1250a52b9f9e342ee87c37666afa74112204e40d4ed7179e494443b3944",
+    "app/portable_runtime.py": "9142e9454b1449b46e041a737683f1ef81832bb9a85e1f9150c933f7c85a3623",
+    "app/portable_specs.py": "f0015d2d3335fa4671458cc28ca8e5d394bffb8069a2f92541c59fbf36a9d023",
     "app/portable_trigger_specs.py": "61aaa3740ee6f6c6753d321a2848f3ed4e16474e63fc526f5fc14cee69ff01ad",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/protection_runtime.py": "a6909bbdd73ef24ebdd3136cc67932c7ab433f23ae9ecabfc2a5069a5db37c81",
@@ -69606,6 +71232,7 @@
     "scripts/benchmark-portable-health.py": "86c9de952ef4842faae5f30adb309d11e7ba4b4548be8722e957cfb537fe696b",
     "scripts/benchmark-portable-hp-edges.py": "58dcaa028a777de2083ac5224dfcf496cc2421381822b7cbfaeced7e38d453a3",
     "scripts/benchmark-portable-incoming.py": "14ba52be5ac58b57d1f1441928f55f1d5cd0573541bd8398c3f289579c99e23e",
+    "scripts/benchmark-portable-lazy.py": "087b1640dc470d9a08201749d100a42be44c46a81d9b6db42ba3d19b1d24d130",
     "scripts/benchmark-portable-quantities.py": "bd1c0e0e434c1200daa3dc1c557032c7733ae1e0e162f5a434878602aaa9c936",
     "scripts/benchmark-portable-stats.py": "b01ea801735c722ef4c4dc32dff3594bf24f5c15a111d214a2ec020df6b41abc",
     "scripts/build-combat.py": "d05ed916221e8d216a2c98fb9eb3714a9eb5307d0d4670d57bc699f2cff935e4",
@@ -69651,7 +71278,7 @@
     "scripts/make-weapons-fixture.py": "5fdbaa0fd0d4f718bad00714841496be956712b8faac15eaf3d6a50437b6a5f9",
     "scripts/periodic_target_cases.py": "5e2c1522e9f6aeabafd60f95775670061a9461a9c7b37c2ad1794ab0da626f81",
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
-    "scripts/portable_health_oracle.py": "8e5ed78b7ea83f0370ec53adf3c1150e56cb4921abb56eb59a7b09bb4e86922e",
+    "scripts/portable_health_oracle.py": "8aa63838b72808fa2cce41d3434d9e4795286893e3042f9e807b5fea32a1e3fc",
     "scripts/portable_weapon_oracle.py": "5fa773a498d5103388f2faee38a69cc56898b1ff9ebff842fe6ccb8fb8736f1f",
     "scripts/prepare_metadata.py": "a3dbec2b9c635a2fefae3dfe7511cc1c2b9b7155b3cd77392fe3b771667fdf7c",
     "scripts/probe-revive-hp-passives.py": "a18a34d1461017e08d47d3713862ce330dd7f65a94b4a946e48c2ef383acf6d1",
@@ -69763,9 +71390,9 @@
     "scripts/verify-periodic-detail.py": "592431aefb6cbba77fc8b0ac925dbcbe342fa87e488d423cedfa270df0261e05",
     "scripts/verify-periodic-sources-detail.py": "bece3113347f76c55022591fb7308cc2bcd181ff56497cb17de691f791450dda",
     "scripts/verify-periodic-targets-detail.py": "e159b1a38c095cfedb489105ae2c90051f6cf34cdbc8a35acb351b1e9b835159",
-    "scripts/verify-portable-api.py": "808fbab12b8f3e979eecfb12a77374ec85b340838b4030d59b7ea54295dee773",
+    "scripts/verify-portable-api.py": "fad925d0fa7489121529e835f88b265e764b0e874b19f2eae4d1d00b69b56782",
     "scripts/verify-portable-catalog-weapons.py": "4986f71dc931d68ffad1bcdea2bf9be5e1dcb586e8d0c1a6001b5ca75799e3e6",
-    "scripts/verify-portable-combat.py": "c224e686ce37655d341c882832d051a37035ed89aa9923f3217ab4e3cb0ea136",
+    "scripts/verify-portable-combat.py": "5b82e93c6b6506bfb140f7a0777355ccda5008d648aae53c6869ddfe8897b170",
     "scripts/verify-portable-events.py": "a0c19364ccfbb0436268ca56a79457abbb588235c71a8e6d1565d8fe757cd6a7",
     "scripts/verify-portable-numeric.py": "6f69e28e3de824899cc5e25320eb9ebfc2a5a4f44c5a3e5dc393a0ce7b664d9e",
     "scripts/verify-portable-probe.py": "e2bd6b6f9148a178477a3a11c83a4ac4387bc865b4d18b2252e989387917ff13",

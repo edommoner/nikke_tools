@@ -27,7 +27,7 @@ struct Definition
     uint damageFlags, group, exclusive, quantityFlags, fixedLiteral, polarity;
     int alias;
     uint64_t fixedValue;
-    uint healthScaling, alliedFlags, mergeEligible, statKey;
+    uint healthScaling, alliedFlags, mergeEligible, statKey, lazyGroup, queryResolve;
 };
 struct Frame
 {
@@ -39,6 +39,12 @@ struct Runtime
 {
     Definition defs[P_DEFINITIONS];
     uint carrierCount, carrierDefinition[P_CARRIERS], multiCarrier[P_DEFINITIONS], removalCount, removalQueue[P_CARRIERS];
+    uint lazyPending[P_CARRIERS], lazyLink[P_CARRIERS], lazyPendingCount, lazyMappedPendingCount, lazyEnabled;
+    uint cacheCount, cacheCursor, cacheEvaluations, cacheReuses;
+    uint cacheGroup[P_LAZY_CACHE], cacheMask[P_LAZY_CACHE], cacheOrder[P_LAZY_CACHE], cacheRefs[P_LAZY_CACHE];
+    uint cacheNewest[P_DEFINITIONS], cacheSeen[P_DEFINITIONS], lazyGroupDefinition[P_DEFINITIONS];
+    uint64_t cacheTime[P_LAZY_CACHE], cacheNewestTime[P_DEFINITIONS], cacheRootTime, cacheFloor;
+    uint queryActive, queryWho, queryAllowed[P_CARRIERS]; uint64_t queryWhen;
     uint incomingMask, downMask, activeRecipients[P_CARRIERS], receivedHits[5];
     uint64_t receivedDamage[5];
     uint hpWatchCount, hpWatchSlots[P_DEFINITIONS*P_TRIGGERS], hpDirtyMask, hpPendingMask, hpEdgeGuard;
@@ -163,6 +169,8 @@ void markEntry(inout Runtime s, uint row)
     s.entryOrder[row] = ++s.entryClock;
 }
 
+#include "rank_runtime.slang"
+#include "lazy_runtime.slang"
 #include "carrier_runtime.slang"
 #include "quantity_runtime.slang"
 #include "health_runtime.slang"
@@ -173,6 +181,7 @@ void markEntry(inout Runtime s, uint row)
 [noinline]
 void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[64])
 {
+    bool query = needsBuffResolution(s) && beginBuffQuery(s,who,when);
     for (uint k = 0; k < 64; k++) values[k] = 0;
     Sum rate = {}; rate.total = s.baseCrit; Sum skillRate = rate;
     Sum critical = {}; Sum skillCritical = {};
@@ -192,7 +201,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
         uint selected = s.orderedRows[pass]; Definition d = residentDefinition(s,selected);
 #endif
         if (d.alliedFlags != 0 || d.kind != 0 || d.stat >= 64 || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
-            (s.activeRecipients[selected] & (1U << who)) == 0 || !basicConditions(s,selected,when,true,who)) continue;
+            !queryRecipient(s,selected,who,when)) continue;
         uint64_t value = scalarValue(s,selected,who);
         if (d.stat == S_crit_rate || d.stat == S_normal_atk_crit_rate)
         {
@@ -215,6 +224,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
     values[S_crit_rate_skill] = larger(0,smaller(ONE,f64Add(skillRate.total,skillRate.correction)));
     values[S_crit_dmg] = f64Add(critical.total,critical.correction);
     values[S_crit_dmg_skill] = f64Add(skillCritical.total,skillCritical.correction);
+    if (query) s.queryActive = 0;
 }
 #include "recipient_runtime.slang"
 
@@ -500,7 +510,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         uint recipientOrder = 0, recipientMask = d.recipients;
         if (d.kind == 0 || d.kind == 4 || d.kind == 6 || d.kind == 8)
         {
-            recipientMask = selectRecipients(s,row,f.time,recipientOrder);
+            if (d.lazyGroup == 0) recipientMask = selectRecipients(s,row,f.time,recipientOrder);
+            else recipientMask = 0;
             uint selector = commands[s.inputBase+P_RECIPIENT_BASE+row*8];
             bool lazy = selector == 5 || selector == 6 || selector == 7 || selector == 15 || selector == 16;
             if (d.budget >= 0 && recipientMask == 0 && !lazy) continue;
@@ -514,17 +525,26 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (!f64Zero(d.interval) && f.event != 28) { registerTimer(s,row,f.time); continue; }
         if (d.kind == 0 || d.kind == 4)
         {
-            uint64_t duration = d.duration;
+            uint64_t duration = d.duration; bool activationLazy = d.lazyGroup != 0;
             row = findCarrier(s,row,recipientMask,f.time);
             if (s.error != 0) break;
             d = residentDefinition(s,row);
             bool live = s.alive[row] != 0 && f64Less(f.time,s.end[row]);
-            if (!live) { s.stacks[row] = 0; s.hpSnapshot[row] = 0; markEntry(s,row); }
+            if (!live) { discardLazy(s,row); s.stacks[row] = 0; s.hpSnapshot[row] = 0; markEntry(s,row); }
             uint previousStack = s.stacks[row];
-            s.activeRecipients[row] = recipientMask;
+            if (activationLazy)
+            {
+                if (!live) { s.lazyPending[row] = 1; s.lazyPendingCount++; s.lazyMappedPendingCount += d.queryResolve; s.activeRecipients[row] = 0; }
+                else if (s.lazyPending[row] != 0) unlinkLazyCache(s,row);
+            }
+            else s.activeRecipients[row] = recipientMask;
             s.stacks[row] = min(s.stacks[row]+1,d.maxStack); s.alive[row] = 1; s.activated[row] = f.time;
             s.end[row] = f64Less(duration,0) ? FOREVER : f64Add(f.time,duration);
-            if (s.hpWatchCount != 0 && (d.stat >= S_max_hp_pct && d.stat <= S_max_hp_only_pct || d.stat == S_max_hp_from_max_hp_pct))
+            if (activationLazy)
+            {
+                if (previousStack != s.stacks[row]) pushFrame(s,frames,depth,0,9,d.owner,int(d.name),f.time,s.stacks[row]);
+            }
+            else if (s.hpWatchCount != 0 && (d.stat >= S_max_hp_pct && d.stat <= S_max_hp_only_pct || d.stat == S_max_hp_from_max_hp_pct))
             {
                 uint64_t grant = prepareHealthGrant(s,row,f.time);
                 if (previousStack != s.stacks[row]) pushFrame(s,frames,depth,0,9,d.owner,int(d.name),f.time,s.stacks[row]);
@@ -721,8 +741,24 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         d.triggerCount = commands[at+D_TRIGGER_COUNT]; d.conditionCount = commands[at+D_CONDITION_COUNT];
         d.flags = commands[at+D_FLAGS]; d.period = loadNumber(at+D_PERIOD); d.damageFlags = commands[at+D_DAMAGE_FLAGS];
         d.target = commands[at+D_TARGET]; d.recipients = commands[at+D_RECIPIENTS];
-        d.mergeEligible = commands[input+P_RECIPIENT_BASE+j*8+7]; d.statKey = commands[input+P_RECIPIENT_BASE+j*8+6];
+        d.mergeEligible = commands[input+P_RECIPIENT_BASE+j*8+7] & 3;
+        d.queryResolve = (commands[input+P_RECIPIENT_BASE+j*8+7] >> 2) & 1;
+        d.lazyGroup = commands[input+P_RECIPIENT_BASE+j*8+7] >> 4; s.lazyEnabled |= uint(d.lazyGroup != 0); d.statKey = commands[input+P_RECIPIENT_BASE+j*8+6];
         if ((d.kind == 0 || d.kind == 4 || d.kind == 6 || d.kind == 8) && !validRecipientPlan(input+P_RECIPIENT_BASE+j*8)) { s.error = 64; break; }
+        if (d.lazyGroup != 0)
+        {
+            uint plan = input+P_RECIPIENT_BASE+j*8, selector = commands[plan];
+            if (d.lazyGroup > s.count || d.kind != 0 && d.kind != 4 || !(selector == 5 || selector == 6 || selector == 7 || selector == 15 || selector == 16)) { s.error = 64; break; }
+            uint previous = s.lazyGroupDefinition[d.lazyGroup-1];
+            if (previous != 0)
+            {
+                uint prior = input+P_RECIPIENT_BASE+(previous-1)*8;
+                bool same = s.defs[previous-1].owner == d.owner;
+                for (uint field = 0; field < 4; field++) if (commands[prior+field] != commands[plan+field]) same = false;
+                if (!same) { s.error = 64; break; }
+            }
+            else s.lazyGroupDefinition[d.lazyGroup-1] = j+1;
+        }
         uint extra = input+P_DEFINITION_EXTRA_BASE+j*P_DEFINITION_EXTRA_WORDS;
         uint health = input+P_HEALTH_DEFINITION_BASE+j*P_HEALTH_DEFINITION_WORDS;
         d.healthScaling = commands[health]; d.alliedFlags = commands[health+1];
@@ -751,7 +787,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     for (uint step = 0; step < commands[input+2] && s.error == 0; step++)
     {
         uint at = input+P_COMMAND_BASE+step*8, op = commands[at]; uint64_t when = loadNumber(at+1);
-        if (s.combat == 0 || op == 4) sampleWorld(s);
+        if (s.combat == 0 || op == 4) { beginLazyRoot(s,when); sampleWorld(s); }
         if (op == 4 && s.combat != 0 && s.combatStarted == 0)
         { s.combatStarted = 1; teamNotify(s,0,when,output); initializeMagazines(s,when); }
         if (s.combat == 0 || op == 4) tick(s,when,output);
@@ -838,10 +874,11 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     {
         uint slot = s.orderedRows[pass], at = output+P_CARRIER_STATE_BASE+pass*12;
         results[at] = slot; results[at+1] = s.carrierDefinition[slot]; results[at+2] = s.activeRecipients[slot];
-        results[at+3] = s.stacks[slot]; results[at+4] = s.alive[slot];
+        results[at+3] = s.stacks[slot]; results[at+4] = s.alive[slot] | (s.lazyPending[slot] << 1);
         storeNumber(at+5,s.end[slot]); storeNumber(at+7,s.activated[slot]); results[at+9] = s.entryOrder[slot]; storeNumber(at+10,s.hpSnapshot[slot]);
     }
     results[output+9] = s.orderedCount;
+    results[output+10] = s.cacheCount; results[output+11] = s.cacheEvaluations; results[output+12] = s.cacheReuses; results[output+13] = s.lazyPendingCount; results[output+14] = s.lazyMappedPendingCount;
     results[output] = s.error; results[output+1] = queries; results[output+2] = s.traceCount; results[output+3] = s.maxDepth; results[output+4] = s.burstTraceCount; results[output+6] = s.traceTotal;
     results[output+7] = s.burstTraceTotal; results[output+8] = s.frameCount;
 }

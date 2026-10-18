@@ -20,7 +20,8 @@ uint chargeFlags(inout Runtime s, uint who, uint64_t when)
     for (uint i = 0; i < s.orderedCount; i++)
     {
         uint row = s.orderedRows[i]; Definition d = residentDefinition(s,row);
-        if (!liveRecipient(s,row,who,when)) continue;
+        if ((d.quantityFlags & 24) == 0 && !(d.kind == 0 && d.stat == S_charge_time_fixed)) continue;
+        if (!queryRecipient(s,row,who,when)) continue;
         flags |= d.quantityFlags & 24;
         if (d.kind == 0 && d.stat == S_charge_time_fixed) flags |= 4;
     }
@@ -46,7 +47,7 @@ QuantityTotals quantityTotals(inout Runtime s, uint who, uint key, uint64_t when
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
         uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row);
-        if (d.kind != 0 || (d.stat != key && !(key == S_charge_speed_pct && d.stat == S_charge_speed_caster_based_pct)) || !liveRecipient(s,row,who,when)) continue;
+        if (d.kind != 0 || (d.stat != key && !(key == S_charge_speed_pct && d.stat == S_charge_speed_caster_based_pct)) || !queryRecipient(s,row,who,when)) continue;
         // Missing caster metadata is an absent component, not a zero-valued
         // component that may change the first-seen group order.
         if (d.stat == S_charge_speed_caster_based_pct && f64Zero(s.rawCharge[d.owner])) continue;
@@ -59,7 +60,7 @@ QuantityTotals quantityTotals(inout Runtime s, uint who, uint key, uint64_t when
         {
             uint other = s.orderedRows[member]; Definition candidate = residentDefinition(s,other);
             if (candidate.group != group || candidate.kind != 0 ||
-                (candidate.stat != key && !(key == S_charge_speed_pct && candidate.stat == S_charge_speed_caster_based_pct)) || !liveRecipient(s,other,who,when)) continue;
+                (candidate.stat != key && !(key == S_charge_speed_pct && candidate.stat == S_charge_speed_caster_based_pct)) || !queryRecipient(s,other,who,when)) continue;
             if (candidate.stat == S_charge_speed_caster_based_pct && f64Zero(s.rawCharge[candidate.owner])) continue;
             values[group] = f64Add(values[group],scalarValue(s,other,who)); flags[group] |= candidate.exclusive | (candidate.quantityFlags & 32);
         }
@@ -98,7 +99,7 @@ uint64_t plainQuantity(inout Runtime s, uint who, uint key, uint64_t when)
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
         uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row);
-        if (d.kind == 0 && d.stat == key && liveRecipient(s,row,who,when)) result = f64Add(result,scalarValue(s,row,who));
+        if (d.kind == 0 && d.stat == key && queryRecipient(s,row,who,when)) result = f64Add(result,scalarValue(s,row,who));
     }
     return result;
 }
@@ -108,7 +109,7 @@ uint64_t chargeOverflow(inout Runtime s, uint who, uint64_t when)
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
         uint row = s.orderedRows[pass];
-        if ((residentDefinition(s,row).quantityFlags & 64) != 0 && liveRecipient(s,row,who,when)) result = f64Add(result,scalarValue(s,row,who));
+        if ((residentDefinition(s,row).quantityFlags & 64) != 0 && queryRecipient(s,row,who,when)) result = f64Add(result,scalarValue(s,row,who));
     }
     return result;
 }
@@ -118,7 +119,7 @@ uint64_t checkedIntegerAdd(inout Runtime s, uint64_t a, uint64_t b)
     if (((a ^ result) & (b ^ result) & F64_SIGN) != 0) s.error = 2;
     return result;
 }
-uint fullCapacity(inout Runtime s, uint who, uint base, bool applyBuffs, uint64_t when)
+uint rawFullCapacity(inout Runtime s, uint who, uint base, bool applyBuffs, uint64_t when)
 {
     if (!applyBuffs || base == 0 || (s.quantityMask & 17) == 0) return base;
     QuantityTotals quant = quantityTotals(s,who,S_max_ammo_pct,when,f64FromI64(base),ONE);
@@ -130,7 +131,7 @@ uint fullCapacity(inout Runtime s, uint who, uint base, bool applyBuffs, uint64_
     if (total > 0x7fffffff) { s.error = 2; return 0; }
     return uint(total);
 }
-uint64_t effectiveCharge(inout Runtime s, uint who, uint64_t base, uint64_t when)
+uint64_t rawEffectiveCharge(inout Runtime s, uint who, uint64_t base, uint64_t when)
 {
     if ((s.quantityMask & 42) == 0) return base;
     if ((s.quantityMask & 8) != 0 && (chargeFlags(s,who,when) & 4) != 0)
@@ -147,4 +148,19 @@ uint64_t effectiveCharge(inout Runtime s, uint who, uint64_t base, uint64_t when
     uint64_t step = uint64_t(0x3f847ae1) << 32 | 0x47ae147b; // .01 seconds
     QuantityTotals cut = quantityTotals(s,who,S_charge_speed_pct,when,base,step);
     return larger(0,f64Add(larger(0,f64Add(base,cut.rounded ^ F64_SIGN)),plainQuantity(s,who,S_charge_time_flat,when)));
+}
+
+uint fullCapacity(inout Runtime s, uint who, uint base, bool applyBuffs, uint64_t when)
+{
+    bool query = applyBuffs && needsBuffResolution(s) && beginBuffQuery(s,who,when);
+    uint capacity = rawFullCapacity(s,who,base,applyBuffs,when);
+    if (query) s.queryActive = 0;
+    return capacity;
+}
+uint64_t effectiveCharge(inout Runtime s, uint who, uint64_t base, uint64_t when)
+{
+    bool query = needsBuffResolution(s) && beginBuffQuery(s,who,when);
+    uint64_t charge = rawEffectiveCharge(s,who,base,when);
+    if (query) s.queryActive = 0;
+    return charge;
 }

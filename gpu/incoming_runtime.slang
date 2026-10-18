@@ -9,7 +9,7 @@ bool liveMarker(inout Runtime s, uint who, uint stat, uint64_t when)
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
         uint row = s.orderedRows[pass];
-        if (residentDefinition(s,row).kind == 0 && residentDefinition(s,row).stat == stat && liveRecipient(s,row,who,when)) return true;
+        if (residentDefinition(s,row).kind == 0 && residentDefinition(s,row).stat == stat && queryRecipient(s,row,who,when)) return true;
     }
     return false;
 }
@@ -36,7 +36,7 @@ void knockDown(inout Runtime s, uint who, uint64_t when)
     for (uint row = 0; row < s.carrierCount; row++)
     {
         Definition d = residentDefinition(s,row);
-        if ((d.kind == 0 || d.kind == 4) && s.alive[row] != 0)
+        if ((d.kind == 0 || d.kind == 4) && s.alive[row] != 0 && s.lazyPending[row] == 0)
         {
             s.activeRecipients[row] &= ~bit;
             if (s.activeRecipients[row] == 0) { s.alive[row] = 0; s.stacks[row] = 0; }

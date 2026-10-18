@@ -114,6 +114,10 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         at=L['HEALTH_BASE']+who*L['HEALTH_WORDS']
         words[at:at+6]=[*double_words(base),*double_words(current),*double_words(defense_value)]
     words[24:26]=double_words(.15);words[26:28]=double_words(.5)
+    lazy_groups={}
+    for (eff,owner),row in zip(effects,program['effects']):
+        if eff.get('type')=='buff' and int(row[4]) in (5,6,7,15,16):
+            lazy_groups.setdefault((owner,eff.get('target')),len(lazy_groups)+1)
     merge_groups={}
     def merge_key(index,row):
         eff,owner=effects[index]
@@ -123,7 +127,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         key=merge_key(index,row)
         if key is not None:merge_groups[key]=merge_groups.get(key,0)+1
     for index,row in enumerate(program['effects']):
-        if row[1] in (0,4,6,8):pack_recipients(words,index,row,L,effects[index][0],stat_keys[(effects[index][0].get('type'),effects[index][0].get('stat',''))],merge_groups.get(merge_key(index,row),0)>1)
+        if row[1] in (0,4,6,8):pack_recipients(words,index,row,L,effects[index][0],stat_keys[(effects[index][0].get('type'),effects[index][0].get('stat',''))],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],effects[index][0].get('target')),0) if effects[index][0].get('type')=='buff' else 0)
         compact=[0]*L['DEFINITION_WORDS']
         fields={'OWNER':int(row[0]),'KIND':int(row[1]),'STAT':int(row[2]),'NAME':int(row[3]),
                 'MAX_STACK':int(row[9]),'BUDGET':int(row[57]),'IMMEDIATE':int(row[60]),
@@ -284,8 +288,8 @@ def decode(words,metadata):
         at=L['CARRIER_STATE_BASE']+i*12;definition=words[at+1]
         if definition>=len(metadata['effects']) or words[at]>=L['CARRIERS']:raise RuntimeError('Invalid resident identity')
         carriers.append(dict(slot=words[at],definition=definition,effect=metadata['effects'][definition],recipients=words[at+2],
-                             stacks=words[at+3],active=bool(words[at+4]),end=number(at+5),activated=number(at+7),order=words[at+9],hp_snapshot=number(at+10)))
-    return dict(carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
+                             stacks=words[at+3],active=bool(words[at+4]&1),lazy_pending=bool(words[at+4]&2),end=number(at+5),activated=number(at+7),order=words[at+9],hp_snapshot=number(at+10)))
+    return dict(lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
 
 
 def run_programs(programs, *, backend='metal'):
