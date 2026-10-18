@@ -48,11 +48,11 @@
 
 CUDAでも同じ検証コマンドの `--backend cuda` を使い、入力・期待値・比較・実行器は変更しません。Windowsアダプターは固定Slangが生成したCUDAをNVRTCでコンパイルし、Driver APIで一回だけ実行します。SlangのStructuredBuffer用constant領域は実際のシンボルサイズを照合してから書き込みます。出力初期化もMetalと共通のゼロ規約です。
 
-今回Windows PCは使用しておらず、CUDAのNVRTCコンパイル／GPU実行は未確認です。CodexのWindows接続は確認済みです。Windows側チャットへの送信確認後に短い入力検証だけを実施し、長時間の負荷測定・常時テスト・本体のフルビルドは行いません。必要な初回候補は次の2コマンドです。
+今回Windows PCは使用しておらず、CUDAのNVRTCコンパイル／GPU実行は未確認です。CodexのWindows接続は確認済みです。Windows側チャットへの送信が承認されました。短い入力検証だけを実施し、長時間の負荷測定・常時テスト・本体のフルビルドは行いません。必要な初回候補は次の2コマンドです。
 
 ```sh
 python scripts/verify-portable-numeric.py --backend cuda --random-count 0 --report-suffix short
-python scripts/verify-portable-events.py --backend cuda
+python scripts/verify-portable-events.py --backend cuda --short
 ```
 
 ## 次の接続

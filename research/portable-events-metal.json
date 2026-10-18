@@ -2223,7 +2223,7 @@
     "cases": 16,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.005369333317503333,
+    "gpu_seconds": 0.005459208332467824,
     "input_bytes": 131076,
     "output_bytes": 262144,
     "registry_id": "4294968313"
@@ -4638,7 +4638,7 @@
       "cases": 2,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.00017549999756738544,
+      "gpu_seconds": 0.0001752499956637621,
       "input_bytes": 16388,
       "output_bytes": 32768,
       "registry_id": "4294968313"
@@ -4665,7 +4665,7 @@
     "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "scripts/timer_registry_cases.py": "fc572fc7143af99c4b5c804c0faa80162f1af88c141fe4bf58606509eedcc68b",
-    "scripts/verify-portable-events.py": "96432f8f224200e6aeda04deea5892e3d8d4fb5be7c54e4edb876d362ed7c629",
+    "scripts/verify-portable-events.py": "80e02aaebb1ceee18b8d546d0a7a61f41227e742a1b59d8aad5177d101b1e4c0",
     "scripts/run-metal-probe.swift": "14ea0beae31b1e1f6ec5a2fbcd9bd624ed4e7a2f35563e988812376dc0649a5a",
     "tests/fixtures/portable-events.json": "7dd3eb1e11b8964dec596d639cd3e626138f73d3fab158eec4973265292d1ba8"
   }

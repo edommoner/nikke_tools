@@ -2,7 +2,7 @@
 
 ## 2026-10-19 共通実行器の追加更新
 
-整数変換・floorと、コア命中確率のclampされたpowを共通Slangへ追加しました。数値34,874ケース、状態・イベント16ケース、再入／数値あふれの拒否2ケースをApple M5で確認しています。アプリの `POST /api/portable-events` から実Metalまで接続済みです。通常画面の自律戦闘と全キャラ対応は未完了で、GPUの標準受付は増やしていません。[共通実行器の範囲と検証手順](portable-event-runtime.md)と[更新した数値規約](portable-numerics.md)を先に確認してください。WindowsのCodexリモート接続は確認済みで、CUDAは共通ソース生成とアダプター追加までです。Windows側チャットへの短い検証依頼は送信確認待ちです。
+整数変換・floorと、コア命中確率のclampされたpowを共通Slangへ追加しました。数値34,874ケース、状態・イベント16ケース、再入／数値あふれの拒否2ケースをApple M5で確認しています。アプリの `POST /api/portable-events` から実Metalまで接続済みです。通常画面の自律戦闘と全キャラ対応は未完了で、GPUの標準受付は増やしていません。[共通実行器の範囲と検証手順](portable-event-runtime.md)と[更新した数値規約](portable-numerics.md)を先に確認してください。WindowsのCodexリモート接続は確認済みで、CUDAは共通ソース生成とアダプター追加までです。Windows側チャットへの短い検証依頼は承認済みで、CUDA実行検証はこれからです。
 
 ## 2026-10-19 Mac実機の引き継ぎ更新
 

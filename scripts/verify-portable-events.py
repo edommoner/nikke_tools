@@ -27,11 +27,13 @@ def compile_case(case):
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--backend',choices=('metal','cuda'),default='metal')
+    parser.add_argument('--short',action='store_true',help='Use the original 14-case CUDA handoff scope')
     args=parser.parse_args()
-    report_path=ROOT/f'research/portable-events-{args.backend}.json'
+    report_path=ROOT/f'research/portable-events-{args.backend}{"-short" if args.short else ""}.json'
     report_path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n')
     inputs=list(cases());programs=[compile_case(case) for case in inputs]
     extras=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text())['cases']
+    if args.short:extras=extras[:6]
     chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES]
     for case in extras:
         programs.append(compile_program(chars,[(e,NAMES[o]) for e,o in zip(case['effects'],case.get('owners',[0]*len(case['effects'])))],case['script'],
