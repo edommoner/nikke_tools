@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "fictional_roster": true,
+  "evidence": "Restarted task-owned 4332 server for v29; clicked normal squad Calculate, observed completion, all five member values, baseline/delta, expanded compute JSON, part table and screenshot. Existing fictional owned roster retained.",
+  "url": "http://127.0.0.1:4332/#single",
+  "duration": 31,
+  "core_px": 5,
+  "distance": 30,
+  "total": 288233217,
+  "baseline_total": 283664922,
+  "stat_delta_atk": 12345,
+  "member_damage": [
+    48671818,
+    14382588,
+    27514826,
+    102895408,
+    94768577
+  ],
+  "backend": "cuda_detail",
+  "module_backend": "cubin-sm86",
+  "elapsed_ms": 9556.65,
+  "initialization_ms": 9.305,
+  "workspace_bytes": 359320,
+  "burst_policy": "rules",
+  "shooting_policy": "character",
+  "burst_gauge_mode": "accumulate",
+  "seed": 12345,
+  "d_favorite_stage": 0,
+  "d_skill_levels": [
+    9,
+    3,
+    5
+  ],
+  "parts_state": [
+    {
+      "name": "装甲",
+      "damage": 57742315,
+      "hits": 30,
+      "destroyed": false,
+      "destroyed_at": null
+    },
+    {
+      "name": "砲台",
+      "damage": 0,
+      "hits": 0,
+      "destroyed": false,
+      "destroyed_at": null
+    }
+  ],
+  "cpu_verification": {
+    "total_equal": true,
+    "members_equal": true,
+    "burst_timeline_equal": true,
+    "base_stats_equal": true,
+    "seed_equal": true,
+    "burst_policy_equal": true,
+    "requested_burst_policy_equal": true,
+    "burst_patterns_equal": true,
+    "shooting_policy_equal": true,
+    "burst_gauge_mode_equal": true,
+    "parts_state_equal": true,
+    "matched": true
+  },
+  "source_sha256": {
+    "web/style.css": "7b31bbf8233930df90f9a3a93228c3b1aa39eb83af1dd94c1537f210aaf9dce2",
+    "app/detail_effects.ptx": "b9ca448ea6f77477d7413534c8267d991c732032fd4530429fdf0aa60deef4bd",
+    "app/detail_gpu.py": "4e1c3bc058880c64aceda7ad359e4585b92b97d50279f840f24cab9e806d7fe7",
+    "web/parts-model.mjs": "26fe86258b28373e2426de6cdfbb93fe4756e91e41817cd9fd500eed7ebc76f3",
+    "app/engine_worker.py": "210e7af5f2e7fd8442e3c1018ecb252b8d9d1d74644d59c0f9c1f177ed93fd3d",
+    "app/detail_effects-sm86.cubin": "8c484206fcb5d5437e8fe2131230065bfa0fab9c8b5e3a2c70c0293b4f29601d",
+    "app/detail_world.py": "9537cc56ffa0c223cfebc3c87ae14ed57727da8b8e92a62d083c9bd8ae79ce01",
+    "app/detail_effects.cu": "d54a303b553e90954e3c1146b2788b4ef315e67a490e15b44f554c4977bcd396",
+    "web/index.html": "5995fb0d849464ef220977db0e68d4d804ddc64073192278ca8225b9d542562f",
+    "server.mjs": "1a62e431951e6b835d1b58917c4ca60ab79c2718c66936754ad46bf886e64bc8",
+    "app/gpu_service.py": "949fdf4b82fe2ee50b3f36f73f3e7688b1db3b04ae1c5336865bdc4cb75ecca7",
+    "web/app.js": "f2f36c617fb46b5f61a17d77c7e99db62beed864edbe482b9952010aad346c48",
+    "app/detail_effects-sm86.json": "183e3924a7fd8c329f37b835dd41d128adaf208e6610013cce5e5750f395a78b",
+    "web/roster-model.mjs": "c1ab247dc3df507c68c2d842d9a02d32b86823b50a00b0a432d61120aa7db989",
+    "app/detail_effects-build.json": "5671d144a260662a17de192851c63a629f1337b197f33d53b333b92cf7b76d47",
+    "research/record-capacity-ui.py": "c70cd38151dbeb4377945b1df3f981b4243ecfaae98e3faa5a38cd98c8fb84b6"
+  },
+  "generated_at": "2026-10-16T23:28:56.585861+00:00",
+  "abi": "detail_capacity_v29"
+}

@@ -1,0 +1,2166 @@
+{
+  "passed": true,
+  "port": 4345,
+  "wall_ms": 6538.396500000001,
+  "normal_api": true,
+  "candidates": 8,
+  "cache_hits": 0,
+  "baseline": "research/staged-queue-api-after.json",
+  "speedup": 0.9479508163813557,
+  "results": [
+    {
+      "value": 1000,
+      "meets": true,
+      "result": {
+        "total_damage": 594377076,
+        "members": [
+          {
+            "name": "사쿠라 : 블룸 인 서머",
+            "damage": 125751934,
+            "share": 0.21156928669974479
+          },
+          {
+            "name": "리타",
+            "damage": 39161683,
+            "share": 0.06588693370132599
+          },
+          {
+            "name": "크라운",
+            "damage": 56261454,
+            "share": 0.09465616402742962
+          },
+          {
+            "name": "앨리스",
+            "damage": 127507895,
+            "share": 0.21452357459358004
+          },
+          {
+            "name": "모더니아",
+            "damage": 245694110,
+            "share": 0.41336404097791957
+          }
+        ],
+        "base_stats": {
+          "사쿠라 : 블룸 인 서머": {
+            "atk": 125386,
+            "def": 19931,
+            "hp": 2980819
+          },
+          "리타": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "크라운": {
+            "atk": 87387,
+            "def": 20905,
+            "hp": 3557120
+          },
+          "앨리스": {
+            "atk": 125311,
+            "def": 17769,
+            "hp": 3001638
+          },
+          "모더니아": {
+            "atk": 125693,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "사쿠라 : 블룸 인 서머"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 20.667,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 20.767,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 20.867,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 21.25,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 31.25,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 35.633,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 35.733,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 35.833,
+            "event": "stage:3 사용",
+            "character": "사쿠라 : 블룸 인 서머"
+          },
+          {
+            "time": 36.217,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 6376.434,
+        "initialization_ms": 6.713,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1164072,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 54.376,
+          "allocation_upload_host": 3.162,
+          "kernel_cuda": 6316.833,
+          "kernel_launch_sync_host": 6316.805,
+          "readback_host": 0.305,
+          "decode_host": 1.786
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "사쿠라 : 블룸 인 서머": {
+            "hp": 2980819,
+            "hp_pct": 100,
+            "max_hp": 2980819
+          },
+          "리타": {
+            "hp": 3267307,
+            "hp_pct": 100,
+            "max_hp": 3267307
+          },
+          "크라운": {
+            "hp": 3557120,
+            "hp_pct": 100,
+            "max_hp": 3557120
+          },
+          "앨리스": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "모더니아": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "사쿠라 : 블룸 인 서머": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 517,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 59,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1009,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 136,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2058,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 96,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 33,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2033,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 45.8258033333321
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 6376.434,
+        "batch_workspace_bytes": 9312576,
+        "amortized_elapsed_ms": 797.054
+      }
+    },
+    {
+      "value": 2000,
+      "meets": true,
+      "result": {
+        "total_damage": 595413293,
+        "members": [
+          {
+            "name": "사쿠라 : 블룸 인 서머",
+            "damage": 126788151,
+            "share": 0.21294141815540554
+          },
+          {
+            "name": "리타",
+            "damage": 39161683,
+            "share": 0.06577226854087048
+          },
+          {
+            "name": "크라운",
+            "damage": 56261454,
+            "share": 0.09449143084549844
+          },
+          {
+            "name": "앨리스",
+            "damage": 127507895,
+            "share": 0.2141502322824358
+          },
+          {
+            "name": "모더니아",
+            "damage": 245694110,
+            "share": 0.4126446501757897
+          }
+        ],
+        "base_stats": {
+          "사쿠라 : 블룸 인 서머": {
+            "atk": 126386,
+            "def": 19931,
+            "hp": 2980819
+          },
+          "리타": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "크라운": {
+            "atk": 87387,
+            "def": 20905,
+            "hp": 3557120
+          },
+          "앨리스": {
+            "atk": 125311,
+            "def": 17769,
+            "hp": 3001638
+          },
+          "모더니아": {
+            "atk": 125693,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "사쿠라 : 블룸 인 서머"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 20.667,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 20.767,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 20.867,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 21.25,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 31.25,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 35.633,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 35.733,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 35.833,
+            "event": "stage:3 사용",
+            "character": "사쿠라 : 블룸 인 서머"
+          },
+          {
+            "time": 36.217,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 6376.434,
+        "initialization_ms": 6.713,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1164072,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 54.376,
+          "allocation_upload_host": 3.162,
+          "kernel_cuda": 6316.833,
+          "kernel_launch_sync_host": 6316.805,
+          "readback_host": 0.305,
+          "decode_host": 1.786
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "사쿠라 : 블룸 인 서머": {
+            "hp": 2980819,
+            "hp_pct": 100,
+            "max_hp": 2980819
+          },
+          "리타": {
+            "hp": 3267307,
+            "hp_pct": 100,
+            "max_hp": 3267307
+          },
+          "크라운": {
+            "hp": 3557120,
+            "hp_pct": 100,
+            "max_hp": 3557120
+          },
+          "앨리스": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "모더니아": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "사쿠라 : 블룸 인 서머": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 517,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 59,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1009,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 136,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2058,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 96,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 33,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2033,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 45.8258033333321
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 6376.434,
+        "batch_workspace_bytes": 9312576,
+        "amortized_elapsed_ms": 797.054
+      }
+    },
+    {
+      "value": 3000,
+      "meets": true,
+      "result": {
+        "total_damage": 596449508,
+        "members": [
+          {
+            "name": "사쿠라 : 블룸 인 서머",
+            "damage": 127824366,
+            "share": 0.21430877934431963
+          },
+          {
+            "name": "리타",
+            "damage": 39161683,
+            "share": 0.06565800201816915
+          },
+          {
+            "name": "크라운",
+            "damage": 56261454,
+            "share": 0.09432727036468609
+          },
+          {
+            "name": "앨리스",
+            "damage": 127507895,
+            "share": 0.2137781879099144
+          },
+          {
+            "name": "모더니아",
+            "damage": 245694110,
+            "share": 0.41192776036291073
+          }
+        ],
+        "base_stats": {
+          "사쿠라 : 블룸 인 서머": {
+            "atk": 127386,
+            "def": 19931,
+            "hp": 2980819
+          },
+          "리타": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "크라운": {
+            "atk": 87387,
+            "def": 20905,
+            "hp": 3557120
+          },
+          "앨리스": {
+            "atk": 125311,
+            "def": 17769,
+            "hp": 3001638
+          },
+          "모더니아": {
+            "atk": 125693,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "사쿠라 : 블룸 인 서머"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 20.667,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 20.767,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 20.867,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 21.25,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 31.25,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 35.633,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 35.733,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 35.833,
+            "event": "stage:3 사용",
+            "character": "사쿠라 : 블룸 인 서머"
+          },
+          {
+            "time": 36.217,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 6376.434,
+        "initialization_ms": 6.713,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1164072,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 54.376,
+          "allocation_upload_host": 3.162,
+          "kernel_cuda": 6316.833,
+          "kernel_launch_sync_host": 6316.805,
+          "readback_host": 0.305,
+          "decode_host": 1.786
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "사쿠라 : 블룸 인 서머": {
+            "hp": 2980819,
+            "hp_pct": 100,
+            "max_hp": 2980819
+          },
+          "리타": {
+            "hp": 3267307,
+            "hp_pct": 100,
+            "max_hp": 3267307
+          },
+          "크라운": {
+            "hp": 3557120,
+            "hp_pct": 100,
+            "max_hp": 3557120
+          },
+          "앨리스": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "모더니아": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "사쿠라 : 블룸 인 서머": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 517,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 59,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1009,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 136,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2058,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 96,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 33,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2033,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 45.8258033333321
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 6376.434,
+        "batch_workspace_bytes": 9312576,
+        "amortized_elapsed_ms": 797.054
+      }
+    },
+    {
+      "value": 4000,
+      "meets": true,
+      "result": {
+        "total_damage": 597485826,
+        "members": [
+          {
+            "name": "사쿠라 : 블룸 인 서머",
+            "damage": 128860684,
+            "share": 0.21567153293440638
+          },
+          {
+            "name": "리타",
+            "damage": 39161683,
+            "share": 0.06554412053952222
+          },
+          {
+            "name": "크라운",
+            "damage": 56261454,
+            "share": 0.09416366305566552
+          },
+          {
+            "name": "앨리스",
+            "damage": 127507895,
+            "share": 0.21340739721581278
+          },
+          {
+            "name": "모더니아",
+            "damage": 245694110,
+            "share": 0.4112132862545931
+          }
+        ],
+        "base_stats": {
+          "사쿠라 : 블룸 인 서머": {
+            "atk": 128386,
+            "def": 19931,
+            "hp": 2980819
+          },
+          "리타": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "크라운": {
+            "atk": 87387,
+            "def": 20905,
+            "hp": 3557120
+          },
+          "앨리스": {
+            "atk": 125311,
+            "def": 17769,
+            "hp": 3001638
+          },
+          "모더니아": {
+            "atk": 125693,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "사쿠라 : 블룸 인 서머"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 20.667,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 20.767,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 20.867,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 21.25,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 31.25,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 35.633,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 35.733,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 35.833,
+            "event": "stage:3 사용",
+            "character": "사쿠라 : 블룸 인 서머"
+          },
+          {
+            "time": 36.217,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 6376.434,
+        "initialization_ms": 6.713,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1164072,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 54.376,
+          "allocation_upload_host": 3.162,
+          "kernel_cuda": 6316.833,
+          "kernel_launch_sync_host": 6316.805,
+          "readback_host": 0.305,
+          "decode_host": 1.786
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "사쿠라 : 블룸 인 서머": {
+            "hp": 2980819,
+            "hp_pct": 100,
+            "max_hp": 2980819
+          },
+          "리타": {
+            "hp": 3267307,
+            "hp_pct": 100,
+            "max_hp": 3267307
+          },
+          "크라운": {
+            "hp": 3557120,
+            "hp_pct": 100,
+            "max_hp": 3557120
+          },
+          "앨리스": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "모더니아": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "사쿠라 : 블룸 인 서머": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 517,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 59,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1009,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 136,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2058,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 96,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 33,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2033,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 45.8258033333321
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 6376.434,
+        "batch_workspace_bytes": 9312576,
+        "amortized_elapsed_ms": 797.054
+      }
+    },
+    {
+      "value": 5000,
+      "meets": true,
+      "result": {
+        "total_damage": 598522001,
+        "members": [
+          {
+            "name": "사쿠라 : 블룸 인 서머",
+            "damage": 129896859,
+            "share": 0.2170293803452014
+          },
+          {
+            "name": "리타",
+            "damage": 39161683,
+            "share": 0.065430649056458
+          },
+          {
+            "name": "크라운",
+            "damage": 56261454,
+            "share": 0.09400064476493655
+          },
+          {
+            "name": "앨리스",
+            "damage": 127507895,
+            "share": 0.21303794144068566
+          },
+          {
+            "name": "모더니아",
+            "damage": 245694110,
+            "share": 0.41050138439271844
+          }
+        ],
+        "base_stats": {
+          "사쿠라 : 블룸 인 서머": {
+            "atk": 129386,
+            "def": 19931,
+            "hp": 2980819
+          },
+          "리타": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "크라운": {
+            "atk": 87387,
+            "def": 20905,
+            "hp": 3557120
+          },
+          "앨리스": {
+            "atk": 125311,
+            "def": 17769,
+            "hp": 3001638
+          },
+          "모더니아": {
+            "atk": 125693,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "사쿠라 : 블룸 인 서머"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 20.667,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 20.767,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 20.867,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 21.25,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 31.25,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 35.633,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 35.733,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 35.833,
+            "event": "stage:3 사용",
+            "character": "사쿠라 : 블룸 인 서머"
+          },
+          {
+            "time": 36.217,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 6376.434,
+        "initialization_ms": 6.713,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1164072,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 54.376,
+          "allocation_upload_host": 3.162,
+          "kernel_cuda": 6316.833,
+          "kernel_launch_sync_host": 6316.805,
+          "readback_host": 0.305,
+          "decode_host": 1.786
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "사쿠라 : 블룸 인 서머": {
+            "hp": 2980819,
+            "hp_pct": 100,
+            "max_hp": 2980819
+          },
+          "리타": {
+            "hp": 3267307,
+            "hp_pct": 100,
+            "max_hp": 3267307
+          },
+          "크라운": {
+            "hp": 3557120,
+            "hp_pct": 100,
+            "max_hp": 3557120
+          },
+          "앨리스": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "모더니아": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "사쿠라 : 블룸 인 서머": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 517,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 59,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1009,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 136,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2058,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 96,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 33,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2033,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 45.8258033333321
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 6376.434,
+        "batch_workspace_bytes": 9312576,
+        "amortized_elapsed_ms": 797.054
+      }
+    },
+    {
+      "value": 6000,
+      "meets": true,
+      "result": {
+        "total_damage": 599558254,
+        "members": [
+          {
+            "name": "사쿠라 : 블룸 인 서머",
+            "damage": 130933112,
+            "share": 0.21838263609327277
+          },
+          {
+            "name": "리타",
+            "damage": 39161683,
+            "share": 0.06531756128571287
+          },
+          {
+            "name": "크라운",
+            "damage": 56261454,
+            "share": 0.0938381777327679
+          },
+          {
+            "name": "앨리스",
+            "damage": 127507895,
+            "share": 0.21266973500793468
+          },
+          {
+            "name": "모더니아",
+            "damage": 245694110,
+            "share": 0.4097918898803118
+          }
+        ],
+        "base_stats": {
+          "사쿠라 : 블룸 인 서머": {
+            "atk": 130386,
+            "def": 19931,
+            "hp": 2980819
+          },
+          "리타": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "크라운": {
+            "atk": 87387,
+            "def": 20905,
+            "hp": 3557120
+          },
+          "앨리스": {
+            "atk": 125311,
+            "def": 17769,
+            "hp": 3001638
+          },
+          "모더니아": {
+            "atk": 125693,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "사쿠라 : 블룸 인 서머"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 20.667,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 20.767,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 20.867,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 21.25,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 31.25,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 35.633,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 35.733,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 35.833,
+            "event": "stage:3 사용",
+            "character": "사쿠라 : 블룸 인 서머"
+          },
+          {
+            "time": 36.217,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 6376.434,
+        "initialization_ms": 6.713,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1164072,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 54.376,
+          "allocation_upload_host": 3.162,
+          "kernel_cuda": 6316.833,
+          "kernel_launch_sync_host": 6316.805,
+          "readback_host": 0.305,
+          "decode_host": 1.786
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "사쿠라 : 블룸 인 서머": {
+            "hp": 2980819,
+            "hp_pct": 100,
+            "max_hp": 2980819
+          },
+          "리타": {
+            "hp": 3267307,
+            "hp_pct": 100,
+            "max_hp": 3267307
+          },
+          "크라운": {
+            "hp": 3557120,
+            "hp_pct": 100,
+            "max_hp": 3557120
+          },
+          "앨리스": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "모더니아": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "사쿠라 : 블룸 인 서머": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 517,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 59,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1009,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 136,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2058,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 96,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 33,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2033,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 45.8258033333321
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 6376.434,
+        "batch_workspace_bytes": 9312576,
+        "amortized_elapsed_ms": 797.054
+      }
+    },
+    {
+      "value": 7000,
+      "meets": true,
+      "result": {
+        "total_damage": 600594436,
+        "members": [
+          {
+            "name": "사쿠라 : 블룸 인 서머",
+            "damage": 131969294,
+            "share": 0.21973112984350057
+          },
+          {
+            "name": "리타",
+            "damage": 39161683,
+            "share": 0.06520487146171297
+          },
+          {
+            "name": "크라운",
+            "damage": 56261454,
+            "share": 0.09367628240898322
+          },
+          {
+            "name": "앨리스",
+            "damage": 127507895,
+            "share": 0.2123028242639264
+          },
+          {
+            "name": "모더니아",
+            "damage": 245694110,
+            "share": 0.4090848920218768
+          }
+        ],
+        "base_stats": {
+          "사쿠라 : 블룸 인 서머": {
+            "atk": 131386,
+            "def": 19931,
+            "hp": 2980819
+          },
+          "리타": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "크라운": {
+            "atk": 87387,
+            "def": 20905,
+            "hp": 3557120
+          },
+          "앨리스": {
+            "atk": 125311,
+            "def": 17769,
+            "hp": 3001638
+          },
+          "모더니아": {
+            "atk": 125693,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "사쿠라 : 블룸 인 서머"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 20.667,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 20.767,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 20.867,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 21.25,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 31.25,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 35.633,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 35.733,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 35.833,
+            "event": "stage:3 사용",
+            "character": "사쿠라 : 블룸 인 서머"
+          },
+          {
+            "time": 36.217,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 6376.434,
+        "initialization_ms": 6.713,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1164072,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 54.376,
+          "allocation_upload_host": 3.162,
+          "kernel_cuda": 6316.833,
+          "kernel_launch_sync_host": 6316.805,
+          "readback_host": 0.305,
+          "decode_host": 1.786
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "사쿠라 : 블룸 인 서머": {
+            "hp": 2980819,
+            "hp_pct": 100,
+            "max_hp": 2980819
+          },
+          "리타": {
+            "hp": 3267307,
+            "hp_pct": 100,
+            "max_hp": 3267307
+          },
+          "크라운": {
+            "hp": 3557120,
+            "hp_pct": 100,
+            "max_hp": 3557120
+          },
+          "앨리스": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "모더니아": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "사쿠라 : 블룸 인 서머": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 517,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 59,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1009,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 136,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2058,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 96,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 33,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2033,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 45.8258033333321
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 6376.434,
+        "batch_workspace_bytes": 9312576,
+        "amortized_elapsed_ms": 797.054
+      }
+    },
+    {
+      "value": 8000,
+      "meets": true,
+      "result": {
+        "total_damage": 601630731,
+        "members": [
+          {
+            "name": "사쿠라 : 블룸 인 서머",
+            "damage": 133005589,
+            "share": 0.2210751249008256
+          },
+          {
+            "name": "리타",
+            "damage": 39161683,
+            "share": 0.06509255758080616
+          },
+          {
+            "name": "크라운",
+            "damage": 56261454,
+            "share": 0.09351492718213558
+          },
+          {
+            "name": "앨리스",
+            "damage": 127507895,
+            "share": 0.21193713756619922
+          },
+          {
+            "name": "모더니아",
+            "damage": 245694110,
+            "share": 0.4083802527700334
+          }
+        ],
+        "base_stats": {
+          "사쿠라 : 블룸 인 서머": {
+            "atk": 132386,
+            "def": 19931,
+            "hp": 2980819
+          },
+          "리타": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "크라운": {
+            "atk": 87387,
+            "def": 20905,
+            "hp": 3557120
+          },
+          "앨리스": {
+            "atk": 125311,
+            "def": 17769,
+            "hp": 3001638
+          },
+          "모더니아": {
+            "atk": 125693,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "사쿠라 : 블룸 인 서머"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 20.667,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 20.767,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 20.867,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 21.25,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 31.25,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 35.633,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 35.733,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 35.833,
+            "event": "stage:3 사용",
+            "character": "사쿠라 : 블룸 인 서머"
+          },
+          {
+            "time": 36.217,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 6376.434,
+        "initialization_ms": 6.713,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1164072,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 54.376,
+          "allocation_upload_host": 3.162,
+          "kernel_cuda": 6316.833,
+          "kernel_launch_sync_host": 6316.805,
+          "readback_host": 0.305,
+          "decode_host": 1.786
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "사쿠라 : 블룸 인 서머": {
+            "hp": 2980819,
+            "hp_pct": 100,
+            "max_hp": 2980819
+          },
+          "리타": {
+            "hp": 3267307,
+            "hp_pct": 100,
+            "max_hp": 3267307
+          },
+          "크라운": {
+            "hp": 3557120,
+            "hp_pct": 100,
+            "max_hp": 3557120
+          },
+          "앨리스": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "모더니아": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "사쿠라 : 블룸 인 서머": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 517,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 59,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1009,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 136,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2058,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 96,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 33,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2033,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 45.8258033333321
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 6376.434,
+        "batch_workspace_bytes": 9312576,
+        "amortized_elapsed_ms": 797.054
+      }
+    }
+  ],
+  "source_sha256": {
+    "server.mjs": "8ee5956ff2f6360e57d35c6ab88d63ef0f0a5a826fbb4fbad01a795e0acae010",
+    "app/detail_gpu.py": "11a953726d325ff8add44b40ee5483d3fcfc910d800629cd8553303a7951d848",
+    "app/gpu_service.py": "a5c9c707479986ab236a15cf73db872e6ac07e4f5148c9575d2c6b3fb025a2c0",
+    "app/detail_effects.cu": "2fbf5e6c76e94d257b1db65da4c9bfab910b2d223edc8debbb0374962688bf70",
+    "app/detail_effects-sm86.cubin": "859a2f162b41b6b75cd9f79971700f066f59a244053bccdc61c1daa8460bc327",
+    "app/detail_effects-sm86.json": "16747ca9d791dc51c56e1d12aceb6f06fef1e086637ce27a1b353295ce3d63a7",
+    "research/staged-dot-api-fixture.json": "a8c10e64c0d717cc1670c82fbb08e2ebb5a624dcaf1786af791d92231db19799",
+    "research/benchmark-normal-search.mjs": "e40f3e2615d0aad13cdf14bd87d6e1e48528ed2560a0b6ee43fffc34ef864545"
+  }
+}

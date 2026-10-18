@@ -1,0 +1,1 @@
+{"character": "D", "backend": "native", "passed": true, "checks": {"total_damage": true, "members": true, "base_stats": true, "burst_timeline": true, "burst_gauge_mode": true, "shooting_policy": true, "seed": true, "final_random_state": true}, "cpu_total": 180059750, "gpu_total": 180059750, "batch_size": 1, "batch_elapsed_ms": 4979.164, "workspace_bytes": 306072}

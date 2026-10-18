@@ -1,0 +1,76 @@
+{
+  "investigated_on": "2026-10-16",
+  "status": "technical feasibility research; application and real-account import not implemented",
+  "engine": {
+    "candidate": "Jgaram/nikke-calc",
+    "source": "https://github.com/Jgaram/nikke-calc",
+    "license": "MIT; preserve copyright and license when redistributing code; game assets are separate",
+    "interface": "Python JSON requests and JSON Lines batch; schema_version 2",
+    "execution": "Python worker processes; UI and optimizer remain separate from upstream",
+    "measured_evidence": "engine-probe-results.json",
+    "known_limits": [
+      "A static enemy probe does not verify boss-specific patterns, survival, or real account accuracy.",
+      "Some skill effects and burst-gauge behavior remain unsupported or approximate.",
+      "The engine accepts duplicate characters and computes absent-profile members as ungrown; the application must enforce ownership and uniqueness.",
+      "Default layers may include strong equipment, cubes, and manual controls. Import must normalize all relevant fields and explicitly select operation conditions."
+    ],
+    "optimizer_reference": {
+      "name": "Jgaram/nikke-opt",
+      "mentioned_in": "https://github.com/Jgaram/nikke-calc/blob/master/docs/SIM-JSON.md",
+      "unauthenticated_github_api_status": 404,
+      "conclusion": "Reference exists, but public source availability was not established; do not plan to reuse it."
+    }
+  },
+  "import": {
+    "recommended_first_path": "User exports growth JSON in their own signed-in BlaBlaLink browser, then imports that file locally.",
+    "public_url_path": "Optional later adapter; existing services require public profile and roster plus an authenticated fetching session. A pasted profile URL alone does not establish an official unauthenticated API.",
+    "existing_implementations": [
+      "https://dildoro.com/",
+      "https://github.com/Jgaram/nikke-calc/blob/master/scraper/profile_fetch.py",
+      "https://github.com/ExiaProject/ExiaInvasion/blob/main/README.en.md",
+      "https://github.com/leegunwoooo/nikke-api/blob/main/API.md"
+    ],
+    "routes_found_in_source": [
+      "Game/GetUserCharacters",
+      "Game/GetUserCharacterDetails",
+      "Game/GetUserProfileOutpostInfo"
+    ],
+    "raw_components": ["characters", "details", "state_effects", "outpost", "area"],
+    "mapping": [
+      "Join name_code to resource_id and the engine's canonical character name; display Japanese names separately.",
+      "Read limit breaks, core enhancement, affinity, skill levels, equipment tier/manufacturer/level and each overload slot.",
+      "Resolve option IDs with state_effects; retain per-line values and equipment-slot boundaries.",
+      "Resolve collection/favorite item IDs using versioned master mappings.",
+      "Read recycling research from outpost; missing research is unknown, not automatically a recommended default.",
+      "Preserve observed equipped cube and level separately; observed cubes are only a lower bound on cube ownership.",
+      "Preserve actual character/synchro levels; apply raid-specific level policy only during evaluation."
+    ],
+    "gaps": [
+      "No real user export was obtained or tested.",
+      "Browser export behavior, CORS/CSP and server/region handling require a real signed-in browser test.",
+      "Upstream --from-raw still fetches mapping tables from CDN; offline conversion needs a pinned mapping snapshot.",
+      "Unknown characters/options/items must be flagged instead of silently discarded or treated as fully built."
+    ],
+    "credential_handling": "The calculator imports growth JSON. Do not request that users paste login cookies or passwords into the calculator."
+  },
+  "scenario_design": {
+    "base": "Immutable imported roster snapshot, timestamp and source version",
+    "scenario": "Separate named patch over that snapshot; reset or discard without changing the import",
+    "kinds": {
+      "realizable_growth": "Skill level, item level/stage, overload lines/ranks and other legal discrete upgrades",
+      "hypothetical_stats": "Direct ATK/HP/DEF or continuous percentage experiments; explicitly hypothetical. Direct base-stat overrides require an additional engine adapter; current JSON growth schema does not expose them."
+    },
+    "goal_modes": ["Reach specified damage", "Exceed a frozen reference squad result", "Reach a five-squad total"],
+    "constraints": ["Allowed characters and growth fields", "Per-field upper bounds and increments", "Squad/position/burst-order locks", "Whether squad rebuilding is allowed"],
+    "comparison": "Use identical boss, duration, operation and expected-damage settings; keep the reference result's build frozen by default. Compare unrounded values; distinguish > from >=.",
+    "search": "Enumerate bounded discrete choices initially. More ATK or charge speed can change targeting/cycles, so do not assume monotonicity or blindly use binary search.",
+    "objective": "Show alternative upgrade plans; minimum changes and minimum resource cost are distinct objectives. Claim minimality only within the fully searched domain. Report no solution within limits separately from search incomplete.",
+    "cache_and_resume": "Key by engine/data versions, effective growth patch, ordered squad, cube assignment, boss and operation settings. Reuse only matching evaluations."
+  },
+  "next_milestones": [
+    "Implement a browser JSON exporter and strict local importer with field-level missing/unknown information.",
+    "Validate imported growth against actual in-game values and capture Japanese name mappings.",
+    "Add scenario editing and bounded single-variable target search on fixed squads.",
+    "Add multi-variable upgrade alternatives and resumable five-squad optimization."
+  ]
+}

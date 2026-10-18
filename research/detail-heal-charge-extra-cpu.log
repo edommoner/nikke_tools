@@ -1,0 +1,10 @@
+{"name": "charge-extra-same-name-two-owners", "passed": true, "checks": {"compile": true, "positive_charge": true, "both_owners_release": true}, "total": 300295}
+{"name": "charge-extra-expiry-recreate-before-release", "passed": true, "checks": {"compile": true, "positive_charge": true, "recreation_does_not_lose_previous_quantity": true}, "total": 296098}
+{"name": "charge-extra-cleanse-then-new-same-name", "passed": true, "checks": {"compile": true, "positive_charge": true, "later_end_does_not_resurrect_old_quantity": true}, "total": 281730}
+{"name": "charge-extra-expired-boost-keeps-collected", "passed": true, "checks": {"compile": true, "positive_charge": true, "above_base_quantity_survives_bonus_expiry": true}, "total": 296098}
+{"name": "charge-extra-zero-cap-companion", "passed": true, "checks": {"compile": true, "positive_charge": true, "nonpositive_pool_never_collects": true}, "total": 300776}
+{"name": "charge-extra-negative-cap-companion", "passed": true, "checks": {"compile": true, "positive_charge": true, "nonpositive_pool_never_collects": true}, "total": 300776}
+{"name": "charge-extra-release-inside-HP-edge", "passed": true, "checks": {"compile": true, "positive_charge": true, "edge_release_occurs_before_expiry": true}, "total": 282649}
+{"name": "charge-extra-live-second-pool-receives-release", "passed": true, "checks": {"compile": true, "positive_charge": true, "new_pool_collects_first_release": true}, "total": 293528}
+{"name": "charge-extra-other-caster-capacity-bonus", "passed": true, "checks": {"compile": true, "positive_charge": true, "bonus_from_other_caster_applies": true}, "total": 296098}
+{"name": "charge-extra-fractional-gear-and-potency", "passed": true, "checks": {"compile": true, "positive_charge": true}, "total": 427887}

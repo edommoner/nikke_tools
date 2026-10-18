@@ -1,0 +1,219 @@
+{
+  "passed": true,
+  "cpu_trace_used_as_gpu_input": false,
+  "scope": "CPU-only proof that authored zero-stack marker and real cross-character persona selection actually occur",
+  "primitives": [
+    {
+      "name": "below-defense-uses-live-percent-buffs",
+      "passed": true,
+      "observations": []
+    },
+    {
+      "name": "below-defense-uses-caster-based-flat-defense",
+      "passed": true,
+      "observations": []
+    },
+    {
+      "name": "below-defense-equality-is-excluded",
+      "passed": true,
+      "observations": []
+    },
+    {
+      "name": "top-defense-retains-pinned-base-stat-ranking",
+      "passed": true,
+      "observations": []
+    },
+    {
+      "name": "below-defense-list-is-eager-string-is-lazy",
+      "passed": true,
+      "observations": []
+    },
+    {
+      "name": "below-defense-raw-active-values-ignore-runtime-gate",
+      "passed": true,
+      "observations": []
+    },
+    {
+      "name": "persona-filters-innate-stage-and-recipient-membership",
+      "passed": true,
+      "observations": [
+        {
+          "selected": [
+            "앨리스",
+            "모더니아"
+          ],
+          "markers": [
+            {
+              "stack": 1,
+              "recipients": [
+                "크라운"
+              ]
+            },
+            {
+              "stack": 1,
+              "recipients": [
+                "앨리스"
+              ]
+            },
+            {
+              "stack": 1,
+              "recipients": [
+                "모더니아"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "persona-excludes-caster",
+      "passed": true,
+      "observations": [
+        {
+          "selected": [
+            "모더니아"
+          ],
+          "markers": [
+            {
+              "stack": 1,
+              "recipients": [
+                "앨리스"
+              ]
+            },
+            {
+              "stack": 1,
+              "recipients": [
+                "모더니아"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "persona-honors-pinned-innate-stage",
+      "passed": true,
+      "observations": [
+        {
+          "selected": [
+            "크라운"
+          ],
+          "markers": [
+            {
+              "stack": 1,
+              "recipients": [
+                "크라운"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "zero-stack-persona-marker-still-counts",
+      "passed": true,
+      "observations": [
+        {
+          "selected": [
+            "앨리스"
+          ],
+          "markers": [
+            {
+              "stack": 0,
+              "recipients": [
+                "앨리스"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "persona-filter-does-not-force-lazy-marker-targets",
+      "passed": true,
+      "observations": [
+        {
+          "selected": [],
+          "markers": [
+            {
+              "stack": 1,
+              "recipients": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "enemy-stun-gates-at-activation-and-remains-latched",
+      "passed": true,
+      "observations": []
+    },
+    {
+      "name": "same-frame-expired-stun-still-gates-activation",
+      "passed": true,
+      "observations": []
+    },
+    {
+      "name": "enemy-stun-immunity-suppresses-until-removed",
+      "passed": true,
+      "observations": []
+    },
+    {
+      "name": "allied-stun-immunity-expiry-restores-existing-stun",
+      "passed": true,
+      "observations": []
+    },
+    {
+      "name": "persistent-self-state-generic-mode",
+      "passed": true,
+      "observations": []
+    },
+    {
+      "name": "persistent-self-state-empty-mode",
+      "passed": true,
+      "observations": []
+    }
+  ],
+  "real_persona": {
+    "cpu_total": 997057331,
+    "selections": [
+      {
+        "caster": "퀸(마코토)",
+        "selected": [
+          "유키코"
+        ]
+      },
+      {
+        "caster": "유키코",
+        "selected": [
+          "퀸(마코토)"
+        ]
+      },
+      {
+        "caster": "퀸(마코토)",
+        "selected": [
+          "유키코"
+        ]
+      },
+      {
+        "caster": "유키코",
+        "selected": [
+          "퀸(마코토)"
+        ]
+      },
+      {
+        "caster": "퀸(마코토)",
+        "selected": [
+          "유키코"
+        ]
+      }
+    ]
+  },
+  "source_sha256": {
+    "scripts/verify-predicate-stimuli.py": "1b94a6b8f2d5c681f0317d6fbc825dfccc8ca95747105e17a52da89e3ef36896",
+    "scripts/verify-predicates-detail.py": "445fad6aee8b59d4dedf0a851a3f265fbed7706661b65fd217b3b2fee3fbf0b3",
+    "app/detail_gpu.py": "bbb910ce0150bc9267d01b8d6b96afeb88cfd8df6d80d075dcf9577915f8890c",
+    "app/engine_compat.py": "f57f89a81f1f70e83aed7d2a175d33613fc5b126f62d0c67658a326c51455c66",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}

@@ -1,0 +1,321 @@
+{
+  "generated_at": "2026-10-17T07:23:50.855392+00:00",
+  "cpu_reference_verified": true,
+  "gpu_implemented": false,
+  "objective_complete": false,
+  "cases": [
+    {
+      "name": "self-cross",
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "total": 220485
+    },
+    {
+      "name": "already-below",
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "total": 220485
+    },
+    {
+      "name": "rearm-after-heal",
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.35,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "self edge witness",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        }
+      ],
+      "total": 222277
+    },
+    {
+      "name": "second-cross-counter",
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.35,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "self edge witness",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        }
+      ],
+      "total": 219840
+    },
+    {
+      "name": "squad-observer-order",
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "squad edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "squad edge witness",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "squad edge witness",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "squad edge witness",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "squad edge witness",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        }
+      ],
+      "total": 222917
+    },
+    {
+      "name": "adjacent-observers",
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "adjacent low witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "adjacent low witness",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        }
+      ],
+      "total": 220485
+    },
+    {
+      "name": "adjacent-max-transition",
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "모더니아"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "adjacent low witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "adjacent low witness",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "adjacent max witness",
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "name": "adjacent max witness",
+          "time": 0.3,
+          "caster": "모더니아"
+        }
+      ],
+      "total": 222661
+    },
+    {
+      "name": "reentrant-heal",
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "adjacent low witness",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        }
+      ],
+      "total": 220485
+    }
+  ],
+  "source_sha256": {
+    "scripts/audit-hp-edge-events.py": "e5b027e273fb152214e4d8215b3ec3ac9c4039f8c2d95577b95ffd88e4ccf022",
+    "scripts/verify-incoming-detail.py": "76bf238f9d184c491984c767f5cf8be3d0206d89130a6457f7e78e6d8004aa7d",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/engine_compat.py": "9a488b1986b42a49993f7e944c33747c514d5a0d4f4ab1495fee5a4c1436bb71",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299"
+  }
+}

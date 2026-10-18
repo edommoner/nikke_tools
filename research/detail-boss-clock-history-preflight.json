@@ -1,0 +1,27 @@
+[
+  {
+    "name": "delayed-repeating-core",
+    "log_entries": 200,
+    "maximum_node_ends": 100
+  },
+  {
+    "name": "until-after-consumes-old-ends",
+    "log_entries": 1438,
+    "maximum_node_ends": 360
+  },
+  {
+    "name": "weapon-lists-and-mode",
+    "log_entries": 4,
+    "maximum_node_ends": 1
+  },
+  {
+    "name": "parts-carry-and-phase-events",
+    "log_entries": 2,
+    "maximum_node_ends": 1
+  },
+  {
+    "name": "real-team-hits-accumulate",
+    "log_entries": 202,
+    "maximum_node_ends": 100
+  }
+]

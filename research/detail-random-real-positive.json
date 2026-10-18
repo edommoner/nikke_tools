@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "cpu_reference_only": true,
+  "cases": [
+    {
+      "name": "real-cocoa-positive-cleanse",
+      "seed": 0,
+      "mode": "fixed",
+      "positive_random_picks": 2,
+      "changed_harmful_instances": 6,
+      "cpu_total": 254259858
+    },
+    {
+      "name": "real-cocoa-positive-cleanse",
+      "seed": 0,
+      "mode": "accumulate",
+      "positive_random_picks": 2,
+      "changed_harmful_instances": 6,
+      "cpu_total": 237850301
+    },
+    {
+      "name": "real-cocoa-positive-cleanse",
+      "seed": 12345,
+      "mode": "fixed",
+      "positive_random_picks": 2,
+      "changed_harmful_instances": 6,
+      "cpu_total": 257931107
+    },
+    {
+      "name": "real-cocoa-positive-cleanse",
+      "seed": 12345,
+      "mode": "accumulate",
+      "positive_random_picks": 2,
+      "changed_harmful_instances": 7,
+      "cpu_total": 238536974
+    },
+    {
+      "name": "real-cocoa-positive-cleanse",
+      "seed": 4294967295,
+      "mode": "fixed",
+      "positive_random_picks": 2,
+      "changed_harmful_instances": 7,
+      "cpu_total": 248639152
+    },
+    {
+      "name": "real-cocoa-positive-cleanse",
+      "seed": 4294967295,
+      "mode": "accumulate",
+      "positive_random_picks": 2,
+      "changed_harmful_instances": 7,
+      "cpu_total": 231187492
+    }
+  ]
+}

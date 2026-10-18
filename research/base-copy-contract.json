@@ -1,0 +1,55 @@
+{
+  "abi": "detail_lifecycle_carriers_v48",
+  "objective_complete": false,
+  "verification_status": "Verified jointly with existing-carrier migration: native nineteen copy cases, portable nine copy cases, full native 216 methods and normal APIs passed. See research/carrier-checkpoint.json. Independent CPU expectations are retained; no blanket game verification claim.",
+  "stat_codes": {
+    "atk_copy": 85,
+    "hp_copy": 86
+  },
+  "operation": "base_stat_copy",
+  "sources": "research/copy-stat-evidence.json",
+  "selection": "At each activation select the living squad member with greatest assembled base ATK or HP. Include self and break ties by squad position. Freeze selected identity and base quantity in the carrier until the next activation.",
+  "selection_evidence": "Independent guides describe base-stat selection and self eligibility. This deliberately rejects a local parsed note suggesting final-ATK ranking. The original CPU omitted both copy stats. Living-state filtering, tie order and source reselection interactions remain explicit model choices requiring further in-game evidence.",
+  "ATK": "Copied base quantity times current percentage/stack contributes flat ATK through the existing buff aggregation order. Instant stack increases change the contribution without another source selection.",
+  "HP": "Copied base quantity times current percentage/stack contributes flat maximum HP. Activation adds only a positive difference from the previous gift to current HP; unchanged refresh adds zero. Stack initialization grants no current HP, but synchronizes derived HP percentage and HP conditions before its caller resumes. Healing potency, healing share and overheal storage do not amplify or intercept this HP grant. Expiry follows existing HP-source expiry: state-end event, then current-HP cap and synchronization.",
+  "initialized_HP_policy": "The operation catalog declares initial_hp_stats. CPU preparation receives initialization context and the common after-dispatch hook synchronizes the flagged carrier. Generated lifecycle_init_hp uses the same declared numeric stat set and the GPU's existing ordered HP queue, without extra allocation or character checks.",
+  "initialized_HP_evidence": "research/base-copy-init-percent-before.json records current HP 1000 and max HP 2000 with an obsolete cached 100 percent. Independent HP witnesses now assert current HP, maximum HP and their derived percentage together; the initialized-copy squad includes an HP-conditional ATK effect.",
+  "prepare_phase": {
+    "CPU": "Four checked source anchors: one instance append and two refresh counter updates in the existing activation rewrite, plus the stack-init append in the common dispatch adapter. Pass the exact created/refreshed carrier before named/stack child notifications or value logging. Retain its identity in a nested activation context for subsequent quantity application. No character-specific activation wrapper.",
+    "GPU": "Generated lifecycle_prepare runs after generic instance/stack/target setup and before notification continuations. The copied source basis is visible to nested damage and state queries.",
+    "failure": "Exact source-edit counts, required handler registration and generated CUDA equality are checked. Missing initialization is not replaced by a guessed CPU value."
+  },
+  "state": "RuntimeState pool for CPU carriers; type-guarded reuse of existing per-instance scalar slots on GPU. No additional per-squad allocation. Base quantity and selected source use capacity slots 0/1; HP last gift and delta use current slots 0/1.",
+  "carrier_identity": "A definition and caster may own several live instances for different captured recipient sets. Preparation and HP-grant continuation use the currently activated instance, not first_instance or a name-based search. GPU continuation validates both slot and entry generation, so removal plus stack-init cannot reuse the removed parent's pending grant. Nested CPU activation and exception cleanup restore the previous carrier object. Child removal changes the remaining recipient set before the HP-grant queue is captured.",
+  "carrier_evidence": {
+    "before": "research/base-copy-instance-before.json",
+    "after": "test_base_copy_runtime.BaseCopyRuntimeTests.test_distinct_recipient_sets_initialize_distinct_carriers and test_effect_runtime.RuntimeStateTests.test_activation_carrier_context_restores_after_nested_calls_and_exceptions"
+  },
+  "compiler": "Only declared selector/axis pairs and synchronously resolved allied targets are accepted. Unknown selectors, scaling/reference variants and bullet lifetimes are rejected. Raw instruction kind, owner, target, axis and query keys are validated before CUDA.",
+  "readback": "Query 125 and optional _debug_base_copy_frames record owner/name-scoped source basis, selected source code, HP gift and carrier count on every frame and after final drain. No ordinary-mode witness queries and no CPU-state input to GPU.",
+  "independent_cases": [
+    "Reverse base and final ATK rank; activation and instant stack increase",
+    "Self eligibility and stable tie selection",
+    "Reverse base and final HP rank; loss, unchanged refresh, expiry and fresh gain despite healing potency",
+    "Named child damage observes initialized copied ATK",
+    "ATK stack-init creates a prepared source basis before any normal activation",
+    "HP stack-init establishes the maximum without ordinary activation's current-HP grant; first normal activation and expiry remain distinct",
+    "A named child removes one recipient before HP grant; the removed, injured recipient must not be healed",
+    "A named child removes the parent and initializes a replacement in the same GPU slot; the removed parent's continuation cannot grant HP to the replacement"
+  ],
+  "squad_cases": "Four authored interaction squads plus default and grown/reordered raw squads for three copy users and one combined raw squad. Native 19 cases, PTX representative 9 cases. Named-order squad initializes both families; recipient-set squad must exercise multiple live instances of a definition.",
+  "regression": "New shared preparation phase changes activation wiring: run the full native acceptance suite with copy tests first, preserving exact-case reuse and all independent assertions. An initial run was stopped after review found a missing stack-init route; a subsequent review reproduced missing preparation on a second recipient-set instance and added generation validation for slot reuse. Do not separately duplicate the corrected native 19-case run before the corrected full suite.",
+  "existing_operation_policy": "The generated current_instance policy is enabled for copies. Existing operations retain their prior first-instance policy until a separately verified migration; their compiler acceptance and numerical behavior must not be silently changed by the copy port.",
+  "compiler_audit": {
+    "previous_programs_unchanged": 887,
+    "new_contexts": 15,
+    "standard_accepted": 171,
+    "standard_total": 203,
+    "favorite_accepted": 677,
+    "favorite_total": 812
+  },
+  "compilation_is_battle_verification": false,
+  "cpu_traces_used_as_gpu_input": false,
+  "game_rules_verified": false,
+  "joint_checkpoint": "research/carrier-checkpoint.json"
+}

@@ -1,0 +1,36 @@
+{
+  "scope": "Read-only timing/launch boundary audit; no benchmark and no performance claim",
+  "source_sha256": {
+    "app/detail_gpu.py": "826f4652485fefbf036ce246accea95fce08ce95a00372f1b433eae66aa2f412",
+    "app/gpu_selector.py": "913cf0fdab130614dbf1b73e6016550a4ea07b6fee27f540f6bae079e1c2c2b3",
+    "app/detail_effects.cu": "9ed73c00bc168cffb2405970e7c0a5c09f8d16b6c53e9389be519c57fc0b2884"
+  },
+  "findings": [
+    {
+      "source": "app/detail_gpu.py:735-756",
+      "fact": "initialization_ms covers module image validation/load and cache lookup; Cuda context construction occurs elsewhere."
+    },
+    {
+      "source": "app/detail_gpu.py:759-773",
+      "fact": "elapsed_ms includes Python input packing, allocations, uploads, kernel launch/synchronization, readback and query-list formatting. It is not a device-only kernel measurement."
+    },
+    {
+      "source": "app/detail_gpu.py:774-778",
+      "fact": "Buffer release in finally occurs after elapsed_ms is calculated and is excluded."
+    },
+    {
+      "source": "app/detail_gpu.py:764-770",
+      "fact": "Each run allocates its workspace and all input/output buffers. Launch is one thread/block per squad; context/module reuse does not imply buffer reuse."
+    },
+    {
+      "source": "app/detail_effects.cu:1962",
+      "fact": "Kernel index already uses blockIdx.x * blockDim.x + threadIdx.x with id >= n guard. The old warp32 fault must not be attributed to an unverified missing thread index."
+    },
+    {
+      "source": "app/detail_gpu.py:757-758",
+      "fact": "CUDA stack limit is set to 131072 each run. Function local-memory/stack attributes and launch restrictions need measurement before any launch-geometry experiment."
+    }
+  ],
+  "next_measurement": "After full regression and checkpoint, measure preparation, allocation, host-to-device, kernel device time, device-to-host, result formatting and cleanup separately. Include complete request wall time.",
+  "no_changes_to_production": true
+}

@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-10-16T11:29:46.898Z",
+  "passed": true,
+  "normal_compare_gpu": true,
+  "cpu_verification": true,
+  "board_gpu": true,
+  "cache_separated": true,
+  "unsupported_cpu_fallback": true,
+  "total": 270272727,
+  "compute": {
+    "requested": "cuda_detail",
+    "backend": "cuda_detail",
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "elapsed_ms": 5646.175,
+    "initialization_ms": 7.057,
+    "module_backend": "cubin-sm86",
+    "workspace_bytes": 211000,
+    "scope": "five-member autonomous detailed simulation",
+    "parity": "regression-tested supported mechanics; not all characters",
+    "final_hp": {
+      "모더니아": {
+        "hp": 3198970.5694,
+        "hp_pct": 90.57004774193314,
+        "max_hp": 3532040.2817
+      },
+      "루주": {
+        "hp": 3538132.5694,
+        "hp_pct": 91.39622039709752,
+        "max_hp": 3871202.2817
+      },
+      "마스트 : 로망틱 메이드": {
+        "hp": 3629691.5694,
+        "hp_pct": 91.59500942340097,
+        "max_hp": 3962761.2817
+      },
+      "도라": {
+        "hp": 3933296.5694,
+        "hp_pct": 92.19312899296392,
+        "max_hp": 4266366.2817
+      },
+      "맥스웰": {
+        "hp": 3384009.5694,
+        "hp_pct": 91.03947785187752,
+        "max_hp": 3717079.2817
+      }
+    },
+    "cpu_verification": {
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "matched": true
+    }
+  },
+  "source_sha256": {
+    "app/detail_gpu.py": "4e83a73a794582270b4715fde923b1b74a11e40a9cb4bf71c30283a9f889204e",
+    "app/detail_effects.cu": "0d854fbec95fbb8207f38177f63939db87e5a1562c3c929b2b5f380279103557",
+    "app/detail_effects.ptx": "c7cbae7306a7ed1ad1fcb3e3cd223e364697c9ae457225a56591b53b7f0bb723",
+    "app/detail_effects-sm86.cubin": "b903aed632f2cab49da9f0ec20a6d3f64c0d650ea84ffb80025a7822ae73ed3c",
+    "app/engine_worker.py": "1e65050d46b5d31572987353da0521e4d9e1ba49758f9a12582e4aa4c233cd5b",
+    "server.mjs": "1a4893b15953a714ce8a095ac9777eb13d38302237933f4d428dcd2a8cc64578",
+    "web/app.js": "733ac6ea0762c2378395448107b788d59e6f072b7f9f9625e36fc30fd0a95203",
+    "web/index.html": "d6ca5e58b30c46a80fc96d5f5e3e9d21dd6663d9f3a540307e41c6489ea3594b"
+  }
+}

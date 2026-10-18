@@ -1,0 +1,8 @@
+test_authored_positive_counts_agree_with_independent_cpu (test_detail_counts.TriggerCountCompilerTests.test_authored_positive_counts_agree_with_independent_cpu) ... ok
+test_invalid_reduction_values_and_instant_variant_fail_closed (test_detail_counts.TriggerCountCompilerTests.test_invalid_reduction_values_and_instant_variant_fail_closed) ... ok
+test_raw_timing_group_identity_and_partial_counter_descriptor (test_detail_counts.TriggerCountCompilerTests.test_raw_timing_group_identity_and_partial_counter_descriptor) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.013s
+
+OK

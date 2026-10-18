@@ -1,0 +1,19 @@
+{
+  "status": "research only; no current production mutation",
+  "source": "https://www.prydwen.gg/nikke/characters/elegg-boom-and-shock",
+  "kind": "Game skill description reproduced by community guide plus its mechanics analysis; not our own game test",
+  "observations": {
+    "burst": "The current guide explicitly includes full-burst bonuses and entry buffs; this supports the authored opt-in timing over the early demo article, but does not establish an exact animation frame.",
+    "consumption": "Lower ghost branch consumes6 and has a minimum remainder1; upper13 branch consumes9, leaving4.",
+    "zero_boundary": "Guide says six hits still occur at0 ghosts and a minimum1 is retained; test0 explicitly rather than assuming a reserve can never increase the resource.",
+    "capture": "Only hits against a possessed enemy or killing that enemy count toward capture; raw data uses squad ammunition as an approximation.",
+    "recapture": "At cap13, a capture attempt causes the overflow attack; possession is applied every6seconds and cleared after a successful capture."
+  },
+  "next_common_requirements": [
+    "Per-operation consumption floor, distinct from a global minimum resource value",
+    "No synthetic capture or ammo events caused merely by clamping a consumed resource",
+    "Target-associated hit counter and marker lifetime/removal; distinguish ammo fired from actual target hits",
+    "Separate cast-time gate and hit-count snapshot from landing buffs; retain existing partial support fail-closed until all required forms implemented"
+  ],
+  "do_not_claim": "Neither pure CPU parity nor accepting possessed as an inert name proves the whole character. Keep rejection until the approximation is corrected or its explicit model boundary is surfaced."
+}

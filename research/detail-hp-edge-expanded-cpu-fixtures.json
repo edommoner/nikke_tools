@@ -1,0 +1,2505 @@
+{
+  "cpu_verified": true,
+  "gpu_verified": false,
+  "objective_complete": false,
+  "cases": [
+    {
+      "name": "self-cross",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "total": 259473
+    },
+    {
+      "name": "already-below",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "total": 259473
+    },
+    {
+      "name": "rearm-after-heal",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.35,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "self edge witness",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        }
+      ],
+      "total": 290007
+    },
+    {
+      "name": "second-cross-counter",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.35,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "self edge witness",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        }
+      ],
+      "total": 248568
+    },
+    {
+      "name": "squad-observer-order",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "squad edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "squad edge witness",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "squad edge witness",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "squad edge witness",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "squad edge witness",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        }
+      ],
+      "total": 291146
+    },
+    {
+      "name": "adjacent-observers",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "adjacent low witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "adjacent low witness",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        }
+      ],
+      "total": 244843
+    },
+    {
+      "name": "adjacent-max-transition",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "모더니아"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "adjacent low witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "adjacent low witness",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "adjacent max witness",
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "name": "adjacent max witness",
+          "time": 0.3,
+          "caster": "모더니아"
+        }
+      ],
+      "total": 260109
+    },
+    {
+      "name": "reentrant-heal",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "adjacent low witness",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        }
+      ],
+      "total": 259473
+    },
+    {
+      "name": "epsilon-cross",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:59.9999995",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "total": 1295633
+    },
+    {
+      "name": "epsilon-no-cross",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [],
+      "activation_attempts": [],
+      "total": 1201850
+    },
+    {
+      "name": "registration-high-first",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:80",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:40",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "total": 1863749
+    },
+    {
+      "name": "registration-low-first",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:40",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "total": 1863749
+    },
+    {
+      "name": "distinct-numeric-spellings",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:60.0",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:60.0",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.44999999999999996,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:60.0",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.6000000000000002,
+          "caster": "크라운"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        }
+      ],
+      "total": 1699047
+    },
+    {
+      "name": "duplicate-key-descriptors",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.44999999999999996,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.6000000000000002,
+          "caster": "크라운"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "multiple timing witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "multiple timing witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "multiple timing witness",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "name": "multiple timing witness",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "name": "multiple timing witness",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        },
+        {
+          "name": "multiple timing witness",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        }
+      ],
+      "total": 1699047
+    },
+    {
+      "name": "multiple-exact-counts",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.44999999999999996,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.6000000000000002,
+          "caster": "크라운"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "multiple timing witness",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "name": "multiple timing witness",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "name": "multiple timing witness",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        },
+        {
+          "name": "multiple timing witness",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        }
+      ],
+      "total": 1511519
+    },
+    {
+      "name": "health-change-inside-edge",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        }
+      ],
+      "total": 1579434
+    },
+    {
+      "name": "startup-max-hp-allies",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "모더니아"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "앨리스"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "N102"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "edge witness 1",
+          "time": 0.0,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.0,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.0,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.0,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.0,
+          "caster": "N102"
+        }
+      ],
+      "total": 1499201
+    },
+    {
+      "name": "max-hp-expiry",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "모더니아"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "앨리스"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "앨리스"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "edge witness 1",
+          "time": 0.0,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.0,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.0,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.0,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.0,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.3,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.3,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.3,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.3,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.3,
+          "caster": "앨리스"
+        }
+      ],
+      "total": 1901004
+    },
+    {
+      "name": "reduce-all-sequential",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        }
+      ],
+      "total": 3310745
+    },
+    {
+      "name": "heal-all-sequential",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "앨리스"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 4",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 5",
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.3,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.3,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.3,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.3,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.3,
+          "caster": "앨리스"
+        }
+      ],
+      "total": 3712505
+    },
+    {
+      "name": "lifesteal-to-max",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        }
+      ],
+      "total": 1205923
+    },
+    {
+      "name": "incoming-crossings",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "event": "hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "event": "hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        }
+      ],
+      "total": 2904580
+    },
+    {
+      "name": "received-heal-after-edge",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [
+        {
+          "event": "hp_below:90",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:90",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:90",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "event": "hp_below:90",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "event": "hp_below:90",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "edge witness 2",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 4",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        }
+      ],
+      "total": 3323829
+    },
+    {
+      "name": "revival-suppresses-edge",
+      "compiled": true,
+      "cpu_verified": true,
+      "gpu_verified": false,
+      "events": [],
+      "activation_attempts": [],
+      "total": 1210490
+    }
+  ],
+  "source_sha256": {
+    "scripts/verify-staged-hp-edge.py": "0474400f80359572b810d6d5894da7f892d0c7312c50f5f4fe1ff713f21ceae1",
+    "research/probe-hp-edge-cpu-fixtures.py": "cd615b3e18427d58515c197ddb08702eab7f02a293175581f129774cb56feb83",
+    "research/staging/v35/app/detail_gpu.py": "009f6f86d5f0e8169ccfb6afda9b78fba2ba6fbf3b92c7ef84e25d36e85bed24",
+    "app/engine_compat.py": "9a488b1986b42a49993f7e944c33747c514d5a0d4f4ab1495fee5a4c1436bb71",
+    "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}

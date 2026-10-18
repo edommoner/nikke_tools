@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "fictional_roster": true,
+  "evidence": "Changed duration from 30 to 31 through the normal UI, clicked calculate, observed completed comparison and expanded compute JSON; no application source changed.",
+  "url": "http://127.0.0.1:4332/#single",
+  "duration": 31,
+  "total": 459518604,
+  "baseline_total": 448193761,
+  "stat_delta_atk": 12346,
+  "member_damage": [
+    124646166,
+    23857945,
+    39786047,
+    112942509,
+    158285937
+  ],
+  "backend": "cuda_detail",
+  "module_backend": "cubin-sm86",
+  "elapsed_ms": 9778.317,
+  "initialization_ms": 8.394,
+  "workspace_bytes": 320816,
+  "burst_policy": "rules",
+  "shooting_policy": "character",
+  "burst_gauge_mode": "accumulate",
+  "seed": 12345,
+  "charge_weapon_shots": {
+    "Red Hood": 51,
+    "Alice": 22
+  },
+  "cpu_verification": {
+    "total_equal": true,
+    "members_equal": true,
+    "burst_timeline_equal": true,
+    "base_stats_equal": true,
+    "seed_equal": true,
+    "burst_policy_equal": true,
+    "requested_burst_policy_equal": true,
+    "burst_patterns_equal": true,
+    "shooting_policy_equal": true,
+    "burst_gauge_mode_equal": true,
+    "parts_state_equal": true,
+    "matched": true
+  },
+  "source_sha256": {
+    "web/style.css": "7b31bbf8233930df90f9a3a93228c3b1aa39eb83af1dd94c1537f210aaf9dce2",
+    "app/detail_effects.ptx": "485ff51676c95539dda56c545d09ed289aa9a7fe23c7f76818f45d1b6ef6d02a",
+    "app/detail_gpu.py": "d946113fc3a0fa9b7d6fca172cb63c64684008a1bc2e2848a45f124e5d4822ab",
+    "web/parts-model.mjs": "26fe86258b28373e2426de6cdfbb93fe4756e91e41817cd9fd500eed7ebc76f3",
+    "app/engine_worker.py": "210e7af5f2e7fd8442e3c1018ecb252b8d9d1d74644d59c0f9c1f177ed93fd3d",
+    "app/detail_effects-sm86.cubin": "7c2ef04494f16470ee47ab5d48bfb80e0871d7c504666dbc8f6868bba2e61ce7",
+    "app/detail_world.py": "21eab702b3defef9329c6a0b819d3f490d8fa3956108d606baa8db9ba859190f",
+    "app/detail_effects.cu": "948aea837c49773aadf47c7332d0e10af75bcde24e8464cbc35bd44a5bbd6f84",
+    "web/index.html": "5995fb0d849464ef220977db0e68d4d804ddc64073192278ca8225b9d542562f",
+    "server.mjs": "1a62e431951e6b835d1b58917c4ca60ab79c2718c66936754ad46bf886e64bc8",
+    "app/gpu_service.py": "949fdf4b82fe2ee50b3f36f73f3e7688b1db3b04ae1c5336865bdc4cb75ecca7",
+    "web/app.js": "f2f36c617fb46b5f61a17d77c7e99db62beed864edbe482b9952010aad346c48",
+    "app/detail_effects-sm86.json": "31de19c73abbdd8efea083486c5cce2e5e9d2c53e9ac5665b48e5f3906307218",
+    "web/roster-model.mjs": "c1ab247dc3df507c68c2d842d9a02d32b86823b50a00b0a432d61120aa7db989"
+  },
+  "generated_at": "2026-10-16T21:31:43.986726+00:00"
+}

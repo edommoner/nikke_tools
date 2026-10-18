@@ -1,0 +1,154 @@
+{
+  "generated_at": "2026-10-16T14:52:16.748Z",
+  "passed": true,
+  "normal_compare_gpu": true,
+  "cpu_verification": true,
+  "board_gpu": true,
+  "cache_separated": true,
+  "unsupported_cpu_fallback": true,
+  "total": 677142184,
+  "burst_gauge_mode": "accumulate",
+  "gauge_modes_separate": true,
+  "shooting_policy": "auto",
+  "shooting_modes_separate": false,
+  "compute": {
+    "requested": "cuda_detail",
+    "backend": "cuda_detail",
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "elapsed_ms": 25157.437,
+    "initialization_ms": 8.115,
+    "module_backend": "cubin-sm86",
+    "workspace_bytes": 214328,
+    "scope": "five-member autonomous detailed simulation",
+    "parity": "regression-tested supported mechanics; not all characters",
+    "burst_gauge": {
+      "amount": 0,
+      "charging": false,
+      "mode": "accumulate"
+    },
+    "final_hp": {
+      "D": {
+        "hp": 2980819,
+        "hp_pct": 100,
+        "max_hp": 2980819
+      },
+      "리타": {
+        "hp": 3267307,
+        "hp_pct": 100,
+        "max_hp": 3267307
+      },
+      "크라운": {
+        "hp": 3557120,
+        "hp_pct": 100,
+        "max_hp": 3557120
+      },
+      "앨리스": {
+        "hp": 3001638,
+        "hp_pct": 100,
+        "max_hp": 3001638
+      },
+      "모더니아": {
+        "hp": 3010221,
+        "hp_pct": 100,
+        "max_hp": 3010221
+      }
+    },
+    "final_control": {
+      "D": {
+        "charging": false,
+        "phase": 0,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "",
+        "camera_mask": 4,
+        "shots": 1345,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 73,
+        "reloading_until": -1
+      },
+      "리타": {
+        "charging": false,
+        "phase": 0,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "",
+        "camera_mask": 4,
+        "shots": 1345,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 73,
+        "reloading_until": -1
+      },
+      "크라운": {
+        "charging": false,
+        "phase": 0,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "",
+        "camera_mask": 4,
+        "shots": 2711,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 161,
+        "reloading_until": -1
+      },
+      "앨리스": {
+        "charging": true,
+        "phase": 1,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "",
+        "camera_mask": 4,
+        "shots": 45,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 13,
+        "reloading_until": -1
+      },
+      "모더니아": {
+        "charging": false,
+        "phase": 0,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "",
+        "camera_mask": 4,
+        "shots": 2675,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 0,
+        "reloading_until": 60.509136666664595
+      }
+    },
+    "cpu_verification": {
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "matched": true
+    }
+  },
+  "request_sha256": "b09dec6c8d32e07e010d5030f1061310c9093ed49da038424353b5632124fb24",
+  "source_sha256": {
+    "app/detail_gpu.py": "b2e9df26295ac759815451d4243cd97a48db76ddf54e0fb675efaddee9b815d8",
+    "app/gpu_combat.py": "e4b6f2c5b48c73224dca305624cde19c516046003b56a76e6c80843d2607533f",
+    "app/detail_effects.cu": "1b0f7468c78a969d9341d92b9df629f9d636ed3e290b2e8cf92e04cfba792375",
+    "app/detail_effects.ptx": "19fa4d253c102bddb43a1a1b329cf7d5d171969f666954a2ff03d8de829b64b1",
+    "app/detail_effects-build.json": "56d26c9c8b34c504bab9bb8b776bf2f00b3d15dbe972814de746aad49f84ddc4",
+    "app/detail_effects-sm86.cubin": "db3cb6947c0fcba0c46f9d7ec1c51f47ce85cbe9d15bdf1235a4e916390c72d3",
+    "app/detail_effects-sm86.json": "b5bc2799070ec03ac715be9dd26682743b1765118c42e33fc03d5d58b121086d",
+    "app/engine_worker.py": "2069f97f963a46c39b8935d2b51c78693e855079cef9f4b198b6417abe0bdba3",
+    "app/engine_compat.py": "f57f89a81f1f70e83aed7d2a175d33613fc5b126f62d0c67658a326c51455c66",
+    "app/gpu_service.py": "25b7dfc8d453fa9a69c7b337d54af36a4dc66660cad802cc0f37a5a4295287a2",
+    "server.mjs": "1a4893b15953a714ce8a095ac9777eb13d38302237933f4d428dcd2a8cc64578",
+    "web/app.js": "81fef15c6efd9a8687eb0ae4aa8f5c0dfbe17f71e32ef0ceef7ef09c304ad634",
+    "web/index.html": "c24b147b999e3537eda83a4224cc74de2371b56f3f56e12e4da22c1e3a00bc4b",
+    "scripts/smoke-detail.mjs": "84e5314479fee5dd1d171e4caa2f32ed8f5b89e1b126d634f54bf57a3dbe580d",
+    "research/detail-burst-gauge-api-fixture.json": "2ce559f14f8bc430bee19ec25c828c6635c94792fa2967fd6d786093acee1cf1"
+  }
+}

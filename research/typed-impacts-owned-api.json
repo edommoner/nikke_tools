@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-10-17T23:41:57.313Z",
+  "passed": true,
+  "fictional_owned_data": true,
+  "live_import_verified": false,
+  "scalar_and_list_editor_roundtrip": true,
+  "pure_gpu_and_verified_and_cpu_equal": true,
+  "original_total": 590264881,
+  "total": 593105690,
+  "members": [
+    {
+      "name": "메이든 : 아이스 로즈",
+      "damage": 122020230,
+      "share": 0.20573100554810053
+    },
+    {
+      "name": "리타",
+      "damage": 39161683,
+      "share": 0.06602816944818048
+    },
+    {
+      "name": "크라운",
+      "damage": 56261454,
+      "share": 0.09485906972162078
+    },
+    {
+      "name": "앨리스",
+      "damage": 129968213,
+      "share": 0.2191316239100657
+    },
+    {
+      "name": "모더니아",
+      "damage": 245694110,
+      "share": 0.41425013137203254
+    }
+  ],
+  "burst_timeline": [
+    {
+      "time": 3,
+      "event": "stage:1 사용",
+      "character": "리타"
+    },
+    {
+      "time": 3.1,
+      "event": "stage:2 사용",
+      "character": "크라운"
+    },
+    {
+      "time": 3.2,
+      "event": "stage:3 사용",
+      "character": "메이든 : 아이스 로즈"
+    },
+    {
+      "time": 3.583,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 13.583,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 20.667,
+      "event": "stage:1 사용",
+      "character": "리타"
+    },
+    {
+      "time": 20.767,
+      "event": "stage:2 사용",
+      "character": "크라운"
+    },
+    {
+      "time": 20.867,
+      "event": "stage:3 사용",
+      "character": "앨리스"
+    },
+    {
+      "time": 21.25,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 31.25,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 35.633,
+      "event": "stage:1 사용",
+      "character": "리타"
+    },
+    {
+      "time": 35.733,
+      "event": "stage:2 사용",
+      "character": "크라운"
+    },
+    {
+      "time": 35.833,
+      "event": "stage:3 사용",
+      "character": "메이든 : 아이스 로즈"
+    },
+    {
+      "time": 36.217,
+      "event": "full_burst 시작",
+      "character": ""
+    }
+  ],
+  "source_sha256": {
+    "scripts/smoke-owned-detail.mjs": "efcea429296fe802f2e3dd6317c1cf03be2f6fcf82c0ee2cd78108ae8c1d8d60",
+    "web/roster-model.mjs": "e7e700c780d04ab01e3bc82df0af07a989af2b6dbea815a6fef8fbf5db1b8390",
+    "web/app.js": "dc015a14a22e34957529f4e0e7689312178ba2be34dd5d0033d92a044e8d3c39",
+    "web/index.html": "665ec4abdfe129bc31b3e05c81b4ae86dad5175e3c834b07278750596ccc8226",
+    "server.mjs": "8ee5956ff2f6360e57d35c6ab88d63ef0f0a5a826fbb4fbad01a795e0acae010",
+    "research/damage-basis-additive-api-fixture.json": "825af403dbf4858e5e271364bab926cf9cad42f6ec6db7d66679b6ab2ccf1642",
+    "app/detail_gpu.py": "98ca38d53bbbe891772261c01b999ecd8d804e19762bcff98eed7268466dbc47",
+    "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
+    "app/evaluation-queue.mjs": "23a1724c380470261d16b3f4d80e2fa9a9bd7c6862e1ca48ebf94844a6905344",
+    "app/detail_effects.cu": "6dc1e1598996bc78a0afdda41cc9d2d810b475c7830ad2973593bea9202fc1b2",
+    "app/detail_effects-sm86.cubin": "018b2161f143603b1f05ea7a0b4451c0853ecff6f1e3d84ba08f23f3b87eb21d",
+    "app/detail_effects-sm86.json": "424b43195d55d950535c9bcba9523c38cf960bbfaafbfb51d9f2fbaf2829a779",
+    "app/detail_effects.ptx": "8443661dc19d4c8e2fd1b289a86b17fad3212dc22366fca0203100e9f1c27e08",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/engine_compat.py": "ca841c7fe18f68682699ee71b52194c079d1a861e7f7e385b7d322e5b4d101d5",
+    "app/gpu_service.py": "a5c9c707479986ab236a15cf73db872e6ac07e4f5148c9575d2c6b3fb025a2c0"
+  }
+}

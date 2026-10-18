@@ -1,0 +1,242 @@
+{
+  "passed": true,
+  "gpu_verified": false,
+  "objective_complete": false,
+  "cases": [
+    {
+      "name": "decoy-heal-absent",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 1,
+      "positive_heals": 0
+    },
+    {
+      "name": "decoy-heal-full",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 1,
+      "positive_heals": 0
+    },
+    {
+      "name": "decoy-heal-partial",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 1,
+      "positive_heals": 1
+    },
+    {
+      "name": "decoy-heal-caster-max",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 1,
+      "positive_heals": 1
+    },
+    {
+      "name": "decoy-heal-overheal",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 1,
+      "positive_heals": 1
+    },
+    {
+      "name": "decoy-heal-negative",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 1,
+      "positive_heals": 0
+    },
+    {
+      "name": "decoy-heal-zero",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 0,
+      "positive_heals": 0
+    },
+    {
+      "name": "decoy-heal-consumed",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 125042,
+      "heals": 1,
+      "positive_heals": 0
+    },
+    {
+      "name": "decoy-heal-expired",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 1,
+      "positive_heals": 0
+    },
+    {
+      "name": "decoy-heal-periodic",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 4,
+      "positive_heals": 4
+    },
+    {
+      "name": "decoy-heal-caster-max-changes",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 3,
+      "positive_heals": 3
+    },
+    {
+      "name": "decoy-heal-ordered-duplicates",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 7,
+      "positive_heals": 6
+    },
+    {
+      "name": "decoy-heal-shared-empty",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 1,
+      "positive_heals": 1
+    },
+    {
+      "name": "decoy-heal-newer-layers",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 1,
+      "positive_heals": 1
+    },
+    {
+      "name": "decoy-heal-equal-time",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 1,
+      "positive_heals": 1
+    },
+    {
+      "name": "decoy-heal-cover-gates",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 21362,
+      "heals": 3,
+      "positive_heals": 2
+    },
+    {
+      "name": "decoy-heal-shield-gates",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 3,
+      "positive_heals": 2
+    },
+    {
+      "name": "decoy-heal-received-heal-modifier",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 1,
+      "positive_heals": 1
+    },
+    {
+      "name": "decoy-heal-stack-reference",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 1,
+      "positive_heals": 1
+    },
+    {
+      "name": "decoy-heal-timer-source-down",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 269080,
+      "heals": 4,
+      "positive_heals": 4
+    },
+    {
+      "name": "decoy-heal-owner-revives",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 271922,
+      "heals": 3,
+      "positive_heals": 2
+    },
+    {
+      "name": "raw-Rei-decoy-heal-no-shots",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 94070006,
+      "heals": 28,
+      "positive_heals": 0
+    },
+    {
+      "name": "raw-Rei-decoy-heal-incoming",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 94070006,
+      "heals": 28,
+      "positive_heals": 17
+    },
+    {
+      "name": "raw-Rei-decoy-heal-accumulate",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 91183140,
+      "heals": 25,
+      "positive_heals": 16
+    },
+    {
+      "name": "raw-Rei-decoy-heal-owned-growth",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 104575894,
+      "heals": 28,
+      "positive_heals": 19
+    },
+    {
+      "name": "raw-Rei-decoy-heal-reordered",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 122078170,
+      "heals": 10,
+      "positive_heals": 9
+    },
+    {
+      "name": "raw-Rei-decoy-heal-revival",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 62064274,
+      "heals": 1,
+      "positive_heals": 0
+    },
+    {
+      "name": "raw-Rei-decoy-heal-dead-first-B1",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 34912843,
+      "heals": 1,
+      "positive_heals": 0
+    }
+  ],
+  "source_sha256": {
+    "research/audit-decoy-healing-fixtures.py": "0556091082c2f8884da8d561cb44d0155972dc0971fd4e2c8488244d04e78980",
+    "scripts/verify-staged-decoy-healing.py": "a25c3417dc00e5b52f9209c69a7ac0a6b5285fe0b97a4e6298ad495de1ac0b19",
+    "scripts/staged-decoy-healing-runtime.py": "77ef6ab1bfa47ce8c10edf7d0826c980e194aca12ca2d37fcc124842aa8b06b6",
+    "research/staging/v38/app/detail_gpu.py": "f81fdb57920e501fb3b79a8c4ab27ba4693655d91ca18213e86e3e9bae765643",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/engine_compat.py": "02ddc15b849b1b26e4dea9ce517bf51bfc3b4f9d4929fcc1c0b1b41739cbdea0",
+    "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "app/survival_scaling_compat.py": "7d58315941ff7256dcbeb1fa38c15e7fc5a801d1e96822610d612a114b9b56bc",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}

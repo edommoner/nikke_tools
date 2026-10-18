@@ -1,0 +1,6 @@
+味方HP・防御型の編成条件（v27）をGPUに追加しました。`ally_hp_below:N` は発動時に5人のHP割合の最小値を調べ、常時バフの参照時には実際の受領者のHP割合を調べます。スキル所有者と受領者を区別し、回復・HP減少後は判定を更新します。敵に付与した効果の受領者は敵として扱い、味方の低HPを流用しません。`has_defender_ally` と `no_defender_ally` は所有者本人を除いた編成で排他的に判定します。
+
+標準条件でのコンパイル受理は133／203人、宝ものを含む監査は521／812条件となり、トリナが追加で受理されました。`python scripts/verify-ally-conditions-detail.py` はHP境界・回復・参照順・防御型構成の33条件と、トリナの全実スキルを保持した編成を含む16戦闘を各backendで照合します。計98ケースでダメージ・バースト履歴・基礎ステータス・最終乱数状態が一致し、戦闘では最終HP・HP割合・最大HPも一致しました。低HP条件が実際に成立することもCPUで観測しています。`python scripts/verify-ally-routing-detail.py` の追加6条件では、キャスター基準の攻撃力、チャージ速度のグループ集計、クリティカル、敵側補正の参照先を照合しました。
+
+現行の記録は `research/detail-ally-conditions-verification.json`、`research/detail-ally-routing-verification.json`、`research/detail-catalog-ally-conditions-verification.json`、`research/detail-ally-conditions-api-verification.json`、`research/detail-ally-conditions-ui-verification.json` です。HP減少を含む検証は検証器内で明示した入力効果を追加するもので、通常APIが任意のスキル注入やボス被ダメージを受け付けるわけではありません。全キャラ・全宝もの・全編成の一致ではなく、残る70人・291条件と被ダメージ・復活・蓄積・動くボス等の移植は継続中です。
+

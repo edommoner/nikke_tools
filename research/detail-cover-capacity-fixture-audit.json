@@ -1,0 +1,186 @@
+{
+  "passed": true,
+  "gpu_verified": false,
+  "objective_complete": false,
+  "cases": [
+    {
+      "name": "capacity-caster-not-recipient",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 1201850,
+      "capacity_changes": 1,
+      "capacity_exercised": true
+    },
+    {
+      "name": "capacity-caster-max-increases",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 1201850,
+      "capacity_changes": 2,
+      "capacity_exercised": true
+    },
+    {
+      "name": "capacity-caster-max-expires",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 1201850,
+      "capacity_changes": 2,
+      "capacity_exercised": true
+    },
+    {
+      "name": "capacity-base-pct-plus-flat",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 1201850,
+      "capacity_changes": 5,
+      "capacity_exercised": true
+    },
+    {
+      "name": "capacity-stacked-capacity",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 1201850,
+      "capacity_changes": 3,
+      "capacity_exercised": true
+    },
+    {
+      "name": "capacity-lost-HP-source-maximum",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 1201850,
+      "capacity_changes": 2,
+      "capacity_exercised": true
+    },
+    {
+      "name": "capacity-broken-cover-no-revive",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 103680,
+      "capacity_changes": 1,
+      "capacity_exercised": true
+    },
+    {
+      "name": "capacity-revive-after-capacity-change",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 103680,
+      "capacity_changes": 2,
+      "capacity_exercised": true
+    },
+    {
+      "name": "capacity-cover-runtime-gate",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 103680,
+      "capacity_changes": 3,
+      "capacity_exercised": true
+    },
+    {
+      "name": "capacity-source-down",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 830330,
+      "capacity_changes": 1,
+      "capacity_exercised": true
+    },
+    {
+      "name": "capacity-source-revives",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 1210490,
+      "capacity_changes": 1,
+      "capacity_exercised": true
+    },
+    {
+      "name": "capacity-ordered-duplicates",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 1201850,
+      "capacity_changes": 5,
+      "capacity_exercised": true
+    },
+    {
+      "name": "capacity-lazy-recipients",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 1201850,
+      "capacity_changes": 2,
+      "capacity_exercised": true
+    },
+    {
+      "name": "capacity-plain-bullet-stacks",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 1201850,
+      "capacity_changes": 39,
+      "capacity_exercised": true
+    },
+    {
+      "name": "capacity-flat-bullet-stacks",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 1201850,
+      "capacity_changes": 39,
+      "capacity_exercised": true
+    },
+    {
+      "name": "raw-Tia-capacity-no-shots",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 106155740,
+      "capacity_changes": 6,
+      "capacity_exercised": true
+    },
+    {
+      "name": "raw-Tia-capacity-incoming",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 106155740,
+      "capacity_changes": 6,
+      "capacity_exercised": true
+    },
+    {
+      "name": "raw-Tia-capacity-accumulate",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 99997822,
+      "capacity_changes": 6,
+      "capacity_exercised": true
+    },
+    {
+      "name": "raw-Tia-capacity-owned-cover-cube",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 126240621,
+      "capacity_changes": 8,
+      "capacity_exercised": true
+    },
+    {
+      "name": "raw-Tia-capacity-reordered",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 119456587,
+      "capacity_changes": 6,
+      "capacity_exercised": true
+    },
+    {
+      "name": "raw-Tia-capacity-revival",
+      "compiled": true,
+      "cpu_usable": true,
+      "total": 62709007,
+      "capacity_changes": 5,
+      "capacity_exercised": true
+    }
+  ],
+  "source_sha256": {
+    "research/audit-cover-capacity-fixtures.py": "ce15e3c52614b7369f3801408863a328ae9d0153c5e993e2f777f1e66b8dabf7",
+    "scripts/verify-staged-cover-capacity.py": "3c9511d01fa765438c866ea2afe5ac4e102378a722c92f73824c505105af25fd",
+    "scripts/staged-cover-capacity-runtime.py": "59959af182e8a824db1261dee81f88a48ce9fdb378d2dd781f22cb0d5b01fd3f",
+    "research/staging/v37/app/detail_gpu.py": "8fed5868e5d440dea431cb2508899ddff67d1328304379f448c638ce11e272ed",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/engine_compat.py": "02ddc15b849b1b26e4dea9ce517bf51bfc3b4f9d4929fcc1c0b1b41739cbdea0",
+    "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "app/survival_scaling_compat.py": "7d58315941ff7256dcbeb1fa38c15e7fc5a801d1e96822610d612a114b9b56bc",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}

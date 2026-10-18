@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-10-17T06:19:04.514862+00:00",
+  "probe_completed": true,
+  "gpu_implemented": false,
+  "objective_complete": false,
+  "cases": [
+    {
+      "character": "앨리스",
+      "cpu_valid": false,
+      "error": "TypeError(\"'<' not supported between instances of 'NoneType' and 'float'\")"
+    },
+    {
+      "character": "솔린",
+      "cpu_valid": false,
+      "error": "TypeError(\"'<' not supported between instances of 'NoneType' and 'float'\")"
+    },
+    {
+      "character": "크라운",
+      "cpu_valid": true,
+      "total": 219351,
+      "down_hit": true
+    }
+  ],
+  "source_sha256": {
+    "scripts/probe-revive-hp-passives.py": "a18a34d1461017e08d47d3713862ce330dd7f65a94b4a946e48c2ef383acf6d1",
+    "scripts/verify-incoming-detail.py": "76bf238f9d184c491984c767f5cf8be3d0206d89130a6457f7e78e6d8004aa7d",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/engine_compat.py": "f57f89a81f1f70e83aed7d2a175d33613fc5b126f62d0c67658a326c51455c66",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}

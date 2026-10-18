@@ -1,0 +1,357 @@
+test_adjacent_and_right_targets_follow_actual_squad_order (test_adapter.ImportAndEvaluationTests.test_adjacent_and_right_targets_follow_actual_squad_order) ... ok
+test_burst_rules_and_position_are_applied_without_manual_shooting (test_adapter.ImportAndEvaluationTests.test_burst_rules_and_position_are_applied_without_manual_shooting) ... ok
+test_demo_has_visible_growth_variation_and_historical_presets_have_sources (test_adapter.ImportAndEvaluationTests.test_demo_has_visible_growth_variation_and_historical_presets_have_sources) ... ok
+test_duplicate_and_unowned_are_rejected (test_adapter.ImportAndEvaluationTests.test_duplicate_and_unowned_are_rejected) ... ok
+test_mast_policy_without_mast_explicitly_reports_auto (test_adapter.ImportAndEvaluationTests.test_mast_policy_without_mast_explicitly_reports_auto) ... ok
+test_missing_fields_do_not_get_strong_defaults (test_adapter.ImportAndEvaluationTests.test_missing_fields_do_not_get_strong_defaults) ... ok
+test_no_cube_has_no_stats_or_effects (test_adapter.ImportAndEvaluationTests.test_no_cube_has_no_stats_or_effects) ... ok
+test_partial_console_and_empty_gear_are_missing (test_adapter.ImportAndEvaluationTests.test_partial_console_and_empty_gear_are_missing) ... ok
+test_raw_import_preserves_slots_and_observed_cube (test_adapter.ImportAndEvaluationTests.test_raw_import_preserves_slots_and_observed_cube) ... ok
+test_scenario_isolation_and_stat_injection (test_adapter.ImportAndEvaluationTests.test_scenario_isolation_and_stat_injection) ... ok
+test_unknown_options_block_instead_of_disappearing (test_adapter.ImportAndEvaluationTests.test_unknown_options_block_instead_of_disappearing) ... ok
+test_burst_owner_cooldown_and_mast_third_cycle (test_combat.CombatTests.test_burst_owner_cooldown_and_mast_third_cycle) ... ok
+test_checked_in_kernel_matches_build_manifest (test_combat.CombatTests.test_checked_in_kernel_matches_build_manifest) ... ok
+test_damage_matches_pinned_formula_with_random_growth_buffs_and_enemy (test_combat.CombatTests.test_damage_matches_pinned_formula_with_random_growth_buffs_and_enemy) ... ok
+test_growth_equipment_and_cube_buffs_are_compiled (test_combat.CombatTests.test_growth_equipment_and_cube_buffs_are_compiled) ... ok
+test_invalid_layout_is_rejected_before_launch (test_combat.CombatTests.test_invalid_layout_is_rejected_before_launch) ... ok
+test_preparation_never_executes_cpu_combat_and_reports_omissions (test_combat.CombatTests.test_preparation_never_executes_cpu_combat_and_reports_omissions) ... ok
+test_timeline_reload_periodic_damage_stacks_and_expiry (test_combat.CombatTests.test_timeline_reload_periodic_damage_stacks_and_expiry) ... ok
+test_empty_priority_retains_both_b1_candidates (test_detail_burst_lists.BurstListCompilerTests.test_empty_priority_retains_both_b1_candidates) ... ok
+test_exact_u32_word_boundaries (test_detail_burst_lists.BurstListCompilerTests.test_exact_u32_word_boundaries) ... ok
+test_invalid_cycle_lists_fail_closed (test_detail_burst_lists.BurstListCompilerTests.test_invalid_cycle_lists_fail_closed) ... ok
+test_marker_and_recipient_audience_are_compiled (test_detail_chains.NamedChainCompilerTests.test_marker_and_recipient_audience_are_compiled) ... ok
+test_nonexistent_named_listener_is_safe_and_unknown_scope_rejected (test_detail_chains.NamedChainCompilerTests.test_nonexistent_named_listener_is_safe_and_unknown_scope_rejected) ... ok
+test_recurrent_partial_instance_is_accepted (test_detail_chains.NamedChainCompilerTests.test_recurrent_partial_instance_is_accepted) ... ok
+test_name_callback_precedes_current_hp_gain (test_detail_chains.NamedChainGPUTests.test_name_callback_precedes_current_hp_gain) ... ok
+{"name": "marker-default-broadcast", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "recipient-adjacent-audience", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "empty-target-recipients-limited-False", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "empty-target-squad-limited-False", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "empty-target-recipients-limited-True", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "single-stack-refresh-silent-expiry-is-new", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "new-generic-precedes-stack-one", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "refresh-stack-before-generic-and-cap-still-notifies", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "lazy-first-caster-then-resolved-recipient", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "lazy-marker-stays-unresolved-on-stat-query", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "typed-notification-after-generic-and-stack", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "same-name-paths-merge-and-use-incoming-expiry", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "same-name-different-stat-remain-independent", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "remove-recreate-retains-latched-stack-one", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "refresh-recaptures-scaling-after-name-callback", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "false-passive-still-emits-cpu-named-events", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "zero-shield-snapshot-does-not-follow-later-gauge", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "positive-shield-remains-after-scaling-ref-drained", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "full-carrier-refresh-and-cap", "passed": true, "cpu": 29719415, "gpu": 29719415, "notifications": {"event:A": 5}}
+{"name": "full-name-before-health-post", "passed": true, "cpu": 30092633, "gpu": 30092633, "notifications": {"event:A": 5}}
+{"name": "full-stat-applied-and-shield-order", "passed": true, "cpu": 29890985, "gpu": 29890985, "notifications": {"event:stat_applied:dot_dmg_pct": 1, "event:shield_applied": 1}}
+{"name": "full-refresh-scaling-and-bullet-lifetimes", "passed": true, "cpu": 32677212, "gpu": 32677212, "notifications": {"event:captured": 190}}
+{"name": "full-weapon-mode-named-broadcast", "passed": true, "cpu": 71773735, "gpu": 71773735, "notifications": {"event:\uc12c\uba78 \ubaa8\ub4dc": 5}}
+test_named_order_and_complete_squads_match_cpu (test_detail_chains.NamedChainGPUTests.test_named_order_and_complete_squads_match_cpu) ... ok
+test_malformed_new_damage_fields_fail_closed (test_detail_damage.DetailedDamageTests.test_malformed_new_damage_fields_fail_closed) ... ok
+{"name": "fixed-latest-activation-then-uid-priority", "passed": true, "errors": []}
+{"name": "foreign-lock-and-nonnumeric-own-lock-use-own-base", "passed": true, "errors": []}
+{"name": "zero-fixed-is-active", "passed": true, "errors": []}
+{"name": "extra-stats-and-boolean-presence", "passed": true, "errors": []}
+{"name": "seeded-typed-damage-formula-matrix", "passed": true, "programs": 128, "integer_damage_checks": 3072, "errors": [], "module_backend": "cubin-sm86"}
+{"name": "armor-normal-and-charge-toggle-versus-ordinary-skills", "passed": true, "cpu": 11881371, "gpu": 11881371, "checks": {"armor_break_damage:2": true, "damage:2": true, "armor_both_states": true}}
+{"name": "armor-burst-combines-only-matching-shape-modifiers", "passed": true, "cpu": 15821819, "gpu": 15821819, "checks": {"armor_break_burst_damage": true}}
+{"name": "typed-skills-parts-False", "passed": true, "cpu": 61915529, "gpu": 61915529, "checks": {"sequential_damage:5": true, "projectile_attachment_damage:2": true, "projectile_explosion_damage": true, "pierce_damage": true, "damage": true}}
+{"name": "typed-skills-parts-True", "passed": true, "cpu": 70197943, "gpu": 70197943, "checks": {"sequential_damage:5": true, "projectile_attachment_damage:2": true, "projectile_explosion_damage": true, "pierce_damage": true, "damage": true}}
+{"name": "dynamic-hit-counts-zero-missing-and-fractional-refs", "passed": true, "cpu": 52331019, "gpu": 52331019, "checks": {"sequential_damage:shots": true, "damage": true, "damage:unregistered": true}}
+{"name": "numeric-hit-count-overrides-scaling-reference", "passed": true, "cpu": 49611660, "gpu": 49611660, "checks": {"damage:2": true}}
+{"name": "deferred-b3-coefficient-reference-at-landing-0", "passed": true, "cpu": 55871193, "gpu": 55871193, "checks": {"bonus_damage": true}}
+{"name": "deferred-b3-coefficient-reference-at-landing-2", "passed": true, "cpu": 56561871, "gpu": 56561871, "checks": {"bonus_damage": true}}
+{"name": "live-fixed-charge-order-expiry-and-speed-suppression", "passed": true, "cpu": 54374653, "gpu": 54374653, "checks": {}}
+{"name": "forced-core-skill-0", "passed": true, "cpu": 30530714, "gpu": 30530714, "checks": {"core_damage": true}}
+{"name": "forced-core-skill-50", "passed": true, "cpu": 46471521, "gpu": 46471521, "checks": {"core_damage": true}}
+{"name": "static-class-limit-squad-and-named-targets", "passed": true, "cpu": 63678188, "gpu": 63678188, "checks": {}}
+{"name": "static-code-weapon-intersections-and-self-exclusion", "passed": true, "cpu": 55619755, "gpu": 55619755, "checks": {}}
+{"name": "base-charge-rank-order-preserves-synchronous-healing", "passed": true, "cpu": 42412574, "gpu": 42412574, "checks": {}}
+{"name": "enemy-caster-atk-is-separated-from-outgoing-ally-atk", "passed": true, "cpu": 51462846, "gpu": 51462846, "checks": {}}
+test_typed_damage_dynamic_hits_fixed_charge_and_full_squads (test_detail_damage.DetailedDamageTests.test_typed_damage_dynamic_hits_fixed_charge_and_full_squads) ... ok
+test_bad_descriptor_is_rejected_before_any_gpu_access (test_detail_events.EventDescriptorCompilerTests.test_bad_descriptor_is_rejected_before_any_gpu_access) ... ok
+test_descriptor_bound_and_multiple_every_entries (test_detail_events.EventDescriptorCompilerTests.test_descriptor_bound_and_multiple_every_entries) ... ok
+test_multiple_parameters_and_duplicate_index_entries_are_preserved (test_detail_events.EventDescriptorCompilerTests.test_multiple_parameters_and_duplicate_index_entries_are_preserved) ... ok
+test_old_abi_is_rejected_even_with_matching_hashes (test_detail_events.EventDescriptorCompilerTests.test_old_abi_is_rejected_even_with_matching_hashes) ... ok
+{"name": "same-event-cpu-indexed-activation-multiplicity", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "high-received-hit-counter-and-alias", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "high-event-notifications-without-incoming-damage", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "stage-specific-cumulative-counters", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "core-pellet-and-full-charge-aliases", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "two-named-stack-reach-tags", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "two-named-end-tags", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "multiple-gauge-boundaries-deduplicated", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "first-matching-passive-semantics", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "repeat-reevaluates-condition-after-synchronous-chain", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "exact-and-cumulative-share-latched-notification-count", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "shared-budget-with-overlapping-thresholds", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "full-auto-overlapping-attack-thresholds", "passed": true, "cpu": 54153904, "gpu": 54153904}
+{"name": "full-stage-counters", "passed": true, "cpu": 164198448, "gpu": 164198448}
+{"name": "full-two-ammo-named-events", "passed": true, "cpu": 31602695, "gpu": 31602695}
+{"name": "full-overlapping-gauge-boundaries", "passed": true, "cpu": 34802063, "gpu": 34802063}
+{"name": "full-shotgun-threshold-order", "passed": true, "cpu": 32339051, "gpu": 32339051}
+test_independent_cpu_state_and_full_squad_events (test_detail_events.EventDescriptorGPUTests.test_independent_cpu_state_and_full_squad_events) ... ok
+test_b3_landing_excludes_later_cast_buffs_and_zero_coeff_is_no_hit (test_detail_expansion.ExpandedDetailedGPUTests.test_b3_landing_excludes_later_cast_buffs_and_zero_coeff_is_no_hit) ... ok
+test_lazy_rank_refresh_holds_recipients_until_expiry (test_detail_expansion.ExpandedDetailedGPUTests.test_lazy_rank_refresh_holds_recipients_until_expiry) ... ok
+{"name": "liter-alice-owned-180", "passed": true, "cpu": 1585004061, "gpu": 1585004061, "bursts_equal": true}
+{"name": "rank-refresh-alice-burst-180", "passed": true, "cpu": 1193801957, "gpu": 1193801957, "bursts_equal": true}
+{"name": "hp-threshold-lifesteal-pierce-mast3-180", "passed": true, "cpu": 1690671322, "gpu": 1690671322, "bursts_equal": true}
+{"name": "mihara-deferred-b3-and-last-bullet-180", "passed": true, "cpu": 1314164121, "gpu": 1314164121, "bursts_equal": true}
+{"name": "sr-targets-exclude-caster-enemy-defense-180", "passed": true, "cpu": 501103069, "gpu": 501103069, "bursts_equal": true}
+{"name": "crown-stack-heal-shield-lv1-180", "passed": true, "cpu": 1692624479, "gpu": 1692624479, "bursts_equal": true}
+{"name": "crown-stack-heal-shield-lv7-180", "passed": true, "cpu": 1951767637, "gpu": 1951767637, "bursts_equal": true}
+{"name": "crown-stack-heal-shield-lv10-180", "passed": true, "cpu": 2101658872, "gpu": 2101658872, "bursts_equal": true}
+{"name": "crown-charge-cover-auto-reload-owned-180", "passed": true, "cpu": 2945928488, "gpu": 2945928488, "bursts_equal": true}
+{"name": "kiri-two-of-three-defenders-owned-60", "passed": true, "cpu": 291217301, "gpu": 291217301, "bursts_equal": true}
+test_new_complete_real_squads_and_health_transitions_match_cpu (test_detail_expansion.ExpandedDetailedGPUTests.test_new_complete_real_squads_and_health_transitions_match_cpu) ... ok
+test_normal_worker_runs_new_liter_alice_squad_on_gpu (test_detail_expansion.ExpandedDetailedGPUTests.test_normal_worker_runs_new_liter_alice_squad_on_gpu) ... ok
+test_ordered_healing_notifies_before_next_recipient (test_detail_expansion.ExpandedDetailedGPUTests.test_ordered_healing_notifies_before_next_recipient) ... ok
+test_pinned_enemy_debuff_routing_matches_cpu (test_detail_expansion.ExpandedDetailedGPUTests.test_pinned_enemy_debuff_routing_matches_cpu) ... ok
+{"case": "full-auto-180", "passed": true, "members": [{"name": "\ubaa8\ub354\ub2c8\uc544", "cpu": 812411146, "gpu": 812411146}, {"name": "\ub8e8\uc8fc", "cpu": 99135247, "gpu": 99135247}, {"name": "\ub9c8\uc2a4\ud2b8 : \ub85c\ub9dd\ud2f1 \uba54\uc774\ub4dc", "cpu": 181905764, "gpu": 181905764}, {"name": "\ub3c4\ub77c", "cpu": 92271490, "gpu": 92271490}, {"name": "\uc580", "cpu": 167749058, "gpu": 167749058}], "bursts_equal": true}
+{"case": "full-mast3-180", "passed": true, "members": [{"name": "\ubaa8\ub354\ub2c8\uc544", "cpu": 777946645, "gpu": 777946645}, {"name": "\ub8e8\uc8fc", "cpu": 85393186, "gpu": 85393186}, {"name": "\ub9c8\uc2a4\ud2b8 : \ub85c\ub9dd\ud2f1 \uba54\uc774\ub4dc", "cpu": 152840824, "gpu": 152840824}, {"name": "\ub3c4\ub77c", "cpu": 87756871, "gpu": 87756871}, {"name": "\uc580", "cpu": 147650647, "gpu": 147650647}], "bursts_equal": true}
+{"case": "owned-equipment-cube-collection-60", "passed": true, "members": [{"name": "\ubaa8\ub354\ub2c8\uc544", "cpu": 184109313, "gpu": 184109313}, {"name": "\ub8e8\uc8fc", "cpu": 36665021, "gpu": 36665021}, {"name": "\ub9c8\uc2a4\ud2b8 : \ub85c\ub9dd\ud2f1 \uba54\uc774\ub4dc", "cpu": 71406692, "gpu": 71406692}, {"name": "\ub3c4\ub77c", "cpu": 36302360, "gpu": 36302360}, {"name": "\uc580", "cpu": 66693146, "gpu": 66693146}], "bursts_equal": true}
+{"case": "positions-element-core-growth-60", "passed": true, "members": [{"name": "\uc580", "cpu": 33925649, "gpu": 33925649}, {"name": "\ub3c4\ub77c", "cpu": 19581820, "gpu": 19581820}, {"name": "\ub8e8\uc8fc", "cpu": 19495897, "gpu": 19495897}, {"name": "\ubaa8\ub354\ub2c8\uc544", "cpu": 180505046, "gpu": 180505046}, {"name": "\ub9c8\uc2a4\ud2b8 : \ub85c\ub9dd\ud2f1 \uba54\uc774\ub4dc", "cpu": 37856489, "gpu": 37856489}], "bursts_equal": true}
+test_autonomous_five_real_members_180_seconds_and_owned_growth (test_detail_full.FullDetailedGPUTests.test_autonomous_five_real_members_180_seconds_and_owned_growth) ... ok
+test_equipment_equal_and_distinct_rounding_groups_and_no_cube (test_detail_full.FullDetailedGPUTests.test_equipment_equal_and_distinct_rounding_groups_and_no_cube) ... ok
+test_persistent_worker_routes_gpu_and_unsupported_fallback_and_validation (test_detail_full.FullDetailedGPUTests.test_persistent_worker_routes_gpu_and_unsupported_fallback_and_validation) ... ok
+test_result_mismatch_is_rejected_and_labelled_cpu (test_detail_full.FullDetailedGPUTests.test_result_mismatch_is_rejected_and_labelled_cpu) ... ok
+{"name": "fractional-cap-unique-boundaries-nested-drain", "passed": true, "errors": []}
+{"name": "consume-as-ammo-floors-each-actual-consumption", "passed": true, "errors": []}
+{"name": "gauge-runtime-above-below-and-discrete-eq-mod", "passed": true, "errors": []}
+{"name": "same-gauge-name-independent-owners", "passed": true, "errors": []}
+{"name": "finite-passive-state-false-start-refresh-tail-and-reactivation", "passed": true, "errors": []}
+{"name": "multiple-timings-independent-counters-shared-budget", "passed": true, "errors": []}
+{"name": "gauge-ref-truncation-capture-and-zero-shadows-named-stack", "passed": true, "errors": []}
+{"name": "periodic-gauge-fractional-values-final-tick-excluded", "passed": true, "errors": []}
+{"name": "consume-amount-survives-floating-point-cancellation", "passed": true, "errors": []}
+{"name": "autonomous-gauge-threshold-damage-consume-and-cap", "passed": true, "cpu": 92980638, "gpu": 92980638}
+{"name": "autonomous-finite-passive-hp-window", "passed": true, "cpu": 97586137, "gpu": 97586137}
+{"name": "autonomous-ammo-charges-during-reload-and-charge", "passed": true, "cpu": 16948025, "gpu": 16948025}
+{"name": "autonomous-element-bonus-matching-and-nonmatching", "passed": true, "cpu": 88062544, "gpu": 88062544}
+{"name": "autonomous-charge-to-MG-and-fresh-charge-on-return", "passed": true, "cpu": 78059973, "gpu": 78059973}
+test_gauges_finite_passives_ammo_and_independent_full_squads (test_detail_gauges.DetailedGaugeTests.test_gauges_finite_passives_ammo_and_independent_full_squads) ... ok
+test_invalid_gauge_definitions_fail_closed (test_detail_gauges.DetailedGaugeTests.test_invalid_gauge_definitions_fail_closed) ... ok
+test_detail_source_and_ptx_are_consistent (test_detail_gpu.DetailedGPUTests.test_detail_source_and_ptx_are_consistent) ... ok
+test_nested_stack_reach_damage_precedes_remove (test_detail_gpu.DetailedGPUTests.test_nested_stack_reach_damage_precedes_remove) ... ok
+test_parallel_scenarios_keep_growth_and_state_isolated (test_detail_gpu.DetailedGPUTests.test_parallel_scenarios_keep_growth_and_state_isolated) ... ok
+test_real_effects_and_180_second_autonomous_shooting_match_pinned_cpu (test_detail_gpu.DetailedGPUTests.test_real_effects_and_180_second_autonomous_shooting_match_pinned_cpu) ... ok
+test_unsupported_semantics_and_invalid_programs_are_rejected (test_detail_gpu.DetailedGPUTests.test_unsupported_semantics_and_invalid_programs_are_rejected) ... ok
+test_workspace_isolated_across_warps_and_reinitialized_on_reuse (test_detail_gpu.DetailedGPUTests.test_workspace_isolated_across_warps_and_reinitialized_on_reuse) ... ok
+{"name": "partial-old-and-full-new-expire-independently", "passed": true, "errors": [], "backend": "auto"}
+{"name": "definition-trigger-budget-shared-by-instances", "passed": true, "errors": [], "backend": "auto"}
+{"name": "notification-counter-shared-by-instances", "passed": true, "errors": [], "backend": "auto"}
+{"name": "reused-primary-slot-appends-after-older-secondary", "passed": true, "errors": [], "backend": "auto"}
+{"name": "cross-definition-name-merge-matches-targets", "passed": true, "errors": [], "backend": "auto"}
+{"name": "shield-post-uses-first-live-same-effect-instance", "passed": true, "errors": [], "backend": "auto"}
+{"name": "periodic-clock-is-shared-by-instances", "passed": true, "errors": [], "backend": "auto"}
+{"name": "bullet-bound-reapplication-restores-one-instance", "passed": true, "errors": [], "backend": "auto"}
+{"name": "full-shared-budget-counts-and-overlap", "passed": true, "cpu": 35601127, "gpu": 35601127}
+{"name": "full-partial-shields-and-health-posts", "passed": true, "cpu": 29195895, "gpu": 29195895}
+{"name": "full-nested-partial-removal-reapplication", "passed": true, "cpu": 64045656, "gpu": 64045656}
+{"name": "full-quantized-ammo-and-charge-speed-overlap", "passed": true, "cpu": 63108206, "gpu": 63108206}
+test_partial_instances_and_independent_full_squads (test_detail_instances.ActiveInstanceGPUTests.test_partial_instances_and_independent_full_squads) ... ok
+test_corrupt_list_references_rejected_before_gpu_execution (test_detail_lists.ListCompilerTests.test_corrupt_list_references_rejected_before_gpu_execution) ... ok
+test_identical_plans_share_inert_rows_without_splitting_effect_identity (test_detail_lists.ListCompilerTests.test_identical_plans_share_inert_rows_without_splitting_effect_identity) ... ok
+test_list_bounds_reject_instead_of_truncating_and_empty_lists_compile (test_detail_lists.ListCompilerTests.test_list_bounds_reject_instead_of_truncating_and_empty_lists_compile) ... ok
+test_install_is_idempotent_and_string_lookup_is_preserved (test_detail_lists.ListCpuLoggingTests.test_install_is_idempotent_and_string_lookup_is_preserved) ... ok
+test_list_logging_keeps_target_identity_and_nested_events (test_detail_lists.ListCpuLoggingTests.test_list_logging_keeps_target_identity_and_nested_events) ... ok
+{"name": "duplicate-target-buff-counted-once", "passed": true, "errors": [], "backend": "auto"}
+{"name": "empty-nested-lists-are-empty", "passed": true, "errors": [], "backend": "auto"}
+{"name": "list-rank-is-eager-before-later-stat-buff", "passed": true, "errors": [], "backend": "auto"}
+{"name": "rank-preserves-cpu-raw-active-value-semantics", "passed": true, "errors": [], "backend": "auto"}
+{"name": "recipient-scoped-name-events-preserve-duplicates", "passed": true, "errors": [], "backend": "auto"}
+{"name": "synchronous-recipient-order-reverse", "passed": true, "errors": [], "backend": "auto"}
+{"name": "synchronous-recipient-order-forward", "passed": true, "errors": [], "backend": "auto"}
+{"name": "synchronous-recipient-order-repeat", "passed": true, "errors": [], "backend": "auto"}
+{"name": "twenty-one-recipient-events-cross-32-bit-boundary", "passed": true, "errors": [], "backend": "auto"}
+{"name": "nested-list-and-empty-leaves-keep-order", "passed": true, "errors": [], "backend": "auto"}
+{"name": "state-filter-list-does-not-double-buff-overlap", "passed": true, "errors": [], "backend": "auto"}
+{"name": "list-partial-removal-retains-other-recipient", "passed": true, "errors": [], "backend": "auto"}
+{"name": "shield-map-emits-once-per-unique-recipient", "passed": true, "errors": [], "backend": "auto"}
+{"name": "stat-applied-events-retain-duplicate-recipients", "passed": true, "errors": [], "backend": "auto"}
+{"name": "default-name-event-broadcast-is-once-per-squad-member", "passed": true, "errors": [], "backend": "auto"}
+{"name": "same-recipient-set-different-order-stays-two-states", "passed": true, "errors": [], "backend": "auto"}
+{"name": "same-recipient-order-aliases-across-definitions", "passed": true, "errors": [], "backend": "auto"}
+{"name": "full-duplicate-heal-order-and-live-caster-hp", "passed": true, "cpu": 45469153, "gpu": 45469153}
+{"name": "full-duplicate-current-hp-reduction", "passed": true, "cpu": 42454744, "gpu": 42454744}
+{"name": "full-duplicate-hp-buff-postprocessing", "passed": true, "cpu": 8994181, "gpu": 8994181}
+{"name": "full-duplicate-ammo-operations", "passed": true, "cpu": 39238175, "gpu": 39238175}
+{"name": "full-duplicate-burst-cooldown-reduction", "passed": true, "cpu": 125405777, "gpu": 125405777}
+{"name": "full-state-list-overlapping-instance-lifetimes", "passed": true, "cpu": 70570031, "gpu": 70570031}
+{"name": "full-list-bullet-refresh-and-consumption", "passed": true, "cpu": 47348808, "gpu": 47348808}
+{"name": "full-list-skill-clock-reduction-deduplicates", "passed": true, "cpu": 40222635, "gpu": 40222635}
+test_order_duplicates_eager_ranks_and_complete_squads (test_detail_lists.ListGPUTests.test_order_duplicates_eager_ranks_and_complete_squads) ... ok
+test_invalid_scope_or_reference_is_not_silently_accepted (test_detail_named.NamedEffectCompilerTests.test_invalid_scope_or_reference_is_not_silently_accepted) ... ok
+test_prefix_state_masks_cover_high_words_and_exact_boundary (test_detail_named.NamedEffectCompilerTests.test_prefix_state_masks_cover_high_words_and_exact_boundary) ... ok
+test_unregistered_name_cleanup_is_compiled_as_noop (test_detail_named.NamedEffectCompilerTests.test_unregistered_name_cleanup_is_compiled_as_noop) ... ok
+{"name": "global-removal-across-casters", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "empty-state-name-removal-has-no-end-notification", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "empty-state-name-scoped-removal-cpu-exception", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "empty-state-name-expiry-has-no-end-notification", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "scope-retains-other-recipients", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "scope-same-name-different-casters", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "scope-does-not-resolve-lazy-state", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "empty-target-global-removal-limited-False", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "empty-target-global-removal-limited-True", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "missing-state-removal-is-no-op", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "extension-prefix-boundary", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "extension-high-state-id-bitwords", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "extension-needs-recipient-intersection", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "extension-infinite-and-unresolved-lazy", "passed": true, "errors": [], "backend": "cubin-sm86"}
+{"name": "partial-removal-then-final-end", "passed": true, "cpu": 46102698, "gpu": 46102698, "ticks": 0}
+{"name": "scoped-removal-retains-cpu-shield-map", "passed": true, "cpu": 30772130, "gpu": 30772130, "ticks": 0}
+{"name": "scoped-bullet-buff-retains-other-counters", "passed": true, "cpu": 50261496, "gpu": 50261496, "ticks": 0}
+{"name": "extension-updates-real-dot-timer", "passed": true, "cpu": 11808544, "gpu": 11808544, "ticks": 6}
+{"name": "scoped-enemy-dot-cancels-timer", "passed": true, "cpu": 26487083, "gpu": 26487083, "ticks": 5}
+{"name": "global-removal-cross-caster-end-chain", "passed": true, "cpu": 26453394, "gpu": 26453394, "ticks": 0}
+{"name": "scoped-bullet-lifetime-includes-removed-recipient", "passed": true, "cpu": 48112877, "gpu": 48112877, "ticks": 0}
+{"name": "\ud32c\ud140", "passed": true, "cpu": 564378521, "gpu": 564378521, "observed": {"live_named_removals": 0}}
+test_state_changes_and_complete_squads_match_independent_cpu (test_detail_named.NamedEffectGPUTests.test_state_changes_and_complete_squads_match_independent_cpu) ... ok
+test_architecture_matching_and_hashes (test_detail_native.NativeModuleIntegrityTests.test_architecture_matching_and_hashes) ... ok
+test_other_architecture_uses_portable_ptx (test_detail_native.NativeModuleIntegrityTests.test_other_architecture_uses_portable_ptx) ... ok
+test_stale_ptx_is_rejected_before_loading (test_detail_native.NativeModuleIntegrityTests.test_stale_ptx_is_rejected_before_loading) ... ok
+{"case": "dot-expiry-False", "passed": true, "checks": {"damage_ticks": true}, "cpu": 36073320, "gpu": 36073320, "health_equal": true}
+{"case": "dot-expiry-True", "passed": true, "checks": {"damage_ticks": true}, "cpu": 36073320, "gpu": 36073320, "health_equal": true}
+{"case": "refresh-dot-preserves-auto-restarts", "passed": true, "checks": {"damage_ticks_min": true}, "cpu": 32406697, "gpu": 32406697, "health_equal": true}
+{"case": "dot-captures-reference-before-removal", "passed": true, "checks": {"damage_ticks_min": true}, "cpu": 86721643, "gpu": 86721643, "health_equal": true}
+{"case": "dot-own-stack-refresh", "passed": true, "checks": {"damage_ticks_min": true}, "cpu": 57461746, "gpu": 57461746, "health_equal": true}
+{"case": "same-named-dot-keeps-first-live-definition", "passed": true, "checks": {"damage_ticks_min": true}, "cpu": 82655273, "gpu": 82655273, "health_equal": true}
+{"case": "periodic-heal-finite-latch-infinite-runtime", "passed": true, "checks": {"instant_ticks_min": true}, "cpu": 79968624, "gpu": 79968624, "health_equal": true}
+{"case": "timer-creation-order-and-synchronous-heal-events", "passed": true, "checks": {"instant_ticks_min": true}, "cpu": 15312988, "gpu": 15312988, "health_equal": true}
+{"case": "periodic-drain-then-heal", "passed": true, "checks": {"instant_ticks_min": true}, "cpu": 35586920, "gpu": 35586920, "health_equal": true}
+{"case": "bullet-counters-and-stacks-per-recipient", "passed": true, "checks": {"bullet_changes_min": true}, "cpu": 142316941, "gpu": 142316941, "health_equal": true}
+{"case": "lazy-bullet-target-consumed-by-recipient", "passed": true, "checks": {"bullet_changes_min": true}, "cpu": 83805700, "gpu": 83805700, "health_equal": true}
+{"case": "charge-before-versus-after-bullet-bound", "passed": true, "checks": {"bullet_changes_min": true}, "cpu": 126664482, "gpu": 126664482, "health_equal": true}
+{"case": "timer-budget-counts-registration-not-ticks", "passed": true, "checks": {"damage_ticks": true}, "cpu": 36337088, "gpu": 36337088, "health_equal": true}
+{"case": "periodic-normal-attack-formula", "passed": true, "checks": {"damage_ticks_min": true}, "cpu": 29065844, "gpu": 29065844, "health_equal": true}
+{"case": "named-removal-cancels-dot-timer", "passed": true, "checks": {"damage_ticks_min": true}, "cpu": 82427325, "gpu": 82427325, "health_equal": true}
+{"case": "charge-last-fire-at-charge-start", "passed": true, "checks": {"last_fire_min": true}, "cpu": 154047014, "gpu": 154047014, "health_equal": true}
+{"case": "lazy-versus-eager-shield-cpu-compatibility", "passed": true, "checks": {"shield_true": true, "shield_false": true}, "cpu": 79968624, "gpu": 79968624, "health_equal": true}
+test_full_squad_timer_bullet_boundaries_and_actual_execution (test_detail_periodic.DetailedPeriodicTests.test_full_squad_timer_bullet_boundaries_and_actual_execution) ... ok
+test_invalid_periodic_and_bullet_modes_fail_closed (test_detail_periodic.DetailedPeriodicTests.test_invalid_periodic_and_bullet_modes_fail_closed) ... ok
+test_defense_and_persona_are_preserved_as_runtime_data (test_detail_predicates.PredicateCompilerTests.test_defense_and_persona_are_preserved_as_runtime_data) ... ok
+test_static_code_matches_unknown_and_runtime_gate_stays_distinct (test_detail_predicates.PredicateCompilerTests.test_static_code_matches_unknown_and_runtime_gate_stays_distinct) ... ok
+{"name": "below-defense-uses-live-percent-buffs", "passed": true, "errors": [], "backend": "auto"}
+{"name": "below-defense-uses-caster-based-flat-defense", "passed": true, "errors": [], "backend": "auto"}
+{"name": "below-defense-equality-is-excluded", "passed": true, "errors": [], "backend": "auto"}
+{"name": "top-defense-retains-pinned-base-stat-ranking", "passed": true, "errors": [], "backend": "auto"}
+{"name": "below-defense-list-is-eager-string-is-lazy", "passed": true, "errors": [], "backend": "auto"}
+{"name": "below-defense-raw-active-values-ignore-runtime-gate", "passed": true, "errors": [], "backend": "auto"}
+{"name": "persona-filters-innate-stage-and-recipient-membership", "passed": true, "errors": [], "backend": "auto"}
+{"name": "persona-excludes-caster", "passed": true, "errors": [], "backend": "auto"}
+{"name": "persona-honors-pinned-innate-stage", "passed": true, "errors": [], "backend": "auto"}
+{"name": "zero-stack-persona-marker-still-counts", "passed": true, "errors": [], "backend": "auto"}
+{"name": "persona-filter-does-not-force-lazy-marker-targets", "passed": true, "errors": [], "backend": "auto"}
+{"name": "enemy-stun-gates-at-activation-and-remains-latched", "passed": true, "errors": [], "backend": "auto"}
+{"name": "same-frame-expired-stun-still-gates-activation", "passed": true, "errors": [], "backend": "auto"}
+{"name": "enemy-stun-immunity-suppresses-until-removed", "passed": true, "errors": [], "backend": "auto"}
+{"name": "allied-stun-immunity-expiry-restores-existing-stun", "passed": true, "errors": [], "backend": "auto"}
+{"name": "persistent-self-state-generic-mode", "passed": true, "errors": [], "backend": "auto"}
+{"name": "persistent-self-state-empty-mode", "passed": true, "errors": [], "backend": "auto"}
+{"name": "full-enemy-code-None", "passed": true, "cpu": 24208414, "gpu": 24208414}
+{"name": "full-enemy-code-\ud48d\uc555", "passed": true, "cpu": 36923842, "gpu": 36923842}
+{"name": "full-enemy-code-\uc804\uaca9", "passed": true, "cpu": 25580076, "gpu": 25580076}
+{"name": "full-enemy-count-and-boss-add-gates", "passed": true, "cpu": 47937683, "gpu": 47937683}
+{"name": "full-live-defense-targets-and-lists", "passed": true, "cpu": 56834423, "gpu": 56834423}
+{"name": "full-persona-recipient-snapshots", "passed": true, "cpu": 53716319, "gpu": 53716319}
+{"name": "full-enemy-stun-and-allied-immunity", "passed": true, "cpu": 51565273, "gpu": 51565273}
+test_authored_defense_persona_stun_and_enemy_squads (test_detail_predicates.PredicateGPUTests.test_authored_defense_persona_stun_and_enemy_squads) ... ok
+test_definition_reference_raw_duration_and_polarity (test_detail_stackops.StackOperationCompilerTests.test_definition_reference_raw_duration_and_polarity) ... ok
+test_malformed_reference_and_buff_tick_are_rejected (test_detail_stackops.StackOperationCompilerTests.test_malformed_reference_and_buff_tick_are_rejected) ... ok
+{"name": "named-add-refreshes-at-cap-remove-keeps-one", "passed": true, "errors": [], "backend": "auto"}
+{"name": "generic-add-at-cap-does-not-refresh-expiry", "passed": true, "errors": [], "backend": "auto"}
+{"name": "generic-cap-no-op-is-not-a-duration-refresh", "passed": true, "errors": [], "backend": "auto"}
+{"name": "init-bypasses-gate-budget-and-emits-no-name-or-reach", "passed": true, "errors": [], "backend": "auto"}
+{"name": "lazy-init-appends-separate-unresolved-instances", "passed": true, "errors": [], "backend": "auto"}
+{"name": "generic-add-skips-mixed-recipient-instance", "passed": true, "errors": [], "backend": "auto"}
+{"name": "false-permanent-immune-still-blocks-stack-changes", "passed": true, "errors": [], "backend": "auto"}
+{"name": "zero-valued-immune-expires-and-allows-later-change", "passed": true, "errors": [], "backend": "auto"}
+{"name": "named-debuff-zero-remains-present-and-blocks-init", "passed": true, "errors": [], "backend": "auto"}
+{"name": "single-stack-buff-reapplication-retains-zero-stack", "passed": true, "errors": [], "backend": "auto"}
+{"name": "generic-debuff-floor-one-named-floor-zero", "passed": true, "errors": [], "backend": "auto"}
+{"name": "enemy-debuff-zero-keeps-target-state-present", "passed": true, "errors": [], "backend": "auto"}
+{"name": "gauge-zero-overrides-default-delta", "passed": true, "errors": [], "backend": "auto"}
+{"name": "all-stacks-updated-before-latched-reach-callbacks", "passed": true, "errors": [], "backend": "auto"}
+{"name": "generic-add-updates-bullet-stacks-even-representative-at-cap", "passed": true, "errors": [], "backend": "auto"}
+{"name": "init-uses-raw-finite-lifetime-for-runtime-gating", "passed": true, "errors": [], "backend": "auto"}
+{"name": "enemy-stun-does-not-disable-squad-actions", "passed": true, "errors": [], "backend": "auto"}
+{"name": "init-permanent-runtime-condition-prevents-cross-definition-merge", "passed": true, "errors": [], "backend": "auto"}
+{"name": "missing-capture-stays-dynamic-after-name-creates-reference", "passed": true, "errors": [], "backend": "auto"}
+{"name": "runtime-enabled-at-init-persists-through-finite-refresh", "passed": true, "errors": [], "backend": "auto"}
+{"name": "runtime-disabled-at-init-persists-through-permanent-alias-refresh", "passed": true, "errors": [], "backend": "auto"}
+{"name": "full-named-add-remove-and-partial-instances", "passed": true, "cpu": 194702146, "gpu": 194702146}
+{"name": "full-zero-presence-ref-hit-count-and-init", "passed": true, "cpu": 45184749, "gpu": 45184749}
+{"name": "full-bullet-map-stacks-independent-of-representative", "passed": true, "cpu": 33734543, "gpu": 33734543}
+{"name": "full-init-has-no-health-shield-or-named-posts", "passed": true, "cpu": 29195895, "gpu": 29195895}
+{"name": "full-beneficial-generic-add-with-shared-target-skip", "passed": true, "cpu": 42735528, "gpu": 42735528}
+{"name": "full-stack-init-does-not-create-bullet-counters", "passed": true, "cpu": 38469359, "gpu": 38469359}
+test_independent_state_and_complete_squads (test_detail_stackops.StackOperationGPUTests.test_independent_state_and_complete_squads) ... ok
+test_caster_weapon_mask_and_pinned_innate_b3 (test_detail_targets.TargetCompilerTests.test_caster_weapon_mask_and_pinned_innate_b3) ... ok
+{"name": "state-membership-snapshot-and-complement", "passed": true, "errors": [], "backend": "auto"}
+{"name": "unresolved-state-is-not-forced-by-membership", "passed": true, "errors": [], "backend": "auto"}
+{"name": "membership-does-not-follow-later-removal", "passed": true, "errors": [], "backend": "auto"}
+{"name": "membership-reselected-on-reapplication", "passed": true, "errors": [], "backend": "auto"}
+{"name": "zero-stack-state-is-still-a-recipient", "passed": true, "errors": [], "backend": "auto"}
+{"name": "expired-state-excluded-after-expiry-pass", "passed": true, "errors": [], "backend": "auto"}
+{"name": "same-frame-zero-duration-state-still-counts", "passed": true, "errors": [], "backend": "auto"}
+{"name": "empty-state-name-matches-empty-weapon-mode", "passed": true, "errors": [], "backend": "auto"}
+{"name": "missing-state-complement-selects-everyone", "passed": true, "errors": [], "backend": "auto"}
+{"name": "weapon-rank-uses-matching-pool-and-live-atk", "passed": true, "errors": [], "backend": "auto"}
+{"name": "weapon-rank-empty-pool-is-empty", "passed": true, "errors": [], "backend": "auto"}
+{"name": "different-weapon-ranks-have-independent-cache-keys", "passed": true, "errors": [], "backend": "auto"}
+{"name": "lowest-atk-innate-b3-uses-live-atk", "passed": true, "errors": [], "backend": "auto"}
+{"name": "lowest-atk-b3-honors-pinned-innate-stage", "passed": true, "errors": [], "backend": "auto"}
+{"name": "filtered-rank-hp-postprocessing-stays-lazy", "passed": true, "errors": [], "backend": "auto"}
+{"name": "generic-weapon-state-and-named-mode-expiry", "passed": true, "errors": [], "backend": "auto"}
+{"name": "full-state-snapshot-remove-and-recreate", "passed": true, "total": 80491743}
+{"name": "full-state-selected-heals-emit-recipient-events", "passed": true, "total": 32926816}
+{"name": "full-filtered-weapon-rank-bullets", "passed": true, "total": 47846720}
+{"name": "full-lowest-b3-rank-refresh", "passed": true, "total": 55101414}
+{"name": "full-casted-weapon-recipient-masks", "passed": true, "total": 166551140}
+{"name": "full-weapon-mode-membership", "passed": true, "total": 88348669}
+test_independent_membership_and_filtered_rank_squads (test_detail_targets.TargetGPUTests.test_independent_membership_and_filtered_rank_squads) ... ok
+test_bad_duration_and_nonpositive_period_are_rejected (test_detail_time.TimeCompilerTests.test_bad_duration_and_nonpositive_period_are_rejected) ... ok
+test_lifetime_and_fractional_period_are_accepted (test_detail_time.TimeCompilerTests.test_lifetime_and_fractional_period_are_accepted) ... ok
+{"name": "percentage-permanent-false-runtime-still-affects-period", "passed": true, "errors": [], "backend": "auto"}
+{"name": "percentage-start-expiry-rescale-remaining-phase", "passed": true, "errors": [], "backend": "auto"}
+{"name": "both-flat-groups-before-percentage", "passed": true, "errors": [], "backend": "auto"}
+{"name": "named-flat-runtime-gates-rescale-phase", "passed": true, "errors": [], "backend": "auto"}
+{"name": "minimum-five-percent-of-each-base-period", "passed": true, "errors": [], "backend": "auto"}
+{"name": "one-off-reduces-remaining-but-not-future-period", "passed": true, "errors": [], "backend": "auto"}
+{"name": "one-off-only-affects-selected-clock-owners", "passed": true, "errors": [], "backend": "auto"}
+{"name": "one-off-at-startup-after-standalone-clock-init", "passed": true, "errors": [], "backend": "auto"}
+{"name": "own-every-reduction-is-overwritten-by-post-fire-clock", "passed": true, "errors": [], "backend": "auto"}
+{"name": "distinct-every-entries-share-one-clock", "passed": true, "errors": [], "backend": "auto"}
+{"name": "duplicate-every-late-ticks-share-clock-and-budget", "passed": true, "errors": [], "backend": "auto"}
+{"name": "flat-sum-preserves-small-terms-under-cancellation", "passed": true, "errors": [], "backend": "auto"}
+{"name": "percentage-sum-preserves-small-terms-under-cancellation", "passed": true, "errors": [], "backend": "auto"}
+{"name": "critical-sums-and-rate-clamp-follow-python-runtime", "passed": true, "errors": [], "backend": "auto"}
+{"name": "duration-sampled-on-refresh-not-on-later-fuel-change", "passed": true, "errors": [], "backend": "auto"}
+{"name": "alias-retains-values-but-incoming-scaled-expiry", "passed": true, "errors": [], "backend": "auto"}
+{"name": "named-stack-add-refreshes-raw-unscaled-duration", "passed": true, "errors": [], "backend": "auto"}
+{"name": "stack-init-uses-raw-unscaled-duration", "passed": true, "errors": [], "backend": "auto"}
+{"name": "finite-passive-duration-resamples-while-condition-holds", "passed": true, "errors": [], "backend": "auto"}
+{"name": "level-duration-value-remains-dynamic-but-expiry-is-sampled", "passed": true, "errors": [], "backend": "auto"}
+{"name": "zero-duration-reference-still-emits-synchronous-name", "passed": true, "errors": [], "backend": "auto"}
+{"name": "full-flat-percent-and-one-off-phase", "passed": true, "cpu": 57230908, "gpu": 57230908}
+{"name": "full-shared-multiple-every-with-recursive-reduction", "passed": true, "cpu": 30938747, "gpu": 30938747}
+{"name": "full-startup-before-clock-initialization", "passed": true, "cpu": 30401018, "gpu": 30401018}
+{"name": "full-duration-scaling-conditional-and-value-snapshots", "passed": true, "cpu": 43616025, "gpu": 43616025}
+{"name": "full-burst-recipient-targets-outside-boundaries", "passed": true, "cpu": 130682704, "gpu": 130682704}
+test_independent_clocks_lifetimes_and_complete_squads (test_detail_time.TimeGPUTests.test_independent_clocks_lifetimes_and_complete_squads) ... ok
+test_dual_muzzles_hit_count_is_twice_the_attack_count (test_detail_weapons.DetailedWeaponTests.test_dual_muzzles_hit_count_is_twice_the_attack_count) ... ok
+test_last_fire_precedes_damage_and_pellet_modifiers_match_cpu (test_detail_weapons.DetailedWeaponTests.test_last_fire_precedes_damage_and_pellet_modifiers_match_cpu) ... ok
+test_max_trigger_budget_is_shared_by_burst_target_instances (test_detail_weapons.DetailedWeaponTests.test_max_trigger_budget_is_shared_by_burst_target_instances) ... ok
+test_pellet_callbacks_use_original_shot_snapshot (test_detail_weapons.DetailedWeaponTests.test_pellet_callbacks_use_original_shot_snapshot) ... ok
+test_ten_pellets_and_four_rounded_clips_match_every_frame (test_detail_weapons.DetailedWeaponTests.test_ten_pellets_and_four_rounded_clips_match_every_frame) ... ok
+test_cpu_selection_preserves_large_integer_damage_and_disjointness (test_gpu.GPUSelectionTests.test_cpu_selection_preserves_large_integer_damage_and_disjointness) ... ok
+test_cuda_matches_cpu_on_overlaps_masks_and_large_integer_scores (test_gpu.GPUSelectionTests.test_cuda_matches_cpu_on_overlaps_masks_and_large_integer_scores) ... ok
+test_gpu_topk_handles_ties_zero_damage_and_padding (test_gpu.GPUSelectionTests.test_gpu_topk_handles_ties_zero_damage_and_padding) ... ok
+test_invalid_candidate_and_backend_rejected (test_gpu.GPUSelectionTests.test_invalid_candidate_and_backend_rejected) ... ok
+test_persistent_service_reuses_context_and_preserves_results (test_gpu.GPUSelectionTests.test_persistent_service_reuses_context_and_preserves_results) ... ok
+
+----------------------------------------------------------------------
+Ran 88 tests in 678.136s
+
+OK
+{"device": "NVIDIA GeForce RTX 3070 Ti", "cpu_total_ms": 59.103, "gpu_total_ms": 143.591, "cpu_expand_ms": 56.938, "gpu_expand_ms": 55.541, "expanded": 148640, "exact_match": true}

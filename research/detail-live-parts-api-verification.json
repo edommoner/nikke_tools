@@ -1,0 +1,184 @@
+{
+  "generated_at": "2026-10-16T21:17:58.755Z",
+  "passed": true,
+  "normal_compare_gpu": true,
+  "cpu_verification": true,
+  "board_gpu": true,
+  "cache_separated": true,
+  "unsupported_cpu_fallback": true,
+  "total": 549015101,
+  "burst_gauge_mode": "accumulate",
+  "gauge_modes_separate": true,
+  "seed": 12345,
+  "seed_cache_separated": true,
+  "shooting_policy": "character",
+  "shooting_modes_separate": true,
+  "core_modes_separate": true,
+  "compute": {
+    "requested": "cuda_detail",
+    "backend": "cuda_detail",
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "elapsed_ms": 12669.804,
+    "initialization_ms": 8.519,
+    "module_backend": "cubin-sm86",
+    "workspace_bytes": 320816,
+    "scope": "five-member autonomous detailed simulation",
+    "parity": "regression-tested supported mechanics; not all characters",
+    "burst_gauge": {
+      "amount": 0,
+      "charging": false,
+      "mode": "accumulate"
+    },
+    "final_hp": {
+      "레드 후드": {
+        "hp": 2847675,
+        "hp_pct": 100,
+        "max_hp": 2847675
+      },
+      "리타": {
+        "hp": 3085580,
+        "hp_pct": 100,
+        "max_hp": 3085580
+      },
+      "크라운": {
+        "hp": 3444557,
+        "hp_pct": 100,
+        "max_hp": 3444557
+      },
+      "앨리스": {
+        "hp": 3180434,
+        "hp_pct": 100,
+        "max_hp": 3180434
+      },
+      "모더니아": {
+        "hp": 2926740,
+        "hp_pct": 100,
+        "max_hp": 2926740
+      }
+    },
+    "final_control": {
+      "레드 후드": {
+        "charging": false,
+        "phase": 2,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "앨리스",
+        "camera_mask": 8,
+        "shots": 51,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 12,
+        "reloading_until": -1
+      },
+      "리타": {
+        "charging": false,
+        "phase": 0,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "앨리스",
+        "camera_mask": 8,
+        "shots": 689,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 163,
+        "reloading_until": -1
+      },
+      "크라운": {
+        "charging": false,
+        "phase": 0,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "앨리스",
+        "camera_mask": 8,
+        "shots": 1457,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 697,
+        "reloading_until": -1
+      },
+      "앨리스": {
+        "charging": true,
+        "phase": 1,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "앨리스",
+        "camera_mask": 8,
+        "shots": 85,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 1,
+        "reloading_until": -1
+      },
+      "모더니아": {
+        "charging": false,
+        "phase": 0,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "앨리스",
+        "camera_mask": 8,
+        "shots": 1492,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 541,
+        "reloading_until": -1
+      }
+    },
+    "cpu_verification": {
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "seed_equal": true,
+      "burst_policy_equal": true,
+      "requested_burst_policy_equal": true,
+      "burst_patterns_equal": true,
+      "shooting_policy_equal": true,
+      "burst_gauge_mode_equal": true,
+      "parts_state_equal": true,
+      "matched": true
+    }
+  },
+  "parts_cache_separate": true,
+  "parts_state": [
+    {
+      "name": "装甲",
+      "damage": 108291349,
+      "hits": 136,
+      "destroyed": false,
+      "destroyed_at": null
+    },
+    {
+      "name": "砲台",
+      "damage": 713196,
+      "hits": 1,
+      "destroyed": true,
+      "destroyed_at": 3.45
+    }
+  ],
+  "request_sha256": "f3d2685bdc52b71c25c43804ea8e4a0b208e9be7892914d94692e6748496b379",
+  "source_sha256": {
+    "app/detail_gpu.py": "d946113fc3a0fa9b7d6fca172cb63c64684008a1bc2e2848a45f124e5d4822ab",
+    "app/detail_world.py": "21eab702b3defef9329c6a0b819d3f490d8fa3956108d606baa8db9ba859190f",
+    "app/gpu_combat.py": "e4b6f2c5b48c73224dca305624cde19c516046003b56a76e6c80843d2607533f",
+    "app/detail_effects.cu": "948aea837c49773aadf47c7332d0e10af75bcde24e8464cbc35bd44a5bbd6f84",
+    "app/detail_effects.ptx": "485ff51676c95539dda56c545d09ed289aa9a7fe23c7f76818f45d1b6ef6d02a",
+    "app/detail_effects-build.json": "6aa1eb5ae275cc1215ff16ee9d9bb5b9754bdb088fe4f44a5023740234d8b029",
+    "app/detail_effects-sm86.cubin": "7c2ef04494f16470ee47ab5d48bfb80e0871d7c504666dbc8f6868bba2e61ce7",
+    "app/detail_effects-sm86.json": "31de19c73abbdd8efea083486c5cce2e5e9d2c53e9ac5665b48e5f3906307218",
+    "app/engine_worker.py": "210e7af5f2e7fd8442e3c1018ecb252b8d9d1d74644d59c0f9c1f177ed93fd3d",
+    "app/engine_compat.py": "f57f89a81f1f70e83aed7d2a175d33613fc5b126f62d0c67658a326c51455c66",
+    "app/gpu_service.py": "949fdf4b82fe2ee50b3f36f73f3e7688b1db3b04ae1c5336865bdc4cb75ecca7",
+    "server.mjs": "1a62e431951e6b835d1b58917c4ca60ab79c2718c66936754ad46bf886e64bc8",
+    "web/app.js": "f2f36c617fb46b5f61a17d77c7e99db62beed864edbe482b9952010aad346c48",
+    "web/parts-model.mjs": "26fe86258b28373e2426de6cdfbb93fe4756e91e41817cd9fd500eed7ebc76f3",
+    "web/roster-model.mjs": "c1ab247dc3df507c68c2d842d9a02d32b86823b50a00b0a432d61120aa7db989",
+    "web/index.html": "5995fb0d849464ef220977db0e68d4d804ddc64073192278ca8225b9d542562f",
+    "scripts/smoke-detail.mjs": "f28968044061cb5d73a7b6092d8b137a5bbe6e55d369b5e95f1d3129c16d5a7e",
+    "research/detail-live-parts-api-fixture.json": "53742a137149f6f291c5da148942c2cc73e1f96f385355f0216e578ad38403f8"
+  }
+}

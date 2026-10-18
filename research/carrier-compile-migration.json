@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "all_existing_compiled_programs_unchanged": true,
+  "standard_accepted": 171,
+  "standard_total": 203,
+  "favorite_accepted": 677,
+  "favorite_total": 812,
+  "compiler_calls": 1069,
+  "baseline_sha256": "2b462361b923d3ca34dff324cb9dcb2a69af03f281dee6e4905c6dd830d3aee0",
+  "scope": "Compilation migration only; no all-character battle correctness claim."
+}

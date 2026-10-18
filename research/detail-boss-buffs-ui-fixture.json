@@ -1,0 +1,926 @@
+{
+  "settings": {
+    "enemy-def": 31784,
+    "enemy-code": "풍압",
+    "duration": 20,
+    "level": 400,
+    "core": 0,
+    "distance": 30,
+    "detail-backend": "cuda_verified",
+    "shooting-policy": "character",
+    "burst-policy": "auto",
+    "burst-gauge-mode": "accumulate",
+    "random-seed": 12345
+  },
+  "format": "nikke-tools-session-v1",
+  "ui_version": 3,
+  "saved_at": "2026-10-17T04:58:19.571207+00:00",
+  "snapshot": {
+    "profile": {
+      "chars": {
+        "아니스 : 스타": {
+          "level": 400,
+          "breakthrough": 0,
+          "core_enhancement": 0,
+          "affinity": 1,
+          "skill_levels": {
+            "1": 3,
+            "2": 9,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 0,
+              "skills": []
+            },
+            "몸통": {
+              "level": 0,
+              "skills": []
+            },
+            "팔": {
+              "level": 0,
+              "skills": []
+            },
+            "다리": {
+              "level": 0,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": [
+              11.11,
+              11.11,
+              12.34
+            ],
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": [
+              2.34,
+              2.34,
+              4.3
+            ],
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "렐릭 베어 큐브",
+            "level": 1
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "SR15",
+          "favorite_stage": 0
+        },
+        "그레이브": {
+          "level": 400,
+          "breakthrough": 0,
+          "core_enhancement": 0,
+          "affinity": 1,
+          "skill_levels": {
+            "1": 3,
+            "2": 9,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 0,
+              "skills": []
+            },
+            "몸통": {
+              "level": 0,
+              "skills": []
+            },
+            "팔": {
+              "level": 0,
+              "skills": []
+            },
+            "다리": {
+              "level": 0,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": [
+              11.11,
+              11.11,
+              12.34
+            ],
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": [
+              2.34,
+              2.34,
+              4.3
+            ],
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "렐릭 베어 큐브",
+            "level": 1
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "SR15",
+          "favorite_stage": 0
+        },
+        "신 : 스위프트 바니": {
+          "level": 400,
+          "breakthrough": 0,
+          "core_enhancement": 0,
+          "affinity": 1,
+          "skill_levels": {
+            "1": 3,
+            "2": 9,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 0,
+              "skills": []
+            },
+            "몸통": {
+              "level": 0,
+              "skills": []
+            },
+            "팔": {
+              "level": 0,
+              "skills": []
+            },
+            "다리": {
+              "level": 0,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": [
+              11.11,
+              11.11,
+              12.34
+            ],
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": [
+              2.34,
+              2.34,
+              4.3
+            ],
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "렐릭 베어 큐브",
+            "level": 1
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "SR15",
+          "favorite_stage": 0
+        },
+        "길티 : 마이티 바니": {
+          "level": 400,
+          "breakthrough": 0,
+          "core_enhancement": 0,
+          "affinity": 1,
+          "skill_levels": {
+            "1": 3,
+            "2": 9,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 0,
+              "skills": []
+            },
+            "몸통": {
+              "level": 0,
+              "skills": []
+            },
+            "팔": {
+              "level": 0,
+              "skills": []
+            },
+            "다리": {
+              "level": 0,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": [
+              11.11,
+              11.11,
+              12.34
+            ],
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": [
+              2.34,
+              2.34,
+              4.3
+            ],
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "렐릭 베어 큐브",
+            "level": 1
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "SR15",
+          "favorite_stage": 0
+        },
+        "라플라스 : 얼티밋 히어로": {
+          "level": 400,
+          "breakthrough": 0,
+          "core_enhancement": 0,
+          "affinity": 1,
+          "skill_levels": {
+            "1": 3,
+            "2": 9,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 0,
+              "skills": []
+            },
+            "몸통": {
+              "level": 0,
+              "skills": []
+            },
+            "팔": {
+              "level": 0,
+              "skills": []
+            },
+            "다리": {
+              "level": 0,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": [
+              11.11,
+              11.11,
+              12.34
+            ],
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": [
+              2.34,
+              2.34,
+              4.3
+            ],
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "렐릭 베어 큐브",
+            "level": 1
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "SR15",
+          "favorite_stage": 0
+        }
+      },
+      "_account": {
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        }
+      }
+    },
+    "missing": {},
+    "warnings": [
+      "GPU検証用の架空の所持・育成データです。"
+    ],
+    "is_demo": true,
+    "squad": [
+      "아니스 : 스타",
+      "그레이브",
+      "신 : 스위프트 바니",
+      "길티 : 마이티 바니",
+      "라플라스 : 얼티밋 히어로"
+    ]
+  },
+  "profile": {
+    "chars": {
+      "아니스 : 스타": {
+        "level": 400,
+        "breakthrough": 0,
+        "core_enhancement": 0,
+        "affinity": 1,
+        "skill_levels": {
+          "1": 3,
+          "2": 9,
+          "3": 10
+        },
+        "equipment": {
+          "머리": {
+            "level": 0,
+            "skills": []
+          },
+          "몸통": {
+            "level": 0,
+            "skills": []
+          },
+          "팔": {
+            "level": 0,
+            "skills": []
+          },
+          "다리": {
+            "level": 0,
+            "skills": []
+          }
+        },
+        "equip_skills": {
+          "atk_pct": [
+            11.11,
+            11.11,
+            12.34
+          ],
+          "element_bonus": 88.6,
+          "max_ammo_pct": 129.64,
+          "crit_rate": 0,
+          "crit_dmg": 0,
+          "charge_speed_pct": [
+            2.34,
+            2.34,
+            4.3
+          ],
+          "charge_dmg_pct": 0,
+          "accuracy_pct": 0,
+          "def_pct": 0
+        },
+        "cube": {
+          "name": "렐릭 베어 큐브",
+          "level": 1
+        },
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        },
+        "collection_stage": "SR15",
+        "favorite_stage": 0
+      },
+      "그레이브": {
+        "level": 400,
+        "breakthrough": 0,
+        "core_enhancement": 0,
+        "affinity": 1,
+        "skill_levels": {
+          "1": 3,
+          "2": 9,
+          "3": 10
+        },
+        "equipment": {
+          "머리": {
+            "level": 0,
+            "skills": []
+          },
+          "몸통": {
+            "level": 0,
+            "skills": []
+          },
+          "팔": {
+            "level": 0,
+            "skills": []
+          },
+          "다리": {
+            "level": 0,
+            "skills": []
+          }
+        },
+        "equip_skills": {
+          "atk_pct": [
+            11.11,
+            11.11,
+            12.34
+          ],
+          "element_bonus": 88.6,
+          "max_ammo_pct": 129.64,
+          "crit_rate": 0,
+          "crit_dmg": 0,
+          "charge_speed_pct": [
+            2.34,
+            2.34,
+            4.3
+          ],
+          "charge_dmg_pct": 0,
+          "accuracy_pct": 0,
+          "def_pct": 0
+        },
+        "cube": {
+          "name": "렐릭 베어 큐브",
+          "level": 1
+        },
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        },
+        "collection_stage": "SR15",
+        "favorite_stage": 0
+      },
+      "신 : 스위프트 바니": {
+        "level": 400,
+        "breakthrough": 0,
+        "core_enhancement": 0,
+        "affinity": 1,
+        "skill_levels": {
+          "1": 3,
+          "2": 9,
+          "3": 10
+        },
+        "equipment": {
+          "머리": {
+            "level": 0,
+            "skills": []
+          },
+          "몸통": {
+            "level": 0,
+            "skills": []
+          },
+          "팔": {
+            "level": 0,
+            "skills": []
+          },
+          "다리": {
+            "level": 0,
+            "skills": []
+          }
+        },
+        "equip_skills": {
+          "atk_pct": [
+            11.11,
+            11.11,
+            12.34
+          ],
+          "element_bonus": 88.6,
+          "max_ammo_pct": 129.64,
+          "crit_rate": 0,
+          "crit_dmg": 0,
+          "charge_speed_pct": [
+            2.34,
+            2.34,
+            4.3
+          ],
+          "charge_dmg_pct": 0,
+          "accuracy_pct": 0,
+          "def_pct": 0
+        },
+        "cube": {
+          "name": "렐릭 베어 큐브",
+          "level": 1
+        },
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        },
+        "collection_stage": "SR15",
+        "favorite_stage": 0
+      },
+      "길티 : 마이티 바니": {
+        "level": 400,
+        "breakthrough": 0,
+        "core_enhancement": 0,
+        "affinity": 1,
+        "skill_levels": {
+          "1": 3,
+          "2": 9,
+          "3": 10
+        },
+        "equipment": {
+          "머리": {
+            "level": 0,
+            "skills": []
+          },
+          "몸통": {
+            "level": 0,
+            "skills": []
+          },
+          "팔": {
+            "level": 0,
+            "skills": []
+          },
+          "다리": {
+            "level": 0,
+            "skills": []
+          }
+        },
+        "equip_skills": {
+          "atk_pct": [
+            11.11,
+            11.11,
+            12.34
+          ],
+          "element_bonus": 88.6,
+          "max_ammo_pct": 129.64,
+          "crit_rate": 0,
+          "crit_dmg": 0,
+          "charge_speed_pct": [
+            2.34,
+            2.34,
+            4.3
+          ],
+          "charge_dmg_pct": 0,
+          "accuracy_pct": 0,
+          "def_pct": 0
+        },
+        "cube": {
+          "name": "렐릭 베어 큐브",
+          "level": 1
+        },
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        },
+        "collection_stage": "SR15",
+        "favorite_stage": 0
+      },
+      "라플라스 : 얼티밋 히어로": {
+        "level": 400,
+        "breakthrough": 0,
+        "core_enhancement": 0,
+        "affinity": 1,
+        "skill_levels": {
+          "1": 3,
+          "2": 9,
+          "3": 10
+        },
+        "equipment": {
+          "머리": {
+            "level": 0,
+            "skills": []
+          },
+          "몸통": {
+            "level": 0,
+            "skills": []
+          },
+          "팔": {
+            "level": 0,
+            "skills": []
+          },
+          "다리": {
+            "level": 0,
+            "skills": []
+          }
+        },
+        "equip_skills": {
+          "atk_pct": [
+            11.11,
+            11.11,
+            12.34
+          ],
+          "element_bonus": 88.6,
+          "max_ammo_pct": 129.64,
+          "crit_rate": 0,
+          "crit_dmg": 0,
+          "charge_speed_pct": [
+            2.34,
+            2.34,
+            4.3
+          ],
+          "charge_dmg_pct": 0,
+          "accuracy_pct": 0,
+          "def_pct": 0
+        },
+        "cube": {
+          "name": "렐릭 베어 큐브",
+          "level": 1
+        },
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        },
+        "collection_stage": "SR15",
+        "favorite_stage": 0
+      }
+    },
+    "_account": {
+      "console": {
+        "common_level": 180,
+        "class_level": 100,
+        "company_level": 100
+      }
+    }
+  },
+  "patches": {},
+  "deltas": {
+    "아니스 : 스타": {
+      "atk": 12345,
+      "hp": 100000,
+      "def": 345
+    }
+  },
+  "squad": [
+    "아니스 : 스타",
+    "그레이브",
+    "신 : 스위프트 바니",
+    "길티 : 마이티 바니",
+    "라플라스 : 얼티밋 히어로"
+  ],
+  "teams": [
+    [
+      "아니스 : 스타",
+      "그레이브",
+      "신 : 스위프트 바니",
+      "길티 : 마이티 바니",
+      "라플라스 : 얼티밋 히어로"
+    ],
+    [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  ],
+  "activeTeam": 0,
+  "raidCount": 5,
+  "singleMode": true,
+  "comparison": null,
+  "job": null,
+  "reference": null,
+  "enemyParts": [
+    {
+      "name": "装甲",
+      "hp": 0,
+      "reach": 1
+    },
+    {
+      "name": "砲台",
+      "hp": 100000,
+      "reach": 2
+    }
+  ],
+  "enemyPatterns": [
+    {
+      "id": "core-window",
+      "kind": "core",
+      "delay": 0.7,
+      "until": {
+        "time": 1.1
+      },
+      "core_px": 6,
+      "after": [
+        "start",
+        "core-window"
+      ],
+      "repeat": 0
+    },
+    {
+      "id": "near-window",
+      "kind": "move",
+      "delay": 2,
+      "until": {
+        "time": 3
+      },
+      "distance": 5
+    },
+    {
+      "id": "armor",
+      "kind": "buff",
+      "delay": 1,
+      "until": {
+        "time": 4
+      },
+      "enemy": {
+        "def_mult": 1.5,
+        "def_add": -1000,
+        "received_dmg_pct": -25
+      },
+      "note": "防御1.5倍・被ダメージ−25%"
+    },
+    {
+      "id": "exposed",
+      "kind": "buff",
+      "delay": 3,
+      "until": {
+        "time": 7
+      },
+      "enemy": {
+        "def_mult": 0.7,
+        "received_dmg_pct": 33.33
+      },
+      "irremovable": true,
+      "note": "防御0.7倍・被ダメージ＋33.33%（解除不可）"
+    }
+  ],
+  "enemyContexts": {
+    "single": {
+      "settings": {
+        "enemy-def": 31784,
+        "enemy-code": "풍압",
+        "duration": 20,
+        "level": 400,
+        "core": 0,
+        "distance": 30
+      },
+      "parts": [
+        {
+          "name": "装甲",
+          "hp": 0,
+          "reach": 1
+        },
+        {
+          "name": "砲台",
+          "hp": 100000,
+          "reach": 2
+        }
+      ],
+      "patterns": [
+        {
+          "id": "core-window",
+          "kind": "core",
+          "delay": 0.7,
+          "until": {
+            "time": 1.1
+          },
+          "core_px": 6,
+          "after": [
+            "start",
+            "core-window"
+          ],
+          "repeat": 0
+        },
+        {
+          "id": "near-window",
+          "kind": "move",
+          "delay": 2,
+          "until": {
+            "time": 3
+          },
+          "distance": 5
+        },
+        {
+          "id": "armor",
+          "kind": "buff",
+          "delay": 1,
+          "until": {
+            "time": 4
+          },
+          "enemy": {
+            "def_mult": 1.5,
+            "def_add": -1000,
+            "received_dmg_pct": -25
+          },
+          "note": "防御1.5倍・被ダメージ−25%"
+        },
+        {
+          "id": "exposed",
+          "kind": "buff",
+          "delay": 3,
+          "until": {
+            "time": 7
+          },
+          "enemy": {
+            "def_mult": 0.7,
+            "received_dmg_pct": 33.33
+          },
+          "irremovable": true,
+          "note": "防御0.7倍・被ダメージ＋33.33%（解除不可）"
+        }
+      ],
+      "presetId": "user:gpu-boss-buffs"
+    }
+  },
+  "customPresets": [
+    {
+      "id": "user:gpu-boss-buffs",
+      "mode": "single",
+      "label": "GPU検証：コア・距離・敵バフ",
+      "settings": {
+        "enemy-def": 31784,
+        "enemy-code": "풍압",
+        "duration": 20,
+        "level": 400,
+        "core": 0,
+        "distance": 30
+      },
+      "parts": [
+        {
+          "name": "装甲",
+          "hp": 0,
+          "reach": 1
+        },
+        {
+          "name": "砲台",
+          "hp": 100000,
+          "reach": 2
+        }
+      ],
+      "patterns": [
+        {
+          "id": "core-window",
+          "kind": "core",
+          "delay": 0.7,
+          "until": {
+            "time": 1.1
+          },
+          "core_px": 6,
+          "after": [
+            "start",
+            "core-window"
+          ],
+          "repeat": 0
+        },
+        {
+          "id": "near-window",
+          "kind": "move",
+          "delay": 2,
+          "until": {
+            "time": 3
+          },
+          "distance": 5
+        },
+        {
+          "id": "armor",
+          "kind": "buff",
+          "delay": 1,
+          "until": {
+            "time": 4
+          },
+          "enemy": {
+            "def_mult": 1.5,
+            "def_add": -1000,
+            "received_dmg_pct": -25
+          },
+          "note": "防御1.5倍・被ダメージ−25%"
+        },
+        {
+          "id": "exposed",
+          "kind": "buff",
+          "delay": 3,
+          "until": {
+            "time": 7
+          },
+          "enemy": {
+            "def_mult": 0.7,
+            "received_dmg_pct": 33.33
+          },
+          "irremovable": true,
+          "note": "防御0.7倍・被ダメージ＋33.33%（解除不可）"
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

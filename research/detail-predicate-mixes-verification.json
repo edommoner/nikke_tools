@@ -1,0 +1,4030 @@
+{
+  "generated_at": "2026-10-16T10:18:40.520087+00:00",
+  "passed": true,
+  "seed": 20261016,
+  "attempts": 11,
+  "compile_rejections": [],
+  "cases": [
+    {
+      "name": "predicate-mix-0",
+      "squad": [
+        "유키코",
+        "아이기스",
+        "노이즈",
+        "라피",
+        "미카"
+      ],
+      "duration": 30,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 121075175,
+      "gpu_total": 121075175,
+      "cpu_health": {
+        "유키코": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "아이기스": {
+          "hp": 2708837.0,
+          "hp_pct": 100.0,
+          "max_hp": 2708837.0
+        },
+        "노이즈": {
+          "hp": 4009667.5554,
+          "hp_pct": 100.0,
+          "max_hp": 4009667.5554
+        },
+        "라피": {
+          "hp": 2499016.0,
+          "hp_pct": 100.0,
+          "max_hp": 2499016.0
+        },
+        "미카": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "gpu_health": {
+        "유키코": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "아이기스": {
+          "hp": 2708837.0,
+          "hp_pct": 100.0,
+          "max_hp": 2708837.0
+        },
+        "노이즈": {
+          "hp": 4009667.5554,
+          "hp_pct": 100.0,
+          "max_hp": 4009667.5554
+        },
+        "라피": {
+          "hp": 2499016.0,
+          "hp_pct": 100.0,
+          "max_hp": 2499016.0
+        },
+        "미카": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "유키코",
+          "cpu": 87306241,
+          "gpu": 87306241
+        },
+        {
+          "name": "아이기스",
+          "cpu": 10722634,
+          "gpu": 10722634
+        },
+        {
+          "name": "노이즈",
+          "cpu": 4588900,
+          "gpu": 4588900
+        },
+        {
+          "name": "라피",
+          "cpu": 14253424,
+          "gpu": 14253424
+        },
+        {
+          "name": "미카",
+          "cpu": 4203976,
+          "gpu": 4203976
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "노이즈"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "아이기스"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "유키코"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "노이즈"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "아이기스"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "유키코"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 4398.93,
+      "module_initialization_ms": 10.636,
+      "wall_seconds": 4.983,
+      "backend": "native",
+      "enemy": {
+        "def": 31784,
+        "code": "풍압",
+        "core_px": 0,
+        "distance": 10
+      }
+    },
+    {
+      "name": "predicate-mix-1",
+      "squad": [
+        "헬름 : 아쿠아마린",
+        "헬름",
+        "퀸(마코토)",
+        "노이즈",
+        "드레이크"
+      ],
+      "duration": 30,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 108657605,
+      "gpu_total": 108657605,
+      "cpu_health": {
+        "헬름 : 아쿠아마린": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "헬름": {
+          "hp": 4464653.050000001,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "퀸(마코토)": {
+          "hp": 4475457.415,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "노이즈": {
+          "hp": 3993646.784,
+          "hp_pct": 100.0,
+          "max_hp": 3993646.784
+        },
+        "드레이크": {
+          "hp": 4500280.3950000005,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_health": {
+        "헬름 : 아쿠아마린": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "헬름": {
+          "hp": 4464653.050000001,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "퀸(마코토)": {
+          "hp": 4475457.415,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "노이즈": {
+          "hp": 3993646.784,
+          "hp_pct": 100.0,
+          "max_hp": 3993646.784
+        },
+        "드레이크": {
+          "hp": 4500280.3950000005,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "헬름 : 아쿠아마린",
+          "cpu": 33368022,
+          "gpu": 33368022
+        },
+        {
+          "name": "헬름",
+          "cpu": 14705138,
+          "gpu": 14705138
+        },
+        {
+          "name": "퀸(마코토)",
+          "cpu": 31028010,
+          "gpu": 31028010
+        },
+        {
+          "name": "노이즈",
+          "cpu": 9521324,
+          "gpu": 9521324
+        },
+        {
+          "name": "드레이크",
+          "cpu": 20035111,
+          "gpu": 20035111
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "노이즈"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "헬름 : 아쿠아마린"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "헬름"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "노이즈"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "헬름 : 아쿠아마린"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "헬름"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 1962.271,
+      "module_initialization_ms": 6.937,
+      "wall_seconds": 2.362,
+      "backend": "native",
+      "enemy": {
+        "def": 31784,
+        "code": "전격",
+        "core_px": 50,
+        "distance": 35
+      }
+    },
+    {
+      "name": "predicate-mix-2",
+      "squad": [
+        "아이기스",
+        "노이즈",
+        "유키코",
+        "델타",
+        "루드밀라"
+      ],
+      "duration": 30,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 170780985,
+      "gpu_total": 170780985,
+      "cpu_health": {
+        "아이기스": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "노이즈": {
+          "hp": 4026302.4161,
+          "hp_pct": 100.0,
+          "max_hp": 4026302.4161
+        },
+        "유키코": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "델타": {
+          "hp": 3138621.241,
+          "hp_pct": 100.0,
+          "max_hp": 3138621.241
+        },
+        "루드밀라": {
+          "hp": 3577414.0,
+          "hp_pct": 100.0,
+          "max_hp": 3577414.0
+        }
+      },
+      "gpu_health": {
+        "아이기스": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "노이즈": {
+          "hp": 4026302.4161,
+          "hp_pct": 100.0,
+          "max_hp": 4026302.4161
+        },
+        "유키코": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "델타": {
+          "hp": 3138621.241,
+          "hp_pct": 100.0,
+          "max_hp": 3138621.241
+        },
+        "루드밀라": {
+          "hp": 3577414.0,
+          "hp_pct": 100.0,
+          "max_hp": 3577414.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "아이기스",
+          "cpu": 12046503,
+          "gpu": 12046503
+        },
+        {
+          "name": "노이즈",
+          "cpu": 7960022,
+          "gpu": 7960022
+        },
+        {
+          "name": "유키코",
+          "cpu": 137108600,
+          "gpu": 137108600
+        },
+        {
+          "name": "델타",
+          "cpu": 6151347,
+          "gpu": 6151347
+        },
+        {
+          "name": "루드밀라",
+          "cpu": 7514513,
+          "gpu": 7514513
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "노이즈"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "아이기스"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "유키코"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "노이즈"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "아이기스"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "유키코"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 2754.559,
+      "module_initialization_ms": 6.528,
+      "wall_seconds": 3.341,
+      "backend": "native",
+      "enemy": {
+        "def": 31784,
+        "code": "풍압",
+        "core_px": 50,
+        "distance": 10
+      }
+    },
+    {
+      "name": "predicate-mix-3",
+      "squad": [
+        "파스칼",
+        "마르차나 : 마린 스터디",
+        "퀸(마코토)",
+        "브리드 : 사일런트 트랙",
+        "페퍼"
+      ],
+      "duration": 30,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 201181477,
+      "gpu_total": 201181477,
+      "cpu_health": {
+        "파스칼": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "마르차나 : 마린 스터디": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "퀸(마코토)": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "브리드 : 사일런트 트랙": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "페퍼": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_health": {
+        "파스칼": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "마르차나 : 마린 스터디": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "퀸(마코토)": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "브리드 : 사일런트 트랙": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "페퍼": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "파스칼",
+          "cpu": 7743195,
+          "gpu": 7743195
+        },
+        {
+          "name": "마르차나 : 마린 스터디",
+          "cpu": 129973095,
+          "gpu": 129973095
+        },
+        {
+          "name": "퀸(마코토)",
+          "cpu": 28731350,
+          "gpu": 28731350
+        },
+        {
+          "name": "브리드 : 사일런트 트랙",
+          "cpu": 17262088,
+          "gpu": 17262088
+        },
+        {
+          "name": "페퍼",
+          "cpu": 17471749,
+          "gpu": 17471749
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "파스칼"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "브리드 : 사일런트 트랙"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "마르차나 : 마린 스터디"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "파스칼"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "브리드 : 사일런트 트랙"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "마르차나 : 마린 스터디"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 2067.098,
+      "module_initialization_ms": 6.148,
+      "wall_seconds": 2.49,
+      "backend": "native",
+      "enemy": {
+        "def": 31784,
+        "code": "전격",
+        "core_px": 0,
+        "distance": 35
+      }
+    },
+    {
+      "name": "predicate-mix-4",
+      "squad": [
+        "아이기스",
+        "브리드",
+        "루주",
+        "키리",
+        "퀸(마코토)"
+      ],
+      "duration": 30,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 145118544,
+      "gpu_total": 145118544,
+      "cpu_health": {
+        "아이기스": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "브리드": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "키리": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "퀸(마코토)": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_health": {
+        "아이기스": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "브리드": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "키리": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "퀸(마코토)": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "아이기스",
+          "cpu": 16328284,
+          "gpu": 16328284
+        },
+        {
+          "name": "브리드",
+          "cpu": 21378205,
+          "gpu": 21378205
+        },
+        {
+          "name": "루주",
+          "cpu": 11535647,
+          "gpu": 11535647
+        },
+        {
+          "name": "키리",
+          "cpu": 10146668,
+          "gpu": 10146668
+        },
+        {
+          "name": "퀸(마코토)",
+          "cpu": 85729740,
+          "gpu": 85729740
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "아이기스"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "브리드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 17.6,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 17.7,
+          "event": "stage:2 사용",
+          "character": "아이기스"
+        },
+        {
+          "time": 17.8,
+          "event": "stage:3 사용",
+          "character": "키리"
+        },
+        {
+          "time": 18.183,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 28.183,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "아이기스"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "브리드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 17.6,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 17.7,
+          "event": "stage:2 사용",
+          "character": "아이기스"
+        },
+        {
+          "time": 17.8,
+          "event": "stage:3 사용",
+          "character": "키리"
+        },
+        {
+          "time": 18.183,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 28.183,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 2048.989,
+      "module_initialization_ms": 6.475,
+      "wall_seconds": 2.54,
+      "backend": "native",
+      "enemy": {
+        "def": 31784,
+        "code": "풍압",
+        "core_px": 50,
+        "distance": 10
+      }
+    },
+    {
+      "name": "predicate-mix-5",
+      "squad": [
+        "애드미",
+        "마르차나 : 마린 스터디",
+        "퀸(마코토)",
+        "델타",
+        "볼륨"
+      ],
+      "duration": 30,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 217283580,
+      "gpu_total": 217283580,
+      "cpu_health": {
+        "애드미": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "마르차나 : 마린 스터디": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "퀸(마코토)": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "델타": {
+          "hp": 3138621.241,
+          "hp_pct": 100.0,
+          "max_hp": 3138621.241
+        },
+        "볼륨": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_health": {
+        "애드미": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "마르차나 : 마린 스터디": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "퀸(마코토)": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "델타": {
+          "hp": 3138621.241,
+          "hp_pct": 100.0,
+          "max_hp": 3138621.241
+        },
+        "볼륨": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "애드미",
+          "cpu": 9051709,
+          "gpu": 9051709
+        },
+        {
+          "name": "마르차나 : 마린 스터디",
+          "cpu": 148902906,
+          "gpu": 148902906
+        },
+        {
+          "name": "퀸(마코토)",
+          "cpu": 37919410,
+          "gpu": 37919410
+        },
+        {
+          "name": "델타",
+          "cpu": 6179425,
+          "gpu": 6179425
+        },
+        {
+          "name": "볼륨",
+          "cpu": 15230130,
+          "gpu": 15230130
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "볼륨"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "애드미"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "마르차나 : 마린 스터디"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.667,
+          "event": "stage:1 사용",
+          "character": "볼륨"
+        },
+        {
+          "time": 20.767,
+          "event": "stage:2 사용",
+          "character": "애드미"
+        },
+        {
+          "time": 20.867,
+          "event": "stage:3 사용",
+          "character": "퀸(마코토)"
+        },
+        {
+          "time": 21.25,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "볼륨"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "애드미"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "마르차나 : 마린 스터디"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.667,
+          "event": "stage:1 사용",
+          "character": "볼륨"
+        },
+        {
+          "time": 20.767,
+          "event": "stage:2 사용",
+          "character": "애드미"
+        },
+        {
+          "time": 20.867,
+          "event": "stage:3 사용",
+          "character": "퀸(마코토)"
+        },
+        {
+          "time": 21.25,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 2363.383,
+      "module_initialization_ms": 6.61,
+      "wall_seconds": 2.86,
+      "backend": "native",
+      "enemy": {
+        "def": 31784,
+        "code": "전격",
+        "core_px": 50,
+        "distance": 35
+      }
+    },
+    {
+      "name": "predicate-mix-0",
+      "squad": [
+        "유키코",
+        "아이기스",
+        "노이즈",
+        "라피",
+        "미카"
+      ],
+      "duration": 30,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 121075175,
+      "gpu_total": 121075175,
+      "cpu_health": {
+        "유키코": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "아이기스": {
+          "hp": 2708837.0,
+          "hp_pct": 100.0,
+          "max_hp": 2708837.0
+        },
+        "노이즈": {
+          "hp": 4009667.5554,
+          "hp_pct": 100.0,
+          "max_hp": 4009667.5554
+        },
+        "라피": {
+          "hp": 2499016.0,
+          "hp_pct": 100.0,
+          "max_hp": 2499016.0
+        },
+        "미카": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "gpu_health": {
+        "유키코": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "아이기스": {
+          "hp": 2708837.0,
+          "hp_pct": 100.0,
+          "max_hp": 2708837.0
+        },
+        "노이즈": {
+          "hp": 4009667.5554,
+          "hp_pct": 100.0,
+          "max_hp": 4009667.5554
+        },
+        "라피": {
+          "hp": 2499016.0,
+          "hp_pct": 100.0,
+          "max_hp": 2499016.0
+        },
+        "미카": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "유키코",
+          "cpu": 87306241,
+          "gpu": 87306241
+        },
+        {
+          "name": "아이기스",
+          "cpu": 10722634,
+          "gpu": 10722634
+        },
+        {
+          "name": "노이즈",
+          "cpu": 4588900,
+          "gpu": 4588900
+        },
+        {
+          "name": "라피",
+          "cpu": 14253424,
+          "gpu": 14253424
+        },
+        {
+          "name": "미카",
+          "cpu": 4203976,
+          "gpu": 4203976
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "노이즈"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "아이기스"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "유키코"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "노이즈"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "아이기스"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "유키코"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 5925.143,
+      "module_initialization_ms": 121574.007,
+      "wall_seconds": 127.941,
+      "backend": "ptx",
+      "enemy": {
+        "def": 31784,
+        "code": "풍압",
+        "core_px": 0,
+        "distance": 10
+      }
+    },
+    {
+      "name": "predicate-mix-1",
+      "squad": [
+        "헬름 : 아쿠아마린",
+        "헬름",
+        "퀸(마코토)",
+        "노이즈",
+        "드레이크"
+      ],
+      "duration": 30,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 108657605,
+      "gpu_total": 108657605,
+      "cpu_health": {
+        "헬름 : 아쿠아마린": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "헬름": {
+          "hp": 4464653.050000001,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "퀸(마코토)": {
+          "hp": 4475457.415,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "노이즈": {
+          "hp": 3993646.784,
+          "hp_pct": 100.0,
+          "max_hp": 3993646.784
+        },
+        "드레이크": {
+          "hp": 4500280.3950000005,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_health": {
+        "헬름 : 아쿠아마린": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "헬름": {
+          "hp": 4464653.050000001,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "퀸(마코토)": {
+          "hp": 4475457.415,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "노이즈": {
+          "hp": 3993646.784,
+          "hp_pct": 100.0,
+          "max_hp": 3993646.784
+        },
+        "드레이크": {
+          "hp": 4500280.3950000005,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "헬름 : 아쿠아마린",
+          "cpu": 33368022,
+          "gpu": 33368022
+        },
+        {
+          "name": "헬름",
+          "cpu": 14705138,
+          "gpu": 14705138
+        },
+        {
+          "name": "퀸(마코토)",
+          "cpu": 31028010,
+          "gpu": 31028010
+        },
+        {
+          "name": "노이즈",
+          "cpu": 9521324,
+          "gpu": 9521324
+        },
+        {
+          "name": "드레이크",
+          "cpu": 20035111,
+          "gpu": 20035111
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "노이즈"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "헬름 : 아쿠아마린"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "헬름"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "노이즈"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "헬름 : 아쿠아마린"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "헬름"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 4806.084,
+      "module_initialization_ms": 10.764,
+      "wall_seconds": 5.125,
+      "backend": "ptx",
+      "enemy": {
+        "def": 31784,
+        "code": "전격",
+        "core_px": 50,
+        "distance": 35
+      }
+    },
+    {
+      "name": "predicate-mix-2",
+      "squad": [
+        "아이기스",
+        "노이즈",
+        "유키코",
+        "델타",
+        "루드밀라"
+      ],
+      "duration": 30,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 170780985,
+      "gpu_total": 170780985,
+      "cpu_health": {
+        "아이기스": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "노이즈": {
+          "hp": 4026302.4161,
+          "hp_pct": 100.0,
+          "max_hp": 4026302.4161
+        },
+        "유키코": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "델타": {
+          "hp": 3138621.241,
+          "hp_pct": 100.0,
+          "max_hp": 3138621.241
+        },
+        "루드밀라": {
+          "hp": 3577414.0,
+          "hp_pct": 100.0,
+          "max_hp": 3577414.0
+        }
+      },
+      "gpu_health": {
+        "아이기스": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "노이즈": {
+          "hp": 4026302.4161,
+          "hp_pct": 100.0,
+          "max_hp": 4026302.4161
+        },
+        "유키코": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "델타": {
+          "hp": 3138621.241,
+          "hp_pct": 100.0,
+          "max_hp": 3138621.241
+        },
+        "루드밀라": {
+          "hp": 3577414.0,
+          "hp_pct": 100.0,
+          "max_hp": 3577414.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "아이기스",
+          "cpu": 12046503,
+          "gpu": 12046503
+        },
+        {
+          "name": "노이즈",
+          "cpu": 7960022,
+          "gpu": 7960022
+        },
+        {
+          "name": "유키코",
+          "cpu": 137108600,
+          "gpu": 137108600
+        },
+        {
+          "name": "델타",
+          "cpu": 6151347,
+          "gpu": 6151347
+        },
+        {
+          "name": "루드밀라",
+          "cpu": 7514513,
+          "gpu": 7514513
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "노이즈"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "아이기스"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "유키코"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "노이즈"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "아이기스"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "유키코"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 6896.776,
+      "module_initialization_ms": 10.433,
+      "wall_seconds": 7.367,
+      "backend": "ptx",
+      "enemy": {
+        "def": 31784,
+        "code": "풍압",
+        "core_px": 50,
+        "distance": 10
+      }
+    },
+    {
+      "name": "predicate-mix-3",
+      "squad": [
+        "파스칼",
+        "마르차나 : 마린 스터디",
+        "퀸(마코토)",
+        "브리드 : 사일런트 트랙",
+        "페퍼"
+      ],
+      "duration": 30,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 201181477,
+      "gpu_total": 201181477,
+      "cpu_health": {
+        "파스칼": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "마르차나 : 마린 스터디": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "퀸(마코토)": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "브리드 : 사일런트 트랙": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "페퍼": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_health": {
+        "파스칼": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "마르차나 : 마린 스터디": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "퀸(마코토)": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "브리드 : 사일런트 트랙": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "페퍼": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "파스칼",
+          "cpu": 7743195,
+          "gpu": 7743195
+        },
+        {
+          "name": "마르차나 : 마린 스터디",
+          "cpu": 129973095,
+          "gpu": 129973095
+        },
+        {
+          "name": "퀸(마코토)",
+          "cpu": 28731350,
+          "gpu": 28731350
+        },
+        {
+          "name": "브리드 : 사일런트 트랙",
+          "cpu": 17262088,
+          "gpu": 17262088
+        },
+        {
+          "name": "페퍼",
+          "cpu": 17471749,
+          "gpu": 17471749
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "파스칼"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "브리드 : 사일런트 트랙"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "마르차나 : 마린 스터디"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "파스칼"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "브리드 : 사일런트 트랙"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "마르차나 : 마린 스터디"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 3724.531,
+      "module_initialization_ms": 10.134,
+      "wall_seconds": 4.04,
+      "backend": "ptx",
+      "enemy": {
+        "def": 31784,
+        "code": "전격",
+        "core_px": 0,
+        "distance": 35
+      }
+    },
+    {
+      "name": "predicate-mix-4",
+      "squad": [
+        "아이기스",
+        "브리드",
+        "루주",
+        "키리",
+        "퀸(마코토)"
+      ],
+      "duration": 30,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 145118544,
+      "gpu_total": 145118544,
+      "cpu_health": {
+        "아이기스": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "브리드": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "키리": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "퀸(마코토)": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_health": {
+        "아이기스": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "브리드": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "키리": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "퀸(마코토)": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "아이기스",
+          "cpu": 16328284,
+          "gpu": 16328284
+        },
+        {
+          "name": "브리드",
+          "cpu": 21378205,
+          "gpu": 21378205
+        },
+        {
+          "name": "루주",
+          "cpu": 11535647,
+          "gpu": 11535647
+        },
+        {
+          "name": "키리",
+          "cpu": 10146668,
+          "gpu": 10146668
+        },
+        {
+          "name": "퀸(마코토)",
+          "cpu": 85729740,
+          "gpu": 85729740
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "아이기스"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "브리드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 17.6,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 17.7,
+          "event": "stage:2 사용",
+          "character": "아이기스"
+        },
+        {
+          "time": 17.8,
+          "event": "stage:3 사용",
+          "character": "키리"
+        },
+        {
+          "time": 18.183,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 28.183,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "아이기스"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "브리드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 17.6,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 17.7,
+          "event": "stage:2 사용",
+          "character": "아이기스"
+        },
+        {
+          "time": 17.8,
+          "event": "stage:3 사용",
+          "character": "키리"
+        },
+        {
+          "time": 18.183,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 28.183,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 5501.611,
+      "module_initialization_ms": 10.086,
+      "wall_seconds": 5.894,
+      "backend": "ptx",
+      "enemy": {
+        "def": 31784,
+        "code": "풍압",
+        "core_px": 50,
+        "distance": 10
+      }
+    },
+    {
+      "name": "predicate-mix-5",
+      "squad": [
+        "애드미",
+        "마르차나 : 마린 스터디",
+        "퀸(마코토)",
+        "델타",
+        "볼륨"
+      ],
+      "duration": 30,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 217283580,
+      "gpu_total": 217283580,
+      "cpu_health": {
+        "애드미": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "마르차나 : 마린 스터디": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "퀸(마코토)": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "델타": {
+          "hp": 3138621.241,
+          "hp_pct": 100.0,
+          "max_hp": 3138621.241
+        },
+        "볼륨": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_health": {
+        "애드미": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "마르차나 : 마린 스터디": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "퀸(마코토)": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "델타": {
+          "hp": 3138621.241,
+          "hp_pct": 100.0,
+          "max_hp": 3138621.241
+        },
+        "볼륨": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "애드미",
+          "cpu": 9051709,
+          "gpu": 9051709
+        },
+        {
+          "name": "마르차나 : 마린 스터디",
+          "cpu": 148902906,
+          "gpu": 148902906
+        },
+        {
+          "name": "퀸(마코토)",
+          "cpu": 37919410,
+          "gpu": 37919410
+        },
+        {
+          "name": "델타",
+          "cpu": 6179425,
+          "gpu": 6179425
+        },
+        {
+          "name": "볼륨",
+          "cpu": 15230130,
+          "gpu": 15230130
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "볼륨"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "애드미"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "마르차나 : 마린 스터디"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.667,
+          "event": "stage:1 사용",
+          "character": "볼륨"
+        },
+        {
+          "time": 20.767,
+          "event": "stage:2 사용",
+          "character": "애드미"
+        },
+        {
+          "time": 20.867,
+          "event": "stage:3 사용",
+          "character": "퀸(마코토)"
+        },
+        {
+          "time": 21.25,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "볼륨"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "애드미"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "마르차나 : 마린 스터디"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.667,
+          "event": "stage:1 사용",
+          "character": "볼륨"
+        },
+        {
+          "time": 20.767,
+          "event": "stage:2 사용",
+          "character": "애드미"
+        },
+        {
+          "time": 20.867,
+          "event": "stage:3 사용",
+          "character": "퀸(마코토)"
+        },
+        {
+          "time": 21.25,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 4749.675,
+      "module_initialization_ms": 10.589,
+      "wall_seconds": 5.214,
+      "backend": "ptx",
+      "enemy": {
+        "def": 31784,
+        "code": "전격",
+        "core_px": 50,
+        "distance": 35
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "profile": {
+        "chars": {
+          "유키코": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 1,
+            "skill_levels": {
+              "1": 3,
+              "2": 9,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "아이기스": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 7,
+            "skill_levels": {
+              "1": 4,
+              "2": 8,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "노이즈": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 13,
+            "skill_levels": {
+              "1": 5,
+              "2": 7,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "라피": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 19,
+            "skill_levels": {
+              "1": 6,
+              "2": 6,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "미카": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 25,
+            "skill_levels": {
+              "1": 7,
+              "2": 5,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          }
+        },
+        "_account": {
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          }
+        }
+      },
+      "squad": [
+        "유키코",
+        "아이기스",
+        "노이즈",
+        "라피",
+        "미카"
+      ],
+      "duration": 30,
+      "level": 400,
+      "enemy": {
+        "def": 31784,
+        "code": "풍압",
+        "core_px": 0,
+        "distance": 10
+      },
+      "burst_policy": "auto"
+    },
+    {
+      "profile": {
+        "chars": {
+          "헬름 : 아쿠아마린": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 1,
+            "skill_levels": {
+              "1": 3,
+              "2": 9,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "헬름": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 7,
+            "skill_levels": {
+              "1": 4,
+              "2": 8,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "퀸(마코토)": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 13,
+            "skill_levels": {
+              "1": 5,
+              "2": 7,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "노이즈": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 19,
+            "skill_levels": {
+              "1": 6,
+              "2": 6,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "드레이크": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 25,
+            "skill_levels": {
+              "1": 7,
+              "2": 5,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          }
+        },
+        "_account": {
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          }
+        }
+      },
+      "squad": [
+        "헬름 : 아쿠아마린",
+        "헬름",
+        "퀸(마코토)",
+        "노이즈",
+        "드레이크"
+      ],
+      "duration": 30,
+      "level": 400,
+      "enemy": {
+        "def": 31784,
+        "code": "전격",
+        "core_px": 50,
+        "distance": 35
+      },
+      "burst_policy": "auto"
+    },
+    {
+      "profile": {
+        "chars": {
+          "아이기스": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 1,
+            "skill_levels": {
+              "1": 3,
+              "2": 9,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "노이즈": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 7,
+            "skill_levels": {
+              "1": 4,
+              "2": 8,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "유키코": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 13,
+            "skill_levels": {
+              "1": 5,
+              "2": 7,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "델타": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 19,
+            "skill_levels": {
+              "1": 6,
+              "2": 6,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "루드밀라": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 25,
+            "skill_levels": {
+              "1": 7,
+              "2": 5,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          }
+        },
+        "_account": {
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          }
+        }
+      },
+      "squad": [
+        "아이기스",
+        "노이즈",
+        "유키코",
+        "델타",
+        "루드밀라"
+      ],
+      "duration": 30,
+      "level": 400,
+      "enemy": {
+        "def": 31784,
+        "code": "풍압",
+        "core_px": 50,
+        "distance": 10
+      },
+      "burst_policy": "auto"
+    },
+    {
+      "profile": {
+        "chars": {
+          "파스칼": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 1,
+            "skill_levels": {
+              "1": 3,
+              "2": 9,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "마르차나 : 마린 스터디": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 7,
+            "skill_levels": {
+              "1": 4,
+              "2": 8,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "퀸(마코토)": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 13,
+            "skill_levels": {
+              "1": 5,
+              "2": 7,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "브리드 : 사일런트 트랙": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 19,
+            "skill_levels": {
+              "1": 6,
+              "2": 6,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "페퍼": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 25,
+            "skill_levels": {
+              "1": 7,
+              "2": 5,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          }
+        },
+        "_account": {
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          }
+        }
+      },
+      "squad": [
+        "파스칼",
+        "마르차나 : 마린 스터디",
+        "퀸(마코토)",
+        "브리드 : 사일런트 트랙",
+        "페퍼"
+      ],
+      "duration": 30,
+      "level": 400,
+      "enemy": {
+        "def": 31784,
+        "code": "전격",
+        "core_px": 0,
+        "distance": 35
+      },
+      "burst_policy": "auto"
+    },
+    {
+      "profile": {
+        "chars": {
+          "아이기스": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 1,
+            "skill_levels": {
+              "1": 3,
+              "2": 9,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "브리드": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 7,
+            "skill_levels": {
+              "1": 4,
+              "2": 8,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "루주": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 13,
+            "skill_levels": {
+              "1": 5,
+              "2": 7,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "키리": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 19,
+            "skill_levels": {
+              "1": 6,
+              "2": 6,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "퀸(마코토)": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 25,
+            "skill_levels": {
+              "1": 7,
+              "2": 5,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          }
+        },
+        "_account": {
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          }
+        }
+      },
+      "squad": [
+        "아이기스",
+        "브리드",
+        "루주",
+        "키리",
+        "퀸(마코토)"
+      ],
+      "duration": 30,
+      "level": 400,
+      "enemy": {
+        "def": 31784,
+        "code": "풍압",
+        "core_px": 50,
+        "distance": 10
+      },
+      "burst_policy": "auto"
+    },
+    {
+      "profile": {
+        "chars": {
+          "애드미": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 1,
+            "skill_levels": {
+              "1": 3,
+              "2": 9,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "마르차나 : 마린 스터디": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 7,
+            "skill_levels": {
+              "1": 4,
+              "2": 8,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "퀸(마코토)": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 13,
+            "skill_levels": {
+              "1": 5,
+              "2": 7,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "델타": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 19,
+            "skill_levels": {
+              "1": 6,
+              "2": 6,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          },
+          "볼륨": {
+            "level": 400,
+            "breakthrough": 3,
+            "core_enhancement": 0,
+            "affinity": 25,
+            "skill_levels": {
+              "1": 7,
+              "2": 5,
+              "3": 10
+            },
+            "equipment": {
+              "머리": {
+                "level": 5,
+                "skills": []
+              },
+              "몸통": {
+                "level": 5,
+                "skills": []
+              },
+              "팔": {
+                "level": 5,
+                "skills": []
+              },
+              "다리": {
+                "level": 5,
+                "skills": []
+              }
+            },
+            "equip_skills": {
+              "atk_pct": 22.22,
+              "element_bonus": 88.6,
+              "max_ammo_pct": 129.64,
+              "crit_rate": 0,
+              "crit_dmg": 0,
+              "charge_speed_pct": 0,
+              "charge_dmg_pct": 0,
+              "accuracy_pct": 0,
+              "def_pct": 0
+            },
+            "cube": {
+              "name": "__none__",
+              "level": 0
+            },
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            },
+            "collection_stage": "SR15",
+            "favorite_stage": 0
+          }
+        },
+        "_account": {
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          }
+        }
+      },
+      "squad": [
+        "애드미",
+        "마르차나 : 마린 스터디",
+        "퀸(마코토)",
+        "델타",
+        "볼륨"
+      ],
+      "duration": 30,
+      "level": 400,
+      "enemy": {
+        "def": 31784,
+        "code": "전격",
+        "core_px": 50,
+        "distance": 35
+      },
+      "burst_policy": "auto"
+    }
+  ],
+  "cpu_trace_used_as_gpu_input": false,
+  "scope": "six seeded five-member mixes with at least two new predicate users, feasible B1/B2/B3, varied element/core/distance, grown stage-zero/no-cube; not all combinations",
+  "source_sha256": {
+    "scripts/verify-predicate-mixes.py": "d6c3ce874d45bab3a2f4808fa54b236edb7278ac04d921c6a93435cc58ea308f",
+    "app/detail_gpu.py": "bbb910ce0150bc9267d01b8d6b96afeb88cfd8df6d80d075dcf9577915f8890c",
+    "app/detail_effects.cu": "71878d0020239263d95f5b44249bbc96db24748d349e8a482dfea8930254e530",
+    "app/detail_effects.ptx": "afeade6b859709a358e9257cd727ccd6f5eb2465147f738f4add0b2db27a0866",
+    "app/detail_effects-sm86.cubin": "f4c99bd999f24fdc5f6152d681eb4d517f75458b4aa275cf7832aceb6092dd02",
+    "app/engine_worker.py": "06a40f07b3f95c7b8a7e833eafd3d9a86c2c4e2b5ab72cddb37820da41035929",
+    "app/engine_compat.py": "f57f89a81f1f70e83aed7d2a175d33613fc5b126f62d0c67658a326c51455c66"
+  }
+}

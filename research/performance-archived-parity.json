@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "index": 0,
+      "total": 156700321,
+      "checks": {
+        "final_hp": true,
+        "final_control": true,
+        "workspace_bytes": true,
+        "backend": true
+      },
+      "batch_size": 3
+    },
+    {
+      "index": 1,
+      "total": 59398826,
+      "checks": {
+        "final_hp": true,
+        "final_control": true,
+        "workspace_bytes": true,
+        "backend": true
+      },
+      "batch_size": 1
+    },
+    {
+      "index": 2,
+      "total": 129596440,
+      "checks": {
+        "final_hp": true,
+        "final_control": true,
+        "workspace_bytes": true,
+        "backend": true
+      },
+      "batch_size": 3
+    },
+    {
+      "index": 3,
+      "total": 68069590,
+      "checks": {
+        "final_hp": true,
+        "final_control": true,
+        "workspace_bytes": true,
+        "backend": true
+      },
+      "batch_size": 3
+    }
+  ],
+  "source_sha256": {
+    "app/detail_gpu.py": "78b9b71499752c94d3bf34774f2da39aca4bcb3a0f6338a9fc3656ecf08d0a5e",
+    "app/evaluation-queue.mjs": "23a1724c380470261d16b3f4d80e2fa9a9bd7c6862e1ca48ebf94844a6905344",
+    "app/gpu_service.py": "a5c9c707479986ab236a15cf73db872e6ac07e4f5148c9575d2c6b3fb025a2c0",
+    "app/detail_effects.cu": "9ed73c00bc168cffb2405970e7c0a5c09f8d16b6c53e9389be519c57fc0b2884",
+    "app/detail_effects-sm86.cubin": "76b39cf56059436464e90e7ee7086595f6d945d7c318dfe7a9c75b0b5ba71853",
+    "research\\ports\\v48-copy-carriers-verified\\app\\detail_gpu.py": "826f4652485fefbf036ce246accea95fce08ce95a00372f1b433eae66aa2f412"
+  },
+  "scope": "Mixed squads, seed and duration; all semantic output plus final HP/control against frozen v48 single evaluator"
+}

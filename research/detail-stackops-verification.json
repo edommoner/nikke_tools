@@ -1,0 +1,4811 @@
+{
+  "generated_at": "2026-10-16T08:12:18.463333+00:00",
+  "passed": true,
+  "cpu_trace_used_as_gpu_input": false,
+  "scope": "authored stack operations, independent full squads, and newly accepted real characters in fixed static-boss squads; not all characters or combinations",
+  "cases": [
+    {
+      "name": "named-add-refreshes-at-cap-remove-keeps-one",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "generic-add-at-cap-does-not-refresh-expiry",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "generic-cap-no-op-is-not-a-duration-refresh",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "init-bypasses-gate-budget-and-emits-no-name-or-reach",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "lazy-init-appends-separate-unresolved-instances",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "generic-add-skips-mixed-recipient-instance",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "false-permanent-immune-still-blocks-stack-changes",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "zero-valued-immune-expires-and-allows-later-change",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "named-debuff-zero-remains-present-and-blocks-init",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "single-stack-buff-reapplication-retains-zero-stack",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "generic-debuff-floor-one-named-floor-zero",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "enemy-debuff-zero-keeps-target-state-present",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "gauge-zero-overrides-default-delta",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "all-stacks-updated-before-latched-reach-callbacks",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "generic-add-updates-bullet-stacks-even-representative-at-cap",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "init-uses-raw-finite-lifetime-for-runtime-gating",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "enemy-stun-does-not-disable-squad-actions",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "init-permanent-runtime-condition-prevents-cross-definition-merge",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "missing-capture-stays-dynamic-after-name-creates-reference",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "runtime-enabled-at-init-persists-through-finite-refresh",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "runtime-disabled-at-init-persists-through-permanent-alias-refresh",
+      "passed": true,
+      "errors": [],
+      "backend": "native"
+    },
+    {
+      "name": "full-named-add-remove-and-partial-instances",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 194702146,
+      "gpu_total": 194702146,
+      "cpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "gpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "리타",
+          "cpu": 3878052,
+          "gpu": 3878052
+        },
+        {
+          "name": "크라운",
+          "cpu": 27200512,
+          "gpu": 27200512
+        },
+        {
+          "name": "앨리스",
+          "cpu": 40325032,
+          "gpu": 40325032
+        },
+        {
+          "name": "모더니아",
+          "cpu": 109187805,
+          "gpu": 109187805
+        },
+        {
+          "name": "N102",
+          "cpu": 14110745,
+          "gpu": 14110745
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 598.824,
+      "module_initialization_ms": 4.606,
+      "wall_seconds": 0.835,
+      "backend": "native"
+    },
+    {
+      "name": "full-zero-presence-ref-hit-count-and-init",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 45184749,
+      "gpu_total": 45184749,
+      "cpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "gpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "리타",
+          "cpu": 19178626,
+          "gpu": 19178626
+        },
+        {
+          "name": "크라운",
+          "cpu": 3322925,
+          "gpu": 3322925
+        },
+        {
+          "name": "앨리스",
+          "cpu": 5908562,
+          "gpu": 5908562
+        },
+        {
+          "name": "모더니아",
+          "cpu": 14831062,
+          "gpu": 14831062
+        },
+        {
+          "name": "N102",
+          "cpu": 1943574,
+          "gpu": 1943574
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 522.61,
+      "module_initialization_ms": 4.247,
+      "wall_seconds": 0.66,
+      "backend": "native"
+    },
+    {
+      "name": "full-bullet-map-stacks-independent-of-representative",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 33734543,
+      "gpu_total": 33734543,
+      "cpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "gpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "리타",
+          "cpu": 3487692,
+          "gpu": 3487692
+        },
+        {
+          "name": "크라운",
+          "cpu": 3511905,
+          "gpu": 3511905
+        },
+        {
+          "name": "앨리스",
+          "cpu": 8350528,
+          "gpu": 8350528
+        },
+        {
+          "name": "모더니아",
+          "cpu": 15577544,
+          "gpu": 15577544
+        },
+        {
+          "name": "N102",
+          "cpu": 2806874,
+          "gpu": 2806874
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 759.262,
+      "module_initialization_ms": 4.534,
+      "wall_seconds": 0.922,
+      "backend": "native"
+    },
+    {
+      "name": "full-init-has-no-health-shield-or-named-posts",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 29195895,
+      "gpu_total": 29195895,
+      "cpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 8152792.5
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 8870717.5
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 7484042.5
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 7504095.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 6838290.0
+        }
+      },
+      "gpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 8152792.5
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 8870717.5
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 7484042.5
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 7504095.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 6838290.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "리타",
+          "cpu": 3189772,
+          "gpu": 3189772
+        },
+        {
+          "name": "크라운",
+          "cpu": 3322925,
+          "gpu": 3322925
+        },
+        {
+          "name": "앨리스",
+          "cpu": 5908562,
+          "gpu": 5908562
+        },
+        {
+          "name": "모더니아",
+          "cpu": 14831062,
+          "gpu": 14831062
+        },
+        {
+          "name": "N102",
+          "cpu": 1943574,
+          "gpu": 1943574
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 337.241,
+      "module_initialization_ms": 4.192,
+      "wall_seconds": 0.463,
+      "backend": "native"
+    },
+    {
+      "name": "full-beneficial-generic-add-with-shared-target-skip",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 42735528,
+      "gpu_total": 42735528,
+      "cpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "gpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "리타",
+          "cpu": 4662452,
+          "gpu": 4662452
+        },
+        {
+          "name": "크라운",
+          "cpu": 5025758,
+          "gpu": 5025758
+        },
+        {
+          "name": "앨리스",
+          "cpu": 8594724,
+          "gpu": 8594724
+        },
+        {
+          "name": "모더니아",
+          "cpu": 21559388,
+          "gpu": 21559388
+        },
+        {
+          "name": "N102",
+          "cpu": 2893206,
+          "gpu": 2893206
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 494.791,
+      "module_initialization_ms": 4.229,
+      "wall_seconds": 0.634,
+      "backend": "native"
+    },
+    {
+      "name": "full-stack-init-does-not-create-bullet-counters",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 38469359,
+      "gpu_total": 38469359,
+      "cpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "gpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "리타",
+          "cpu": 4228186,
+          "gpu": 4228186
+        },
+        {
+          "name": "크라운",
+          "cpu": 4485434,
+          "gpu": 4485434
+        },
+        {
+          "name": "앨리스",
+          "cpu": 7740038,
+          "gpu": 7740038
+        },
+        {
+          "name": "모더니아",
+          "cpu": 19424651,
+          "gpu": 19424651
+        },
+        {
+          "name": "N102",
+          "cpu": 2591050,
+          "gpu": 2591050
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 316.311,
+      "module_initialization_ms": 4.727,
+      "wall_seconds": 0.437,
+      "backend": "native"
+    },
+    {
+      "name": "real-페퍼",
+      "squad": [
+        "페퍼",
+        "모더니아",
+        "루주",
+        "마스트 : 로망틱 메이드",
+        "도라"
+      ],
+      "duration": 60,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 388872405,
+      "gpu_total": 388872405,
+      "cpu_health": {
+        "페퍼": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_health": {
+        "페퍼": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "페퍼",
+          "cpu": 68444600,
+          "gpu": 68444600
+        },
+        {
+          "name": "모더니아",
+          "cpu": 200789313,
+          "gpu": 200789313
+        },
+        {
+          "name": "루주",
+          "cpu": 30539880,
+          "gpu": 30539880
+        },
+        {
+          "name": "마스트 : 로망틱 메이드",
+          "cpu": 58663400,
+          "gpu": 58663400
+        },
+        {
+          "name": "도라",
+          "cpu": 30435212,
+          "gpu": 30435212
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "페퍼"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "페퍼"
+        },
+        {
+          "time": 30.483,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 45.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 47.967,
+          "event": "stage:1 사용",
+          "character": "페퍼"
+        },
+        {
+          "time": 55.667,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "페퍼"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "페퍼"
+        },
+        {
+          "time": 30.483,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 45.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 47.967,
+          "event": "stage:1 사용",
+          "character": "페퍼"
+        },
+        {
+          "time": 55.667,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 3596.093,
+      "module_initialization_ms": 4.604,
+      "wall_seconds": 4.819,
+      "backend": "native"
+    },
+    {
+      "name": "real-미하라 : 본딩 체인",
+      "squad": [
+        "미하라 : 본딩 체인",
+        "모더니아",
+        "루주",
+        "마스트 : 로망틱 메이드",
+        "도라"
+      ],
+      "duration": 60,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 706766252,
+      "gpu_total": 706766252,
+      "cpu_health": {
+        "미하라 : 본딩 체인": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_health": {
+        "미하라 : 본딩 체인": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "미하라 : 본딩 체인",
+          "cpu": 312482573,
+          "gpu": 312482573
+        },
+        {
+          "name": "모더니아",
+          "cpu": 270275608,
+          "gpu": 270275608
+        },
+        {
+          "name": "루주",
+          "cpu": 31652532,
+          "gpu": 31652532
+        },
+        {
+          "name": "마스트 : 로망틱 메이드",
+          "cpu": 60781314,
+          "gpu": 60781314
+        },
+        {
+          "name": "도라",
+          "cpu": 31574225,
+          "gpu": 31574225
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "미하라 : 본딩 체인"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 15.783,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 30.483,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "미하라 : 본딩 체인"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 40.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 42.967,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 55.667,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "미하라 : 본딩 체인"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "미하라 : 본딩 체인"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 15.783,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 30.483,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "미하라 : 본딩 체인"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 40.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 42.967,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 55.667,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "미하라 : 본딩 체인"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 4892.082,
+      "module_initialization_ms": 4.219,
+      "wall_seconds": 6.325,
+      "backend": "native"
+    },
+    {
+      "name": "real-루피",
+      "squad": [
+        "루피",
+        "모더니아",
+        "루주",
+        "마스트 : 로망틱 메이드",
+        "도라"
+      ],
+      "duration": 60,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 348185023,
+      "gpu_total": 348185023,
+      "cpu_health": {
+        "루피": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_health": {
+        "루피": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "루피",
+          "cpu": 51232565,
+          "gpu": 51232565
+        },
+        {
+          "name": "모더니아",
+          "cpu": 192674830,
+          "gpu": 192674830
+        },
+        {
+          "name": "루주",
+          "cpu": 26524881,
+          "gpu": 26524881
+        },
+        {
+          "name": "마스트 : 로망틱 메이드",
+          "cpu": 51180426,
+          "gpu": 51180426
+        },
+        {
+          "name": "도라",
+          "cpu": 26572321,
+          "gpu": 26572321
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "루피"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 20.683,
+          "event": "stage:2 사용",
+          "character": "루피"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 45.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 47.967,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 48.067,
+          "event": "stage:2 사용",
+          "character": "루피"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "루피"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 20.683,
+          "event": "stage:2 사용",
+          "character": "루피"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 45.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 47.967,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 48.067,
+          "event": "stage:2 사용",
+          "character": "루피"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 6043.379,
+      "module_initialization_ms": 4.414,
+      "wall_seconds": 7.219,
+      "backend": "native"
+    },
+    {
+      "name": "real-소다",
+      "squad": [
+        "소다",
+        "모더니아",
+        "루주",
+        "마스트 : 로망틱 메이드",
+        "도라"
+      ],
+      "duration": 60,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 443431555,
+      "gpu_total": 443431555,
+      "cpu_health": {
+        "소다": {
+          "hp": 4638938.932499999,
+          "hp_pct": 100.0,
+          "max_hp": 4638938.932499999
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_health": {
+        "소다": {
+          "hp": 4638938.932499999,
+          "hp_pct": 100.0,
+          "max_hp": 4638938.932499999
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "소다",
+          "cpu": 120016711,
+          "gpu": 120016711
+        },
+        {
+          "name": "모더니아",
+          "cpu": 202690763,
+          "gpu": 202690763
+        },
+        {
+          "name": "루주",
+          "cpu": 30816932,
+          "gpu": 30816932
+        },
+        {
+          "name": "마스트 : 로망틱 메이드",
+          "cpu": 59219923,
+          "gpu": 59219923
+        },
+        {
+          "name": "도라",
+          "cpu": 30687226,
+          "gpu": 30687226
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "소다"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "소다"
+        },
+        {
+          "time": 30.483,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 45.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 47.967,
+          "event": "stage:1 사용",
+          "character": "소다"
+        },
+        {
+          "time": 55.667,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "소다"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "소다"
+        },
+        {
+          "time": 30.483,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 45.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 47.967,
+          "event": "stage:1 사용",
+          "character": "소다"
+        },
+        {
+          "time": 55.667,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 6046.571,
+      "module_initialization_ms": 4.546,
+      "wall_seconds": 7.337,
+      "backend": "native"
+    },
+    {
+      "name": "real-플로라",
+      "squad": [
+        "플로라",
+        "모더니아",
+        "루주",
+        "마스트 : 로망틱 메이드",
+        "도라"
+      ],
+      "duration": 60,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 338247912,
+      "gpu_total": 338247912,
+      "cpu_health": {
+        "플로라": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_health": {
+        "플로라": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "플로라",
+          "cpu": 49788559,
+          "gpu": 49788559
+        },
+        {
+          "name": "모더니아",
+          "cpu": 186459940,
+          "gpu": 186459940
+        },
+        {
+          "name": "루주",
+          "cpu": 25995711,
+          "gpu": 25995711
+        },
+        {
+          "name": "마스트 : 로망틱 메이드",
+          "cpu": 50034585,
+          "gpu": 50034585
+        },
+        {
+          "name": "도라",
+          "cpu": 25969117,
+          "gpu": 25969117
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "플로라"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 30.483,
+          "event": "stage:2 사용",
+          "character": "플로라"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 45.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 47.967,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 55.667,
+          "event": "stage:2 사용",
+          "character": "플로라"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "플로라"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 30.483,
+          "event": "stage:2 사용",
+          "character": "플로라"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 45.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 47.967,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 55.667,
+          "event": "stage:2 사용",
+          "character": "플로라"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 10156.184,
+      "module_initialization_ms": 4.285,
+      "wall_seconds": 11.447,
+      "backend": "native"
+    },
+    {
+      "name": "named-add-refreshes-at-cap-remove-keeps-one",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "generic-add-at-cap-does-not-refresh-expiry",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "generic-cap-no-op-is-not-a-duration-refresh",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "init-bypasses-gate-budget-and-emits-no-name-or-reach",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "lazy-init-appends-separate-unresolved-instances",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "generic-add-skips-mixed-recipient-instance",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "false-permanent-immune-still-blocks-stack-changes",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "zero-valued-immune-expires-and-allows-later-change",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "named-debuff-zero-remains-present-and-blocks-init",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "single-stack-buff-reapplication-retains-zero-stack",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "generic-debuff-floor-one-named-floor-zero",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "enemy-debuff-zero-keeps-target-state-present",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "gauge-zero-overrides-default-delta",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "all-stacks-updated-before-latched-reach-callbacks",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "generic-add-updates-bullet-stacks-even-representative-at-cap",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "init-uses-raw-finite-lifetime-for-runtime-gating",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "enemy-stun-does-not-disable-squad-actions",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "init-permanent-runtime-condition-prevents-cross-definition-merge",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "missing-capture-stays-dynamic-after-name-creates-reference",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "runtime-enabled-at-init-persists-through-finite-refresh",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "runtime-disabled-at-init-persists-through-permanent-alias-refresh",
+      "passed": true,
+      "errors": [],
+      "backend": "ptx"
+    },
+    {
+      "name": "full-named-add-remove-and-partial-instances",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 194702146,
+      "gpu_total": 194702146,
+      "cpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "gpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "리타",
+          "cpu": 3878052,
+          "gpu": 3878052
+        },
+        {
+          "name": "크라운",
+          "cpu": 27200512,
+          "gpu": 27200512
+        },
+        {
+          "name": "앨리스",
+          "cpu": 40325032,
+          "gpu": 40325032
+        },
+        {
+          "name": "모더니아",
+          "cpu": 109187805,
+          "gpu": 109187805
+        },
+        {
+          "name": "N102",
+          "cpu": 14110745,
+          "gpu": 14110745
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 596.678,
+      "module_initialization_ms": 7.714,
+      "wall_seconds": 0.785,
+      "backend": "ptx"
+    },
+    {
+      "name": "full-zero-presence-ref-hit-count-and-init",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 45184749,
+      "gpu_total": 45184749,
+      "cpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "gpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "리타",
+          "cpu": 19178626,
+          "gpu": 19178626
+        },
+        {
+          "name": "크라운",
+          "cpu": 3322925,
+          "gpu": 3322925
+        },
+        {
+          "name": "앨리스",
+          "cpu": 5908562,
+          "gpu": 5908562
+        },
+        {
+          "name": "모더니아",
+          "cpu": 14831062,
+          "gpu": 14831062
+        },
+        {
+          "name": "N102",
+          "cpu": 1943574,
+          "gpu": 1943574
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 520.744,
+      "module_initialization_ms": 7.707,
+      "wall_seconds": 0.664,
+      "backend": "ptx"
+    },
+    {
+      "name": "full-bullet-map-stacks-independent-of-representative",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 33734543,
+      "gpu_total": 33734543,
+      "cpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "gpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "리타",
+          "cpu": 3487692,
+          "gpu": 3487692
+        },
+        {
+          "name": "크라운",
+          "cpu": 3511905,
+          "gpu": 3511905
+        },
+        {
+          "name": "앨리스",
+          "cpu": 8350528,
+          "gpu": 8350528
+        },
+        {
+          "name": "모더니아",
+          "cpu": 15577544,
+          "gpu": 15577544
+        },
+        {
+          "name": "N102",
+          "cpu": 2806874,
+          "gpu": 2806874
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 789.986,
+      "module_initialization_ms": 8.265,
+      "wall_seconds": 0.956,
+      "backend": "ptx"
+    },
+    {
+      "name": "full-init-has-no-health-shield-or-named-posts",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 29195895,
+      "gpu_total": 29195895,
+      "cpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 8152792.5
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 8870717.5
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 7484042.5
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 7504095.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 6838290.0
+        }
+      },
+      "gpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 8152792.5
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 8870717.5
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 7484042.5
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 7504095.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 6838290.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "리타",
+          "cpu": 3189772,
+          "gpu": 3189772
+        },
+        {
+          "name": "크라운",
+          "cpu": 3322925,
+          "gpu": 3322925
+        },
+        {
+          "name": "앨리스",
+          "cpu": 5908562,
+          "gpu": 5908562
+        },
+        {
+          "name": "모더니아",
+          "cpu": 14831062,
+          "gpu": 14831062
+        },
+        {
+          "name": "N102",
+          "cpu": 1943574,
+          "gpu": 1943574
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 335.503,
+      "module_initialization_ms": 7.394,
+      "wall_seconds": 0.475,
+      "backend": "ptx"
+    },
+    {
+      "name": "full-beneficial-generic-add-with-shared-target-skip",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 42735528,
+      "gpu_total": 42735528,
+      "cpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "gpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "리타",
+          "cpu": 4662452,
+          "gpu": 4662452
+        },
+        {
+          "name": "크라운",
+          "cpu": 5025758,
+          "gpu": 5025758
+        },
+        {
+          "name": "앨리스",
+          "cpu": 8594724,
+          "gpu": 8594724
+        },
+        {
+          "name": "모더니아",
+          "cpu": 21559388,
+          "gpu": 21559388
+        },
+        {
+          "name": "N102",
+          "cpu": 2893206,
+          "gpu": 2893206
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 494.344,
+      "module_initialization_ms": 8.587,
+      "wall_seconds": 0.655,
+      "backend": "ptx"
+    },
+    {
+      "name": "full-stack-init-does-not-create-bullet-counters",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 38469359,
+      "gpu_total": 38469359,
+      "cpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "gpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "리타",
+          "cpu": 4228186,
+          "gpu": 4228186
+        },
+        {
+          "name": "크라운",
+          "cpu": 4485434,
+          "gpu": 4485434
+        },
+        {
+          "name": "앨리스",
+          "cpu": 7740038,
+          "gpu": 7740038
+        },
+        {
+          "name": "모더니아",
+          "cpu": 19424651,
+          "gpu": 19424651
+        },
+        {
+          "name": "N102",
+          "cpu": 2591050,
+          "gpu": 2591050
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 830.905,
+      "module_initialization_ms": 7.686,
+      "wall_seconds": 0.962,
+      "backend": "ptx"
+    },
+    {
+      "name": "real-페퍼",
+      "squad": [
+        "페퍼",
+        "모더니아",
+        "루주",
+        "마스트 : 로망틱 메이드",
+        "도라"
+      ],
+      "duration": 60,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 388872405,
+      "gpu_total": 388872405,
+      "cpu_health": {
+        "페퍼": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_health": {
+        "페퍼": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "페퍼",
+          "cpu": 68444600,
+          "gpu": 68444600
+        },
+        {
+          "name": "모더니아",
+          "cpu": 200789313,
+          "gpu": 200789313
+        },
+        {
+          "name": "루주",
+          "cpu": 30539880,
+          "gpu": 30539880
+        },
+        {
+          "name": "마스트 : 로망틱 메이드",
+          "cpu": 58663400,
+          "gpu": 58663400
+        },
+        {
+          "name": "도라",
+          "cpu": 30435212,
+          "gpu": 30435212
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "페퍼"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "페퍼"
+        },
+        {
+          "time": 30.483,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 45.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 47.967,
+          "event": "stage:1 사용",
+          "character": "페퍼"
+        },
+        {
+          "time": 55.667,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "페퍼"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "페퍼"
+        },
+        {
+          "time": 30.483,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 45.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 47.967,
+          "event": "stage:1 사용",
+          "character": "페퍼"
+        },
+        {
+          "time": 55.667,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 9551.031,
+      "module_initialization_ms": 7.371,
+      "wall_seconds": 10.717,
+      "backend": "ptx"
+    },
+    {
+      "name": "real-미하라 : 본딩 체인",
+      "squad": [
+        "미하라 : 본딩 체인",
+        "모더니아",
+        "루주",
+        "마스트 : 로망틱 메이드",
+        "도라"
+      ],
+      "duration": 60,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 706766252,
+      "gpu_total": 706766252,
+      "cpu_health": {
+        "미하라 : 본딩 체인": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_health": {
+        "미하라 : 본딩 체인": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "미하라 : 본딩 체인",
+          "cpu": 312482573,
+          "gpu": 312482573
+        },
+        {
+          "name": "모더니아",
+          "cpu": 270275608,
+          "gpu": 270275608
+        },
+        {
+          "name": "루주",
+          "cpu": 31652532,
+          "gpu": 31652532
+        },
+        {
+          "name": "마스트 : 로망틱 메이드",
+          "cpu": 60781314,
+          "gpu": 60781314
+        },
+        {
+          "name": "도라",
+          "cpu": 31574225,
+          "gpu": 31574225
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "미하라 : 본딩 체인"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 15.783,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 30.483,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "미하라 : 본딩 체인"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 40.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 42.967,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 55.667,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "미하라 : 본딩 체인"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "미하라 : 본딩 체인"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 15.783,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 30.483,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "미하라 : 본딩 체인"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 40.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 42.967,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 55.667,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "미하라 : 본딩 체인"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 10026.681,
+      "module_initialization_ms": 8.193,
+      "wall_seconds": 11.21,
+      "backend": "ptx"
+    },
+    {
+      "name": "real-루피",
+      "squad": [
+        "루피",
+        "모더니아",
+        "루주",
+        "마스트 : 로망틱 메이드",
+        "도라"
+      ],
+      "duration": 60,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 348185023,
+      "gpu_total": 348185023,
+      "cpu_health": {
+        "루피": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_health": {
+        "루피": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "루피",
+          "cpu": 51232565,
+          "gpu": 51232565
+        },
+        {
+          "name": "모더니아",
+          "cpu": 192674830,
+          "gpu": 192674830
+        },
+        {
+          "name": "루주",
+          "cpu": 26524881,
+          "gpu": 26524881
+        },
+        {
+          "name": "마스트 : 로망틱 메이드",
+          "cpu": 51180426,
+          "gpu": 51180426
+        },
+        {
+          "name": "도라",
+          "cpu": 26572321,
+          "gpu": 26572321
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "루피"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 20.683,
+          "event": "stage:2 사용",
+          "character": "루피"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 45.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 47.967,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 48.067,
+          "event": "stage:2 사용",
+          "character": "루피"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "루피"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 20.683,
+          "event": "stage:2 사용",
+          "character": "루피"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 45.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 47.967,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 48.067,
+          "event": "stage:2 사용",
+          "character": "루피"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 9601.128,
+      "module_initialization_ms": 7.579,
+      "wall_seconds": 10.871,
+      "backend": "ptx"
+    },
+    {
+      "name": "real-소다",
+      "squad": [
+        "소다",
+        "모더니아",
+        "루주",
+        "마스트 : 로망틱 메이드",
+        "도라"
+      ],
+      "duration": 60,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 443431555,
+      "gpu_total": 443431555,
+      "cpu_health": {
+        "소다": {
+          "hp": 4638938.932499999,
+          "hp_pct": 100.0,
+          "max_hp": 4638938.932499999
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_health": {
+        "소다": {
+          "hp": 4638938.932499999,
+          "hp_pct": 100.0,
+          "max_hp": 4638938.932499999
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "소다",
+          "cpu": 120016711,
+          "gpu": 120016711
+        },
+        {
+          "name": "모더니아",
+          "cpu": 202690763,
+          "gpu": 202690763
+        },
+        {
+          "name": "루주",
+          "cpu": 30816932,
+          "gpu": 30816932
+        },
+        {
+          "name": "마스트 : 로망틱 메이드",
+          "cpu": 59219923,
+          "gpu": 59219923
+        },
+        {
+          "name": "도라",
+          "cpu": 30687226,
+          "gpu": 30687226
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "소다"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "소다"
+        },
+        {
+          "time": 30.483,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 45.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 47.967,
+          "event": "stage:1 사용",
+          "character": "소다"
+        },
+        {
+          "time": 55.667,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "소다"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "소다"
+        },
+        {
+          "time": 30.483,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 45.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 47.967,
+          "event": "stage:1 사용",
+          "character": "소다"
+        },
+        {
+          "time": 55.667,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 11457.869,
+      "module_initialization_ms": 9.466,
+      "wall_seconds": 12.733,
+      "backend": "ptx"
+    },
+    {
+      "name": "real-플로라",
+      "squad": [
+        "플로라",
+        "모더니아",
+        "루주",
+        "마스트 : 로망틱 메이드",
+        "도라"
+      ],
+      "duration": 60,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 338247912,
+      "gpu_total": 338247912,
+      "cpu_health": {
+        "플로라": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_health": {
+        "플로라": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "모더니아": {
+          "hp": 2986390.0,
+          "hp_pct": 100.0,
+          "max_hp": 2986390.0
+        },
+        "루주": {
+          "hp": 3275337.0,
+          "hp_pct": 100.0,
+          "max_hp": 3275337.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3284249.0,
+          "hp_pct": 100.0,
+          "max_hp": 3284249.0
+        },
+        "도라": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "플로라",
+          "cpu": 49788559,
+          "gpu": 49788559
+        },
+        {
+          "name": "모더니아",
+          "cpu": 186459940,
+          "gpu": 186459940
+        },
+        {
+          "name": "루주",
+          "cpu": 25995711,
+          "gpu": 25995711
+        },
+        {
+          "name": "마스트 : 로망틱 메이드",
+          "cpu": 50034585,
+          "gpu": 50034585
+        },
+        {
+          "name": "도라",
+          "cpu": 25969117,
+          "gpu": 25969117
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "플로라"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 30.483,
+          "event": "stage:2 사용",
+          "character": "플로라"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 45.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 47.967,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 55.667,
+          "event": "stage:2 사용",
+          "character": "플로라"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "플로라"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 30.483,
+          "event": "stage:2 사용",
+          "character": "플로라"
+        },
+        {
+          "time": 30.583,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 30.967,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 45.967,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 47.967,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 55.667,
+          "event": "stage:2 사용",
+          "character": "플로라"
+        },
+        {
+          "time": 55.767,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 56.15,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 9593.185,
+      "module_initialization_ms": 7.661,
+      "wall_seconds": 10.899,
+      "backend": "ptx"
+    }
+  ],
+  "source_sha256": {
+    "app/detail_gpu.py": "bdc8913a002ce246d83151496ab2ccc47c45975d2baf662baa0e044036c17ee7",
+    "app/detail_effects.cu": "d71c083ce71ddf8001271be47b7f0ae6ac1a0a7177d2df1e333373e48089ec7e",
+    "app/detail_effects.ptx": "ef4a3f04d9174d995ecf37f3a38ba3ee54c87596be5182d60ab420d971231531",
+    "app/detail_effects-build.json": "09cfe9395174af8e3c914e9b5c2e7708a6db724415bb3c3c0d3f6179fa47d96f",
+    "app/detail_effects-sm86.cubin": "dcad39dc6d28e2f630c86a9518973cd80c7174c7be583349c0b3e17da60ce748",
+    "app/detail_effects-sm86.json": "8ae24fdf381eb2f7bb40c06639dad6ed4b103f00526e186c2c835e4ce8059c8f",
+    "scripts/verify-stackops-detail.py": "e34e5a79088b7f02d6618bf9433a55ffd9b2ad90b03d7183c88fe29c44fcf81c"
+  }
+}

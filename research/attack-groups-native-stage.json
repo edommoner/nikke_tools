@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "native_stage_only": true,
+  "portable_final_pending": true,
+  "autonomous_producer_connected": false,
+  "character_admission_changed": false,
+  "objective_complete": false,
+  "archive_base": "research/ports/v64-attack-groups-cpu-plans",
+  "reports": [
+    "research/attack-groups-native.json",
+    "research/attack-group-gpu-preflight-unit.json",
+    "research/gpu-attack-plan-before.json",
+    "research/runtime-wiring.json"
+  ],
+  "abi": "detail_attack_groups_v65",
+  "workspace_bytes": 1214256,
+  "scope": "Explicit typed attack-group GPU collection and seal delivery before immutable-plan efficiency experiment. Not normal character admission.",
+  "archive": "research/ports/v65-attack-groups-native-stage",
+  "source_sha256": {
+    "app/attack_group_specs.py": "dfe98cc089f9271f411ab7773cd81788d96261dd6eb3ae021ad351c7c8ad19eb",
+    "app/detail_effects-sm86.cubin": "fbbf3548f1d2f7868bb323cfa9e80294d1ae46fbb461bfb67b6e559c06765b31",
+    "app/detail_effects-sm86.json": "049d37fcc9e2a53cf580ae9eb0a8b2be3057d5afcf8b3045ca0b5bf7ec2bc9d8",
+    "app/detail_effects.cu": "c9333eb34750d03e5d19450ecbef66b1774dd7eaf16d5490a97d0c2510bbff74",
+    "app/detail_gpu.py": "eaafb6e188da4e648288a951ed86d42d46345dcec813c29485154630827cffcc",
+    "research/attack-group-gpu-preflight-unit.json": "0ca10a662394b769e7591b32f26dd92b1f5bd924c0e9cbbff24e74237a53bda5",
+    "research/attack-groups-native.json": "887d0016bdc6bfb7a750bfb6140a77f5d9d07d394eb48c727ccec163cabf15a7",
+    "research/benchmark-gpu-attack-plans.py": "88971dc53308b9f008f48ba560996bf5d0e4e2ba9f6066e9d1b6fcf1f10780a5",
+    "research/checkpoint_receipts.py": "9f928fcc6ba97602ed041dfa5d0589409c4076e2d215482427f304907135bf5f",
+    "research/gpu-attack-plan-before.json": "0f11674865fa957af689d66303ee361866aaea2f7be5769396260c6f6fc96385",
+    "research/runtime-wiring.json": "ae18c7a98534aada86c72c5f1bde43aa6b6dd885a00e24ed384ff2337979d5ca",
+    "scripts/verify-attack-groups-detail.py": "c4821feb8d00e39a651c4c11f867aa98c843eb997ca0c28506ef37345ed60a16",
+    "scripts/verify-common-runtime-unit.py": "478503c81a5a440a279dd9917edd2d1a9cdb01ac354b40b248662be05207e35b",
+    "tests/test_attack_group_runtime.py": "f8845150dfd1d6c1617698b44e7528ab62fe6385efb992dc83fc5425d5aa67dc"
+  }
+}

@@ -1,0 +1,7 @@
+test_seed_mismatch_rejects_even_an_equal_damage_result (test_detail_random.RandomTargetTests.test_seed_mismatch_rejects_even_an_equal_damage_result) ... ok
+test_shared_seed_validation_and_compiler_target_contract (test_detail_random.RandomTargetTests.test_shared_seed_validation_and_compiler_target_contract) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.007s
+
+OK

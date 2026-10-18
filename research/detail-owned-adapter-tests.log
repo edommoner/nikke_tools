@@ -1,0 +1,17 @@
+.....C:\Users\owner\Documents\ChatGPT\nikke tools\research\upstream\nikke-calc-master\scraper\profile_fetch.py:209: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\owner\\Documents\\ChatGPT\\nikke tools\\research\\upstream\\nikke-calc-master\\data\\parsed_nikke.json' mode='r' encoding='utf-8'>
+  d = json.load(open(os.path.join(ROOT, "data", "parsed_nikke.json"), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+...C:\Users\owner\Documents\ChatGPT\nikke tools\research\upstream\nikke-calc-master\scraper\profile_fetch.py:215: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\owner\\Documents\\ChatGPT\\nikke tools\\research\\upstream\\nikke-calc-master\\data\\base_stat_tables\\cube.json' mode='r' encoding='utf-8'>
+  d = json.load(open(os.path.join(ROOT, "data", "base_stat_tables", "cube.json"),
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+C:\Users\owner\Documents\ChatGPT\nikke tools\research\upstream\nikke-calc-master\scraper\profile_fetch.py:221: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\owner\\Documents\\ChatGPT\\nikke tools\\research\\upstream\\nikke-calc-master\\data\\base_stat_tables\\equipment_skills.json' mode='r' encoding='utf-8'>
+  d = json.load(open(os.path.join(ROOT, "data", "base_stat_tables", "equipment_skills.json"),
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+C:\Users\owner\Documents\ChatGPT\nikke tools\research\upstream\nikke-calc-master\scraper\profile_fetch.py:193: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\owner\\Documents\\ChatGPT\\nikke tools\\research\\upstream\\nikke-calc-master\\data\\parsed_nikke.json' mode='r' encoding='utf-8'>
+  d = json.load(open(os.path.join(ROOT, "data", "parsed_nikke.json"), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+...
+----------------------------------------------------------------------
+Ran 11 tests in 3.224s
+
+OK

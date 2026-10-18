@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-10-16T19:17:43.942858+00:00",
+  "passed": true,
+  "evidence": "Observed browser DOM: single-squad result and expanded technical details, followed by screenshot. Not API-only evidence.",
+  "url": "http://127.0.0.1:4332/#single",
+  "fictional_roster": true,
+  "roster_characters": 203,
+  "squad": [
+    "에이드",
+    "리타",
+    "크라운",
+    "앨리스",
+    "모더니아"
+  ],
+  "duration": 60,
+  "shooting_policy": "character",
+  "burst_policy": "rules",
+  "burst_gauge_mode": "accumulate",
+  "seed": 12345,
+  "changes": {
+    "에이드": {
+      "stat_delta_atk": 12345
+    }
+  },
+  "baseline_total": 343462286,
+  "total": 348869811,
+  "member_damage": [
+    33018601,
+    38614172,
+    26743769,
+    82188066,
+    168305203
+  ],
+  "compute": {
+    "backend": "cuda_detail",
+    "module_backend": "cubin-sm86",
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "elapsed_ms": 20014.732,
+    "initialization_ms": 8.182,
+    "workspace_bytes": 306072,
+    "cpu_verification": {
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "seed_equal": true,
+      "matched": true
+    }
+  },
+  "timing_is_standalone_benchmark": false,
+  "scope": "One fictional equipped five-member squad with hypothetical ATK. Normal static boss UI has no authored harmful input; positive immunity is proved in the separate complete-battle tests.",
+  "source_sha256": {
+    "app/detail_gpu.py": "43ea74c0e417bc1d4b9d923bf69acbd6299cc6e778c3d8ec55d00d668a8d0c8a",
+    "app/detail_effects.cu": "3217df145e6f009392fbe00e4be5094433584a6445c35c12bd812a47b5c7d87c",
+    "app/detail_effects.ptx": "2dba2089a065235deadd05c6b3af3ca30dadb6799c8b7734620fb2c8c08258b8",
+    "app/detail_effects-build.json": "ee0ac25d80515c3ee749226c560189f32c0c980f6028c79535613f0c73e33729",
+    "app/detail_effects-sm86.cubin": "8d13cb2a65adbd441ae9a0488aae5d2309d6cfcb936583e2bacb5187b3e3d9b9",
+    "app/detail_effects-sm86.json": "2e606af188ce6597001033afee029874f5c87039eebabdf36be1d47ef4d52207",
+    "app/engine_worker.py": "a1b9f46f5c5375f6da7740b37ebc3e8a286fe95973cc19594d7d625a805bb75c",
+    "app/gpu_service.py": "7cc9e2b0f87c633bd09092347207dfa7fbb5773fb399cfeadc6b70aff7a2309d",
+    "server.mjs": "1a4893b15953a714ce8a095ac9777eb13d38302237933f4d428dcd2a8cc64578",
+    "web/app.js": "91847d22a3ffb5238975aadf7e9af8c664db5650b7b85093668ed833041a5389",
+    "web/index.html": "8fb146ea8a433f0028f2a6365ab849e851068311e73787ede33e5ca7152f5b99"
+  }
+}

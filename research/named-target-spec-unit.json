@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "tests_run": 8,
+  "modules": [
+    "test_named_target_specs",
+    "test_detail_named_hits_boundary",
+    "test_detail_named_magnitude_boundary"
+  ],
+  "source_stable": true,
+  "source_sha256": {
+    "app/detail_gpu.py": "f44f296f1c2ae3a419d2db2d398da29e9a44cdece606aaf45ff815004355dd74",
+    "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
+    "tests/test_named_target_specs.py": "4f634624a4221416d77a753047d020c62e53ae00b6d833951246c39c3bd36d72",
+    "tests/test_detail_named_hits_boundary.py": "67cda4e660873cadd4bb0fb0213fce1f06a8eb3451edec932b4e8bd4e9c3a30d",
+    "tests/test_detail_named_magnitude_boundary.py": "0e5b4fa16ac020c2dad60e8061d83605ac5527533b296f0d073a2b87cd46c144"
+  },
+  "scope": "Final lightweight specification and existing boundary gate; overlaps earlier boundary receipt, counts are not additive"
+}

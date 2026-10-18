@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "objective_complete": false,
+  "generated_at": "2026-10-18T04:57:46.632555+00:00",
+  "archive_base": "research/ports/v67-target-scopes-verified",
+  "reports": [
+    "research/named-allies-native.json",
+    "research/named-allies-ptx.json",
+    "research/named-allies-unit.json",
+    "research/named-allies-coverage.json",
+    "research/named-allies-owned-api.json",
+    "research/runtime-wiring.json"
+  ],
+  "abi": "detail_target_scopes_v67",
+  "checks": {
+    "independent_recipient_cases": 6,
+    "quantity_times_per_recipient": 4,
+    "raw_whole_squads": 2,
+    "raw_named_effects_exercised": 3,
+    "backends": [
+      "native",
+      "ptx"
+    ],
+    "lightweight_methods": 76,
+    "normal_owned_api": true,
+    "compile_only_supported": 186,
+    "catalog": 203,
+    "existing_programs_identical": 185
+  },
+  "newly_admitted": [
+    "아비스타"
+  ],
+  "unchanged_gpu": {
+    "app/detail_effects.cu": "23248df80d4205867920ad81b13d83f3fec267645b282402e1d7737828ef705a",
+    "app/detail_effects-sm86.cubin": "89845bd8433cd9d4f90649c769f8d19e1c45f0f731ad06fe75df5cc738615206",
+    "app/detail_effects-sm86.json": "ae6ef61f1dd714a7233f85e72ffb7b96fa967d0d80279e276c2c1ce17bee8ac1",
+    "app/detail_effects.ptx": "c62cb9d9f078ed59aeea027cc874aa9c9eefd649deca55cdc068bc912969f175",
+    "app/detail_effects-build.json": "cb8ee567a89f346a24868c482242678fea49b0d9155c5888ac4fb864fb64771b"
+  },
+  "kernel_rebuilt": false,
+  "reuse": {
+    "checkpoint": "research/target-scopes-checkpoint.json",
+    "reason": "All185 previously accepted programs and all CUDA source/artifacts are byte-identical; existing broad ordering/arithmetic/batch verification is reused, not rerun or counted as new checks."
+  },
+  "efficiency": {
+    "approach": "Exact catalog names, including punctuation, compile to existing ally target masks. No new execution branch, per-frame lookup, state allocation, shader build or JIT.",
+    "new_gpu_operation": false,
+    "gpu_speedup_claim": false
+  },
+  "game_rules_verified": false,
+  "remaining": "17 standard compile-unaccepted characters plus broader world/effect/equipment/favorite/model coverage. Autonomous shot groups, GPU actor world and per-target matched effect routing remain incomplete. Final overall efficiency review remains required after all-character support.",
+  "archive": "research/ports/v67-named-allies-verified",
+  "source_sha256": {
+    "README.md": "7a11ff6a7bff7b54f9bb8fa46eb732ddd120bea63ee57d7923a23457af31a7b7",
+    "app/detail_gpu.py": "2650b9657d193594f226f09d87b014dbe0fdb4137c842ba9ea364e0353f514b3",
+    "docs/adding-effects.md": "863d4f20b0492eb4f9f7d11a4b10f46d5e52bf4988fe89402d16e605967f2549",
+    "research/attack-group-progress.json": "7c836993b35f8a9a528d21672ec3cb954c8928ad554b9b2adbda659a47781cf5",
+    "research/checkpoint_receipts.py": "9f928fcc6ba97602ed041dfa5d0589409c4076e2d215482427f304907135bf5f",
+    "research/named-allies-api-fixture.json": "583cfbbf42da48c9482715e7055eada9fe6339627b4505e15a87562a63bb8ec5",
+    "research/named-allies-coverage.json": "434af8d14a539c8d86829420905e3fe28747984ee3a0ef6bd315c9ae2953bed4",
+    "research/named-allies-native.json": "6631db6a0a485ce1afd17001fc8998e4f37efdd696b4505a179e23769d483681",
+    "research/named-allies-owned-api.json": "ff6cda9d4593ba907a17725cfa956225cd7bdbd881a7c52c692425ab7e4815a9",
+    "research/named-allies-ptx.json": "69b164ba16c733676706da8dc596a9ebf8b4f2d054e913bad178aed606810042",
+    "research/named-allies-unit.json": "22cd9c4a53454bf2505dda3d08e56459ae4d69ef0ee5822b8709ff01fd3ce84c",
+    "research/runtime-wiring.json": "45d310e12a07b4f8ddac9ebead6d9ab43d79aa28edb84d918c7c51e68f86ef62",
+    "research/save-named-allies-checkpoint.py": "39f0bba2a3c63127fc734779f42a0121fadbe0b69c8cfb8c7f75c70af3d1fae2",
+    "research/verify-named-allies-coverage.py": "2c9777efb04871cf4ddef79b615e13e06872f0c88c31715826f35d6c35d2148c",
+    "scripts/verify-common-runtime-unit.py": "347766ae6eb194e84682499ec575d58a16b2cae46cea6433a8c7d76c5e518c21",
+    "scripts/verify-named-allies-detail.py": "a430c8e2c138df63776e1d687ec429e7dca4896f36e11d2205faa5a24012076c",
+    "tests/test_named_ally_targets.py": "730ed2d2ae3b82a035e530ecd3532867b8362ff2d843c1ce71e8b2c0a6f1a533"
+  }
+}

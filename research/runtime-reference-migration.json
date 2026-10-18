@@ -1,0 +1,176 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "raw-charge-healer",
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "burst_timeline": true,
+        "base_stats": true,
+        "boss_timeline": true,
+        "burst_policy": true,
+        "shooting_policy": true,
+        "burst_gauge_mode": true
+      }
+    },
+    {
+      "name": "raw-charge-taunter-negative",
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "burst_timeline": true,
+        "base_stats": true,
+        "boss_timeline": true,
+        "burst_policy": true,
+        "shooting_policy": true,
+        "burst_gauge_mode": true
+      }
+    },
+    {
+      "name": "raw-charge-Rem-sharing",
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "burst_timeline": true,
+        "base_stats": true,
+        "boss_timeline": true,
+        "burst_policy": true,
+        "shooting_policy": true,
+        "burst_gauge_mode": true
+      }
+    },
+    {
+      "name": "raw-charge-Marciana-storage",
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "burst_timeline": true,
+        "base_stats": true,
+        "boss_timeline": true,
+        "burst_policy": true,
+        "shooting_policy": true,
+        "burst_gauge_mode": true
+      }
+    },
+    {
+      "name": "raw-Rei-decoy-heal-no-shots",
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "burst_timeline": true,
+        "base_stats": true,
+        "boss_timeline": true,
+        "burst_policy": true,
+        "shooting_policy": true,
+        "burst_gauge_mode": true
+      }
+    },
+    {
+      "name": "raw-Rei-decoy-heal-incoming",
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "burst_timeline": true,
+        "base_stats": true,
+        "boss_timeline": true,
+        "burst_policy": true,
+        "shooting_policy": true,
+        "burst_gauge_mode": true
+      }
+    },
+    {
+      "name": "raw-Rei-decoy-heal-accumulate",
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "burst_timeline": true,
+        "base_stats": true,
+        "boss_timeline": true,
+        "burst_policy": true,
+        "shooting_policy": true,
+        "burst_gauge_mode": true
+      }
+    },
+    {
+      "name": "raw-Rei-decoy-heal-owned-growth",
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "burst_timeline": true,
+        "base_stats": true,
+        "boss_timeline": true,
+        "burst_policy": true,
+        "shooting_policy": true,
+        "burst_gauge_mode": true
+      }
+    },
+    {
+      "name": "raw-Rei-decoy-heal-reordered",
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "burst_timeline": true,
+        "base_stats": true,
+        "boss_timeline": true,
+        "burst_policy": true,
+        "shooting_policy": true,
+        "burst_gauge_mode": true
+      }
+    },
+    {
+      "name": "raw-Rei-decoy-heal-revival",
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "burst_timeline": true,
+        "base_stats": true,
+        "boss_timeline": true,
+        "burst_policy": true,
+        "shooting_policy": true,
+        "burst_gauge_mode": true
+      }
+    },
+    {
+      "name": "raw-Rei-decoy-heal-dead-first-B1",
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "burst_timeline": true,
+        "base_stats": true,
+        "boss_timeline": true,
+        "burst_policy": true,
+        "shooting_policy": true,
+        "burst_gauge_mode": true
+      }
+    },
+    {
+      "name": "owned-burst-auto",
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "burst_timeline": true,
+        "base_stats": true,
+        "boss_timeline": true,
+        "burst_policy": true,
+        "shooting_policy": true,
+        "burst_gauge_mode": true
+      }
+    },
+    {
+      "name": "owned-burst-mast-position",
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "burst_timeline": true,
+        "base_stats": true,
+        "boss_timeline": true,
+        "burst_policy": true,
+        "shooting_policy": true,
+        "burst_gauge_mode": true
+      }
+    }
+  ],
+  "old_reference_is_game_authority": false,
+  "scope": "Independent pre-migration CPU implementation, real complete squads; no CPU trace used as GPU input."
+}

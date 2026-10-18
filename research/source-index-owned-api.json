@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-10-18T02:08:43.401Z",
+  "passed": true,
+  "fictional_owned_data": true,
+  "live_import_verified": false,
+  "scalar_and_list_editor_roundtrip": true,
+  "pure_gpu_and_verified_and_cpu_equal": true,
+  "original_total": 496959415,
+  "total": 508823760,
+  "members": [
+    {
+      "name": "크라운",
+      "damage": 53390011,
+      "share": 0.10492829776659801
+    },
+    {
+      "name": "아인",
+      "damage": 135613515,
+      "share": 0.26652355031533903
+    },
+    {
+      "name": "리타",
+      "damage": 39108823,
+      "share": 0.07686123580392551
+    },
+    {
+      "name": "모더니아",
+      "damage": 219010108,
+      "share": 0.4304242946516491
+    },
+    {
+      "name": "앨리스",
+      "damage": 61701303,
+      "share": 0.12126262146248831
+    }
+  ],
+  "burst_timeline": [
+    {
+      "time": 3,
+      "event": "stage:1 사용",
+      "character": "리타"
+    },
+    {
+      "time": 3.1,
+      "event": "stage:2 사용",
+      "character": "크라운"
+    },
+    {
+      "time": 3.2,
+      "event": "stage:3 사용",
+      "character": "아인"
+    },
+    {
+      "time": 3.583,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 13.583,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 20.667,
+      "event": "stage:1 사용",
+      "character": "리타"
+    },
+    {
+      "time": 20.767,
+      "event": "stage:2 사용",
+      "character": "크라운"
+    },
+    {
+      "time": 20.867,
+      "event": "stage:3 사용",
+      "character": "모더니아"
+    },
+    {
+      "time": 21.25,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 36.25,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 38.25,
+      "event": "stage:1 사용",
+      "character": "리타"
+    },
+    {
+      "time": 38.35,
+      "event": "stage:2 사용",
+      "character": "크라운"
+    },
+    {
+      "time": 38.45,
+      "event": "stage:3 사용",
+      "character": "아인"
+    },
+    {
+      "time": 38.833,
+      "event": "full_burst 시작",
+      "character": ""
+    }
+  ],
+  "source_sha256": {
+    "scripts/smoke-owned-detail.mjs": "b6a8f6342ef6fdfe82dbd77889550d08c2976a91ee4b6ed2f22ad26e33292a3e",
+    "web/roster-model.mjs": "e7e700c780d04ab01e3bc82df0af07a989af2b6dbea815a6fef8fbf5db1b8390",
+    "web/app.js": "dc015a14a22e34957529f4e0e7689312178ba2be34dd5d0033d92a044e8d3c39",
+    "web/index.html": "665ec4abdfe129bc31b3e05c81b4ae86dad5175e3c834b07278750596ccc8226",
+    "server.mjs": "8ee5956ff2f6360e57d35c6ab88d63ef0f0a5a826fbb4fbad01a795e0acae010",
+    "research/periodic-sources-api-fixture.json": "b4a1088abf5cd447e013586898cfe935a654b8c56223ca9e4c0f62f9f3e2f5fa",
+    "app/detail_gpu.py": "a3320627edd463ae416b52f7acba07b9340ebcde93750c0ed2b9c0fffd022591",
+    "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
+    "app/evaluation-queue.mjs": "23a1724c380470261d16b3f4d80e2fa9a9bd7c6862e1ca48ebf94844a6905344",
+    "app/detail_effects.cu": "5ccf6adfb59b216b18d0ee7b356b3b34f328903c8f8834e77648212bfb8c5311",
+    "app/detail_effects-sm86.cubin": "5354bf468a7c028d0b639b3f8ef27d2994f3e40e206bea48198bcaeaaef50564",
+    "app/detail_effects-sm86.json": "122bc6f75253d65ec8eea6fefb60e64eb5d5bb6bb71cbb61d89fe5bf2fb461a3",
+    "app/detail_effects.ptx": "7fcb581169ca23b8c793eb4f0274698a3db6947bf32a1b5d5be7b1ba42fbe070",
+    "app/engine_worker.py": "2303687435aa6a4d7422a62107d064ee063dd91182fdecc526a0709314199845",
+    "app/engine_compat.py": "ca841c7fe18f68682699ee71b52194c079d1a861e7f7e385b7d322e5b4d101d5",
+    "app/gpu_service.py": "a5c9c707479986ab236a15cf73db872e6ac07e4f5148c9575d2c6b3fb025a2c0"
+  }
+}

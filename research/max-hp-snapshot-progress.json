@@ -1,0 +1,8 @@
+{
+  "objective_complete": false,
+  "phase": "v46 verified; all-character goal remains active",
+  "abi": "detail_max_hp_snapshot_v46",
+  "checkpoint": "research/max-hp-snapshot-checkpoint.json",
+  "remaining_standard": 35,
+  "next_mechanism_evidence": "research/copy-stat-evidence.json"
+}

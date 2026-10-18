@@ -1,0 +1,47 @@
+{
+  "objective_complete": false,
+  "gpu_verified": false,
+  "cases": [
+    {
+      "name": "raw-목단-revival",
+      "cpu_usable": true,
+      "total": 35040782,
+      "revives": [
+        {
+          "name": "목단",
+          "time": 2.9999999999999942
+        }
+      ]
+    },
+    {
+      "name": "raw-비스킷-revival",
+      "cpu_usable": true,
+      "total": 35381434,
+      "revives": [
+        {
+          "name": "비스킷",
+          "time": 2.9999999999999942
+        }
+      ]
+    },
+    {
+      "name": "max-HP-scaled-revival",
+      "cpu_usable": true,
+      "total": 218034,
+      "revives": [
+        {
+          "name": "리타",
+          "time": 0.19999999999999998
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "research/probe-survival-scaling-cpu-readiness.py": "fda093d4d13d38fb10dc1e0db97e1503edd31cd941e354c2ef90b5b5f5a2e270",
+    "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "scripts/staged-survival-scaling-runtime.py": "6fbd54650cda74e03f8007f43b7d69a82837420f3a4cf58ad4492d517a2fa170",
+    "research/staging/v36/app/survival_scaling_compat.py": "7d58315941ff7256dcbeb1fa38c15e7fc5a801d1e96822610d612a114b9b56bc"
+  }
+}

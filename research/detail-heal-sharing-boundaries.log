@@ -1,0 +1,10 @@
+test_CPU_extension_idempotence_and_runner_binding (__main__.Boundaries.test_CPU_extension_idempotence_and_runner_binding) ... ok
+test_private_continuations_cannot_be_authored (__main__.Boundaries.test_private_continuations_cannot_be_authored) ... ok
+test_real_marker_opcode (__main__.Boundaries.test_real_marker_opcode) ... ok
+test_unknown_fractional_and_nonfinite_stat_rejected (__main__.Boundaries.test_unknown_fractional_and_nonfinite_stat_rejected) ... ok
+test_wrong_type_and_separate_storage_families_rejected (__main__.Boundaries.test_wrong_type_and_separate_storage_families_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.051s
+
+OK

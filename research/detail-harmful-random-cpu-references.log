@@ -1,0 +1,9 @@
+{"seed": 0, "pool": "empty", "selections": [[], [], [], []]}
+{"seed": 0, "pool": "all-harmful", "selections": [["\ubaa8\ub354\ub2c8\uc544", "N102"], ["\ub9ac\ud0c0", "\ud06c\ub77c\uc6b4"], ["\uc568\ub9ac\uc2a4"], []]}
+{"seed": 0, "pool": "mixed-irremovable", "selections": [["\ud06c\ub77c\uc6b4", "\uc568\ub9ac\uc2a4"], ["\ub9ac\ud0c0"], ["\ub9ac\ud0c0"], ["\ub9ac\ud0c0"]]}
+{"seed": 1, "pool": "empty", "selections": [[], [], [], []]}
+{"seed": 1, "pool": "all-harmful", "selections": [["\ud06c\ub77c\uc6b4", "\ub9ac\ud0c0"], ["\ubaa8\ub354\ub2c8\uc544", "\uc568\ub9ac\uc2a4"], ["N102"], []]}
+{"seed": 1, "pool": "mixed-irremovable", "selections": [["\ub9ac\ud0c0", "\uc568\ub9ac\uc2a4"], ["\ud06c\ub77c\uc6b4", "\ub9ac\ud0c0"], ["\ub9ac\ud0c0"], ["\ub9ac\ud0c0"]]}
+{"seed": 12345, "pool": "empty", "selections": [[], [], [], []]}
+{"seed": 12345, "pool": "all-harmful", "selections": [["\ubaa8\ub354\ub2c8\uc544", "\ub9ac\ud0c0"], ["\uc568\ub9ac\uc2a4", "N102"], ["\ud06c\ub77c\uc6b4"], []]}
+{"seed": 12345, "pool": "mixed-irremovable", "selections": [["\ud06c\ub77c\uc6b4", "\ub9ac\ud0c0"], ["\uc568\ub9ac\uc2a4", "\ub9ac\ud0c0"], ["\ub9ac\ud0c0"], ["\ub9ac\ud0c0"]]}

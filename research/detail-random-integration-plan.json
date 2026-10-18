@@ -1,0 +1,49 @@
+{
+  "objective_complete": false,
+  "prototype": "research/ports/detail_random.cu",
+  "prototype_verifier": "scripts/verify-detail-random.py",
+  "prototype_status": "integrated seeded small-pool target PRNG verified in full battles",
+  "combat_integrated": true,
+  "initialization": "CPU may construct a seeded initial MT state. Upload only the seed-derived 624 uint32 words and index, never observed draws or CPU-selected recipients.",
+  "seed_contract": "uint32, default 0 shared by independent CPU/GPU executions",
+  "kernel_layout": "Prefer a per-squad 625-word initial-state input and MT fields in State; do not duplicate seed state into all five character rows.",
+  "draw_rules": [
+    "Small pool n<=5 uses Python random.sample pool algorithm; generate _randbelow(n-i) using getrandbits(n.bit_length()) with rejection.",
+    "Keep selected recipient order as well as mask. Reordering random heal recipients changes synchronous effects.",
+    "Resolve each random target once per actual CPU-equivalent target resolution. target() and recipient_order() must not independently redraw.",
+    "Ordered target-list bounds must include the maximum cardinality of new random target kinds, preserving the 21-recipient encoding limit.",
+    "allies_random excludes caster; allies_random_with_debuff includes caster and filters both harmful and harmful_irremovable before sampling.",
+    "Expected-mode chance accumulators remain separate from target-selection PRNG. Full random-damage modes are not covered by this prototype.",
+    "Generic allies_random:N is lazy for buffs/DoT carriers; reuse the CPU (caster, activation time, raw target) cache. Instant and ordered-list child resolution is eager. Do not label every random target eager.",
+    "Check exhausted max_trigger BEFORE any target selection. For non-lazy string targets only, a successful budget probe and actual resolution can be two separate draws. Lists skip the string probe. Empty probes do not consume budget.",
+    "Periodic instant registration performs no actual target selection; only an applicable budget probe may sample. from_tick resolves the target anew. Periodic lazy DoT carriers resolve on first reference.",
+    "A singleton nonempty sample must still consume the Python rejection draws; an empty pool consumes no draws.",
+    "Current recipient_order(kind17) re-evaluates list_target after target(). Replace this with one resolved mask plus captured order, not a definition-global cache that can be clobbered by nested events.",
+    "Preserve lazy cache after the first carrier is removed when another same-key carrier is still unresolved. A later activation group must not overwrite an earlier key: lifecycle removed-carrier-cache-survives-later-group proves this."
+  ],
+  "cleanse_rules": [
+    "Select oldest harmful instances independently per recipient, using the original list atomically; deduplicate recipient effects.",
+    "Only exact harmful polarity is removable; positive fractional limits truncate then still remove at least one; nonpositive or missing limit means all.",
+    "Do not emit state-end events or cancel DoT timers on cleanse. Do not clear retained shield/bullet maps on partial stripping.",
+    "A stripped scaling DoT carrier falls back to current reference stacks on later ticks; stale captured stacks must not be reused."
+  ],
+  "evidence": [
+    "research/detail-cleanse-cpu-references.json",
+    "research/detail-cleanse-semantics.json",
+    "research/detail-harmful-random-cpu-references.json",
+    "research/detail-python-random-cpu-references.json"
+  ],
+  "gates": [
+    "Complete repaired v18 regression and checkpoint before changing the combat compiler/kernel.",
+    "Verify standalone MT words, small-pool samples, rejection state consumption and final state on GPU.",
+    "Port cleanse and random selection; run positive harmful-recipient and real-character cases with identical seeds.",
+    "Verify native/PTX complete battles, owned equipment and normal API/UI; keep unsupported effects fail-closed."
+  ],
+  "prototype_report": "research/detail-random-verification.json",
+  "target_lifecycle_reference": "research/detail-random-target-lifecycle-cpu-references.json",
+  "target_lifecycle_cases": 26,
+  "battle_report": [
+    "research/detail-random-target-native-verification.json",
+    "research/detail-random-target-ptx-verification.json"
+  ]
+}

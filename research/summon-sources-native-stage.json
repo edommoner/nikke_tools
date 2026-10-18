@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "native_stage_only": true,
+  "objective_complete": false,
+  "generated_at": "2026-10-18T09:17:54.896543+00:00",
+  "archive_base": "research/ports/v70-world-bindings-verified",
+  "reports": [
+    "research/summon-sources-native.json",
+    "research/summon-sources-native-unit.json",
+    "research/summon-sources-coverage.json"
+  ],
+  "abi": "detail_summon_sources_v71",
+  "passive_summon_source_verified": true,
+  "normal_summon_admission": false,
+  "attached_summon_attacks_connected": false,
+  "autonomous_target_routing_connected": false,
+  "autonomous_multi_hit_connected": false,
+  "standard_compile_supported": 187,
+  "next": "Measure source-pool lookup workload, then reuse canonical contiguous add identities. Portable backend and existing full battle/API controls remain pending.",
+  "archive": "research/ports/v71-summon-sources-native-stage",
+  "source_sha256": {
+    "app/detail_boss.py": "68421bbde34a9058ffed1b90e7c844a231e56878c55047c3d5e539697fca117e",
+    "app/detail_effects-sm86.cubin": "2b5cfdf14490a364971524d44002a9f65a2a5e13fb7b6642170bebafc0374e59",
+    "app/detail_effects-sm86.json": "4947f9808e24e78a6718685d975616fd05ba891cdce38bb9cdb5db981556edf1",
+    "app/detail_effects.cu": "a821a3382d83e7d317c44b1db26ac159b0a196e7d185647c6ef314a09d3e7050",
+    "app/detail_gpu.py": "332b7b60abb8322e7472c7b1af70cd80d2c707240f95c47cbc9429769c5192d2",
+    "app/world_actor_specs.py": "692c322d853f4c192614db8a672d5994e1417843b469060557b3e676ca07d824",
+    "research/checkpoint_receipts.py": "9f928fcc6ba97602ed041dfa5d0589409c4076e2d215482427f304907135bf5f",
+    "research/save-summon-sources-stage.py": "21055c0082696606e6151a37738855f5c193ac6ace53ccef41fb40c2291c5c56",
+    "research/summon-sources-coverage.json": "272a90fcafb4911553cf3f6b7b241366cada577419366cd270df3640fb2bcab6",
+    "research/summon-sources-native-unit.json": "587d53562e1610eb8b0b52e347fe43865b7f80582ba7580bb8ef29a200eb8e24",
+    "research/summon-sources-native.json": "43946a3d480322d8b81b4c902fc5c1792d6e84a2e5d5a08f9afbd64073f2ef22",
+    "research/verify-summon-sources-coverage.py": "e8b443579938550a4b578188951a6a5d1102a1c4cf7eb6fad7edbeef4b98f23d",
+    "scripts/summon_source_cases.py": "b5422582a8375b2e104da174badd80cf59401d04a5a07e2b440c21603b7d77f0",
+    "scripts/verify-summon-sources-detail.py": "5d59714201ccdf48544de1c726ab910336d49345ca6f7ae209f53217cd282a84",
+    "tests/test_world_actor_runtime.py": "8c0efe907bb31a7f06ffb1a464fe62f9b4418cc865146aa782c767797183bba5"
+  }
+}

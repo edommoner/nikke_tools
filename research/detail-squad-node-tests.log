@@ -1,0 +1,32 @@
+
+> nikke-tools-local@0.1.0 test
+> node --test tests/*.test.mjs
+
+✔ moving a character between squads swaps members without duplication (0.7649ms)
+✔ restoring old sessions filters missing and duplicate members (1.5767ms)
+✔ only complete squads are sent for batch calculation (0.5373ms)
+✔ enemy contexts are separate for single, solo, and union (40.837ms)
+✔ grouping identical numeric settings preserves all source occurrences (1.424ms)
+✔ profile bookmark decodes current BlaBlaLink URLs and transfers no credentials (4.2527ms)
+✔ candidate sets are complete, owned and contain no duplicate members (3.5342ms)
+✔ global selection avoids choosing strongest first when it blocks the total (0.4167ms)
+✔ failed evaluations are excluded without changing original candidate indices (0.1728ms)
+✔ GPU estimates only reorder candidates and preserve a feasible group for final CPU scoring (0.9764ms)
+✔ observed power sorting keeps missing values last in both directions (1.3549ms)
+✔ limit break includes core enhancement and incomplete skills are unknown (0.1718ms)
+✔ single-squad view retains the selected squad index (0.1163ms)
+✔ enemy preset rejects missing fields, invalid values, and unknown element (0.6726ms)
+✔ search preserves original input and all unrelated scenario fields (1.2936ms)
+✔ bounded exhaustive search rejects invalid ranges and unowned targets (0.3385ms)
+✔ automatic alternatives enumerate each field separately without mutating other stats (0.5458ms)
+✔ UTF-8 roster data remains intact across arbitrary network chunk boundaries (1.2161ms)
+✔ decimal overload ranges retain exact displayed values (0.265ms)
+✔ alternative skill representations preserve unrelated skill levels (0.2872ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 247.3227

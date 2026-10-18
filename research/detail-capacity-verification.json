@@ -1,0 +1,2902 @@
+{
+  "generated_at": "2026-10-16T23:21:24.931867+00:00",
+  "passed": true,
+  "objective_complete": false,
+  "cases": [
+    {
+      "name": "reducer-id-31",
+      "backend": "native",
+      "kind": "primitive",
+      "effects": 256,
+      "checks": {
+        "queries": true,
+        "totals": true,
+        "expected_count": true
+      },
+      "passed": true,
+      "cpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0.15,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120,
+          0.0,
+          6683,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          120,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "gpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120.0,
+          0.0,
+          6683.0,
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          120.0,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ]
+    },
+    {
+      "name": "reducer-id-32",
+      "backend": "native",
+      "kind": "primitive",
+      "effects": 256,
+      "checks": {
+        "queries": true,
+        "totals": true,
+        "expected_count": true
+      },
+      "passed": true,
+      "cpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0.15,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120,
+          0.0,
+          6683,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          120,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "gpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120.0,
+          0.0,
+          6683.0,
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          120.0,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ]
+    },
+    {
+      "name": "reducer-id-127",
+      "backend": "native",
+      "kind": "primitive",
+      "effects": 256,
+      "checks": {
+        "queries": true,
+        "totals": true,
+        "expected_count": true
+      },
+      "passed": true,
+      "cpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0.15,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120,
+          0.0,
+          6683,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          120,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "gpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120.0,
+          0.0,
+          6683.0,
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          120.0,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ]
+    },
+    {
+      "name": "reducer-id-128",
+      "backend": "native",
+      "kind": "primitive",
+      "effects": 256,
+      "checks": {
+        "queries": true,
+        "totals": true,
+        "expected_count": true
+      },
+      "passed": true,
+      "cpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0.15,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120,
+          0.0,
+          6683,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          120,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "gpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120.0,
+          0.0,
+          6683.0,
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          120.0,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ]
+    },
+    {
+      "name": "reducer-id-255",
+      "backend": "native",
+      "kind": "primitive",
+      "effects": 256,
+      "checks": {
+        "queries": true,
+        "totals": true,
+        "expected_count": true
+      },
+      "passed": true,
+      "cpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0.15,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120,
+          0.0,
+          6683,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          120,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "gpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120.0,
+          0.0,
+          6683.0,
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          120.0,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ]
+    },
+    {
+      "name": "team-shared-budget-id-129",
+      "backend": "native",
+      "kind": "primitive",
+      "effects": 134,
+      "checks": {
+        "queries": true,
+        "totals": true
+      },
+      "passed": true,
+      "cpu_queries": [
+        [
+          21.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0.15,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120,
+          0.0,
+          8373,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          120,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "gpu_queries": [
+        [
+          21.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120.0,
+          0.0,
+          8373.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          120.0,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ]
+    },
+    {
+      "name": "rich-auto-auto-fixed",
+      "backend": "native",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 172,
+      "states": 98,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 458432702,
+      "gpu_total": 458432702,
+      "cpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 104262166,
+          "share": 0.22743178125194044
+        },
+        {
+          "name": "그레이브",
+          "damage": 174635761,
+          "share": 0.38094088889845384
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 69501644,
+          "share": 0.15160708146863397
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 82771342,
+          "share": 0.18055287425808467
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27261789,
+          "share": 0.05946737412288707
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 104262166,
+          "share": 0.22743178125194044
+        },
+        {
+          "name": "그레이브",
+          "damage": 174635761,
+          "share": 0.38094088889845384
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 69501644,
+          "share": 0.15160708146863397
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 82771342,
+          "share": 0.18055287425808467
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27261789,
+          "share": 0.05946737412288707
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "rich-auto-auto-accumulate",
+      "backend": "native",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 172,
+      "states": 98,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 458317915,
+      "gpu_total": 458317915,
+      "cpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 106822803,
+          "share": 0.23307577448723557
+        },
+        {
+          "name": "그레이브",
+          "damage": 174451815,
+          "share": 0.38063494637777795
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 69501644,
+          "share": 0.15164505188499997
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 80743062,
+          "share": 0.17617260717377806
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 26798591,
+          "share": 0.05847162007620845
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 106822803,
+          "share": 0.23307577448723557
+        },
+        {
+          "name": "그레이브",
+          "damage": 174451815,
+          "share": 0.38063494637777795
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 69501644,
+          "share": 0.15164505188499997
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 80743062,
+          "share": 0.17617260717377806
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 26798591,
+          "share": 0.05847162007620845
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "rich-auto-character-fixed",
+      "backend": "native",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 172,
+      "states": 98,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 437503022,
+      "gpu_total": 437503022,
+      "cpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 104262166,
+          "share": 0.23831187616345195
+        },
+        {
+          "name": "그레이브",
+          "damage": 174635761,
+          "share": 0.3991646965126563
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 56063338,
+          "share": 0.12814388742667931
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 75279968,
+          "share": 0.17206730974306275
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27261789,
+          "share": 0.062312230154149655
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 104262166,
+          "share": 0.23831187616345195
+        },
+        {
+          "name": "그레이브",
+          "damage": 174635761,
+          "share": 0.3991646965126563
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 56063338,
+          "share": 0.12814388742667931
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 75279968,
+          "share": 0.17206730974306275
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27261789,
+          "share": 0.062312230154149655
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "rich-auto-character-accumulate",
+      "backend": "native",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 172,
+      "states": 98,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 436423406,
+      "gpu_total": 436423406,
+      "cpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 105701350,
+          "share": 0.24219908590328906
+        },
+        {
+          "name": "그레이브",
+          "damage": 174920155,
+          "share": 0.4008037896115957
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 54124155,
+          "share": 0.12401753493487011
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 73741464,
+          "share": 0.168967711140589
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27936282,
+          "share": 0.06401187840965615
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 105701350,
+          "share": 0.24219908590328906
+        },
+        {
+          "name": "그레이브",
+          "damage": 174920155,
+          "share": 0.4008037896115957
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 54124155,
+          "share": 0.12401753493487011
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 73741464,
+          "share": 0.168967711140589
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27936282,
+          "share": 0.06401187840965615
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "rich-rules-auto-fixed",
+      "backend": "native",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 172,
+      "states": 98,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 458432702,
+      "gpu_total": 458432702,
+      "cpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 104262166,
+          "share": 0.22743178125194044
+        },
+        {
+          "name": "그레이브",
+          "damage": 174635761,
+          "share": 0.38094088889845384
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 69501644,
+          "share": 0.15160708146863397
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 82771342,
+          "share": 0.18055287425808467
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27261789,
+          "share": 0.05946737412288707
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 104262166,
+          "share": 0.22743178125194044
+        },
+        {
+          "name": "그레이브",
+          "damage": 174635761,
+          "share": 0.38094088889845384
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 69501644,
+          "share": 0.15160708146863397
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 82771342,
+          "share": 0.18055287425808467
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27261789,
+          "share": 0.05946737412288707
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "rich-rules-auto-accumulate",
+      "backend": "native",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 172,
+      "states": 98,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 458317915,
+      "gpu_total": 458317915,
+      "cpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 106822803,
+          "share": 0.23307577448723557
+        },
+        {
+          "name": "그레이브",
+          "damage": 174451815,
+          "share": 0.38063494637777795
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 69501644,
+          "share": 0.15164505188499997
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 80743062,
+          "share": 0.17617260717377806
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 26798591,
+          "share": 0.05847162007620845
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 106822803,
+          "share": 0.23307577448723557
+        },
+        {
+          "name": "그레이브",
+          "damage": 174451815,
+          "share": 0.38063494637777795
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 69501644,
+          "share": 0.15164505188499997
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 80743062,
+          "share": 0.17617260717377806
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 26798591,
+          "share": 0.05847162007620845
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "rich-rules-character-fixed",
+      "backend": "native",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 172,
+      "states": 98,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 437503022,
+      "gpu_total": 437503022,
+      "cpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 104262166,
+          "share": 0.23831187616345195
+        },
+        {
+          "name": "그레이브",
+          "damage": 174635761,
+          "share": 0.3991646965126563
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 56063338,
+          "share": 0.12814388742667931
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 75279968,
+          "share": 0.17206730974306275
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27261789,
+          "share": 0.062312230154149655
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 104262166,
+          "share": 0.23831187616345195
+        },
+        {
+          "name": "그레이브",
+          "damage": 174635761,
+          "share": 0.3991646965126563
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 56063338,
+          "share": 0.12814388742667931
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 75279968,
+          "share": 0.17206730974306275
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27261789,
+          "share": 0.062312230154149655
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "rich-rules-character-accumulate",
+      "backend": "native",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 172,
+      "states": 98,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 436423406,
+      "gpu_total": 436423406,
+      "cpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 105701350,
+          "share": 0.24219908590328906
+        },
+        {
+          "name": "그레이브",
+          "damage": 174920155,
+          "share": 0.4008037896115957
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 54124155,
+          "share": 0.12401753493487011
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 73741464,
+          "share": 0.168967711140589
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27936282,
+          "share": 0.06401187840965615
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 105701350,
+          "share": 0.24219908590328906
+        },
+        {
+          "name": "그레이브",
+          "damage": 174920155,
+          "share": 0.4008037896115957
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 54124155,
+          "share": 0.12401753493487011
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 73741464,
+          "share": 0.168967711140589
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27936282,
+          "share": 0.06401187840965615
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "high-B3-exclusion",
+      "backend": "native",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 235,
+      "states": 176,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 333083353,
+      "gpu_total": 333083353,
+      "cpu_members": [
+        {
+          "name": "리타",
+          "damage": 24033471,
+          "share": 0.07215452463636032
+        },
+        {
+          "name": "크라운",
+          "damage": 34469945,
+          "share": 0.10348744447759897
+        },
+        {
+          "name": "베스티",
+          "damage": 23081065,
+          "share": 0.06929516228329789
+        },
+        {
+          "name": "앨리스",
+          "damage": 95823851,
+          "share": 0.28768730150257615
+        },
+        {
+          "name": "모더니아",
+          "damage": 155675021,
+          "share": 0.46737556710016664
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "리타",
+          "damage": 24033471,
+          "share": 0.07215452463636032
+        },
+        {
+          "name": "크라운",
+          "damage": 34469945,
+          "share": 0.10348744447759897
+        },
+        {
+          "name": "베스티",
+          "damage": 23081065,
+          "share": 0.06929516228329789
+        },
+        {
+          "name": "앨리스",
+          "damage": 95823851,
+          "share": 0.28768730150257615
+        },
+        {
+          "name": "모더니아",
+          "damage": 155675021,
+          "share": 0.46737556710016664
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "reducer-id-31",
+      "backend": "ptx",
+      "kind": "primitive",
+      "effects": 256,
+      "checks": {
+        "queries": true,
+        "totals": true,
+        "expected_count": true
+      },
+      "passed": true,
+      "cpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0.15,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120,
+          0.0,
+          6683,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          120,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "gpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120.0,
+          0.0,
+          6683.0,
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          120.0,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ]
+    },
+    {
+      "name": "reducer-id-32",
+      "backend": "ptx",
+      "kind": "primitive",
+      "effects": 256,
+      "checks": {
+        "queries": true,
+        "totals": true,
+        "expected_count": true
+      },
+      "passed": true,
+      "cpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0.15,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120,
+          0.0,
+          6683,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          120,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "gpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120.0,
+          0.0,
+          6683.0,
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          120.0,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ]
+    },
+    {
+      "name": "reducer-id-127",
+      "backend": "ptx",
+      "kind": "primitive",
+      "effects": 256,
+      "checks": {
+        "queries": true,
+        "totals": true,
+        "expected_count": true
+      },
+      "passed": true,
+      "cpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0.15,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120,
+          0.0,
+          6683,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          120,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "gpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120.0,
+          0.0,
+          6683.0,
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          120.0,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ]
+    },
+    {
+      "name": "reducer-id-128",
+      "backend": "ptx",
+      "kind": "primitive",
+      "effects": 256,
+      "checks": {
+        "queries": true,
+        "totals": true,
+        "expected_count": true
+      },
+      "passed": true,
+      "cpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0.15,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120,
+          0.0,
+          6683,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          120,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "gpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120.0,
+          0.0,
+          6683.0,
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          120.0,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ]
+    },
+    {
+      "name": "reducer-id-255",
+      "backend": "ptx",
+      "kind": "primitive",
+      "effects": 256,
+      "checks": {
+        "queries": true,
+        "totals": true,
+        "expected_count": true
+      },
+      "passed": true,
+      "cpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0.15,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120,
+          0.0,
+          6683,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          120,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "gpu_queries": [
+        [
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120.0,
+          0.0,
+          6683.0,
+          3.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          120.0,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ]
+    },
+    {
+      "name": "team-shared-budget-id-129",
+      "backend": "ptx",
+      "kind": "primitive",
+      "effects": 134,
+      "checks": {
+        "queries": true,
+        "totals": true
+      },
+      "passed": true,
+      "cpu_queries": [
+        [
+          21.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          0,
+          0.15,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120,
+          0.0,
+          8373,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          120,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "gpu_queries": [
+        [
+          21.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.73,
+          24.0,
+          120.0,
+          0.0,
+          8373.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          120.0,
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ]
+    },
+    {
+      "name": "rich-auto-auto-fixed",
+      "backend": "ptx",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 172,
+      "states": 98,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 458432702,
+      "gpu_total": 458432702,
+      "cpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 104262166,
+          "share": 0.22743178125194044
+        },
+        {
+          "name": "그레이브",
+          "damage": 174635761,
+          "share": 0.38094088889845384
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 69501644,
+          "share": 0.15160708146863397
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 82771342,
+          "share": 0.18055287425808467
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27261789,
+          "share": 0.05946737412288707
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 104262166,
+          "share": 0.22743178125194044
+        },
+        {
+          "name": "그레이브",
+          "damage": 174635761,
+          "share": 0.38094088889845384
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 69501644,
+          "share": 0.15160708146863397
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 82771342,
+          "share": 0.18055287425808467
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27261789,
+          "share": 0.05946737412288707
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "rich-auto-auto-accumulate",
+      "backend": "ptx",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 172,
+      "states": 98,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 458317915,
+      "gpu_total": 458317915,
+      "cpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 106822803,
+          "share": 0.23307577448723557
+        },
+        {
+          "name": "그레이브",
+          "damage": 174451815,
+          "share": 0.38063494637777795
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 69501644,
+          "share": 0.15164505188499997
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 80743062,
+          "share": 0.17617260717377806
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 26798591,
+          "share": 0.05847162007620845
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 106822803,
+          "share": 0.23307577448723557
+        },
+        {
+          "name": "그레이브",
+          "damage": 174451815,
+          "share": 0.38063494637777795
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 69501644,
+          "share": 0.15164505188499997
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 80743062,
+          "share": 0.17617260717377806
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 26798591,
+          "share": 0.05847162007620845
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "rich-auto-character-fixed",
+      "backend": "ptx",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 172,
+      "states": 98,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 437503022,
+      "gpu_total": 437503022,
+      "cpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 104262166,
+          "share": 0.23831187616345195
+        },
+        {
+          "name": "그레이브",
+          "damage": 174635761,
+          "share": 0.3991646965126563
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 56063338,
+          "share": 0.12814388742667931
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 75279968,
+          "share": 0.17206730974306275
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27261789,
+          "share": 0.062312230154149655
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 104262166,
+          "share": 0.23831187616345195
+        },
+        {
+          "name": "그레이브",
+          "damage": 174635761,
+          "share": 0.3991646965126563
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 56063338,
+          "share": 0.12814388742667931
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 75279968,
+          "share": 0.17206730974306275
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27261789,
+          "share": 0.062312230154149655
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "rich-auto-character-accumulate",
+      "backend": "ptx",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 172,
+      "states": 98,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 436423406,
+      "gpu_total": 436423406,
+      "cpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 105701350,
+          "share": 0.24219908590328906
+        },
+        {
+          "name": "그레이브",
+          "damage": 174920155,
+          "share": 0.4008037896115957
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 54124155,
+          "share": 0.12401753493487011
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 73741464,
+          "share": 0.168967711140589
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27936282,
+          "share": 0.06401187840965615
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 105701350,
+          "share": 0.24219908590328906
+        },
+        {
+          "name": "그레이브",
+          "damage": 174920155,
+          "share": 0.4008037896115957
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 54124155,
+          "share": 0.12401753493487011
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 73741464,
+          "share": 0.168967711140589
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27936282,
+          "share": 0.06401187840965615
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "rich-rules-auto-fixed",
+      "backend": "ptx",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 172,
+      "states": 98,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 458432702,
+      "gpu_total": 458432702,
+      "cpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 104262166,
+          "share": 0.22743178125194044
+        },
+        {
+          "name": "그레이브",
+          "damage": 174635761,
+          "share": 0.38094088889845384
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 69501644,
+          "share": 0.15160708146863397
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 82771342,
+          "share": 0.18055287425808467
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27261789,
+          "share": 0.05946737412288707
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 104262166,
+          "share": 0.22743178125194044
+        },
+        {
+          "name": "그레이브",
+          "damage": 174635761,
+          "share": 0.38094088889845384
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 69501644,
+          "share": 0.15160708146863397
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 82771342,
+          "share": 0.18055287425808467
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27261789,
+          "share": 0.05946737412288707
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "rich-rules-auto-accumulate",
+      "backend": "ptx",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 172,
+      "states": 98,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 458317915,
+      "gpu_total": 458317915,
+      "cpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 106822803,
+          "share": 0.23307577448723557
+        },
+        {
+          "name": "그레이브",
+          "damage": 174451815,
+          "share": 0.38063494637777795
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 69501644,
+          "share": 0.15164505188499997
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 80743062,
+          "share": 0.17617260717377806
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 26798591,
+          "share": 0.05847162007620845
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 106822803,
+          "share": 0.23307577448723557
+        },
+        {
+          "name": "그레이브",
+          "damage": 174451815,
+          "share": 0.38063494637777795
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 69501644,
+          "share": 0.15164505188499997
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 80743062,
+          "share": 0.17617260717377806
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 26798591,
+          "share": 0.05847162007620845
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "rich-rules-character-fixed",
+      "backend": "ptx",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 172,
+      "states": 98,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 437503022,
+      "gpu_total": 437503022,
+      "cpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 104262166,
+          "share": 0.23831187616345195
+        },
+        {
+          "name": "그레이브",
+          "damage": 174635761,
+          "share": 0.3991646965126563
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 56063338,
+          "share": 0.12814388742667931
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 75279968,
+          "share": 0.17206730974306275
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27261789,
+          "share": 0.062312230154149655
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 104262166,
+          "share": 0.23831187616345195
+        },
+        {
+          "name": "그레이브",
+          "damage": 174635761,
+          "share": 0.3991646965126563
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 56063338,
+          "share": 0.12814388742667931
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 75279968,
+          "share": 0.17206730974306275
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27261789,
+          "share": 0.062312230154149655
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "rich-rules-character-accumulate",
+      "backend": "ptx",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 172,
+      "states": 98,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 436423406,
+      "gpu_total": 436423406,
+      "cpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 105701350,
+          "share": 0.24219908590328906
+        },
+        {
+          "name": "그레이브",
+          "damage": 174920155,
+          "share": 0.4008037896115957
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 54124155,
+          "share": 0.12401753493487011
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 73741464,
+          "share": 0.168967711140589
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27936282,
+          "share": 0.06401187840965615
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "아니스 : 스타",
+          "damage": 105701350,
+          "share": 0.24219908590328906
+        },
+        {
+          "name": "그레이브",
+          "damage": 174920155,
+          "share": 0.4008037896115957
+        },
+        {
+          "name": "신 : 스위프트 바니",
+          "damage": 54124155,
+          "share": 0.12401753493487011
+        },
+        {
+          "name": "길티 : 마이티 바니",
+          "damage": 73741464,
+          "share": 0.168967711140589
+        },
+        {
+          "name": "라플라스 : 얼티밋 히어로",
+          "damage": 27936282,
+          "share": 0.06401187840965615
+        }
+      ],
+      "workspace_bytes": 359320
+    },
+    {
+      "name": "high-B3-exclusion",
+      "backend": "ptx",
+      "kind": "battle",
+      "duration": 31,
+      "effects": 235,
+      "states": 176,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "burst_exercised": true
+      },
+      "passed": true,
+      "cpu_total": 333083353,
+      "gpu_total": 333083353,
+      "cpu_members": [
+        {
+          "name": "리타",
+          "damage": 24033471,
+          "share": 0.07215452463636032
+        },
+        {
+          "name": "크라운",
+          "damage": 34469945,
+          "share": 0.10348744447759897
+        },
+        {
+          "name": "베스티",
+          "damage": 23081065,
+          "share": 0.06929516228329789
+        },
+        {
+          "name": "앨리스",
+          "damage": 95823851,
+          "share": 0.28768730150257615
+        },
+        {
+          "name": "모더니아",
+          "damage": 155675021,
+          "share": 0.46737556710016664
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "리타",
+          "damage": 24033471,
+          "share": 0.07215452463636032
+        },
+        {
+          "name": "크라운",
+          "damage": 34469945,
+          "share": 0.10348744447759897
+        },
+        {
+          "name": "베스티",
+          "damage": 23081065,
+          "share": 0.06929516228329789
+        },
+        {
+          "name": "앨리스",
+          "damage": 95823851,
+          "share": 0.28768730150257615
+        },
+        {
+          "name": "모더니아",
+          "damage": 155675021,
+          "share": 0.46737556710016664
+        }
+      ],
+      "workspace_bytes": 359320
+    }
+  ],
+  "cpu_trace_used_as_gpu_input": false,
+  "source_sha256": {
+    "scripts/verify-capacity-detail.py": "e1af1f1775147400e44c9adabd418e9d4f35575fde6d1d78a0b9bdae88410067",
+    "app/detail_gpu.py": "4e1c3bc058880c64aceda7ad359e4585b92b97d50279f840f24cab9e806d7fe7",
+    "app/detail_effects.cu": "d54a303b553e90954e3c1146b2788b4ef315e67a490e15b44f554c4977bcd396",
+    "app/detail_effects.ptx": "b9ca448ea6f77477d7413534c8267d991c732032fd4530429fdf0aa60deef4bd",
+    "app/detail_effects-build.json": "5671d144a260662a17de192851c63a629f1337b197f33d53b333b92cf7b76d47",
+    "app/detail_effects-sm86.cubin": "8c484206fcb5d5437e8fe2131230065bfa0fab9c8b5e3a2c70c0293b4f29601d",
+    "app/detail_effects-sm86.json": "183e3924a7fd8c329f37b835dd41d128adaf208e6610013cce5e5750f395a78b",
+    "app/engine_worker.py": "210e7af5f2e7fd8442e3c1018ecb252b8d9d1d74644d59c0f9c1f177ed93fd3d"
+  }
+}

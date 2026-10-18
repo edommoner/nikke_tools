@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "exit_code": 0,
+  "seconds": 57.34634849987924,
+  "generated_at": "2026-10-17T21:35:33.137452+00:00",
+  "source_sha256": "6b03fe5422631d35cc2a93ce7bfe685dd7cf90fa289b8ba64ff8ae8b1dded93b",
+  "source_stable": true,
+  "scope": "PTX generation only; no runtime or numerical pass claim",
+  "ptx_bytes": 10862177,
+  "ptx_sha256": "973fc7ca5d923338d4caa9f0393bc35074fc59f52f4cfb1489408794165c6824",
+  "baseline_bytes": 21507327,
+  "size_ratio": 0.5050454201026469
+}

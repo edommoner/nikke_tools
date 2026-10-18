@@ -1,0 +1,9 @@
+{"name": "no-broken-cover", "passed": true, "gpu_implemented": false}
+{"name": "only-broken-revives", "passed": true, "gpu_implemented": false}
+{"name": "recipient-maximum", "passed": true, "gpu_implemented": false}
+{"name": "healing-cannot-revive", "passed": true, "gpu_implemented": false}
+{"name": "ordinary-heal-living-positive", "passed": true, "gpu_implemented": false}
+{"name": "repeat-revival", "passed": true, "gpu_implemented": false}
+{"name": "random-includes-caster", "passed": true, "gpu_implemented": false}
+{"name": "random-excludes-down", "passed": true, "gpu_implemented": false}
+{"name": "cover-condition-rearms", "passed": true, "gpu_implemented": false}

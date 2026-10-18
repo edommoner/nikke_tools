@@ -1,0 +1,10 @@
+test_different_schedules_group_exactly_and_restore_original_order (test_detail_batch_planning.FullBatchPlanningTests.test_different_schedules_group_exactly_and_restore_original_order) ... ok
+test_empty_input_and_invalid_batch_sizes_do_not_launch (test_detail_batch_planning.FullBatchPlanningTests.test_empty_input_and_invalid_batch_sizes_do_not_launch) ... ok
+test_failure_closes_every_pending_decoder_and_preserves_original_error (test_detail_batch_planning.FullBatchPlanningTests.test_failure_closes_every_pending_decoder_and_preserves_original_error) ... ok
+test_malformed_result_is_rejected_before_publishing_any_payload (test_detail_batch_planning.FullBatchPlanningTests.test_malformed_result_is_rejected_before_publishing_any_payload) ... ok
+test_single_path_uses_same_preparation_and_decoder (test_detail_batch_planning.FullBatchPlanningTests.test_single_path_uses_same_preparation_and_decoder) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK

@@ -1,0 +1,305 @@
+{
+  "generated_at": "2026-10-16T22:09:59.295150+00:00",
+  "passed": true,
+  "cases": [
+    {
+      "name": "atk_caster_based_pct-all_allies",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_flat_atk": [
+        0.0,
+        23000.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_flat_atk": [
+        0.0,
+        23000.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cpu_charge": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_charge": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cpu_damage": [
+        107877,
+        134210,
+        7199,
+        11506,
+        8027
+      ],
+      "gpu_damage": [
+        107877.0,
+        134210.0,
+        7199.0,
+        11506.0,
+        8027.0
+      ]
+    },
+    {
+      "name": "charge_speed_pct-all_allies",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_flat_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_flat_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cpu_charge": [
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_charge": [
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cpu_damage": [
+        107877,
+        101260,
+        7199,
+        11506,
+        8027
+      ],
+      "gpu_damage": [
+        107877.0,
+        101260.0,
+        7199.0,
+        11506.0,
+        8027.0
+      ]
+    },
+    {
+      "name": "crit_rate-all_allies",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_flat_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_flat_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cpu_charge": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_charge": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cpu_damage": [
+        107877,
+        106873,
+        7199,
+        11506,
+        8027
+      ],
+      "gpu_damage": [
+        107877.0,
+        106873.0,
+        7199.0,
+        11506.0,
+        8027.0
+      ]
+    },
+    {
+      "name": "received_dmg_pct-boss",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_flat_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_flat_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cpu_charge": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_charge": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cpu_damage": [
+        107877,
+        101260,
+        7199,
+        11506,
+        8027
+      ],
+      "gpu_damage": [
+        107877.0,
+        101260.0,
+        7199.0,
+        11506.0,
+        8027.0
+      ]
+    },
+    {
+      "name": "def_pct-boss",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_flat_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_flat_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cpu_charge": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_charge": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cpu_damage": [
+        107877,
+        101260,
+        7199,
+        11506,
+        8027
+      ],
+      "gpu_damage": [
+        107877.0,
+        101260.0,
+        7199.0,
+        11506.0,
+        8027.0
+      ]
+    },
+    {
+      "name": "charge_speed_caster_based_pct-all_allies",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_flat_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_flat_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cpu_charge": [
+        0.0,
+        15.333333333333336,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_charge": [
+        0.0,
+        15.333333333333336,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cpu_damage": [
+        107877,
+        101260,
+        7199,
+        11506,
+        8027
+      ],
+      "gpu_damage": [
+        107877.0,
+        101260.0,
+        7199.0,
+        11506.0,
+        8027.0
+      ]
+    }
+  ],
+  "excluded_diagnostic_column": 26,
+  "canonical_flat_atk_and_damage_checked": true,
+  "source_sha256": {
+    "scripts/verify-ally-routing-detail.py": "c56dc4ed599c837dab5008abde624273637b0e5e806e8e435470ed9265b2b23d",
+    "scripts/verify-ally-conditions-detail.py": "8a3d2afe578ebe3d9caf1904f16af1daa68a6e7ff7ecdf935a95e10240c12f57",
+    "app/detail_gpu.py": "38000e0a8baae8b1b5f6bf7d81201de6992b5da7cd88c55b6a60bc2787131150",
+    "app/detail_effects.cu": "8437b4ed507ee01819a34ef8d72a070ce49c64d8083d52181b5cc2c55b9a8886",
+    "app/detail_effects-sm86.cubin": "1214daba5dd96ac5794fa5933f3305eedd14b4860f678e2c389f44befc819653",
+    "app/detail_effects-sm86.json": "8e3067fe94382bc9a8e48308d6b56c76e0573b83a21460b195221c4fe61eecdd"
+  },
+  "cpu_trace_used_as_gpu_input": false
+}

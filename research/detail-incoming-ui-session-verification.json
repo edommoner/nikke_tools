@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-10-17T05:50:36.136Z",
+  "passed": true,
+  "scope": "The fictional saved session uses the production UI parsers and the API smoke input profile, deltas and boss conditions; API execution is verified separately.",
+  "browser_interaction_verified": false,
+  "source_sha256": {
+    "research/detail-incoming-ui-fixture.json": "4c0eab8bbd682090939ba0ec8410b2439b070b66fc3e42baad7ae8c4e5de5540",
+    "research/detail-incoming-api-fixture.json": "ead7cf574c90a54c5f67b8883442cb3bf49cd86239f1785ff230647f9ebe8eaa",
+    "scripts/verify-incoming-ui-session.mjs": "6b3da0602a1386650c21dd1d6d29e44fd502a5919b71445f3fa2fd54afdea634",
+    "web/app.js": "ca212c76de8f3e9c09092bccbebb43f6125dc4a70f73dc0a3620904e1442454f",
+    "web/roster-model.mjs": "fd1ceb8f4011639ded5bd9d589b191ff4b1e571ed8d248c38c92d4ce4fe7a6a7",
+    "web/board-model.mjs": "e3b7a66b67e27b8652906bd53efec6b3e34d516041bd4c78a9dfb2c78e80319c",
+    "web/phase-model.mjs": "4f349722962da4fd8b58089b96b97896519a6fd009f777a94b2c9c1497759d28",
+    "web/parts-model.mjs": "26fe86258b28373e2426de6cdfbb93fe4756e91e41817cd9fd500eed7ebc76f3"
+  }
+}

@@ -1,0 +1,457 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "typed-wire-all-actors-families-outcomes",
+      "passed": true,
+      "packets": 72,
+      "damage_independent_of_credit": true
+    },
+    {
+      "name": "existing-grown-squad-all-core",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 119882918,
+      "gpu_total": 119882918,
+      "cpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "gpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": true
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 1,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "리타",
+          "cpu": 10592966,
+          "gpu": 10592966
+        },
+        {
+          "name": "크라운",
+          "cpu": 10032151,
+          "gpu": 10032151
+        },
+        {
+          "name": "앨리스",
+          "cpu": 52380040,
+          "gpu": 52380040
+        },
+        {
+          "name": "모더니아",
+          "cpu": 42879319,
+          "gpu": 42879319
+        },
+        {
+          "name": "N102",
+          "cpu": 3998442,
+          "gpu": 3998442
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 1887.478,
+      "module_initialization_ms": 19.263,
+      "wall_seconds": 5.691,
+      "impact_frames": 482,
+      "impact_count": 1202,
+      "impact_credit": 1202.0,
+      "typed_counts": [
+        870,
+        332,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "last_impact": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        3,
+        25895,
+        1,
+        0,
+        8
+      ]
+    },
+    {
+      "name": "shotgun-skill-dot-body-parts-and-recovery",
+      "squad": [
+        "슈가",
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 78554351,
+      "gpu_total": 78554351,
+      "cpu_health": {
+        "슈가": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_health": {
+        "슈가": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": true
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "슈가",
+          "cpu": 28515549,
+          "gpu": 28515549
+        },
+        {
+          "name": "리타",
+          "cpu": 8759884,
+          "gpu": 8759884
+        },
+        {
+          "name": "크라운",
+          "cpu": 5728524,
+          "gpu": 5728524
+        },
+        {
+          "name": "앨리스",
+          "cpu": 9994616,
+          "gpu": 9994616
+        },
+        {
+          "name": "모더니아",
+          "cpu": 25555778,
+          "gpu": 25555778
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "슈가"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "슈가"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 1586.963,
+      "module_initialization_ms": 19.256,
+      "wall_seconds": 4.114,
+      "impact_frames": 482,
+      "impact_count": 2317,
+      "impact_credit": 2317.0,
+      "typed_counts": [
+        980,
+        15,
+        28,
+        0,
+        1232,
+        21,
+        41,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "last_impact": [
+        1,
+        0,
+        1,
+        0,
+        2,
+        4,
+        29383,
+        1,
+        0,
+        7.999999999999977
+      ]
+    }
+  ],
+  "source_sha256": {
+    "app/attack_timing_specs.py": "976d2beca6053f9c89b57c53c5c364bba3d66b817b571dff5d47aee3d593ad2b",
+    "app/base_copy_runtime.py": "e2877bc274988a6ca3684cc43d7630687f46bf89a328ddf9593d7c42568dfd32",
+    "app/damage_accum_runtime.py": "b6a97700f8690219bb4ad25b529c9cc24c14e5c9a9396aa3661211483757a982",
+    "app/damage_basis_specs.py": "9dcc0575639c404dea26d29be74ef49fbc4b0e762c7a3f8d1674b079b1ac2261",
+    "app/damage_query_runtime.py": "fcb22427f84941e5d6a331d02054341e8f5859b274d139a799f3bc8ef202ddd0",
+    "app/detail_boss.py": "521a06d1caf6a8b223b65312ab029fac6fd7099702e04db33f0e7c556736afa1",
+    "app/detail_effects.cu": "6dc1e1598996bc78a0afdda41cc9d2d810b475c7830ad2973593bea9202fc1b2",
+    "app/detail_gpu.py": "98ca38d53bbbe891772261c01b999ecd8d804e19762bcff98eed7268466dbc47",
+    "app/detail_world.py": "3c717ce722fb151fa1bc3cb7990ab632b9a481a5fb379607c52b2ac66a56317c",
+    "app/effect_overrides.py": "2219f5b421c6e719af1bc83c73bd1ed020dc7a7f4e18897bc973b291f0c66d43",
+    "app/effect_runtime.py": "d18202880f6f008ef1a061e63ce958546c0e9c23d58652ca01eccc5d3b1effc3",
+    "app/effect_spec.py": "1f4aa6b57947dfa5e7f886d040ed6bb7e400f9fcb7e2a491177f0f89d42a73ba",
+    "app/engine_compat.py": "ca841c7fe18f68682699ee71b52194c079d1a861e7f7e385b7d322e5b4d101d5",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/gpu_combat.py": "610c6b1dc97825577bd3d1639691377726c8232909b5816b388d66582b994cb1",
+    "app/gpu_selector.py": "913cf0fdab130614dbf1b73e6016550a4ea07b6fee27f540f6bae079e1c2c2b3",
+    "app/gpu_service.py": "a5c9c707479986ab236a15cf73db872e6ac07e4f5148c9575d2c6b3fb025a2c0",
+    "app/heal_charge_compat.py": "018e94d88ea36eda21b1b34e2c196f7aaa742f4dc4808c84c05835620b25197e",
+    "app/heal_sharing_compat.py": "45578674e4697405037ebb556cb5e4e7698edd33312b2242e85bf55b908f3919",
+    "app/healing_storage_compat.py": "1faf3c33b20f7c3e76aa04f9e1e9cf47c509845735a1eaca3cb636df3c0001ff",
+    "app/impact_runtime.py": "05eed31ba59c0745f765f3cdf2337fc7987882c692a4ff85b223821f81351159",
+    "app/impact_specs.py": "76f41faa18aad844c37dc0a21ea92675a7863f69b10ec087b14f3b7b7ea5e6b6",
+    "app/lifecycle_specs.py": "716056a8f7b145e3c30dcc28f43c6cc2b6e9b002724b74de947527622e4dc90f",
+    "app/max_hp_snapshot_runtime.py": "4cf4f91b4ceb4232a4b960d1b30e60c665ee6bfcd410c1d1be3fa28df63c6b5c",
+    "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
+    "app/outgoing_healing_compat.py": "8eb8a8fe2ecd2a9c7d7fbccb087473b0817073da1ee2093b5b36f161df5f8af3",
+    "app/protection_runtime.py": "a6909bbdd73ef24ebdd3136cc67932c7ab433f23ae9ecabfc2a5069a5db37c81",
+    "app/reference_rewrite.py": "3d183c01a5915fcc5749b304c6f7c3aa68f28483065cdb3758bbb04301e3e15e",
+    "app/resource_runtime.py": "8356943f18d137bfb90d60ab2096c2505403c9156f088cf29c7aeda38fecd58c",
+    "app/resource_specs.py": "8e258b9365cd17fdcad0733bc367cfd72478c2c1b585509f71dd017f3d27a8cd",
+    "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "app/survival_scaling_compat.py": "7d58315941ff7256dcbeb1fa38c15e7fc5a801d1e96822610d612a114b9b56bc",
+    "data/engine-effect-overrides.json": "2ec8bf0ba5f1e96267d724c2d0944d3cfba4f1c530bf3bf398effcc2583d0513",
+    "scripts/resource_frame_capture.py": "9c381a25afce9c4ee1b1995e7a504a29248952959c5e077f1f66fa8e971ea33b",
+    "scripts/verify-extended-detail.py": "51df21e93ae7b9b2c093980c78e8880999d627ee8d46df272f82ddde19339902",
+    "scripts/verify-gauge-detail.py": "000c31289d5fdf92b13b95d454af1815d8f76c1770ff4b1468cce26c59aa49d1",
+    "scripts/verify-typed-impacts-detail.py": "4f473bfcb7d650b9fd2a7cc14c1b9e8fe241b8ed43c05f88ed8698a6615d027b",
+    "app/detail_effects.ptx": "8443661dc19d4c8e2fd1b289a86b17fad3212dc22366fca0203100e9f1c27e08",
+    "app/detail_effects-build.json": "e8c351f6f3d7bc7456ec734286f50c670b1a2f353e29d908bbce4191d56900f9"
+  },
+  "source_stable": true,
+  "cpu_trace_used_as_gpu_input": false,
+  "scope": "Typed impact transport and supported body/part landing migration. Target counters, enemy projectile/shield world routing and death completion remain unfinished."
+}

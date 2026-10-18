@@ -1,0 +1,10 @@
+test_cpu_extension_is_installed_at_both_simulation_entry_points (__main__.OutgoingHealingBoundaries.test_cpu_extension_is_installed_at_both_simulation_entry_points) ... ok
+test_instant_form_does_not_silently_compile (__main__.OutgoingHealingBoundaries.test_instant_form_does_not_silently_compile) ... ok
+test_outgoing_is_a_distinct_direct_read_buff (__main__.OutgoingHealingBoundaries.test_outgoing_is_a_distinct_direct_read_buff) ... ok
+test_unknown_and_fractional_stat_codes_rejected_before_cuda (__main__.OutgoingHealingBoundaries.test_unknown_and_fractional_stat_codes_rejected_before_cuda) ... ok
+test_zero_negative_and_stacked_bonuses_are_representable (__main__.OutgoingHealingBoundaries.test_zero_negative_and_stacked_bonuses_are_representable) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.037s
+
+OK

@@ -1,0 +1,283 @@
+{
+  "generated_at": "2026-10-17T13:36:18.829Z",
+  "passed": true,
+  "objective_complete": false,
+  "abi": "detail_heal_charge_v42",
+  "normal_compare_gpu": true,
+  "pure_gpu_path_verified": true,
+  "cpu_verification": true,
+  "board_gpu": true,
+  "seed_cache_separated": true,
+  "cache_hit_verified": true,
+  "fictional_owned_data": true,
+  "live_account_import_verified": false,
+  "original_total": 103169263,
+  "total": 106676655,
+  "delta": 3507392,
+  "original_base_stats": {
+    "델타 : 닌자 시프": {
+      "atk": 90947,
+      "def": 21738,
+      "hp": 3699167
+    },
+    "크라운": {
+      "atk": 77485,
+      "def": 18787,
+      "hp": 3246487
+    },
+    "리타": {
+      "atk": 96483,
+      "def": 17621,
+      "hp": 2973537
+    },
+    "앨리스": {
+      "atk": 115623,
+      "def": 15711,
+      "hp": 2699838
+    },
+    "모더니아": {
+      "atk": 116005,
+      "def": 15721,
+      "hp": 2708421
+    }
+  },
+  "base_stats": {
+    "델타 : 닌자 시프": {
+      "atk": 102947,
+      "def": 21988,
+      "hp": 3799167
+    },
+    "크라운": {
+      "atk": 77485,
+      "def": 18787,
+      "hp": 3246487
+    },
+    "리타": {
+      "atk": 96483,
+      "def": 17621,
+      "hp": 2973537
+    },
+    "앨리스": {
+      "atk": 115623,
+      "def": 15711,
+      "hp": 2699838
+    },
+    "모더니아": {
+      "atk": 116005,
+      "def": 15721,
+      "hp": 2708421
+    }
+  },
+  "members": [
+    {
+      "name": "델타 : 닌자 시프",
+      "damage": 23772003,
+      "share": 0.22284166109257925
+    },
+    {
+      "name": "크라운",
+      "damage": 8893878,
+      "share": 0.08337229921579374
+    },
+    {
+      "name": "리타",
+      "damage": 11280978,
+      "share": 0.10574926632260825
+    },
+    {
+      "name": "앨리스",
+      "damage": 31867829,
+      "share": 0.29873292333735063
+    },
+    {
+      "name": "모더니아",
+      "damage": 30861967,
+      "share": 0.28930385003166814
+    }
+  ],
+  "final_hp": {
+    "델타 : 닌자 시프": {
+      "hp": 3799167,
+      "hp_pct": 100,
+      "max_hp": 3799167
+    },
+    "크라운": {
+      "hp": 2195098.4317667875,
+      "hp_pct": 67.61457636413722,
+      "max_hp": 3246487
+    },
+    "리타": {
+      "hp": 1427496.1353464518,
+      "hp_pct": 48.00667135961152,
+      "max_hp": 2973537
+    },
+    "앨리스": {
+      "hp": 2073623.2233464522,
+      "hp_pct": 76.8054684520498,
+      "max_hp": 2699838
+    },
+    "모더니아": {
+      "hp": 1225641.8233464481,
+      "hp_pct": 45.25300251867964,
+      "max_hp": 2708421
+    }
+  },
+  "compute": {
+    "requested": "cuda_detail",
+    "backend": "cuda_detail",
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "elapsed_ms": 17140.072,
+    "initialization_ms": 11.418,
+    "module_backend": "cubin-sm86",
+    "workspace_bytes": 1088520,
+    "scope": "five-member autonomous detailed simulation",
+    "parity": "regression-tested supported mechanics; not all characters",
+    "burst_gauge": {
+      "amount": 0,
+      "charging": false,
+      "mode": "accumulate"
+    },
+    "final_hp": {
+      "델타 : 닌자 시프": {
+        "hp": 3799167,
+        "hp_pct": 100,
+        "max_hp": 3799167
+      },
+      "크라운": {
+        "hp": 2195098.4317667875,
+        "hp_pct": 67.61457636413722,
+        "max_hp": 3246487
+      },
+      "리타": {
+        "hp": 1427496.1353464518,
+        "hp_pct": 48.00667135961152,
+        "max_hp": 2973537
+      },
+      "앨리스": {
+        "hp": 2073623.2233464522,
+        "hp_pct": 76.8054684520498,
+        "max_hp": 2699838
+      },
+      "모더니아": {
+        "hp": 1225641.8233464481,
+        "hp_pct": 45.25300251867964,
+        "max_hp": 2708421
+      }
+    },
+    "final_control": {
+      "델타 : 닌자 시프": {
+        "charging": false,
+        "phase": 0,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "",
+        "camera_mask": 4,
+        "shots": 989,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 328,
+        "reloading_until": -1
+      },
+      "크라운": {
+        "charging": false,
+        "phase": 0,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "",
+        "camera_mask": 4,
+        "shots": 906,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 296,
+        "reloading_until": -1
+      },
+      "리타": {
+        "charging": false,
+        "phase": 0,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "",
+        "camera_mask": 4,
+        "shots": 597,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 61,
+        "reloading_until": -1
+      },
+      "앨리스": {
+        "charging": true,
+        "phase": 1,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "",
+        "camera_mask": 4,
+        "shots": 22,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 4,
+        "reloading_until": -1
+      },
+      "모더니아": {
+        "charging": false,
+        "phase": 0,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "",
+        "camera_mask": 4,
+        "shots": 882,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 214,
+        "reloading_until": -1
+      }
+    },
+    "cpu_verification": {
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "seed_equal": true,
+      "burst_policy_equal": true,
+      "requested_burst_policy_equal": true,
+      "burst_patterns_equal": true,
+      "shooting_policy_equal": true,
+      "burst_gauge_mode_equal": true,
+      "parts_state_equal": true,
+      "boss_patterns_equal": true,
+      "boss_timeline_equal": true,
+      "incoming_hits_equal": true,
+      "matched": true
+    }
+  },
+  "source_sha256": {
+    "scripts/smoke-detail-heal-charge.mjs": "42f2f1cfa66a6855e9239c14b4e55af1faf3414e6cc353c4786648487d65af93",
+    "research/detail-heal-charge-api-fixture.json": "7a3a052c5c23aa8dc726ad380b38dbd9e02bd36877acf5525ef2425a2466afdd",
+    "app/detail_gpu.py": "22f3720d558876849d9f8ec42423a38c540442b4d3068fec9ffb0be69c007372",
+    "app/detail_effects.cu": "b7646ef484aa639ddad59d91f023b1d96b76e8723f7444cdd6aa0276534a244c",
+    "app/detail_effects.ptx": "d65f5d9916a9011a261c4a22396f0cea92480e460f608cae47ea981de228c151",
+    "app/detail_effects-build.json": "d9e184923165a214dad8dde0ecc4b7363aa3e05bf8cf26244e08f7274c0da006",
+    "app/detail_effects-sm86.cubin": "bcf6808bfa99c572e18599ec12cc32f5f48c9d288d0b60f44d4137dd6137e7c1",
+    "app/detail_effects-sm86.json": "83b6dbb57b29a168d71ec78e41f78b8265c55ff5d04e0a9d2ae73f834b87d201",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/engine_compat.py": "72c310c2dd0c105661f04fbbce6bb26f6c8292d2d3c57e131714fc4acdfb118e",
+    "app/outgoing_healing_compat.py": "8eb8a8fe2ecd2a9c7d7fbccb087473b0817073da1ee2093b5b36f161df5f8af3",
+    "app/healing_storage_compat.py": "be7f0c0eea3f71f25585ed0b5677e948f82a63cc11efc56ff2b48b038289dfd7",
+    "app/heal_sharing_compat.py": "8ae450810a8fb4aec635c99a3f62713bd4b6dca4196098ee3e419594cf858de4",
+    "app/heal_charge_compat.py": "3a0c50058270f6be89511f0585b4d2cc907d8c72d8439288b49d9c9db5bc0c2c",
+    "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "app/survival_scaling_compat.py": "7d58315941ff7256dcbeb1fa38c15e7fc5a801d1e96822610d612a114b9b56bc",
+    "app/gpu_service.py": "213bd169c8a11f736f2324a01eb7d38cce5acd9cce67e0da4c916d64a994a2de",
+    "app/gpu_combat.py": "e4b6f2c5b48c73224dca305624cde19c516046003b56a76e6c80843d2607533f",
+    "app/detail_world.py": "3c717ce722fb151fa1bc3cb7990ab632b9a481a5fb379607c52b2ac66a56317c",
+    "app/detail_boss.py": "521a06d1caf6a8b223b65312ab029fac6fd7099702e04db33f0e7c556736afa1",
+    "server.mjs": "4ca12e2062be1fcb998393d5e567110cb228055bdcfca3cd82f987c1c65198ab",
+    "web/index.html": "c77a96bd47b60b73bd08f3f1fb9373d8e7fedc4bb59fc0b4416108bbbeffd40e",
+    "web/app.js": "ca212c76de8f3e9c09092bccbebb43f6125dc4a70f73dc0a3620904e1442454f",
+    "web/board-model.mjs": "e3b7a66b67e27b8652906bd53efec6b3e34d516041bd4c78a9dfb2c78e80319c"
+  }
+}

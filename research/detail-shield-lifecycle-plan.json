@@ -1,0 +1,34 @@
+{
+  "feature": "Complete shield quantity, consumption, healing and end lifecycle on GPU",
+  "gpu_implemented": true,
+  "objective_complete": false,
+  "cpu_reference": "research/detail-shield-lifecycle-cpu-references.json",
+  "cpu_reference_cases": 21,
+  "cpu_semantic_assertions_passed": true,
+  "source": "Pinned BuffManager shield_amount, shield_capacity, absorb_shield, heal_shield, take_next_shield_amp, _end_shield_carrier and timeline.handle_shield_heal_pct",
+  "requirements": [
+    "Add separate per-active-instance, per-recipient current amounts and activation-time capacities to GPU State. Preserve the existing independent recipient mask and shield maps.",
+    "Build both shield_from_max_hp_pct and shared_shield_from_max_hp_pct with final caster max HP times value divided by100, in CPU arithmetic order. The pinned shared stat currently uses independent recipient maps; do not invent a shared aggregate pool.",
+    "Consume next_shield_hp_pct per recipient at shield creation, including lazy targets, sums, capture/scaling, partial removal and absence of state-end notifications for consumed amplifiers.",
+    "Preserve synchronous ordering: named creation callbacks before shield setup, current carrier target membership after nested cleanse/removal, then unique ordered shield_applied callbacks.",
+    "Ordinary absorption hits only the newest live shield. Pierce sends the authored damage independently to all live shields; returned absorption can exceed one hit's amount.",
+    "Check shield_invincible on the shield maker's live buffs, regardless of who supplied the immunity. Fully protected shields absorb without losing amount.",
+    "On zero, notify shield_consumed synchronously. End only opted-in carriers after all recipient maps are exhausted, including timer cancellation and ordered state-end callbacks. Handle reentrant refresh/new shields without resurrecting stale instances.",
+    "Heal newest first up to snapshotted capacities. A retained zero shield can be restored; an ended carrier cannot. Stack-add alone does not rebuild quantities or capacities.",
+    "Named target removal/partial cleanse can strip target membership while retained shield maps continue to exist; expiry/global removal drops the carrier.",
+    "Shield-heal instant uses final caster maxHP when scaling=max_hp, otherwise each recipient's shield capacity; it does not send ordinary heal_received callbacks.",
+    "Use authored absorption operations and initial profile/effect data as GPU inputs. CPU amounts, recipients, buff states and battle traces are oracle outputs only.",
+    "A subsystem primitive is not completion of incoming boss combat. Integrate actual attack mitigation, cover/decoy layers, invincible/undying, down/revive, alive targeting and boss events before claiming all effects migrated."
+  ],
+  "verification": [
+    "Run all20 CPU reference cases against native/PTX GPU amounts, capacities, target membership, callbacks and final RNG state.",
+    "Add complete five-member battles with raw shared-shield owners, explicit positive triggers and owned equipment; preserve all subject skills.",
+    "Verify incoming attack interactions against independent full CPU simulations, not CPU damage replay.",
+    "Recheck current normal API/UI, all regression and current accepted-catalog parity. Do not conflate compilation counts with damage parity."
+  ],
+  "current_gate": "V21 source remains frozen while full120 session26394 is live. Finish research/save-squad-checkpoint.py gates before editing app/detail_gpu.py or app/detail_effects.cu.",
+  "subsystem_cases_verified": 42,
+  "raw_full_squad_cases_verified": 24,
+  "checkpoint": "research/detail-shields-checkpoint.json",
+  "full_incoming_boss_combat_implemented": false
+}

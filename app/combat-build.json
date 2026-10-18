@@ -1,0 +1,9 @@
+{
+  "source_sha256": "4199b9c6c88d52e0047db4303bf930e0649b842b3d8d726010a3fee09ead33be",
+  "ptx_sha256": "082baaf527a087fe673bce9d6d1da694fe92fefe29f06b80841ef174e3304d40",
+  "options": [
+    "--gpu-architecture=compute_52",
+    "--std=c++11",
+    "--fmad=false"
+  ]
+}

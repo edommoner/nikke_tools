@@ -1,0 +1,1507 @@
+{
+  "generated_at": "2026-10-16T13:41:35.487998+00:00",
+  "cpu_reference_only": true,
+  "gpu_implemented": false,
+  "source_sha256": {
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299"
+  },
+  "cases": [
+    {
+      "subject": "리타",
+      "forced": false,
+      "input": {
+        "profile": {
+          "chars": {
+            "리타": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 1,
+              "skill_levels": {
+                "1": 3,
+                "2": 9,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            },
+            "크라운": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 7,
+              "skill_levels": {
+                "1": 4,
+                "2": 8,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            },
+            "앨리스": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 13,
+              "skill_levels": {
+                "1": 5,
+                "2": 7,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            },
+            "모더니아": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 19,
+              "skill_levels": {
+                "1": 6,
+                "2": 6,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            },
+            "N102": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 25,
+              "skill_levels": {
+                "1": 7,
+                "2": 5,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            }
+          },
+          "_account": {
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            }
+          }
+        },
+        "squad": [
+          "리타",
+          "크라운",
+          "앨리스",
+          "모더니아",
+          "N102"
+        ],
+        "duration": 7,
+        "level": 400,
+        "enemy": {
+          "def": 31784,
+          "code": "풍압",
+          "core_px": 50,
+          "distance": 25
+        },
+        "burst_policy": "auto"
+      },
+      "authored_effects": [
+        {
+          "source": "스킬1",
+          "name": "one round",
+          "type": "buff",
+          "stat": "max_ammo_flat",
+          "fixed_value": -10000,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "source": "스킬1",
+          "name": "temporary infinite ammo",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "every:1s"
+            ],
+            "condition": []
+          },
+          "duration": 0.4,
+          "max_trigger": 4
+        }
+      ],
+      "cpu_total": 20958432,
+      "events": {
+        "cancel_reload": [
+          {
+            "name": "리타",
+            "time": 1.0000000000000013,
+            "ammo": 0,
+            "until": 1.55
+          },
+          {
+            "name": "리타",
+            "time": 2.0166666666666644,
+            "ammo": 0,
+            "until": 2.933333333333333
+          },
+          {
+            "name": "리타",
+            "time": 3.016666666666661,
+            "ammo": 0,
+            "until": 3.9333333333333296
+          },
+          {
+            "name": "리타",
+            "time": 4.016666666666658,
+            "ammo": 0,
+            "until": 4.9333333333333265
+          }
+        ],
+        "ammo_consumed": {
+          "리타": 2,
+          "크라운": 272,
+          "모더니아": 272,
+          "앨리스": 3,
+          "N102": 3
+        },
+        "full_reload": {
+          "리타": 1
+        }
+      },
+      "final_state": {
+        "ammo": 0,
+        "reloading_until": 7.516666666666651,
+        "charge_phase": "ready"
+      },
+      "purpose": "CPU reference only; effect has no fixed_value in real definitions and must still be true"
+    },
+    {
+      "subject": "리타",
+      "forced": true,
+      "input": {
+        "profile": {
+          "chars": {
+            "리타": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 1,
+              "skill_levels": {
+                "1": 3,
+                "2": 9,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            },
+            "크라운": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 7,
+              "skill_levels": {
+                "1": 4,
+                "2": 8,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            },
+            "앨리스": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 13,
+              "skill_levels": {
+                "1": 5,
+                "2": 7,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            },
+            "모더니아": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 19,
+              "skill_levels": {
+                "1": 6,
+                "2": 6,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            },
+            "N102": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 25,
+              "skill_levels": {
+                "1": 7,
+                "2": 5,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            }
+          },
+          "_account": {
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            }
+          }
+        },
+        "squad": [
+          "리타",
+          "크라운",
+          "앨리스",
+          "모더니아",
+          "N102"
+        ],
+        "duration": 7,
+        "level": 400,
+        "enemy": {
+          "def": 31784,
+          "code": "풍압",
+          "core_px": 50,
+          "distance": 25
+        },
+        "burst_policy": "auto"
+      },
+      "authored_effects": [
+        {
+          "source": "스킬1",
+          "name": "one round",
+          "type": "buff",
+          "stat": "max_ammo_flat",
+          "fixed_value": -10000,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "source": "스킬1",
+          "name": "temporary infinite ammo",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "every:1s"
+            ],
+            "condition": []
+          },
+          "duration": 0.4,
+          "max_trigger": 4
+        },
+        {
+          "source": "스킬1",
+          "name": "forced reload in infinite window",
+          "type": "instant",
+          "stat": "force_reload",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "every:1.1s"
+            ],
+            "condition": []
+          },
+          "max_trigger": 3
+        }
+      ],
+      "cpu_total": 20958432,
+      "events": {
+        "cancel_reload": [
+          {
+            "name": "리타",
+            "time": 1.0000000000000013,
+            "ammo": 0,
+            "until": 1.55
+          },
+          {
+            "name": "리타",
+            "time": 1.100000000000001,
+            "ammo": 0,
+            "until": 2.600000000000001
+          },
+          {
+            "name": "리타",
+            "time": 2.0166666666666644,
+            "ammo": 0,
+            "until": 2.9499999999999997
+          },
+          {
+            "name": "리타",
+            "time": 2.2166666666666637,
+            "ammo": 0,
+            "until": 3.7166666666666637
+          },
+          {
+            "name": "리타",
+            "time": 3.016666666666661,
+            "ammo": 0,
+            "until": 3.9333333333333296
+          },
+          {
+            "name": "리타",
+            "time": 3.3166666666666598,
+            "ammo": 0,
+            "until": 4.816666666666659
+          },
+          {
+            "name": "리타",
+            "time": 4.016666666666658,
+            "ammo": 0,
+            "until": 4.949999999999992
+          }
+        ],
+        "ammo_consumed": {
+          "리타": 2,
+          "크라운": 272,
+          "모더니아": 272,
+          "앨리스": 3,
+          "N102": 3
+        },
+        "full_reload": {
+          "리타": 1
+        }
+      },
+      "final_state": {
+        "ammo": 0,
+        "reloading_until": 7.516666666666651,
+        "charge_phase": "ready"
+      },
+      "purpose": "CPU reference only; effect has no fixed_value in real definitions and must still be true"
+    },
+    {
+      "subject": "앨리스",
+      "forced": false,
+      "input": {
+        "profile": {
+          "chars": {
+            "리타": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 1,
+              "skill_levels": {
+                "1": 3,
+                "2": 9,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            },
+            "크라운": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 7,
+              "skill_levels": {
+                "1": 4,
+                "2": 8,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            },
+            "앨리스": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 13,
+              "skill_levels": {
+                "1": 5,
+                "2": 7,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            },
+            "모더니아": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 19,
+              "skill_levels": {
+                "1": 6,
+                "2": 6,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            },
+            "N102": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 25,
+              "skill_levels": {
+                "1": 7,
+                "2": 5,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            }
+          },
+          "_account": {
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            }
+          }
+        },
+        "squad": [
+          "리타",
+          "크라운",
+          "앨리스",
+          "모더니아",
+          "N102"
+        ],
+        "duration": 7,
+        "level": 400,
+        "enemy": {
+          "def": 31784,
+          "code": "풍압",
+          "core_px": 50,
+          "distance": 25
+        },
+        "burst_policy": "auto"
+      },
+      "authored_effects": [
+        {
+          "source": "스킬1",
+          "name": "one round",
+          "type": "buff",
+          "stat": "max_ammo_flat",
+          "fixed_value": -10000,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "source": "스킬1",
+          "name": "temporary infinite ammo",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "every:1s"
+            ],
+            "condition": []
+          },
+          "duration": 0.4,
+          "max_trigger": 4
+        }
+      ],
+      "cpu_total": 23058410,
+      "events": {
+        "cancel_reload": [
+          {
+            "name": "앨리스",
+            "time": 2.0166666666666644,
+            "ammo": 0,
+            "until": 3.899999999999998
+          },
+          {
+            "name": "앨리스",
+            "time": 4.016666666666658,
+            "ammo": -1,
+            "until": 5.916666666666657
+          }
+        ],
+        "ammo_consumed": {
+          "리타": 168,
+          "크라운": 272,
+          "모더니아": 272,
+          "앨리스": 3,
+          "N102": 3
+        },
+        "full_reload": {}
+      },
+      "final_state": {
+        "ammo": -2,
+        "reloading_until": 7.916666666666651,
+        "charge_phase": "ready"
+      },
+      "purpose": "CPU reference only; effect has no fixed_value in real definitions and must still be true"
+    },
+    {
+      "subject": "앨리스",
+      "forced": true,
+      "input": {
+        "profile": {
+          "chars": {
+            "리타": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 1,
+              "skill_levels": {
+                "1": 3,
+                "2": 9,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            },
+            "크라운": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 7,
+              "skill_levels": {
+                "1": 4,
+                "2": 8,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            },
+            "앨리스": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 13,
+              "skill_levels": {
+                "1": 5,
+                "2": 7,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            },
+            "모더니아": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 19,
+              "skill_levels": {
+                "1": 6,
+                "2": 6,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            },
+            "N102": {
+              "level": 400,
+              "breakthrough": 3,
+              "core_enhancement": 0,
+              "affinity": 25,
+              "skill_levels": {
+                "1": 7,
+                "2": 5,
+                "3": 10
+              },
+              "equipment": {
+                "머리": {
+                  "level": 5,
+                  "skills": []
+                },
+                "몸통": {
+                  "level": 5,
+                  "skills": []
+                },
+                "팔": {
+                  "level": 5,
+                  "skills": []
+                },
+                "다리": {
+                  "level": 5,
+                  "skills": []
+                }
+              },
+              "equip_skills": {
+                "atk_pct": 22.22,
+                "element_bonus": 88.6,
+                "max_ammo_pct": 129.64,
+                "crit_rate": 0,
+                "crit_dmg": 0,
+                "charge_speed_pct": 0,
+                "charge_dmg_pct": 0,
+                "accuracy_pct": 0,
+                "def_pct": 0
+              },
+              "cube": {
+                "name": "__none__",
+                "level": 0
+              },
+              "console": {
+                "common_level": 180,
+                "class_level": 100,
+                "company_level": 100
+              },
+              "collection_stage": "SR15",
+              "favorite_stage": 0
+            }
+          },
+          "_account": {
+            "console": {
+              "common_level": 180,
+              "class_level": 100,
+              "company_level": 100
+            }
+          }
+        },
+        "squad": [
+          "리타",
+          "크라운",
+          "앨리스",
+          "모더니아",
+          "N102"
+        ],
+        "duration": 7,
+        "level": 400,
+        "enemy": {
+          "def": 31784,
+          "code": "풍압",
+          "core_px": 50,
+          "distance": 25
+        },
+        "burst_policy": "auto"
+      },
+      "authored_effects": [
+        {
+          "source": "스킬1",
+          "name": "one round",
+          "type": "buff",
+          "stat": "max_ammo_flat",
+          "fixed_value": -10000,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "source": "스킬1",
+          "name": "temporary infinite ammo",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "every:1s"
+            ],
+            "condition": []
+          },
+          "duration": 0.4,
+          "max_trigger": 4
+        },
+        {
+          "source": "스킬1",
+          "name": "forced reload in infinite window",
+          "type": "instant",
+          "stat": "force_reload",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "every:1.1s"
+            ],
+            "condition": []
+          },
+          "max_trigger": 3
+        }
+      ],
+      "cpu_total": 20421794,
+      "events": {
+        "cancel_reload": [
+          {
+            "name": "앨리스",
+            "time": 1.100000000000001,
+            "ammo": 0,
+            "until": 3.100000000000001
+          },
+          {
+            "name": "앨리스",
+            "time": 2.2166666666666637,
+            "ammo": 0,
+            "until": 4.216666666666663
+          },
+          {
+            "name": "앨리스",
+            "time": 3.3166666666666598,
+            "ammo": 0,
+            "until": 5.316666666666659
+          }
+        ],
+        "ammo_consumed": {
+          "리타": 168,
+          "크라운": 272,
+          "모더니아": 272,
+          "N102": 3,
+          "앨리스": 1
+        },
+        "full_reload": {}
+      },
+      "final_state": {
+        "ammo": -1,
+        "reloading_until": 7.2166666666666535,
+        "charge_phase": "ready"
+      },
+      "purpose": "CPU reference only; effect has no fixed_value in real definitions and must still be true"
+    }
+  ],
+  "semantics": [
+    "Presence boolean, not numeric fixed_value",
+    "Cancel active reload without completion or refill; retain ammo",
+    "Do not emit ammo consumption or last-bullet while infinite",
+    "Keep weapon-mode shot and bullet-duration counters firing",
+    "Revert to normal reload when the buff expires"
+  ]
+}

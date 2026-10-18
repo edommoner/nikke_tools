@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "tests_run": 5,
+  "skipped": 0,
+  "gpu_run": false,
+  "stage_only": true,
+  "objective_complete": false,
+  "source_sha256": {
+    "research/test_staged_outgoing_healing_boundaries.py": "9d6c7a68c0377e27beca3ac47f7ef531a386f13d06fdf092a16bd92b4a121298",
+    "scripts/verify-staged-outgoing-healing.py": "509cdbdd22d9555421ae924dbf5be994e4b247a377d5295885eae44835850e5c",
+    "scripts/staged-outgoing-healing-runtime.py": "2b6216bd0e9239b25c5ac2fac4e446d6d3d93f8a9d42451af2d1f59dcb6d35b9",
+    "research/staging/v39/app/detail_gpu.py": "a84201e9edb83070fdb5921979305ba546393e89f4106c4f6f2ffeabafc2d8c7",
+    "research/staging/v39/app/outgoing_healing_compat.py": "8eb8a8fe2ecd2a9c7d7fbccb087473b0817073da1ee2093b5b36f161df5f8af3",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/engine_compat.py": "02ddc15b849b1b26e4dea9ce517bf51bfc3b4f9d4929fcc1c0b1b41739cbdea0"
+  }
+}

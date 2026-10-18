@@ -1,0 +1,115 @@
+{
+  "passed": true,
+  "cpu_model_extended": true,
+  "gpu_verified": false,
+  "objective_complete": false,
+  "cases": [
+    {
+      "name": "storage-extra-overlap-newest",
+      "passed": true,
+      "total": 325825,
+      "effects": 48
+    },
+    {
+      "name": "storage-extra-overlap-equal-time",
+      "passed": true,
+      "total": 325825,
+      "effects": 48
+    },
+    {
+      "name": "storage-extra-snapshot-caster-growth",
+      "passed": true,
+      "total": 325825,
+      "effects": 48
+    },
+    {
+      "name": "storage-extra-caster-growth-before",
+      "passed": true,
+      "total": 325825,
+      "effects": 48
+    },
+    {
+      "name": "storage-extra-recipient-growth-is-not-capacity",
+      "passed": true,
+      "total": 325825,
+      "effects": 48
+    },
+    {
+      "name": "storage-extra-expired-reapplication",
+      "passed": true,
+      "total": 325825,
+      "effects": 47
+    },
+    {
+      "name": "storage-extra-lazy-lowest-target",
+      "passed": true,
+      "total": 325825,
+      "effects": 47
+    },
+    {
+      "name": "storage-extra-ordered-duplicates",
+      "passed": true,
+      "total": 325825,
+      "effects": 53
+    },
+    {
+      "name": "storage-extra-received-and-outgoing",
+      "passed": true,
+      "total": 325825,
+      "effects": 49
+    },
+    {
+      "name": "storage-extra-source-down",
+      "passed": true,
+      "total": 83905,
+      "effects": 47
+    },
+    {
+      "name": "storage-extra-source-revives",
+      "passed": true,
+      "total": 325825,
+      "effects": 48
+    },
+    {
+      "name": "storage-extra-recipient-down-revives",
+      "passed": true,
+      "total": 325825,
+      "effects": 49
+    },
+    {
+      "name": "storage-extra-HP-predicate",
+      "passed": true,
+      "total": 399979,
+      "effects": 48
+    },
+    {
+      "name": "storage-extra-decoy-before-storage",
+      "passed": true,
+      "total": 325825,
+      "effects": 48
+    },
+    {
+      "name": "storage-extra-invincible-before-storage",
+      "passed": true,
+      "total": 325825,
+      "effects": 48
+    },
+    {
+      "name": "storage-extra-max-HP-grant-does-not-fill",
+      "passed": true,
+      "total": 325825,
+      "effects": 48
+    }
+  ],
+  "source_sha256": {
+    "research/audit-healing-storage-extra.py": "ebab159b8f616f5304df4fc56885aaf022e6ee955a7f609bb354fde2f57e5486",
+    "research/healing-storage-extra-fixtures.py": "08a1acc0a50eea473e82b98135f50e703fd61a2745a2ec0ac3e4a136351e7d3c",
+    "scripts/verify-staged-healing-storage.py": "f0cb57d1e147b9d4e165f60b3d512347b3ed00099282395d0b8b3044b4cb8735",
+    "research/probe-healing-storage-squads.py": "e595e2aed8a384dc06bff58e4e509d1395871f344e60615ea5a70dca994b4088",
+    "research/staging/v40/app/healing_storage_compat.py": "be7f0c0eea3f71f25585ed0b5677e948f82a63cc11efc56ff2b48b038289dfd7",
+    "research/staging/v40/app/detail_gpu.py": "ffc2760b0fb3c321a1658c4a599c3f415eeb2f33bd414fbb5a3d8bec773e9578",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/engine_compat.py": "06079033f193f217d70dce6859ddb193966d829bba0d202ad1f97982b6f32ea8",
+    "app/outgoing_healing_compat.py": "8eb8a8fe2ecd2a9c7d7fbccb087473b0817073da1ee2093b5b36f161df5f8af3"
+  }
+}

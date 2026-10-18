@@ -1,0 +1,8 @@
+test_all_worlds_compile_without_running_cpu_combat (test_detail_boss_clock.BossClockInputTests.test_all_worlds_compile_without_running_cpu_combat) ... ok
+test_malformed_patterns_and_packets_are_rejected_before_cuda (test_detail_boss_clock.BossClockInputTests.test_malformed_patterns_and_packets_are_rejected_before_cuda) ... ok
+test_matching_totals_do_not_hide_a_wrong_boss_timeline (test_detail_boss_clock.BossClockInputTests.test_matching_totals_do_not_hide_a_wrong_boss_timeline) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.209s
+
+OK

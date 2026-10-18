@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "scope": "Intentional CPU correction under existing authored-order contract; independent of GPU values",
+  "before_cpu_totals": {
+    "none": 29574177,
+    "before": 29952459,
+    "after": 29952459
+  },
+  "after_cpu_totals": {
+    "none": 29574177,
+    "before": 29952459,
+    "after": 29574177
+  },
+  "resident_state_mutation": false,
+  "source_sha256": {
+    "app/damage_query_runtime.py": "fcb22427f84941e5d6a331d02054341e8f5859b274d139a799f3bc8ef202ddd0",
+    "app/reference_rewrite.py": "3d183c01a5915fcc5749b304c6f7c3aa68f28483065cdb3758bbb04301e3e15e",
+    "app/effect_spec.py": "95e86dea959b0c53fbf355148905b8c1034b98d184d011e039689d60036415c8",
+    "research/deferred-attack-query-scope-audit.json": "90f59cf483abd935b051fc9d9b56fc777e10feefa2c709d5f40e1eed3ae14b80"
+  }
+}

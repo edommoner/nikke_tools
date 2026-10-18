@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "objective_complete": false,
+  "abi": "detail_enemy_mutations_v79",
+  "workspace_bytes": 1258016,
+  "portable_verified": false,
+  "normal_summon_admission": false,
+  "archive": "research/ports/v79-enemy-mutations-native-stage",
+  "source_sha256": {
+    "app/detail_effects-sm86.cubin": "82290429cefc2be01f87eb2001a3de38645392a36ce76490872600c0d381dfcb",
+    "app/detail_effects-sm86.json": "7e00c146e2ca1ee9fcb210ec5e104be6e1bcddfbcf60695cd8de228cb7cac558",
+    "app/detail_effects.cu": "28a4a78f6e473fb80b66f8f845178a1158c91dffedf5d214777bfb6d1d79b51e",
+    "app/detail_gpu.py": "6213ac7886eda6ca2b8eaa9acd08d2c129b53a80682c7d20884a9dbb76bbf6b5",
+    "app/enemy_recipient_runtime.py": "439e6b25f883dec5de4da7c4e016c23bc9f7e4dc58e667843e03eec821c52839",
+    "app/enemy_recipient_specs.py": "a2fc87cd1f756d9be2625f794de00f4006283cdc756adae4ab7728c59308d8eb",
+    "research/benchmark-gpu-mutations.py": "871f13779407cf5127d11958c6a7b39152055966203fe706de22d12e5944127b",
+    "research/checkpoint_receipts.py": "9f928fcc6ba97602ed041dfa5d0589409c4076e2d215482427f304907135bf5f",
+    "research/enemy-fields-api-fixture.json": "f6b963c39cd78435e4c991e439ed1d15f445e4240d595e5e39ed629fb410f427",
+    "research/enemy-mutations-native.json": "6b7816e188eab11e639aa2aaceb66882145d2436bc2ceea4671786ee9aec4133",
+    "research/enemy-mutations-unit-stage.json": "4bf114cc103a8f9063011e78ae8fac7ba3ab8a1bf7f86f6a32e7a23da811a12f",
+    "research/gpu-mutations-before.json": "9b9254ea39fdb4649c541950d1f76ec7cccfb1c67d9c72f1c9b6c0682a3b4480",
+    "research/mutations-fanout-native-stage.json": "2d2b467abc5be9865e256bce32bff53bdb4c7aea4cad822c1be78f382e780050",
+    "research/mutations-normal-before.json": "5b0711b8de62a020bf26812c3656a1351eb84c8219a98f91f2212967f8af7f2d",
+    "research/save-enemy-mutations-native-stage.py": "0cc15070b6dad1d7b9708f70177eac8c19ebb82876ffc320c561ea3bd299b814",
+    "research/verify-enemy-fields-normal-witness.py": "82d5cb985706127a8b25218c98b0d1bafb2d4bd58f30c2df5edb03e7f9bd26cf",
+    "scripts/enemy_mutation_cases.py": "98ca3b89d636d647ceee79d31edf886d64fdfd9ca5e0fa5de04a966007781ee7",
+    "scripts/verify-common-runtime-unit.py": "927b3548af247182d8a2aa526634abc4128216543cf48b42ad6c3d45f01edbdd",
+    "scripts/verify-enemy-mutations-detail.py": "fd95e4e024987d71906ea40329523082cc33c9da79351273b42d50bc2d6d0435",
+    "tests/test_enemy_recipient_runtime.py": "5bb317954b29ab324e1d3fc173b8b3b1d807c96ee1c4eac419a32717f9171190"
+  }
+}

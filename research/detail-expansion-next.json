@@ -1,0 +1,1119 @@
+{
+  "generated_at": "2026-10-17T13:47:31.242462+00:00",
+  "objective": "すべてのキャラやすべての特殊効果をGPU化",
+  "objective_complete": false,
+  "checkpoint": {
+    "generated_at": "2026-10-17T13:47:31.242462+00:00",
+    "passed": true,
+    "objective_complete": false,
+    "abi": "detail_heal_charge_v42",
+    "workspace_bytes_per_squad": 1088520,
+    "workspace_bytes_runtime_verified": true,
+    "feature": "Autonomous received-healing accumulation, source-ATK base snapshots, live named deposit-capacity modifiers, owner/name scoped release, consumption before new healing and nested HP-edge discharge.",
+    "cpu_model_extended": true,
+    "unmodified_pinned_cpu_implements_effect": false,
+    "in_game_rules_verified": false,
+    "cases_per_backend": 208,
+    "new_authored_cases": 16,
+    "new_raw_squad_cases": 4,
+    "extra_interaction_cases": 10,
+    "legacy_regression_cases": 178,
+    "backends": [
+      "native",
+      "ptx"
+    ],
+    "cpu_arithmetic_lifecycle_binding_cases": 31,
+    "cpu_squad_witness_cases": 20,
+    "cpu_extra_witness_cases": 10,
+    "historical_v41_CPU_exact_total_cases": 178,
+    "named_charge_frame_cases": 30,
+    "same_frame_immediate_release_independent_HP_gain_verified": true,
+    "raw_Rem_nontrivial_share_verified": true,
+    "raw_Marciana_reserve_fill_verified": true,
+    "raw_Delta_healer_and_taunter_negative_verified": true,
+    "focused_production_tests": 36,
+    "focused_production_squad_cases": 208,
+    "boundary_tests": 27,
+    "production_skipped": 0,
+    "node_tests_passed": 26,
+    "full_normal_suite_rerun": false,
+    "compiled_characters": 162,
+    "catalog_characters": 203,
+    "favorite_contexts_compiled": 639,
+    "favorite_contexts_total": 812,
+    "compilation_is_not_all_context_parity": true,
+    "ordinary_API_and_browser_verified": true,
+    "pure_gpu_path_verified": true,
+    "fictional_owned_data": true,
+    "live_account_import_verified": false,
+    "speedup_claim": false,
+    "ordinary_total": 106676655,
+    "ordinary_original_total": 103169263,
+    "ordinary_delta": 3507392,
+    "staging_archive": "research/ports/v42-heal-charge-staged-verified",
+    "reports": [
+      "research/detail-heal-charge-production-verification.json",
+      "research/detail-heal-charge-api-verification.json",
+      "research/detail-heal-charge-browser-verification.json"
+    ],
+    "CPU_bridge_composition": "Charge wraps _dispatch_instant, knock_down, notify, apply_storage_body_heal and timeline._register_instant_handlers. Preserve/reapply these in future AST ports; _activate composes storage and charge snapshots.",
+    "remaining": [
+      "41 default characters and173 favorite contexts still reject; compilation is not universal battle parity.",
+      "ATK snapshot timing, capacity-decrease retention and cross-effect potency/lifecycle rules are explicit model choices, not proof of all in-game interactions.",
+      "Shield amplification, received damage sharing, damage accumulation/discharge, enemy effects, cover controls, geometry and CPU/model omissions remain."
+    ],
+    "source_sha256": {
+      "README.md": "e03f7791226ba80674e63161c4ac05b7dbc8d9703ade22d76a958b1395367d25",
+      "app/detail_boss.py": "521a06d1caf6a8b223b65312ab029fac6fd7099702e04db33f0e7c556736afa1",
+      "app/detail_effects-build.json": "d9e184923165a214dad8dde0ecc4b7363aa3e05bf8cf26244e08f7274c0da006",
+      "app/detail_effects-sm86.cubin": "bcf6808bfa99c572e18599ec12cc32f5f48c9d288d0b60f44d4137dd6137e7c1",
+      "app/detail_effects-sm86.json": "83b6dbb57b29a168d71ec78e41f78b8265c55ff5d04e0a9d2ae73f834b87d201",
+      "app/detail_effects.cu": "b7646ef484aa639ddad59d91f023b1d96b76e8723f7444cdd6aa0276534a244c",
+      "app/detail_effects.ptx": "d65f5d9916a9011a261c4a22396f0cea92480e460f608cae47ea981de228c151",
+      "app/detail_gpu.py": "22f3720d558876849d9f8ec42423a38c540442b4d3068fec9ffb0be69c007372",
+      "app/detail_world.py": "3c717ce722fb151fa1bc3cb7990ab632b9a481a5fb379607c52b2ac66a56317c",
+      "app/engine_compat.py": "72c310c2dd0c105661f04fbbce6bb26f6c8292d2d3c57e131714fc4acdfb118e",
+      "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+      "app/gpu_combat.py": "e4b6f2c5b48c73224dca305624cde19c516046003b56a76e6c80843d2607533f",
+      "app/gpu_service.py": "213bd169c8a11f736f2324a01eb7d38cce5acd9cce67e0da4c916d64a994a2de",
+      "app/heal_charge_compat.py": "3a0c50058270f6be89511f0585b4d2cc907d8c72d8439288b49d9c9db5bc0c2c",
+      "app/heal_sharing_compat.py": "8ae450810a8fb4aec635c99a3f62713bd4b6dca4196098ee3e419594cf858de4",
+      "app/healing_storage_compat.py": "be7f0c0eea3f71f25585ed0b5677e948f82a63cc11efc56ff2b48b038289dfd7",
+      "app/outgoing_healing_compat.py": "8eb8a8fe2ecd2a9c7d7fbccb087473b0817073da1ee2093b5b36f161df5f8af3",
+      "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+      "app/survival_scaling_compat.py": "7d58315941ff7256dcbeb1fa38c15e7fc5a801d1e96822610d612a114b9b56bc",
+      "research/audit-production-heal-charge.py": "3030afcbd3e727a1a4dc1feb8b4529dc2fcc290295dab07c5ed8100c7608e6af",
+      "research/boss-gpu-integration-notes.json": "8b597c6bbd58ea66efb8dd9aa903bf70d921080e544b0933c78ee56bd14c08f8",
+      "research/detail-all-effects-audit.json": "386d4aa34cddcafa4c3f8d6de20e1612c708f68b9e5860e1b6e200db7071f2d5",
+      "research/detail-heal-charge-api-fixture.json": "7a3a052c5c23aa8dc726ad380b38dbd9e02bd36877acf5525ef2425a2466afdd",
+      "research/detail-heal-charge-api-verification.json": "1a5716b15b384c52f512b80bcea2a3ff6f0562412f33b7fdebfa04e76973a278",
+      "research/detail-heal-charge-browser-verification.json": "8129c4f1ae971c797cf079402b3ffa69c9ee9879444ab8da6266ea6475b917af",
+      "research/detail-heal-charge-coverage.json": "1352ff44a2b16f79d7f6162eafa764b39ccd5ede48f76c601b995936402897da",
+      "research/detail-heal-charge-cpu-reference.json": "6b4412cd65fe72ecb1fd64ea92a2e3d832d85de1ba7b23223623880a648c5b8b",
+      "research/detail-heal-charge-node-tests.log": "4226d664bc8a32d14322d4641198e921ec7e4fc72cfd09e535b5c616e55789c5",
+      "research/detail-heal-charge-production-verification.json": "8b0363baf18a1232a9cf650845d8e5b770fa1d59a1fe99b513b63ee4f94d648b",
+      "research/detail-heal-charge-ui-fixture.json": "07972809e817428dcfc1baf40dee46f11547580b49215fffe37725c610ccb056",
+      "research/ports/v42-heal-charge-staged-verified/archive-manifest.json": "bec79dae2e0d7a113832ec53f3b5addc7eac1165a1263fcfc1f8a01604248a36",
+      "research/probe-heal-charge-cpu-reference.py": "196a8cc00c7a656a40903b4588599f16a844690a8d125e4a4753c87f6340bf56",
+      "research/record-heal-charge-browser-proof.py": "67530c57f598994cd8deb88a7dfa7acd6df2adc94ae5037692d3d336ca08fbc9",
+      "research/save-heal-charge-checkpoint.py": "0ef86b135ab08fe569a7130601d4ff0f437b29ab33a564b18e7916e3cf0d1cdf",
+      "research/staging/v42/app/heal_charge_compat.py": "3a0c50058270f6be89511f0585b4d2cc907d8c72d8439288b49d9c9db5bc0c2c",
+      "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+      "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+      "research/upstream/nikke-calc-master/data/base_stat_tables/cube.json": "6d9fe4e50fe780a0245347ae5d86ba21f950bd56345de09c18cd62e68a95bba8",
+      "research/upstream/nikke-calc-master/data/parsed_nikke.json": "88b565abcf55ccc391491803978a83d28fdb499b61d82e32118c6ea72f0369f6",
+      "research/upstream/nikke-calc-master/data/parsed_skills.json": "81e2934af7c91b69a49b71721d5f53af25b5ebf006595d3e929db4582ff23137",
+      "research/upstream/nikke-calc-master/runner/spec.py": "609ec07a8db4a88e0a2912193b4bfb0b1433e8f11d2ec32f43d4c5f014b0e730",
+      "research/verify-heal-charge-production.py": "d5c6c019021861cf0e604940d6810f8c503b45a93f60c68ba9673d499bb975ba",
+      "scripts/audit-detail-support.py": "03a6fe645e1b86af1bf1c82f1d365ab829d85e9b0a0afcb761c80f29ca90f03b",
+      "scripts/audit-incoming-damage.py": "2f9fb90dcf38fa6c06c3e05ed2a2284014e55894404dad7d7c77048cd0b85a47",
+      "scripts/build-combat.py": "042ff161017255731ace10998b91f9f6d69d4fafa83f5cb70f9cdd2ec87c78ca",
+      "scripts/build-detail-native.py": "3737935a47c66bdfe6023c967d223d4031c61ea2fd1b3ff3e79e71b1f9122c59",
+      "scripts/detail_coverage.py": "eef94f7675f270e8a4870323cb1e55e8506f2e5fe47e6fa4b1645d9aaf71dc40",
+      "scripts/heal-charge-extra-fixtures.py": "701eba00e3fdacaa89abf45f05b6bfc4d15c1318bf51b42f9dae117b960464a5",
+      "scripts/heal-charge-fixtures.py": "f28c84aa920894ae03a455c91988d70db4137f324d77576395bff22555ff7ebd",
+      "scripts/heal-sharing-fixtures.py": "baff8907d27658d3ab3371fc7e2a3847737306d813b4276e3c8f705618308c84",
+      "scripts/healing-storage-extra-fixtures.py": "934ba503d1a026983db6f319ff895b161409b0254e5254d76948434a048a8bbf",
+      "scripts/healing-storage-fixtures.py": "4ee25bcf16f95744e273a2d5162ff050cc06cc90a6d242f042786638a7386b07",
+      "scripts/smoke-detail-heal-charge.mjs": "42f2f1cfa66a6855e9239c14b4e55af1faf3414e6cc353c4786648487d65af93",
+      "scripts/staged-heal-charge-runtime.py": "d1d17eb45df2539023d03848adef41067fa1e87d5141ad270f2fbfa0c8185dcf",
+      "scripts/verify-cover-capacity.py": "58ed168098bbefdb0047b7e132cbeafd0a6031e08efb88e384f91b325245a8e3",
+      "scripts/verify-decoy-healing-regressions.py": "17ac153c1a852613b6a6681af2c6898408ec584e9259af83f1a1d55ace6c3925",
+      "scripts/verify-decoy-healing.py": "1c372e7a22a6f932be1de0503d506b440f9282395712b016cc0fdc6a6d6c62b3",
+      "scripts/verify-heal-charge-extra.py": "a66c86dc65727f16e50d20b0721bd01223f7a2d3c8b53b7698261b7d3f045061",
+      "scripts/verify-heal-charge.py": "6cff41dd92ab37613b5c29a883dbabc34f7dcfc1f05da95f0e8b529c9981232f",
+      "scripts/verify-heal-sharing.py": "4a215b651d45b8820cb5f6065393a22261e8fc142fb973cd30768b4898243da2",
+      "scripts/verify-healing-storage-extra.py": "7bf58041b418f49d65699fc9fe1c21bfb3ac5fe766228af638d5e71bac67dc29",
+      "scripts/verify-healing-storage-regressions.py": "f8e0bc9d9bbbf86c8984d2084d283edc8a71b5b26e91f0a15920fab845c9b3ba",
+      "scripts/verify-healing-storage.py": "3dfb6a79664244d13620f77d8a23c718b89c6813cc47b62e744e0c673e3e74c1",
+      "scripts/verify-incoming-detail.py": "76bf238f9d184c491984c767f5cf8be3d0206d89130a6457f7e78e6d8004aa7d",
+      "scripts/verify-normal-detail.py": "f3f500cfb72f90bf166a4f8d45160d0b60b0e51121f741dc25f48ebbd2041fb2",
+      "scripts/verify-outgoing-healing-regressions.py": "c88190e8ae011b5406f69e9a0d542d041f999a5f3bf996f7ed043d48a673409f",
+      "scripts/verify-outgoing-healing.py": "8a62b2b0b5478c96af2418874b00517e38eff144ac9d8f6601a6661dc91f12fd",
+      "scripts/verify-survival-detail.py": "109be8847d6506c13d7175f9b7c256fa5ba2b8660f97eebc76e1207bfabf6362",
+      "scripts/verify-survival-scaling.py": "d1a20d09b19197a9d467e3fe27f6d5a66943defb7791de30955c070a9f971a74",
+      "server.mjs": "4ca12e2062be1fcb998393d5e567110cb228055bdcfca3cd82f987c1c65198ab",
+      "tests/board.test.mjs": "4eda2b67a983dd8f37bf2b39fe6fa858a6daaca4ca93e30e96456d6e80c4d1f9",
+      "tests/boss-presets.test.mjs": "8bc4819bfd3716c2df5838324491877dbacb979fd4092f8bdfb0016c7ac37385",
+      "tests/enemy.test.mjs": "bf651fc68f80509c36e1dd8b4ef768a264154fcbead35538858a34d3db5e3618",
+      "tests/exporter.test.mjs": "3b6c93dfe884e09dded7b241ec4b5908cb7a93bd4fe382a4f153f1e67d8d7809",
+      "tests/optimizer.test.mjs": "3c9402363d6a5f7a3acfac57308518a5c6c741f743c01b85d2e101c1e5a8bb35",
+      "tests/parts.test.mjs": "970f3248ba44e2a18a8159d5c343781c5a2c913b5fbbb0d42be98e8af967b371",
+      "tests/phases.test.mjs": "1a2cf2d59a761a953affb89dc0c4ddcdcca6e4ae2161da3aac985911d4b373fd",
+      "tests/roster.test.mjs": "7fd65e7661b866d79c98b8d5e3bece7c2e70fd94c14d6fa4086b54b0358a44ee",
+      "tests/server.test.mjs": "e788eb46840ed105d5d1466eedd286587fc6a052c870758487bfce58fccd445a",
+      "tests/test_detail_heal_charge.py": "2e6ff4404148da016f56316ee47654477bba75d0c3881dc0084c173a55d5261e",
+      "tests/test_detail_heal_charge_boundary.py": "4d41249e0758b3d4b28ed5c8056bcb7837c51c0c2d17910420469195168551f4",
+      "tests/test_detail_heal_sharing.py": "b8b15ccbd10c773bba82dd51c9db9ffc114135dc7349b0b25a424bfa446afb66",
+      "tests/test_detail_heal_sharing_boundary.py": "9eb4d043102a2a040dc3d59deeee40041790d761d45b441da78fb7b627fa861d",
+      "tests/test_detail_healing_storage.py": "1059e65573de41fdbb145b705affedd870ae7a73389778e3d544a0849712a463",
+      "tests/test_detail_healing_storage_boundary.py": "b6d4ce0c78ec99c23bbc7ced46c6197d94feacbbc864fa45c3bc2531d8bd0243",
+      "tests/test_detail_outgoing_healing_boundary.py": "ee15c190d34241184c3984b7e05fd083c7e6f9efac29b5b6313197447e172255",
+      "web/app.js": "ca212c76de8f3e9c09092bccbebb43f6125dc4a70f73dc0a3620904e1442454f",
+      "web/board-model.mjs": "e3b7a66b67e27b8652906bd53efec6b3e34d516041bd4c78a9dfb2c78e80319c",
+      "web/enemy-model.mjs": "a2b02faa18618490682ba241c90dfe345fbf201e5414cf0696e9fdbfc0a85f62",
+      "web/index.html": "c77a96bd47b60b73bd08f3f1fb9373d8e7fedc4bb59fc0b4416108bbbeffd40e",
+      "web/parts-model.mjs": "26fe86258b28373e2426de6cdfbb93fe4756e91e41817cd9fd500eed7ebc76f3",
+      "web/phase-model.mjs": "4f349722962da4fd8b58089b96b97896519a6fd009f777a94b2c9c1497759d28",
+      "web/roster-model.mjs": "fd1ceb8f4011639ded5bd9d589b191ff4b1e571ed8d248c38c92d4ce4fe7a6a7"
+    }
+  },
+  "next_implementation": [
+    "Live range/part/projectile geometry, hit selection and destruction; range1288 CPU primitive references are groundwork only",
+    "Incoming HP/cover/decoy damage, received-damage splitting, down/revive and live boss phases",
+    "Remaining authored control grammar, named/team hit contexts, skill copy and damage accumulation",
+    "Outgoing healing/storage and upstream omitted Healing/Assister cubes",
+    "Remaining condition/target/scaling grammar, capacity bounds and lazy-target history across slot reuse",
+    "Every rejected character/favorite context, varied real squads and comprehensive regression verification"
+  ],
+  "upstream_cube_gaps": [
+    {
+      "cube": "렐릭 힐링 큐브",
+      "definition": {
+        "stat": "outgoing_heal_pct",
+        "스킬명": "힐 업 HC",
+        "template": "전투 시작 시 주는 체력 회복량 {0}% ▲",
+        "values": {
+          "1": [
+            "8.08"
+          ],
+          "2": [
+            "8.08"
+          ],
+          "3": [
+            "12.12"
+          ],
+          "4": [
+            "12.12"
+          ],
+          "5": [
+            "12.12"
+          ],
+          "6": [
+            "12.12"
+          ],
+          "7": [
+            "16.16"
+          ],
+          "8": [
+            "16.16"
+          ],
+          "9": [
+            "16.16"
+          ],
+          "10": [
+            "16.16"
+          ],
+          "11": [
+            "16.16"
+          ],
+          "12": [
+            "16.16"
+          ],
+          "13": [
+            "16.16"
+          ],
+          "14": [
+            "16.16"
+          ],
+          "15": [
+            "16.16"
+          ]
+        },
+        "unsupported": "계산기 미구현 stat (outgoing_heal_pct) — 버프로 등록하지 않는다",
+        "id": 1000310,
+        "resource_id": 13002
+      }
+    },
+    {
+      "cube": "렐릭 어시스터 큐브",
+      "definition": {
+        "stat": "max_hp_pct",
+        "스킬명": "핀치 헬스 업 HC",
+        "template": "착용자의 체력이 20% 이하일 때 최대 체력 {0}% ▲ 20초 유지",
+        "values": {
+          "1": [
+            "6.07"
+          ],
+          "2": [
+            "6.07"
+          ],
+          "3": [
+            "9.1"
+          ],
+          "4": [
+            "9.1"
+          ],
+          "5": [
+            "9.1"
+          ],
+          "6": [
+            "9.1"
+          ],
+          "7": [
+            "12.14"
+          ],
+          "8": [
+            "12.14"
+          ],
+          "9": [
+            "12.14"
+          ],
+          "10": [
+            "12.14"
+          ],
+          "11": [
+            "12.14"
+          ],
+          "12": [
+            "12.14"
+          ],
+          "13": [
+            "12.14"
+          ],
+          "14": [
+            "12.14"
+          ],
+          "15": [
+            "12.14"
+          ]
+        },
+        "unsupported": "체력 20% 이하일 때만 · 20초 지속 (조건부라 상시 버프로 등록하지 않는다)",
+        "id": 1000312,
+        "resource_id": 10009
+      }
+    }
+  ],
+  "build_workflow": [
+    "python scripts/build-combat.py --source detail_effects; await completion",
+    "python scripts/build-detail-native.py --sm 86; await completion",
+    "Only then run GPU tests with the changed ABI and hashes"
+  ],
+  "layout": {
+    "NE": 128,
+    "EW": 264,
+    "CW": 168,
+    "OW": 48,
+    "EVS": 8,
+    "cached_stat_keys": "0..60",
+    "EW56": "required burst cast mask + 1",
+    "EW57": "max_trigger (-1 unlimited)",
+    "EW58": "shared original effect activation budget index",
+    "CW32_34": "pellets,muzzles,clip_count",
+    "CW35_39": "free",
+    "events20_23": "pellet,last-fire,crit,core",
+    "event26": "team ammo consumption",
+    "event27": "pellets in this shot threshold",
+    "events24_25": "not implemented; reserved for team hit semantics",
+    "EW59": "tick_interval",
+    "EW60": "periodic first-tick and infinite-instant condition mode",
+    "EW61": "fixed skill hit count",
+    "EW62": "buff duration_bullets",
+    "EW63": "exact bullet-bound activation timing",
+    "event28": "internal timer dispatch",
+    "event29": "named state end",
+    "EW64": "gauge id",
+    "EW65": "declared gauge cap (-1 absent)",
+    "EW66_68": "gauge_mod condition remainders",
+    "EW69": "finite conditional passive flag",
+    "EW70": "unscaled fixed gauge max add",
+    "EW71": "ammo_charge_pct named event id",
+    "EW72_135": "32 (event argument, counter mode) pairs",
+    "event30": "every_stack gauge boundary",
+    "event31": "ammo_charge_pct completion event",
+    "EW24_25_29_30_42": "MG mode max rate / pellets / muzzles / optimal / entry delay",
+    "EW136": "skill hit count reference id (-1 fixed)",
+    "EW137": "reference mode: named/gauge fallback1 vs explicit gauge fallback0",
+    "EW138_139": "fixed charge numeric value and presence",
+    "EW140_141": "packed static rank recipient order and enable flag",
+    "EW142_143": "free",
+    "damage_flags512_16384": "armor / part / intercept / burst AoE / burst single / forced core",
+    "EW218": "duration_scaling stack_count",
+    "EW219": "duration scaling named reference",
+    "EW220": "flat period modifier group",
+    "EW221": "flat modifier exact effect name",
+    "EW222": "nonempty target effect name",
+    "kernel_extra_argument": "compensated_sums (CPython >=3.12)",
+    "EW223": "with/without state target flags: 1 any weapon mode, 2 empty state name",
+    "target_kinds_12_13": "with/without state snapshot",
+    "target_kind_11": "casted intersect innate-B3 or weapon mask",
+    "target_kinds_15_16": "lazy weapon-filtered highest ATK / innate-B3 lowest ATK",
+    "target_kind_17": "eager ordered target list: q5 first inert descriptor row, q48 count",
+    "ordered_target_bits": 64,
+    "ordered_target_capacity": 21,
+    "NE_counts": "source definitions plus inert target descriptor rows",
+    "workspace_bytes": 306072,
+    "target_kind_14": "lazy allies_below_def: effective defense, strict comparison, squad order",
+    "target_kind_18": "innate B3 persona marker members excluding caster; eager snapshot",
+    "EW213": "flags: persona1, stun immunity2, shield immunity4, positive speed immunity8, negative speed immunity16, exempt equipment/cube32, overflow conversion64",
+    "conditions_22_25": "22 static single-boss runtime code/count, 23 activation enemy stun, 24 activation self stun immunity, 25 activation boss/add",
+    "self_state_condition_arg": "1 generic weapon mode, 2 empty mode name, 0 exact state name",
+    "conditions_26_28": "26 expected prob, 27 expected not_core, 28 explicit hit_crit",
+    "state_probability": "chance_acc[NE], noncore_acc[NE] indexed by original effect identity EW58",
+    "notify_context": "root core_frac/hit_crit parameters; nested DFS frames use empty context and restore parent implicitly",
+    "stimulus_fields_6_7": "authored core_frac and hit_crit for op0 notifications",
+    "query106": "readback of original-definition probability/noncore accumulators; output only",
+    "mode_fields": "EW224..240: fire mode, charge base/multiplier/delay/core, cover reload, shot limit, magazine rules/ref, skill/first coefficient, reload/entry policy",
+    "mode_state": "mode_shots, mode_ammo snapshot, mode_restored, reload_in_mode, separate charge_post",
+    "health_reload_fields": "EW241 HP-to-ATK marker, EW242 numeric fixed-reload marker; neither is generic stat routing",
+    "health_reload_opcode": "kind23 force_reload; query107 reload duration readback for tests only",
+    "hp_semantics": "max_hp matches active raw HP contributions without runtime condition gating; HP conversion appended before caster-based ATK, rank selection excludes conversion",
+    "reload_semantics": "maximum numeric fixed time before speed buffs; ignore absent values and unresolved lazy targets; force reload skips already pending >0 and interrupts actual charge mode",
+    "CW40_43": "click count, sequence count, static camera mask, control mode",
+    "CW48_143": "8 click entries of 12 fields",
+    "CW144_159": "8 absolute hold sequence entries",
+    "events39_40": "charge hold threshold/count and non-full-charge fire",
+    "conditions29_30": "during_charge and focusing",
+    "query108": "charge/control plus ammo and reloading_until readback",
+    "EW243": "original reducer fixed_value",
+    "EW244": "trigger_count_reduce marker",
+    "EW245_248": "per-listener matching reducer-definition bitmap",
+    "descriptor6": "Stage for event4; 1 dynamic count reduction, 2 unresolved CPU-never-matching count placeholder on other events",
+    "stat59": "infinite_ammo boolean presence",
+    "stat60": "burst_charge_speed_pct caster original raw/landed energy reference",
+    "query109": "burst amount and published charging flag",
+    "char_row_width": 168,
+    "burst_stage_fields": "CW160 explicit,161 Red Hood,162 innate initial,163 reentry delay; EW252 override,253 reenter state,254 pending request",
+    "stat_or_kind26": "instant debuff_cleanse",
+    "effect255": "Scaling DoT original reference state, including empty name for absent scaling_ref",
+    "effect_row_width": 264,
+    "random_cache_entries": 1024,
+    "NS": 512,
+    "TD": 145,
+    "TS": 7,
+    "EW262": "1 general / 2 named / 3 count-limited debuff immunity",
+    "EW263": "exact immune effect-name state id for named immunity",
+    "immunity_used": "double [6][NE], per recipient and effect name; survives carrier expiry, regrant resets after callbacks",
+    "launch": "one independent block with one active thread per squad"
+  },
+  "reports": [
+    "research/detail-all-effects-audit.json",
+    "research/detail-expanded-verification.json",
+    "research/detail-native-verification.json",
+    "research/detail-weapons-api-verification.json",
+    "research/detail-periodic-verification.json",
+    "research/detail-new-timer-characters.json",
+    "research/detail-timers-api-verification.json",
+    "research/detail-gauge-verification.json",
+    "research/detail-new-gauge-characters.json",
+    "research/detail-gauges-api-verification.json",
+    "research/detail-damage-verification.json",
+    "research/detail-new-damage-characters.json",
+    "research/detail-damage-api-verification.json",
+    "research/detail-kiri-api-verification.json"
+  ],
+  "periodic_cpu_reference": {
+    "file": "research/upstream/nikke-calc-master/calculator/buff_manager.py",
+    "activation_line": 3545,
+    "damage_tick_line": 4033,
+    "instant_tick_line": 4244,
+    "semantics": [
+      "Damage timers precede effect expiry; ordinary every triggers and periodic instants follow expiry",
+      "Immediate-first damage ticks use a strict expiry bound; delayed-first ticks include the expiry boundary",
+      "Expiry-boundary damage uses expires_at minus _TICK_NUDGE for all queried buffs",
+      "DoT refresh preserves the old next tick; non-DoT periodic damage restarts phase",
+      "Timer iteration follows insertion/activation order, not effect-table order",
+      "Instant timers start after one interval, exclude expiry boundary, and reevaluate conditions on infinite durations",
+      "max_trigger is charged on registration, not on each periodic tick",
+      "Periodic instant heals and other actions retain synchronous target and nested event order"
+    ],
+    "inventory": {
+      "instant_heal_definitions": 24,
+      "dot_damage_definitions": 22,
+      "other_periodic_definitions": 13
+    },
+    "care": "Do not mark tick_interval accepted while skipping its effects. Runtime time-aware queries are preferable to weakening expiry semantics.",
+    "implemented": true,
+    "additional_compatibility": [
+      "Charge last_bullet_fire is emitted at charge start",
+      "Lazy shield rank targets do not create eager shield HP snapshots in pinned CPU",
+      "Final query time filters buffs without physically expiring named active rows past the final actual frame"
+    ]
+  },
+  "gauge_semantics": [
+    "Per-owner gauge values / presence and base caps; ref_count truncates toward zero and registered zero shadows named stacks",
+    "Crossing events use sorted unique multiples from original old/new snapshot; nested consumers do not erase already crossed boundaries",
+    "Gauge max add sums raw fixed values of active entries without stack or runtime-condition scaling, matching pinned CPU",
+    "Finite passives refresh after expiry and before every timers; preserve tail after condition ends and respect reactivation budget",
+    "Ammo percentage uses Python ties-to-even rounding and clamps to zero / maximum; flat integer additions preserve CPU lower-bound behavior",
+    "Mode firing uses CPU measurement override before CDN; mode return resets original charge from ready; mode shots emit squad ammo events"
+  ],
+  "follow_up_accuracy": [
+    "Named callback channel 31 currently accepts ammo_charge_pct names only; extending it must implement buff / weapon event audiences and detect shared-name origins rather than silently accepting arbitrary event names.",
+    "Current source compiler uses fixed NE128 and at most three conditions; full objective requires eliminating these catalog/composition limits.",
+    "Consider a versioned kernel entry / manifest ABI when expanding EW or stat/event capacities, so stale persistent workers cannot load a new layout; current app updates require restarting the server."
+  ],
+  "current_reports": [
+    "research/detail-expanded-verification.json",
+    "research/detail-full-verification.json",
+    "research/detail-native-verification.json",
+    "research/detail-periodic-verification.json",
+    "research/detail-gauge-verification.json",
+    "research/detail-damage-verification.json",
+    "research/detail-new-damage-characters.json",
+    "research/detail-damage-api-verification.json",
+    "research/detail-kiri-api-verification.json"
+  ],
+  "damage_semantics": [
+    "CPU factor multiplication and additive modifier order is reproduced before ties-to-even integer rounding",
+    "Armor-break flags bypass defense and independently combine with burst / shape / part modifiers",
+    "Fixed-charge numeric selection scans owner entries and uses latest (activation time, entry creation order); foreign locks without own numeric entry use base charge",
+    "Ordinary stack_count damage scales hit count, DoT scales coefficient, and exact B3 bonus_damage uses the landing-time reference to scale one deferred coefficient",
+    "Gauge suffix references distinguish registered zero from missing; explicit hit_count_gauge_ref defaults to zero while named suffix defaults to one",
+    "Static target masks use pinned class / squad / code / weapon / innate stage; future down/revive support must apply live eligibility on activation",
+    "Ordered base-charge targets preserve their order for synchronous healing",
+    "Enemy-target atk_caster_based_pct stays registered as an enemy ATK modifier and is excluded from outgoing ally damage"
+  ],
+  "resolved_accuracy": [
+    "consume_as_ammo keeps min(value,current) even when old-new cancels at large floating-point magnitudes; verified by the added gauge primitive",
+    "Fixed charge lookup avoids recursive stat() to retain the existing 65536-byte GPU stack limit"
+  ],
+  "implemented_cpu_references": {
+    "armor_break": {
+      "damage_file": "research/upstream/nikke-calc-master/calculator/damage.py",
+      "factor2_line": 124,
+      "factor5_line": 265,
+      "normal_attack_flags": "timeline.py:1841 and 2265 use armor_break_enabled",
+      "skill_flags": "timeline.py:5003-5017 combine armor_break_burst_damage with burst / target-shape flags",
+      "required_checks": [
+        "Nonzero defense must be bypassed for armor damage only",
+        "Normal armor flag must use live enabled buff before shot snapshots",
+        "Mixed armor/burst flags and ordinary bonus skills must stay independent"
+      ]
+    },
+    "charge_time_fixed": {
+      "file": "research/upstream/nikke-calc-master/calculator/timeline.py",
+      "line": 2685,
+      "semantics": "Latest (activated_at, uid) fixed_value wins; absent numeric fixed value falls back to base; unlike summable buff stats this scans owner identity"
+    }
+  },
+  "current_checkpoint": {
+    "reports": [
+      "research/detail-squad-condition-verification.json",
+      "research/detail-squad-api-verification.json",
+      "research/detail-squad-ui-verification.json",
+      "research/detail-squad-tests.log"
+    ],
+    "scope": "Immutable original-name squad metadata predicate lowered to a GPU literal condition. Matches pinned CPU registration/runtime semantics, including passive static-condition behavior. Full Noir skills with/without Rouge; full Ram skills with negative real squads and positive authored supporter Rem whose unsupported skills are explicitly removed only in verification. Full Ram+Rem production GPU support remains incomplete.",
+    "remaining": "All-character/effect migration incomplete; Rem, shields, range, boss interactions and all-context parity remain."
+  },
+  "prior_checkpoints": [
+    {
+      "checkpoint": {
+        "compile_coverage": 47,
+        "previous": 43,
+        "catalog": 203,
+        "favorite_contexts_accepted": 183,
+        "favorite_contexts_total": 812,
+        "raw_effect_definitions": 1866,
+        "weapon_primitive_tests": 5,
+        "python_tests_passed": 51,
+        "node_tests_passed": 20,
+        "full_squad_expanded_cases": 57,
+        "normal_api_new_weapons_gpu_verified": true,
+        "periodic_primitive_tests": 17,
+        "normal_api_new_timers_gpu_verified": true,
+        "native_and_ptx_periodic_cases_each": 17,
+        "gauge_primitive_and_full_cases": 14,
+        "regression_status": "passed: 51 Python tests, 20 Node tests, 57 expanded + 4 original squads, native and PTX each 17 timer / 14 gauge / 20 damage cases, two normal-API fixtures",
+        "normal_api_new_gauges_gpu_verified": true,
+        "native_and_ptx_gauge_cases_each": 14,
+        "damage_primitive_and_full_cases": 20,
+        "damage_formula_conditions": 128,
+        "damage_formula_integer_checks": 3072,
+        "native_real_cases": 4,
+        "native_and_ptx_damage_cases_each": 20,
+        "normal_api_new_damage_gpu_verified": true,
+        "normal_api_kiri_three_defenders_gpu_verified": true
+      },
+      "current_checkpoint": {
+        "implemented": [
+          "Explicit burst-priority lists for cycles 1..160, including empty-list low priority and cooldown fallback",
+          "Hash validation of portable detailed PTX before module load",
+          "Normal-screen compatible fictional owned/grown/equipped demo with automatic CPU verification"
+        ],
+        "validation": {
+          "python_existing_tests_passed": 52,
+          "python_new_burst_compiler_tests_passed": 3,
+          "node_tests_passed": 20,
+          "new_full_squads_per_module_backend": 5,
+          "new_backends": [
+            "native SM86",
+            "PTX"
+          ],
+          "normal_api_gpu_demo_total": 228058821,
+          "browser_normal_screen_gpu_cpu_matched": true,
+          "reports": [
+            "research/detail-burst-lists-verification.json",
+            "research/detail-gpu-demo-api-verification.json",
+            "research/detail-gpu-screen-verification.json"
+          ]
+        },
+        "remaining": "All-character/all-effect migration remains active. Variable stages/reentry, accumulated burst gauge, event/state chains, finite weapon modes and incoming damage are not covered by this checkpoint."
+      },
+      "archived_at": "2026-10-16T06:10:23.222913+00:00",
+      "note": "Historical verification, before named removal/duration extension; not current source coverage"
+    },
+    {
+      "checkpoint": {
+        "compile_coverage": 48,
+        "previous": 47,
+        "catalog": 203,
+        "favorite_contexts_accepted": 184,
+        "favorite_contexts_total": 812,
+        "raw_effect_definitions": 1866,
+        "python_tests_passed": 59,
+        "python_test_scope": "58 tests in final full discovery run, plus newly added GPU regression method in a separate four-test named module run (three compiler tests overlap)",
+        "node_tests_passed": 20,
+        "named_cases_per_backend": 22,
+        "named_cases_total": 44,
+        "named_primitive_cases_per_backend": 14,
+        "named_synthetic_full_squads_per_backend": 7,
+        "named_real_full_squads_per_backend": 1,
+        "normal_api_named_gpu_verified": true,
+        "normal_api_named_total": 564378521,
+        "coverage_path": "research/detail-coverage-named.json",
+        "regression_status": "passed: final 58-test discovery plus new named GPU method, Node20, 22 named cases each on native/PTX, normal API comparison/board/cache/fallback"
+      },
+      "current_checkpoint": {
+        "implemented": [
+          "Global and target-scoped named removal, including cross-caster states and delayed targets",
+          "Prefix-aware finite named state duration extension with real DoT timer updates",
+          "CPU-compatible partial-removal shield and bullet bookkeeping",
+          "Unlimited empty-target activations and max-trigger empty-target guard",
+          "Named end/reach notifications distinguish empty names, including the scoped-removal CPU exception"
+        ],
+        "reports": [
+          "research/detail-named-verification.json",
+          "research/detail-named-api-verification.json"
+        ],
+        "real_character_scope": "Phantom favorite stage 0 with grown compatible squad; damage parity is proven, while live named operations are separately required by synthetic full-squad tests",
+        "remaining": "All-character and all-special-effect migration is incomplete"
+      },
+      "archived_at": "2026-10-16T06:31:43.065450+00:00",
+      "note": "Historical pre-events-v2 checkpoint; use source hashes to assess older reports"
+    },
+    {
+      "checkpoint": {
+        "compile_coverage": 59,
+        "previous": 48,
+        "catalog": 203,
+        "favorite_contexts_accepted": 227,
+        "favorite_contexts_total": 812,
+        "favorite_acceptance_is_compile_only": true,
+        "raw_effect_definitions": 1866,
+        "python_tests_passed": 64,
+        "node_tests_passed": 20,
+        "event_cases_per_backend": 28,
+        "event_cases_total": 56,
+        "event_primitives_per_backend": 12,
+        "event_synthetic_full_squads_per_backend": 5,
+        "event_new_real_full_squads_per_backend": 11,
+        "normal_api_events_gpu_verified": true,
+        "normal_api_events_total": 405387062,
+        "coverage_path": "research/detail-coverage-events.json",
+        "regression_status": "passed: full 64-test Python discovery, Node20, 28 event cases each native/PTX, normal API comparison/board/cache/fallback"
+      },
+      "current_checkpoint": {
+        "implemented": [
+          "Per-timing descriptors replace the runtime 32-bit event mask; eight descriptors per effect with independent matching/counters",
+          "Same-event thresholds, multiple named stack/end/ammo tags and stage-specific cumulative counts",
+          "CPU indexed-candidate multiplicity, latched notification counts, per-attempt conditions and shared activation budget",
+          "Ordered unique pellet-in-shot threshold notifications",
+          "Received-hit counters and enemy death/part/projectile/cover/lethal/self-down notification handlers",
+          "Versioned kernel entry and ABI/source/binary checks for native and PTX"
+        ],
+        "reports": [
+          "research/detail-events-verification.json",
+          "research/detail-events-api-verification.json"
+        ],
+        "scope": "High event handlers are verified using authored notifications. Incoming damage, HP loss, down/revive, boss actions and actual part destruction are not GPU-simulated by this checkpoint. New real squads are static enemy, favorite stage 0, 60 seconds.",
+        "remaining": "All-character and all-special-effect migration is incomplete"
+      },
+      "archived_at": "2026-10-16T07:02:10.633726+00:00",
+      "note": "Historical pre-named-v3 checkpoint; verify source hashes before treating older reports as current evidence"
+    }
+  ],
+  "current_layout_notes": {
+    "EW": 208,
+    "NE": 128,
+    "q35": "whether effect has a nonempty name; gates named end/reach callbacks",
+    "kind1_q142": "target-scoped removal flag",
+    "kind15": "named_buff_duration_extend",
+    "kind15_slots36_47_142_143": "four exact u32 bitwords of matched state IDs (exact name or name followed by a space)",
+    "counter_format": "count[NE][8], indexed by descriptor; event IDs 0..127. Legacy low-mask and event pairs are retained only for introspection / burst extension.",
+    "baseline_note": "After.json remains the 47-character named-verifier baseline, named.json remains 48-character events baseline, events.json remains 59-character chains baseline. Fixed copies pre-named/pre-events/pre-chains exist; update verifiers before replacing prior files.",
+    "NT": 8,
+    "TD": 145,
+    "TS": 7,
+    "abi": "detail_named_v3",
+    "q144": "descriptor count",
+    "descriptor_fields": [
+      "event code",
+      "threshold",
+      "counter mode 0/1 modulo/2 >=/3 exact",
+      "named tag",
+      "required stack",
+      "is passive",
+      "burst stage"
+    ],
+    "notification_repeat": "Per DFS frame repeat_row/repeat_left/repeat_passive replay CPU duplicate index candidates without incrementing event counters again. Conditions/targets/budget are rechecked between activations.",
+    "high_event_ids": {
+      "received_hit": 32,
+      "enemy_death": 33,
+      "event:part_destroy": 34,
+      "event:projectile_destroy": 35,
+      "event:cover_hit": 36,
+      "event:lethal_hit": 37,
+      "event:self_down": 38
+    },
+    "q201": "event_scope recipients flag",
+    "q202": "emitted event code +1, zero means no subscribed listener",
+    "q203": "emitted named tag, -1 for untagged events",
+    "q204": "stat_applied tag or -1",
+    "q205": "CPU-eligible cross-definition named-buff merge flag",
+    "q206": "stat identity for named merge, separate from state IDs",
+    "q207": "stat resolves lazily via CPU get_buffs; markers remain unresolved unless bullet consumption forces it",
+    "state_target_order": "Stored recipient ordering per active row; lazy selection captures ordering before applying that row",
+    "post_frames": "post_row/phase/uid/new/changed/stack/mask/order/rawmask/raworder/lazy plus queue_arg per DFS frame",
+    "workspace": "State still local, NE128, 64 KiB stack limit; no live GPU processes remain at checkpoint"
+  },
+  "compatibility_notes": [
+    "Target-scoped removal preserves CPU shield/bullet maps while other recipients remain; bullet end waits for remaining counters, not just target-mask zero",
+    "Named duration extension modifies expiry but does not recapture scaling or reset activation time",
+    "Empty named states have no normal expiry/global-removal end event, but CPU target-scoped removal does emit one; both are tested",
+    "Pinned CPU appends the same effect to an event index for each matching timing key; duplicate candidates really activate repeatedly. GPU models this, including synchronous condition changes and shared max_trigger. This is CPU compatibility, not in-game correctness certification."
+  ],
+  "previous_turn_classification": {
+    "classification": "progress",
+    "evidence": "v16 Python108/Node20/formal30/API783697876 checkpoint finalized; actual gauge CPU boundary8 observed and v17 port implemented with native28 parity"
+  },
+  "generic_named_order_notes": [
+    "New: capture before generic named audience, then latched stack_reach:1 even if a callback removed/recreated the state",
+    "Existing max_stack==1: no generic/stack notification, but recapture still occurs before stat/shield/HP posts",
+    "Existing multi-stack: changed stack_reach, generic named audience even at cap, then recapture after callbacks",
+    "Correction to previous planning note: false permanent passive conditions suppress logging only; CPU still emits generic/stack notifications. Direct regression proves this.",
+    "Stat-applied notifications use local resolved targets, then shields use current live identity/recipients, then HP updates; lazy local targets skip these posts",
+    "Recapture guards the old entry identity so it cannot overwrite a recreated instance; shield/HP lookup uses the current same-effect instance as the CPU does"
+  ],
+  "known_instance_limit": {
+    "reason": "CPU creates a second same-effect nonlazy instance if a scoped removal changed its recipient list and a later application targets the original full list",
+    "current_behavior": "Explicit UnsupportedDetail for known recurrent multi-recipient scoped patterns; no silent overwrite. Compiler test requires rejection.",
+    "required_next_proof": [
+      "Partial old state and full new state coexist with independent expiries and stacks",
+      "Callbacks can remove/recreate either while parent posts preserve object identity",
+      "ref_count, stat sums and aliases follow CPU insertion order",
+      "Original definition budgets/counters/timers remain shared where the CPU shares them"
+    ]
+  },
+  "instance_storage": {
+    "definition_identity": "original immutable row; dynamic burst recipients use active slots without row expansion",
+    "state_definition_link": "GPU definition[slot]; immutable source table",
+    "state_order": "GPU linked list follows CPU insertion order; re-created slots append",
+    "state_reuse": "same materialized definition only, preserving callback metadata",
+    "definition_shared": [
+      "trigger counters",
+      "maximum trigger budget",
+      "periodic clocks"
+    ],
+    "instance_owned": [
+      "expiry",
+      "stacks",
+      "activation/captured value",
+      "recipient mask/order",
+      "shield snapshot",
+      "bullet counters"
+    ],
+    "capacity_failure": "status 16 rejects result; worker falls back to CPU",
+    "cpu_peak_instances_observed": [
+      4,
+      4,
+      7,
+      2
+    ],
+    "presence": "alive[slot] independent of numerical stacks; named debuffs at zero remain active",
+    "runtime_conditions": "runtime_cond[slot] captured at construction and preserved through refresh/alias lifetimes",
+    "bullet_maps": "bullet_initialized[slot] distinguishes ordinary bullet counters from stack-init carriers",
+    "event_queue": "GPU workspace stores per-depth slots and latched stack values; all stack mutations finish before callbacks"
+  },
+  "open_semantic_audit": [
+    "Preserve explicit lazy target-group cache across slot reuse, matching CPU cache keyed by caster/time/raw target",
+    "Rework the 512-slot bound for extreme legal state histories; runtime currently rejects capacity overflow rather than publishing a partial result"
+  ],
+  "new_characters": [
+    "D",
+    "맥스웰 : 오디너리 미케닉",
+    "그레이브"
+  ],
+  "completed_stack_semantics": [
+    "buff_stack_init, buff_stack_add/remove, debuff_stack_add/remove, buff_max_stack_add (adds current stacks, does not raise cap), stack_change_immune",
+    "Positive named-add refreshes raw duration even at cap; generic beneficial add refreshes only after representative stack change",
+    "Generic beneficial add skips mixed-recipient shared states as pinned CPU does; per-recipient bullet stacks can change at representative cap",
+    "Named debuff changes can leave zero-stack state alive; generic harmful remove keeps at least one",
+    "Initialization bypasses source gate/budget, uses raw duration, has no named/reach/health/shield/bullet-counter posts",
+    "Raw duration takes precedence; level duration is fallback only for normal buffs without raw duration",
+    "Missing captured reference remains dynamic as CPU None; zero reference is captured as zero",
+    "Enemy stun is not a friendly stun"
+  ],
+  "completed_time_semantics": [
+    "Named-stack duration scaling on normal activation and conditional passive refresh; stack init/add retain raw durations",
+    "Every clocks share definition identity across distinct/duplicate timings; phase rescaling, 5% floor, named flat and percentage modifiers, remaining-time one-off reduction",
+    "Dynamic casted and innate-B3-casted recipients outside burst boundaries",
+    "Startup magazines filled before first tick and lazy target resolution",
+    "Runtime-selected compensated sums for periodic and critical stats; critical rate clamp"
+  ],
+  "completed_target_semantics": [
+    "Snapshot state/complement targets: zero-stack presence and unresolved-target exclusion, named/generic weapon modes and empty-mode names",
+    "Casted burst intersect original weapon type; innate-B3 mask honors pinned burst_stage",
+    "Lazy original-weapon-filtered highest ATK and innate-B3-filtered lowest ATK; live stats, stable squad-order ties, bullet/health semantics",
+    "Lazy target grouping keys include weapon/B3 candidate mask; no collision between distinct weapon filters"
+  ],
+  "completed_list_semantics": [
+    "Nested friendly lists flattened in definition order on GPU; duplicates preserved, list rank children resolved eagerly",
+    "64-bit sequence carried through active instances, callbacks, scoped removal, named/stat notifications and heals; mask remains membership only",
+    "Duplicate HP posts, ammo changes and burst cooldown reductions; skill-clock reductions use a set and shields use unique dictionary recipients",
+    "Same recipient set with different order remains separate; identical plans share inert rows without splitting original trigger budgets or identities",
+    "CPU raw-rank ATK aggregation matches active-value and recipient-stack/caster arithmetic semantics",
+    "Adapter fixes CPU instant logger unhashable-list crash without vendor edits, target mutation or suppression of nested logs; compatibility file included in API cache fingerprint"
+  ],
+  "completed_predicate_semantics": [
+    "Friendly defense percentage remains numeric for raw effective-defense selection while excluded from outgoing enemy-defense routing; caster-base flat defense and recipient stacks preserved",
+    "Below-defense strict comparison uses raw active final defense; top-defense retains pinned base-stat sorting; strings lazy, list children eager",
+    "Persona markers: active recipient membership independent of zero stack, unresolved targets excluded, innate B3 and caster exclusion",
+    "Enemy code missing/matched/mismatched and static one-enemy count gates; boss/add activation gates remain distinct from runtime gates",
+    "Raw stun membership and immunity do not force lazy resolution; zero-duration same-frame stun, immunity expiry, and activation-latched conditions match CPU",
+    "Persistent self-state tests include generic/named weapon mode and empty mode-name semantics"
+  ],
+  "completed_probability_semantics": [
+    "Expected accumulation per original effect/caster, independent from active slots and named-state aliases; same-kind repeated conditions share one accumulator",
+    "Literal/level-dependent probabilities; missing placeholder false, finite validation, source condition order including self_stat_above preserved",
+    "One success at most per condition evaluation, subtraction by one, unclamped finite values and CPU floating threshold phase; max-trigger budget does not suppress condition evaluation",
+    "Finite/passive/every/tick-timer evaluation semantics; permanent passive registration still evaluates probability before unconditional registration",
+    "Muzzle-level mean of identical per-pellet core probabilities uses runtime-selected CPU sum semantics; hit_count receives snapshot for auto/charge, other root notifications default to empty context",
+    "Nested notification context cleared while parent context restored; explicit hit_crit stimulus supported, actual unsupported named-skill notifications remain fail-closed",
+    "Standalone CPU oracle explicitly models expected RNG and authored context; accumulator readback is test output, never CPU replay input"
+  ],
+  "completed_health_reload_semantics": [
+    "Recipient effective maximum HP conversion is dynamic, includes expiry and stacks, follows CPU addition order and does not enter ATK ranking",
+    "HP effective maximum lookup uses active recipient contributions independently of generic runtime condition routing",
+    "Fixed reload numeric scalar/level values, true zero versus missing value, maximum selection, duration expiry, runtime marker and lazy-target behavior",
+    "Forced reload through original CPU instant-handler comparison, existing pending reservation preservation, base and changed weapons, charge cancellation and t=0 boundary",
+    "Internal-only ATK/defense result field names are rejected as source effects; no GPU-only interpretation of CPU-ignored aliases",
+    "Each-frame damage/ammo/reload comparisons and native/PTX full-squad equivalence; raw CPU traces never feed CUDA"
+  ],
+  "current_checkpoint_path": "research/detail-squad-checkpoint.json",
+  "completed_control_semantics": [
+    "GPU owns hold/release, partial shots, tap/periodic full-charge, operation priority and preemption",
+    "Charge state separate from weapon phase; weapon changes, forced reload and pending auto reload preserve CPU event order",
+    "Camera ownership follows CPU same-frame buff cache; first normal landed shot invalidates cache",
+    "Shooting policy is independent from burst policy in CPU/GPU preparation and saved UI settings"
+  ],
+  "control_remaining": [
+    "Anchored control sequences, cover/reload cancel and aim grammar",
+    "Other rejected raw effects and all-character/favorite/combinations parity",
+    "Incoming damage, live enemy/parts and upstream omitted mechanics"
+  ],
+  "completed_trigger_count_semantics": [
+    "Raw original timing-set intersection defines reduction groups",
+    "Sum fixed_value once per active same-caster instance, ignore stacks/recipients/runtime gates, then truncate and clamp threshold to one",
+    "Expiry and merged-first-definition follow CPU active-instance order",
+    "non_full_charge_fire_count uses independent partial-shot event counter"
+  ],
+  "next_infinite_ammo_reference": {
+    "status": "Implemented and verified",
+    "report": "research/detail-infinite-verification.json"
+  },
+  "next_count_placeholder_audit": {
+    "status": "Resolved and verified native/PTX",
+    "report": "research/detail-infinite-verification.json"
+  },
+  "next_burst_gauge_reference": {
+    "path": "research/detail-burst-gauge-cpu-references.json",
+    "cpu_only": false,
+    "gpu_implemented": true,
+    "cases": 10,
+    "next": "Port fixed/accumulate controller, weapon/mode/skill gain and caster first-landed conversion together; no CPU event traces as shader input",
+    "status": "Implemented and verified native/PTX and normal API",
+    "report": "research/detail-burst-gauge-verification.json"
+  },
+  "completed_infinite_semantics": [
+    "Presence boolean independent of numeric value",
+    "Cancel active reload without refill or completion event; preserve zero ammo shooting",
+    "Latch current-shot ammo/last state before callbacks",
+    "Keep finite weapon shot limits and normal bullet lifetimes",
+    "Unresolved full/nonfull/core/crit/pellet count placeholders never match while retaining index multiplicity"
+  ],
+  "burst_gauge_implementation_notes": {
+    "state": "Separate burst_amount and published burst_charging; publish charging at controller end, not on phase mutation",
+    "math": "Ignore nonpositive gains; cap100; reset at B1 entry; readiness uses prior frame weapon/skill additions",
+    "layout": "CW44 mode,45 effective base weapon energy,46 caster reference after first normal landing,47 raw reference; EW249 mode energy,250 skill exception energy,251 exception presence; cached stat60 speed flat",
+    "skill_context": "Effective mode uses weapon_context and prev_mode snapshot, otherwise original base weapon energy",
+    "logs": "GPU event6 ready/consume; static initial camera note assembled from compiled inputs only",
+    "unimplemented": "Variable stages/reentry, live bosses/parts/projectiles, remaining rejected effects/cubes/conditions and all-context parity"
+  },
+  "next_cleanse_reference": {
+    "path": "research/detail-cleanse-cpu-references.json",
+    "semantics": "research/detail-cleanse-semantics.json",
+    "cases": 22,
+    "cpu_only": false,
+    "gpu_implemented": true,
+    "notes": "Per-recipient oldest harmful only; no end notifications or dot timer cancellation; retain shield/bullet maps on partial removal. When a captured DoT carrier is stripped, subsequent timer damage falls back to current reference stacks rather than its stale capture. Cocoa random harmful target requires GPU PRNG parity; do not approximate leftmost.",
+    "verifier": "scripts/verify-cleanse-detail.py",
+    "random_target_consumers_pending": true,
+    "report": "research/detail-cleanse-verification.json"
+  },
+  "next_python_random_reference": {
+    "path": "research/detail-python-random-cpu-references.json",
+    "seeds": 4,
+    "words_per_seed": 1300,
+    "samples_per_seed": 63,
+    "gpu_implemented": false,
+    "notes": "Initialize GPU from seed/initial MT state only; draws and recipient observations are oracle outputs. Expected-mode CPU currently does not seed random targets: introduce shared explicit seed before claiming random-target parity.",
+    "prototype": "research/ports/detail_random.cu",
+    "prototype_verifier": "scripts/verify-detail-random.py",
+    "prototype_status": "GPU verified: 4 seeds x1585 operations, final MT states equal; standalone only",
+    "integration_plan": "research/detail-random-integration-plan.json",
+    "combat_integrated": false,
+    "prototype_report": "research/detail-random-verification.json"
+  },
+  "next_random_target_lifecycle": {
+    "path": "research/detail-random-target-lifecycle-cpu-references.json",
+    "cases": 26,
+    "gpu_implemented": false,
+    "notes": "Budget probes, lazy generic random shared cache, eager harmful-filtered sampling, periodic timer registration and ordered-list child resolution. See integration-plan draw_rules."
+  },
+  "next_harmful_random_reference": {
+    "path": "research/detail-harmful-random-cpu-references.json",
+    "cases": 9,
+    "cpu_only": true,
+    "gpu_implemented": false
+  },
+  "next_action": {
+    "feature": "Audit remaining shield/undying/range effects and current accepted-catalog parity",
+    "no_live_verification_jobs": true
+  },
+  "previous_checkpoint_path": "research/detail-immunity-checkpoint.json",
+  "next_cpu_reference": "research/detail-live-reach-cpu-references.json",
+  "current_work": null,
+  "previous_checkpoint": {
+    "generated_at": "2026-10-17T05:19:31.874958+00:00",
+    "passed": true,
+    "objective_complete": false,
+    "abi": "detail_boss_buffs_v32",
+    "feature": "Ordered boss defense/received-damage buffs, real boss caster identity, deferred enemy buff cleanse, lifecycle-preserving dispel and read-only end-of-frame CPU observation",
+    "workspace_bytes_per_squad": 639216,
+    "compiled_characters": 135,
+    "catalog_characters": 203,
+    "favorite_contexts_compiled": 529,
+    "favorite_contexts_total": 812,
+    "compilation_is_not_all_context_parity": true,
+    "boss_buff_cases": 40,
+    "long_native_180_second_battles": 6,
+    "python_focused_tests_passed": 77,
+    "node_tests_passed": 26,
+    "normal_api_total": 334921663,
+    "incoming_cpu_reference_cases": 19,
+    "incoming_gpu_implemented": false,
+    "raw_enemy_cleanse_character_audit": [
+      {
+        "character": "로산나",
+        "accepted": false,
+        "issues": [
+          {
+            "character": "로산나",
+            "effect": "은신",
+            "reason": "[{'reason': 'effect type/stat: buff / stealth'}]"
+          },
+          {
+            "character": "로산나",
+            "effect": "은신",
+            "reason": "[{'reason': 'effect type/stat: buff / stealth'}]"
+          }
+        ]
+      }
+    ],
+    "reports": [
+      "research/detail-boss-buffs-verification.json",
+      "research/detail-boss-buffs-long-verification.json",
+      "research/detail-normal-acceptance.json",
+      "research/detail-boss-buffs-api-verification.json",
+      "research/detail-boss-buff-boundaries-verification.json"
+    ],
+    "source_sha256": {
+      "app/detail_boss.py": "b4f10fa9a176d988261c08d6932865f712af04f448ca47b40e02c346a06a74fa",
+      "app/detail_world.py": "3c717ce722fb151fa1bc3cb7990ab632b9a481a5fb379607c52b2ac66a56317c",
+      "app/detail_gpu.py": "db0851b1cf376c9ef18d7a7c615478266f6bf89b002a0921d34af5323c269f8b",
+      "app/detail_effects.cu": "8fbfc01fda11576f7b562dea577503d06a769c452c5e828c3dc652d9d6b9d231",
+      "app/detail_effects.ptx": "8e133d0cdc14b5377baee6f2dc71a4ca1c19fa66408781ac50101ac8f234eb5f",
+      "app/detail_effects-build.json": "34ca3a79d43e47e36b2a83357f2730de6eb4d46a5c2ddafb16b60efc34fda85e",
+      "app/detail_effects-sm86.cubin": "25db8b0829e642781ad9c26b3112ffaf2a4aa96db5693c88a5e10b6c186c8304",
+      "app/detail_effects-sm86.json": "efacab35abe106298583b6994857edb279488edd4b97fd07ed9bc8c22b8e8d59",
+      "app/engine_worker.py": "66068c31da8ee4602e91db591c69bd58c21614fe90b128a137417744a0e2cf08",
+      "app/gpu_service.py": "03e32cf575590701c5100ac81832ccf1e085ccaec618491db4792b3a4a2da95f",
+      "server.mjs": "3b4df0f7e9b771115ffaf3ab0533053fb6e8d428190ec30b7b64f5da8bda4164",
+      "web/app.js": "ca212c76de8f3e9c09092bccbebb43f6125dc4a70f73dc0a3620904e1442454f",
+      "web/index.html": "d88e3f6e3eb5e9d5a0320f695fa51dc85b29176b7f7d8b374f7c6af4e42538eb",
+      "scripts/verify-boss-clock-detail.py": "ac4ba8bcc605efc5d8aa9a364d7da13b47e73afb7814bafb51f84246af616bf5",
+      "scripts/verify-boss-buffs-detail.py": "7e7d3d6328c381e6fb56289a2b8543448ec21a9592f229e8ae1181156e8add3f",
+      "scripts/verify-normal-detail.py": "0d4c6109f3b72b5ada6a491935fdea43d609f4330ab8253a1601eb5972489165",
+      "scripts/smoke-detail-boss-buffs.mjs": "aa09f849eb57823cf5f69bf6b42ce9af2132961f33cc392b7305adeaa89f714d",
+      "scripts/audit-incoming-targets.py": "3d8650d4b03c323e256f7a49b0c8aee7e2846dbf0dae0dc02f464462c575d4e4",
+      "tests/test_detail_boss_buffs.py": "5d7173814ba671f19c2180b440510d4592b448534b9b44ffae1fca80499fbe32",
+      "research/detail-enemy-cleanse-characters.json": "d46f2e8ebf5fc57a34b96596000843138204a440923293b1daff9d8712ef452e",
+      "research/detail-boss-buffs-coverage.json": "62d3c0a421a4d7b1b5bb7f28444016c5b40a40d75f00a07ca3a1d33ac66362fc",
+      "research/detail-all-effects-audit.json": "39154be963e92dc7fe47257938764e75b1adfaa85964cefd34eb940d9daa9e33",
+      "research/detail-incoming-targets-cpu-reference.json": "f70fa82540e8c3420e72e126d886be8f989fba02e2028884b8d1958cf9d50574",
+      "research/boss-gpu-integration-notes.json": "4866544dd8423facda2d6a5f3b0543cb1649a62a39980090c2dc4139757c12b9",
+      "research/save-boss-buffs-checkpoint.py": "db0bcacd10a95d2b10d18d21ce738e1dd3cc28a196d78ec8fbeb324f3912eeab",
+      "README.md": "8a19c6057a1b0cae76a1d9452b7c2113fd6ef7e79fb8095dcf0156c6be84784a"
+    },
+    "report_sha256": {
+      "research/detail-boss-buffs-verification.json": "4283c9d30d1e696299b799fd2fca5167bb9eb308d4c023db5c7c0b764a736324",
+      "research/detail-boss-buffs-long-verification.json": "0f06f2a6872d87930ff765232b87f6e0545547ba979ef3902f34fbca90296e4b",
+      "research/detail-normal-acceptance.json": "d80042ca1c34d638744b48bc26a7eea1f0bfc942bc851e1f7d0b975d05d664d5",
+      "research/detail-boss-buffs-api-verification.json": "989fe651bb2a7cfdd81ac72a04075260d2a9d97b29d7bb545044660b85cb6454",
+      "research/detail-boss-buff-boundaries-verification.json": "89f3e959276f16b9e705227362259edbbb08daf8f01b01551803845d95c5925c"
+    },
+    "remaining": [
+      "68 default characters and 283 favorite contexts remain rejected. Rosanna is still blocked by stealth.",
+      "Incoming attack/targeting, cover/down/revive, damage split, outgoing healing/storage, boss interrupt/summon/shield/vanish/debuff, coordinate geometry and upstream omissions remain.",
+      "The CPU target audit is groundwork only; it is not a GPU implementation. All-character/all-combination correctness and a speedup are unproven."
+    ],
+    "boundary_cases": 2,
+    "incoming_additional_cpu_groundwork": [
+      {
+        "report": "research/detail-incoming-damage-cpu-reference.json",
+        "cpu_reference_cases": 20,
+        "gpu_implemented": false,
+        "sha256": "424c00228ba2f59bd2a74b21c4750f9c5b796d98a15b6f81fcad3f2d2be3c006"
+      },
+      {
+        "report": "research/detail-incoming-target-transitions-cpu-reference.json",
+        "cpu_reference_cases": 6,
+        "gpu_implemented": false,
+        "sha256": "c7da25b5d761a449724960346ae0266efad8d22e5433857763c12688854e629d"
+      }
+    ],
+    "ui_saved_session_validation": {
+      "report": "research/detail-boss-buffs-ui-session-verification.json",
+      "sha256": "ca31f8aa1123a5d9a1636eeebc1edff009255a163b8655f2204ceb807e87b587",
+      "browser_interaction_verified": false
+    }
+  },
+  "range_geometry_cpu_reference": "research/detail-range-geometry-cpu-references.json",
+  "historical_v24_owned_acceptance": {
+    "passed": true,
+    "objective_complete": false,
+    "combined_cases": 36,
+    "backends": [
+      "native",
+      "ptx"
+    ],
+    "all_final_random_states_equal": true,
+    "positive_controls": {
+      "native-auto-fixed": {
+        "growth_changes_damage": true,
+        "positions_change_damage": true
+      },
+      "native-auto-accumulate": {
+        "growth_changes_damage": true,
+        "positions_change_damage": true
+      },
+      "native-character-fixed": {
+        "growth_changes_damage": true,
+        "positions_change_damage": true
+      },
+      "native-character-accumulate": {
+        "growth_changes_damage": true,
+        "positions_change_damage": true
+      },
+      "ptx-auto-fixed": {
+        "growth_changes_damage": true,
+        "positions_change_damage": true
+      },
+      "ptx-auto-accumulate": {
+        "growth_changes_damage": true,
+        "positions_change_damage": true
+      },
+      "ptx-character-fixed": {
+        "growth_changes_damage": true,
+        "positions_change_damage": true
+      },
+      "ptx-character-accumulate": {
+        "growth_changes_damage": true,
+        "positions_change_damage": true
+      }
+    },
+    "normal_ui_total": 893298342,
+    "normal_api_total": 1055538864,
+    "adapter_tests": 11,
+    "policy_rejection_tests": 1,
+    "node_tests": 20,
+    "reports": [
+      "research/detail-owned-acceptance.json",
+      "research/detail-owned-ui-verification.json",
+      "research/detail-owned-api-verification.json"
+    ],
+    "limitations": [
+      "Fictional owned data; no live account import acceptance claim.",
+      "125 of 203 default characters accepted by v24 compiler; unsupported effects fall back to CPU.",
+      "Static enemy; not all character/gear/team combinations verified."
+    ]
+  },
+  "team_hit_cpu_groundwork": {
+    "report": "research/detail-team-hits-cpu-references.json",
+    "cases": 8,
+    "gpu_implemented": true,
+    "pinned_cpu_semantics": "Global threshold across attackers; conditions use source owner, activation/self target/base ATK and skill level use attacker. Not a game-mechanics correctness claim.",
+    "gpu_scope": "v28 authored team-hit grammar; raw D/Rumani battles and native long cycles verified; mixed/periodic/weapon-change team grammar remains rejected."
+  },
+  "live_world_dependency_notes": "research/boss-gpu-integration-notes.json",
+  "next_survival_dependency": {
+    "report": "research/detail-lost-hp-cpu-reference.json",
+    "gpu_implemented": true,
+    "production_checkpoint": "research/detail-survival-scaling-checkpoint.json"
+  },
+  "next_cover_dependency": {
+    "report": "research/detail-cover-revival-cpu-reference.json",
+    "gpu_implemented": true,
+    "production_checkpoint": "research/detail-survival-scaling-checkpoint.json"
+  },
+  "next_cover_capacity_dependency": {
+    "report": "research/detail-cover-capacity-cpu-reference.json",
+    "gpu_implemented": true,
+    "production_checkpoint": "research/detail-cover-capacity-checkpoint.json"
+  },
+  "next_decoy_healing_dependency": {
+    "report": "research/detail-decoy-healing-cpu-reference.json",
+    "gpu_implemented": true,
+    "production_checkpoint": "research/detail-decoy-healing-checkpoint.json"
+  },
+  "next_effect_families": [
+    "shield_dmg_pct",
+    "received_dmg_split",
+    "damage accumulators/discharge",
+    "enemy debuffs/DOT",
+    "cover controls",
+    "geometry/model gaps"
+  ],
+  "next_outgoing_healing_dependency": {
+    "gpu_implemented": true,
+    "cpu_model_extended": true,
+    "production_checkpoint": "research/detail-outgoing-healing-checkpoint.json"
+  },
+  "next_healing_storage_dependency": {
+    "gpu_implemented": true,
+    "cpu_model_extended": true,
+    "production_checkpoint": "research/detail-healing-storage-checkpoint.json"
+  },
+  "next_heal_sharing_dependency": {
+    "gpu_implemented": true,
+    "cpu_model_extended": true,
+    "production_checkpoint": "research/detail-heal-sharing-checkpoint.json"
+  },
+  "next_heal_charge_dependency": {
+    "gpu_implemented": true,
+    "cpu_model_extended": true,
+    "production_checkpoint": "research/detail-heal-charge-checkpoint.json"
+  }
+}

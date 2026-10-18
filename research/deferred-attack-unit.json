@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "tests_run": 12,
+  "skipped": 0,
+  "source_sha256": {
+    "app/reference_rewrite.py": "3d183c01a5915fcc5749b304c6f7c3aa68f28483065cdb3758bbb04301e3e15e",
+    "app/damage_query_runtime.py": "fcb22427f84941e5d6a331d02054341e8f5859b274d139a799f3bc8ef202ddd0",
+    "app/attack_timing_specs.py": "976d2beca6053f9c89b57c53c5c364bba3d66b817b571dff5d47aee3d593ad2b",
+    "app/detail_gpu.py": "0bdce3d046dcae7288f93b8ad2940c555cf0c055de6d69634b44952c70e88c0a",
+    "app/effect_spec.py": "95e86dea959b0c53fbf355148905b8c1034b98d184d011e039689d60036415c8",
+    "tests/test_reference_rewrite.py": "580c5f02b5257dce8e0275ce85b53e3e2a4d07ad745e8f52c79eef08d923d1f3",
+    "tests/test_damage_query_runtime.py": "6f2dd8bc88af8ebbe59f69cf351e814f5101b5ce496655fa6e9d0d4ca0ff9ec9",
+    "tests/test_attack_timing_specs.py": "0b62a88442c1dedbd3a3319c16b835dcceaa48f8cedbd26ede3da8f24162cae5",
+    "tests/test_effect_spec.py": "ec7ddaeee7d9c907f8817a5379fdd45f03a6afbe4f716a2098b0845382df6a36"
+  },
+  "scope": "Timing plan/boundaries, query exclusions, retained AST composition and declared ordering. Prior individual runs overlap and are not added."
+}

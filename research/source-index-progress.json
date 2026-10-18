@@ -1,0 +1,65 @@
+{
+  "updated_at": "2026-10-18T02:09:33.624871+00:00",
+  "objective_complete": false,
+  "previous_goal_turn": "progress: v56 new common periodic source CPU/GPU verified and archived; starting required efficiency attempt",
+  "phase": "v57 common source lookup efficiency verified on native/PTX and archived",
+  "live_handles": {},
+  "verified_base": "research/ports/v56-periodic-sources-verified",
+  "baselines": {
+    "owned_source8_ms": 5623.5373,
+    "authored_pool64_median_kernel_ms": 544.493,
+    "source": "Frozen v56 reports; not current-source proof after v57 edits"
+  },
+  "change": "Bounded1280-byte owner/name lookup table, lazily cleared on first resource creation. No-source fast path preserved. Refresh generation, expiry, traversal order and numeric damage logic unchanged.",
+  "next": "Proceed to the next common operation using research/ramped-dot-dependency-audit.json. Keep the full objective active:21 standard compile-unaccepted characters and remaining effect/world/model families. Verify each new common operation, then attempt efficiency. After all-character support, perform the separate end-to-end whole-system efficiency review.",
+  "remaining": "21 standard compile-unaccepted characters and other effect/world families and game-rule evidence. Goal active.",
+  "checks": {
+    "native_primary_cases": 10,
+    "existing_ordering_cases": 25,
+    "existing_batch_squads": 8,
+    "lightweight_methods": 46,
+    "normal_owned_api": true,
+    "compile_only_supported": 182,
+    "catalog": 203,
+    "portable_primary_cases": 10,
+    "source_bound_archive_files": 28
+  },
+  "measurements": {
+    "pool64_before_median_kernel_ms": 544.493,
+    "pool64_after_median_kernel_ms": 500.777,
+    "source8_before_ms": 5623.5373,
+    "source8_after_ms": 5485.6861,
+    "control8_before_ms": 3079.8119,
+    "control8_after_ms": 3059.6898,
+    "counter8_before_ms": 12371.0931,
+    "counter8_after_ms": 11706.3397,
+    "scope": "Pool3 warm repetitions; actual APIs single uncached comparison per fixture; all projected outputs identical."
+  },
+  "completed_handles": {
+    "native_build": 8592,
+    "native_primary": 14273,
+    "source_api_benchmark": 87610,
+    "counter_benchmark": 18114,
+    "existing_ordering": 14382,
+    "existing_batch": 75508,
+    "owned_api": 13435,
+    "portable_build": 57465,
+    "own_server_4345": {
+      "session_id": 61559,
+      "exit_code": 1,
+      "reason": "Stopped own temporary benchmark server with Ctrl-C"
+    },
+    "portable_primary": 83347,
+    "owned_api_final": 92054
+  },
+  "next_family_audit": "research/ramped-dot-dependency-audit.json (read-only; no new admission). See docs/adding-effects.md for native functional proof -> efficiency comparison -> final portable proof workflow, avoiding duplicate pre-optimization JIT.",
+  "capacity_audit": "research/gpu-capacity-audit.json: selected5 highest standard subject row counts compiled with143/163 rows,93/98 names. Not all-combination proof.",
+  "latest_objective": "All characters/effects on GPU using common operations; verify then attempt efficiency for every new common operation; after all-character support, perform another whole-system efficiency review.",
+  "completion_requirement_added": "After all character/effect work is actually complete, review end-to-end candidate generation, batch grouping/geometry, device state/data layout, kernel execution, transfers and result reconstruction. Per-operation speedups do not satisfy that final whole-system review.",
+  "checkpoint": "research/source-index-checkpoint.json",
+  "archive": "research/ports/v57-source-index-verified",
+  "archive_gate_observation": {
+    "initial_check": "Owned API record hashed the prior PTX artifact because API ran before portable build. No numeric failure.",
+    "resolution": "Re-ran only owned API after final artifacts; all source-bound receipts passed and archive saved."
+  }
+}

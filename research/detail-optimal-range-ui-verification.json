@@ -1,0 +1,60 @@
+{
+  "burst_gauge_mode": "accumulate",
+  "total": 674028524,
+  "fictional_roster": true,
+  "roster_characters": 203,
+  "baseline_total": 662509798,
+  "burst_policy": "rules",
+  "squad": [
+    "에이드 : 에이전트 바니",
+    "리타",
+    "크라운",
+    "앨리스",
+    "모더니아"
+  ],
+  "evidence": "Fresh normal UI calculation, full result and expanded compute JSON inspected",
+  "source_sha256": {
+    "app/gpu_service.py": "3a19d93badc20327cf053c7b7d94f79f532fd41a8ec1310b70bcfe868ef65724",
+    "app/detail_gpu.py": "91fa1c9d478499b28f7ed17eee2dc8cbf44af7ffbeaacaa72ee92002caa1ed9f",
+    "web/index.html": "8fb146ea8a433f0028f2a6365ab849e851068311e73787ede33e5ca7152f5b99",
+    "app/detail_effects.ptx": "b9ea6b9dd50e832926c2e38873f20ad07c74c16b30f71e8ac9531664d5e0d433",
+    "app/detail_effects-sm86.json": "3c478e1c03334ea6c60480dc364eec4b0059677970b54da1c3b56ca2f50b505a",
+    "app/detail_effects.cu": "324945d0147b90e7ed6fbe6db37b0eb7eeabde3edad44829acc6775571820754",
+    "app/detail_effects-sm86.cubin": "bee6a355fb5cf0403fa6e09d831b1a58d0f5630734b4c5dcf306c7c18bd33485",
+    "web/app.js": "449a62ad8162100671f54b43a5a16bdea93dcac86a550eb76656ec36140086a4"
+  },
+  "distance": 30,
+  "shooting_policy": "character",
+  "passed": true,
+  "generated_at": "2026-10-16T20:23:53.1894970Z",
+  "seed": 12345,
+  "initialization_ms": 8.02,
+  "stat_delta_atk": 12345,
+  "url": "http://127.0.0.1:4332/#single",
+  "member_damage": [
+    69848225,
+    52053336,
+    56713991,
+    195007546,
+    300405426
+  ],
+  "duration": 60,
+  "module_backend": "cubin-sm86",
+  "backend": "cuda_detail",
+  "cpu_verification": {
+    "total_equal": true,
+    "matched": true,
+    "burst_gauge_mode_equal": true,
+    "burst_patterns_equal": true,
+    "members_equal": true,
+    "burst_timeline_equal": true,
+    "seed_equal": true,
+    "burst_policy_equal": true,
+    "base_stats_equal": true,
+    "requested_burst_policy_equal": true,
+    "shooting_policy_equal": true
+  },
+  "core_px": 50,
+  "workspace_bytes": 306152,
+  "elapsed_ms": 14722.055
+}

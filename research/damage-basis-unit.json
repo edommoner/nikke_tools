@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "tests_run": 4,
+  "source_stable": true,
+  "source_sha256": {
+    "app/damage_basis_specs.py": "9dcc0575639c404dea26d29be74ef49fbc4b0e762c7a3f8d1674b079b1ac2261",
+    "app/detail_gpu.py": "eebfac73c547d1c543fcacd684b10ef7d31864d8df2ef9964440cc40f0bafd50",
+    "tests/test_damage_basis_specs.py": "a0dde6eaa82ee3a74e0c84b948aa532525dcee75217d1ade466a0b23b8fd6e03",
+    "tests/test_detail_charge_immunity.py": "bc291f62e08a0ff2502159142cc1175665af500621138be8335fb7e521441776"
+  },
+  "scope": "Shared basis/predicate/ammo compiler contracts and existing charge-group boundary; no GPU execution"
+}

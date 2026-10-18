@@ -1,0 +1,724 @@
+{
+  "settings": {
+    "enemy-def": 31784,
+    "enemy-code": "풍압",
+    "duration": 30,
+    "level": 400,
+    "core": 50,
+    "distance": 25,
+    "detail-backend": "cuda_verified",
+    "shooting-policy": "character",
+    "burst-policy": "auto",
+    "burst-gauge-mode": "accumulate",
+    "random-seed": 12345
+  },
+  "format": "nikke-tools-session-v1",
+  "ui_version": 3,
+  "saved_at": "2026-10-17T12:06:42.762406+00:00",
+  "snapshot": {
+    "profile": {
+      "chars": {
+        "마르차나": {
+          "level": 400,
+          "breakthrough": 3,
+          "core_enhancement": 2,
+          "affinity": 20,
+          "skill_levels": {
+            "1": 7,
+            "2": 5,
+            "3": 9
+          },
+          "equipment": {
+            "머리": {
+              "level": 5,
+              "skills": []
+            },
+            "몸통": {
+              "level": 5,
+              "skills": []
+            },
+            "팔": {
+              "level": 5,
+              "skills": []
+            },
+            "다리": {
+              "level": 5,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": [
+              11.11,
+              11.11,
+              12.34
+            ],
+            "element_bonus": 0,
+            "max_ammo_pct": 0,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": [
+              2.34,
+              2.34,
+              4.3
+            ],
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "렐릭 힐링 큐브",
+            "level": 4
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "SR15",
+          "favorite_stage": 0
+        },
+        "프리카": {
+          "level": 400,
+          "breakthrough": 3,
+          "core_enhancement": 0,
+          "affinity": 7,
+          "skill_levels": {
+            "1": 4,
+            "2": 8,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 5,
+              "skills": []
+            },
+            "몸통": {
+              "level": 5,
+              "skills": []
+            },
+            "팔": {
+              "level": 5,
+              "skills": []
+            },
+            "다리": {
+              "level": 5,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": 0,
+            "element_bonus": 0,
+            "max_ammo_pct": 0,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": 0,
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "__none__",
+            "level": 0
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "없음",
+          "favorite_stage": 0
+        },
+        "리타": {
+          "level": 400,
+          "breakthrough": 3,
+          "core_enhancement": 0,
+          "affinity": 13,
+          "skill_levels": {
+            "1": 5,
+            "2": 7,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 5,
+              "skills": []
+            },
+            "몸통": {
+              "level": 5,
+              "skills": []
+            },
+            "팔": {
+              "level": 5,
+              "skills": []
+            },
+            "다리": {
+              "level": 5,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": 0,
+            "element_bonus": 0,
+            "max_ammo_pct": 0,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": 0,
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "__none__",
+            "level": 0
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "없음",
+          "favorite_stage": 0
+        },
+        "앨리스": {
+          "level": 400,
+          "breakthrough": 3,
+          "core_enhancement": 0,
+          "affinity": 19,
+          "skill_levels": {
+            "1": 6,
+            "2": 6,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 5,
+              "skills": []
+            },
+            "몸통": {
+              "level": 5,
+              "skills": []
+            },
+            "팔": {
+              "level": 5,
+              "skills": []
+            },
+            "다리": {
+              "level": 5,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": 0,
+            "element_bonus": 0,
+            "max_ammo_pct": 0,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": 0,
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "__none__",
+            "level": 0
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "없음",
+          "favorite_stage": 0
+        },
+        "모더니아": {
+          "level": 400,
+          "breakthrough": 3,
+          "core_enhancement": 0,
+          "affinity": 25,
+          "skill_levels": {
+            "1": 7,
+            "2": 5,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 5,
+              "skills": []
+            },
+            "몸통": {
+              "level": 5,
+              "skills": []
+            },
+            "팔": {
+              "level": 5,
+              "skills": []
+            },
+            "다리": {
+              "level": 5,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": 0,
+            "element_bonus": 0,
+            "max_ammo_pct": 0,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": 0,
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "__none__",
+            "level": 0
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "없음",
+          "favorite_stage": 0
+        }
+      },
+      "_account": {
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        }
+      }
+    },
+    "missing": {},
+    "warnings": [
+      "マルチャーナの余剰回復保存とヒーリングキューブのGPU検証用に作成した架空の所持・装備データです。"
+    ],
+    "is_demo": true,
+    "squad": [
+      "마르차나",
+      "프리카",
+      "리타",
+      "앨리스",
+      "모더니아"
+    ]
+  },
+  "profile": {
+    "chars": {
+      "마르차나": {
+        "level": 400,
+        "breakthrough": 3,
+        "core_enhancement": 2,
+        "affinity": 20,
+        "skill_levels": {
+          "1": 7,
+          "2": 5,
+          "3": 9
+        },
+        "equipment": {
+          "머리": {
+            "level": 5,
+            "skills": []
+          },
+          "몸통": {
+            "level": 5,
+            "skills": []
+          },
+          "팔": {
+            "level": 5,
+            "skills": []
+          },
+          "다리": {
+            "level": 5,
+            "skills": []
+          }
+        },
+        "equip_skills": {
+          "atk_pct": [
+            11.11,
+            11.11,
+            12.34
+          ],
+          "element_bonus": 0,
+          "max_ammo_pct": 0,
+          "crit_rate": 0,
+          "crit_dmg": 0,
+          "charge_speed_pct": [
+            2.34,
+            2.34,
+            4.3
+          ],
+          "charge_dmg_pct": 0,
+          "accuracy_pct": 0,
+          "def_pct": 0
+        },
+        "cube": {
+          "name": "렐릭 힐링 큐브",
+          "level": 4
+        },
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        },
+        "collection_stage": "SR15",
+        "favorite_stage": 0
+      },
+      "프리카": {
+        "level": 400,
+        "breakthrough": 3,
+        "core_enhancement": 0,
+        "affinity": 7,
+        "skill_levels": {
+          "1": 4,
+          "2": 8,
+          "3": 10
+        },
+        "equipment": {
+          "머리": {
+            "level": 5,
+            "skills": []
+          },
+          "몸통": {
+            "level": 5,
+            "skills": []
+          },
+          "팔": {
+            "level": 5,
+            "skills": []
+          },
+          "다리": {
+            "level": 5,
+            "skills": []
+          }
+        },
+        "equip_skills": {
+          "atk_pct": 0,
+          "element_bonus": 0,
+          "max_ammo_pct": 0,
+          "crit_rate": 0,
+          "crit_dmg": 0,
+          "charge_speed_pct": 0,
+          "charge_dmg_pct": 0,
+          "accuracy_pct": 0,
+          "def_pct": 0
+        },
+        "cube": {
+          "name": "__none__",
+          "level": 0
+        },
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        },
+        "collection_stage": "없음",
+        "favorite_stage": 0
+      },
+      "리타": {
+        "level": 400,
+        "breakthrough": 3,
+        "core_enhancement": 0,
+        "affinity": 13,
+        "skill_levels": {
+          "1": 5,
+          "2": 7,
+          "3": 10
+        },
+        "equipment": {
+          "머리": {
+            "level": 5,
+            "skills": []
+          },
+          "몸통": {
+            "level": 5,
+            "skills": []
+          },
+          "팔": {
+            "level": 5,
+            "skills": []
+          },
+          "다리": {
+            "level": 5,
+            "skills": []
+          }
+        },
+        "equip_skills": {
+          "atk_pct": 0,
+          "element_bonus": 0,
+          "max_ammo_pct": 0,
+          "crit_rate": 0,
+          "crit_dmg": 0,
+          "charge_speed_pct": 0,
+          "charge_dmg_pct": 0,
+          "accuracy_pct": 0,
+          "def_pct": 0
+        },
+        "cube": {
+          "name": "__none__",
+          "level": 0
+        },
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        },
+        "collection_stage": "없음",
+        "favorite_stage": 0
+      },
+      "앨리스": {
+        "level": 400,
+        "breakthrough": 3,
+        "core_enhancement": 0,
+        "affinity": 19,
+        "skill_levels": {
+          "1": 6,
+          "2": 6,
+          "3": 10
+        },
+        "equipment": {
+          "머리": {
+            "level": 5,
+            "skills": []
+          },
+          "몸통": {
+            "level": 5,
+            "skills": []
+          },
+          "팔": {
+            "level": 5,
+            "skills": []
+          },
+          "다리": {
+            "level": 5,
+            "skills": []
+          }
+        },
+        "equip_skills": {
+          "atk_pct": 0,
+          "element_bonus": 0,
+          "max_ammo_pct": 0,
+          "crit_rate": 0,
+          "crit_dmg": 0,
+          "charge_speed_pct": 0,
+          "charge_dmg_pct": 0,
+          "accuracy_pct": 0,
+          "def_pct": 0
+        },
+        "cube": {
+          "name": "__none__",
+          "level": 0
+        },
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        },
+        "collection_stage": "없음",
+        "favorite_stage": 0
+      },
+      "모더니아": {
+        "level": 400,
+        "breakthrough": 3,
+        "core_enhancement": 0,
+        "affinity": 25,
+        "skill_levels": {
+          "1": 7,
+          "2": 5,
+          "3": 10
+        },
+        "equipment": {
+          "머리": {
+            "level": 5,
+            "skills": []
+          },
+          "몸통": {
+            "level": 5,
+            "skills": []
+          },
+          "팔": {
+            "level": 5,
+            "skills": []
+          },
+          "다리": {
+            "level": 5,
+            "skills": []
+          }
+        },
+        "equip_skills": {
+          "atk_pct": 0,
+          "element_bonus": 0,
+          "max_ammo_pct": 0,
+          "crit_rate": 0,
+          "crit_dmg": 0,
+          "charge_speed_pct": 0,
+          "charge_dmg_pct": 0,
+          "accuracy_pct": 0,
+          "def_pct": 0
+        },
+        "cube": {
+          "name": "__none__",
+          "level": 0
+        },
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        },
+        "collection_stage": "없음",
+        "favorite_stage": 0
+      }
+    },
+    "_account": {
+      "console": {
+        "common_level": 180,
+        "class_level": 100,
+        "company_level": 100
+      }
+    }
+  },
+  "patches": {},
+  "deltas": {
+    "마르차나": {
+      "atk": 12000,
+      "hp": 100000,
+      "def": 250
+    }
+  },
+  "squad": [
+    "마르차나",
+    "프리카",
+    "리타",
+    "앨리스",
+    "모더니아"
+  ],
+  "teams": [
+    [
+      "마르차나",
+      "프리카",
+      "리타",
+      "앨리스",
+      "모더니아"
+    ],
+    [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  ],
+  "activeTeam": 0,
+  "raidCount": 5,
+  "singleMode": true,
+  "comparison": null,
+  "job": null,
+  "reference": null,
+  "enemyParts": [],
+  "enemyPatterns": [
+    {
+      "id": "small incoming",
+      "kind": "attack",
+      "delay": 0.2,
+      "until": {
+        "time": 30
+      },
+      "spec": {
+        "coeff": 100,
+        "atk": 60000,
+        "target": "all",
+        "hits": 50,
+        "interval": 0.5,
+        "pierce": true
+      }
+    }
+  ],
+  "enemyContexts": {
+    "single": {
+      "settings": {
+        "enemy-def": 31784,
+        "enemy-code": "풍압",
+        "duration": 30,
+        "level": 400,
+        "core": 50,
+        "distance": 25
+      },
+      "parts": [],
+      "patterns": [
+        {
+          "id": "small incoming",
+          "kind": "attack",
+          "delay": 0.2,
+          "until": {
+            "time": 30
+          },
+          "spec": {
+            "coeff": 100,
+            "atk": 60000,
+            "target": "all",
+            "hits": 50,
+            "interval": 0.5,
+            "pierce": true
+          }
+        }
+      ],
+      "presetId": "user:gpu-healing-storage"
+    }
+  },
+  "customPresets": [
+    {
+      "id": "user:gpu-healing-storage",
+      "mode": "single",
+      "label": "GPU検証：マルチャーナの余剰回復保存",
+      "settings": {
+        "enemy-def": 31784,
+        "enemy-code": "풍압",
+        "duration": 30,
+        "level": 400,
+        "core": 50,
+        "distance": 25
+      },
+      "parts": [],
+      "patterns": [
+        {
+          "id": "small incoming",
+          "kind": "attack",
+          "delay": 0.2,
+          "until": {
+            "time": 30
+          },
+          "spec": {
+            "coeff": 100,
+            "atk": 60000,
+            "target": "all",
+            "hits": 50,
+            "interval": 0.5,
+            "pierce": true
+          }
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}

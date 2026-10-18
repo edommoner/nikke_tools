@@ -1,0 +1,513 @@
+{
+  "passed": true,
+  "scope": "compile-time definition identities and inert plan rows for 72 fixed squads; not simulation parity",
+  "cases": [
+    {
+      "character": "라피",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "네온",
+      "source_effect_rows": 83,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 83
+    },
+    {
+      "character": "아니스 : 스파클링 서머",
+      "source_effect_rows": 86,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 86
+    },
+    {
+      "character": "델타",
+      "source_effect_rows": 83,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 83
+    },
+    {
+      "character": "시그널",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "미란다",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "키리",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "미카",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "브리드",
+      "source_effect_rows": 83,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 83
+    },
+    {
+      "character": "솔린",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "디젤",
+      "source_effect_rows": 86,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 86
+    },
+    {
+      "character": "솔린 : 프로스트 티켓",
+      "source_effect_rows": 87,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 87
+    },
+    {
+      "character": "리타",
+      "source_effect_rows": 87,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 87
+    },
+    {
+      "character": "은화",
+      "source_effect_rows": 85,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 85
+    },
+    {
+      "character": "드레이크",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "크로우",
+      "source_effect_rows": 83,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 83
+    },
+    {
+      "character": "N102",
+      "source_effect_rows": 83,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 83
+    },
+    {
+      "character": "메어리",
+      "source_effect_rows": 83,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 83
+    },
+    {
+      "character": "페퍼",
+      "source_effect_rows": 86,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 86
+    },
+    {
+      "character": "밀크",
+      "source_effect_rows": 83,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 83
+    },
+    {
+      "character": "프림",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "율리아",
+      "source_effect_rows": 83,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 83
+    },
+    {
+      "character": "미하라",
+      "source_effect_rows": 85,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 85
+    },
+    {
+      "character": "미하라 : 본딩 체인",
+      "source_effect_rows": 90,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 90
+    },
+    {
+      "character": "애드미",
+      "source_effect_rows": 83,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 83
+    },
+    {
+      "character": "메이든",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "루드밀라",
+      "source_effect_rows": 85,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 85
+    },
+    {
+      "character": "앨리스",
+      "source_effect_rows": 85,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 85
+    },
+    {
+      "character": "네베",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "루드밀라 : 윈터 오너",
+      "source_effect_rows": 86,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 86
+    },
+    {
+      "character": "루피",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "얀",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "도라",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "엑시아",
+      "source_effect_rows": 85,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 85
+    },
+    {
+      "character": "노벨",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "이사벨",
+      "source_effect_rows": 88,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 88
+    },
+    {
+      "character": "에피넬",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "폴크방",
+      "source_effect_rows": 85,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 85
+    },
+    {
+      "character": "모더니아",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "루주",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "로산나 : 시크 오션",
+      "source_effect_rows": 85,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 85
+    },
+    {
+      "character": "에테르",
+      "source_effect_rows": 83,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 83
+    },
+    {
+      "character": "프로덕트 12",
+      "source_effect_rows": 82,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 82
+    },
+    {
+      "character": "iDoll 플라워",
+      "source_effect_rows": 83,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 83
+    },
+    {
+      "character": "iDoll 오션",
+      "source_effect_rows": 82,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 82
+    },
+    {
+      "character": "프로덕트 23",
+      "source_effect_rows": 82,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 82
+    },
+    {
+      "character": "소다",
+      "source_effect_rows": 85,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 85
+    },
+    {
+      "character": "프리바티 : 언카인드 메이드",
+      "source_effect_rows": 86,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 86
+    },
+    {
+      "character": "소다 : 트윙클링 바니",
+      "source_effect_rows": 90,
+      "target_descriptor_rows": 2,
+      "list_effects": 1,
+      "total_rows": 92
+    },
+    {
+      "character": "벨벳",
+      "source_effect_rows": 92,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 92
+    },
+    {
+      "character": "크라운",
+      "source_effect_rows": 90,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 90
+    },
+    {
+      "character": "마스트",
+      "source_effect_rows": 85,
+      "target_descriptor_rows": 2,
+      "list_effects": 4,
+      "total_rows": 87
+    },
+    {
+      "character": "헬름",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "마스트 : 로망틱 메이드",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "퀀시 : 이스케이프 퀸",
+      "source_effect_rows": 91,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 91
+    },
+    {
+      "character": "플로라",
+      "source_effect_rows": 86,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 86
+    },
+    {
+      "character": "노이즈",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "볼륨",
+      "source_effect_rows": 87,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 87
+    },
+    {
+      "character": "아리아",
+      "source_effect_rows": 83,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 83
+    },
+    {
+      "character": "나가",
+      "source_effect_rows": 86,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 86
+    },
+    {
+      "character": "아크레인저 블랙",
+      "source_effect_rows": 93,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 93
+    },
+    {
+      "character": "팬텀",
+      "source_effect_rows": 90,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 90
+    },
+    {
+      "character": "아르카나",
+      "source_effect_rows": 89,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 89
+    },
+    {
+      "character": "아르카나 : 포츈 메이트",
+      "source_effect_rows": 96,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 96
+    },
+    {
+      "character": "민트",
+      "source_effect_rows": 94,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 94
+    },
+    {
+      "character": "히메노",
+      "source_effect_rows": 84,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 84
+    },
+    {
+      "character": "파스칼",
+      "source_effect_rows": 82,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 82
+    },
+    {
+      "character": "사쿠라 (SR)",
+      "source_effect_rows": 83,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 83
+    },
+    {
+      "character": "에이다",
+      "source_effect_rows": 88,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 88
+    },
+    {
+      "character": "레이븐",
+      "source_effect_rows": 88,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 88
+    },
+    {
+      "character": "치사토",
+      "source_effect_rows": 89,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 89
+    },
+    {
+      "character": "쿠루미",
+      "source_effect_rows": 83,
+      "target_descriptor_rows": 0,
+      "list_effects": 0,
+      "total_rows": 83
+    }
+  ],
+  "source_sha256": {
+    "app/detail_gpu.py": "16c225798669cbae0bf0251e3459f23753df03114cf9649af63e5a4ca968b649"
+  }
+}

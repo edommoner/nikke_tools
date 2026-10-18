@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "tests_run": 2,
+  "skipped": 0,
+  "seconds": 18.812307399697602,
+  "source_stable": true,
+  "source_sha256": {
+    "app/detail_gpu.py": "eebfac73c547d1c543fcacd684b10ef7d31864d8df2ef9964440cc40f0bafd50",
+    "app/detail_effects.cu": "6b03fe5422631d35cc2a93ce7bfe685dd7cf90fa289b8ba64ff8ae8b1dded93b",
+    "app/detail_effects-sm86.cubin": "e7e39730b1f26951086424e0d570e359e39e412adb62a6db15348b7f72237383",
+    "app/detail_effects-sm86.json": "bcbdda6542a990ef6aa6f9fd64accff9cfa5f722998be7baa70d1c6f53497481",
+    "scripts/verify-catalog-batch-detail.py": "51d505088e9fa3aa21a32cb141186876487bcce808ec4264d0dcf19688cd4eeb",
+    "tests/test_detail_batch.py": "c4c09efb02f44224992e04d00ca21dc187ffbe3b50efe08d3208af4d883c4dd1",
+    "tests/test_detail_weapons.py": "1f418fbd585edf2735d03e8789e190245a023ee22e3bcadd025b6deab367bbd9"
+  },
+  "selection": [
+    "test_detail_batch.HeterogeneousBatchTests.test_eight_independent_real_squads_keep_cpu_parity",
+    "test_detail_weapons.DetailedWeaponTests.test_pellet_callbacks_use_original_shot_snapshot"
+  ],
+  "scope": "Existing8 heterogeneous squads/RNG and pellet snapshot ordering; no duplicated formula cases or full216 rerun",
+  "failures": []
+}

@@ -1,0 +1,63 @@
+.version 6.0
+.target sm_52
+.address_size 64
+.visible .entry expand(
+ .param .u64 states, .param .u64 lasts, .param .u64 totals,
+ .param .u64 candidates, .param .u64 damage, .param .u64 output,
+ .param .u32 nc, .param .u32 count
+){
+ .reg .pred %p<5>;
+ .reg .b32 %r<22>;
+ .reg .b64 %d<22>;
+ ld.param.u64 %d0,[states]; ld.param.u64 %d1,[lasts]; ld.param.u64 %d2,[totals];
+ ld.param.u64 %d3,[candidates]; ld.param.u64 %d4,[damage]; ld.param.u64 %d5,[output];
+ ld.param.u32 %r0,[nc]; ld.param.u32 %r1,[count];
+ mov.u32 %r2,%ctaid.x; mov.u32 %r3,%ntid.x; mov.u32 %r4,%tid.x;
+ mad.lo.u32 %r5,%r2,%r3,%r4;
+ setp.ge.u32 %p0,%r5,%r1; @%p0 bra DONE;
+ div.u32 %r6,%r5,%r0; rem.u32 %r7,%r5,%r0;
+ mul.wide.u32 %d6,%r5,8; add.u64 %d7,%d5,%d6; st.global.u64 [%d7],0;
+ mul.wide.u32 %d8,%r6,4; add.u64 %d9,%d1,%d8; ld.global.u32 %r8,[%d9];
+ setp.eq.u32 %p1,%r8,0xffffffff; @%p1 bra MASK;
+ setp.le.u32 %p2,%r7,%r8; @%p2 bra DONE;
+MASK:
+ mul.wide.u32 %d10,%r6,32; add.u64 %d11,%d0,%d10;
+ mul.wide.u32 %d12,%r7,32; add.u64 %d13,%d3,%d12;
+ mov.u32 %r9,0;
+LOOP:
+ ld.global.u32 %r10,[%d11]; ld.global.u32 %r11,[%d13]; and.b32 %r12,%r10,%r11;
+ setp.ne.u32 %p3,%r12,0; @%p3 bra DONE;
+ add.u64 %d11,%d11,4; add.u64 %d13,%d13,4; add.u32 %r9,%r9,1;
+ setp.lt.u32 %p4,%r9,8; @%p4 bra LOOP;
+ mul.wide.u32 %d14,%r6,8; add.u64 %d15,%d2,%d14; ld.global.u64 %d16,[%d15];
+ mul.wide.u32 %d17,%r7,8; add.u64 %d18,%d4,%d17; ld.global.u64 %d19,[%d18];
+ add.u64 %d20,%d16,%d19; add.u64 %d20,%d20,1; st.global.u64 [%d7],%d20;
+DONE: ret;
+}
+.visible .entry sort_step(
+ .param .u64 values, .param .u64 indices,
+ .param .u32 count, .param .u32 stride, .param .u32 stage
+){
+ .reg .pred %p<10>;
+ .reg .b32 %r<14>;
+ .reg .b64 %d<14>;
+ ld.param.u64 %d0,[values]; ld.param.u64 %d1,[indices];
+ ld.param.u32 %r0,[count]; ld.param.u32 %r1,[stride]; ld.param.u32 %r2,[stage];
+ mov.u32 %r3,%ctaid.x; mov.u32 %r4,%ntid.x; mov.u32 %r5,%tid.x;
+ mad.lo.u32 %r6,%r3,%r4,%r5;
+ setp.ge.u32 %p0,%r6,%r0; @%p0 bra END;
+ xor.b32 %r7,%r6,%r1; setp.le.u32 %p1,%r7,%r6; @%p1 bra END;
+ mul.wide.u32 %d2,%r6,8; add.u64 %d3,%d0,%d2; ld.global.u64 %d4,[%d3];
+ mul.wide.u32 %d5,%r7,8; add.u64 %d6,%d0,%d5; ld.global.u64 %d7,[%d6];
+ mul.wide.u32 %d8,%r6,4; add.u64 %d9,%d1,%d8; ld.global.u32 %r8,[%d9];
+ mul.wide.u32 %d10,%r7,4; add.u64 %d11,%d1,%d10; ld.global.u32 %r9,[%d11];
+ setp.lt.u64 %p2,%d4,%d7; setp.eq.u64 %p3,%d4,%d7;
+ setp.gt.u32 %p4,%r8,%r9; and.pred %p3,%p3,%p4; or.pred %p2,%p2,%p3;
+ and.b32 %r10,%r6,%r2; setp.eq.u32 %p5,%r10,0; @%p5 bra DECIDE;
+ not.pred %p2,%p2;
+DECIDE:
+ @!%p2 bra END;
+ st.global.u64 [%d3],%d7; st.global.u64 [%d6],%d4;
+ st.global.u32 [%d9],%r9; st.global.u32 [%d11],%r8;
+END: ret;
+}

@@ -1,0 +1,1063 @@
+{
+  "generated_at": "2026-10-17T08:47:11.752096+00:00",
+  "passed": true,
+  "stage_only": true,
+  "objective_complete": false,
+  "abi": "detail_hp_edge_v35",
+  "backend": "native",
+  "cases": [
+    {
+      "name": "raw-A2-dry-fixed",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 202422742,
+      "gpu_total": 202422742,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:40",
+          "time": 26.21666666666646,
+          "caster": "A2"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 26.21666666666646,
+          "caster": "A2",
+          "event": "hp_below:40"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": [
+        {
+          "name": "B 모드 해제",
+          "time": 26.21666666666646
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 26.21666666666646
+        },
+        {
+          "name": "B 모드 해제",
+          "time": 35.83333333333258
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 35.83333333333258
+        }
+      ]
+    },
+    {
+      "name": "raw-A2-regular-heal",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 221119515,
+      "gpu_total": 221119515,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [],
+      "gpu_hp_events": [],
+      "cpu_A2_mode_removal_attempts": []
+    },
+    {
+      "name": "raw-A2-incoming",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 197877923,
+      "gpu_total": 197877923,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 10,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:40",
+          "time": 6.21666666666665,
+          "caster": "A2"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 6.21666666666665,
+          "caster": "A2",
+          "event": "hp_below:40"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": [
+        {
+          "name": "B 모드 해제",
+          "time": 6.21666666666665
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 6.21666666666665
+        },
+        {
+          "name": "B 모드 해제",
+          "time": 35.83333333333258
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 35.83333333333258
+        }
+      ]
+    },
+    {
+      "name": "raw-A2-start-low",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 196370674,
+      "gpu_total": 196370674,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:40",
+          "time": 0.0,
+          "caster": "A2"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.0,
+          "caster": "A2",
+          "event": "hp_below:40"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": [
+        {
+          "name": "B 모드 해제",
+          "time": 0.0
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 0.0
+        },
+        {
+          "name": "B 모드 해제",
+          "time": 3.1999999999999935
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 3.1999999999999935
+        },
+        {
+          "name": "B 모드 해제",
+          "time": 35.83333333333258
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 35.83333333333258
+        }
+      ]
+    },
+    {
+      "name": "raw-A2-accumulate",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 157583169,
+      "gpu_total": 157583169,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:40",
+          "time": 29.616666666666266,
+          "caster": "A2"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 29.616666666666266,
+          "caster": "A2",
+          "event": "hp_below:40"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": [
+        {
+          "name": "B 모드 해제",
+          "time": 29.616666666666266
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 29.616666666666266
+        },
+        {
+          "name": "B 모드 해제",
+          "time": 41.79999999999891
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 41.79999999999891
+        }
+      ]
+    },
+    {
+      "name": "raw-A2-mixed-growth",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 194933444,
+      "gpu_total": 194933444,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:40",
+          "time": 24.216666666666573,
+          "caster": "A2"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 24.216666666666573,
+          "caster": "A2",
+          "event": "hp_below:40"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": [
+        {
+          "name": "B 모드 해제",
+          "time": 24.216666666666573
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 24.216666666666573
+        },
+        {
+          "name": "B 모드 해제",
+          "time": 35.83333333333258
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 35.83333333333258
+        }
+      ]
+    },
+    {
+      "name": "raw-A2-rapunzel-heal",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 75255277,
+      "gpu_total": 75255277,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [],
+      "gpu_hp_events": [],
+      "cpu_A2_mode_removal_attempts": []
+    },
+    {
+      "name": "raw-A2-rapunzel-revive",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 74985213,
+      "gpu_total": 74985213,
+      "cpu_revives": [
+        {
+          "time": 2.9999999999999942,
+          "name": "A2"
+        }
+      ],
+      "raw_skills_retained": true,
+      "incoming_hits": 1,
+      "cpu_hp_events": [],
+      "gpu_hp_events": [],
+      "cpu_A2_mode_removal_attempts": []
+    },
+    {
+      "name": "raw-솔린 : 프로스트 티켓-counted-crossings",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 95074759,
+      "gpu_total": 95074759,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": []
+    },
+    {
+      "name": "raw-플로라-center",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 101073195,
+      "gpu_total": 101073195,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 3.016666666666661,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 3.016666666666661,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 4.016666666666658,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 4.016666666666658,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 6.016666666666651,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 6.016666666666651,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 8.016666666666644,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 8.016666666666644,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 9.000000000000027,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 9.000000000000027,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 12.000000000000176,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 12.000000000000176,
+          "caster": "플로라"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 3.016666666666661,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 3.016666666666661,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 4.016666666666658,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 4.016666666666658,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 8.016666666666644,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 8.016666666666644,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 12.000000000000176,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 12.000000000000176,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": []
+    },
+    {
+      "name": "raw-플로라-left",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 75284626,
+      "gpu_total": 75284626,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 3.016666666666661,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 4.016666666666658,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 6.016666666666651,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 8.016666666666644,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 9.000000000000027,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 12.000000000000176,
+          "caster": "플로라"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 3.016666666666661,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 4.016666666666658,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 8.016666666666644,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 12.000000000000176,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": []
+    },
+    {
+      "name": "raw-플로라-right",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 96523963,
+      "gpu_total": 96523963,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 3.016666666666661,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 4.016666666666658,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 6.016666666666651,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 8.016666666666644,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 9.000000000000027,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 12.000000000000176,
+          "caster": "플로라"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 3.016666666666661,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 4.016666666666658,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 8.016666666666644,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 12.000000000000176,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": []
+    }
+  ],
+  "planned_cases": 12,
+  "not_run_cases": 0,
+  "source_sha256": {
+    "scripts/verify-staged-hp-edge-real.py": "7994826dd48073216ec5b40bd93bc07e0337499f647c37eab91d3f975acd1a9f",
+    "scripts/verify-staged-hp-edge.py": "0474400f80359572b810d6d5894da7f892d0c7312c50f5f4fe1ff713f21ceae1",
+    "scripts/staged-hp-edge-runtime.py": "da10ea6564162a31a8908e8117a29d5847c34e802d22e8831b0d979bd6aa52bd",
+    "scripts/verify-survival-detail.py": "109be8847d6506c13d7175f9b7c256fa5ba2b8660f97eebc76e1207bfabf6362",
+    "scripts/verify-incoming-detail.py": "76bf238f9d184c491984c767f5cf8be3d0206d89130a6457f7e78e6d8004aa7d",
+    "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "app/engine_compat.py": "9a488b1986b42a49993f7e944c33747c514d5a0d4f4ab1495fee5a4c1436bb71",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/data/parsed_skills.json": "81e2934af7c91b69a49b71721d5f53af25b5ebf006595d3e929db4582ff23137",
+    "research/staging/v35/app/detail_gpu.py": "f8006a02e000458d1df6c82c8070e80650b5d0b8538ac60af8e8b77568405e1d",
+    "research/staging/v35/app/detail_effects.cu": "96add62d74b532ce71c41ca09a4eef203ccdae4f2415827ff1cd57686f3c118c",
+    "research/staging/v35/app/detail_effects-sm86.cubin": "14b232d35eb6ad9e60393a4d739003d01042f3f2126f3da3db9bcd4ed6323703",
+    "research/staging/v35/app/detail_effects-sm86.json": "92f052405e0be6d1ea489cf2e3631580ac4fd5a2e7bba64b9d927240ef3c59d0"
+  },
+  "cpu_trace_used_as_gpu_input": false
+}

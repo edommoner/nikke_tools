@@ -1,0 +1,41 @@
+{
+  "abi": "detail_named_attack_targets_v49",
+  "quantity": "Named attack count is independent of coefficient scaling_ref",
+  "resolution": "Exactly one direct damage definition with matching caster and name; immutable compilation-time reference",
+  "target": "One aimed enemy in current detailed world; no multi-enemy identity claim",
+  "phase": "Bonus burst damage for innate stage3 is queued at authored order; literal referenced attack count is captured, coefficient references read at full burst start, later burst buffs excluded. Ordinary targets and immediate phase preserve their existing one-hit rules.",
+  "unsupported": [
+    "Missing, duplicate, foreign-owner or empty names",
+    "Dynamic and nonpositive attack-count suffixes",
+    "Ordered list leaves and indirect target-reference chains",
+    "Periodic DoT stack ramps and multiple enemy identities"
+  ],
+  "state": "No State fields or workspace layout changes; unused instruction field52 now encodes deferred bonus hits. ABI and both artifact manifests advanced.",
+  "cpu_reference": {
+    "fixed_revision": "23164e4a88fe46af609cc99b0de38a98313a5f4d",
+    "source_sha256": {
+      "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+      "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+      "research/upstream/nikke-calc-master/data/parsed_skills.json": "81e2934af7c91b69a49b71721d5f53af25b5ebf006595d3e929db4582ff23137"
+    }
+  },
+  "external_crosschecks": [
+    {
+      "url": "https://www.prydwen.gg/nikke/characters/cinderella",
+      "role": "Independent skill description and per-strike additional damage explanation"
+    },
+    {
+      "url": "https://gamewith.jp/nikke/article/show/470062",
+      "role": "Japanese skill description: additional damage copies Beautiful stacks"
+    }
+  ],
+  "evidence_limit": "Published skill descriptions and reference model agree on the implemented Cinderella count/stack example; no claim of own live in-game measurement or all interactions",
+  "verification_selection": [
+    "Shared table-driven reference and boundary tests",
+    "Algebraic3-hit bonus versus1-hit and absent bonus",
+    "CPU versus GPU for deferred phase/exclusion and current-state coefficient reference",
+    "Four real100-second squads, bonus activation observed for every gated character",
+    "All previously accepted compiler contexts compared unchanged",
+    "Related existing named damage magnitude/hit/weapon regressions only, not whole216 again"
+  ]
+}

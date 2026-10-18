@@ -1,0 +1,38 @@
+{
+  "recorded_at": "2026-10-17T21:19:31.982308+00:00",
+  "reason": "System commit headroom fell to about2.6GiB during simultaneous native compilation and portable verification",
+  "before": {
+    "total_physical_KiB": 66891640,
+    "free_physical_KiB": 4059840,
+    "total_commit_KiB": 156576988,
+    "free_commit_KiB": 2751956,
+    "native_working_set_bytes": 22708891648,
+    "portable_working_set_bytes": 9148825600
+  },
+  "action": {
+    "stopped_only_verified_task_pid": 107340,
+    "stopped_session": 23279,
+    "identity_rechecked": true,
+    "terminal_exit_code": 1,
+    "numerical_acceptance": false,
+    "native_session_retained": 45811,
+    "native_pid": 47168
+  },
+  "after": {
+    "free_physical_KiB": 11759552,
+    "free_commit_KiB": 22345840,
+    "native_user_cpu_seconds": 976.59375,
+    "native_kernel_cpu_seconds": 54.796875
+  },
+  "policy": "For this shader size, serialize native build and portable module JIT/verification. This interruption was triggered by measured resource pressure, not an observation timeout. Resume portable verification only after native build ends.",
+  "scope": "Only current-task processes inspected/stopped; user servers and unrelated processes untouched",
+  "post_stop_monitor": {
+    "recorded_at": "2026-10-17T21:21:21.466611+00:00",
+    "free_physical_KiB": 9132680,
+    "free_commit_KiB": 22276848,
+    "native_user_cpu_seconds": 1091.640625,
+    "native_kernel_cpu_seconds": 58.0625,
+    "native_working_set_bytes": 22796144640,
+    "native_commit_KiB": 32047852
+  }
+}

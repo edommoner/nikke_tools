@@ -1,0 +1,2166 @@
+{
+  "passed": true,
+  "port": 4345,
+  "wall_ms": 7730.9025,
+  "normal_api": true,
+  "candidates": 8,
+  "cache_hits": 0,
+  "baseline": "research/mode-inputs-before-api.json",
+  "speedup": 1.0258496339851655,
+  "results": [
+    {
+      "value": 1000,
+      "meets": true,
+      "result": {
+        "total_damage": 737966555,
+        "members": [
+          {
+            "name": "신데렐라 : 크리스탈 웨이브",
+            "damage": 269341413,
+            "share": 0.364977804448062
+          },
+          {
+            "name": "리타",
+            "damage": 39161683,
+            "share": 0.05306701602486579
+          },
+          {
+            "name": "크라운",
+            "damage": 56261454,
+            "share": 0.07623848752874715
+          },
+          {
+            "name": "앨리스",
+            "damage": 127507895,
+            "share": 0.1727827557171612
+          },
+          {
+            "name": "모더니아",
+            "damage": 245694110,
+            "share": 0.33293393628116386
+          }
+        ],
+        "base_stats": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "atk": 125386,
+            "def": 17583,
+            "hp": 2980819
+          },
+          "리타": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "크라운": {
+            "atk": 87387,
+            "def": 20905,
+            "hp": 3557120
+          },
+          "앨리스": {
+            "atk": 125311,
+            "def": 17769,
+            "hp": 3001638
+          },
+          "모더니아": {
+            "atk": 125693,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "신데렐라 : 크리스탈 웨이브"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 20.667,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 20.767,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 20.867,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 21.25,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 31.25,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 35.633,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 35.733,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 35.833,
+            "event": "stage:3 사용",
+            "character": "신데렐라 : 크리스탈 웨이브"
+          },
+          {
+            "time": 36.217,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 7541.353,
+        "initialization_ms": 7.362,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1216840,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 58.48,
+          "allocation_upload_host": 2.71,
+          "kernel_cuda": 7477.314,
+          "kernel_launch_sync_host": 7477.26,
+          "readback_host": 0.318,
+          "decode_host": 2.586
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "hp": 2980819,
+            "hp_pct": 100,
+            "max_hp": 2980819
+          },
+          "리타": {
+            "hp": 3267307,
+            "hp_pct": 100,
+            "max_hp": 3267307
+          },
+          "크라운": {
+            "hp": 3557120,
+            "hp_pct": 100,
+            "max_hp": 3557120
+          },
+          "앨리스": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "모더니아": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 741,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 13,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1009,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 136,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2058,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 96,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 33,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2033,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 45.8258033333321
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 7541.353,
+        "batch_workspace_bytes": 9734720,
+        "amortized_elapsed_ms": 942.669
+      }
+    },
+    {
+      "value": 2000,
+      "meets": true,
+      "result": {
+        "total_damage": 740209820,
+        "members": [
+          {
+            "name": "신데렐라 : 크리스탈 웨이브",
+            "damage": 271584678,
+            "share": 0.3669022899480042
+          },
+          {
+            "name": "리타",
+            "damage": 39161683,
+            "share": 0.05290619219291092
+          },
+          {
+            "name": "크라운",
+            "damage": 56261454,
+            "share": 0.0760074407010704
+          },
+          {
+            "name": "앨리스",
+            "damage": 127507895,
+            "share": 0.1722591237711491
+          },
+          {
+            "name": "모더니아",
+            "damage": 245694110,
+            "share": 0.33192495338686534
+          }
+        ],
+        "base_stats": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "atk": 126386,
+            "def": 17583,
+            "hp": 2980819
+          },
+          "리타": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "크라운": {
+            "atk": 87387,
+            "def": 20905,
+            "hp": 3557120
+          },
+          "앨리스": {
+            "atk": 125311,
+            "def": 17769,
+            "hp": 3001638
+          },
+          "모더니아": {
+            "atk": 125693,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "신데렐라 : 크리스탈 웨이브"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 20.667,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 20.767,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 20.867,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 21.25,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 31.25,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 35.633,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 35.733,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 35.833,
+            "event": "stage:3 사용",
+            "character": "신데렐라 : 크리스탈 웨이브"
+          },
+          {
+            "time": 36.217,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 7541.353,
+        "initialization_ms": 7.362,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1216840,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 58.48,
+          "allocation_upload_host": 2.71,
+          "kernel_cuda": 7477.314,
+          "kernel_launch_sync_host": 7477.26,
+          "readback_host": 0.318,
+          "decode_host": 2.586
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "hp": 2980819,
+            "hp_pct": 100,
+            "max_hp": 2980819
+          },
+          "리타": {
+            "hp": 3267307,
+            "hp_pct": 100,
+            "max_hp": 3267307
+          },
+          "크라운": {
+            "hp": 3557120,
+            "hp_pct": 100,
+            "max_hp": 3557120
+          },
+          "앨리스": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "모더니아": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 741,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 13,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1009,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 136,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2058,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 96,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 33,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2033,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 45.8258033333321
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 7541.353,
+        "batch_workspace_bytes": 9734720,
+        "amortized_elapsed_ms": 942.669
+      }
+    },
+    {
+      "value": 3000,
+      "meets": true,
+      "result": {
+        "total_damage": 742452847,
+        "members": [
+          {
+            "name": "신데렐라 : 크리스탈 웨이브",
+            "damage": 273827705,
+            "share": 0.3688149437455117
+          },
+          {
+            "name": "리타",
+            "damage": 39161683,
+            "share": 0.052746357102998624
+          },
+          {
+            "name": "크라운",
+            "damage": 56261454,
+            "share": 0.075777814345158
+          },
+          {
+            "name": "앨리스",
+            "damage": 127507895,
+            "share": 0.17173871110497607
+          },
+          {
+            "name": "모더니아",
+            "damage": 245694110,
+            "share": 0.3309221737013556
+          }
+        ],
+        "base_stats": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "atk": 127386,
+            "def": 17583,
+            "hp": 2980819
+          },
+          "리타": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "크라운": {
+            "atk": 87387,
+            "def": 20905,
+            "hp": 3557120
+          },
+          "앨리스": {
+            "atk": 125311,
+            "def": 17769,
+            "hp": 3001638
+          },
+          "모더니아": {
+            "atk": 125693,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "신데렐라 : 크리스탈 웨이브"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 20.667,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 20.767,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 20.867,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 21.25,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 31.25,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 35.633,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 35.733,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 35.833,
+            "event": "stage:3 사용",
+            "character": "신데렐라 : 크리스탈 웨이브"
+          },
+          {
+            "time": 36.217,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 7541.353,
+        "initialization_ms": 7.362,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1216840,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 58.48,
+          "allocation_upload_host": 2.71,
+          "kernel_cuda": 7477.314,
+          "kernel_launch_sync_host": 7477.26,
+          "readback_host": 0.318,
+          "decode_host": 2.586
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "hp": 2980819,
+            "hp_pct": 100,
+            "max_hp": 2980819
+          },
+          "리타": {
+            "hp": 3267307,
+            "hp_pct": 100,
+            "max_hp": 3267307
+          },
+          "크라운": {
+            "hp": 3557120,
+            "hp_pct": 100,
+            "max_hp": 3557120
+          },
+          "앨리스": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "모더니아": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 741,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 13,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1009,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 136,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2058,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 96,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 33,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2033,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 45.8258033333321
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 7541.353,
+        "batch_workspace_bytes": 9734720,
+        "amortized_elapsed_ms": 942.669
+      }
+    },
+    {
+      "value": 4000,
+      "meets": true,
+      "result": {
+        "total_damage": 744695748,
+        "members": [
+          {
+            "name": "신데렐라 : 크리스탈 웨이브",
+            "damage": 276070606,
+            "share": 0.37071596922828143
+          },
+          {
+            "name": "리타",
+            "damage": 39161683,
+            "share": 0.052587493758592
+          },
+          {
+            "name": "크라운",
+            "damage": 56261454,
+            "share": 0.07554958404301242
+          },
+          {
+            "name": "앨리스",
+            "damage": 127507895,
+            "share": 0.17122146237902247
+          },
+          {
+            "name": "모더니아",
+            "damage": 245694110,
+            "share": 0.3299254905910917
+          }
+        ],
+        "base_stats": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "atk": 128386,
+            "def": 17583,
+            "hp": 2980819
+          },
+          "리타": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "크라운": {
+            "atk": 87387,
+            "def": 20905,
+            "hp": 3557120
+          },
+          "앨리스": {
+            "atk": 125311,
+            "def": 17769,
+            "hp": 3001638
+          },
+          "모더니아": {
+            "atk": 125693,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "신데렐라 : 크리스탈 웨이브"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 20.667,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 20.767,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 20.867,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 21.25,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 31.25,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 35.633,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 35.733,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 35.833,
+            "event": "stage:3 사용",
+            "character": "신데렐라 : 크리스탈 웨이브"
+          },
+          {
+            "time": 36.217,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 7541.353,
+        "initialization_ms": 7.362,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1216840,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 58.48,
+          "allocation_upload_host": 2.71,
+          "kernel_cuda": 7477.314,
+          "kernel_launch_sync_host": 7477.26,
+          "readback_host": 0.318,
+          "decode_host": 2.586
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "hp": 2980819,
+            "hp_pct": 100,
+            "max_hp": 2980819
+          },
+          "리타": {
+            "hp": 3267307,
+            "hp_pct": 100,
+            "max_hp": 3267307
+          },
+          "크라운": {
+            "hp": 3557120,
+            "hp_pct": 100,
+            "max_hp": 3557120
+          },
+          "앨리스": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "모더니아": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 741,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 13,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1009,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 136,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2058,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 96,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 33,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2033,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 45.8258033333321
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 7541.353,
+        "batch_workspace_bytes": 9734720,
+        "amortized_elapsed_ms": 942.669
+      }
+    },
+    {
+      "value": 5000,
+      "meets": true,
+      "result": {
+        "total_damage": 746938722,
+        "members": [
+          {
+            "name": "신데렐라 : 크리스탈 웨이브",
+            "damage": 278313580,
+            "share": 0.3726056392615297
+          },
+          {
+            "name": "리타",
+            "damage": 39161683,
+            "share": 0.05242957935711358
+          },
+          {
+            "name": "크라운",
+            "damage": 56261454,
+            "share": 0.07532271703541432
+          },
+          {
+            "name": "앨리스",
+            "damage": 127507895,
+            "share": 0.17070730334957784
+          },
+          {
+            "name": "모더니아",
+            "damage": 245694110,
+            "share": 0.3289347609963646
+          }
+        ],
+        "base_stats": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "atk": 129386,
+            "def": 17583,
+            "hp": 2980819
+          },
+          "리타": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "크라운": {
+            "atk": 87387,
+            "def": 20905,
+            "hp": 3557120
+          },
+          "앨리스": {
+            "atk": 125311,
+            "def": 17769,
+            "hp": 3001638
+          },
+          "모더니아": {
+            "atk": 125693,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "신데렐라 : 크리스탈 웨이브"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 20.667,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 20.767,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 20.867,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 21.25,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 31.25,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 35.633,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 35.733,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 35.833,
+            "event": "stage:3 사용",
+            "character": "신데렐라 : 크리스탈 웨이브"
+          },
+          {
+            "time": 36.217,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 7541.353,
+        "initialization_ms": 7.362,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1216840,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 58.48,
+          "allocation_upload_host": 2.71,
+          "kernel_cuda": 7477.314,
+          "kernel_launch_sync_host": 7477.26,
+          "readback_host": 0.318,
+          "decode_host": 2.586
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "hp": 2980819,
+            "hp_pct": 100,
+            "max_hp": 2980819
+          },
+          "리타": {
+            "hp": 3267307,
+            "hp_pct": 100,
+            "max_hp": 3267307
+          },
+          "크라운": {
+            "hp": 3557120,
+            "hp_pct": 100,
+            "max_hp": 3557120
+          },
+          "앨리스": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "모더니아": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 741,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 13,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1009,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 136,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2058,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 96,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 33,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2033,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 45.8258033333321
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 7541.353,
+        "batch_workspace_bytes": 9734720,
+        "amortized_elapsed_ms": 942.669
+      }
+    },
+    {
+      "value": 6000,
+      "meets": true,
+      "result": {
+        "total_damage": 749181983,
+        "members": [
+          {
+            "name": "신데렐라 : 크리스탈 웨이브",
+            "damage": 280556841,
+            "share": 0.3744842339594811
+          },
+          {
+            "name": "리타",
+            "damage": 39161683,
+            "share": 0.0522725904902067
+          },
+          {
+            "name": "크라운",
+            "damage": 56261454,
+            "share": 0.07509717969285441
+          },
+          {
+            "name": "앨리스",
+            "damage": 127507895,
+            "share": 0.17019615780055405
+          },
+          {
+            "name": "모더니아",
+            "damage": 245694110,
+            "share": 0.32794983805690375
+          }
+        ],
+        "base_stats": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "atk": 130386,
+            "def": 17583,
+            "hp": 2980819
+          },
+          "리타": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "크라운": {
+            "atk": 87387,
+            "def": 20905,
+            "hp": 3557120
+          },
+          "앨리스": {
+            "atk": 125311,
+            "def": 17769,
+            "hp": 3001638
+          },
+          "모더니아": {
+            "atk": 125693,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "신데렐라 : 크리스탈 웨이브"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 20.667,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 20.767,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 20.867,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 21.25,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 31.25,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 35.633,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 35.733,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 35.833,
+            "event": "stage:3 사용",
+            "character": "신데렐라 : 크리스탈 웨이브"
+          },
+          {
+            "time": 36.217,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 7541.353,
+        "initialization_ms": 7.362,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1216840,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 58.48,
+          "allocation_upload_host": 2.71,
+          "kernel_cuda": 7477.314,
+          "kernel_launch_sync_host": 7477.26,
+          "readback_host": 0.318,
+          "decode_host": 2.586
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "hp": 2980819,
+            "hp_pct": 100,
+            "max_hp": 2980819
+          },
+          "리타": {
+            "hp": 3267307,
+            "hp_pct": 100,
+            "max_hp": 3267307
+          },
+          "크라운": {
+            "hp": 3557120,
+            "hp_pct": 100,
+            "max_hp": 3557120
+          },
+          "앨리스": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "모더니아": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 741,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 13,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1009,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 136,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2058,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 96,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 33,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2033,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 45.8258033333321
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 7541.353,
+        "batch_workspace_bytes": 9734720,
+        "amortized_elapsed_ms": 942.669
+      }
+    },
+    {
+      "value": 7000,
+      "meets": true,
+      "result": {
+        "total_damage": 751424678,
+        "members": [
+          {
+            "name": "신데렐라 : 크리스탈 웨이브",
+            "damage": 282799536,
+            "share": 0.3763511424095124
+          },
+          {
+            "name": "리타",
+            "damage": 39161683,
+            "share": 0.05211657821011835
+          },
+          {
+            "name": "크라운",
+            "damage": 56261454,
+            "share": 0.07487304535931145
+          },
+          {
+            "name": "앨리스",
+            "damage": 127507895,
+            "share": 0.1696881919547497
+          },
+          {
+            "name": "모더니아",
+            "damage": 245694110,
+            "share": 0.32697104206630806
+          }
+        ],
+        "base_stats": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "atk": 131386,
+            "def": 17583,
+            "hp": 2980819
+          },
+          "리타": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "크라운": {
+            "atk": 87387,
+            "def": 20905,
+            "hp": 3557120
+          },
+          "앨리스": {
+            "atk": 125311,
+            "def": 17769,
+            "hp": 3001638
+          },
+          "모더니아": {
+            "atk": 125693,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "신데렐라 : 크리스탈 웨이브"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 20.667,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 20.767,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 20.867,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 21.25,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 31.25,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 35.633,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 35.733,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 35.833,
+            "event": "stage:3 사용",
+            "character": "신데렐라 : 크리스탈 웨이브"
+          },
+          {
+            "time": 36.217,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 7541.353,
+        "initialization_ms": 7.362,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1216840,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 58.48,
+          "allocation_upload_host": 2.71,
+          "kernel_cuda": 7477.314,
+          "kernel_launch_sync_host": 7477.26,
+          "readback_host": 0.318,
+          "decode_host": 2.586
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "hp": 2980819,
+            "hp_pct": 100,
+            "max_hp": 2980819
+          },
+          "리타": {
+            "hp": 3267307,
+            "hp_pct": 100,
+            "max_hp": 3267307
+          },
+          "크라운": {
+            "hp": 3557120,
+            "hp_pct": 100,
+            "max_hp": 3557120
+          },
+          "앨리스": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "모더니아": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 741,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 13,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1009,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 136,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2058,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 96,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 33,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2033,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 45.8258033333321
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 7541.353,
+        "batch_workspace_bytes": 9734720,
+        "amortized_elapsed_ms": 942.669
+      }
+    },
+    {
+      "value": 8000,
+      "meets": true,
+      "result": {
+        "total_damage": 753667960,
+        "members": [
+          {
+            "name": "신데렐라 : 크리스탈 웨이브",
+            "damage": 285042818,
+            "share": 0.37820742439415894
+          },
+          {
+            "name": "리타",
+            "damage": 39161683,
+            "share": 0.051961453953807454
+          },
+          {
+            "name": "크라운",
+            "damage": 56261454,
+            "share": 0.07465018680109474
+          },
+          {
+            "name": "앨리스",
+            "damage": 127507895,
+            "share": 0.16918311745665823
+          },
+          {
+            "name": "모더니아",
+            "damage": 245694110,
+            "share": 0.32599781739428063
+          }
+        ],
+        "base_stats": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "atk": 132386,
+            "def": 17583,
+            "hp": 2980819
+          },
+          "리타": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "크라운": {
+            "atk": 87387,
+            "def": 20905,
+            "hp": 3557120
+          },
+          "앨리스": {
+            "atk": 125311,
+            "def": 17769,
+            "hp": 3001638
+          },
+          "모더니아": {
+            "atk": 125693,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "신데렐라 : 크리스탈 웨이브"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 20.667,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 20.767,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 20.867,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 21.25,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 31.25,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 35.633,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 35.733,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 35.833,
+            "event": "stage:3 사용",
+            "character": "신데렐라 : 크리스탈 웨이브"
+          },
+          {
+            "time": 36.217,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 7541.353,
+        "initialization_ms": 7.362,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1216840,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 58.48,
+          "allocation_upload_host": 2.71,
+          "kernel_cuda": 7477.314,
+          "kernel_launch_sync_host": 7477.26,
+          "readback_host": 0.318,
+          "decode_host": 2.586
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "hp": 2980819,
+            "hp_pct": 100,
+            "max_hp": 2980819
+          },
+          "리타": {
+            "hp": 3267307,
+            "hp_pct": 100,
+            "max_hp": 3267307
+          },
+          "크라운": {
+            "hp": 3557120,
+            "hp_pct": 100,
+            "max_hp": 3557120
+          },
+          "앨리스": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "모더니아": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "신데렐라 : 크리스탈 웨이브": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 741,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 13,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1009,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 136,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2058,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 96,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": true,
+            "phase": 1,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 33,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 2033,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 45.8258033333321
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 7541.353,
+        "batch_workspace_bytes": 9734720,
+        "amortized_elapsed_ms": 942.669
+      }
+    }
+  ],
+  "source_sha256": {
+    "server.mjs": "8ee5956ff2f6360e57d35c6ab88d63ef0f0a5a826fbb4fbad01a795e0acae010",
+    "app/detail_gpu.py": "54ce67be94bfe14cf3569f1bef3532433ee19764e3f1cbd59bd7e77b16c2e801",
+    "app/gpu_service.py": "a5c9c707479986ab236a15cf73db872e6ac07e4f5148c9575d2c6b3fb025a2c0",
+    "app/detail_effects.cu": "b38356c3d213ac2a7712565e4ca2abc6a23417290309108ec927a594681d735d",
+    "app/detail_effects-sm86.cubin": "e5d2e224d66715ec2c84d4811a2b9f77a5603574fe2df2a5d6eaa6955c39d95f",
+    "app/detail_effects-sm86.json": "b27deb6fc265ad5f126fe873fe3a49c18742ef2d5e84b7ce4771d763c0f5de88",
+    "research/mode-inputs-api-fixture.json": "e0726123a3d262770e3cf3af1f90ea15072e5be151f6f79cdee884946141399c",
+    "research/benchmark-normal-search.mjs": "e40f3e2615d0aad13cdf14bd87d6e1e48528ed2560a0b6ee43fffc34ef864545"
+  }
+}

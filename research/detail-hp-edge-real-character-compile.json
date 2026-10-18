@@ -1,0 +1,203 @@
+{
+  "stage_only": true,
+  "gpu_battle_verified": false,
+  "objective_complete": false,
+  "cases": [
+    {
+      "character": "목단",
+      "favorite_stage": 0,
+      "compiled": false,
+      "issues": [
+        {
+          "character": "목단",
+          "effect": "다 덤벼!",
+          "reason": "[{'reason': 'scaling: lost_hp_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "목단",
+      "favorite_stage": 1,
+      "compiled": false,
+      "issues": [
+        {
+          "character": "목단",
+          "effect": "다 덤벼!",
+          "reason": "[{'reason': 'scaling: lost_hp_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "목단",
+      "favorite_stage": 2,
+      "compiled": false,
+      "issues": [
+        {
+          "character": "목단",
+          "effect": "다 덤벼!",
+          "reason": "[{'reason': 'scaling: lost_hp_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "목단",
+      "favorite_stage": 3,
+      "compiled": false,
+      "issues": [
+        {
+          "character": "목단",
+          "effect": "다 덤벼!",
+          "reason": "[{'reason': 'scaling: lost_hp_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "솔린 : 프로스트 티켓",
+      "favorite_stage": 0,
+      "compiled": true
+    },
+    {
+      "character": "솔린 : 프로스트 티켓",
+      "favorite_stage": 1,
+      "compiled": true
+    },
+    {
+      "character": "솔린 : 프로스트 티켓",
+      "favorite_stage": 2,
+      "compiled": true
+    },
+    {
+      "character": "솔린 : 프로스트 티켓",
+      "favorite_stage": 3,
+      "compiled": true
+    },
+    {
+      "character": "플로라",
+      "favorite_stage": 0,
+      "compiled": true
+    },
+    {
+      "character": "플로라",
+      "favorite_stage": 1,
+      "compiled": true
+    },
+    {
+      "character": "플로라",
+      "favorite_stage": 2,
+      "compiled": true
+    },
+    {
+      "character": "플로라",
+      "favorite_stage": 3,
+      "compiled": true
+    },
+    {
+      "character": "센티",
+      "favorite_stage": 0,
+      "compiled": true
+    },
+    {
+      "character": "센티",
+      "favorite_stage": 1,
+      "compiled": true
+    },
+    {
+      "character": "센티",
+      "favorite_stage": 2,
+      "compiled": false,
+      "issues": [
+        {
+          "character": "센티",
+          "effect": "자재 비축",
+          "reason": "[{'reason': 'effect type/stat: buff / heal_overcharge_store'}]"
+        }
+      ]
+    },
+    {
+      "character": "센티",
+      "favorite_stage": 3,
+      "compiled": false,
+      "issues": [
+        {
+          "character": "센티",
+          "effect": "자재 비축",
+          "reason": "[{'reason': 'effect type/stat: buff / heal_overcharge_store'}]"
+        }
+      ]
+    },
+    {
+      "character": "비스킷",
+      "favorite_stage": 0,
+      "compiled": false,
+      "issues": [
+        {
+          "character": "비스킷",
+          "effect": "산책 훈련",
+          "reason": "[{'reason': 'effect type/stat: instant / cover_revive'}]"
+        }
+      ]
+    },
+    {
+      "character": "비스킷",
+      "favorite_stage": 1,
+      "compiled": false,
+      "issues": [
+        {
+          "character": "비스킷",
+          "effect": "산책 훈련",
+          "reason": "[{'reason': 'effect type/stat: instant / cover_revive'}]"
+        }
+      ]
+    },
+    {
+      "character": "비스킷",
+      "favorite_stage": 2,
+      "compiled": false,
+      "issues": [
+        {
+          "character": "비스킷",
+          "effect": "산책 훈련",
+          "reason": "[{'reason': 'effect type/stat: instant / cover_revive'}]"
+        }
+      ]
+    },
+    {
+      "character": "비스킷",
+      "favorite_stage": 3,
+      "compiled": false,
+      "issues": [
+        {
+          "character": "비스킷",
+          "effect": "산책 훈련",
+          "reason": "[{'reason': 'effect type/stat: instant / cover_revive'}]"
+        }
+      ]
+    },
+    {
+      "character": "A2",
+      "favorite_stage": 0,
+      "compiled": true
+    },
+    {
+      "character": "A2",
+      "favorite_stage": 1,
+      "compiled": true
+    },
+    {
+      "character": "A2",
+      "favorite_stage": 2,
+      "compiled": true
+    },
+    {
+      "character": "A2",
+      "favorite_stage": 3,
+      "compiled": true
+    }
+  ],
+  "source_sha256": {
+    "research/probe-hp-edge-real-characters.py": "074f41ae64727a677094008cd19ac1ce895fc11d8492c391f03687a8648f92f3",
+    "scripts/verify-staged-hp-edge.py": "0474400f80359572b810d6d5894da7f892d0c7312c50f5f4fe1ff713f21ceae1",
+    "research/staging/v35/app/detail_gpu.py": "f8006a02e000458d1df6c82c8070e80650b5d0b8538ac60af8e8b77568405e1d",
+    "research/upstream/nikke-calc-master/data/parsed_skills.json": "81e2934af7c91b69a49b71721d5f53af25b5ebf006595d3e929db4582ff23137"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "exit_code": 0,
+  "seconds": 304.2248311000876,
+  "stage": "native",
+  "generated_at": "2026-10-17T21:41:49.097573+00:00",
+  "child_pid": 98620,
+  "peak_commit_bytes": 10004918272,
+  "peak_working_set_bytes": 9987207168,
+  "max_sampled_private_bytes": 10004877312,
+  "samples": 1215,
+  "sample_errors": [],
+  "source_sha256": "6b03fe5422631d35cc2a93ce7bfe685dd7cf90fa289b8ba64ff8ae8b1dded93b",
+  "driver_sha256": "f334296c507a8077288ae435831838dfdc82fe1cd5736eee8e262e0b946ff04e",
+  "scope": "Compiler process time and memory only; no GPU simulation speed claim",
+  "memory_references": [
+    "https://learn.microsoft.com/en-us/windows/win32/api/psapi/nf-psapi-getprocessmemoryinfo",
+    "https://learn.microsoft.com/en-us/windows/win32/api/psapi/ns-psapi-process_memory_counters_ex"
+  ]
+}

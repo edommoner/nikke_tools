@@ -1,0 +1,60 @@
+{
+  "updated_at": "2026-10-17T20:56:56.082849+00:00",
+  "previous_goal_turn": "progress: native, source-stable portable, normal API and related regressions passed;342-file checkpoint saved",
+  "objective_complete": false,
+  "phase": "Named target v49 verified and archived",
+  "abi": "detail_named_attack_targets_v49",
+  "standard_compile_accepted": 175,
+  "standard_total": 203,
+  "compile_is_not_battle_correctness": true,
+  "checks": {
+    "spec_and_boundary_tests": 8,
+    "native_cases": 8,
+    "portable_cases": 8,
+    "existing_related_methods": 2,
+    "existing_related_cases": 20,
+    "owned_normal_api": true,
+    "previous_programs_unchanged": 902
+  },
+  "live_handles": {},
+  "completed_handles": {
+    "ptx_build": 63789,
+    "cpu_stimulus_audit": 49791,
+    "native_build": 28250,
+    "native_verification": 18233,
+    "owned_api": 12676,
+    "initial_portable_verification": 75080,
+    "portable_verification": 54394,
+    "related_native": 67413
+  },
+  "source_sha256": {
+    "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
+    "app/detail_gpu.py": "f44f296f1c2ae3a419d2db2d398da29e9a44cdece606aaf45ff815004355dd74",
+    "app/detail_effects.cu": "25d2cf2e29f00c131dfbb6aff1b2489a5dbe414718b97fc7c9680f4915899c8a",
+    "scripts/build-detail-native.py": "d89c182e16b182add3d6f7250365a78d063f6d99cafaf7da709fff4653695a46",
+    "scripts/build-combat.py": "d7e34ec967c3f2f25322ef747c09af09ca8a9f085ecd9bb6745c4c3dd3f5a1d5",
+    "scripts/verify-named-target-detail.py": "e1bc997cf7122d2b816c901a2d9ebfbdbcb799d0351e5185efd12dd6c33cfc7a",
+    "scripts/verify-extended-detail.py": "51df21e93ae7b9b2c093980c78e8880999d627ee8d46df272f82ddde19339902",
+    "tests/test_named_target_specs.py": "4f634624a4221416d77a753047d020c62e53ae00b6d833951246c39c3bd36d72",
+    "tests/test_detail_named_targets.py": "f9e0de43fdbe128f11a4a0819f254501091f2b2a6a6aaf0acb72f1179d9bd20f",
+    "scripts/verify-normal-detail.py": "2a0187e8d97073f84ea694ba9945ee8809d9c47628f55ed38b62dd1482d626e9"
+  },
+  "next_actions": [
+    "Resume remaining28 standard characters with common mechanics, not character-name runtime branches.",
+    "Next bundle candidates: HP-based damage attack basis (additive/replacement), exclusive ammo-reduction grouping, live undying predicate, and no-broken-live-ally-cover predicate. Define quantity/rounding and phase contracts first; use existing quantity/state/whole-squad comparators.",
+    "CPU multi_hit matching exists but no calculator event emission was found. Investigate actual hit semantics; do not enable a never-fired listener to claim Bellota/Nihilister support.",
+    "Preserve speed optimization: production grouped evaluator and normal job pump remain. No single-squad speed claim; last normal8-candidate measurement35.17s to4.81s is from the host-only baseline.",
+    "Do not rerun full216 solely for source-local additions. Choose related tests, freeze sources before launching, and guard only artifacts used by each backend.",
+    "Reference data and compiled acceptance175/203,694/812 are not all-character or in-game proof. Four new real squads are verified at listed100s/favorite0/grown scenarios; favorite contexts still need representative behavior coverage."
+  ],
+  "compile_migration": "research/named-target-compile-migration.json",
+  "previous_accepted_programs_unchanged": 902,
+  "favorite_compile_accepted": 694,
+  "favorite_total": 812,
+  "status": "No owned build/GPU/API processes remain. All-character goal remains active.",
+  "normal_api_fixture": "research/named-target-api-fixture.json",
+  "normal_api_command": "NIKKE_TEST_PORT=4345 node scripts/smoke-owned-detail.mjs research/named-target-api-fixture.json research/named-target-owned-api.json",
+  "initial_portable_result": "All numerical cases matched, but source-stability guard failed after known host/artifact edits. Not accepted. Finalized verifier rerun after this terminal exit1, not after an observation timeout.",
+  "checkpoint": "research/named-target-checkpoint.json",
+  "archive": "research/ports/v49-named-targets-verified"
+}

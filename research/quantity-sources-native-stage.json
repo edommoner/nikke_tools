@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "native_stage_only": true,
+  "portable_final_pending": true,
+  "objective_complete": false,
+  "abi": "detail_quantity_sources_v60",
+  "instruction_width": 344,
+  "archive_base": "research/ports/v59-staged-queue-verified",
+  "generated_at": "2026-10-18T03:24:44.275800+00:00",
+  "reports": [
+    "research/quantity-sources-native.json",
+    "research/quantity-sources-unit-native-stage.json",
+    "research/quantity-sources-coverage.json",
+    "research/quantity-sources-api-before.json",
+    "research/quantity-sources-control-before.json"
+  ],
+  "checks": {
+    "shared_primary_cases": 9,
+    "raw_squads": 2,
+    "lightweight_methods": 56,
+    "compile_only_supported": 184,
+    "existing_programs_identical": 183,
+    "catalog": 203
+  },
+  "baseline": {
+    "new_operation_api8_ms": 5907.6282,
+    "existing_control_api8_ms": 6538.396500000001
+  },
+  "game_rules_verified": false,
+  "remaining": "Optimize the shared quantity lookup after native semantic proof, then finalize both backends and normal owned API.19 standard compile-unaccepted characters, other effect/world/equipment/favorite/model checks and final whole-system efficiency review remain.",
+  "archive": "research/ports/v60-quantity-sources-native-stage",
+  "source_sha256": {
+    "app/detail_effects-sm86.cubin": "859a2f162b41b6b75cd9f79971700f066f59a244053bccdc61c1daa8460bc327",
+    "app/detail_effects-sm86.json": "16747ca9d791dc51c56e1d12aceb6f06fef1e086637ce27a1b353295ce3d63a7",
+    "app/detail_effects.cu": "2fbf5e6c76e94d257b1db65da4c9bfab910b2d223edc8debbb0374962688bf70",
+    "app/detail_gpu.py": "11a953726d325ff8add44b40ee5483d3fcfc910d800629cd8553303a7951d848",
+    "app/quantity_specs.py": "e8a638101b1db68e7fdcaf43867ddabd51c8dc32d09e285d1c334b8ed6674457",
+    "docs/adding-effects.md": "f665ce780b48d7ad1bfa0e6b35bb6180fe508328a88a742b7cca9abccb55aba4",
+    "research/benchmark-normal-search.mjs": "e40f3e2615d0aad13cdf14bd87d6e1e48528ed2560a0b6ee43fffc34ef864545",
+    "research/checkpoint_receipts.py": "9f928fcc6ba97602ed041dfa5d0589409c4076e2d215482427f304907135bf5f",
+    "research/damage-context-dependency-audit.json": "b84fcfca140ecff5549b5d2cf9a059e5d559109fe460be4f0bdc391826322518",
+    "research/quantity-sources-api-before.json": "24ce56ef0944f2b8390c902f54982898c1a730f56975ab5bd682594d7536252b",
+    "research/quantity-sources-api-fixture.json": "4cb29cec25e94d8b0673bc796ed4e3f693aa41a431c105b2642570617c848784",
+    "research/quantity-sources-contract.json": "b7530bd97edcea4f9bbb0ffa436a41cb81d8f41f138101d00fa74029e6f5a52a",
+    "research/quantity-sources-control-before.json": "e9ab2dccf21b74a6a986995d34fb79f5da87a14f17cf15834b805722f8d4a459",
+    "research/quantity-sources-coverage.json": "950996d58cbf319fd95eed6c27cae6493b9e6acdda86ee905329aa7f7d90688d",
+    "research/quantity-sources-native.json": "ae5153ab548fc1c578245990deeb3e691ed66ee413f61632c0c1e855c1573308",
+    "research/quantity-sources-unit-native-stage.json": "8256cdc00c3f7dd80d9bfdc2a298bd804a205916b77a08b7cd30025f092be75e",
+    "research/save-quantity-native-stage.py": "762c6ffdae4c82301e763f61768c65efab7ae312bafd7635e6f74e7e0e04a0bb",
+    "research/staged-dot-api-fixture.json": "a8c10e64c0d717cc1670c82fbb08e2ebb5a624dcaf1786af791d92231db19799",
+    "research/verify-quantity-sources-coverage.py": "c31058e8a8690c53080a93ca37bc20cb2ca49ece8e0b1f58a436f97891f595cc",
+    "scripts/verify-common-runtime-unit.py": "d655dcec4e0e38a463edb79d14b8e02a2518ba5d4efc11a29e336dfff7c791f6",
+    "scripts/verify-quantity-sources-detail.py": "39fdf3c5168142eaa49c343baa3f6f6100a40f17377973645ab3026f8f5d1e7f",
+    "tests/test_quantity_specs.py": "2f1329d64e1854a6bee647792df27126ab36e7e36f0f351ab6eaed06380cf5ac"
+  }
+}

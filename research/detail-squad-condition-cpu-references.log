@@ -1,0 +1,16 @@
+{"name": "battle_start--1", "has_buddy": true, "condition_results": [true], "active": 1, "cpu_total": 27610119}
+{"name": "passive--1", "has_buddy": true, "condition_results": [true], "active": 1, "cpu_total": 27610119}
+{"name": "burst_cast-5", "has_buddy": true, "condition_results": [true], "active": 1, "cpu_total": 25889594}
+{"name": "every:1s-0.5", "has_buddy": true, "condition_results": [true], "active": 0, "cpu_total": 24705478}
+{"name": "on_attack_count:3-0.4", "has_buddy": true, "condition_results": [true], "active": 0, "cpu_total": 22713762}
+{"name": "passive-1", "has_buddy": true, "condition_results": [true], "active": 1, "cpu_total": 27610119}
+{"name": "lazy-random-permanent-passive", "has_buddy": true, "condition_results": [true], "active": 1, "cpu_total": 23821210}
+{"name": "mixed-runtime-gate", "has_buddy": true, "condition_results": [false], "active": 1, "cpu_total": 27369633}
+{"name": "battle_start--1", "has_buddy": false, "condition_results": [false], "active": 0, "cpu_total": 21529323}
+{"name": "passive--1", "has_buddy": false, "condition_results": [false], "active": 1, "cpu_total": 28314925}
+{"name": "burst_cast-5", "has_buddy": false, "condition_results": [false], "active": 0, "cpu_total": 21529323}
+{"name": "every:1s-0.5", "has_buddy": false, "condition_results": [false], "active": 0, "cpu_total": 21529323}
+{"name": "on_attack_count:3-0.4", "has_buddy": false, "condition_results": [false], "active": 0, "cpu_total": 21529323}
+{"name": "passive-1", "has_buddy": false, "condition_results": [false], "active": 0, "cpu_total": 21529323}
+{"name": "lazy-random-permanent-passive", "has_buddy": false, "condition_results": [false], "active": 1, "cpu_total": 24352998}
+{"name": "mixed-runtime-gate", "has_buddy": false, "condition_results": [false], "active": 1, "cpu_total": 27964495}

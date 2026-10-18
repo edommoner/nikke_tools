@@ -1,0 +1,1274 @@
+{
+  "generated_at": "2026-10-17T06:00:47.700417+00:00",
+  "cpu_reference_verified": true,
+  "gpu_implemented": false,
+  "objective_complete": false,
+  "cases": [
+    {
+      "name": "registered-dot",
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "total": 1217445,
+      "callbacks": [
+        {
+          "name": "observed dot",
+          "caster": "리타",
+          "time": 0.21666666666666665,
+          "down": false
+        },
+        {
+          "name": "observed dot",
+          "caster": "리타",
+          "time": 0.41666666666666663,
+          "down": true
+        },
+        {
+          "name": "observed dot",
+          "caster": "리타",
+          "time": 0.6000000000000002,
+          "down": true
+        },
+        {
+          "name": "observed dot",
+          "caster": "리타",
+          "time": 0.8000000000000008,
+          "down": true
+        },
+        {
+          "name": "observed dot",
+          "caster": "리타",
+          "time": 0.9999,
+          "down": true
+        }
+      ],
+      "instant_dispatches": [],
+      "activation_attempts": [
+        {
+          "name": "observed dot",
+          "caster": "리타",
+          "time": 0.0,
+          "down": false,
+          "counts": {
+            "리타": {
+              "battle_start": 1
+            }
+          }
+        }
+      ],
+      "final_state": {
+        "down": [
+          "리타"
+        ],
+        "hp": {
+          "리타": 0.0,
+          "크라운": 3284775.0,
+          "모더니아": 2715916.0,
+          "앨리스": 2715916.0,
+          "N102": 2441844.0
+        },
+        "hp_pct": {
+          "리타": 0.0,
+          "크라운": 100.0,
+          "모더니아": 100.0,
+          "앨리스": 100.0,
+          "N102": 100.0
+        }
+      },
+      "owner_hit_times": [
+        {
+          "time": 0.0,
+          "caster": "리타"
+        },
+        {
+          "time": 0.05,
+          "caster": "리타"
+        },
+        {
+          "time": 0.08333333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 0.13333333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 0.16666666666666666,
+          "caster": "리타"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "time": 0.24999999999999997,
+          "caster": "리타"
+        },
+        {
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "time": 0.3333333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        },
+        {
+          "time": 0.8000000000000008,
+          "caster": "리타"
+        },
+        {
+          "time": 0.9999,
+          "caster": "리타"
+        }
+      ]
+    },
+    {
+      "name": "registered-heal",
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "total": 864890,
+      "callbacks": [],
+      "instant_dispatches": [
+        {
+          "name": "observed heal",
+          "caster": "리타",
+          "time": 0.0,
+          "down": false,
+          "from_tick": false
+        },
+        {
+          "name": "observed heal",
+          "caster": "리타",
+          "time": 0.21666666666666665,
+          "down": false,
+          "from_tick": true
+        },
+        {
+          "name": "observed heal",
+          "caster": "리타",
+          "time": 0.41666666666666663,
+          "down": true,
+          "from_tick": true
+        },
+        {
+          "name": "observed heal",
+          "caster": "리타",
+          "time": 0.6000000000000002,
+          "down": true,
+          "from_tick": true
+        },
+        {
+          "name": "observed heal",
+          "caster": "리타",
+          "time": 0.8000000000000008,
+          "down": true,
+          "from_tick": true
+        }
+      ],
+      "activation_attempts": [
+        {
+          "name": "observed heal",
+          "caster": "리타",
+          "time": 0.0,
+          "down": false,
+          "counts": {
+            "리타": {
+              "battle_start": 1,
+              "event:room for healing": 1,
+              "stack_reach:room for healing:1": 1
+            },
+            "크라운": {
+              "event:room for healing": 1
+            },
+            "모더니아": {
+              "event:room for healing": 1
+            },
+            "앨리스": {
+              "event:room for healing": 1
+            },
+            "N102": {
+              "event:room for healing": 1
+            }
+          }
+        }
+      ],
+      "final_state": {
+        "down": [
+          "리타"
+        ],
+        "hp": {
+          "리타": 0.0,
+          "크라운": 3416166.0,
+          "모더니아": 2824552.6400000006,
+          "앨리스": 2824552.6400000006,
+          "N102": 2539517.76
+        },
+        "hp_pct": {
+          "리타": 0.0,
+          "크라운": 52.0,
+          "모더니아": 52.000000000000014,
+          "앨리스": 52.000000000000014,
+          "N102": 51.99999999999999
+        }
+      },
+      "owner_hit_times": [
+        {
+          "time": 0.0,
+          "caster": "리타"
+        },
+        {
+          "time": 0.05,
+          "caster": "리타"
+        },
+        {
+          "time": 0.08333333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 0.13333333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 0.16666666666666666,
+          "caster": "리타"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "time": 0.24999999999999997,
+          "caster": "리타"
+        },
+        {
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "time": 0.3333333333333333,
+          "caster": "리타"
+        }
+      ]
+    },
+    {
+      "name": "new-every-trigger",
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "total": 867458,
+      "callbacks": [],
+      "instant_dispatches": [],
+      "activation_attempts": [
+        {
+          "name": "observed every",
+          "caster": "리타",
+          "time": 0.21666666666666665,
+          "down": false,
+          "counts": {
+            "리타": {
+              "battle_start": 1,
+              "event:장비 옵션": 45,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 5,
+              "on_attack": 5,
+              "hit_count": 5
+            },
+            "크라운": {
+              "event:장비 옵션": 45,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 1,
+              "on_attack": 1,
+              "hit_count": 1
+            },
+            "모더니아": {
+              "event:장비 옵션": 45,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 1,
+              "on_attack": 1,
+              "hit_count": 1
+            },
+            "앨리스": {
+              "event:장비 옵션": 45,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1
+            },
+            "N102": {
+              "event:장비 옵션": 45,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1
+            },
+            "__squad__": {
+              "squad_ammo_consume": 7,
+              "squad_body_hit": 4
+            }
+          }
+        }
+      ],
+      "final_state": {
+        "down": [
+          "리타"
+        ],
+        "hp": {
+          "리타": 0.0,
+          "크라운": 3284775.0,
+          "모더니아": 2715916.0,
+          "앨리스": 2715916.0,
+          "N102": 2441844.0
+        },
+        "hp_pct": {
+          "리타": 0.0,
+          "크라운": 100.0,
+          "모더니아": 100.0,
+          "앨리스": 100.0,
+          "N102": 100.0
+        }
+      },
+      "owner_hit_times": [
+        {
+          "time": 0.0,
+          "caster": "리타"
+        },
+        {
+          "time": 0.05,
+          "caster": "리타"
+        },
+        {
+          "time": 0.08333333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 0.13333333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 0.16666666666666666,
+          "caster": "리타"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "time": 0.24999999999999997,
+          "caster": "리타"
+        },
+        {
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "time": 0.3333333333333333,
+          "caster": "리타"
+        }
+      ]
+    },
+    {
+      "name": "normal-shots-stop",
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "total": 864890,
+      "callbacks": [],
+      "instant_dispatches": [],
+      "activation_attempts": [],
+      "final_state": {
+        "down": [
+          "리타"
+        ],
+        "hp": {
+          "리타": 0.0,
+          "크라운": 3284775.0,
+          "모더니아": 2715916.0,
+          "앨리스": 2715916.0,
+          "N102": 2441844.0
+        },
+        "hp_pct": {
+          "리타": 0.0,
+          "크라운": 100.0,
+          "모더니아": 100.0,
+          "앨리스": 100.0,
+          "N102": 100.0
+        }
+      },
+      "owner_hit_times": [
+        {
+          "time": 0.0,
+          "caster": "리타"
+        },
+        {
+          "time": 0.05,
+          "caster": "리타"
+        },
+        {
+          "time": 0.08333333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 0.13333333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 0.16666666666666666,
+          "caster": "리타"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "time": 0.24999999999999997,
+          "caster": "리타"
+        },
+        {
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "time": 0.3333333333333333,
+          "caster": "리타"
+        }
+      ]
+    },
+    {
+      "name": "global-ammo-counter",
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "total": 1155490,
+      "callbacks": [],
+      "instant_dispatches": [],
+      "activation_attempts": [
+        {
+          "name": "observed counter",
+          "caster": "리타",
+          "time": 0.3,
+          "down": false,
+          "counts": {
+            "리타": {
+              "battle_start": 1,
+              "event:장비 옵션": 45,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 7,
+              "on_attack": 7,
+              "hit_count": 7,
+              "crit_hit": 1
+            },
+            "크라운": {
+              "event:장비 옵션": 45,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 1,
+              "on_attack": 1,
+              "hit_count": 1
+            },
+            "모더니아": {
+              "event:장비 옵션": 45,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 1,
+              "on_attack": 1,
+              "hit_count": 1
+            },
+            "앨리스": {
+              "event:장비 옵션": 45,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1
+            },
+            "N102": {
+              "event:장비 옵션": 45,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1
+            },
+            "__squad__": {
+              "squad_ammo_consume": 10,
+              "squad_body_hit": 6
+            }
+          }
+        },
+        {
+          "name": "observed counter",
+          "caster": "리타",
+          "time": 1.0500000000000012,
+          "down": false,
+          "counts": {
+            "크라운": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 2,
+              "on_attack": 2,
+              "hit_count": 2,
+              "event:observed counter": 1,
+              "event:ally_down": 1
+            },
+            "모더니아": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 2,
+              "on_attack": 2,
+              "hit_count": 2,
+              "event:observed counter": 1,
+              "event:ally_down": 1
+            },
+            "앨리스": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "event:observed counter": 1,
+              "event:ally_down": 1
+            },
+            "N102": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "event:observed counter": 1,
+              "event:ally_down": 1
+            },
+            "__squad__": {
+              "squad_ammo_consume": 20,
+              "squad_body_hit": 14
+            },
+            "리타": {
+              "event:self_down": 1,
+              "event:장비 옵션": 9,
+              "stack_reach:장비 옵션:1": 9,
+              "pellet_hit": 6,
+              "on_attack": 6,
+              "hit_count": 6,
+              "crit_hit": 1,
+              "core_hit": 1
+            }
+          }
+        },
+        {
+          "name": "observed counter",
+          "caster": "리타",
+          "time": 1.4,
+          "down": false,
+          "counts": {
+            "크라운": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 3,
+              "on_attack": 3,
+              "hit_count": 3,
+              "event:observed counter": 2,
+              "event:ally_down": 1
+            },
+            "모더니아": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 3,
+              "on_attack": 3,
+              "hit_count": 3,
+              "event:observed counter": 2,
+              "event:ally_down": 1
+            },
+            "앨리스": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "event:observed counter": 2,
+              "event:ally_down": 1
+            },
+            "N102": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "event:observed counter": 2,
+              "event:ally_down": 1
+            },
+            "__squad__": {
+              "squad_ammo_consume": 30,
+              "squad_body_hit": 23
+            },
+            "리타": {
+              "event:self_down": 1,
+              "event:장비 옵션": 9,
+              "stack_reach:장비 옵션:1": 9,
+              "pellet_hit": 14,
+              "on_attack": 14,
+              "hit_count": 14,
+              "crit_hit": 2,
+              "core_hit": 2,
+              "event:observed counter": 1,
+              "stack_reach:observed counter:1": 1
+            }
+          }
+        },
+        {
+          "name": "observed counter",
+          "caster": "리타",
+          "time": 1.649999999999999,
+          "down": false,
+          "counts": {
+            "크라운": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 4,
+              "on_attack": 4,
+              "hit_count": 4,
+              "event:observed counter": 3,
+              "event:ally_down": 1
+            },
+            "모더니아": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 4,
+              "on_attack": 4,
+              "hit_count": 4,
+              "event:observed counter": 3,
+              "event:ally_down": 1
+            },
+            "앨리스": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "event:observed counter": 3,
+              "event:ally_down": 1,
+              "full_charge": 1,
+              "on_attack": 1,
+              "full_charge_fire": 1,
+              "hit_count": 1,
+              "full_charge_hit": 1,
+              "core_hit": 1
+            },
+            "N102": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "event:observed counter": 3,
+              "event:ally_down": 1,
+              "full_charge": 1,
+              "on_attack": 1,
+              "full_charge_fire": 1,
+              "hit_count": 1,
+              "full_charge_hit": 1,
+              "core_hit": 1
+            },
+            "__squad__": {
+              "squad_ammo_consume": 40,
+              "squad_body_hit": 31
+            },
+            "리타": {
+              "event:self_down": 1,
+              "event:장비 옵션": 9,
+              "stack_reach:장비 옵션:1": 9,
+              "pellet_hit": 20,
+              "on_attack": 20,
+              "hit_count": 20,
+              "crit_hit": 3,
+              "core_hit": 2,
+              "event:observed counter": 2,
+              "stack_reach:observed counter:1": 1,
+              "stack_reach:observed counter:2": 1
+            }
+          }
+        },
+        {
+          "name": "observed counter",
+          "caster": "리타",
+          "time": 1.9166666666666647,
+          "down": false,
+          "counts": {
+            "크라운": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 6,
+              "on_attack": 6,
+              "hit_count": 6,
+              "event:observed counter": 4,
+              "event:ally_down": 1
+            },
+            "모더니아": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 5,
+              "on_attack": 5,
+              "hit_count": 5,
+              "event:observed counter": 4,
+              "event:ally_down": 1
+            },
+            "앨리스": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "event:observed counter": 4,
+              "event:ally_down": 1,
+              "full_charge": 1,
+              "on_attack": 1,
+              "full_charge_fire": 1,
+              "hit_count": 1,
+              "full_charge_hit": 1,
+              "core_hit": 1
+            },
+            "N102": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "event:observed counter": 4,
+              "event:ally_down": 1,
+              "full_charge": 1,
+              "on_attack": 1,
+              "full_charge_fire": 1,
+              "hit_count": 1,
+              "full_charge_hit": 1,
+              "core_hit": 1
+            },
+            "__squad__": {
+              "squad_ammo_consume": 50,
+              "squad_body_hit": 40
+            },
+            "리타": {
+              "event:self_down": 1,
+              "event:장비 옵션": 9,
+              "stack_reach:장비 옵션:1": 9,
+              "pellet_hit": 27,
+              "on_attack": 27,
+              "hit_count": 27,
+              "crit_hit": 4,
+              "core_hit": 3,
+              "event:observed counter": 3,
+              "stack_reach:observed counter:1": 1,
+              "stack_reach:observed counter:2": 1,
+              "stack_reach:observed counter:3": 1
+            }
+          }
+        }
+      ],
+      "final_state": {
+        "down": [],
+        "hp": {
+          "리타": 1500157.0,
+          "크라운": 3284775.0,
+          "모더니아": 2715916.0,
+          "앨리스": 2715916.0,
+          "N102": 2441844.0
+        },
+        "hp_pct": {
+          "리타": 50.0,
+          "크라운": 100.0,
+          "모더니아": 100.0,
+          "앨리스": 100.0,
+          "N102": 100.0
+        }
+      },
+      "owner_hit_times": [
+        {
+          "time": 0.0,
+          "caster": "리타"
+        },
+        {
+          "time": 0.05,
+          "caster": "리타"
+        },
+        {
+          "time": 0.08333333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 0.13333333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 0.16666666666666666,
+          "caster": "리타"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "time": 0.24999999999999997,
+          "caster": "리타"
+        },
+        {
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "time": 0.3333333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 0.8000000000000008,
+          "caster": "리타"
+        },
+        {
+          "time": 0.850000000000001,
+          "caster": "리타"
+        },
+        {
+          "time": 0.8833333333333344,
+          "caster": "리타"
+        },
+        {
+          "time": 0.9333333333333346,
+          "caster": "리타"
+        },
+        {
+          "time": 0.966666666666668,
+          "caster": "리타"
+        },
+        {
+          "time": 1.016666666666668,
+          "caster": "리타"
+        },
+        {
+          "time": 1.0500000000000012,
+          "caster": "리타"
+        },
+        {
+          "time": 1.100000000000001,
+          "caster": "리타"
+        },
+        {
+          "time": 1.1333333333333342,
+          "caster": "리타"
+        },
+        {
+          "time": 1.183333333333334,
+          "caster": "리타"
+        },
+        {
+          "time": 1.2333333333333338,
+          "caster": "리타"
+        },
+        {
+          "time": 1.266666666666667,
+          "caster": "리타"
+        },
+        {
+          "time": 1.3166666666666669,
+          "caster": "리타"
+        },
+        {
+          "time": 1.35,
+          "caster": "리타"
+        },
+        {
+          "time": 1.4,
+          "caster": "리타"
+        },
+        {
+          "time": 1.4333333333333331,
+          "caster": "리타"
+        },
+        {
+          "time": 1.483333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 1.5166666666666662,
+          "caster": "리타"
+        },
+        {
+          "time": 1.566666666666666,
+          "caster": "리타"
+        },
+        {
+          "time": 1.5999999999999992,
+          "caster": "리타"
+        },
+        {
+          "time": 1.649999999999999,
+          "caster": "리타"
+        },
+        {
+          "time": 1.6833333333333322,
+          "caster": "리타"
+        },
+        {
+          "time": 1.733333333333332,
+          "caster": "리타"
+        },
+        {
+          "time": 1.7666666666666653,
+          "caster": "리타"
+        },
+        {
+          "time": 1.816666666666665,
+          "caster": "리타"
+        },
+        {
+          "time": 1.8499999999999983,
+          "caster": "리타"
+        },
+        {
+          "time": 1.8999999999999981,
+          "caster": "리타"
+        },
+        {
+          "time": 1.9333333333333313,
+          "caster": "리타"
+        },
+        {
+          "time": 1.9833333333333312,
+          "caster": "리타"
+        }
+      ]
+    },
+    {
+      "name": "personal-attack-counter",
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "total": 1130544,
+      "callbacks": [],
+      "instant_dispatches": [],
+      "activation_attempts": [
+        {
+          "name": "observed counter",
+          "caster": "리타",
+          "time": 1.183333333333334,
+          "down": false,
+          "counts": {
+            "크라운": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 2,
+              "on_attack": 2,
+              "hit_count": 2,
+              "event:ally_down": 1
+            },
+            "모더니아": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 2,
+              "on_attack": 2,
+              "hit_count": 2,
+              "event:ally_down": 1
+            },
+            "앨리스": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "event:ally_down": 1
+            },
+            "N102": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "event:ally_down": 1
+            },
+            "__squad__": {
+              "squad_ammo_consume": 23,
+              "squad_body_hit": 18
+            },
+            "리타": {
+              "event:self_down": 1,
+              "event:장비 옵션": 9,
+              "stack_reach:장비 옵션:1": 9,
+              "pellet_hit": 10,
+              "on_attack": 10,
+              "hit_count": 9,
+              "crit_hit": 1,
+              "core_hit": 1
+            }
+          }
+        },
+        {
+          "name": "observed counter",
+          "caster": "리타",
+          "time": 1.5999999999999992,
+          "down": false,
+          "counts": {
+            "크라운": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 3,
+              "on_attack": 3,
+              "hit_count": 3,
+              "event:ally_down": 1,
+              "event:observed counter": 1
+            },
+            "모더니아": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "pellet_hit": 3,
+              "on_attack": 3,
+              "hit_count": 3,
+              "event:ally_down": 1,
+              "event:observed counter": 1
+            },
+            "앨리스": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "event:ally_down": 1,
+              "event:observed counter": 1,
+              "full_charge": 1,
+              "on_attack": 1,
+              "full_charge_fire": 1,
+              "hit_count": 1,
+              "full_charge_hit": 1,
+              "core_hit": 1
+            },
+            "N102": {
+              "event:장비 옵션": 54,
+              "battle_start": 1,
+              "stack_reach:장비 옵션:1": 9,
+              "event:enemy_spawn": 1,
+              "event:ally_down": 1,
+              "event:observed counter": 1,
+              "full_charge": 1,
+              "on_attack": 1,
+              "full_charge_fire": 1,
+              "hit_count": 1,
+              "full_charge_hit": 1,
+              "core_hit": 1
+            },
+            "__squad__": {
+              "squad_ammo_consume": 37,
+              "squad_body_hit": 29
+            },
+            "리타": {
+              "event:self_down": 1,
+              "event:장비 옵션": 9,
+              "stack_reach:장비 옵션:1": 9,
+              "pellet_hit": 20,
+              "on_attack": 20,
+              "hit_count": 19,
+              "crit_hit": 3,
+              "core_hit": 2,
+              "event:observed counter": 1,
+              "stack_reach:observed counter:1": 1
+            }
+          }
+        }
+      ],
+      "final_state": {
+        "down": [],
+        "hp": {
+          "리타": 1500157.0,
+          "크라운": 3284775.0,
+          "모더니아": 2715916.0,
+          "앨리스": 2715916.0,
+          "N102": 2441844.0
+        },
+        "hp_pct": {
+          "리타": 50.0,
+          "크라운": 100.0,
+          "모더니아": 100.0,
+          "앨리스": 100.0,
+          "N102": 100.0
+        }
+      },
+      "owner_hit_times": [
+        {
+          "time": 0.0,
+          "caster": "리타"
+        },
+        {
+          "time": 0.05,
+          "caster": "리타"
+        },
+        {
+          "time": 0.08333333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 0.13333333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 0.16666666666666666,
+          "caster": "리타"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "time": 0.24999999999999997,
+          "caster": "리타"
+        },
+        {
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "time": 0.3333333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 0.8000000000000008,
+          "caster": "리타"
+        },
+        {
+          "time": 0.850000000000001,
+          "caster": "리타"
+        },
+        {
+          "time": 0.8833333333333344,
+          "caster": "리타"
+        },
+        {
+          "time": 0.9333333333333346,
+          "caster": "리타"
+        },
+        {
+          "time": 0.966666666666668,
+          "caster": "리타"
+        },
+        {
+          "time": 1.016666666666668,
+          "caster": "리타"
+        },
+        {
+          "time": 1.0500000000000012,
+          "caster": "리타"
+        },
+        {
+          "time": 1.100000000000001,
+          "caster": "리타"
+        },
+        {
+          "time": 1.1333333333333342,
+          "caster": "리타"
+        },
+        {
+          "time": 1.183333333333334,
+          "caster": "리타"
+        },
+        {
+          "time": 1.2333333333333338,
+          "caster": "리타"
+        },
+        {
+          "time": 1.266666666666667,
+          "caster": "리타"
+        },
+        {
+          "time": 1.3166666666666669,
+          "caster": "리타"
+        },
+        {
+          "time": 1.35,
+          "caster": "리타"
+        },
+        {
+          "time": 1.4,
+          "caster": "리타"
+        },
+        {
+          "time": 1.4333333333333331,
+          "caster": "리타"
+        },
+        {
+          "time": 1.483333333333333,
+          "caster": "리타"
+        },
+        {
+          "time": 1.5166666666666662,
+          "caster": "리타"
+        },
+        {
+          "time": 1.566666666666666,
+          "caster": "리타"
+        },
+        {
+          "time": 1.5999999999999992,
+          "caster": "리타"
+        },
+        {
+          "time": 1.649999999999999,
+          "caster": "리타"
+        },
+        {
+          "time": 1.6833333333333322,
+          "caster": "리타"
+        },
+        {
+          "time": 1.733333333333332,
+          "caster": "리타"
+        },
+        {
+          "time": 1.7666666666666653,
+          "caster": "리타"
+        },
+        {
+          "time": 1.816666666666665,
+          "caster": "리타"
+        },
+        {
+          "time": 1.8499999999999983,
+          "caster": "리타"
+        },
+        {
+          "time": 1.8999999999999981,
+          "caster": "리타"
+        },
+        {
+          "time": 1.9333333333333313,
+          "caster": "리타"
+        },
+        {
+          "time": 1.9833333333333312,
+          "caster": "리타"
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "scripts/audit-down-continuations.py": "29acd56e92a63fad610fddaa080625c6e5901d51f0b0077d08eb07df58cfb20f",
+    "scripts/verify-incoming-detail.py": "76bf238f9d184c491984c767f5cf8be3d0206d89130a6457f7e78e6d8004aa7d",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/engine_compat.py": "f57f89a81f1f70e83aed7d2a175d33613fc5b126f62d0c67658a326c51455c66",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}

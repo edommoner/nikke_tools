@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "recorded_at": "2026-10-17T21:30:39.524675+00:00",
+  "tests_run": 2,
+  "scope": "Build metadata preflight only; no CUDA compilation or battle test was restarted",
+  "source_sha256": {
+    "scripts/detail_build_contract.py": "596c04d4a0c1f280abda46c86048c266572c894199552e07cf073dd1de900a45",
+    "scripts/build-detail-native.py": "f334296c507a8077288ae435831838dfdc82fe1cd5736eee8e262e0b946ff04e",
+    "scripts/build-detail-ptx.py": "41473e668a2a498dbde6b510a587e6b6e317d34dde00056c2dd9ecc27271d901",
+    "scripts/build-combat.py": "d05ed916221e8d216a2c98fb9eb3714a9eb5307d0d4670d57bc699f2cff935e4",
+    "tests/test_detail_build_contract.py": "4829a84306cfa671d6a48bc6be43585272393d7225d7a0b298ef8f0fe6de9f40"
+  },
+  "contract": "All detailed build entry points derive manifest ABI from the sole CUDA kernel and reject mismatch with the sole Python ABI export before expensive compilation.",
+  "current_native_build": "Already running45811 loaded the previous hardcoded-v50 build script. CUDA bytes, NVRTC options and resulting ABI value remain the same; the new preflight applies to subsequent starts."
+}

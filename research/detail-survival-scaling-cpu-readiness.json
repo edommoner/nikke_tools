@@ -1,0 +1,35 @@
+{
+  "objective_complete": false,
+  "gpu_verified": false,
+  "cases": [
+    {
+      "name": "raw-목단-revival",
+      "cpu_usable": false,
+      "error": "TypeError(\"unsupported operand type(s) for -: 'float' and 'NoneType'\")",
+      "revives": []
+    },
+    {
+      "name": "raw-비스킷-revival",
+      "cpu_usable": true,
+      "total": 35381434,
+      "revives": [
+        {
+          "name": "비스킷",
+          "time": 2.9999999999999942
+        }
+      ]
+    },
+    {
+      "name": "max-HP-scaled-revival",
+      "cpu_usable": false,
+      "error": "TypeError(\"unsupported operand type(s) for -: 'float' and 'NoneType'\")",
+      "revives": []
+    }
+  ],
+  "source_sha256": {
+    "research/probe-survival-scaling-cpu-readiness.py": "42db2449d8c10b3ca6ec3bf6033b3c0c5402cb5ff57efb9cfae8d686c5dec9ff",
+    "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299"
+  }
+}

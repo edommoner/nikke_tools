@@ -1,0 +1,143 @@
+{
+  "passed": true,
+  "cpu_extension": true,
+  "unmodified_upstream_implements_effect": false,
+  "in_game_rules_verified": false,
+  "gpu_verified": false,
+  "objective_complete": false,
+  "cases": [
+    {
+      "name": "none",
+      "value": 1.0,
+      "expected": 1,
+      "calls": [
+        [
+          "recipient",
+          "heal_received_pct",
+          0.5
+        ],
+        [
+          "source",
+          "outgoing_heal_pct",
+          0.5
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "name": "source-only",
+      "value": 1.5,
+      "expected": 1.5,
+      "calls": [
+        [
+          "recipient",
+          "heal_received_pct",
+          0.5
+        ],
+        [
+          "source",
+          "outgoing_heal_pct",
+          0.5
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "name": "recipient-only",
+      "value": 1.25,
+      "expected": 1.25,
+      "calls": [
+        [
+          "recipient",
+          "heal_received_pct",
+          0.5
+        ],
+        [
+          "source",
+          "outgoing_heal_pct",
+          0.5
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "name": "multiply-separate-layers",
+      "value": 1.875,
+      "expected": 1.875,
+      "calls": [
+        [
+          "recipient",
+          "heal_received_pct",
+          0.5
+        ],
+        [
+          "source",
+          "outgoing_heal_pct",
+          0.5
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "name": "source-clamps-negative",
+      "value": 0.0,
+      "expected": 0,
+      "calls": [
+        [
+          "recipient",
+          "heal_received_pct",
+          0.5
+        ],
+        [
+          "source",
+          "outgoing_heal_pct",
+          0.5
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "name": "recipient-clamps-negative",
+      "value": 0.0,
+      "expected": 0,
+      "calls": [
+        [
+          "recipient",
+          "heal_received_pct",
+          0.5
+        ],
+        [
+          "source",
+          "outgoing_heal_pct",
+          0.5
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "name": "legacy-no-source",
+      "value": 1.25,
+      "expected": 1.25,
+      "calls": [
+        [
+          "recipient",
+          "heal_received_pct",
+          0.5
+        ]
+      ],
+      "passed": true
+    }
+  ],
+  "cube_supported": true,
+  "source_sha256": {
+    "research/probe-outgoing-healing-cpu-reference.py": "5ffc57db3c3ac0888bffe2ec7d563ef9fbc50158a8d7d637fcf960772a9b5462",
+    "research/staging/v39/app/outgoing_healing_compat.py": "8eb8a8fe2ecd2a9c7d7fbccb087473b0817073da1ee2093b5b36f161df5f8af3",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/engine_compat.py": "06079033f193f217d70dce6859ddb193966d829bba0d202ad1f97982b6f32ea8",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/runner/spec.py": "609ec07a8db4a88e0a2912193b4bfb0b1433e8f11d2ec32f43d4c5f014b0e730",
+    "research/upstream/nikke-calc-master/data/base_stat_tables/cube.json": "6d9fe4e50fe780a0245347ae5d86ba21f950bd56345de09c18cd62e68a95bba8",
+    "app/outgoing_healing_compat.py": "8eb8a8fe2ecd2a9c7d7fbccb087473b0817073da1ee2093b5b36f161df5f8af3"
+  }
+}

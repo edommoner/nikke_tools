@@ -1,0 +1,4550 @@
+{
+  "generated_at": "2026-10-16T21:57:20.616476+00:00",
+  "passed": true,
+  "cases": [
+    {
+      "name": "hp-0-0-order0",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-0-0-order4",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-0-0-order0",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-0-0-order4",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-0-0.01-order0",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-0-0.01-order4",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-30-29.99-order0",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-30-29.99-order4",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-30-30-order0",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-30-30-order4",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-30-30.01-order0",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-30-30.01-order4",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-50-49.99-order0",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-50-49.99-order4",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-50-50-order0",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-50-50-order4",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-50-50.01-order0",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-50-50.01-order4",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-100-99.99-order0",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "hp-100-99.99-order4",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "hp-100-100-order0",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "hp-100-100-order4",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "hp-100-100-order0",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "hp-100-100-order4",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "finite-battle_start",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "finite-passive",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "finite-on_attack",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "has_defender_ally-리타-크라운",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "no_defender_ally-리타-크라운",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "has_defender_ally-리타-도라",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "no_defender_ally-리타-도라",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "has_defender_ally-크라운-리타",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "no_defender_ally-크라운-리타",
+      "backend": "native",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "whole-rawFalse-drainFalse-auto",
+      "backend": "native",
+      "mode": "fixed",
+      "shooting": "auto",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 244465195,
+      "gpu_total": 244465195,
+      "cpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "condition_results": [
+        false
+      ]
+    },
+    {
+      "name": "whole-rawFalse-drainFalse-auto",
+      "backend": "native",
+      "mode": "accumulate",
+      "shooting": "auto",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 220460770,
+      "gpu_total": 220460770,
+      "cpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "condition_results": [
+        false
+      ]
+    },
+    {
+      "name": "whole-rawFalse-drainFalse-character",
+      "backend": "native",
+      "mode": "fixed",
+      "shooting": "character",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 244465195,
+      "gpu_total": 244465195,
+      "cpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "condition_results": [
+        false
+      ]
+    },
+    {
+      "name": "whole-rawFalse-drainFalse-character",
+      "backend": "native",
+      "mode": "accumulate",
+      "shooting": "character",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 220460770,
+      "gpu_total": 220460770,
+      "cpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "condition_results": [
+        false
+      ]
+    },
+    {
+      "name": "whole-rawFalse-drainTrue-auto",
+      "backend": "native",
+      "mode": "fixed",
+      "shooting": "auto",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 257958549,
+      "gpu_total": 257958549,
+      "cpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 62169.66462690035,
+          "hp_pct": 2.0711912837890627,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 62169.66462690035,
+          "hp_pct": 2.0711912837890627,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "condition_results": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "whole-rawFalse-drainTrue-auto",
+      "backend": "native",
+      "mode": "accumulate",
+      "shooting": "auto",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 233021777,
+      "gpu_total": 233021777,
+      "cpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 62169.66462690035,
+          "hp_pct": 2.0711912837890627,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 62169.66462690035,
+          "hp_pct": 2.0711912837890627,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "condition_results": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "whole-rawFalse-drainTrue-character",
+      "backend": "native",
+      "mode": "fixed",
+      "shooting": "character",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 257958549,
+      "gpu_total": 257958549,
+      "cpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 62169.66462690035,
+          "hp_pct": 2.0711912837890627,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 62169.66462690035,
+          "hp_pct": 2.0711912837890627,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "condition_results": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "whole-rawFalse-drainTrue-character",
+      "backend": "native",
+      "mode": "accumulate",
+      "shooting": "character",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 233021777,
+      "gpu_total": 233021777,
+      "cpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 62169.66462690035,
+          "hp_pct": 2.0711912837890627,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 62169.66462690035,
+          "hp_pct": 2.0711912837890627,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "condition_results": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "whole-rawTrue-drainFalse-auto",
+      "backend": "native",
+      "mode": "fixed",
+      "shooting": "auto",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 194369807,
+      "gpu_total": 194369807,
+      "cpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "condition_results": [
+        false
+      ]
+    },
+    {
+      "name": "whole-rawTrue-drainFalse-auto",
+      "backend": "native",
+      "mode": "accumulate",
+      "shooting": "auto",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 191878340,
+      "gpu_total": 191878340,
+      "cpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "condition_results": [
+        false
+      ]
+    },
+    {
+      "name": "whole-rawTrue-drainFalse-character",
+      "backend": "native",
+      "mode": "fixed",
+      "shooting": "character",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 194369807,
+      "gpu_total": 194369807,
+      "cpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "condition_results": [
+        false
+      ]
+    },
+    {
+      "name": "whole-rawTrue-drainFalse-character",
+      "backend": "native",
+      "mode": "accumulate",
+      "shooting": "character",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 191878340,
+      "gpu_total": 191878340,
+      "cpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "condition_results": [
+        false
+      ]
+    },
+    {
+      "name": "whole-rawTrue-drainTrue-auto",
+      "backend": "native",
+      "mode": "fixed",
+      "shooting": "auto",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 194369807,
+      "gpu_total": 194369807,
+      "cpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 1028083.5337704387,
+          "hp_pct": 34.25075021606332,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 1028083.5337704387,
+          "hp_pct": 34.25075021606332,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "condition_results": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "whole-rawTrue-drainTrue-auto",
+      "backend": "native",
+      "mode": "accumulate",
+      "shooting": "auto",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 191878340,
+      "gpu_total": 191878340,
+      "cpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 1334175.2686650367,
+          "hp_pct": 44.4482402163431,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 1334175.2686650367,
+          "hp_pct": 44.4482402163431,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "condition_results": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "whole-rawTrue-drainTrue-character",
+      "backend": "native",
+      "mode": "fixed",
+      "shooting": "character",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 194369807,
+      "gpu_total": 194369807,
+      "cpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 1028083.5337704387,
+          "hp_pct": 34.25075021606332,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 1028083.5337704387,
+          "hp_pct": 34.25075021606332,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "condition_results": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "whole-rawTrue-drainTrue-character",
+      "backend": "native",
+      "mode": "accumulate",
+      "shooting": "character",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 191878340,
+      "gpu_total": 191878340,
+      "cpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 1334175.2686650367,
+          "hp_pct": 44.4482402163431,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 1334175.2686650367,
+          "hp_pct": 44.4482402163431,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "condition_results": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "hp-0-0-order0",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-0-0-order4",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-0-0-order0",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-0-0-order4",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-0-0.01-order0",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-0-0.01-order4",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-30-29.99-order0",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-30-29.99-order4",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-30-30-order0",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-30-30-order4",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-30-30.01-order0",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-30-30.01-order4",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-50-49.99-order0",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-50-49.99-order4",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-50-50-order0",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-50-50-order4",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        23.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-50-50.01-order0",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-50-50.01-order4",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "hp-100-99.99-order0",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "hp-100-99.99-order4",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "hp-100-100-order0",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "hp-100-100-order4",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "hp-100-100-order0",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "hp-100-100-order4",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "finite-battle_start",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "finite-passive",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "finite-on_attack",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "has_defender_ally-리타-크라운",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "no_defender_ally-리타-크라운",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "has_defender_ally-리타-도라",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "no_defender_ally-리타-도라",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "has_defender_ally-크라운-리타",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gpu_atk": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "no_defender_ally-크라운-리타",
+      "backend": "ptx",
+      "passed": true,
+      "errors": [],
+      "cpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ],
+      "gpu_atk": [
+        23.0,
+        23.0,
+        23.0,
+        23.0,
+        23.0
+      ]
+    },
+    {
+      "name": "whole-rawFalse-drainFalse-auto",
+      "backend": "ptx",
+      "mode": "fixed",
+      "shooting": "auto",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 244465195,
+      "gpu_total": 244465195,
+      "cpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "condition_results": [
+        false
+      ]
+    },
+    {
+      "name": "whole-rawFalse-drainFalse-auto",
+      "backend": "ptx",
+      "mode": "accumulate",
+      "shooting": "auto",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 220460770,
+      "gpu_total": 220460770,
+      "cpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "condition_results": [
+        false
+      ]
+    },
+    {
+      "name": "whole-rawFalse-drainFalse-character",
+      "backend": "ptx",
+      "mode": "fixed",
+      "shooting": "character",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 244465195,
+      "gpu_total": 244465195,
+      "cpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "condition_results": [
+        false
+      ]
+    },
+    {
+      "name": "whole-rawFalse-drainFalse-character",
+      "backend": "ptx",
+      "mode": "accumulate",
+      "shooting": "character",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 220460770,
+      "gpu_total": 220460770,
+      "cpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "condition_results": [
+        false
+      ]
+    },
+    {
+      "name": "whole-rawFalse-drainTrue-auto",
+      "backend": "ptx",
+      "mode": "fixed",
+      "shooting": "auto",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 257958549,
+      "gpu_total": 257958549,
+      "cpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 62169.66462690035,
+          "hp_pct": 2.0711912837890627,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 62169.66462690035,
+          "hp_pct": 2.0711912837890627,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "condition_results": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "whole-rawFalse-drainTrue-auto",
+      "backend": "ptx",
+      "mode": "accumulate",
+      "shooting": "auto",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 233021777,
+      "gpu_total": 233021777,
+      "cpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 62169.66462690035,
+          "hp_pct": 2.0711912837890627,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 62169.66462690035,
+          "hp_pct": 2.0711912837890627,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "condition_results": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "whole-rawFalse-drainTrue-character",
+      "backend": "ptx",
+      "mode": "fixed",
+      "shooting": "character",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 257958549,
+      "gpu_total": 257958549,
+      "cpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 62169.66462690035,
+          "hp_pct": 2.0711912837890627,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 62169.66462690035,
+          "hp_pct": 2.0711912837890627,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "condition_results": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "whole-rawFalse-drainTrue-character",
+      "backend": "ptx",
+      "mode": "accumulate",
+      "shooting": "character",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 233021777,
+      "gpu_total": 233021777,
+      "cpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 62169.66462690035,
+          "hp_pct": 2.0711912837890627,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "gpu_hp": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 62169.66462690035,
+          "hp_pct": 2.0711912837890627,
+          "max_hp": 3001638.0
+        },
+        "루주": {
+          "hp": 3293786.0,
+          "hp_pct": 100.0,
+          "max_hp": 3293786.0
+        }
+      },
+      "condition_results": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "whole-rawTrue-drainFalse-auto",
+      "backend": "ptx",
+      "mode": "fixed",
+      "shooting": "auto",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 194369807,
+      "gpu_total": 194369807,
+      "cpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "condition_results": [
+        false
+      ]
+    },
+    {
+      "name": "whole-rawTrue-drainFalse-auto",
+      "backend": "ptx",
+      "mode": "accumulate",
+      "shooting": "auto",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 191878340,
+      "gpu_total": 191878340,
+      "cpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "condition_results": [
+        false
+      ]
+    },
+    {
+      "name": "whole-rawTrue-drainFalse-character",
+      "backend": "ptx",
+      "mode": "fixed",
+      "shooting": "character",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 194369807,
+      "gpu_total": 194369807,
+      "cpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "condition_results": [
+        false
+      ]
+    },
+    {
+      "name": "whole-rawTrue-drainFalse-character",
+      "backend": "ptx",
+      "mode": "accumulate",
+      "shooting": "character",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 191878340,
+      "gpu_total": 191878340,
+      "cpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "condition_results": [
+        false
+      ]
+    },
+    {
+      "name": "whole-rawTrue-drainTrue-auto",
+      "backend": "ptx",
+      "mode": "fixed",
+      "shooting": "auto",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 194369807,
+      "gpu_total": 194369807,
+      "cpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 1028083.5337704387,
+          "hp_pct": 34.25075021606332,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 1028083.5337704387,
+          "hp_pct": 34.25075021606332,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "condition_results": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "whole-rawTrue-drainTrue-auto",
+      "backend": "ptx",
+      "mode": "accumulate",
+      "shooting": "auto",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 191878340,
+      "gpu_total": 191878340,
+      "cpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 1334175.2686650367,
+          "hp_pct": 44.4482402163431,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 1334175.2686650367,
+          "hp_pct": 44.4482402163431,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "condition_results": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "whole-rawTrue-drainTrue-character",
+      "backend": "ptx",
+      "mode": "fixed",
+      "shooting": "character",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 194369807,
+      "gpu_total": 194369807,
+      "cpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 1028083.5337704387,
+          "hp_pct": 34.25075021606332,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 1028083.5337704387,
+          "hp_pct": 34.25075021606332,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "condition_results": [
+        false,
+        true
+      ]
+    },
+    {
+      "name": "whole-rawTrue-drainTrue-character",
+      "backend": "ptx",
+      "mode": "accumulate",
+      "shooting": "character",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "matched": true,
+        "final_random_state": true,
+        "final_hp": true,
+        "condition_exercised": true
+      },
+      "cpu_total": 191878340,
+      "gpu_total": 191878340,
+      "cpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 1334175.2686650367,
+          "hp_pct": 44.4482402163431,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_hp": {
+        "트리나": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3557120.0,
+          "hp_pct": 100.0,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 1334175.2686650367,
+          "hp_pct": 44.4482402163431,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "condition_results": [
+        false,
+        true
+      ]
+    }
+  ],
+  "source_sha256": {
+    "scripts/verify-ally-conditions-detail.py": "8a3d2afe578ebe3d9caf1904f16af1daa68a6e7ff7ecdf935a95e10240c12f57",
+    "app/detail_gpu.py": "38000e0a8baae8b1b5f6bf7d81201de6992b5da7cd88c55b6a60bc2787131150",
+    "app/detail_effects.cu": "8437b4ed507ee01819a34ef8d72a070ce49c64d8083d52181b5cc2c55b9a8886",
+    "app/detail_effects.ptx": "eb2bbfade7a445f3039950ed8aed8fc5e608a1ec7d3f2132a43f205f85724369",
+    "app/detail_effects-build.json": "b9ee504c8935fe7e53dc9c9b9e456bff38d46d7724d758e390a91ca13fbff98a",
+    "app/detail_effects-sm86.cubin": "1214daba5dd96ac5794fa5933f3305eedd14b4860f678e2c389f44befc819653",
+    "app/detail_effects-sm86.json": "8e3067fe94382bc9a8e48308d6b56c76e0573b83a21460b195221c4fe61eecdd",
+    "app/engine_worker.py": "210e7af5f2e7fd8442e3c1018ecb252b8d9d1d74644d59c0f9c1f177ed93fd3d"
+  },
+  "cpu_trace_used_as_gpu_input": false,
+  "objective_complete": false
+}

@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "objective_complete": false,
+  "generated_at": "2026-10-18T03:45:47.352259+00:00",
+  "abi": "detail_quantity_sources_v60",
+  "archive_base": "research/ports/v60-quantity-sources-verified",
+  "reports": [
+    "research/resource-marker-native.json",
+    "research/resource-marker-ptx.json",
+    "research/resource-marker-unit.json",
+    "research/resource-marker-coverage.json",
+    "research/resource-marker-owned-api.json"
+  ],
+  "checks": {
+    "independent_lifecycle_frames": 15,
+    "raw_whole_squads": 2,
+    "backends": [
+      "native",
+      "ptx"
+    ],
+    "lightweight_methods": 59,
+    "normal_owned_api": true,
+    "compile_only_supported": 185,
+    "catalog": 203,
+    "existing_programs_identical": 184
+  },
+  "unchanged_gpu": {
+    "app/detail_effects.cu": "2fbf5e6c76e94d257b1db65da4c9bfab910b2d223edc8debbb0374962688bf70",
+    "app/detail_effects-sm86.cubin": "859a2f162b41b6b75cd9f79971700f066f59a244053bccdc61c1daa8460bc327",
+    "app/detail_effects-sm86.json": "16747ca9d791dc51c56e1d12aceb6f06fef1e086637ce27a1b353295ce3d63a7",
+    "app/detail_effects.ptx": "1b7e26335ad1ab34f0a497020c569260c8ca4cb42304cfae51f17def957825cc",
+    "app/detail_effects-build.json": "e77b5d7304553540257dd61b1917f0e43246fc71f73c96098440472af82919bc"
+  },
+  "kernel_rebuilt": false,
+  "reuse": {
+    "previous_checkpoint": "research/quantity-sources-checkpoint.json",
+    "reason": "All184 previously accepted programs identical and all CUDA source/artifact bytes unchanged. Existing broad arithmetic/order/batch runtime proofs reused, not rerun or counted as new checks."
+  },
+  "efficiency": {
+    "approach": "Reuse existing state carriers and explicit charge conditions; no new GPU arithmetic or state executor, no ABI/width/workspace growth and no kernel build/JIT required.",
+    "gpu_speedup_claim": false
+  },
+  "game_rules_verified": false,
+  "remaining": "18 standard compile-unaccepted characters plus favorite/equipment/world/effect/model checks remain. Review overall efficiency after all-character support.",
+  "archive": "research/ports/v62-resource-marker-verified",
+  "source_sha256": {
+    "README.md": "0e5df1082750f3542d65d18d5e6e38728ef0b4b14a86df6fefce5a62010165e2",
+    "app/detail_gpu.py": "b1b54716a3a1f74f84a7582de215c259fc23cc4c9c34dd6399302128ef6c4dd4",
+    "app/resource_specs.py": "de67874a373c94834d3fbe43d9be9d18ccc45e1e22f563f9e5d892b66ea07b85",
+    "docs/adding-effects.md": "ad1274038fe396d3c064a09ae4f3555cd273a16311e7befa8f2f3852afef2a51",
+    "research/checkpoint_receipts.py": "9f928fcc6ba97602ed041dfa5d0589409c4076e2d215482427f304907135bf5f",
+    "research/resource-marker-api-fixture.json": "4bde14d36222033557c77e8ef953b2e4907b639138c0296ae4711376edd951b7",
+    "research/resource-marker-coverage.json": "5f86125334499151e64dd313f14aca45569d0420cbbd52fa3cf513352ee81614",
+    "research/resource-marker-dependency-audit.json": "49c2949d8df744207cbf37515b61f0e54f0b0abbbc46293ff7acd649ebcb1816",
+    "research/resource-marker-native.json": "64f88fd5bc0f4bcf552144743a344d7e72530f9c402199ec3e79901a629a47a7",
+    "research/resource-marker-owned-api.json": "bba80c575f0fe3ebd95c121d8727b930d2b54ca0fb8bec3a89f2b2106dcd3950",
+    "research/resource-marker-ptx.json": "c85b4ffe4b5f8e49c957b5cd113b851fad4d535d428bc4426cc8750e9ef99845",
+    "research/resource-marker-unit.json": "d20fb0c72111e596c78a7d98df7d3b28ab1317a7ae767424b93bb93ebcf8e6ea",
+    "research/save-resource-marker-checkpoint.py": "a1db5a9d5abc35e70dc1ffc6a568667db8d4b6cce9dd69729991d3d7b11a1828",
+    "research/verify-resource-marker-coverage.py": "a0676072057e891a7c615b657419a095e1953c175769504b3be315aa42503914",
+    "scripts/verify-resource-marker-detail.py": "11ff85da9c5bcdad911371fc1141e0e3c0c5c9e0e179bbcd1611b475aa0a7078",
+    "tests/test_resource_specs.py": "6f4d6d77c201a7a8af26b9f44cc645869e90ed7748056b064d1c4737254727e1"
+  }
+}

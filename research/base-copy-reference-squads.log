@@ -1,0 +1,11 @@
+{"name": "copy-named-order-and-stack", "passed": true, "total_damage": 6385029, "copy_activations": 18, "sources": ["\ubaa8\ub354\ub2c8\uc544", "\ud06c\ub77c\uc6b4"]}
+{"name": "copy-source-down-and-reselect", "passed": true, "total_damage": 4960124, "copy_activations": 18, "sources": ["\ubaa8\ub354\ub2c8\uc544", "\uc568\ub9ac\uc2a4", "\ud06c\ub77c\uc6b4"]}
+{"name": "copy-HP-snapshot-and-storage", "passed": true, "total_damage": 6177524, "copy_activations": 18, "sources": ["\ubaa8\ub354\ub2c8\uc544", "\ud06c\ub77c\uc6b4"]}
+{"name": "copy-recipient-sets", "passed": true, "total_damage": 32959518, "copy_activations": 106, "sources": ["\ubaa8\ub354\ub2c8\uc544", "\ud06c\ub77c\uc6b4"]}
+{"name": "raw-copy-\uae38\ud2f0", "passed": true, "total_damage": 121665517, "copy_activations": 7, "sources": ["\ubaa8\ub354\ub2c8\uc544"]}
+{"name": "raw-copy-\uae38\ud2f0-grown-reordered", "passed": true, "total_damage": 156700321, "copy_activations": 7, "sources": ["\ubaa8\ub354\ub2c8\uc544"]}
+{"name": "raw-copy-\uc2e0", "passed": true, "total_damage": 102539918, "copy_activations": 5, "sources": ["\ud06c\ub77c\uc6b4"]}
+{"name": "raw-copy-\uc2e0-grown-reordered", "passed": true, "total_damage": 129596440, "copy_activations": 5, "sources": ["\uc2e0"]}
+{"name": "raw-copy-\ud000\uc2dc", "passed": true, "total_damage": 109759836, "copy_activations": 11, "sources": ["\ud06c\ub77c\uc6b4"]}
+{"name": "raw-copy-\ud000\uc2dc-grown-reordered", "passed": true, "total_damage": 140309921, "copy_activations": 11, "sources": ["\ud06c\ub77c\uc6b4"]}
+{"name": "raw-copy-combined", "passed": true, "total_damage": 68069590, "copy_activations": 21, "sources": ["\ubaa8\ub354\ub2c8\uc544", "\uc2e0"]}

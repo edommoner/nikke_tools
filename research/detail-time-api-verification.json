@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-10-16T09:07:53.546Z",
+  "passed": true,
+  "normal_compare_gpu": true,
+  "cpu_verification": true,
+  "board_gpu": true,
+  "cache_separated": true,
+  "unsupported_cpu_fallback": true,
+  "total": 369664402,
+  "abi": "detail_time_v7",
+  "source_sha256": {
+    "app/detail_gpu.py": "23e5f9c042d67c9c8160e444b61c9938e232ce63e059720fb458dfd790822815",
+    "app/detail_effects.cu": "144772f1447cad311f91d07643135c6a221ceeaf8e16e150cc7cfce68343acac",
+    "app/detail_effects.ptx": "1428016130f74ce45bde6f266372f013c9473d6a703a99f8315e69e8de76618c",
+    "app/detail_effects-build.json": "749e310729029ed9499044f6c0d029a6ea241000582c266e87c1668449d2c1d8",
+    "app/detail_effects-sm86.cubin": "ff057a3bce540ef39824251513995e55687c3105a16797e996c623296047ff5c",
+    "app/detail_effects-sm86.json": "d820beb0cda89e64c0bf7c75d9fbfcc2b55e4ea29f91101b3b4a380a11d12d85",
+    "app/engine_worker.py": "d79f91713dfd44ef1b9108900e64541adf3c3af22922e394aee14a81e7a97370",
+    "server.mjs": "34ef5212b960e7fbd98f0a610a3a1adfb9e9a1ca51d2b9f283f45348e8b46b3b",
+    "web/app.js": "733ac6ea0762c2378395448107b788d59e6f072b7f9f9625e36fc30fd0a95203",
+    "research/detail-time-api-fixture.json": "c664ee61489f577bed17ca0cd06090b4fc73917670f17fc226780488cc09ae48"
+  }
+}

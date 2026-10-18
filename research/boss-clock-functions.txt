@@ -1,0 +1,66 @@
+// Pattern transitions are evaluated here, never replayed from a CPU schedule.
+__device__ const double* boss_pattern(State* s,int i){return s->boss_program+WB+i*BW;}
+__device__ int boss_match_count(State* s,int node,int outcome){
+ if(!outcome)return s->boss_end_n[node];int n=0;for(int k=0;k<s->boss_end_n[node];k++)if(s->boss_end_kind[node][k]==outcome)n++;return n;
+}
+__device__ double boss_match_time(State* s,int node,int outcome,int index){
+ if(!outcome)return s->boss_end_at[node][index];int n=0;for(int k=0;k<s->boss_end_n[node];k++)if(s->boss_end_kind[node][k]==outcome){if(n==index)return s->boss_end_at[node][k];n++;}return 1e300;
+}
+__device__ int boss_log(State* s,double t,int i,int outcome){
+ int at=s->boss_log_n;if(at>=BLOG)return 8;s->boss_log_at[at]=t;s->boss_log_node[at]=i;s->boss_log_kind[at]=outcome;s->boss_log_n++;return 0;
+}
+__device__ int boss_emit(State* s,const double* p,int end){
+ int base=end?60:44,count=(int)p[end?11:10];
+ for(int k=0;k<count;k++){int at=s->boss_event_n;if(at>=BQ)return 8;s->boss_event_code[at]=(int)p[base+k*2];s->boss_event_arg[at]=(int)p[base+k*2+1];s->boss_event_n++;}return 0;
+}
+__device__ int boss_close(State* s,int i,double t,int outcome){
+ int n=s->boss_end_n[i+1];if(n>=BH)return 8;s->boss_active[i]=0;s->boss_end_at[i+1][n]=t;s->boss_end_kind[i+1][n]=outcome;s->boss_end_n[i+1]++;
+ int code=boss_log(s,t,i,outcome);if(outcome!=4)code|=boss_emit(s,boss_pattern(s,i),1);return code;
+}
+__device__ int boss_frame(State* s,double t){
+ if(!s->boss_count)return 0;int due[BP];for(int i=0;i<BP;i++)due[i]=0;
+ for(int i=0;i<s->boss_count;i++){const double* p=boss_pattern(s,i);if(s->boss_active[i]&&p[2]>0&&t>=s->boss_start[i]+p[2]-1e-9)due[i]=1;}
+ for(int pass=0;pass<=BP;pass++){
+  int grew=0;for(int i=0;i<s->boss_count;i++){
+   if(!s->boss_active[i]||due[i]==2)continue;const double* p=boss_pattern(s,i);
+   for(int k=0;k<(int)p[5];k++){
+    int node=(int)p[28+2*k],index=s->boss_until[i][k];double at;
+    if(s->boss_end_n[node]>index)at=s->boss_end_at[node][index];else if(due[node-1])at=t;else continue;
+    if(t>=at+p[29+2*k]-1e-9){due[i]=2;grew=1;break;}
+   }
+  }if(!grew)break;
+ }
+ int code=0;
+ for(int i=0;i<s->boss_count;i++)if(due[i]){code|=boss_close(s,i,t,due[i]);if(code)return code;}
+ for(int i=0;i<s->boss_count;i++){
+  if(s->boss_active[i])continue;const double* p=boss_pattern(s,i);if(p[3]>0&&s->boss_opens[i]>=(int)p[3])continue;
+  int ready=0;
+  for(int k=0;k<(int)p[4];k++){
+   int node=(int)p[12+2*k],outcome=(int)p[13+2*k],index=s->boss_after[i][k];
+   if(boss_match_count(s,node,outcome)>index&&t>=boss_match_time(s,node,outcome,index)+p[1]-1e-9){ready=1;break;}
+  }
+  if(!ready)continue;s->boss_active[i]=1;s->boss_start[i]=t;s->boss_opens[i]++;
+  for(int k=0;k<(int)p[4];k++)s->boss_after[i][k]=boss_match_count(s,(int)p[12+2*k],(int)p[13+2*k]);
+  for(int k=0;k<(int)p[5];k++)s->boss_until[i][k]=s->boss_end_n[(int)p[28+2*k]];
+  code|=boss_log(s,t,i,0);code|=boss_emit(s,p,0);if(code)return code;
+ }
+ double core=s->boss_base_core,distance=s->boss_program[1];int mask=(int)s->boss_program[2],last=-1;
+ for(int i=0;i<s->boss_count;i++)if(s->boss_active[i]){
+  const double* p=boss_pattern(s,i);if(p[0]==3)core=mx(core,p[6]);
+  if(p[0]==4&&(last<0||s->boss_start[i]>s->boss_start[last]||s->boss_start[i]==s->boss_start[last]&&i>last))last=i;
+ }
+ if(last>=0){const double* p=boss_pattern(s,last);if(p[7]==1)distance=p[8];else mask=(int)p[9];}
+ if(core!=s->world[1]||distance!=s->boss_distance||mask!=s->boss_weapon_mask)invalidate(s);
+ s->world[1]=core;s->boss_distance=distance;s->boss_weapon_mask=mask;return 0;
+}
+__device__ int boss_init(State* s,const double* w){
+ s->boss_program=w;s->boss_count=(int)w[0];s->boss_base_core=s->world[1];s->boss_distance=w[1];s->boss_weapon_mask=(int)w[2];s->boss_log_n=s->boss_event_n=0;
+ for(int i=0;i<=BP;i++)s->boss_end_n[i]=0;
+ for(int i=0;i<BP;i++){s->boss_active[i]=s->boss_opens[i]=0;s->boss_start[i]=0;for(int k=0;k<BL;k++)s->boss_after[i][k]=s->boss_until[i][k]=0;}
+ s->boss_end_n[0]=1;s->boss_end_at[0][0]=0;s->boss_end_kind[0][0]=0;return boss_frame(s,0);
+}
+__device__ int boss_events(const double* c,const double* e,int ne,State* s,const double* env,double t,int full){
+ int code=0;for(int k=0;k<s->boss_event_n;k++)for(int who=0;who<5;who++)code|=notify(c,e,ne,s,env,t,s->boss_event_code[k],who,s->boss_event_arg[k],full);s->boss_event_n=0;return code;
+}
+__device__ int boss_finish(State* s,double t){int code=0;for(int i=0;i<s->boss_count;i++)if(s->boss_active[i])code|=boss_close(s,i,t,4);return code;}
+

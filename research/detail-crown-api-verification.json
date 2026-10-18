@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-10-16T03:17:49.683147+00:00",
+  "passed": true,
+  "fixture": "research/detail-crown-api-fixture.json",
+  "normal_compare_gpu": true,
+  "cpu_verification": true,
+  "board_gpu": true,
+  "cache_separated": true,
+  "unsupported_cpu_fallback": true,
+  "verified_via": "node scripts/smoke-detail.mjs research/detail-crown-api-fixture.json and normal browser UI JSON import / growth editing / single-squad calculation",
+  "ui_total_damage": 2945928488,
+  "ui_gpu_execution_ms": 7680,
+  "cpu_schedule_used_as_gpu_input": false,
+  "source_sha256": {
+    "server.mjs": "8b364b91573ea0123ae5d9cf2aaf3b19b55cb5b060dc349c9f760f5016d49f2b",
+    "web/app.js": "552467d090a9097477b855e06006b96fe445db10b9c02f755055c22bf7d54977",
+    "app/gpu_service.py": "25b7dfc8d453fa9a69c7b337d54af36a4dc66660cad802cc0f37a5a4295287a2",
+    "app/detail_gpu.py": "a5d8c868b1e87d071ae47d1ca3c9a709c83633dd91499f0a3a7f3639e262b95c",
+    "app/detail_effects.cu": "ba850506c94730187adc996a655b7be20ed0883f7e2b63ab4bda1b3d33ef7590",
+    "app/detail_effects.ptx": "59c8011dad938f7612d5e2f289f5715a5a5265baf07b7e612bd82c89a7731197"
+  }
+}

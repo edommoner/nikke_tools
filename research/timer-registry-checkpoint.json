@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "objective_complete": false,
+  "abi": "detail_timer_registry_v81",
+  "workspace_bytes": 1260136,
+  "stage_workspace_bytes": 1260136,
+  "workspace_saved_bytes": 0,
+  "shared_cases_per_backend": 8,
+  "existing_instant_cases": 6,
+  "existing_staged_cases": 9,
+  "lightweight_methods": 112,
+  "ordering_cases": 25,
+  "mixed_squads": 10,
+  "existing_programs_identical": 187,
+  "efficiency": {
+    "adopted": false,
+    "experiment": "research/timer-registry-index-experiment.json",
+    "before_kernel_ms": 1383.695,
+    "experimental_kernel_ms": 1399.098,
+    "experimental_kernel_speedup": 0.988990764049409,
+    "normal_medians": {
+      "before": {
+        "kernel_ms": 6697.434,
+        "wall_ms": 6887.782900128514
+      },
+      "after": {
+        "kernel_ms": 6950.052,
+        "wall_ms": 7104.235799983144
+      }
+    },
+    "experimental_normal_kernel_speedup": 0.9636523582845137,
+    "experimental_normal_wall_speedup": 0.9695318531156942
+  },
+  "normal_summon_admission": false,
+  "per_recipient_damage_clocks": false,
+  "remaining": [
+    "Per-recipient damage clocks and carrier lifetimes",
+    "Generation-bound delayed landings and autonomous enemy routing",
+    "Remaining character/equipment/special-effect coverage",
+    "Whole-system efficiency after full support"
+  ],
+  "archive": "research/ports/v81-timer-registry-verified",
+  "source_sha256": {
+    "README.md": "a05a3287ff806ed1629bb47e1d84254500bd4015340a03e56d5b09c3889cb54a",
+    "app/detail_effects-build.json": "b1b0d3587a1f57d6bda6b9b4370e826ccf63a37ae93117b669dc6ce5daeafa8b",
+    "app/detail_effects-sm86.cubin": "b57ba469ac5a72049530d9dd3ff5f245eaf649b009a885fd35930f527abdcc20",
+    "app/detail_effects-sm86.json": "2eeafd910dcee2964252f3df2507a93ce6931a921b20f9e488135a9ed5f99513",
+    "app/detail_effects.cu": "af2cf0b2cef045e998abf3a469ea579301a3d8daa85751baeca5d4726b7e6e24",
+    "app/detail_effects.ptx": "5f5d014c5d6f0c0147c63867180f61e229252dfdfff49b63828fdf9e0dec08bd",
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/periodic_target_runtime.py": "b2475507525e8f06b9139142fb662d831f73a72cbb8e99b087dd0c6a1ae3d188",
+    "app/timer_registry_runtime.py": "6a07cc0bc79e197b7a3506f21f2ddbdba077b3d98768d74dda86453228a6c256",
+    "docs/adding-effects.md": "1bb50f87c8aa412425116382d80612d41641a469b96896dd7a16040544abf5d8",
+    "docs/summon-source-next-steps.md": "9f8c245f4d0181a54071488329c37dbfee3672b00f363a6855fe5779834b5371",
+    "docs/timer-registry.md": "d06c6c9b6d51dfc13f809d7716d1907d34f3143646dc38e1aae6ab498f9f4ac9",
+    "research/benchmark-periodic-normal.py": "0bfb3c3ddef71522b8ea680aa886f373960d45004278ae83c28a7440764db305",
+    "research/benchmark-periodic-targets.py": "ffe5e83217438b53b6daec7d33b192442d8988130fb3715201669930a32f8f0a",
+    "research/checkpoint_receipts.py": "9f928fcc6ba97602ed041dfa5d0589409c4076e2d215482427f304907135bf5f",
+    "research/runtime-wiring.json": "24ebdd58f3f9592776653bdd9dc3f3b57399bf6c6cdd08981114241aec3216a0",
+    "research/save-timer-registry-checkpoint.py": "ab09febde449f615727e70c5dd912a8e86f3d3a9117af2bc7281fc0e248acf25",
+    "research/timer-registry-after.json": "0b0fa4eb40defc2e3ecb32eb57a745c14039d83b7a481b4558fb62d4aad0d26d",
+    "research/timer-registry-batch-native.json": "24d12921aab28b3f414b99d3a40fa40c16833e060e536fbaad863781182e8c7e",
+    "research/timer-registry-before.json": "9c61c9a70b4095a1528c3c1d84e5e97ad75078e923d27930d7cecafc3bdc6bfb",
+    "research/timer-registry-coverage.json": "21e13c24007a043f5091f8083ec41982ee831bce4501cb15e449c9ec4992ab63",
+    "research/timer-registry-index-experiment.json": "b01153cde0d747d9c74ec4a0c9225f53586d7a2a3ab20c76b15804ac22ae622f",
+    "research/timer-registry-instant-native.json": "2ec8ea5e787618ebcc4a827b20fbaad762fcf96947e5f1c2d224b55c4263dad0",
+    "research/timer-registry-native-stage.json.receipt": "c8c34038ef4d906c9cfe2afca10fcc28c1d02aa87870d5dfd30ef4807ac1aada",
+    "research/timer-registry-native.json": "f9ad17a17f6789e12386d920d9ef045d060ac82f0be2a6e1c0cc83fb06149780",
+    "research/timer-registry-normal-performance.json": "3f8a31efdca8d90cd2f5119d2d13c35881797cb0dc861a8ab0f896c2634959fc",
+    "research/timer-registry-order-native.json": "498627158c341168107d44347dc1825dd5f5904649aa926ed3dc5ab63bffa15d",
+    "research/timer-registry-owned-api.json": "4b14597826f4ae9d4b4f2f6072d73281d5408be895bfcd03e63ee6ad616f1bca",
+    "research/timer-registry-periodic-native.json": "4b56119876f6fb5c4427d42f7cd4bb57bd250639a899715f4645f7158f48f8a2",
+    "research/timer-registry-ptx.json": "04daa006e6b239169fd7ff1f0a68b769f7c795e432526041bddbaaaa152a30ac",
+    "research/timer-registry-staged-native.json": "7defde0051282bb46994a2ead560fccd52b55d0e71d0a3e6fdbf248f86a3cc1d",
+    "research/timer-registry-unit.json": "e70b5b680dd44d0c7c39ffb9e08626ce51dbf067254c84a0a46191f70a38d799",
+    "scripts/timer_registry_cases.py": "fc572fc7143af99c4b5c804c0faa80162f1af88c141fe4bf58606509eedcc68b",
+    "scripts/verify-common-runtime-unit.py": "7742288a217d69e2dd8cb0cf1dab2ea262e4cc689b6d3f47a0fbbe1ee80003a7",
+    "scripts/verify-timer-registry-detail.py": "40206023959a23e92623cee47b61a4da50d7eba6e7f1b8c570b85abb87c3803d",
+    "tests/test_timer_registry_runtime.py": "d5d07dd0245d1ef7cb646e60db856a2214693aebea028d0655d085d1e370b926"
+  }
+}

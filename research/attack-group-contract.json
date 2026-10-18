@@ -1,0 +1,65 @@
+{
+  "phase": "v67 native/PTX retained storage and condition notifications verified; autonomous actor routing remains pending",
+  "character_admission_changed": false,
+  "standard_compile_supported": 185,
+  "world_policy": "Caller must explicitly select eligible actor kinds. Do not infer whether parts or cover count as separate enemies.",
+  "common_contract": [
+    "Only explicitly opened nonzero attack identities are collected.",
+    "Distinct target handles include kind, identity and spawn generation; repeated pellets do not add distinct targets.",
+    "Positive-credit blocked and damaging impacts count; misses and zero credit do not.",
+    "Detach and freeze target order before synchronous callbacks; a child may reuse the public identity with a new epoch.",
+    "Registration order determines qualifying threshold notification order.",
+    "Automatic weapon/world producers must establish complete shot boundaries before any character admission.",
+    "Keep sealed target storage reserved through synchronous notification completion, then release even after a child fails.",
+    "Total collecting, sealed and dispatching groups is bounded to32 frames."
+  ],
+  "cpu_reference_gap": "Timing matching exists but no battle producer emits multi_hit:N; matching the current zero proc count is insufficient.",
+  "next": [
+    "Connect actual weapon landing batches using explicit counting policies",
+    "Implement GPU actor world and per-actor child effect routing with retained scopes",
+    "Require nonzero actual multi_hit skill activation before lifting admission guards",
+    "Finish remaining18 standard characters and broader effect/world/equipment/favorite coverage",
+    "Review primary calculation and overall normal-path efficiency after all-character support"
+  ],
+  "game_rules_verified": false,
+  "generated_at": "2026-10-18T04:50:25.832719+00:00",
+  "efficiency": {
+    "scope": "CPU metadata planning only",
+    "functional_validation": "65 shared methods; real CPU multi_hit listener receives frozen targets at seal",
+    "before": "research/attack-group-plan-before.json",
+    "after": "research/attack-group-plan-after.json",
+    "approach": "Reuse immutable per-owner listener plans; invalidate on definition-list replacement and reset",
+    "gpu_speedup_claim": false
+  },
+  "gpu_next_design": {
+    "status": "v67 supports seal, retained tuple queries and dispatch/release; autonomous shots and per-target child effect routing remain pending",
+    "candidate_private_event": 62,
+    "candidate_authored_operators": [
+      10,
+      11,
+      12,
+      13
+    ],
+    "state": "Bounded groups keyed by owner/attack identity/epoch, retaining distinct typed target handles",
+    "admission": "Do not enable normal multi_hit character admission before autonomous shot boundaries and supported target-world routing produce nonzero activation",
+    "world_gap": "Existing CPU has no multi_hit emitter. Audit normal AoE/pierce routing to summoned targets rather than treating zero activation as authoritative.",
+    "matched_target_effect_routing_connected": false,
+    "remaining_target_scope": "Immutable GPU storage lifetime is implemented. World/effect selectors still need an explicit generation-bound scope token; do not infer the receiver from the last impact or alias all targets to the body."
+  },
+  "gpu_efficiency": {
+    "scope": "Synthetic immutable listener-planning stress, not gameplay",
+    "baseline": "research/gpu-attack-plan-before.json",
+    "after": "research/gpu-attack-plan-after.json",
+    "native_stage": "research/attack-groups-native-stage.json",
+    "approach": "Build immutable per-owner notification plans once per kernel invocation",
+    "normal_control": "research/attack-groups-control-api.json"
+  },
+  "retention": {
+    "cpu": "immutable sealed tuple; pending/dispatching slots bounded together; exception-safe release",
+    "gpu": "reuse existing target arrays with collecting/sealed/dispatching states, release after notifications",
+    "cases_per_backend": 10,
+    "workspace_bytes": 1216840,
+    "game_rule_claim": false,
+    "checkpoint": "research/target-scopes-checkpoint.json"
+  }
+}

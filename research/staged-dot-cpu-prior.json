@@ -1,0 +1,250 @@
+{
+  "schema_version": 2,
+  "total_damage": 595801272,
+  "members": [
+    {
+      "name": "사쿠라 : 블룸 인 서머",
+      "damage": 124715812,
+      "share": 0.20932451450019732
+    },
+    {
+      "name": "리타",
+      "damage": 39161683,
+      "share": 0.06572943838898014
+    },
+    {
+      "name": "크라운",
+      "damage": 56261454,
+      "share": 0.09442989910233021
+    },
+    {
+      "name": "앨리스",
+      "damage": 129968213,
+      "share": 0.2181402073273855
+    },
+    {
+      "name": "모더니아",
+      "damage": 245694110,
+      "share": 0.41237594068110683
+    }
+  ],
+  "duration": 45,
+  "expected": true,
+  "seed": 12345,
+  "boss": {
+    "def": 31784,
+    "code": "풍압",
+    "core_px": 50,
+    "has_parts": false,
+    "part_break_interval": 0.0,
+    "optimal_range_weapons": [],
+    "distance": 25,
+    "coord": null,
+    "atk": 114344,
+    "patterns": []
+  },
+  "boss_label": null,
+  "spec": {
+    "baseline": "profile",
+    "at_baseline": false,
+    "char_defaults": {
+      "applied": [],
+      "skipped": [
+        "사쿠라 : 블룸 인 서머",
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아"
+      ]
+    },
+    "deviated": [
+      "사쿠라 : 블룸 인 서머",
+      "리타",
+      "크라운",
+      "앨리스",
+      "모더니아"
+    ],
+    "deviations": {
+      "사쿠라 : 블룸 인 서머": [
+        {
+          "key": "cube.name",
+          "baseline": "렐릭 어설트 큐브",
+          "value": "__none__",
+          "source": "override"
+        }
+      ],
+      "리타": [
+        {
+          "key": "cube.name",
+          "baseline": "렐릭 어설트 큐브",
+          "value": "__none__",
+          "source": "override"
+        }
+      ],
+      "크라운": [
+        {
+          "key": "cube.name",
+          "baseline": "렐릭 어설트 큐브",
+          "value": "__none__",
+          "source": "override"
+        }
+      ],
+      "앨리스": [
+        {
+          "key": "cube.name",
+          "baseline": "렐릭 어설트 큐브",
+          "value": "__none__",
+          "source": "override"
+        }
+      ],
+      "모더니아": [
+        {
+          "key": "cube.name",
+          "baseline": "렐릭 어설트 큐브",
+          "value": "__none__",
+          "source": "override"
+        }
+      ]
+    },
+    "tactics": {},
+    "profile": {
+      "name": "인라인",
+      "level_mode": "fixed",
+      "source": "inline",
+      "base": "ungrown",
+      "ungrown": []
+    },
+    "preview": [],
+    "text": "⚠ 인라인 육성 프로필 '인라인' 적용 — 고정 스펙 아님. 다른 보고서와 총딜을 직접 비교하지 않는다. (레벨 400 고정 (솔로레이드 기준), 항목 5종, 적지 않은 니케는 미육성)\n⚠ 스킬 레벨이 10 미만인 캐릭터: 사쿠라 : 블룸 인 서머 3/9/10, 리타 4/8/10, 크라운 5/7/10, 앨리스 6/6/10, 모더니아 7/5/10. 딜이 낮게 나오는 게 정상이다 — 조합 탓이 아니다.\n⚠ 애장품 단계가 3 미만인 캐릭터: 사쿠라 : 블룸 인 서머 0단계, 리타 0단계, 크라운 0단계, 앨리스 0단계, 모더니아 0단계. 그 단계의 스킬 판본으로 계산했다 — 기본 스펙(3단계)보다 딜이 낮게 나오는 게 정상이다.\n⚠ 프로필(2.5층) 이탈 5명 —\n  [사쿠라 : 블룸 인 서머] cube.name: 렐릭 어설트 큐브 → __none__  (지정)\n  [리타] cube.name: 렐릭 어설트 큐브 → __none__  (지정)\n  [크라운] cube.name: 렐릭 어설트 큐브 → __none__  (지정)\n  [앨리스] cube.name: 렐릭 어설트 큐브 → __none__  (지정)\n  [모더니아] cube.name: 렐릭 어설트 큐브 → __none__  (지정)"
+  },
+  "control": null,
+  "control_detail": {
+    "mode": "solo",
+    "camera_mode": "single",
+    "by_char": {},
+    "max_concurrent": 0,
+    "overlap_t": 0.0,
+    "overlaps": [],
+    "preempted": {}
+  },
+  "warnings": [
+    "인라인 육성 프로필 '인라인' 적용 — 고정 스펙 아님. 다른 보고서와 총딜을 직접 비교하지 않는다. (레벨 400 고정 (솔로레이드 기준), 항목 5종, 적지 않은 니케는 미육성)",
+    "스킬 레벨이 10 미만인 캐릭터: 사쿠라 : 블룸 인 서머 3/9/10, 리타 4/8/10, 크라운 5/7/10, 앨리스 6/6/10, 모더니아 7/5/10. 딜이 낮게 나오는 게 정상이다 — 조합 탓이 아니다.",
+    "애장품 단계가 3 미만인 캐릭터: 사쿠라 : 블룸 인 서머 0단계, 리타 0단계, 크라운 0단계, 앨리스 0단계, 모더니아 0단계. 그 단계의 스킬 판본으로 계산했다 — 기본 스펙(3단계)보다 딜이 낮게 나오는 게 정상이다.",
+    "프로필(2.5층) 이탈 5명 — 사쿠라 : 블룸 인 서머, 리타, 크라운, 앨리스, 모더니아"
+  ],
+  "evaluator": {
+    "repo": "Jgaram/nikke-calc",
+    "commit": null,
+    "dirty": null
+  },
+  "burst_policy": "auto",
+  "shooting_policy": "auto",
+  "burst_gauge_mode": "fixed",
+  "requested_burst_policy": "auto",
+  "burst_patterns": {},
+  "burst_timeline": [
+    {
+      "time": 3.0,
+      "event": "stage:1 사용",
+      "character": "리타"
+    },
+    {
+      "time": 3.1,
+      "event": "stage:2 사용",
+      "character": "크라운"
+    },
+    {
+      "time": 3.2,
+      "event": "stage:3 사용",
+      "character": "사쿠라 : 블룸 인 서머"
+    },
+    {
+      "time": 3.583,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 13.583,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 20.667,
+      "event": "stage:1 사용",
+      "character": "리타"
+    },
+    {
+      "time": 20.767,
+      "event": "stage:2 사용",
+      "character": "크라운"
+    },
+    {
+      "time": 20.867,
+      "event": "stage:3 사용",
+      "character": "앨리스"
+    },
+    {
+      "time": 21.25,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 31.25,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 35.633,
+      "event": "stage:1 사용",
+      "character": "리타"
+    },
+    {
+      "time": 35.733,
+      "event": "stage:2 사용",
+      "character": "크라운"
+    },
+    {
+      "time": 35.833,
+      "event": "stage:3 사용",
+      "character": "사쿠라 : 블룸 인 서머"
+    },
+    {
+      "time": 36.217,
+      "event": "full_burst 시작",
+      "character": ""
+    }
+  ],
+  "base_stats": {
+    "사쿠라 : 블룸 인 서머": {
+      "atk": 124386,
+      "def": 19931,
+      "hp": 2980819
+    },
+    "리타": {
+      "atk": 105903,
+      "def": 19625,
+      "hp": 3267307
+    },
+    "크라운": {
+      "atk": 87387,
+      "def": 20905,
+      "hp": 3557120
+    },
+    "앨리스": {
+      "atk": 125311,
+      "def": 17769,
+      "hp": 3001638
+    },
+    "모더니아": {
+      "atk": 125693,
+      "def": 17779,
+      "hp": 3010221
+    }
+  },
+  "hypothetical": false,
+  "engine_revision": "23164e4a88fe46af609cc99b0de38a98313a5f4d",
+  "app_warnings": [
+    "固定条件の静止ボスを仮定した参考値です。ボス固有パターンと生存は未検証です。"
+  ]
+}

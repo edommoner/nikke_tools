@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-10-16T17:23:55.472137+00:00",
+  "passed": true,
+  "abi": "detail_random_v20",
+  "url": "http://127.0.0.1:4332/#single",
+  "browser": "Brave",
+  "normal_screen": true,
+  "synthetic_demo": true,
+  "seed": 12345,
+  "shooting_policy": "character",
+  "burst_policy": "mast3",
+  "burst_gauge_mode": "accumulate",
+  "displayed_total": 243679868,
+  "displayed_members": [
+    137652644,
+    17503770,
+    32239833,
+    21129893,
+    35153728
+  ],
+  "displayed_backend": "cuda_detail",
+  "displayed_module": "cubin-sm86",
+  "cpu_verification_matched": true,
+  "displayed_elapsed_seconds": 16.15,
+  "note": "Fresh ordinary UI calculation observed after restarting owned4332 v20 server; character controls, Mast pattern, accumulated burst gauge and explicitly selected seed12345. File save/import roundtrip is not UI-tested. Not every character or every combination.",
+  "source_sha256": {
+    "app/detail_gpu.py": "bcd22fef4976d5400fbb651009b77834bad840b65cdee608f91ec1287ac61746",
+    "app/detail_effects.cu": "336a625106940516bfd09edd7e53ce7b6e44105f05565b14b9aa0e0ed83f8dd5",
+    "app/detail_effects.ptx": "8cdee913e482d4246e206745292f22ab5db1650584d117f726ebd845200e9eaf",
+    "app/detail_effects-sm86.cubin": "90df23bf55016fff96ef09e0cf93da11a413885af290b386a74e28a5e64ddebf",
+    "app/detail_effects-build.json": "5475869b9c71ba38d76a2f37087fed13a66c2e0e764eff038710fc6476650f98",
+    "app/detail_effects-sm86.json": "909416456a37add86dbec3382a87c253cada3e4c13f33d230b9c630f14c96bd0",
+    "app/engine_worker.py": "a1b9f46f5c5375f6da7740b37ebc3e8a286fe95973cc19594d7d625a805bb75c",
+    "app/gpu_service.py": "7cc9e2b0f87c633bd09092347207dfa7fbb5773fb399cfeadc6b70aff7a2309d",
+    "web/app.js": "91847d22a3ffb5238975aadf7e9af8c664db5650b7b85093668ed833041a5389",
+    "web/index.html": "8fb146ea8a433f0028f2a6365ab849e851068311e73787ede33e5ca7152f5b99"
+  },
+  "seed_stale_result_checked": true,
+  "seed_restored": 12345
+}

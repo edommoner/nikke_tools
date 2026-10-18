@@ -1,0 +1,33 @@
+{
+  "cpu_observed": true,
+  "gpu_verified": false,
+  "objective_complete": false,
+  "case": "raw-Rei-decoy-heal-dead-first-B1",
+  "total": 34912843,
+  "final": {
+    "down": [
+      "라이"
+    ],
+    "HP": {
+      "라이": 0.0,
+      "라푼젤": 2965507.0,
+      "크라운": 3255320.0,
+      "앨리스": 2902325.85,
+      "모더니아": 2708421.0
+    },
+    "HP_pct": {
+      "라이": 0.0,
+      "라푼젤": 100.0,
+      "크라운": 100.0,
+      "앨리스": 100.0,
+      "모더니아": 100.0
+    }
+  },
+  "bursts": [],
+  "source_sha256": {
+    "research/probe-rei-dead-first-CPU.py": "3f45133dd30785f835726c01f961260f3340524dff918fec89a711bb5cbb81fb",
+    "scripts/verify-staged-decoy-healing.py": "a25c3417dc00e5b52f9209c69a7ac0a6b5285fe0b97a4e6298ad495de1ac0b19",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}

@@ -1,0 +1,16 @@
+test_None_outside_revival_keeps_original_exception (scaling_boundary_acceptance.CPURevivalScalingContext.test_None_outside_revival_keeps_original_exception) ... ok
+test_context_install_is_idempotent (scaling_boundary_acceptance.CPURevivalScalingContext.test_context_install_is_idempotent) ... ok
+test_ordinary_query_uses_live_percentage_and_ignores_stacks (scaling_boundary_acceptance.CPURevivalScalingContext.test_ordinary_query_uses_live_percentage_and_ignores_stacks) ... ok
+test_query_exception_restores_transition_sentinel (scaling_boundary_acceptance.CPURevivalScalingContext.test_query_exception_restores_transition_sentinel) ... ok
+test_revival_query_restores_None_without_synchronizing_HP (scaling_boundary_acceptance.CPURevivalScalingContext.test_revival_query_restores_None_without_synchronizing_HP) ... ok
+test_bad_cover_counts_and_wrong_instant_kind_are_rejected_before_CUDA (scaling_boundary_acceptance.ScalingAndCoverBoundaries.test_bad_cover_counts_and_wrong_instant_kind_are_rejected_before_CUDA) ... ok
+test_broken_cover_random_count_clamps_to_roster_and_preserves_zero (scaling_boundary_acceptance.ScalingAndCoverBoundaries.test_broken_cover_random_count_clamps_to_roster_and_preserves_zero) ... ok
+test_cover_revive_zero_and_wrong_scaling_do_not_silently_compile (scaling_boundary_acceptance.ScalingAndCoverBoundaries.test_cover_revive_zero_and_wrong_scaling_do_not_silently_compile) ... ok
+test_invalid_scaling_modes_are_rejected_before_CUDA (scaling_boundary_acceptance.ScalingAndCoverBoundaries.test_invalid_scaling_modes_are_rejected_before_CUDA) ... ok
+test_lost_HP_mode_is_explicit_and_not_stack_capture (scaling_boundary_acceptance.ScalingAndCoverBoundaries.test_lost_HP_mode_is_explicit_and_not_stack_capture) ... ok
+test_scalar_witness_addresses_are_validated_before_launch (scaling_boundary_acceptance.ScalingAndCoverBoundaries.test_scalar_witness_addresses_are_validated_before_launch) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.067s
+
+OK

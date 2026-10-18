@@ -1,0 +1,1710 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "credit-families-outcomes-and-actor-generation",
+      "passed": true,
+      "quantities": [
+        [
+          1,
+          0.0,
+          0,
+          1
+        ],
+        [
+          1,
+          0.0,
+          0,
+          1
+        ],
+        [
+          1,
+          0.0,
+          0,
+          1
+        ],
+        [
+          1,
+          0.0,
+          0,
+          1
+        ],
+        [
+          1,
+          0.0,
+          0,
+          1
+        ],
+        [
+          1,
+          0.0,
+          0,
+          1
+        ],
+        [
+          1,
+          0.75,
+          0,
+          1
+        ],
+        [
+          0,
+          0.0,
+          1,
+          1
+        ],
+        [
+          0,
+          0.0,
+          1,
+          1
+        ],
+        [
+          0,
+          0.0,
+          1,
+          1
+        ]
+      ],
+      "completions": 1,
+      "last_epoch": 1
+    },
+    {
+      "name": "refresh-reset",
+      "passed": true,
+      "quantities": [
+        [
+          1,
+          0.0,
+          0,
+          1
+        ],
+        [
+          1,
+          0.75,
+          0,
+          1
+        ],
+        [
+          1,
+          0.0,
+          0,
+          2
+        ],
+        [
+          1,
+          1.25,
+          0,
+          2
+        ]
+      ],
+      "completions": 0,
+      "last_epoch": null
+    },
+    {
+      "name": "refresh-preserve",
+      "passed": true,
+      "quantities": [
+        [
+          1,
+          0.0,
+          0,
+          1
+        ],
+        [
+          1,
+          0.75,
+          0,
+          1
+        ],
+        [
+          1,
+          0.75,
+          0,
+          2
+        ],
+        [
+          0,
+          0.0,
+          1,
+          2
+        ]
+      ],
+      "completions": 1,
+      "last_epoch": 2
+    },
+    {
+      "name": "expiry-does-not-preserve-progress",
+      "passed": true,
+      "quantities": [
+        [
+          1,
+          0.0,
+          0,
+          1
+        ],
+        [
+          1,
+          0.75,
+          0,
+          1
+        ],
+        [
+          1,
+          0.0,
+          0,
+          2
+        ],
+        [
+          1,
+          1.25,
+          0,
+          2
+        ]
+      ],
+      "completions": 0,
+      "last_epoch": null
+    },
+    {
+      "name": "death-or-threshold-completes-once",
+      "passed": true,
+      "quantities": [
+        [
+          1,
+          0.0,
+          0,
+          1
+        ],
+        [
+          1,
+          3.0,
+          0,
+          1
+        ],
+        [
+          1,
+          3.0,
+          0,
+          1
+        ],
+        [
+          0,
+          0.0,
+          1,
+          1
+        ],
+        [
+          0,
+          0.0,
+          1,
+          1
+        ],
+        [
+          0,
+          0.0,
+          1,
+          1
+        ]
+      ],
+      "completions": 1,
+      "last_epoch": 1
+    },
+    {
+      "name": "completion-refresh-survives-parent-retirement",
+      "passed": true,
+      "quantities": [
+        [
+          1,
+          0.0,
+          0,
+          1
+        ],
+        [
+          1,
+          0.0,
+          1,
+          2
+        ],
+        [
+          0,
+          0.0,
+          2,
+          2
+        ],
+        [
+          0,
+          0.0,
+          2,
+          2
+        ]
+      ],
+      "completions": 2,
+      "last_epoch": 2
+    },
+    {
+      "name": "siblings-latch-before-child-refresh",
+      "passed": true,
+      "quantities": [
+        [
+          2,
+          0.0,
+          0,
+          2
+        ],
+        [
+          1,
+          0.0,
+          2,
+          3
+        ],
+        [
+          0,
+          0.0,
+          3,
+          3
+        ]
+      ],
+      "completions": 3,
+      "last_epoch": 3
+    },
+    {
+      "name": "owner-only-credit",
+      "passed": true,
+      "quantities": [
+        [
+          1,
+          0.0,
+          0,
+          1
+        ],
+        [
+          1,
+          0.0,
+          0,
+          1
+        ],
+        [
+          1,
+          1.0,
+          0,
+          1
+        ],
+        [
+          0,
+          0.0,
+          1,
+          1
+        ]
+      ],
+      "completions": 1,
+      "last_epoch": 1
+    },
+    {
+      "name": "explicit-blocked-credit-policy",
+      "passed": true,
+      "quantities": [
+        [
+          1,
+          0.0,
+          0,
+          1
+        ],
+        [
+          1,
+          0.0,
+          0,
+          1
+        ],
+        [
+          1,
+          0.75,
+          0,
+          1
+        ],
+        [
+          0,
+          0.0,
+          1,
+          1
+        ]
+      ],
+      "completions": 1,
+      "last_epoch": 1
+    },
+    {
+      "name": "death-without-reward-retires-the-marker",
+      "passed": true,
+      "quantities": [
+        [
+          1,
+          0.0,
+          0,
+          1
+        ],
+        [
+          1,
+          1.0,
+          0,
+          1
+        ],
+        [
+          0,
+          0.0,
+          0,
+          1
+        ],
+        [
+          0,
+          0.0,
+          0,
+          1
+        ],
+        [
+          0,
+          0.0,
+          0,
+          1
+        ]
+      ],
+      "completions": 0,
+      "last_epoch": null
+    },
+    {
+      "name": "same-marker-name-is-private-to-each-owner",
+      "passed": true,
+      "completions": 2
+    },
+    {
+      "name": "capacity-is-checked-before-capture-increment",
+      "passed": true,
+      "damage": 1000,
+      "captures": 3
+    },
+    {
+      "name": "counter-generated-skill-landing-reaches-other-counter",
+      "passed": true,
+      "completions": 2,
+      "child_resource": 1,
+      "damage": 1000
+    },
+    {
+      "name": "autonomous-body-hits-refresh-and-effect-order",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 34294353,
+      "gpu_total": 34294353,
+      "cpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "gpu_health": {
+        "리타": {
+          "hp": 3261117.0,
+          "hp_pct": 100.0,
+          "max_hp": 3261117.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "N102": {
+          "hp": 2735316.0,
+          "hp_pct": 100.0,
+          "max_hp": 2735316.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "리타",
+          "cpu": 4943546,
+          "gpu": 4943546
+        },
+        {
+          "name": "크라운",
+          "cpu": 3798564,
+          "gpu": 3798564
+        },
+        {
+          "name": "앨리스",
+          "cpu": 6635390,
+          "gpu": 6635390
+        },
+        {
+          "name": "모더니아",
+          "cpu": 16716653,
+          "gpu": 16716653
+        },
+        {
+          "name": "N102",
+          "cpu": 2200200,
+          "gpu": 2200200
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 1380.462,
+      "module_initialization_ms": 21.098,
+      "wall_seconds": 3.893,
+      "counter_frames": 482,
+      "completed": 12,
+      "counter_final": {
+        "time": 8,
+        "active": 0,
+        "credit": 0,
+        "completed": 12,
+        "latched": 0,
+        "dead_actors": 0,
+        "epoch": 16,
+        "last": {
+          "epoch": 16,
+          "owner": "리타",
+          "name": "body progress",
+          "actor": [
+            0,
+            0,
+            1
+          ],
+          "credit": 30,
+          "reason": "threshold",
+          "time": 7.699999999999978
+        }
+      }
+    },
+    {
+      "name": "autonomous-part-death-before-lifesteal",
+      "squad": [
+        "슈가",
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 63892324,
+      "gpu_total": 63892324,
+      "cpu_health": {
+        "슈가": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3340439.625,
+          "hp_pct": 93.90854469345987,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_health": {
+        "슈가": {
+          "hp": 2980819.0,
+          "hp_pct": 100.0,
+          "max_hp": 2980819.0
+        },
+        "리타": {
+          "hp": 3267307.0,
+          "hp_pct": 100.0,
+          "max_hp": 3267307.0
+        },
+        "크라운": {
+          "hp": 3340439.625,
+          "hp_pct": 93.90854469345987,
+          "max_hp": 3557120.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": true,
+        "lifesteal_active": true,
+        "pierce_active": true
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 664,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "슈가",
+          "cpu": 13758429,
+          "gpu": 13758429
+        },
+        {
+          "name": "리타",
+          "cpu": 7117538,
+          "gpu": 7117538
+        },
+        {
+          "name": "크라운",
+          "cpu": 6039969,
+          "gpu": 6039969
+        },
+        {
+          "name": "앨리스",
+          "cpu": 10346024,
+          "gpu": 10346024
+        },
+        {
+          "name": "모더니아",
+          "cpu": 26630364,
+          "gpu": 26630364
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "슈가"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "슈가"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 2964.08,
+      "module_initialization_ms": 19.855,
+      "wall_seconds": 5.807,
+      "counter_frames": 482,
+      "completed": 1,
+      "counter_final": {
+        "time": 8,
+        "active": 0,
+        "credit": 0,
+        "completed": 1,
+        "latched": 0,
+        "dead_actors": 1,
+        "epoch": 1,
+        "last": {
+          "epoch": 1,
+          "owner": "슈가",
+          "name": "part progress",
+          "actor": [
+            1,
+            0,
+            1
+          ],
+          "credit": 3,
+          "reason": "death",
+          "time": 0.0
+        }
+      }
+    },
+    {
+      "name": "raw-capture-to-cap-and-overflow",
+      "squad": [
+        "N102",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "일레그 : 붐 앤 쇼크"
+      ],
+      "duration": 90,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 792860799,
+      "gpu_total": 792860799,
+      "cpu_health": {
+        "N102": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "일레그 : 붐 앤 쇼크": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_health": {
+        "N102": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "앨리스": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "모더니아": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "일레그 : 붐 앤 쇼크": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": true
+      },
+      "observed_crown_conditions": {
+        "stack20": 4,
+        "heal_received": 4,
+        "shield_applied": 5,
+        "auto_reload": 0,
+        "heal_damage_buff": true
+      },
+      "members": [
+        {
+          "name": "N102",
+          "cpu": 124040831,
+          "gpu": 124040831
+        },
+        {
+          "name": "크라운",
+          "cpu": 84216878,
+          "gpu": 84216878
+        },
+        {
+          "name": "앨리스",
+          "cpu": 141244958,
+          "gpu": 141244958
+        },
+        {
+          "name": "모더니아",
+          "cpu": 190042329,
+          "gpu": 190042329
+        },
+        {
+          "name": "일레그 : 붐 앤 쇼크",
+          "cpu": 253315803,
+          "gpu": 253315803
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "N102"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 23.0,
+          "event": "stage:1 사용",
+          "character": "N102"
+        },
+        {
+          "time": 23.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 23.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 23.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 38.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 43.0,
+          "event": "stage:1 사용",
+          "character": "N102"
+        },
+        {
+          "time": 43.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 43.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 43.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 53.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 63.0,
+          "event": "stage:1 사용",
+          "character": "N102"
+        },
+        {
+          "time": 63.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 63.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 63.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 78.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 83.0,
+          "event": "stage:1 사용",
+          "character": "N102"
+        },
+        {
+          "time": 83.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 83.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 83.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "N102"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 23.0,
+          "event": "stage:1 사용",
+          "character": "N102"
+        },
+        {
+          "time": 23.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 23.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 23.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 38.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 43.0,
+          "event": "stage:1 사용",
+          "character": "N102"
+        },
+        {
+          "time": 43.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 43.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 43.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 53.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 63.0,
+          "event": "stage:1 사용",
+          "character": "N102"
+        },
+        {
+          "time": 63.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 63.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 63.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 78.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 83.0,
+          "event": "stage:1 사용",
+          "character": "N102"
+        },
+        {
+          "time": 83.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 83.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 83.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 20214.066,
+      "module_initialization_ms": 20.331,
+      "wall_seconds": 39.823,
+      "counter_frames": 5402,
+      "completed": 15,
+      "counter_final": {
+        "time": 90,
+        "active": 0,
+        "credit": 0,
+        "completed": 15,
+        "latched": 0,
+        "dead_actors": 0,
+        "epoch": 15,
+        "last": {
+          "epoch": 15,
+          "owner": "일레그 : 붐 앤 쇼크",
+          "name": "빙의",
+          "actor": [
+            0,
+            0,
+            1
+          ],
+          "credit": 100,
+          "reason": "threshold",
+          "time": 84.71666666666314
+        }
+      },
+      "captures": [
+        {
+          "time": 2.8499999999999948,
+          "before": 0,
+          "after": 1.0
+        },
+        {
+          "time": 6.416666666666649,
+          "before": 1.0,
+          "after": 2.0
+        },
+        {
+          "time": 12.400000000000196,
+          "before": 2.0,
+          "after": 3.0
+        },
+        {
+          "time": 19.033333333333534,
+          "before": 3.0,
+          "after": 4.0
+        },
+        {
+          "time": 24.41666666666656,
+          "before": 4.0,
+          "after": 5.0
+        },
+        {
+          "time": 30.41666666666622,
+          "before": 5.0,
+          "after": 6.0
+        },
+        {
+          "time": 36.41666666666588,
+          "before": 6.0,
+          "after": 7.0
+        },
+        {
+          "time": 42.41666666666554,
+          "before": 7.0,
+          "after": 8.0
+        },
+        {
+          "time": 48.81666666666518,
+          "before": 8.0,
+          "after": 9.0
+        },
+        {
+          "time": 54.41666666666486,
+          "before": 9.0,
+          "after": 10.0
+        },
+        {
+          "time": 60.41666666666452,
+          "before": 10.0,
+          "after": 11.0
+        },
+        {
+          "time": 66.7999999999975,
+          "before": 11.0,
+          "after": 12.0
+        },
+        {
+          "time": 72.41666666666384,
+          "before": 12.0,
+          "after": 13.0
+        },
+        {
+          "time": 78.4166666666635,
+          "before": 13.0,
+          "after": 13.0
+        },
+        {
+          "time": 84.71666666666314,
+          "before": 13.0,
+          "after": 13.0
+        }
+      ],
+      "overflows": [
+        {
+          "time": 78.4166666666635,
+          "resource": 13.0,
+          "capture_number": 14
+        },
+        {
+          "time": 84.71666666666314,
+          "resource": 13.0,
+          "capture_number": 15
+        }
+      ],
+      "cast_effects": [],
+      "single_body_model": true,
+      "enemy_code": "작열",
+      "element_matches_enemy": true,
+      "element_bonus_below_four": 88.6,
+      "element_bonus_at_least_four": 118.83
+    },
+    {
+      "name": "raw-in-burst-six-hit-consumption-floor",
+      "squad": [
+        "N102",
+        "크라운",
+        "일레그 : 붐 앤 쇼크",
+        "앨리스",
+        "모더니아"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 118574868,
+      "gpu_total": 118574868,
+      "cpu_health": {
+        "N102": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "일레그 : 붐 앤 쇼크": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_health": {
+        "N102": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "일레그 : 붐 앤 쇼크": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": true
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 1,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "N102",
+          "cpu": 8214491,
+          "gpu": 8214491
+        },
+        {
+          "name": "크라운",
+          "cpu": 7929822,
+          "gpu": 7929822
+        },
+        {
+          "name": "일레그 : 붐 앤 쇼크",
+          "cpu": 81158928,
+          "gpu": 81158928
+        },
+        {
+          "name": "앨리스",
+          "cpu": 4670211,
+          "gpu": 4670211
+        },
+        {
+          "name": "모더니아",
+          "cpu": 16601416,
+          "gpu": 16601416
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "N102"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "일레그 : 붐 앤 쇼크"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "N102"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "일레그 : 붐 앤 쇼크"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 1956.474,
+      "module_initialization_ms": 22.207,
+      "wall_seconds": 5.852,
+      "counter_frames": 482,
+      "completed": 2,
+      "counter_final": {
+        "time": 8,
+        "active": 0,
+        "credit": 0,
+        "completed": 2,
+        "latched": 0,
+        "dead_actors": 0,
+        "epoch": 2,
+        "last": {
+          "epoch": 2,
+          "owner": "일레그 : 붐 앤 쇼크",
+          "name": "빙의",
+          "actor": [
+            0,
+            0,
+            1
+          ],
+          "credit": 100,
+          "reason": "threshold",
+          "time": 6.416666666666649
+        }
+      },
+      "captures": [
+        {
+          "time": 2.8499999999999948,
+          "before": 0,
+          "after": 1.0
+        },
+        {
+          "time": 6.416666666666649,
+          "before": 1.0,
+          "after": 2.0
+        }
+      ],
+      "overflows": [],
+      "cast_effects": [
+        {
+          "time": 3.1999999999999935,
+          "resource": 1.0,
+          "effect": "13 고스트"
+        }
+      ],
+      "single_body_model": true,
+      "enemy_code": "작열",
+      "element_matches_enemy": true,
+      "element_bonus_below_four": 88.6,
+      "element_bonus_at_least_four": null
+    },
+    {
+      "name": "raw-in-burst-thirteen-hit-at-initial-cap",
+      "squad": [
+        "N102",
+        "크라운",
+        "일레그 : 붐 앤 쇼크",
+        "앨리스",
+        "모더니아"
+      ],
+      "duration": 8,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 203341072,
+      "gpu_total": 203341072,
+      "cpu_health": {
+        "N102": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "일레그 : 붐 앤 쇼크": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "gpu_health": {
+        "N102": {
+          "hp": 2702647.0,
+          "hp_pct": 100.0,
+          "max_hp": 2702647.0
+        },
+        "크라운": {
+          "hp": 3548287.0,
+          "hp_pct": 100.0,
+          "max_hp": 3548287.0
+        },
+        "일레그 : 붐 앤 쇼크": {
+          "hp": 2993617.0,
+          "hp_pct": 100.0,
+          "max_hp": 2993617.0
+        },
+        "앨리스": {
+          "hp": 3001638.0,
+          "hp_pct": 100.0,
+          "max_hp": 3001638.0
+        },
+        "모더니아": {
+          "hp": 3010221.0,
+          "hp_pct": 100.0,
+          "max_hp": 3010221.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": true
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 1,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "N102",
+          "cpu": 9504815,
+          "gpu": 9504815
+        },
+        {
+          "name": "크라운",
+          "cpu": 7929822,
+          "gpu": 7929822
+        },
+        {
+          "name": "일레그 : 붐 앤 쇼크",
+          "cpu": 164634808,
+          "gpu": 164634808
+        },
+        {
+          "name": "앨리스",
+          "cpu": 4670211,
+          "gpu": 4670211
+        },
+        {
+          "name": "모더니아",
+          "cpu": 16601416,
+          "gpu": 16601416
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "N102"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "일레그 : 붐 앤 쇼크"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "N102"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "일레그 : 붐 앤 쇼크"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "ptx",
+      "gpu_execution_ms": 1898.419,
+      "module_initialization_ms": 21.896,
+      "wall_seconds": 5.865,
+      "counter_frames": 482,
+      "completed": 2,
+      "counter_final": {
+        "time": 8,
+        "active": 0,
+        "credit": 0,
+        "completed": 2,
+        "latched": 0,
+        "dead_actors": 0,
+        "epoch": 2,
+        "last": {
+          "epoch": 2,
+          "owner": "일레그 : 붐 앤 쇼크",
+          "name": "빙의",
+          "actor": [
+            0,
+            0,
+            1
+          ],
+          "credit": 100,
+          "reason": "threshold",
+          "time": 6.416666666666649
+        }
+      },
+      "captures": [
+        {
+          "time": 2.8499999999999948,
+          "before": 13.0,
+          "after": 13.0
+        },
+        {
+          "time": 6.416666666666649,
+          "before": 4.0,
+          "after": 5.0
+        }
+      ],
+      "overflows": [
+        {
+          "time": 2.8499999999999948,
+          "resource": 13.0,
+          "capture_number": 1
+        }
+      ],
+      "cast_effects": [
+        {
+          "time": 3.1999999999999935,
+          "resource": 13.0,
+          "effect": "13 고스트 3"
+        }
+      ],
+      "single_body_model": true,
+      "enemy_code": "작열",
+      "element_matches_enemy": true,
+      "element_bonus_below_four": null,
+      "element_bonus_at_least_four": 115.63999999999999
+    }
+  ],
+  "source_stable": true,
+  "source_sha256": {
+    "app/attack_timing_specs.py": "976d2beca6053f9c89b57c53c5c364bba3d66b817b571dff5d47aee3d593ad2b",
+    "app/base_copy_runtime.py": "e2877bc274988a6ca3684cc43d7630687f46bf89a328ddf9593d7c42568dfd32",
+    "app/damage_accum_runtime.py": "b6a97700f8690219bb4ad25b529c9cc24c14e5c9a9396aa3661211483757a982",
+    "app/damage_basis_specs.py": "9dcc0575639c404dea26d29be74ef49fbc4b0e762c7a3f8d1674b079b1ac2261",
+    "app/damage_query_runtime.py": "fcb22427f84941e5d6a331d02054341e8f5859b274d139a799f3bc8ef202ddd0",
+    "app/detail_boss.py": "521a06d1caf6a8b223b65312ab029fac6fd7099702e04db33f0e7c556736afa1",
+    "app/detail_effects.cu": "0b7e2708c081ea195d9928d016e962ae29a1e8df3ddc1edc096130b91f42a8c4",
+    "app/detail_gpu.py": "9c3bfdd4ca4a0721d4b2894b19fb810fb3e4247e50bbb24a9e217e19133e31dc",
+    "app/detail_world.py": "3c717ce722fb151fa1bc3cb7990ab632b9a481a5fb379607c52b2ac66a56317c",
+    "app/effect_overrides.py": "d072d8324b52b42c4709359330c11aa1f4bb963b76d9664045df3f30062e1779",
+    "app/effect_runtime.py": "abe7d82e9295dee0ed3398f4e1b8d295cfdbd1abb15db832e8eb11eb07b70f65",
+    "app/effect_spec.py": "7b46203d78ee46d7a329648bd0629c48a4ad5fab52a5d1572e72bde807d2ed21",
+    "app/engine_compat.py": "ca841c7fe18f68682699ee71b52194c079d1a861e7f7e385b7d322e5b4d101d5",
+    "app/engine_worker.py": "2303687435aa6a4d7422a62107d064ee063dd91182fdecc526a0709314199845",
+    "app/gpu_combat.py": "610c6b1dc97825577bd3d1639691377726c8232909b5816b388d66582b994cb1",
+    "app/gpu_selector.py": "913cf0fdab130614dbf1b73e6016550a4ea07b6fee27f540f6bae079e1c2c2b3",
+    "app/gpu_service.py": "a5c9c707479986ab236a15cf73db872e6ac07e4f5148c9575d2c6b3fb025a2c0",
+    "app/heal_charge_compat.py": "018e94d88ea36eda21b1b34e2c196f7aaa742f4dc4808c84c05835620b25197e",
+    "app/heal_sharing_compat.py": "45578674e4697405037ebb556cb5e4e7698edd33312b2242e85bf55b908f3919",
+    "app/healing_storage_compat.py": "1faf3c33b20f7c3e76aa04f9e1e9cf47c509845735a1eaca3cb636df3c0001ff",
+    "app/impact_runtime.py": "61ac2517dc6df2d6ac1f9f40f02bed569852c106fc1206698622c07e95fb5488",
+    "app/impact_specs.py": "7f74f07c444e6b687fe397b5c34104954244051873d437f7a21bdb6475749d31",
+    "app/lifecycle_specs.py": "dc26e4d9bc92c0d87397ff0a1c13fd13165c60822a935108d46ccdd9cdf2f1ae",
+    "app/max_hp_snapshot_runtime.py": "4cf4f91b4ceb4232a4b960d1b30e60c665ee6bfcd410c1d1be3fa28df63c6b5c",
+    "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
+    "app/outgoing_healing_compat.py": "8eb8a8fe2ecd2a9c7d7fbccb087473b0817073da1ee2093b5b36f161df5f8af3",
+    "app/protection_runtime.py": "a6909bbdd73ef24ebdd3136cc67932c7ab433f23ae9ecabfc2a5069a5db37c81",
+    "app/reference_rewrite.py": "3d183c01a5915fcc5749b304c6f7c3aa68f28483065cdb3758bbb04301e3e15e",
+    "app/resource_runtime.py": "8356943f18d137bfb90d60ab2096c2505403c9156f088cf29c7aeda38fecd58c",
+    "app/resource_specs.py": "8e258b9365cd17fdcad0733bc367cfd72478c2c1b585509f71dd017f3d27a8cd",
+    "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "app/survival_scaling_compat.py": "7d58315941ff7256dcbeb1fa38c15e7fc5a801d1e96822610d612a114b9b56bc",
+    "app/target_counter_runtime.py": "0679ee9062123f3f6f61423f1af255836958e6ab16727f9634e0263f3883c2b5",
+    "app/target_counter_specs.py": "554e22881d3a5d66d23a4a1e99c94ea74f6b929d5c48586e9bc31e493860865e",
+    "data/engine-effect-overrides.json": "a68209ecef6f4accc81eabe7238142bd00411b6169496317aae4fc5f828d627a",
+    "scripts/resource_frame_capture.py": "9c381a25afce9c4ee1b1995e7a504a29248952959c5e077f1f66fa8e971ea33b",
+    "scripts/target_counter_cases.py": "94389d3948959be45f9a6b94d37f653fb106c1c86de4ef4bac8cc21b23f68596",
+    "scripts/verify-extended-detail.py": "51df21e93ae7b9b2c093980c78e8880999d627ee8d46df272f82ddde19339902",
+    "scripts/verify-gauge-detail.py": "000c31289d5fdf92b13b95d454af1815d8f76c1770ff4b1468cce26c59aa49d1",
+    "scripts/verify-target-counters-detail.py": "6febb7ac903ca172c26f653ba67b934358489624424532de38fa092a3db63cb0",
+    "tests/test_target_counter_runtime.py": "67aae222254b5e64d7b277dd9ba1336f1fabf08b4e9bd2a029d7bfdf72f3bacb",
+    "app/detail_effects.ptx": "43f79990206033f504b639f6babbe1de4275b4cf2d2799cbdc5f76e1a20218c6",
+    "app/detail_effects-build.json": "b1eb5d6ecaf662cb8602379d400f9bea179555f503e4524bdd45b562e47b6045"
+  },
+  "cpu_trace_used_as_gpu_input": false,
+  "scope": "Explicit physical-actor credit policies, shared completion lifecycle and bounded single-body raw capture model. Component and blocked-hit raw capture behavior is not admitted or claimed game-verified."
+}

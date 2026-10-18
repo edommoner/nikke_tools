@@ -1,0 +1,8 @@
+{"name": "self-cross", "passed": true, "gpu_implemented": false}
+{"name": "already-below", "passed": true, "gpu_implemented": false}
+{"name": "rearm-after-heal", "passed": true, "gpu_implemented": false}
+{"name": "second-cross-counter", "passed": true, "gpu_implemented": false}
+{"name": "squad-observer-order", "passed": true, "gpu_implemented": false}
+{"name": "adjacent-observers", "passed": true, "gpu_implemented": false}
+{"name": "adjacent-max-transition", "passed": true, "gpu_implemented": false}
+{"name": "reentrant-heal", "passed": true, "gpu_implemented": false}

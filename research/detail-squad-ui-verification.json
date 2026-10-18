@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-10-16T17:57:02.853141+00:00",
+  "passed": true,
+  "feature": "v21 squad affiliation condition",
+  "abi": "detail_random_v20",
+  "url": "http://127.0.0.1:4332/#single",
+  "browser": "Brave",
+  "normal_screen": true,
+  "synthetic_demo": true,
+  "displayed_total": 506845264,
+  "displayed_members": [
+    64780828,
+    31443004,
+    60967075,
+    104439944,
+    245214413
+  ],
+  "squad": [
+    "누아르",
+    "루주",
+    "크라운",
+    "앨리스",
+    "모더니아"
+  ],
+  "seed": 12345,
+  "duration": 60,
+  "shooting_policy": "character",
+  "burst_policy": "rules",
+  "burst_gauge_mode": "accumulate",
+  "displayed_backend": "cuda_detail",
+  "displayed_module": "cubin-sm86",
+  "cpu_verification": {
+    "total_equal": true,
+    "members_equal": true,
+    "burst_timeline_equal": true,
+    "base_stats_equal": true,
+    "seed_equal": true,
+    "matched": true
+  },
+  "displayed_elapsed_seconds": 21.15,
+  "workspace_bytes": 256912,
+  "noir_burst_times": [
+    3.98,
+    33.28
+  ],
+  "note": "Owned v21 server10754 on4332; expanded203 synthetic demo, edited five slots through UI controls. Full raw skills retained; real Noir/Rouge affiliation and two Noir burst casts observed. File upload not needed or UI-tested. Not every character/favorite/combination.",
+  "source_sha256": {
+    "app/detail_gpu.py": "91d4a3d883efb8711f08d97f80e6c9e59a06c2e4de0f4726f5fd9effe384bace",
+    "app/detail_effects.cu": "336a625106940516bfd09edd7e53ce7b6e44105f05565b14b9aa0e0ed83f8dd5",
+    "app/detail_effects.ptx": "8cdee913e482d4246e206745292f22ab5db1650584d117f726ebd845200e9eaf",
+    "app/detail_effects-build.json": "5475869b9c71ba38d76a2f37087fed13a66c2e0e764eff038710fc6476650f98",
+    "app/detail_effects-sm86.cubin": "90df23bf55016fff96ef09e0cf93da11a413885af290b386a74e28a5e64ddebf",
+    "app/detail_effects-sm86.json": "909416456a37add86dbec3382a87c253cada3e4c13f33d230b9c630f14c96bd0",
+    "app/engine_worker.py": "a1b9f46f5c5375f6da7740b37ebc3e8a286fe95973cc19594d7d625a805bb75c",
+    "app/gpu_service.py": "7cc9e2b0f87c633bd09092347207dfa7fbb5773fb399cfeadc6b70aff7a2309d",
+    "server.mjs": "1a4893b15953a714ce8a095ac9777eb13d38302237933f4d428dcd2a8cc64578",
+    "web/app.js": "91847d22a3ffb5238975aadf7e9af8c664db5650b7b85093668ed833041a5389",
+    "web/index.html": "8fb146ea8a433f0028f2a6365ab849e851068311e73787ede33e5ca7152f5b99"
+  }
+}

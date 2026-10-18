@@ -1,0 +1,184 @@
+{
+  "generated_at": "2026-10-17T10:38:40.599656+00:00",
+  "passed": true,
+  "stage_only": true,
+  "objective_complete": false,
+  "abi": "detail_cover_capacity_v37",
+  "backend": "ptx",
+  "planned_cases": 2,
+  "not_run_cases": 0,
+  "cases": [
+    {
+      "name": "raw-Moran-capacity-cover-cube",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "final_HP_percentages": true,
+        "capacity_change_exercised": true
+      },
+      "cpu_total": 90758016,
+      "gpu_total": 90758016,
+      "cpu_cover_healed": [
+        {
+          "time": 15.000000000000325,
+          "caster": "목단"
+        },
+        {
+          "time": 15.000000000000325,
+          "caster": "크라운"
+        }
+      ],
+      "cpu_hp_events": [],
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "cpu_capacity_changes": [
+        {
+          "time": 0.0,
+          "character": "목단",
+          "before": [
+            2000000.0,
+            2000000.0
+          ],
+          "after": [
+            3014489.1197,
+            3014489.1197
+          ],
+          "base": 2000000.0
+        }
+      ]
+    },
+    {
+      "name": "raw-A2-capacity-cover-cube",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "final_HP_percentages": true,
+        "capacity_change_exercised": true
+      },
+      "cpu_total": 195436312,
+      "gpu_total": 195436312,
+      "cpu_cover_healed": [
+        {
+          "time": 15.000000000000325,
+          "caster": "리타"
+        },
+        {
+          "time": 15.000000000000325,
+          "caster": "크라운"
+        },
+        {
+          "time": 30.016666666666243,
+          "caster": "리타"
+        },
+        {
+          "time": 30.016666666666243,
+          "caster": "크라운"
+        },
+        {
+          "time": 45.016666666665394,
+          "caster": "리타"
+        },
+        {
+          "time": 45.016666666665394,
+          "caster": "크라운"
+        }
+      ],
+      "cpu_hp_events": [
+        {
+          "time": 22.20000000000002,
+          "caster": "A2",
+          "event": "hp_below:40"
+        }
+      ],
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "cpu_capacity_changes": [
+        {
+          "time": 0.0,
+          "character": "A2",
+          "before": [
+            2000000.0,
+            2000000.0
+          ],
+          "after": [
+            2316677.4785,
+            2316677.4785
+          ],
+          "base": 2000000.0
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "research/verify-cover-capacity-cube-carriers.py": "f7ea5364042b7d77647e9984556ad5af52aa2a2befe73abfd3b22066c6b8e1d7",
+    "scripts/verify-staged-cover-capacity.py": "3c9511d01fa765438c866ea2afe5ac4e102378a722c92f73824c505105af25fd",
+    "scripts/staged-cover-capacity-runtime.py": "59959af182e8a824db1261dee81f88a48ce9fdb378d2dd781f22cb0d5b01fd3f",
+    "scripts/verify-hp-edge-real.py": "7750fa9a15d0ee97be5f6cc1ea47cfd94c56884eba49359c598b8631acb85697",
+    "scripts/verify-hp-edge.py": "aaa4767aa661a273f22969f53974b14cec30bd5e21ec48ac426ebe7a0b2cf051",
+    "scripts/verify-survival-scaling.py": "d1a20d09b19197a9d467e3fe27f6d5a66943defb7791de30955c070a9f971a74",
+    "scripts/verify-survival-detail.py": "109be8847d6506c13d7175f9b7c256fa5ba2b8660f97eebc76e1207bfabf6362",
+    "scripts/verify-incoming-detail.py": "76bf238f9d184c491984c767f5cf8be3d0206d89130a6457f7e78e6d8004aa7d",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/engine_compat.py": "02ddc15b849b1b26e4dea9ce517bf51bfc3b4f9d4929fcc1c0b1b41739cbdea0",
+    "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "app/survival_scaling_compat.py": "7d58315941ff7256dcbeb1fa38c15e7fc5a801d1e96822610d612a114b9b56bc",
+    "app/detail_world.py": "3c717ce722fb151fa1bc3cb7990ab632b9a481a5fb379607c52b2ac66a56317c",
+    "app/detail_boss.py": "521a06d1caf6a8b223b65312ab029fac6fd7099702e04db33f0e7c556736afa1",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/data/parsed_skills.json": "81e2934af7c91b69a49b71721d5f53af25b5ebf006595d3e929db4582ff23137",
+    "research/staging/v37/app/detail_gpu.py": "8fed5868e5d440dea431cb2508899ddff67d1328304379f448c638ce11e272ed",
+    "research/staging/v37/app/detail_effects.cu": "af7991c5b86508f9c8e55a70611f94c9193e6d496be2e3209d7d8e4aea557a54",
+    "research/staging/v37/app/detail_effects.ptx": "b59e74988b0a7936b4ec35be584be1aa9efb41082a9d868873bb2e2575b87ac5",
+    "research/staging/v37/app/detail_effects-build.json": "16d3b06280004f41bb16d03a984e0097ac4e586ed582c82fedd7cd8a2432337c"
+  },
+  "cpu_trace_used_as_gpu_input": false
+}

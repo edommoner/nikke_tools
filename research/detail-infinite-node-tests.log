@@ -1,0 +1,28 @@
+✔ moving a character between squads swaps members without duplication (0.7733ms)
+✔ restoring old sessions filters missing and duplicate members (0.6257ms)
+✔ only complete squads are sent for batch calculation (0.4969ms)
+✔ enemy contexts are separate for single, solo, and union (37.0819ms)
+✔ grouping identical numeric settings preserves all source occurrences (1.6488ms)
+✔ profile bookmark decodes current BlaBlaLink URLs and transfers no credentials (6.0445ms)
+✔ candidate sets are complete, owned and contain no duplicate members (3.735ms)
+✔ global selection avoids choosing strongest first when it blocks the total (0.3878ms)
+✔ failed evaluations are excluded without changing original candidate indices (0.2344ms)
+✔ GPU estimates only reorder candidates and preserve a feasible group for final CPU scoring (1.1012ms)
+✔ observed power sorting keeps missing values last in both directions (1.3854ms)
+✔ limit break includes core enhancement and incomplete skills are unknown (0.1769ms)
+✔ single-squad view retains the selected squad index (0.1278ms)
+✔ enemy preset rejects missing fields, invalid values, and unknown element (0.8255ms)
+✔ search preserves original input and all unrelated scenario fields (1.5429ms)
+✔ bounded exhaustive search rejects invalid ranges and unowned targets (0.503ms)
+✔ automatic alternatives enumerate each field separately without mutating other stats (0.7884ms)
+✔ UTF-8 roster data remains intact across arbitrary network chunk boundaries (1.5968ms)
+✔ decimal overload ranges retain exact displayed values (0.3859ms)
+✔ alternative skill representations preserve unrelated skill levels (0.3278ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 208.2639

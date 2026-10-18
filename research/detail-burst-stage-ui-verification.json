@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:4332/#single",
+  "method": "Browser UI interaction and rendered result inspection",
+  "synthetic_data": true,
+  "squad": [
+    "モダニア",
+    "ルージュ",
+    "マスト：ロマンチックメイド",
+    "ドラー",
+    "マクスウェル"
+  ],
+  "duration": 60,
+  "shooting_policy": "character",
+  "burst_policy": "mast3",
+  "burst_gauge_mode": "accumulate",
+  "requested": "GPU詳細＋CPU照合",
+  "displayed_total": 243679868,
+  "displayed_members": [
+    137652644,
+    17503770,
+    32239833,
+    21129893,
+    35153728
+  ],
+  "displayed_backend": "GPU詳細計算",
+  "device": "NVIDIA GeForce RTX 3070 Ti",
+  "displayed_verification": "CPU照合済み（部隊合計・5人のダメージ・バースト時刻・基礎ステータス一致）",
+  "displayed_elapsed_seconds": 8.1,
+  "screenshot_observed": true,
+  "scope": "One synthetic five-member squad via normal UI, not all characters or all combinations",
+  "generated_at": "2026-10-16T16:02:09.544348+00:00",
+  "abi": "detail_burst_stage_v18",
+  "source_sha256": {
+    "app/detail_gpu.py": "415719a5cff05b92f3d06dffbb5cf3cb81d9569732399e3a3f5c78281c5c6cb2",
+    "app/detail_effects.cu": "a36b9e5fc30073d507b1a70b7c30ab4220428f01ed341d0eeb3e0f0e700c2998",
+    "app/detail_effects.ptx": "17088857db97c0f4520be52742b62c1bccdb29973002af6a34e96e810240dd32",
+    "app/detail_effects-sm86.cubin": "5b8bcfb7c2aee2d0db80a91f9508e20e387ad88b5118aa5710050bb6e5248447",
+    "app/detail_effects-build.json": "22a2fc4c16a627c4c339f4ffc67df261dbc36e9b03894859023edac91316124d",
+    "app/detail_effects-sm86.json": "1c028a8ebbfb032d8c3a1196fdc44f7666670ecd7b8cb582ed840a0c6703deba",
+    "app/engine_worker.py": "2069f97f963a46c39b8935d2b51c78693e855079cef9f4b198b6417abe0bdba3",
+    "web/app.js": "81fef15c6efd9a8687eb0ae4aa8f5c0dfbe17f71e32ef0ceef7ef09c304ad634",
+    "web/index.html": "c24b147b999e3537eda83a4224cc74de2371b56f3f56e12e4da22c1e3a00bc4b"
+  }
+}

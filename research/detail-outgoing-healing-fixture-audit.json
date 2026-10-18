@@ -1,0 +1,2554 @@
+{
+  "passed": true,
+  "gpu_verified": false,
+  "objective_complete": false,
+  "cpu_model_extended": true,
+  "cases": [
+    {
+      "name": "outgoing-source-only",
+      "passed": true,
+      "checks": {
+        "hand_derived_multiplier": true,
+        "original_healer_source": true
+      },
+      "total": 271922,
+      "effect_rows": 48,
+      "queries": [
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 1.5
+        }
+      ]
+    },
+    {
+      "name": "outgoing-recipient-is-not-source",
+      "passed": true,
+      "checks": {
+        "hand_derived_multiplier": true,
+        "original_healer_source": true
+      },
+      "total": 271922,
+      "effect_rows": 48,
+      "queries": [
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 1.0
+        }
+      ]
+    },
+    {
+      "name": "outgoing-separate-layers",
+      "passed": true,
+      "checks": {
+        "hand_derived_multiplier": true,
+        "original_healer_source": true
+      },
+      "total": 271922,
+      "effect_rows": 49,
+      "queries": [
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 1.875
+        }
+      ]
+    },
+    {
+      "name": "outgoing-additive-sources",
+      "passed": true,
+      "checks": {
+        "hand_derived_multiplier": true,
+        "original_healer_source": true
+      },
+      "total": 271922,
+      "effect_rows": 49,
+      "queries": [
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 1.75
+        }
+      ]
+    },
+    {
+      "name": "outgoing-negative-source",
+      "passed": true,
+      "checks": {
+        "hand_derived_multiplier": true,
+        "original_healer_source": true
+      },
+      "total": 271922,
+      "effect_rows": 48,
+      "queries": [
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 0.0
+        }
+      ]
+    },
+    {
+      "name": "outgoing-negative-recipient",
+      "passed": true,
+      "checks": {
+        "hand_derived_multiplier": true,
+        "original_healer_source": true
+      },
+      "total": 271922,
+      "effect_rows": 49,
+      "queries": [
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 0.0
+        }
+      ]
+    },
+    {
+      "name": "outgoing-stacked-source",
+      "passed": true,
+      "checks": {
+        "hand_derived_multiplier": true,
+        "original_healer_source": true
+      },
+      "total": 271922,
+      "effect_rows": 48,
+      "queries": [
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 2.5
+        }
+      ]
+    },
+    {
+      "name": "outgoing-periodic",
+      "passed": true,
+      "checks": {
+        "hand_derived_multiplier": true,
+        "original_healer_source": true
+      },
+      "total": 271922,
+      "effect_rows": 48,
+      "queries": [
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.21666666666666665,
+          "multiplier": 1.5
+        },
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.41666666666666663,
+          "multiplier": 1.5
+        },
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.6000000000000002,
+          "multiplier": 1.5
+        },
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.8000000000000008,
+          "multiplier": 1.5
+        }
+      ]
+    },
+    {
+      "name": "outgoing-caster-max",
+      "passed": true,
+      "checks": {
+        "hand_derived_multiplier": true,
+        "original_healer_source": true
+      },
+      "total": 271922,
+      "effect_rows": 48,
+      "queries": [
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 1.5
+        }
+      ]
+    },
+    {
+      "name": "outgoing-duplicates",
+      "passed": true,
+      "checks": {
+        "hand_derived_multiplier": true,
+        "original_healer_source": true
+      },
+      "total": 271922,
+      "effect_rows": 51,
+      "queries": [
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 1.5
+        },
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 1.5
+        },
+        {
+          "recipient": "크라운",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 1.5
+        },
+        {
+          "recipient": "모더니아",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 1.5
+        },
+        {
+          "recipient": "앨리스",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 1.5
+        },
+        {
+          "recipient": "N102",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 1.5
+        },
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 1.5
+        }
+      ]
+    },
+    {
+      "name": "outgoing-expired",
+      "passed": true,
+      "checks": {
+        "hand_derived_multiplier": true,
+        "original_healer_source": true
+      },
+      "total": 271922,
+      "effect_rows": 48,
+      "queries": [
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 1.0
+        }
+      ]
+    },
+    {
+      "name": "outgoing-lazy-target",
+      "passed": true,
+      "checks": {
+        "hand_derived_multiplier": true,
+        "original_healer_source": true
+      },
+      "total": 271922,
+      "effect_rows": 48,
+      "queries": [
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 1.5
+        }
+      ]
+    },
+    {
+      "name": "outgoing-conditional",
+      "passed": true,
+      "checks": {
+        "hand_derived_multiplier": true,
+        "original_healer_source": true
+      },
+      "total": 271922,
+      "effect_rows": 48,
+      "queries": [
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 1.5
+        }
+      ]
+    },
+    {
+      "name": "outgoing-lifesteal",
+      "passed": true,
+      "checks": {
+        "hand_derived_multiplier": true,
+        "original_healer_source": true
+      },
+      "total": 271922,
+      "effect_rows": 48,
+      "queries": [
+        {
+          "recipient": "크라운",
+          "source": "크라운",
+          "time": 0.0,
+          "multiplier": 1.5
+        },
+        {
+          "recipient": "크라운",
+          "source": "크라운",
+          "time": 1.0000000000000013,
+          "multiplier": 1.5
+        }
+      ]
+    },
+    {
+      "name": "outgoing-lifesteal-negative",
+      "passed": true,
+      "checks": {
+        "hand_derived_multiplier": true,
+        "original_healer_source": true
+      },
+      "total": 271922,
+      "effect_rows": 48,
+      "queries": [
+        {
+          "recipient": "크라운",
+          "source": "크라운",
+          "time": 0.0,
+          "multiplier": 0.0
+        },
+        {
+          "recipient": "크라운",
+          "source": "크라운",
+          "time": 1.0000000000000013,
+          "multiplier": 0.0
+        }
+      ]
+    },
+    {
+      "name": "outgoing-cover-unaffected",
+      "passed": true,
+      "checks": {
+        "repair_does_not_query_body_multiplier": true
+      },
+      "total": 271922,
+      "effect_rows": 48,
+      "queries": []
+    },
+    {
+      "name": "outgoing-shield-unaffected",
+      "passed": true,
+      "checks": {
+        "repair_does_not_query_body_multiplier": true
+      },
+      "total": 271922,
+      "effect_rows": 49,
+      "queries": []
+    },
+    {
+      "name": "outgoing-decoy-unaffected",
+      "passed": true,
+      "checks": {
+        "repair_does_not_query_body_multiplier": true
+      },
+      "total": 271922,
+      "effect_rows": 49,
+      "queries": []
+    },
+    {
+      "name": "outgoing-registered-timer-source-down",
+      "passed": true,
+      "checks": {
+        "hand_derived_multiplier": true,
+        "original_healer_source": true
+      },
+      "total": 269080,
+      "effect_rows": 48,
+      "queries": [
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.3,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.6000000000000002,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "리타",
+          "source": "크라운",
+          "time": 0.9000000000000011,
+          "multiplier": 1.0
+        }
+      ]
+    },
+    {
+      "name": "raw-outgoing-프리카-incoming",
+      "passed": true,
+      "checks": {
+        "actual_raw_healing_exercised": true,
+        "actual_outgoing_bonus_exercised": true
+      },
+      "total": 80434567,
+      "effect_rows": 91,
+      "queries": [
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 3.4166666666666594,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 5.316666666666653,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 6.26666666666665,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 6.26666666666665,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 6.26666666666665,
+          "multiplier": 1.5306225999999998
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 6.26666666666665,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 6.26666666666665,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 7.216666666666646,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 7.266666666666646,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 7.266666666666646,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 7.266666666666646,
+          "multiplier": 1.57820325
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 7.266666666666646,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 7.266666666666646,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 8.24999999999999,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 8.24999999999999,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 8.24999999999999,
+          "multiplier": 1.6257839
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 8.24999999999999,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 8.24999999999999,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 9.100000000000032,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 9.250000000000039,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 9.250000000000039,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 9.250000000000039,
+          "multiplier": 1.6257839
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 9.250000000000039,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 9.250000000000039,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 10.250000000000089,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 10.250000000000089,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 10.250000000000089,
+          "multiplier": 1.6257839
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 10.250000000000089,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 10.250000000000089,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 10.983333333333459,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 11.250000000000139,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 11.250000000000139,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 11.250000000000139,
+          "multiplier": 1.6257839
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 11.250000000000139,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 11.250000000000139,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 12.250000000000188,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 12.250000000000188,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 12.250000000000188,
+          "multiplier": 1.6257839
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 12.250000000000188,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 12.250000000000188,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 13.250000000000238,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 13.250000000000238,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 13.250000000000238,
+          "multiplier": 1.7209452
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 13.250000000000238,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 13.250000000000238,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 14.16666666666695,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 14.250000000000288,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 14.250000000000288,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 14.250000000000288,
+          "multiplier": 1.7685258500000003
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 14.250000000000288,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 14.250000000000288,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 15.250000000000338,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 15.250000000000338,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 15.250000000000338,
+          "multiplier": 1.8161065
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 15.250000000000338,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 15.250000000000338,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 16.05000000000037,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 16.25000000000036,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 16.25000000000036,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 16.25000000000036,
+          "multiplier": 1.8636871499999998
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 16.25000000000036,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 16.25000000000036,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 17.250000000000302,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 17.250000000000302,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 17.250000000000302,
+          "multiplier": 1.9112678
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 17.250000000000302,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 17.250000000000302,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 17.950000000000262,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 18.250000000000245,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 18.250000000000245,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 18.250000000000245,
+          "multiplier": 1.9112678
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 18.250000000000245,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 18.250000000000245,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 19.25000000000019,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 19.25000000000019,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 19.25000000000019,
+          "multiplier": 1.9112678
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 19.25000000000019,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 19.25000000000019,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 19.850000000000154,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 20.25000000000013,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 20.25000000000013,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 20.25000000000013,
+          "multiplier": 1.9112678
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 20.25000000000013,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 20.25000000000013,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 21.250000000000075,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 21.250000000000075,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 21.250000000000075,
+          "multiplier": 1.9112678
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 21.250000000000075,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 21.250000000000075,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 21.750000000000046,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 22.250000000000018,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 22.250000000000018,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 22.250000000000018,
+          "multiplier": 2.0064291
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 22.250000000000018,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 22.250000000000018,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 23.266666666666627,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 23.266666666666627,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 23.266666666666627,
+          "multiplier": 2.05400975
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 23.266666666666627,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 23.266666666666627,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 23.649999999999938,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 24.26666666666657,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 24.26666666666657,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 24.26666666666657,
+          "multiplier": 2.1015904
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 24.26666666666657,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 24.26666666666657,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 25.266666666666513,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 25.266666666666513,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 25.266666666666513,
+          "multiplier": 2.14917105
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 25.266666666666513,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 25.266666666666513,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 26.266666666666456,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 26.266666666666456,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 26.266666666666456,
+          "multiplier": 2.1967517
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 26.266666666666456,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 26.266666666666456,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 27.2666666666664,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 27.2666666666664,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 27.2666666666664,
+          "multiplier": 2.1967517
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 27.2666666666664,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 27.2666666666664,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 27.566666666666382,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 28.266666666666342,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 28.266666666666342,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 28.266666666666342,
+          "multiplier": 2.1967517
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 28.266666666666342,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 28.266666666666342,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 29.266666666666286,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 29.266666666666286,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 29.266666666666286,
+          "multiplier": 2.1967517
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 29.266666666666286,
+          "multiplier": 1.3403
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 29.266666666666286,
+          "multiplier": 1.3403
+        }
+      ]
+    },
+    {
+      "name": "raw-outgoing-프리카-owned-healing-cube",
+      "passed": true,
+      "checks": {
+        "actual_raw_healing_exercised": true,
+        "actual_outgoing_bonus_exercised": true,
+        "actual_cube_carrier_in_gpu_program": true
+      },
+      "total": 91290847,
+      "effect_rows": 96,
+      "queries": [
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 3.4166666666666594,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 5.316666666666653,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 6.26666666666665,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 6.26666666666665,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 6.26666666666665,
+          "multiplier": 1.7727266
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 6.26666666666665,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 6.26666666666665,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 7.216666666666646,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 7.266666666666646,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 7.266666666666646,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 7.266666666666646,
+          "multiplier": 1.82783325
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 7.266666666666646,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 7.266666666666646,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 8.24999999999999,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 8.24999999999999,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 8.24999999999999,
+          "multiplier": 1.8829399000000002
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 8.24999999999999,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 8.24999999999999,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 9.100000000000032,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 9.250000000000039,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 9.250000000000039,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 9.250000000000039,
+          "multiplier": 1.8829399000000002
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 9.250000000000039,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 9.250000000000039,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 10.250000000000089,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 10.250000000000089,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 10.250000000000089,
+          "multiplier": 1.8829399000000002
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 10.250000000000089,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 10.250000000000089,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 10.983333333333459,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 11.250000000000139,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 11.250000000000139,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 11.250000000000139,
+          "multiplier": 1.8829399000000002
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 11.250000000000139,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 11.250000000000139,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 12.250000000000188,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 12.250000000000188,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 12.250000000000188,
+          "multiplier": 1.8829399000000002
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 12.250000000000188,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 12.250000000000188,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 13.250000000000238,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 13.250000000000238,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 13.250000000000238,
+          "multiplier": 1.9931532
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 13.250000000000238,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 13.250000000000238,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 14.250000000000288,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 14.250000000000288,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 14.250000000000288,
+          "multiplier": 2.04825985
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 14.250000000000288,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 14.250000000000288,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 15.250000000000338,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 15.250000000000338,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 15.250000000000338,
+          "multiplier": 2.1033665
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 15.250000000000338,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 15.250000000000338,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 16.25000000000036,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 16.25000000000036,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 16.25000000000036,
+          "multiplier": 2.15847315
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 16.25000000000036,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 16.25000000000036,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 17.250000000000302,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 17.250000000000302,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 17.250000000000302,
+          "multiplier": 2.2135797999999998
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 17.250000000000302,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 17.250000000000302,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 18.250000000000245,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 18.250000000000245,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 18.250000000000245,
+          "multiplier": 2.2135797999999998
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 18.250000000000245,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 18.250000000000245,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 19.25000000000019,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 19.25000000000019,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 19.25000000000019,
+          "multiplier": 2.2135797999999998
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 19.25000000000019,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 19.25000000000019,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 20.25000000000013,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 20.25000000000013,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 20.25000000000013,
+          "multiplier": 2.2135797999999998
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 20.25000000000013,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 20.25000000000013,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 21.250000000000075,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 21.250000000000075,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 21.250000000000075,
+          "multiplier": 2.2135797999999998
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 21.250000000000075,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 21.250000000000075,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 22.250000000000018,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 22.250000000000018,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 22.250000000000018,
+          "multiplier": 2.3237931
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 22.250000000000018,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 22.250000000000018,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 23.266666666666627,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 23.266666666666627,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 23.266666666666627,
+          "multiplier": 2.37889975
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 23.266666666666627,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 23.266666666666627,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 24.26666666666657,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 24.26666666666657,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 24.26666666666657,
+          "multiplier": 2.4340064
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 24.26666666666657,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 24.26666666666657,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 25.266666666666513,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 25.266666666666513,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 25.266666666666513,
+          "multiplier": 2.48911305
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 25.266666666666513,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 25.266666666666513,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 26.266666666666456,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 26.266666666666456,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 26.266666666666456,
+          "multiplier": 2.5442197
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 26.266666666666456,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 26.266666666666456,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 27.2666666666664,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 27.2666666666664,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 27.2666666666664,
+          "multiplier": 2.5442197
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 27.2666666666664,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 27.2666666666664,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 28.266666666666342,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 28.266666666666342,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 28.266666666666342,
+          "multiplier": 2.5442197
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 28.266666666666342,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 28.266666666666342,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "프리카",
+          "source": "프리카",
+          "time": 29.266666666666286,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "리타",
+          "source": "프리카",
+          "time": 29.266666666666286,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "크라운",
+          "source": "프리카",
+          "time": 29.266666666666286,
+          "multiplier": 2.5442197
+        },
+        {
+          "recipient": "모더니아",
+          "source": "프리카",
+          "time": 29.266666666666286,
+          "multiplier": 1.5523
+        },
+        {
+          "recipient": "앨리스",
+          "source": "프리카",
+          "time": 29.266666666666286,
+          "multiplier": 1.5523
+        }
+      ]
+    },
+    {
+      "name": "raw-outgoing-소라-incoming",
+      "passed": true,
+      "expected_rejection": "heal_overcharge_store",
+      "error": "UnsupportedDetail('[{\\'character\\': \\'소라\\', \\'effect\\': \\'저장\\', \\'reason\\': \"[{\\'reason\\': \\'effect type/stat: buff / heal_overcharge_store\\'}]\"}]')"
+    },
+    {
+      "name": "raw-outgoing-소라-owned-healing-cube",
+      "passed": true,
+      "expected_rejection": "heal_overcharge_store",
+      "error": "UnsupportedDetail('[{\\'character\\': \\'소라\\', \\'effect\\': \\'저장\\', \\'reason\\': \"[{\\'reason\\': \\'effect type/stat: buff / heal_overcharge_store\\'}]\"}]')"
+    },
+    {
+      "name": "raw-outgoing-백학-incoming",
+      "passed": true,
+      "checks": {
+        "actual_raw_healing_exercised": true,
+        "actual_outgoing_bonus_exercised": true
+      },
+      "total": 66999155,
+      "effect_rows": 85,
+      "queries": [
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 3.4166666666666594,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "백학",
+          "source": "백학",
+          "time": 3.7999999999999914,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "리타",
+          "source": "백학",
+          "time": 3.7999999999999914,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "크라운",
+          "source": "백학",
+          "time": 3.7999999999999914,
+          "multiplier": 1.0355
+        },
+        {
+          "recipient": "모더니아",
+          "source": "백학",
+          "time": 3.7999999999999914,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "백학",
+          "time": 3.7999999999999914,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "백학",
+          "source": "백학",
+          "time": 5.249999999999987,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "리타",
+          "source": "백학",
+          "time": 5.249999999999987,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "크라운",
+          "source": "백학",
+          "time": 5.249999999999987,
+          "multiplier": 1.1065
+        },
+        {
+          "recipient": "모더니아",
+          "source": "백학",
+          "time": 5.249999999999987,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "백학",
+          "time": 5.249999999999987,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "백학",
+          "source": "백학",
+          "time": 7.999999999999977,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "리타",
+          "source": "백학",
+          "time": 7.999999999999977,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "크라운",
+          "source": "백학",
+          "time": 7.999999999999977,
+          "multiplier": 1.213
+        },
+        {
+          "recipient": "모더니아",
+          "source": "백학",
+          "time": 7.999999999999977,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "백학",
+          "time": 7.999999999999977,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 10.983333333333459,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "백학",
+          "source": "백학",
+          "time": 13.450000000000248,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "리타",
+          "source": "백학",
+          "time": 13.450000000000248,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "크라운",
+          "source": "백학",
+          "time": 13.450000000000248,
+          "multiplier": 1.284
+        },
+        {
+          "recipient": "모더니아",
+          "source": "백학",
+          "time": 13.450000000000248,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "백학",
+          "time": 13.450000000000248,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 14.16666666666695,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 16.05000000000037,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "백학",
+          "source": "백학",
+          "time": 17.616666666666948,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "리타",
+          "source": "백학",
+          "time": 17.616666666666948,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "크라운",
+          "source": "백학",
+          "time": 17.616666666666948,
+          "multiplier": 1.426
+        },
+        {
+          "recipient": "모더니아",
+          "source": "백학",
+          "time": 17.616666666666948,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "백학",
+          "time": 17.616666666666948,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 17.950000000000262,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 19.850000000000154,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 21.750000000000046,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "백학",
+          "source": "백학",
+          "time": 23.116666666666635,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "리타",
+          "source": "백학",
+          "time": 23.116666666666635,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "크라운",
+          "source": "백학",
+          "time": 23.116666666666635,
+          "multiplier": 1.5325
+        },
+        {
+          "recipient": "모더니아",
+          "source": "백학",
+          "time": 23.116666666666635,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "백학",
+          "time": 23.116666666666635,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 23.649999999999938,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "백학",
+          "source": "백학",
+          "time": 27.316666666666396,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "리타",
+          "source": "백학",
+          "time": 27.316666666666396,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "크라운",
+          "source": "백학",
+          "time": 27.316666666666396,
+          "multiplier": 1.639
+        },
+        {
+          "recipient": "앨리스",
+          "source": "백학",
+          "time": 27.316666666666396,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 27.566666666666382,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 29.466666666666274,
+          "multiplier": 1.0
+        }
+      ]
+    },
+    {
+      "name": "raw-outgoing-백학-owned-healing-cube",
+      "passed": true,
+      "checks": {
+        "actual_raw_healing_exercised": true,
+        "actual_outgoing_bonus_exercised": true,
+        "actual_cube_carrier_in_gpu_program": true
+      },
+      "total": 71410653,
+      "effect_rows": 90,
+      "queries": [
+        {
+          "recipient": "백학",
+          "source": "백학",
+          "time": 3.7999999999999914,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "리타",
+          "source": "백학",
+          "time": 3.7999999999999914,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "크라운",
+          "source": "백학",
+          "time": 3.7999999999999914,
+          "multiplier": 1.1610026
+        },
+        {
+          "recipient": "모더니아",
+          "source": "백학",
+          "time": 3.7999999999999914,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "앨리스",
+          "source": "백학",
+          "time": 3.7999999999999914,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "백학",
+          "source": "백학",
+          "time": 5.249999999999987,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "리타",
+          "source": "백학",
+          "time": 5.249999999999987,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "크라운",
+          "source": "백학",
+          "time": 5.249999999999987,
+          "multiplier": 1.2406078
+        },
+        {
+          "recipient": "모더니아",
+          "source": "백학",
+          "time": 5.249999999999987,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "앨리스",
+          "source": "백학",
+          "time": 5.249999999999987,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "백학",
+          "source": "백학",
+          "time": 7.699999999999978,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "리타",
+          "source": "백학",
+          "time": 7.699999999999978,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "크라운",
+          "source": "백학",
+          "time": 7.699999999999978,
+          "multiplier": 1.3600156
+        },
+        {
+          "recipient": "모더니아",
+          "source": "백학",
+          "time": 7.699999999999978,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "앨리스",
+          "source": "백학",
+          "time": 7.699999999999978,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 10.983333333333459,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "백학",
+          "source": "백학",
+          "time": 12.70000000000021,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "리타",
+          "source": "백학",
+          "time": 12.70000000000021,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "크라운",
+          "source": "백학",
+          "time": 12.70000000000021,
+          "multiplier": 1.3998182
+        },
+        {
+          "recipient": "모더니아",
+          "source": "백학",
+          "time": 12.70000000000021,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "앨리스",
+          "source": "백학",
+          "time": 12.70000000000021,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 14.16666666666695,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 16.05000000000037,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "백학",
+          "source": "백학",
+          "time": 16.566666666667007,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "리타",
+          "source": "백학",
+          "time": 16.566666666667007,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "크라운",
+          "source": "백학",
+          "time": 16.566666666667007,
+          "multiplier": 1.5988311999999998
+        },
+        {
+          "recipient": "모더니아",
+          "source": "백학",
+          "time": 16.566666666667007,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "앨리스",
+          "source": "백학",
+          "time": 16.566666666667007,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 17.950000000000262,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 19.850000000000154,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 21.750000000000046,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "백학",
+          "source": "백학",
+          "time": 22.066666666666695,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "리타",
+          "source": "백학",
+          "time": 22.066666666666695,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "크라운",
+          "source": "백학",
+          "time": 22.066666666666695,
+          "multiplier": 1.6386338
+        },
+        {
+          "recipient": "모더니아",
+          "source": "백학",
+          "time": 22.066666666666695,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "앨리스",
+          "source": "백학",
+          "time": 22.066666666666695,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 23.649999999999938,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "백학",
+          "source": "백학",
+          "time": 26.266666666666456,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "리타",
+          "source": "백학",
+          "time": 26.266666666666456,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "크라운",
+          "source": "백학",
+          "time": 26.266666666666456,
+          "multiplier": 1.8376468
+        },
+        {
+          "recipient": "앨리스",
+          "source": "백학",
+          "time": 26.266666666666456,
+          "multiplier": 1.1212
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 27.566666666666382,
+          "multiplier": 1.0
+        },
+        {
+          "recipient": "앨리스",
+          "source": "앨리스",
+          "time": 29.466666666666274,
+          "multiplier": 1.0
+        }
+      ]
+    },
+    {
+      "name": "raw-outgoing-미사토-incoming",
+      "passed": true,
+      "expected_rejection": "shield_dmg_pct",
+      "error": "UnsupportedDetail('[{\\'character\\': \\'미사토\\', \\'effect\\': \\'회복 보조\\', \\'reason\\': \"[{\\'reason\\': \\'effect type/stat: buff / shield_dmg_pct\\'}]\"}]')"
+    },
+    {
+      "name": "raw-outgoing-미사토-owned-healing-cube",
+      "passed": true,
+      "expected_rejection": "shield_dmg_pct",
+      "error": "UnsupportedDetail('[{\\'character\\': \\'미사토\\', \\'effect\\': \\'회복 보조\\', \\'reason\\': \"[{\\'reason\\': \\'effect type/stat: buff / shield_dmg_pct\\'}]\"}]')"
+    }
+  ],
+  "source_sha256": {
+    "research/audit-outgoing-healing-fixtures.py": "b6f001fe76d10d9df1d0d57f934db2e5afae6d9c4b29a6b091db290b6f4f2be3",
+    "scripts/verify-staged-outgoing-healing.py": "509cdbdd22d9555421ae924dbf5be994e4b247a377d5295885eae44835850e5c",
+    "scripts/staged-outgoing-healing-runtime.py": "2b6216bd0e9239b25c5ac2fac4e446d6d3d93f8a9d42451af2d1f59dcb6d35b9",
+    "research/staging/v39/app/detail_gpu.py": "a84201e9edb83070fdb5921979305ba546393e89f4106c4f6f2ffeabafc2d8c7",
+    "research/staging/v39/app/outgoing_healing_compat.py": "8eb8a8fe2ecd2a9c7d7fbccb087473b0817073da1ee2093b5b36f161df5f8af3",
+    "research/staging/v39/app/detail_effects.cu": "51fe04ffdc54510a1a8fcbc777d35829bdff9131bf0c078432afe40785f8c571",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/engine_compat.py": "02ddc15b849b1b26e4dea9ce517bf51bfc3b4f9d4929fcc1c0b1b41739cbdea0",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}

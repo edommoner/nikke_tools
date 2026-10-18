@@ -1,0 +1,279 @@
+{
+  "generated_at": "2026-10-17T11:13:27.563Z",
+  "passed": true,
+  "objective_complete": false,
+  "abi": "detail_decoy_healing_v38",
+  "normal_compare_gpu": true,
+  "pure_gpu_path_verified": true,
+  "cpu_verification": true,
+  "board_gpu": true,
+  "seed_cache_separated": true,
+  "cache_hit_verified": true,
+  "fictional_owned_data": true,
+  "live_account_import_verified": false,
+  "original_total": 102183669,
+  "total": 104575894,
+  "delta": 2392225,
+  "original_base_stats": {
+    "라이": {
+      "atk": 90947,
+      "def": 22187,
+      "hp": 3699167
+    },
+    "리타": {
+      "atk": 96215,
+      "def": 17567,
+      "hp": 2965507
+    },
+    "크라운": {
+      "atk": 77699,
+      "def": 18847,
+      "hp": 3255320
+    },
+    "앨리스": {
+      "atk": 115623,
+      "def": 15711,
+      "hp": 2699838
+    },
+    "모더니아": {
+      "atk": 116005,
+      "def": 15721,
+      "hp": 2708421
+    }
+  },
+  "base_stats": {
+    "라이": {
+      "atk": 102947,
+      "def": 22437,
+      "hp": 3799167
+    },
+    "리타": {
+      "atk": 96215,
+      "def": 17567,
+      "hp": 2965507
+    },
+    "크라운": {
+      "atk": 77699,
+      "def": 18847,
+      "hp": 3255320
+    },
+    "앨리스": {
+      "atk": 115623,
+      "def": 15711,
+      "hp": 2699838
+    },
+    "모더니아": {
+      "atk": 116005,
+      "def": 15721,
+      "hp": 2708421
+    }
+  },
+  "members": [
+    {
+      "name": "라이",
+      "damage": 20743882,
+      "share": 0.1983619857937815
+    },
+    {
+      "name": "리타",
+      "damage": 7965851,
+      "share": 0.0761729180149299
+    },
+    {
+      "name": "크라운",
+      "damage": 13346423,
+      "share": 0.12762427830643264
+    },
+    {
+      "name": "앨리스",
+      "damage": 30088027,
+      "share": 0.2877147481043767
+    },
+    {
+      "name": "모더니아",
+      "damage": 32431711,
+      "share": 0.31012606978047924
+    }
+  ],
+  "final_hp": {
+    "라이": {
+      "hp": 3799163,
+      "hp_pct": 99.99989471376225,
+      "max_hp": 3799167
+    },
+    "리타": {
+      "hp": 2965507,
+      "hp_pct": 100,
+      "max_hp": 2965507
+    },
+    "크라운": {
+      "hp": 3255320,
+      "hp_pct": 100,
+      "max_hp": 3255320
+    },
+    "앨리스": {
+      "hp": 2699838,
+      "hp_pct": 100,
+      "max_hp": 2699838
+    },
+    "모더니아": {
+      "hp": 2708421,
+      "hp_pct": 100,
+      "max_hp": 2708421
+    }
+  },
+  "compute": {
+    "requested": "cuda_detail",
+    "backend": "cuda_detail",
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "elapsed_ms": 11068.779,
+    "initialization_ms": 11.987,
+    "module_backend": "cubin-sm86",
+    "workspace_bytes": 1074184,
+    "scope": "five-member autonomous detailed simulation",
+    "parity": "regression-tested supported mechanics; not all characters",
+    "burst_gauge": {
+      "amount": 0,
+      "charging": false,
+      "mode": "fixed"
+    },
+    "final_hp": {
+      "라이": {
+        "hp": 3799163,
+        "hp_pct": 99.99989471376225,
+        "max_hp": 3799167
+      },
+      "리타": {
+        "hp": 2965507,
+        "hp_pct": 100,
+        "max_hp": 2965507
+      },
+      "크라운": {
+        "hp": 3255320,
+        "hp_pct": 100,
+        "max_hp": 3255320
+      },
+      "앨리스": {
+        "hp": 2699838,
+        "hp_pct": 100,
+        "max_hp": 2699838
+      },
+      "모더니아": {
+        "hp": 2708421,
+        "hp_pct": 100,
+        "max_hp": 2708421
+      }
+    },
+    "final_control": {
+      "라이": {
+        "charging": false,
+        "phase": 0,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "",
+        "camera_mask": 4,
+        "shots": 625,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 95,
+        "reloading_until": -1
+      },
+      "리타": {
+        "charging": false,
+        "phase": 0,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "",
+        "camera_mask": 4,
+        "shots": 601,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 119,
+        "reloading_until": -1
+      },
+      "크라운": {
+        "charging": false,
+        "phase": 0,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "",
+        "camera_mask": 4,
+        "shots": 918,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 282,
+        "reloading_until": -1
+      },
+      "앨리스": {
+        "charging": true,
+        "phase": 1,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "",
+        "camera_mask": 4,
+        "shots": 22,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 2,
+        "reloading_until": -1
+      },
+      "모더니아": {
+        "charging": false,
+        "phase": 0,
+        "full_at": -1,
+        "release_at": -1,
+        "owner": "",
+        "camera_mask": 4,
+        "shots": 1174,
+        "sequence_index": 0,
+        "preemptions": 0,
+        "normal_landed": true,
+        "ammo": 999450,
+        "reloading_until": -1
+      }
+    },
+    "cpu_verification": {
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "seed_equal": true,
+      "burst_policy_equal": true,
+      "requested_burst_policy_equal": true,
+      "burst_patterns_equal": true,
+      "shooting_policy_equal": true,
+      "burst_gauge_mode_equal": true,
+      "parts_state_equal": true,
+      "boss_patterns_equal": true,
+      "boss_timeline_equal": true,
+      "incoming_hits_equal": true,
+      "matched": true
+    }
+  },
+  "source_sha256": {
+    "scripts/smoke-detail-decoy-healing.mjs": "66024c55e545ae9c5a929c0dbad72477ccacfe16ea479e128e611a641001bf69",
+    "research/detail-decoy-healing-api-fixture.json": "28a84e7322c7fc577760f26b693f8856b8ca8f812822e11c2733f11608b9a265",
+    "app/detail_gpu.py": "f81fdb57920e501fb3b79a8c4ab27ba4693655d91ca18213e86e3e9bae765643",
+    "app/detail_effects.cu": "ecad091a3b4f90cf3409663b146fab1c39e4cc416c9f7ab56bdda88af02db047",
+    "app/detail_effects.ptx": "3f8e820ee34bc2d221243932b9ba82e8c9724388ee99a58908bbeb889876df30",
+    "app/detail_effects-build.json": "04d9f609b4e580ddefd811db19f210f52f70f39e584e1442a170a2f8d0c72494",
+    "app/detail_effects-sm86.cubin": "3251c0c2af7b8366805bce842d7d545bf07da313e7594fc0be54b92b6399cfc2",
+    "app/detail_effects-sm86.json": "d3a6ffdf6140f1b641b9ced28a13c728751e3f4c05b43fa22b140391b1748dcc",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/engine_compat.py": "02ddc15b849b1b26e4dea9ce517bf51bfc3b4f9d4929fcc1c0b1b41739cbdea0",
+    "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "app/survival_scaling_compat.py": "7d58315941ff7256dcbeb1fa38c15e7fc5a801d1e96822610d612a114b9b56bc",
+    "app/gpu_service.py": "213bd169c8a11f736f2324a01eb7d38cce5acd9cce67e0da4c916d64a994a2de",
+    "app/gpu_combat.py": "e4b6f2c5b48c73224dca305624cde19c516046003b56a76e6c80843d2607533f",
+    "app/detail_world.py": "3c717ce722fb151fa1bc3cb7990ab632b9a481a5fb379607c52b2ac66a56317c",
+    "app/detail_boss.py": "521a06d1caf6a8b223b65312ab029fac6fd7099702e04db33f0e7c556736afa1",
+    "server.mjs": "4ca12e2062be1fcb998393d5e567110cb228055bdcfca3cd82f987c1c65198ab",
+    "web/index.html": "2bc9189e6cab31d795d471dff5dff46f47c3beb5b1a2e1706b61a960fba65355",
+    "web/app.js": "ca212c76de8f3e9c09092bccbebb43f6125dc4a70f73dc0a3620904e1442454f",
+    "web/board-model.mjs": "e3b7a66b67e27b8652906bd53efec6b3e34d516041bd4c78a9dfb2c78e80319c"
+  }
+}

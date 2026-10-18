@@ -1,0 +1,5232 @@
+{
+  "supported": 11,
+  "characters": 203,
+  "assumptions": "favorite stage 0, no cube, one target in fixed compatible five-member roster; compile only",
+  "reasons": {
+    "pellet, muzzle or clip mechanics not supported": 41,
+    "[{'reason': 'effect fields: tick_interval'}]": 39,
+    "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]": 28,
+    "[{'reason': 'effect fields: duration_bullets'}]": 28,
+    "[{'reason': 'effect fields: max_trigger'}]": 19,
+    "[{'reason': 'effect fields: gauge_id'}]": 19,
+    "B3 deferred bonus damage not supported": 17,
+    "[{'reason': 'effect type/stat: buff / armor_break_dmg_pct'}]": 15,
+    "[{'reason': 'effect fields: gauge_id, gauge_max'}]": 14,
+    "[{'reason': 'effect type/stat: buff / dot_dmg_pct'}]": 14,
+    "[{'reason': 'effect type/stat: buff / shield_from_max_hp_pct'}]": 13,
+    "[{'reason': 'effect type/stat: buff / element_bonus_pct'}]": 13,
+    "stack-scaled skill hit count not supported": 12,
+    "[{'reason': 'timing: received_hit_count:1'}]": 11,
+    "[{'reason': 'target: allies_top_atk:2'}]": 11,
+    "[{'reason': 'effect type/stat: buff / pierce_enabled'}]": 11,
+    "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]": 9,
+    "[{'reason': 'effect type/stat: buff / '}]": 9,
+    "[{'reason': 'multiple distinct timing kinds'}]": 8,
+    "[{'reason': 'effect type/stat: buff / pierce_dmg_pct'}]": 8,
+    "[{'reason': 'effect type/stat: buff / armor_break_enabled'}]": 8,
+    "[{'reason': 'effect type/stat: buff / explosion_range'}]": 7,
+    "[{'reason': 'effect type/stat: buff / part_dmg_pct'}]": 7,
+    "[{'reason': 'effect type/stat: instant / debuff_cleanse'}]": 7,
+    "[{'reason': 'effect type/stat: instant / ammo_charge_pct'}]": 7,
+    "[{'reason': 'effect fields: end_on_shield_consumed'}]": 7,
+    "[{'reason': 'timing: received_hit_count:20'}]": 6,
+    "[{'reason': 'effect type/stat: buff / stealth'}]": 6,
+    "[{'reason': 'effect type/stat: damage / armor_break_damage'}]": 6,
+    "[{'reason': 'effect type/stat: buff / def_caster_based_pct'}]": 6,
+    "[{'reason': 'effect fields: event_scope'}]": 6,
+    "[{'reason': 'named removal currently verified only for self states'}]": 6,
+    "[{'reason': 'timing: last_bullet_fire'}]": 5,
+    "[{'reason': 'effect fields: charge_time, duration_bullets, full_charge_mult'}]": 5,
+    "[{'reason': 'effect type/stat: instant / burst_charge_pct'}]": 5,
+    "[{'reason': 'target: same_target'}]": 5,
+    "[{'reason': 'effect type/stat: instant / burst_reentry'}]": 5,
+    "[{'reason': 'timing: event:기억 흡수'}]": 5,
+    "[{'reason': 'effect fields: remove_scope'}]": 5,
+    "[{'reason': 'effect type/stat: buff / next_shield_hp_pct'}]": 4,
+    "[{'reason': 'target: allies_top_atk_excl:1'}]": 4,
+    "[{'reason': 'effect type/stat: instant / cover_heal_pct'}]": 4,
+    "[{'reason': 'effect type/stat: buff / effect_interval'}]": 4,
+    "[{'reason': 'target: allies_top_atk:1'}]": 4,
+    "[{'reason': 'effect type/stat: buff / buff_max_stack_add'}]": 4,
+    "[{'reason': 'timing: enemy_death'}]": 4,
+    "[{'reason': 'effect type/stat: buff / projectile_dmg_pct'}]": 4,
+    "[{'reason': 'target: allies_code:작열'}]": 4,
+    "[{'reason': 'timing: event:heal_received'}]": 4,
+    "[{'reason': 'timing: event:state_end:저격 모드'}]": 4,
+    "[{'reason': 'effect type/stat: buff / outgoing_heal_pct'}]": 4,
+    "[{'reason': 'effect type/stat: buff / shield_dmg_pct'}]": 4,
+    "[{'reason': 'effect type/stat: buff / charge_time_fixed'}]": 3,
+    "[{'reason': 'effect fields: trigger_values'}]": 3,
+    "[{'reason': 'condition: self_hp_above:90'}]": 3,
+    "[{'reason': 'target: allies_class:지원형'}]": 3,
+    "[{'reason': 'effect type/stat: buff / reload_time_fixed'}]": 3,
+    "[{'reason': 'effect type/stat: buff / intercept_dmg_pct'}]": 3,
+    "[{'reason': 'effect type/stat: buff / heal_split'}]": 3,
+    "[{'reason': 'timing: event:part_destroy'}]": 3,
+    "[{'reason': 'effect type/stat: buff / debuff_immune_count'}]": 3,
+    "[{'reason': 'target: 크라운'}]": 3,
+    "[{'reason': 'target: 아니스 : 스타'}]": 3,
+    "[{'reason': 'effect type/stat: instant / named_buff_duration_extend'}]": 3,
+    "expected string or bytes-like object, got 'list'": 2,
+    "[{'reason': 'condition: target_is_boss'}]": 2,
+    "[{'reason': 'target: allies_class:방어형:2'}]": 2,
+    "[{'reason': 'timing: multi_hit:4'}]": 2,
+    "[{'reason': 'effect fields: persist_on_revive'}]": 2,
+    "[{'reason': 'target: all_allies_excl_self'}]": 2,
+    "[{'reason': 'effect type/stat: instant / buff_stack_remove'}]": 2,
+    "[{'reason': 'timing: event:enemy_spawn'}]": 2,
+    "[{'reason': 'target: allies_squad'}]": 2,
+    "[{'reason': 'timing: event:full_reload'}]": 2,
+    "[{'reason': 'effect fields: hits_parts'}]": 2,
+    "[{'reason': 'effect type/stat: buff / cover_disabled'}]": 2,
+    "[{'reason': 'condition: enemy_count_above:5'}]": 2,
+    "[{'reason': 'effect type/stat: buff / atk_from_hp_pct'}]": 2,
+    "[{'reason': 'target: allies_class:화력형'}]": 2,
+    "[{'reason': 'target: allies_code:수냉'}]": 2,
+    "[{'reason': 'timing: charge_hold:0.5'}]": 2,
+    "[{'reason': 'effect type/stat: instant / force_reload'}]": 2,
+    "[{'reason': 'effect fields: scaling_hp_pct'}]": 2,
+    "[{'reason': 'effect type/stat: buff / max_hp_only_pct'}]": 2,
+    "[{'reason': 'timing: event:급조 탄환'}]": 2,
+    "[{'reason': 'target: allies_weapon:SG'}]": 2,
+    "[{'reason': 'effect type/stat: instant / ammo_charge_flat'}]": 2,
+    "[{'reason': 'effect type/stat: instant / revive'}]": 2,
+    "[{'reason': 'effect type/stat: instant / current_hp_reduce'}]": 2,
+    "[{'reason': 'effect type/stat: buff / infinite_ammo'}]": 2,
+    "[{'reason': 'effect type/stat: buff / trigger_count_reduce'}]": 2,
+    "[{'reason': 'effect type/stat: buff / shared_shield_from_max_hp_pct'}]": 2,
+    "[{'reason': 'effect type/stat: damage / accum_split_damage'}]": 2,
+    "[{'reason': 'condition: squad_ally_exists'}]": 2,
+    "[{'reason': 'timing: event:ally_down'}]": 2,
+    "[{'reason': 'only timed infinite-ammo MG weapon mode currently verified'}]": 2,
+    "[{'reason': 'effect type/stat: buff / optimal_range_min'}]": 2,
+    "[{'reason': 'condition: burst_casted'}]": 2,
+    "[{'reason': 'effect type/stat: instant / buff_stack_add'}]": 2,
+    "[{'reason': 'condition: target_code:전격'}]": 2,
+    "[{'reason': 'effect type/stat: buff / invincible'}]": 2,
+    "[{'reason': 'effect type/stat: buff / heal_overcharge_store'}]": 2,
+    "[{'reason': 'effect type/stat: instant / shield_heal_pct'}]": 2,
+    "[{'reason': 'effect type/stat: instant / cover_revive'}]": 2,
+    "[{'reason': 'effect fields: feather_id, feather_interval_base, feather_interval_step_pct, feather_slots'}]": 2,
+    "[{'reason': 'named removal requires a registered self-target state'}]": 2,
+    "[{'reason': 'timing: event:cover_healed'}]": 2,
+    "[{'reason': 'scaling: max_hp'}]": 2,
+    "[{'reason': 'effect type/stat: buff / dmg_accum_rate_pct'}]": 2,
+    "[{'reason': 'effect fields: land_in_full_burst'}]": 2,
+    "[{'reason': 'condition: target_state:거품'}]": 2,
+    "[{'reason': 'timing: event:stat_applied:dot_dmg_pct'}]": 2,
+    "[{'reason': 'timing: event:stat_applied:split_dmg_pct'}]": 2,
+    "[{'reason': 'effect type/stat: buff / dmg_scale_mag_pct'}]": 2,
+    "[{'reason': 'effect type/stat: buff / received_dmg_split'}]": 2,
+    "[{'reason': 'effect fields: tick_interval, tick_start'}]": 2,
+    "[{'reason': 'condition: not_target_state:예고장'}]": 2,
+    "[{'reason': 'target: 이사벨'}]": 2,
+    "[{'reason': 'effect fields: duration_scaling, duration_scaling_ref'}]": 2,
+    "[{'reason': 'timing: event:떼창'}]": 2,
+    "[{'reason': 'target: allies_weapon:SR'}]": 2,
+    "[{'reason': 'timing: hp_below:40'}]": 2,
+    "[{'reason': 'target: allies_weapon:RL'}]": 2,
+    "[{'reason': 'target: allies_lowest_hp:2'}]": 2,
+    "[{'reason': 'target: allies_burst_casted_burst3'}]": 2,
+    "[{'reason': 'target: allies_random:1'}]": 2,
+    "[{'reason': 'effect type/stat: buff / burst_stage_override:reenter1'}]": 1,
+    "[{'reason': 'effect fields: damage_formula, tick_interval, tick_start'}]": 1,
+    "[{'reason': 'condition: gauge_eq:화력 게이지:100'}]": 1,
+    "[{'reason': 'condition: no_defender_ally'}]": 1,
+    "[{'reason': 'condition: has_defender_ally'}]": 1,
+    "[{'reason': 'effect type/stat: buff / heal_overcharge_store_atk_pct'}]": 1,
+    "[{'reason': 'effect type/stat: instant / heal_overcharge_discharge'}]": 1,
+    "[{'reason': 'effect type/stat: buff / accumulate_max_scale_pct'}]": 1,
+    "[{'reason': 'target: allies_weapon:SMG'}]": 1,
+    "[{'reason': 'target: allies_class:방어형'}]": 1,
+    "[{'reason': 'condition: self_stun_immune'}]": 1,
+    "[{'reason': 'timing: part_hit_count:1'}]": 1,
+    "[{'reason': 'timing: body_hit_count:1'}]": 1,
+    "[{'reason': 'effect type/stat: buff / debuff_immune:소음 공해'}]": 1,
+    "[{'reason': 'effect type/stat: buff / received_dmg_buff_mag_pct'}]": 1,
+    "[{'reason': 'condition: target_state:내부 폭발탄'}]": 1,
+    "[{'reason': 'timing: event:state_end:내부 폭발탄'}]": 1,
+    "[{'reason': 'target: target_body'}]": 1,
+    "[{'reason': 'effect fields: first_damage_coeff'}]": 1,
+    "[{'reason': 'effect fields: charge_time, duration_bullets, full_charge_mult, max_ammo_scaling_ref'}]": 1,
+    "[{'reason': 'effect type/stat: buff / max_hp_from_max_hp_pct'}]": 1,
+    "[{'reason': 'condition: self_hp_above:80'}]": 1,
+    "[{'reason': 'effect type/stat: buff / debuff_immune:부끄러움'}]": 1,
+    "[{'reason': 'effect type/stat: buff / enemy_movement_disable'}]": 1,
+    "[{'reason': 'target: allies_code_excl_self:전격'}]": 1,
+    "[{'reason': 'condition: self_hp_above:50'}]": 1,
+    "[{'reason': 'effect type/stat: buff / charge_speed_caster_based_pct'}]": 1,
+    "[{'reason': 'condition: self_hp_below:80'}]": 1,
+    "[{'reason': 'timing: core_hit_count:60'}]": 1,
+    "[{'reason': 'target: allies_code:철갑'}]": 1,
+    "[{'reason': 'timing: event:ally_burst_cast'}]": 1,
+    "[{'reason': 'condition: self_hp_below:30'}]": 1,
+    "[{'reason': 'condition: self_hp_below:60'}]": 1,
+    "[{'reason': 'condition: self_hp_below:50'}]": 1,
+    "[{'reason': 'effect type/stat: buff / stack_change_immune'}]": 1,
+    "[{'reason': 'effect fields: charge_time, full_charge_mult, skill_damage'}]": 1,
+    "[{'reason': 'timing: event:state_end:기억 연소'}]": 1,
+    "[{'reason': 'condition: gauge_eq:파죽:1'}]": 1,
+    "[{'reason': 'condition: gauge_eq:파죽:2'}]": 1,
+    "[{'reason': 'condition: gauge_eq:파죽:3'}]": 1,
+    "[{'reason': 'timing: charge_hold:1'}]": 1,
+    "[{'reason': 'effect type/stat: buff / skill_cooldown'}]": 1,
+    "[{'reason': 'effect type/stat: buff / dmg_accum_received_atk_pct'}]": 1,
+    "[{'reason': 'timing: multi_hit:2'}]": 1,
+    "[{'reason': 'effect type/stat: buff / undying'}]": 1,
+    "[{'reason': 'target: allies_lowest_hp_excl:1'}]": 1,
+    "[{'reason': 'scaling: lost_hp_pct'}]": 1,
+    "[{'reason': 'target: allies_top_base_charge_time:1'}]": 1,
+    "[{'reason': 'condition: prob:5'}]": 1,
+    "[{'reason': 'target: allies_lowest_hp:1'}]": 1,
+    "[{'reason': 'counter threshold must be positive'}]": 1,
+    "[{'reason': 'target: allies_top_atk:3'}]": 1,
+    "[{'reason': 'finite conditional passive needs tick-driven reactivation'}]": 1,
+    "[{'reason': 'condition: optimal_range'}]": 1,
+    "[{'reason': 'condition: target_state:고위험 대상'}]": 1,
+    "[{'reason': 'condition: enemy_count_above:6'}]": 1,
+    "[{'reason': 'target: all_allies_burst_casted'}]": 1,
+    "[{'reason': 'effect type/stat: instant / debuff_stack_remove'}]": 1,
+    "[{'reason': 'effect type/stat: damage / armor_break_damage:니어 페더'}]": 1,
+    "[{'reason': 'effect type/stat: instant / decoy_heal_pct'}]": 1,
+    "[{'reason': 'effect fields: copy_from'}]": 1,
+    "[{'reason': 'condition: enemy_count_above:4'}]": 1,
+    "multiple or special burst stages": 1,
+    "[{'reason': 'target: target_and_nearby:2'}]": 1,
+    "[{'reason': 'condition: target_state:붐 인스톨'}]": 1,
+    "[{'reason': 'effect type/stat: buff / dmg_accum_dealt_atk_pct'}]": 1,
+    "[{'reason': 'effect type/stat: buff / possessed'}]": 1,
+    "[{'reason': 'timing: squad_ammo_consume:100'}]": 1,
+    "[{'reason': 'effect type/stat: buff / focus_fire'}]": 1,
+    "[{'reason': 'effect type/stat: damage / sequential_damage:4'}]": 1,
+    "[{'reason': 'effect type/stat: damage / sequential_damage:10'}]": 1,
+    "[{'reason': 'effect fields: charge_time, full_charge_mult, max_ammo_buff_applies, toggle'}]": 1,
+    "[{'reason': 'effect type/stat: instant / squad_ammo_consume_as'}]": 1,
+    "[{'reason': 'timing: event:저격 모드'}]": 1,
+    "[{'reason': 'effect type/stat: damage / core_damage'}]": 1,
+    "[{'reason': 'timing: non_full_charge_fire_count:3'}]": 1,
+    "[{'reason': 'timing: charge_hold_count:1:3'}]": 1,
+    "[{'reason': 'effect fields: gauge_id, tick_interval'}]": 1,
+    "[{'reason': 'condition: target_state:예고장'}]": 1,
+    "[{'reason': 'effect type/stat: buff / skill_cooldown_pct'}]": 1,
+    "[{'reason': 'target: allies_code:전격'}]": 1,
+    "[{'reason': 'effect type/stat: buff / shield_invincible'}]": 1,
+    "[{'reason': 'timing: event:state_end:발버둥'}]": 1,
+    "[{'reason': 'effect type/stat: buff / debuff_immune:서약 위반 증거'}]": 1,
+    "[{'reason': 'timing: event:lethal_hit'}]": 1,
+    "[{'reason': 'condition: self_undying'}]": 1,
+    "[{'reason': 'target: allies_lowest_hp:3'}]": 1,
+    "[{'reason': 'effect type/stat: damage / dealt_fixed_damage'}]": 1,
+    "[{'reason': 'condition: target_state:안티 AT 필드'}]": 1,
+    "[{'reason': 'effect type/stat: instant / debuff_stack_add'}]": 1,
+    "[{'reason': 'effect type/stat: buff / effect_target_count_add'}]": 1,
+    "[{'reason': 'effect type/stat: buff / effect_range_pct'}]": 1,
+    "[{'reason': 'target: allies_with_buff:섬멸 태세'}]": 1,
+    "[{'reason': 'target: allies_burst_casted_weapon:MG'}]": 1,
+    "[{'reason': 'effect type/stat: damage / sequential_damage:3'}]": 1,
+    "invalid literal for int() with base 10: '불안정 에너지'": 1,
+    "[{'reason': 'effect type/stat: damage / sequential_damage:6'}]": 1,
+    "[{'reason': 'effect type/stat: buff / atk_buff_mag_pct'}]": 1,
+    "[{'reason': 'target: allies_broken_cover_random:1'}]": 1,
+    "[{'reason': 'condition: gauge_above:초감각:70'}]": 1,
+    "[{'reason': 'condition: gauge_above:초감각:25'}]": 1,
+    "[{'reason': 'condition: target_state:해킹'}]": 1,
+    "[{'reason': 'effect type/stat: buff / persona_state'}]": 1,
+    "[{'reason': 'timing: event:1more'}]": 1,
+    "[{'reason': 'condition: target_code:수냉'}]": 1
+  },
+  "results": [
+    {
+      "character": "라피",
+      "supported": false,
+      "issues": [
+        {
+          "character": "라피",
+          "effect": "포메이션 F.F",
+          "reason": "[{'reason': 'timing: received_hit_count:20'}]"
+        }
+      ]
+    },
+    {
+      "character": "네온",
+      "supported": false,
+      "issues": [
+        {
+          "character": "네온",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "아니스",
+      "supported": false,
+      "issues": [
+        {
+          "character": "아니스",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "네온 : 블루 오션",
+      "supported": false,
+      "issues": [
+        {
+          "character": "네온 : 블루 오션",
+          "effect": "풀 하이드로 샷 2",
+          "reason": "B3 deferred bonus damage not supported"
+        }
+      ]
+    },
+    {
+      "character": "아니스 : 스파클링 서머",
+      "supported": false,
+      "issues": [
+        {
+          "character": "아니스 : 스파클링 서머",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "라피 : 레드 후드",
+      "supported": false,
+      "issues": [
+        {
+          "character": "라피 : 레드 후드",
+          "reason": "stack-scaled skill hit count not supported"
+        },
+        {
+          "character": "라피 : 레드 후드",
+          "effect": "계승되는 힘 4",
+          "reason": "B3 deferred bonus damage not supported"
+        }
+      ]
+    },
+    {
+      "character": "아니스 : 스타",
+      "supported": false,
+      "issues": [
+        {
+          "character": "아니스 : 스타",
+          "effect": "스타 폴",
+          "reason": "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]"
+        },
+        {
+          "character": "아니스 : 스타",
+          "effect": "스타 폴 2",
+          "reason": "[{'reason': 'multiple distinct timing kinds'}]"
+        },
+        {
+          "character": "아니스 : 스타",
+          "effect": "나만의 별",
+          "reason": "[{'reason': 'multiple distinct timing kinds'}]"
+        },
+        {
+          "character": "아니스 : 스타",
+          "effect": "스타 폴 3",
+          "reason": "[{'reason': 'multiple distinct timing kinds'}]"
+        },
+        {
+          "character": "아니스 : 스타",
+          "effect": "스타 폴 4",
+          "reason": "[{'reason': 'multiple distinct timing kinds'}]"
+        },
+        {
+          "character": "아니스 : 스타",
+          "effect": "모두의 별",
+          "reason": "[{'reason': 'effect type/stat: buff / burst_stage_override:reenter1'}]"
+        },
+        {
+          "character": "아니스 : 스타",
+          "effect": "스타더스트 2",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "아니스 : 스타",
+          "effect": "스타더스트 3",
+          "reason": "expected string or bytes-like object, got 'list'"
+        },
+        {
+          "character": "아니스 : 스타",
+          "effect": "슈팅 스타1",
+          "reason": "[{'reason': 'effect fields: damage_formula, tick_interval, tick_start'}]"
+        },
+        {
+          "character": "아니스 : 스타",
+          "effect": "슈팅 스타2",
+          "reason": "[{'reason': 'effect type/stat: buff / charge_time_fixed'}]"
+        },
+        {
+          "character": "아니스 : 스타",
+          "effect": "슈팅 스타3",
+          "reason": "[{'reason': 'effect type/stat: buff / explosion_range'}]"
+        }
+      ]
+    },
+    {
+      "character": "네온 : 비전 아이",
+      "supported": false,
+      "issues": [
+        {
+          "character": "네온 : 비전 아이",
+          "effect": "건강한 몸 2",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "네온 : 비전 아이",
+          "effect": "건강한 몸 3",
+          "reason": "[{'reason': 'timing: received_hit_count:1'}]"
+        },
+        {
+          "character": "네온 : 비전 아이",
+          "effect": "건강한 몸",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "네온 : 비전 아이",
+          "effect": "화력 폭발 1",
+          "reason": "[{'reason': 'condition: target_is_boss'}]"
+        },
+        {
+          "character": "네온 : 비전 아이",
+          "effect": "화력 폭발 2",
+          "reason": "[{'reason': 'condition: target_is_boss'}]"
+        },
+        {
+          "character": "네온 : 비전 아이",
+          "effect": "화력 게이지 초기화",
+          "reason": "[{'reason': 'effect fields: gauge_id, gauge_max'}]"
+        },
+        {
+          "character": "네온 : 비전 아이",
+          "effect": "화력 게이지 충전",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "네온 : 비전 아이",
+          "effect": "화력 게이지 회복",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "네온 : 비전 아이",
+          "effect": "버스트 속도 증폭",
+          "reason": "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]"
+        },
+        {
+          "character": "네온 : 비전 아이",
+          "effect": "화력 충전",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "네온 : 비전 아이",
+          "effect": "화력 충전 2",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "네온 : 비전 아이",
+          "effect": "초화력",
+          "reason": "[{'reason': 'condition: gauge_eq:화력 게이지:100'}]"
+        },
+        {
+          "character": "네온 : 비전 아이",
+          "effect": "초화력 2",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "네온 : 비전 아이",
+          "effect": "화력 강화 1",
+          "reason": "[{'reason': 'effect type/stat: buff / explosion_range'}]"
+        }
+      ]
+    },
+    {
+      "character": "델타",
+      "supported": true
+    },
+    {
+      "character": "시그널",
+      "supported": true
+    },
+    {
+      "character": "델타 : 닌자 시프",
+      "supported": false,
+      "issues": [
+        {
+          "character": "델타 : 닌자 시프",
+          "effect": "인법 카모플라쥬",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_from_max_hp_pct'}]"
+        },
+        {
+          "character": "델타 : 닌자 시프",
+          "effect": "주목",
+          "reason": "[{'reason': 'condition: no_defender_ally'}]"
+        },
+        {
+          "character": "델타 : 닌자 시프",
+          "effect": "인법 카모플라쥬 2",
+          "reason": "[{'reason': 'effect type/stat: buff / stealth'}]"
+        },
+        {
+          "character": "델타 : 닌자 시프",
+          "effect": "인법 인젝션",
+          "reason": "[{'reason': 'condition: has_defender_ally'}]"
+        },
+        {
+          "character": "델타 : 닌자 시프",
+          "effect": "인법 카모플라쥬 해제 (직접 피격)",
+          "reason": "[{'reason': 'timing: received_hit_count:1'}]"
+        },
+        {
+          "character": "델타 : 닌자 시프",
+          "effect": "인법 카모플라쥬 3",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_from_max_hp_pct'}]"
+        },
+        {
+          "character": "델타 : 닌자 시프",
+          "effect": "인법 IFAK",
+          "reason": "[{'reason': 'effect type/stat: buff / heal_overcharge_store_atk_pct'}]"
+        },
+        {
+          "character": "델타 : 닌자 시프",
+          "effect": "인법 IFAK 방출",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_overcharge_discharge'}]"
+        },
+        {
+          "character": "델타 : 닌자 시프",
+          "effect": "비기 : 닌자 오버드라이브 4",
+          "reason": "[{'reason': 'effect type/stat: buff / next_shield_hp_pct'}]"
+        },
+        {
+          "character": "델타 : 닌자 시프",
+          "effect": "비기 : 닌자 오버드라이브 5",
+          "reason": "[{'reason': 'effect type/stat: buff / accumulate_max_scale_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "폴리",
+      "supported": false,
+      "issues": [
+        {
+          "character": "폴리",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "미란다",
+      "supported": false,
+      "issues": [
+        {
+          "character": "미란다",
+          "effect": "헬스업! 2",
+          "reason": "[{'reason': 'target: allies_weapon:SMG'}]"
+        },
+        {
+          "character": "미란다",
+          "effect": "파워 업!",
+          "reason": "[{'reason': 'target: allies_top_atk_excl:1'}]"
+        },
+        {
+          "character": "미란다",
+          "effect": "파워 업! 2",
+          "reason": "[{'reason': 'target: allies_top_atk_excl:1'}]"
+        }
+      ]
+    },
+    {
+      "character": "키리",
+      "supported": false,
+      "issues": [
+        {
+          "character": "키리",
+          "effect": "곁눈질 2",
+          "reason": "[{'reason': 'target: allies_class:방어형:2'}]"
+        },
+        {
+          "character": "키리",
+          "effect": "훑어보기",
+          "reason": "[{'reason': 'target: allies_class:방어형:2'}]"
+        },
+        {
+          "character": "키리",
+          "effect": "꿰뚫어보기",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "키리",
+          "effect": "꿰뚫어보기 2",
+          "reason": "[{'reason': 'target: allies_class:방어형'}]"
+        }
+      ]
+    },
+    {
+      "character": "D",
+      "supported": false,
+      "issues": [
+        {
+          "character": "D",
+          "effect": "노도",
+          "reason": "[{'reason': 'effect type/stat: buff / element_bonus_pct'}]"
+        },
+        {
+          "character": "D",
+          "effect": "노도 3",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "D",
+          "effect": "기습",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "D",
+          "effect": "기습 2",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "D",
+          "effect": "기습 3",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "D",
+          "effect": "처단 2",
+          "reason": "[{'reason': 'effect type/stat: buff / part_dmg_pct'}]"
+        },
+        {
+          "character": "D",
+          "effect": "처단 3",
+          "reason": "[{'reason': 'condition: self_stun_immune'}]"
+        }
+      ]
+    },
+    {
+      "character": "K",
+      "supported": false,
+      "issues": [
+        {
+          "character": "K",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "D : 킬러 와이프",
+      "supported": false,
+      "issues": [
+        {
+          "character": "D : 킬러 와이프",
+          "effect": "캄 스나이핑",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "D : 킬러 와이프",
+          "effect": "캄 스나이핑 2",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_dmg_pct'}]"
+        },
+        {
+          "character": "D : 킬러 와이프",
+          "effect": "타겟 섬멸 코어",
+          "reason": "[{'reason': 'timing: part_hit_count:1'}]"
+        },
+        {
+          "character": "D : 킬러 와이프",
+          "effect": "타겟 섬멸 ATK",
+          "reason": "[{'reason': 'timing: body_hit_count:1'}]"
+        }
+      ]
+    },
+    {
+      "character": "벨로타",
+      "supported": false,
+      "issues": [
+        {
+          "character": "벨로타",
+          "effect": "서프라이즈",
+          "reason": "[{'reason': 'effect type/stat: buff / explosion_range'}]"
+        },
+        {
+          "character": "벨로타",
+          "effect": "그리디",
+          "reason": "[{'reason': 'timing: multi_hit:4'}]"
+        },
+        {
+          "character": "벨로타",
+          "effect": "그리디 2",
+          "reason": "[{'reason': 'timing: multi_hit:4'}]"
+        }
+      ]
+    },
+    {
+      "character": "미카",
+      "supported": false,
+      "issues": [
+        {
+          "character": "미카",
+          "effect": "맛있는 별님",
+          "reason": "[{'reason': 'timing: received_hit_count:20'}]"
+        },
+        {
+          "character": "미카",
+          "effect": "용감한 별님",
+          "reason": "[{'reason': 'target: allies_top_atk:2'}]"
+        },
+        {
+          "character": "미카",
+          "effect": "용감한 별님 2",
+          "reason": "[{'reason': 'target: allies_top_atk:2'}]"
+        }
+      ]
+    },
+    {
+      "character": "미카 : 스노우 버디",
+      "supported": false,
+      "issues": [
+        {
+          "character": "미카 : 스노우 버디",
+          "effect": "응원의 축포",
+          "reason": "[{'reason': 'effect fields: trigger_values'}]"
+        },
+        {
+          "character": "미카 : 스노우 버디",
+          "effect": "응원의 축포 2",
+          "reason": "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]"
+        },
+        {
+          "character": "미카 : 스노우 버디",
+          "effect": "설온제",
+          "reason": "[{'reason': 'effect type/stat: instant / debuff_cleanse'}]"
+        }
+      ]
+    },
+    {
+      "character": "벨로타 : 펌킨 위치",
+      "supported": false,
+      "issues": [
+        {
+          "character": "벨로타 : 펌킨 위치",
+          "effect": "유령 분장",
+          "reason": "[{'reason': 'effect type/stat: buff / stealth'}]"
+        },
+        {
+          "character": "벨로타 : 펌킨 위치",
+          "effect": "유령 분장 해제 (직접 피격)",
+          "reason": "[{'reason': 'timing: received_hit_count:1'}]"
+        },
+        {
+          "character": "벨로타 : 펌킨 위치",
+          "effect": "트릭 오어 트릿!",
+          "reason": "[{'reason': 'effect type/stat: buff / dot_dmg_pct'}]"
+        },
+        {
+          "character": "벨로타 : 펌킨 위치",
+          "effect": "해피 할로윈! 2",
+          "reason": "[{'reason': 'effect type/stat: buff / dot_dmg_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "브리드",
+      "supported": false,
+      "issues": [
+        {
+          "character": "브리드",
+          "effect": "AZX 2",
+          "reason": "B3 deferred bonus damage not supported"
+        }
+      ]
+    },
+    {
+      "character": "솔린",
+      "supported": false,
+      "issues": [
+        {
+          "character": "솔린",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "디젤",
+      "supported": false,
+      "issues": [
+        {
+          "character": "디젤",
+          "effect": "딸기향 이끌림 2",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "디젤",
+          "effect": "딸기 사탕의 힘",
+          "reason": "[{'reason': 'effect type/stat: instant / ammo_charge_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "브리드 : 사일런트 트랙",
+      "supported": false,
+      "issues": [
+        {
+          "character": "브리드 : 사일런트 트랙",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "솔린 : 프로스트 티켓",
+      "supported": false,
+      "issues": [
+        {
+          "character": "솔린 : 프로스트 티켓",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "디젤 : 윈터 스위츠",
+      "supported": false,
+      "issues": [
+        {
+          "character": "디젤 : 윈터 스위츠",
+          "effect": "인트로",
+          "reason": "[{'reason': 'effect fields: persist_on_revive'}]"
+        },
+        {
+          "character": "디젤 : 윈터 스위츠",
+          "effect": "클라이막스",
+          "reason": "[{'reason': 'effect fields: persist_on_revive'}]"
+        },
+        {
+          "character": "디젤 : 윈터 스위츠",
+          "effect": "아아, 마이크 테스트",
+          "reason": "[{'reason': 'effect type/stat: buff / dot_dmg_pct'}]"
+        },
+        {
+          "character": "디젤 : 윈터 스위츠",
+          "effect": "아아, 마이크 테스트 2",
+          "reason": "[{'reason': 'effect type/stat: buff / dot_dmg_pct'}]"
+        },
+        {
+          "character": "디젤 : 윈터 스위츠",
+          "effect": "음소거",
+          "reason": "[{'reason': 'effect type/stat: buff / debuff_immune:소음 공해'}]"
+        },
+        {
+          "character": "디젤 : 윈터 스위츠",
+          "effect": "노래할게요!",
+          "reason": "[{'reason': 'effect type/stat: buff / dot_dmg_pct'}]"
+        },
+        {
+          "character": "디젤 : 윈터 스위츠",
+          "effect": "노래할게요! 2",
+          "reason": "[{'reason': 'effect type/stat: buff / dot_dmg_pct'}]"
+        },
+        {
+          "character": "디젤 : 윈터 스위츠",
+          "effect": "노래할게요! 3",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "디젤 : 윈터 스위츠",
+          "effect": "라라라♬ 2",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "디젤 : 윈터 스위츠",
+          "effect": "라라라♬ 3",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "디젤 : 윈터 스위츠",
+          "effect": "소음 공해",
+          "reason": "[{'reason': 'target: all_allies_excl_self'}]"
+        },
+        {
+          "character": "디젤 : 윈터 스위츠",
+          "effect": "라라라♬ 4",
+          "reason": "[{'reason': 'effect type/stat: instant / buff_stack_remove'}]"
+        }
+      ]
+    },
+    {
+      "character": "센티",
+      "supported": false,
+      "issues": [
+        {
+          "character": "센티",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "리타",
+      "supported": false,
+      "issues": [
+        {
+          "character": "리타",
+          "effect": "볼트 부스트",
+          "reason": "[{'reason': 'effect type/stat: instant / cover_heal_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "엠마",
+      "supported": false,
+      "issues": [
+        {
+          "character": "엠마",
+          "effect": "치어리딩",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "엠마",
+          "effect": "템프테이션",
+          "reason": "[{'reason': 'condition: self_hp_above:90'}]"
+        },
+        {
+          "character": "엠마",
+          "effect": "알트루이즘",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "베스티",
+      "supported": false,
+      "issues": [
+        {
+          "character": "베스티",
+          "effect": "정당방위",
+          "reason": "B3 deferred bonus damage not supported"
+        },
+        {
+          "character": "베스티",
+          "effect": "정당방위 2",
+          "reason": "B3 deferred bonus damage not supported"
+        },
+        {
+          "character": "베스티",
+          "effect": "정당방위 3",
+          "reason": "B3 deferred bonus damage not supported"
+        }
+      ]
+    },
+    {
+      "character": "은화",
+      "supported": false,
+      "issues": [
+        {
+          "character": "은화",
+          "effect": "준비 태세",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "은화",
+          "effect": "준비 태세 2",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "은화",
+          "effect": "약점 간파",
+          "reason": "[{'reason': 'timing: last_bullet_fire'}]"
+        }
+      ]
+    },
+    {
+      "character": "엠마 : 택티컬 업",
+      "supported": false,
+      "issues": [
+        {
+          "character": "엠마 : 택티컬 업",
+          "effect": "환경 조성",
+          "reason": "[{'reason': 'effect type/stat: buff / '}]"
+        },
+        {
+          "character": "엠마 : 택티컬 업",
+          "effect": "환경 조성 2",
+          "reason": "[{'reason': 'multiple distinct timing kinds'}]"
+        },
+        {
+          "character": "엠마 : 택티컬 업",
+          "effect": "환경 조성 3",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "엠마 : 택티컬 업",
+          "effect": "노출",
+          "reason": "[{'reason': 'timing: event:enemy_spawn'}]"
+        },
+        {
+          "character": "엠마 : 택티컬 업",
+          "effect": "포메이션 LT",
+          "reason": "[{'reason': 'target: allies_squad'}]"
+        },
+        {
+          "character": "엠마 : 택티컬 업",
+          "effect": "포메이션 LT 3",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_dmg_pct'}]"
+        },
+        {
+          "character": "엠마 : 택티컬 업",
+          "effect": "노출 발동 불가",
+          "reason": "[{'reason': 'effect type/stat: buff / '}]"
+        },
+        {
+          "character": "엠마 : 택티컬 업",
+          "effect": "포메이션 LT 5",
+          "reason": "[{'reason': 'effect type/stat: buff / effect_interval'}]"
+        },
+        {
+          "character": "엠마 : 택티컬 업",
+          "effect": "포메이션 LT 6",
+          "reason": "[{'reason': 'effect type/stat: buff / effect_interval'}]"
+        },
+        {
+          "character": "엠마 : 택티컬 업",
+          "effect": "포메이션 LT 7",
+          "reason": "[{'reason': 'effect type/stat: buff / effect_interval'}]"
+        },
+        {
+          "character": "엠마 : 택티컬 업",
+          "effect": "환경 조성 강화",
+          "reason": "[{'reason': 'effect type/stat: buff / received_dmg_buff_mag_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "베스티 : 택티컬 업",
+      "supported": false,
+      "issues": [
+        {
+          "character": "베스티 : 택티컬 업",
+          "effect": "미사일 가이드 2",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "베스티 : 택티컬 업",
+          "effect": "미사일 가이드",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "베스티 : 택티컬 업",
+          "effect": "미사일 가이드 3",
+          "reason": "[{'reason': 'timing: event:full_reload'}]"
+        },
+        {
+          "character": "베스티 : 택티컬 업",
+          "effect": "몬스터 스테이지",
+          "reason": "[{'reason': 'effect type/stat: damage / armor_break_damage'}]"
+        },
+        {
+          "character": "베스티 : 택티컬 업",
+          "effect": "몬스터 스테이지 3",
+          "reason": "[{'reason': 'condition: target_state:내부 폭발탄'}]"
+        },
+        {
+          "character": "베스티 : 택티컬 업",
+          "effect": "미사일 컨테이너 온라인",
+          "reason": "[{'reason': 'effect type/stat: buff / explosion_range'}]"
+        },
+        {
+          "character": "베스티 : 택티컬 업",
+          "effect": "미사일 컨테이너 온라인 2",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_dmg_pct'}]"
+        },
+        {
+          "character": "베스티 : 택티컬 업",
+          "effect": "미사일 컨테이너 온라인 3",
+          "reason": "[{'reason': 'effect fields: hits_parts'}]"
+        }
+      ]
+    },
+    {
+      "character": "은화 : 택티컬 업",
+      "supported": false,
+      "issues": [
+        {
+          "character": "은화 : 택티컬 업",
+          "effect": "카모플라쥬",
+          "reason": "[{'reason': 'effect type/stat: buff / stealth'}]"
+        },
+        {
+          "character": "은화 : 택티컬 업",
+          "effect": "카모플라쥬",
+          "reason": "[{'reason': 'effect type/stat: buff / stealth'}]"
+        },
+        {
+          "character": "은화 : 택티컬 업",
+          "effect": "카모플라쥬 해제 (직접 피격)",
+          "reason": "[{'reason': 'timing: received_hit_count:1'}]"
+        },
+        {
+          "character": "은화 : 택티컬 업",
+          "effect": "카모플라쥬 스카프",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_enabled'}]"
+        },
+        {
+          "character": "은화 : 택티컬 업",
+          "effect": "카모플라쥬 스카프 2",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_dmg_pct'}]"
+        },
+        {
+          "character": "은화 : 택티컬 업",
+          "effect": "포메이션 AS",
+          "reason": "[{'reason': 'target: allies_squad'}]"
+        },
+        {
+          "character": "은화 : 택티컬 업",
+          "effect": "포메이션 AS 5",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_dmg_pct'}]"
+        },
+        {
+          "character": "은화 : 택티컬 업",
+          "effect": "내부 폭발탄",
+          "reason": "[{'reason': 'effect fields: charge_time, duration_bullets, full_charge_mult'}]"
+        },
+        {
+          "character": "은화 : 택티컬 업",
+          "effect": "내부 폭발탄 2",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_enabled'}]"
+        },
+        {
+          "character": "은화 : 택티컬 업",
+          "effect": "내부 폭발탄 3",
+          "reason": "[{'reason': 'timing: event:state_end:내부 폭발탄'}]"
+        }
+      ]
+    },
+    {
+      "character": "라플라스",
+      "supported": false,
+      "issues": [
+        {
+          "character": "라플라스",
+          "effect": "히어로 비전",
+          "reason": "[{'reason': 'effect type/stat: buff / explosion_range'}]"
+        },
+        {
+          "character": "라플라스",
+          "effect": "히어로 봄버 2",
+          "reason": "[{'reason': 'target: target_body'}]"
+        },
+        {
+          "character": "라플라스",
+          "effect": "라플라스 버스터",
+          "reason": "[{'reason': 'effect fields: first_damage_coeff'}]"
+        },
+        {
+          "character": "라플라스",
+          "effect": "라플라스 버스터 2",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_enabled'}]"
+        },
+        {
+          "character": "라플라스",
+          "effect": "라플라스 버스터 4",
+          "reason": "[{'reason': 'effect type/stat: damage / armor_break_damage'}]"
+        },
+        {
+          "character": "라플라스",
+          "effect": "라플라스 버스터 5",
+          "reason": "[{'reason': 'effect type/stat: buff / cover_disabled'}]"
+        }
+      ]
+    },
+    {
+      "character": "드레이크",
+      "supported": false,
+      "issues": [
+        {
+          "character": "드레이크",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "맥스웰",
+      "supported": false,
+      "issues": [
+        {
+          "character": "맥스웰",
+          "effect": "스트레이트 샷",
+          "reason": "[{'reason': 'target: allies_top_atk:2'}]"
+        },
+        {
+          "character": "맥스웰",
+          "effect": "스트레이트 샷 2",
+          "reason": "[{'reason': 'target: allies_top_atk:2'}]"
+        },
+        {
+          "character": "맥스웰",
+          "effect": "일렉트릭 샷",
+          "reason": "[{'reason': 'condition: enemy_count_above:5'}]"
+        },
+        {
+          "character": "맥스웰",
+          "effect": "일렉트릭 샷 2",
+          "reason": "[{'reason': 'condition: enemy_count_above:5'}]"
+        },
+        {
+          "character": "맥스웰",
+          "effect": "피어스 샷",
+          "reason": "[{'reason': 'effect fields: charge_time, duration_bullets, full_charge_mult'}]"
+        },
+        {
+          "character": "맥스웰",
+          "effect": "피어스 샷 2",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        }
+      ]
+    },
+    {
+      "character": "라플라스 : 얼티밋 히어로",
+      "supported": false,
+      "issues": [
+        {
+          "character": "라플라스 : 얼티밋 히어로",
+          "effect": "회생전력활용무장 : 묠니르 3",
+          "reason": "B3 deferred bonus damage not supported"
+        },
+        {
+          "character": "라플라스 : 얼티밋 히어로",
+          "reason": "stack-scaled skill hit count not supported"
+        }
+      ]
+    },
+    {
+      "character": "드레이크 : 그레이트 빌런",
+      "supported": false,
+      "issues": [
+        {
+          "character": "드레이크 : 그레이트 빌런",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "맥스웰 : 오디너리 미케닉",
+      "supported": false,
+      "issues": [
+        {
+          "character": "맥스웰 : 오디너리 미케닉",
+          "effect": "출력 전환 시퀀스",
+          "reason": "[{'reason': 'effect type/stat: buff / atk_from_hp_pct'}]"
+        },
+        {
+          "character": "맥스웰 : 오디너리 미케닉",
+          "effect": "과전류 2",
+          "reason": "[{'reason': 'effect fields: gauge_id, gauge_max'}]"
+        },
+        {
+          "character": "맥스웰 : 오디너리 미케닉",
+          "effect": "출력 전환 시퀀스 2",
+          "reason": "[{'reason': 'effect type/stat: instant / burst_charge_pct'}]"
+        },
+        {
+          "character": "맥스웰 : 오디너리 미케닉",
+          "effect": "메티스 버스트 버스터",
+          "reason": "[{'reason': 'effect fields: charge_time, duration_bullets, full_charge_mult'}]"
+        },
+        {
+          "character": "맥스웰 : 오디너리 미케닉",
+          "effect": "메티스 버스트 버스터 2",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "맥스웰 : 오디너리 미케닉",
+          "effect": "메티스 버스트 버스터 3",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "맥스웰 : 오디너리 미케닉",
+          "effect": "메티스 버스트 버스터 4",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "맥스웰 : 오디너리 미케닉",
+          "effect": "메티스 버스트 버스터 5",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "맥스웰 : 오디너리 미케닉",
+          "effect": "메티스 버스트 버스터 6",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "맥스웰 : 오디너리 미케닉",
+          "effect": "메티스 버스트 버스터 7",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        }
+      ]
+    },
+    {
+      "character": "크로우",
+      "supported": false,
+      "issues": [
+        {
+          "character": "크로우",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "자칼",
+      "supported": false,
+      "issues": [
+        {
+          "character": "자칼",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "바이퍼",
+      "supported": false,
+      "issues": [
+        {
+          "character": "바이퍼",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "E.H.",
+      "supported": false,
+      "issues": [
+        {
+          "character": "E.H.",
+          "effect": "정크 헌팅",
+          "reason": "[{'reason': 'effect fields: gauge_id, gauge_max'}]"
+        },
+        {
+          "character": "E.H.",
+          "effect": "정크 헌팅 2",
+          "reason": "[{'reason': 'effect fields: gauge_id, gauge_max'}]"
+        },
+        {
+          "character": "E.H.",
+          "effect": "정크 헌팅 3",
+          "reason": "[{'reason': 'effect fields: gauge_id, gauge_max'}]"
+        },
+        {
+          "character": "E.H.",
+          "effect": "정크 헌팅 4",
+          "reason": "[{'reason': 'effect fields: gauge_id, gauge_max'}]"
+        },
+        {
+          "character": "E.H.",
+          "effect": "정크 헌팅 5",
+          "reason": "[{'reason': 'effect type/stat: buff / element_bonus_pct'}]"
+        },
+        {
+          "character": "E.H.",
+          "effect": "홈메이드 매거진 2",
+          "reason": "[{'reason': 'effect fields: gauge_id, gauge_max'}]"
+        },
+        {
+          "character": "E.H.",
+          "effect": "홈메이드 매거진 3",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "E.H.",
+          "effect": "인 투 더 헤븐",
+          "reason": "[{'reason': 'effect fields: charge_time, duration_bullets, full_charge_mult, max_ammo_scaling_ref'}]"
+        }
+      ]
+    },
+    {
+      "character": "N102",
+      "supported": false,
+      "issues": [
+        {
+          "character": "N102",
+          "effect": "노트 위의 기억",
+          "reason": "[{'reason': 'target: allies_top_atk:1'}]"
+        },
+        {
+          "character": "N102",
+          "effect": "노트 위의 기억 2",
+          "reason": "[{'reason': 'target: allies_top_atk:1'}]"
+        },
+        {
+          "character": "N102",
+          "effect": "부상하는 기억",
+          "reason": "[{'reason': 'target: allies_top_atk:1'}]"
+        }
+      ]
+    },
+    {
+      "character": "앤 : 미라클 페어리",
+      "supported": false,
+      "issues": [
+        {
+          "character": "앤 : 미라클 페어리",
+          "effect": "춤추는 요정",
+          "reason": "[{'reason': 'target: allies_class:지원형'}]"
+        },
+        {
+          "character": "앤 : 미라클 페어리",
+          "effect": "요정의 장난",
+          "reason": "[{'reason': 'condition: self_hp_above:90'}]"
+        },
+        {
+          "character": "앤 : 미라클 페어리",
+          "effect": "요정의 장난 2",
+          "reason": "[{'reason': 'condition: self_hp_above:90'}]"
+        },
+        {
+          "character": "앤 : 미라클 페어리",
+          "effect": "파란 나비의 꿈",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "앤 : 미라클 페어리",
+          "effect": "파란 나비의 꿈 2",
+          "reason": "[{'reason': 'target: allies_class:화력형'}]"
+        },
+        {
+          "character": "앤 : 미라클 페어리",
+          "effect": "파란 나비의 꿈 3",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        }
+      ]
+    },
+    {
+      "character": "메어리",
+      "supported": false,
+      "issues": [
+        {
+          "character": "메어리",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "페퍼",
+      "supported": false,
+      "issues": [
+        {
+          "character": "페퍼",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "메어리 : 베이 갓데스",
+      "supported": false,
+      "issues": [
+        {
+          "character": "메어리 : 베이 갓데스",
+          "effect": "해변의 햇살",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "메어리 : 베이 갓데스",
+          "effect": "해변의 햇살 2",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "메어리 : 베이 갓데스",
+          "effect": "해변의 햇살 3",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "메어리 : 베이 갓데스",
+          "effect": "발을 적시는 파도",
+          "reason": "[{'reason': 'effect type/stat: buff / element_bonus_pct'}]"
+        },
+        {
+          "character": "메어리 : 베이 갓데스",
+          "effect": "발을 적시는 파도 2",
+          "reason": "[{'reason': 'effect type/stat: buff / element_bonus_pct'}]"
+        },
+        {
+          "character": "메어리 : 베이 갓데스",
+          "effect": "발을 적시는 파도 3",
+          "reason": "[{'reason': 'effect type/stat: buff / element_bonus_pct'}]"
+        },
+        {
+          "character": "메어리 : 베이 갓데스",
+          "effect": "고요한 수면",
+          "reason": "[{'reason': 'target: allies_code:수냉'}]"
+        },
+        {
+          "character": "메어리 : 베이 갓데스",
+          "effect": "고요한 수면 2",
+          "reason": "[{'reason': 'effect type/stat: buff / max_hp_from_max_hp_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "슈가",
+      "supported": false,
+      "issues": [
+        {
+          "character": "슈가",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "밀크",
+      "supported": false,
+      "issues": [
+        {
+          "character": "밀크",
+          "effect": "승부욕",
+          "reason": "[{'reason': 'target: allies_top_atk:2'}]"
+        },
+        {
+          "character": "밀크",
+          "effect": "밀크 도핑",
+          "reason": "[{'reason': 'condition: self_hp_above:80'}]"
+        }
+      ]
+    },
+    {
+      "character": "프림",
+      "supported": true
+    },
+    {
+      "character": "밀크 : 블루밍 바니",
+      "supported": false,
+      "issues": [
+        {
+          "character": "밀크 : 블루밍 바니",
+          "effect": "부끄러움 참기",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_enabled'}]"
+        },
+        {
+          "character": "밀크 : 블루밍 바니",
+          "effect": "부끄러움 2",
+          "reason": "[{'reason': 'timing: charge_hold:0.5'}]"
+        },
+        {
+          "character": "밀크 : 블루밍 바니",
+          "effect": "부끄러움 3",
+          "reason": "[{'reason': 'effect type/stat: instant / ammo_charge_pct'}]"
+        },
+        {
+          "character": "밀크 : 블루밍 바니",
+          "effect": "부끄러움 4",
+          "reason": "[{'reason': 'effect type/stat: buff / reload_time_fixed'}]"
+        },
+        {
+          "character": "밀크 : 블루밍 바니",
+          "effect": "부끄러움 5",
+          "reason": "[{'reason': 'effect type/stat: instant / force_reload'}]"
+        },
+        {
+          "character": "밀크 : 블루밍 바니",
+          "effect": "부끄러움 6",
+          "reason": "[{'reason': 'timing: charge_hold:0.5'}]"
+        },
+        {
+          "character": "밀크 : 블루밍 바니",
+          "effect": "부끄러움",
+          "reason": "[{'reason': 'effect type/stat: buff / '}]"
+        },
+        {
+          "character": "밀크 : 블루밍 바니",
+          "effect": "부끄러움 재장전고정 해제",
+          "reason": "[{'reason': 'timing: event:full_reload'}]"
+        },
+        {
+          "character": "밀크 : 블루밍 바니",
+          "effect": "성질 내기",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_dmg_pct'}]"
+        },
+        {
+          "character": "밀크 : 블루밍 바니",
+          "effect": "성질 내기 2",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "밀크 : 블루밍 바니",
+          "effect": "구경났냐 짜식들아!!",
+          "reason": "[{'reason': 'effect type/stat: buff / debuff_immune:부끄러움'}]"
+        },
+        {
+          "character": "밀크 : 블루밍 바니",
+          "effect": "구경났냐 짜식들아!! 2",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_dmg_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "율리아",
+      "supported": false,
+      "issues": [
+        {
+          "character": "율리아",
+          "effect": "클라이맥스 2",
+          "reason": "B3 deferred bonus damage not supported"
+        }
+      ]
+    },
+    {
+      "character": "유니",
+      "supported": false,
+      "issues": [
+        {
+          "character": "유니",
+          "effect": "BDG 2",
+          "reason": "[{'reason': 'effect type/stat: buff / enemy_movement_disable'}]"
+        }
+      ]
+    },
+    {
+      "character": "미하라",
+      "supported": false,
+      "issues": [
+        {
+          "character": "미하라",
+          "effect": "센스 쉐어링 3",
+          "reason": "B3 deferred bonus damage not supported"
+        }
+      ]
+    },
+    {
+      "character": "미하라 : 본딩 체인",
+      "supported": false,
+      "issues": [
+        {
+          "character": "미하라 : 본딩 체인",
+          "reason": "stack-scaled skill hit count not supported"
+        },
+        {
+          "character": "미하라 : 본딩 체인",
+          "reason": "stack-scaled skill hit count not supported"
+        },
+        {
+          "character": "미하라 : 본딩 체인",
+          "reason": "stack-scaled skill hit count not supported"
+        }
+      ]
+    },
+    {
+      "character": "프리바티",
+      "supported": false,
+      "issues": [
+        {
+          "character": "프리바티",
+          "effect": "LD 어설트 3",
+          "reason": "[{'reason': 'target: same_target'}]"
+        }
+      ]
+    },
+    {
+      "character": "율하",
+      "supported": false,
+      "issues": [
+        {
+          "character": "율하",
+          "effect": "히스테릭 워커 2",
+          "reason": "B3 deferred bonus damage not supported"
+        }
+      ]
+    },
+    {
+      "character": "애드미",
+      "supported": false,
+      "issues": [
+        {
+          "character": "애드미",
+          "effect": "응원의 손길",
+          "reason": "[{'reason': 'timing: received_hit_count:20'}]"
+        },
+        {
+          "character": "애드미",
+          "effect": "고양이 숨결",
+          "reason": "[{'reason': 'target: allies_top_atk:2'}]"
+        }
+      ]
+    },
+    {
+      "character": "길로틴",
+      "supported": false,
+      "issues": [
+        {
+          "character": "길로틴",
+          "effect": "마계흑룡파 2",
+          "reason": "B3 deferred bonus damage not supported"
+        }
+      ]
+    },
+    {
+      "character": "메이든",
+      "supported": false,
+      "issues": [
+        {
+          "character": "메이든",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "길로틴 : 윈터 슬레이어",
+      "supported": false,
+      "issues": [
+        {
+          "character": "길로틴 : 윈터 슬레이어",
+          "reason": "stack-scaled skill hit count not supported"
+        }
+      ]
+    },
+    {
+      "character": "메이든 : 아이스 로즈",
+      "supported": false,
+      "issues": [
+        {
+          "character": "메이든 : 아이스 로즈",
+          "effect": "메디테이션",
+          "reason": "[{'reason': 'effect fields: gauge_id, gauge_max'}]"
+        },
+        {
+          "character": "메이든 : 아이스 로즈",
+          "effect": "다이아몬드 더스트",
+          "reason": "[{'reason': 'effect fields: scaling_hp_pct'}]"
+        },
+        {
+          "character": "메이든 : 아이스 로즈",
+          "effect": "메디테이션 1 초기화",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "메이든 : 아이스 로즈",
+          "effect": "메디테이션 2",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "메이든 : 아이스 로즈",
+          "effect": "메디테이션 3",
+          "reason": "[{'reason': 'effect type/stat: buff / max_hp_only_pct'}]"
+        },
+        {
+          "character": "메이든 : 아이스 로즈",
+          "effect": "블레스 유",
+          "reason": "[{'reason': 'effect type/stat: buff / element_bonus_pct'}]"
+        },
+        {
+          "character": "메이든 : 아이스 로즈",
+          "effect": "블레스 유 2",
+          "reason": "[{'reason': 'target: allies_code_excl_self:전격'}]"
+        },
+        {
+          "character": "메이든 : 아이스 로즈",
+          "effect": "블레스 유 3",
+          "reason": "[{'reason': 'effect type/stat: buff / element_bonus_pct'}]"
+        },
+        {
+          "character": "메이든 : 아이스 로즈",
+          "effect": "블레스 유 4",
+          "reason": "[{'reason': 'effect type/stat: buff / atk_from_hp_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "루드밀라",
+      "supported": false,
+      "issues": [
+        {
+          "character": "루드밀라",
+          "effect": "눈의 여왕 2",
+          "reason": "[{'reason': 'condition: self_hp_above:50'}]"
+        }
+      ]
+    },
+    {
+      "character": "앨리스",
+      "supported": false,
+      "issues": [
+        {
+          "character": "앨리스",
+          "effect": "힘나는 당근",
+          "reason": "[{'reason': 'effect type/stat: buff / charge_speed_caster_based_pct'}]"
+        },
+        {
+          "character": "앨리스",
+          "effect": "힘나는 당근 2",
+          "reason": "[{'reason': 'target: allies_top_atk:2'}]"
+        },
+        {
+          "character": "앨리스",
+          "effect": "건강한 당근",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_enabled'}]"
+        },
+        {
+          "character": "앨리스",
+          "effect": "건강한 당근 2",
+          "reason": "[{'reason': 'condition: self_hp_below:80'}]"
+        }
+      ]
+    },
+    {
+      "character": "토브",
+      "supported": false,
+      "issues": [
+        {
+          "character": "토브",
+          "effect": "급조 탄환",
+          "reason": "[{'reason': 'effect fields: trigger_values'}]"
+        },
+        {
+          "character": "토브",
+          "effect": "임시 개조",
+          "reason": "[{'reason': 'timing: event:급조 탄환'}]"
+        },
+        {
+          "character": "토브",
+          "effect": "임시 개조 2",
+          "reason": "[{'reason': 'timing: event:급조 탄환'}]"
+        },
+        {
+          "character": "토브",
+          "effect": "개조 성공 2",
+          "reason": "[{'reason': 'target: allies_weapon:SG'}]"
+        },
+        {
+          "character": "토브",
+          "effect": "급조품의 기적 2",
+          "reason": "[{'reason': 'target: allies_weapon:SG'}]"
+        }
+      ]
+    },
+    {
+      "character": "네베",
+      "supported": false,
+      "issues": [
+        {
+          "character": "네베",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "루드밀라 : 윈터 오너",
+      "supported": false,
+      "issues": [
+        {
+          "character": "루드밀라 : 윈터 오너",
+          "effect": "여왕의 시선 3",
+          "reason": "[{'reason': 'effect type/stat: instant / ammo_charge_flat'}]"
+        },
+        {
+          "character": "루드밀라 : 윈터 오너",
+          "effect": "눈보라",
+          "reason": "[{'reason': 'timing: core_hit_count:60'}]"
+        }
+      ]
+    },
+    {
+      "character": "앨리스 : 원더랜드 바니",
+      "supported": false,
+      "issues": [
+        {
+          "character": "앨리스 : 원더랜드 바니",
+          "effect": "당근과 토끼 파티",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "앨리스 : 원더랜드 바니",
+          "effect": "당근 파티",
+          "reason": "[{'reason': 'effect type/stat: buff / intercept_dmg_pct'}]"
+        },
+        {
+          "character": "앨리스 : 원더랜드 바니",
+          "effect": "당근과 토끼 파티 2",
+          "reason": "[{'reason': 'effect type/stat: buff / buff_max_stack_add'}]"
+        },
+        {
+          "character": "앨리스 : 원더랜드 바니",
+          "effect": "좀 더 많은 당근",
+          "reason": "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]"
+        },
+        {
+          "character": "앨리스 : 원더랜드 바니",
+          "effect": "좀 더 많은 당근 3",
+          "reason": "[{'reason': 'effect type/stat: instant / ammo_charge_pct'}]"
+        },
+        {
+          "character": "앨리스 : 원더랜드 바니",
+          "effect": "소중한 큰 당근",
+          "reason": "[{'reason': 'effect type/stat: instant / burst_reentry'}]"
+        },
+        {
+          "character": "앨리스 : 원더랜드 바니",
+          "effect": "소중한 큰 당근 2",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "루피",
+      "supported": false,
+      "issues": [
+        {
+          "character": "루피",
+          "effect": "프라이즈",
+          "reason": "[{'reason': 'effect type/stat: buff / buff_max_stack_add'}]"
+        },
+        {
+          "character": "루피",
+          "effect": "프라이즈 2",
+          "reason": "[{'reason': 'target: allies_code:철갑'}]"
+        }
+      ]
+    },
+    {
+      "character": "얀",
+      "supported": true
+    },
+    {
+      "character": "도라",
+      "supported": true
+    },
+    {
+      "character": "루피 : 윈터 쇼퍼",
+      "supported": false,
+      "issues": [
+        {
+          "character": "루피 : 윈터 쇼퍼",
+          "effect": "쇼핑",
+          "reason": "[{'reason': 'timing: event:ally_burst_cast'}]"
+        },
+        {
+          "character": "루피 : 윈터 쇼퍼",
+          "effect": "VIP 기프트",
+          "reason": "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]"
+        },
+        {
+          "character": "루피 : 윈터 쇼퍼",
+          "effect": "쇼퍼홀릭 데이트 3",
+          "reason": "[{'reason': 'effect type/stat: instant / burst_reentry'}]"
+        }
+      ]
+    },
+    {
+      "character": "엑시아",
+      "supported": false,
+      "issues": [
+        {
+          "character": "엑시아",
+          "effect": "원사이드 프로토콜 3",
+          "reason": "[{'reason': 'target: same_target'}]"
+        }
+      ]
+    },
+    {
+      "character": "노벨",
+      "supported": true
+    },
+    {
+      "character": "스노우 화이트",
+      "supported": false,
+      "issues": [
+        {
+          "character": "스노우 화이트",
+          "effect": "세븐스 드워프 : I",
+          "reason": "[{'reason': 'effect fields: charge_time, duration_bullets, full_charge_mult'}]"
+        },
+        {
+          "character": "스노우 화이트",
+          "effect": "세븐스 드워프 : I 2",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        }
+      ]
+    },
+    {
+      "character": "라푼젤",
+      "supported": false,
+      "issues": [
+        {
+          "character": "라푼젤",
+          "effect": "세크리파이스",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "라푼젤",
+          "effect": "디바인 블레스",
+          "reason": "[{'reason': 'target: allies_top_atk:2'}]"
+        },
+        {
+          "character": "라푼젤",
+          "effect": "디바인 블레스 2",
+          "reason": "[{'reason': 'target: allies_top_atk:2'}]"
+        },
+        {
+          "character": "라푼젤",
+          "effect": "가든 오브 샹그릴라",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "라푼젤",
+          "effect": "가든 오브 샹그릴라 2",
+          "reason": "[{'reason': 'effect type/stat: instant / revive'}]"
+        },
+        {
+          "character": "라푼젤",
+          "effect": "가든 오브 샹그릴라 3",
+          "reason": "[{'reason': 'condition: self_hp_below:30'}]"
+        }
+      ]
+    },
+    {
+      "character": "홍련",
+      "supported": false,
+      "issues": [
+        {
+          "character": "홍련",
+          "effect": "육참골단 2",
+          "reason": "[{'reason': 'effect type/stat: instant / current_hp_reduce'}]"
+        },
+        {
+          "character": "홍련",
+          "effect": "검신합일",
+          "reason": "[{'reason': 'timing: received_hit_count:1'}]"
+        },
+        {
+          "character": "홍련",
+          "effect": "검신합일 2",
+          "reason": "[{'reason': 'condition: self_hp_below:60'}]"
+        },
+        {
+          "character": "홍련",
+          "effect": "홍련일섬",
+          "reason": "[{'reason': 'condition: self_hp_below:50'}]"
+        }
+      ]
+    },
+    {
+      "character": "나유타",
+      "supported": false,
+      "issues": [
+        {
+          "character": "나유타",
+          "effect": "부동심",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "나유타",
+          "effect": "위선",
+          "reason": "[{'reason': 'timing: event:기억 흡수'}]"
+        },
+        {
+          "character": "나유타",
+          "effect": "위선 2",
+          "reason": "[{'reason': 'timing: event:기억 흡수'}]"
+        },
+        {
+          "character": "나유타",
+          "effect": "위선 3",
+          "reason": "[{'reason': 'effect type/stat: buff / heal_split'}]"
+        },
+        {
+          "character": "나유타",
+          "effect": "위선 4",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "나유타",
+          "effect": "기억 흡수 2",
+          "reason": "[{'reason': 'effect type/stat: buff / stack_change_immune'}]"
+        },
+        {
+          "character": "나유타",
+          "effect": "무상",
+          "reason": "[{'reason': 'timing: event:기억 흡수'}]"
+        },
+        {
+          "character": "나유타",
+          "effect": "무상 2",
+          "reason": "[{'reason': 'timing: event:기억 흡수'}]"
+        },
+        {
+          "character": "나유타",
+          "effect": "무상 3",
+          "reason": "[{'reason': 'timing: event:기억 흡수'}]"
+        },
+        {
+          "character": "나유타",
+          "effect": "기억 연소",
+          "reason": "[{'reason': 'effect fields: charge_time, full_charge_mult, skill_damage'}]"
+        },
+        {
+          "character": "나유타",
+          "effect": "기억 연소 차지시간고정",
+          "reason": "[{'reason': 'effect type/stat: buff / charge_time_fixed'}]"
+        },
+        {
+          "character": "나유타",
+          "effect": "기억 연소 차지시간고정 해제",
+          "reason": "[{'reason': 'timing: event:state_end:기억 연소'}]"
+        },
+        {
+          "character": "나유타",
+          "effect": "고행 3",
+          "reason": "[{'reason': 'effect type/stat: buff / infinite_ammo'}]"
+        }
+      ]
+    },
+    {
+      "character": "스노우 화이트 : 이노센트 데이즈",
+      "supported": false,
+      "issues": [
+        {
+          "character": "스노우 화이트 : 이노센트 데이즈",
+          "effect": "세븐스 드워프 III",
+          "reason": "[{'reason': 'effect type/stat: buff / trigger_count_reduce'}]"
+        },
+        {
+          "character": "스노우 화이트 : 이노센트 데이즈",
+          "effect": "세븐스 드워프 III 3",
+          "reason": "[{'reason': 'effect type/stat: buff / infinite_ammo'}]"
+        }
+      ]
+    },
+    {
+      "character": "홍련 : 흑영",
+      "supported": false,
+      "issues": [
+        {
+          "character": "홍련 : 흑영",
+          "effect": "파죽 게이지",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "홍련 : 흑영",
+          "effect": "화무십일홍 · 파죽",
+          "reason": "[{'reason': 'condition: gauge_eq:파죽:1'}]"
+        },
+        {
+          "character": "홍련 : 흑영",
+          "effect": "화무십일홍 · 파죽 2",
+          "reason": "[{'reason': 'condition: gauge_eq:파죽:2'}]"
+        },
+        {
+          "character": "홍련 : 흑영",
+          "effect": "화무십일홍 · 파죽 3",
+          "reason": "[{'reason': 'condition: gauge_eq:파죽:3'}]"
+        },
+        {
+          "character": "홍련 : 흑영",
+          "effect": "화무십일홍 · 파죽 4",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "홍련 : 흑영",
+          "effect": "화무십일홍 · 수라 2",
+          "reason": "[{'reason': 'effect type/stat: instant / ammo_charge_pct'}]"
+        },
+        {
+          "character": "홍련 : 흑영",
+          "effect": "화무십일홍 · 만개",
+          "reason": "[{'reason': 'effect type/stat: buff / trigger_count_reduce'}]"
+        }
+      ]
+    },
+    {
+      "character": "라푼젤 : 퓨어 그레이스",
+      "supported": false,
+      "issues": [
+        {
+          "character": "라푼젤 : 퓨어 그레이스",
+          "effect": "생츄어리",
+          "reason": "[{'reason': 'effect type/stat: buff / shared_shield_from_max_hp_pct'}]"
+        },
+        {
+          "character": "라푼젤 : 퓨어 그레이스",
+          "effect": "생츄어리 2",
+          "reason": "[{'reason': 'timing: charge_hold:1'}]"
+        },
+        {
+          "character": "라푼젤 : 퓨어 그레이스",
+          "effect": "프레이",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "라푼젤 : 퓨어 그레이스",
+          "effect": "프레이 2",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "라푼젤 : 퓨어 그레이스",
+          "effect": "프레이 3",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        }
+      ]
+    },
+    {
+      "character": "하란",
+      "supported": false,
+      "issues": [
+        {
+          "character": "하란",
+          "effect": "바이러스 전이",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "하란",
+          "effect": "바이러스 전이",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "하란",
+          "effect": "포식",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "하란",
+          "effect": "포식 2",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "하란",
+          "effect": "포식 3",
+          "reason": "[{'reason': 'timing: enemy_death'}]"
+        }
+      ]
+    },
+    {
+      "character": "이사벨",
+      "supported": false,
+      "issues": [
+        {
+          "character": "이사벨",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "노아",
+      "supported": false,
+      "issues": [
+        {
+          "character": "노아",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "도로시",
+      "supported": false,
+      "issues": [
+        {
+          "character": "도로시",
+          "effect": "성화",
+          "reason": "[{'reason': 'timing: last_bullet_fire'}]"
+        },
+        {
+          "character": "도로시",
+          "effect": "성화 2",
+          "reason": "[{'reason': 'effect type/stat: buff / part_dmg_pct'}]"
+        },
+        {
+          "character": "도로시",
+          "effect": "발현",
+          "reason": "[{'reason': 'effect type/stat: buff / skill_cooldown'}]"
+        },
+        {
+          "character": "도로시",
+          "effect": "실낙원",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_enabled'}]"
+        },
+        {
+          "character": "도로시",
+          "effect": "낙인",
+          "reason": "[{'reason': 'effect type/stat: buff / dmg_accum_received_atk_pct'}]"
+        },
+        {
+          "character": "도로시",
+          "effect": "낙인 2",
+          "reason": "[{'reason': 'effect type/stat: damage / accum_split_damage'}]"
+        }
+      ]
+    },
+    {
+      "character": "도로시 : 세렌디피티",
+      "supported": false,
+      "issues": [
+        {
+          "character": "도로시 : 세렌디피티",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "루마니",
+      "supported": false,
+      "issues": [
+        {
+          "character": "루마니",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "에피넬",
+      "supported": false,
+      "issues": [
+        {
+          "character": "에피넬",
+          "effect": "SAFE 50-50 2",
+          "reason": "B3 deferred bonus damage not supported"
+        }
+      ]
+    },
+    {
+      "character": "폴크방",
+      "supported": false,
+      "issues": [
+        {
+          "character": "폴크방",
+          "effect": "스타팅 휘슬",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_from_max_hp_pct'}]"
+        },
+        {
+          "character": "폴크방",
+          "effect": "스타팅 휘슬 2",
+          "reason": "[{'reason': 'target: allies_top_atk:2'}]"
+        },
+        {
+          "character": "폴크방",
+          "effect": "스플린트",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_from_max_hp_pct'}]"
+        },
+        {
+          "character": "폴크방",
+          "effect": "스플린트 2",
+          "reason": "[{'reason': 'target: allies_top_atk:2'}]"
+        }
+      ]
+    },
+    {
+      "character": "모더니아",
+      "supported": true
+    },
+    {
+      "character": "니힐리스타",
+      "supported": false,
+      "issues": [
+        {
+          "character": "니힐리스타",
+          "effect": "버닝 샷",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "니힐리스타",
+          "effect": "버닝 샷 2",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "니힐리스타",
+          "effect": "버닝 샷 3",
+          "reason": "[{'reason': 'timing: multi_hit:2'}]"
+        },
+        {
+          "character": "니힐리스타",
+          "effect": "화상",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        }
+      ]
+    },
+    {
+      "character": "리버렐리오",
+      "supported": false,
+      "issues": [
+        {
+          "character": "리버렐리오",
+          "effect": "잠기는 세계 2",
+          "reason": "B3 deferred bonus damage not supported"
+        }
+      ]
+    },
+    {
+      "character": "블랑",
+      "supported": false,
+      "issues": [
+        {
+          "character": "블랑",
+          "effect": "럭키 가드",
+          "reason": "[{'reason': 'effect type/stat: buff / shared_shield_from_max_hp_pct'}]"
+        },
+        {
+          "character": "블랑",
+          "effect": "래빗 트윈즈 W",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "블랑",
+          "effect": "래빗 트윈즈 W 2",
+          "reason": "[{'reason': 'condition: squad_ally_exists'}]"
+        },
+        {
+          "character": "블랑",
+          "effect": "쇼타임",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "블랑",
+          "effect": "쇼타임 2",
+          "reason": "[{'reason': 'effect type/stat: buff / undying'}]"
+        },
+        {
+          "character": "블랑",
+          "effect": "쇼타임 3",
+          "reason": "[{'reason': 'target: allies_lowest_hp_excl:1'}]"
+        }
+      ]
+    },
+    {
+      "character": "누아르",
+      "supported": false,
+      "issues": [
+        {
+          "character": "누아르",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "루주",
+      "supported": true
+    },
+    {
+      "character": "로산나",
+      "supported": false,
+      "issues": [
+        {
+          "character": "로산나",
+          "effect": "은신",
+          "reason": "[{'reason': 'effect type/stat: buff / stealth'}]"
+        },
+        {
+          "character": "로산나",
+          "effect": "온 더 렘 2",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "로산나",
+          "effect": "은신 해제 (직접 피격)",
+          "reason": "[{'reason': 'timing: received_hit_count:1'}]"
+        },
+        {
+          "character": "로산나",
+          "effect": "은신",
+          "reason": "[{'reason': 'effect type/stat: buff / stealth'}]"
+        },
+        {
+          "character": "로산나",
+          "effect": "광기",
+          "reason": "[{'reason': 'timing: event:ally_down'}]"
+        },
+        {
+          "character": "로산나",
+          "effect": "카포 디 카피",
+          "reason": "[{'reason': 'effect type/stat: instant / burst_charge_pct'}]"
+        },
+        {
+          "character": "로산나",
+          "effect": "은신 해제 (직접 피격) 2",
+          "reason": "[{'reason': 'timing: received_hit_count:1'}]"
+        },
+        {
+          "character": "로산나",
+          "effect": "벤데타 2",
+          "reason": "[{'reason': 'target: same_target'}]"
+        }
+      ]
+    },
+    {
+      "character": "목단",
+      "supported": false,
+      "issues": [
+        {
+          "character": "목단",
+          "effect": "다 덤벼!",
+          "reason": "[{'reason': 'scaling: lost_hp_pct'}]"
+        },
+        {
+          "character": "목단",
+          "effect": "여긴 내가 맡는다!",
+          "reason": "[{'reason': 'timing: last_bullet_fire'}]"
+        },
+        {
+          "character": "목단",
+          "effect": "근성 1",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "목단",
+          "effect": "근성 2",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "목단",
+          "effect": "근성 3",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "목단",
+          "effect": "정정당당 승부다!",
+          "reason": "[{'reason': 'only timed infinite-ammo MG weapon mode currently verified'}]"
+        },
+        {
+          "character": "목단",
+          "effect": "정정당당 승부다! 4",
+          "reason": "[{'reason': 'effect type/stat: buff / def_caster_based_pct'}]"
+        },
+        {
+          "character": "목단",
+          "effect": "정정당당 승부다! 6",
+          "reason": "[{'reason': 'effect type/stat: buff / cover_disabled'}]"
+        }
+      ]
+    },
+    {
+      "character": "사쿠라",
+      "supported": false,
+      "issues": [
+        {
+          "character": "사쿠라",
+          "effect": "꽃잎 떨구기",
+          "reason": "[{'reason': 'effect type/stat: buff / projectile_dmg_pct'}]"
+        },
+        {
+          "character": "사쿠라",
+          "effect": "앵화난만",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "사쿠라",
+          "effect": "앵화난만 3",
+          "reason": "[{'reason': 'effect type/stat: buff / intercept_dmg_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "로산나 : 시크 오션",
+      "supported": false,
+      "issues": [
+        {
+          "character": "로산나 : 시크 오션",
+          "effect": "페리타",
+          "reason": "[{'reason': 'effect type/stat: buff / part_dmg_pct'}]"
+        },
+        {
+          "character": "로산나 : 시크 오션",
+          "effect": "페리타 2",
+          "reason": "[{'reason': 'timing: event:part_destroy'}]"
+        },
+        {
+          "character": "로산나 : 시크 오션",
+          "effect": "스피나 디 로사",
+          "reason": "[{'reason': 'effect type/stat: buff / part_dmg_pct'}]"
+        },
+        {
+          "character": "로산나 : 시크 오션",
+          "effect": "스피나 디 로사 2",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "로산나 : 시크 오션",
+          "effect": "온다 그란데",
+          "reason": "[{'reason': 'effect type/stat: buff / dot_dmg_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "사쿠라 : 블룸 인 서머",
+      "supported": false,
+      "issues": [
+        {
+          "character": "사쿠라 : 블룸 인 서머",
+          "reason": "stack-scaled skill hit count not supported"
+        }
+      ]
+    },
+    {
+      "character": "마나",
+      "supported": false,
+      "issues": [
+        {
+          "character": "마나",
+          "effect": "매터 감마",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "마나",
+          "effect": "매터 감마 2",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "마나",
+          "effect": "매터 감마 3",
+          "reason": "[{'reason': 'effect type/stat: instant / revive'}]"
+        },
+        {
+          "character": "마나",
+          "effect": "매터 감마 해제",
+          "reason": "[{'reason': 'timing: event:ally_down'}]"
+        },
+        {
+          "character": "마나",
+          "effect": "매터 시그마",
+          "reason": "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]"
+        },
+        {
+          "character": "마나",
+          "effect": "매터 시그마 4",
+          "reason": "[{'reason': 'target: allies_top_base_charge_time:1'}]"
+        },
+        {
+          "character": "마나",
+          "effect": "매터 시그마",
+          "reason": "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]"
+        },
+        {
+          "character": "마나",
+          "effect": "페이탈 에러!",
+          "reason": "[{'reason': 'effect type/stat: buff / dot_dmg_pct'}]"
+        },
+        {
+          "character": "마나",
+          "effect": "페이탈 에러! 2",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        }
+      ]
+    },
+    {
+      "character": "에테르",
+      "supported": false,
+      "issues": [
+        {
+          "character": "에테르",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "솔져 E.G.",
+      "supported": false,
+      "issues": [
+        {
+          "character": "솔져 E.G.",
+          "effect": "이글 아이",
+          "reason": "[{'reason': 'condition: prob:5'}]"
+        }
+      ]
+    },
+    {
+      "character": "솔져 F.A.",
+      "supported": false,
+      "issues": [
+        {
+          "character": "솔져 F.A.",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "프로덕트 08",
+      "supported": false,
+      "issues": [
+        {
+          "character": "프로덕트 08",
+          "effect": "전술 : 장갑 보강",
+          "reason": "[{'reason': 'target: allies_lowest_hp:1'}]"
+        },
+        {
+          "character": "프로덕트 08",
+          "effect": "전술 : 정밀 사격",
+          "reason": "[{'reason': 'target: allies_top_atk:1'}]"
+        }
+      ]
+    },
+    {
+      "character": "프로덕트 12",
+      "supported": true
+    },
+    {
+      "character": "iDoll 플라워",
+      "supported": true
+    },
+    {
+      "character": "iDoll 오션",
+      "supported": false,
+      "issues": [
+        {
+          "character": "iDoll 오션",
+          "effect": "오션 샤워",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "iDoll 오션",
+          "effect": "오션 클렌징",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "iDoll 오션",
+          "effect": "오션 다이브",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "솔져 O.W.",
+      "supported": false,
+      "issues": [
+        {
+          "character": "솔져 O.W.",
+          "effect": "오울 크로",
+          "reason": "[{'reason': 'counter threshold must be positive'}]"
+        },
+        {
+          "character": "솔져 O.W.",
+          "effect": "오울 윈드",
+          "reason": "[{'reason': 'target: allies_top_atk:3'}]"
+        },
+        {
+          "character": "솔져 O.W.",
+          "effect": "오울 페더",
+          "reason": "[{'reason': 'target: allies_code:작열'}]"
+        }
+      ]
+    },
+    {
+      "character": "프로덕트 23",
+      "supported": false,
+      "issues": [
+        {
+          "character": "프로덕트 23",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "iDoll 썬",
+      "supported": false,
+      "issues": [
+        {
+          "character": "iDoll 썬",
+          "effect": "썬라이트",
+          "reason": "[{'reason': 'timing: received_hit_count:1'}]"
+        }
+      ]
+    },
+    {
+      "character": "에이드",
+      "supported": false,
+      "issues": [
+        {
+          "character": "에이드",
+          "effect": "완벽한 메이드",
+          "reason": "[{'reason': 'effect type/stat: buff / debuff_immune_count'}]"
+        },
+        {
+          "character": "에이드",
+          "effect": "청소를 시작하겠습니다, 주인님.",
+          "reason": "[{'reason': 'finite conditional passive needs tick-driven reactivation'}]"
+        },
+        {
+          "character": "에이드",
+          "effect": "완벽한 메이드",
+          "reason": "[{'reason': 'effect type/stat: buff / debuff_immune_count'}]"
+        }
+      ]
+    },
+    {
+      "character": "코코아",
+      "supported": false,
+      "issues": [
+        {
+          "character": "코코아",
+          "effect": "프로 종이접기",
+          "reason": "[{'reason': 'effect type/stat: instant / cover_heal_pct'}]"
+        },
+        {
+          "character": "코코아",
+          "effect": "프로 종이접기 2",
+          "reason": "[{'reason': 'effect type/stat: instant / debuff_cleanse'}]"
+        },
+        {
+          "character": "코코아",
+          "effect": "프로 메이드장",
+          "reason": "[{'reason': 'effect type/stat: instant / debuff_cleanse'}]"
+        }
+      ]
+    },
+    {
+      "character": "소다",
+      "supported": false,
+      "issues": [
+        {
+          "character": "소다",
+          "effect": "바닥 청소 메이드",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "소다",
+          "effect": "바닥 청소 메이드 2",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "소다",
+          "effect": "대청소 메이드 3",
+          "reason": "[{'reason': 'effect type/stat: buff / buff_max_stack_add'}]"
+        }
+      ]
+    },
+    {
+      "character": "프리바티 : 언카인드 메이드",
+      "supported": false,
+      "issues": [
+        {
+          "character": "프리바티 : 언카인드 메이드",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "소다 : 트윙클링 바니",
+      "supported": false,
+      "issues": [
+        {
+          "character": "소다 : 트윙클링 바니",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "에이드 : 에이전트 바니",
+      "supported": false,
+      "issues": [
+        {
+          "character": "에이드 : 에이전트 바니",
+          "effect": "요원의 시선",
+          "reason": "[{'reason': 'condition: optimal_range'}]"
+        },
+        {
+          "character": "에이드 : 에이전트 바니",
+          "effect": "스파이 렌즈",
+          "reason": "[{'reason': 'effect type/stat: buff / optimal_range_min'}]"
+        },
+        {
+          "character": "에이드 : 에이전트 바니",
+          "effect": "요원의 움직임",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_dmg_pct'}]"
+        },
+        {
+          "character": "에이드 : 에이전트 바니",
+          "effect": "요원의 움직임 2",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_enabled'}]"
+        },
+        {
+          "character": "에이드 : 에이전트 바니",
+          "effect": "최첨단 요원 장비",
+          "reason": "[{'reason': 'effect type/stat: buff / optimal_range_min'}]"
+        },
+        {
+          "character": "에이드 : 에이전트 바니",
+          "effect": "최첨단 요원 장비 3",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_dmg_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "벨벳",
+      "supported": false,
+      "issues": [
+        {
+          "character": "벨벳",
+          "effect": "탄환 가져오기",
+          "reason": "[{'reason': 'effect fields: gauge_id, gauge_max'}]"
+        },
+        {
+          "character": "벨벳",
+          "effect": "탄환 가져오기 2",
+          "reason": "[{'reason': 'effect type/stat: instant / ammo_charge_pct'}]"
+        },
+        {
+          "character": "벨벳",
+          "effect": "나쁜 손버릇",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "벨벳",
+          "effect": "사랑의 탄환",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "벨벳",
+          "effect": "사랑의 탄환 4",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        }
+      ]
+    },
+    {
+      "character": "마르차나",
+      "supported": false,
+      "issues": [
+        {
+          "character": "마르차나",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "마르차나 : 마린 스터디",
+      "supported": false,
+      "issues": [
+        {
+          "character": "마르차나 : 마린 스터디",
+          "effect": "경계 대상 지정",
+          "reason": "[{'reason': 'condition: burst_casted'}]"
+        },
+        {
+          "character": "마르차나 : 마린 스터디",
+          "effect": "경계 대상",
+          "reason": "[{'reason': 'condition: burst_casted'}]"
+        },
+        {
+          "character": "마르차나 : 마린 스터디",
+          "effect": "경계 대상 지정 2",
+          "reason": "[{'reason': 'timing: enemy_death'}]"
+        },
+        {
+          "character": "마르차나 : 마린 스터디",
+          "effect": "경계 대상 2",
+          "reason": "[{'reason': 'timing: enemy_death'}]"
+        },
+        {
+          "character": "마르차나 : 마린 스터디",
+          "effect": "이머전시 휘슬",
+          "reason": "[{'reason': 'condition: target_state:고위험 대상'}]"
+        },
+        {
+          "character": "마르차나 : 마린 스터디",
+          "effect": "휘슬 초기 중첩",
+          "reason": "[{'reason': 'effect type/stat: instant / buff_stack_add'}]"
+        },
+        {
+          "character": "마르차나 : 마린 스터디",
+          "effect": "휘슬 충전",
+          "reason": "[{'reason': 'effect type/stat: instant / buff_stack_add'}]"
+        },
+        {
+          "character": "마르차나 : 마린 스터디",
+          "effect": "펭군 긴급 출동",
+          "reason": "[{'reason': 'condition: enemy_count_above:6'}]"
+        },
+        {
+          "character": "마르차나 : 마린 스터디",
+          "effect": "휘슬 소모",
+          "reason": "[{'reason': 'effect type/stat: instant / buff_stack_remove'}]"
+        },
+        {
+          "character": "마르차나 : 마린 스터디",
+          "effect": "펭군 긴급 출동 2",
+          "reason": "[{'reason': 'effect type/stat: buff / element_bonus_pct'}]"
+        },
+        {
+          "character": "마르차나 : 마린 스터디",
+          "effect": "펭군 스파이럴",
+          "reason": "[{'reason': 'effect type/stat: buff / element_bonus_pct'}]"
+        },
+        {
+          "character": "마르차나 : 마린 스터디",
+          "effect": "고위험 대상",
+          "reason": "[{'reason': 'condition: target_code:전격'}]"
+        }
+      ]
+    },
+    {
+      "character": "크라운",
+      "supported": false,
+      "issues": [
+        {
+          "character": "크라운",
+          "effect": "원 포 올",
+          "reason": "[{'reason': 'target: all_allies_burst_casted'}]"
+        },
+        {
+          "character": "크라운",
+          "effect": "원 포 올 3",
+          "reason": "[{'reason': 'effect type/stat: buff / def_caster_based_pct'}]"
+        },
+        {
+          "character": "크라운",
+          "effect": "릴렉스",
+          "reason": "[{'reason': 'effect fields: trigger_values'}]"
+        },
+        {
+          "character": "크라운",
+          "effect": "로얄 에타이어 2",
+          "reason": "[{'reason': 'effect type/stat: buff / invincible'}]"
+        },
+        {
+          "character": "크라운",
+          "effect": "로얄 에타이어 3",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "크라운",
+          "effect": "로얄 에타이어 4",
+          "reason": "[{'reason': 'timing: event:heal_received'}]"
+        },
+        {
+          "character": "크라운",
+          "effect": "라스트 킹덤 2",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_from_max_hp_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "차임",
+      "supported": false,
+      "issues": [
+        {
+          "character": "차임",
+          "effect": "소원",
+          "reason": "[{'reason': 'target: 크라운'}]"
+        },
+        {
+          "character": "차임",
+          "effect": "일과 보고",
+          "reason": "[{'reason': 'target: 크라운'}]"
+        },
+        {
+          "character": "차임",
+          "effect": "왕을 위해",
+          "reason": "[{'reason': 'effect type/stat: instant / burst_reentry'}]"
+        },
+        {
+          "character": "차임",
+          "effect": "충심",
+          "reason": "[{'reason': 'target: 크라운'}]"
+        }
+      ]
+    },
+    {
+      "character": "마스트",
+      "supported": false,
+      "issues": [
+        {
+          "character": "마스트",
+          "reason": "stack-scaled skill hit count not supported"
+        }
+      ]
+    },
+    {
+      "character": "앵커",
+      "supported": false,
+      "issues": [
+        {
+          "character": "앵커",
+          "effect": "MDS",
+          "reason": "[{'reason': 'effect type/stat: buff / projectile_dmg_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "헬름",
+      "supported": false,
+      "issues": [
+        {
+          "character": "헬름",
+          "effect": "포문 개방",
+          "reason": "[{'reason': 'effect type/stat: buff / intercept_dmg_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "헬름 : 아쿠아마린",
+      "supported": false,
+      "issues": [
+        {
+          "character": "헬름 : 아쿠아마린",
+          "effect": "이지스 캐논 견제 사격 2",
+          "reason": "[{'reason': 'target: same_target'}]"
+        },
+        {
+          "character": "헬름 : 아쿠아마린",
+          "effect": "이지스 캐논 오버로드 2",
+          "reason": "[{'reason': 'target: same_target'}]"
+        }
+      ]
+    },
+    {
+      "character": "마스트 : 로망틱 메이드",
+      "supported": true
+    },
+    {
+      "character": "앵커 : 이노센트 메이드",
+      "supported": false,
+      "issues": [
+        {
+          "character": "앵커 : 이노센트 메이드",
+          "effect": "불가사리(모양) 오므라이스 3",
+          "reason": "[{'reason': 'effect type/stat: instant / debuff_stack_remove'}]"
+        },
+        {
+          "character": "앵커 : 이노센트 메이드",
+          "effect": "불가사리(모양) 오므라이스 4",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "앵커 : 이노센트 메이드",
+          "effect": "저장",
+          "reason": "[{'reason': 'effect type/stat: buff / heal_overcharge_store'}]"
+        },
+        {
+          "character": "앵커 : 이노센트 메이드",
+          "effect": "바다 산책",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "킬로",
+      "supported": false,
+      "issues": [
+        {
+          "character": "킬로",
+          "effect": "나노 코팅",
+          "reason": "[{'reason': 'effect fields: end_on_shield_consumed'}]"
+        },
+        {
+          "character": "킬로",
+          "effect": "자가 수복",
+          "reason": "[{'reason': 'effect type/stat: instant / shield_heal_pct'}]"
+        },
+        {
+          "character": "킬로",
+          "effect": "자가 수복 2",
+          "reason": "[{'reason': 'effect type/stat: buff / next_shield_hp_pct'}]"
+        },
+        {
+          "character": "킬로",
+          "effect": "자가 수복 3",
+          "reason": "[{'reason': 'effect type/stat: buff / next_shield_hp_pct'}]"
+        },
+        {
+          "character": "킬로",
+          "effect": "자가 수복 4",
+          "reason": "[{'reason': 'effect type/stat: buff / next_shield_hp_pct'}]"
+        },
+        {
+          "character": "킬로",
+          "effect": "우선 순위 지정",
+          "reason": "[{'reason': 'effect fields: scaling_hp_pct'}]"
+        },
+        {
+          "character": "킬로",
+          "effect": "나노 코팅",
+          "reason": "[{'reason': 'effect fields: end_on_shield_consumed'}]"
+        }
+      ]
+    },
+    {
+      "character": "네로",
+      "supported": false,
+      "issues": [
+        {
+          "character": "네로",
+          "effect": "고양이 보은 2",
+          "reason": "[{'reason': 'timing: event:heal_received'}]"
+        },
+        {
+          "character": "네로",
+          "effect": "고양이 보은",
+          "reason": "[{'reason': 'timing: event:heal_received'}]"
+        },
+        {
+          "character": "네로",
+          "effect": "고양이 손",
+          "reason": "[{'reason': 'timing: received_hit_count:1'}]"
+        },
+        {
+          "character": "네로",
+          "effect": "고양이 손 2",
+          "reason": "[{'reason': 'timing: received_hit_count:1'}]"
+        }
+      ]
+    },
+    {
+      "character": "비스킷",
+      "supported": false,
+      "issues": [
+        {
+          "character": "비스킷",
+          "effect": "해피 퍼피",
+          "reason": "[{'reason': 'target: allies_class:화력형'}]"
+        },
+        {
+          "character": "비스킷",
+          "effect": "해피 퍼피 2",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "비스킷",
+          "effect": "터그 놀이",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "비스킷",
+          "effect": "터그 놀이 2",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "비스킷",
+          "effect": "산책 훈련",
+          "reason": "[{'reason': 'effect type/stat: instant / cover_revive'}]"
+        },
+        {
+          "character": "비스킷",
+          "effect": "산책 훈련 2",
+          "reason": "[{'reason': 'target: allies_class:지원형'}]"
+        },
+        {
+          "character": "비스킷",
+          "effect": "산책 훈련 3",
+          "reason": "[{'reason': 'target: allies_class:지원형'}]"
+        }
+      ]
+    },
+    {
+      "character": "레오나",
+      "supported": false,
+      "issues": [
+        {
+          "character": "레오나",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "츠바이",
+      "supported": false,
+      "issues": [
+        {
+          "character": "츠바이",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "아인",
+      "supported": false,
+      "issues": [
+        {
+          "character": "아인",
+          "effect": "페더 스탠바이",
+          "reason": "[{'reason': 'effect fields: feather_id, feather_interval_base, feather_interval_step_pct, feather_slots'}]"
+        },
+        {
+          "character": "아인",
+          "effect": "니어 페더 공격",
+          "reason": "[{'reason': 'effect type/stat: damage / armor_break_damage:니어 페더'}]"
+        },
+        {
+          "character": "아인",
+          "effect": "페더 샷",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "아인",
+          "effect": "페더 올레인지",
+          "reason": "[{'reason': 'effect fields: feather_id, feather_interval_base, feather_interval_step_pct, feather_slots'}]"
+        },
+        {
+          "character": "아인",
+          "effect": "페더 올레인지 2",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_dmg_pct'}]"
+        },
+        {
+          "character": "아인",
+          "effect": "페더 올레인지 4",
+          "reason": "[{'reason': 'effect type/stat: damage / armor_break_damage'}]"
+        }
+      ]
+    },
+    {
+      "character": "라이",
+      "supported": false,
+      "issues": [
+        {
+          "character": "라이",
+          "effect": "선배의 응원",
+          "reason": "[{'reason': 'effect type/stat: instant / burst_charge_pct'}]"
+        },
+        {
+          "character": "라이",
+          "effect": "선배의 응원 2",
+          "reason": "[{'reason': 'effect type/stat: instant / decoy_heal_pct'}]"
+        },
+        {
+          "character": "라이",
+          "effect": "선배의 모범 2",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        }
+      ]
+    },
+    {
+      "character": "길티",
+      "supported": false,
+      "issues": [
+        {
+          "character": "길티",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "신",
+      "supported": false,
+      "issues": [
+        {
+          "character": "신",
+          "effect": "센텐스 엔딩스",
+          "reason": "[{'reason': 'effect fields: copy_from'}]"
+        },
+        {
+          "character": "신",
+          "effect": "주목",
+          "reason": "[{'reason': 'timing: last_bullet_fire'}]"
+        },
+        {
+          "character": "신",
+          "effect": "허리 온",
+          "reason": "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]"
+        },
+        {
+          "character": "신",
+          "effect": "워드 오브 킬",
+          "reason": "[{'reason': 'condition: enemy_count_above:4'}]"
+        }
+      ]
+    },
+    {
+      "character": "퀀시",
+      "supported": false,
+      "issues": [
+        {
+          "character": "퀀시",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "퀀시 : 이스케이프 퀸",
+      "supported": false,
+      "issues": [
+        {
+          "character": "퀀시 : 이스케이프 퀸",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "길티 : 마이티 바니",
+      "supported": false,
+      "issues": [
+        {
+          "character": "길티 : 마이티 바니",
+          "effect": "어떻게 하는 게 좋아…? (인게이지 해제)",
+          "reason": "[{'reason': 'effect fields: remove_scope'}]"
+        },
+        {
+          "character": "길티 : 마이티 바니",
+          "effect": "바니 모드 : 인게이지",
+          "reason": "[{'reason': 'effect fields: event_scope'}]"
+        },
+        {
+          "character": "길티 : 마이티 바니",
+          "effect": "바니 모드 : 스탠스",
+          "reason": "[{'reason': 'effect fields: event_scope'}]"
+        },
+        {
+          "character": "길티 : 마이티 바니",
+          "effect": "어떻게 하는 게 좋아…? (스탠스 해제)",
+          "reason": "[{'reason': 'effect fields: remove_scope'}]"
+        },
+        {
+          "character": "길티 : 마이티 바니",
+          "effect": "어떻게 하는 게 좋아…? (동기화 스탠스 해제)",
+          "reason": "[{'reason': 'effect fields: remove_scope'}]"
+        },
+        {
+          "character": "길티 : 마이티 바니",
+          "effect": "바니 모드 : 인게이지",
+          "reason": "[{'reason': 'effect fields: event_scope'}]"
+        },
+        {
+          "character": "길티 : 마이티 바니",
+          "effect": "어떻게 하는 게 좋아…? (동기화 인게이지 해제)",
+          "reason": "[{'reason': 'effect fields: remove_scope'}]"
+        },
+        {
+          "character": "길티 : 마이티 바니",
+          "effect": "바니 모드 : 스탠스",
+          "reason": "[{'reason': 'effect fields: event_scope'}]"
+        },
+        {
+          "character": "길티 : 마이티 바니",
+          "effect": "체인 릴리즈",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_enabled'}]"
+        },
+        {
+          "character": "길티 : 마이티 바니",
+          "effect": "체인 릴리즈 2",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_enabled'}]"
+        },
+        {
+          "character": "길티 : 마이티 바니",
+          "effect": "체인 릴리즈 3",
+          "reason": "[{'reason': 'effect type/stat: damage / armor_break_damage'}]"
+        },
+        {
+          "character": "길티 : 마이티 바니",
+          "effect": "마이티 스톰프",
+          "reason": "[{'reason': 'effect fields: charge_time, duration_bullets, full_charge_mult'}]"
+        },
+        {
+          "character": "길티 : 마이티 바니",
+          "effect": "마이티 스톰프 차지시간고정",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "길티 : 마이티 바니",
+          "effect": "드디어 풀려났어…!",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        }
+      ]
+    },
+    {
+      "character": "신 : 스위프트 바니",
+      "supported": false,
+      "issues": [
+        {
+          "character": "신 : 스위프트 바니",
+          "effect": "스위프트 피어싱 3",
+          "reason": "B3 deferred bonus damage not supported"
+        }
+      ]
+    },
+    {
+      "character": "플로라",
+      "supported": false,
+      "issues": [
+        {
+          "character": "플로라",
+          "effect": "피튜니아",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "플로라",
+          "effect": "피튜니아 3",
+          "reason": "[{'reason': 'effect type/stat: buff / buff_max_stack_add'}]"
+        },
+        {
+          "character": "플로라",
+          "effect": "아이리스",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_from_max_hp_pct'}]"
+        },
+        {
+          "character": "플로라",
+          "effect": "아이리스 2",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_dmg_pct'}]"
+        },
+        {
+          "character": "플로라",
+          "effect": "시크릿 가든",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "플로라",
+          "effect": "시크릿 가든 2",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_dmg_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "트리나",
+      "supported": false,
+      "issues": [
+        {
+          "character": "트리나",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "노이즈",
+      "supported": false,
+      "issues": [
+        {
+          "character": "노이즈",
+          "effect": "코러스",
+          "reason": "[{'reason': 'timing: received_hit_count:20'}]"
+        },
+        {
+          "character": "노이즈",
+          "effect": "에너제틱 노이즈",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        }
+      ]
+    },
+    {
+      "character": "볼륨",
+      "supported": false,
+      "issues": [
+        {
+          "character": "볼륨",
+          "effect": "프리스타일",
+          "reason": "[{'reason': 'timing: enemy_death'}]"
+        }
+      ]
+    },
+    {
+      "character": "아리아",
+      "supported": false,
+      "issues": [
+        {
+          "character": "아리아",
+          "effect": "아리아 디 캄포",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_from_max_hp_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "아비스타",
+      "supported": false,
+      "issues": [
+        {
+          "character": "아비스타",
+          "effect": "애프터 쇼",
+          "reason": "[{'reason': 'target: 아니스 : 스타'}]"
+        },
+        {
+          "character": "아비스타",
+          "effect": "애프터쇼",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "아비스타",
+          "effect": "애프터쇼 3",
+          "reason": "[{'reason': 'named removal requires a registered self-target state'}]"
+        },
+        {
+          "character": "아비스타",
+          "effect": "애프터 글러우",
+          "reason": "[{'reason': 'effect type/stat: instant / current_hp_reduce'}]"
+        },
+        {
+          "character": "아비스타",
+          "effect": "애프터 글러우 2",
+          "reason": "[{'reason': 'target: 아니스 : 스타'}]"
+        },
+        {
+          "character": "아비스타",
+          "effect": "애프터 글러우 3",
+          "reason": "[{'reason': 'target: 아니스 : 스타'}]"
+        },
+        {
+          "character": "아비스타",
+          "effect": "스타게이저 2",
+          "reason": "[{'reason': 'effect type/stat: instant / burst_reentry'}]"
+        }
+      ]
+    },
+    {
+      "character": "나가",
+      "supported": false,
+      "issues": [
+        {
+          "character": "나가",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "티아",
+      "supported": false,
+      "issues": [
+        {
+          "character": "티아",
+          "effect": "파충류 애호가",
+          "reason": "[{'reason': 'timing: event:cover_healed'}]"
+        },
+        {
+          "character": "티아",
+          "effect": "파충류 애호가 2",
+          "reason": "[{'reason': 'timing: event:cover_healed'}]"
+        },
+        {
+          "character": "티아",
+          "effect": "카멜레온 은신술",
+          "reason": "[{'reason': 'scaling: max_hp'}]"
+        },
+        {
+          "character": "티아",
+          "effect": "카멜레온 은신술 2",
+          "reason": "[{'reason': 'effect type/stat: instant / cover_heal_pct'}]"
+        },
+        {
+          "character": "티아",
+          "effect": "도마뱀의 보호",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_from_max_hp_pct'}]"
+        },
+        {
+          "character": "티아",
+          "effect": "도마뱀의 보호 2",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_from_max_hp_pct'}]"
+        },
+        {
+          "character": "티아",
+          "effect": "도마뱀의 보호 3",
+          "reason": "[{'reason': 'effect type/stat: instant / burst_reentry'}]"
+        }
+      ]
+    },
+    {
+      "character": "레드 후드",
+      "supported": false,
+      "issues": [
+        {
+          "character": "레드 후드",
+          "reason": "multiple or special burst stages"
+        }
+      ]
+    },
+    {
+      "character": "스노우 화이트 : 헤비암즈",
+      "supported": false,
+      "issues": [
+        {
+          "character": "스노우 화이트 : 헤비암즈",
+          "reason": "stack-scaled skill hit count not supported"
+        }
+      ]
+    },
+    {
+      "character": "일레그",
+      "supported": false,
+      "issues": [
+        {
+          "character": "일레그",
+          "effect": "쇼트",
+          "reason": "[{'reason': 'effect type/stat: buff / projectile_dmg_pct'}]"
+        },
+        {
+          "character": "일레그",
+          "effect": "쇼트 2",
+          "reason": "[{'reason': 'target: target_and_nearby:2'}]"
+        },
+        {
+          "character": "일레그",
+          "effect": "패스트 차지",
+          "reason": "[{'reason': 'condition: target_state:붐 인스톨'}]"
+        },
+        {
+          "character": "일레그",
+          "effect": "패스트 차지 2",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        }
+      ]
+    },
+    {
+      "character": "트로니",
+      "supported": false,
+      "issues": [
+        {
+          "character": "트로니",
+          "effect": "누적 폭발 스킬 2",
+          "reason": "[{'reason': 'effect type/stat: buff / dmg_accum_rate_pct'}]"
+        },
+        {
+          "character": "트로니",
+          "effect": "누적 폭발 스킬 3",
+          "reason": "[{'reason': 'effect type/stat: damage / accum_split_damage'}]"
+        },
+        {
+          "character": "트로니",
+          "effect": "누적 폭발 스킬 4",
+          "reason": "[{'reason': 'named removal currently verified only for self states'}]"
+        },
+        {
+          "character": "트로니",
+          "effect": "누적 폭발 스킬",
+          "reason": "[{'reason': 'effect type/stat: buff / dmg_accum_dealt_atk_pct'}]"
+        },
+        {
+          "character": "트로니",
+          "effect": "메가 T.Rony 2",
+          "reason": "[{'reason': 'effect type/stat: buff / dmg_accum_rate_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "일레그 : 붐 앤 쇼크",
+      "supported": false,
+      "issues": [
+        {
+          "character": "일레그 : 붐 앤 쇼크",
+          "effect": "빙의",
+          "reason": "[{'reason': 'effect type/stat: buff / possessed'}]"
+        },
+        {
+          "character": "일레그 : 붐 앤 쇼크",
+          "effect": "유령 포획",
+          "reason": "[{'reason': 'effect fields: gauge_id, gauge_max'}]"
+        },
+        {
+          "character": "일레그 : 붐 앤 쇼크",
+          "effect": "헬로 고스트",
+          "reason": "[{'reason': 'target: allies_code:수냉'}]"
+        },
+        {
+          "character": "일레그 : 붐 앤 쇼크",
+          "effect": "헬로 고스트 2",
+          "reason": "[{'reason': 'effect type/stat: buff / element_bonus_pct'}]"
+        },
+        {
+          "character": "일레그 : 붐 앤 쇼크",
+          "effect": "고스트 버스터 2",
+          "reason": "[{'reason': 'timing: squad_ammo_consume:100'}]"
+        },
+        {
+          "character": "일레그 : 붐 앤 쇼크",
+          "effect": "13 고스트",
+          "reason": "[{'reason': 'effect fields: land_in_full_burst'}]"
+        },
+        {
+          "character": "일레그 : 붐 앤 쇼크",
+          "effect": "13 고스트 2",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "일레그 : 붐 앤 쇼크",
+          "effect": "13 고스트 3",
+          "reason": "[{'reason': 'effect fields: land_in_full_burst'}]"
+        },
+        {
+          "character": "일레그 : 붐 앤 쇼크",
+          "effect": "13 고스트 4",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "일레그 : 붐 앤 쇼크",
+          "effect": "빙의 해제",
+          "reason": "[{'reason': 'named removal currently verified only for self states'}]"
+        }
+      ]
+    },
+    {
+      "character": "신데렐라",
+      "supported": false,
+      "issues": [
+        {
+          "character": "신데렐라",
+          "effect": "유리 구두 풀 컨텍트 2",
+          "reason": "B3 deferred bonus damage not supported"
+        },
+        {
+          "character": "신데렐라",
+          "reason": "stack-scaled skill hit count not supported"
+        }
+      ]
+    },
+    {
+      "character": "리틀 머메이드",
+      "supported": false,
+      "issues": [
+        {
+          "character": "리틀 머메이드",
+          "effect": "버블 오더",
+          "reason": "[{'reason': 'effect type/stat: buff / focus_fire'}]"
+        },
+        {
+          "character": "리틀 머메이드",
+          "effect": "버블 오더 4",
+          "reason": "[{'reason': 'effect type/stat: instant / burst_charge_pct'}]"
+        },
+        {
+          "character": "리틀 머메이드",
+          "effect": "거품",
+          "reason": "[{'reason': 'timing: event:enemy_spawn'}]"
+        },
+        {
+          "character": "리틀 머메이드",
+          "effect": "터진 거품",
+          "reason": "[{'reason': 'condition: target_state:거품'}]"
+        },
+        {
+          "character": "리틀 머메이드",
+          "effect": "터진 거품 2",
+          "reason": "[{'reason': 'condition: target_state:거품'}]"
+        },
+        {
+          "character": "리틀 머메이드",
+          "effect": "터진 거품 3",
+          "reason": "[{'reason': 'named removal currently verified only for self states'}]"
+        },
+        {
+          "character": "리틀 머메이드",
+          "effect": "버블 웨이브",
+          "reason": "[{'reason': 'effect type/stat: damage / sequential_damage:4'}]"
+        },
+        {
+          "character": "리틀 머메이드",
+          "effect": "거품 난사",
+          "reason": "[{'reason': 'effect type/stat: damage / sequential_damage:10'}]"
+        },
+        {
+          "character": "리틀 머메이드",
+          "effect": "세이렌 송 2",
+          "reason": "[{'reason': 'effect type/stat: instant / ammo_charge_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "그레이브",
+      "supported": false,
+      "issues": [
+        {
+          "character": "그레이브",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "신데렐라 : 크리스탈 웨이브",
+      "supported": false,
+      "issues": [
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "effect": "저격 모드",
+          "reason": "[{'reason': 'effect fields: charge_time, full_charge_mult, max_ammo_buff_applies, toggle'}]"
+        },
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "effect": "저격 모드 관통특화",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_enabled'}]"
+        },
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "effect": "저격 모드 차지시간고정",
+          "reason": "[{'reason': 'effect type/stat: buff / charge_time_fixed'}]"
+        },
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "effect": "저격 모드 관통특화 해제",
+          "reason": "[{'reason': 'timing: event:state_end:저격 모드'}]"
+        },
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "effect": "저격 모드 차지시간고정 해제",
+          "reason": "[{'reason': 'timing: event:state_end:저격 모드'}]"
+        },
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "effect": "저격 모드 탄 소비 집계",
+          "reason": "[{'reason': 'effect type/stat: instant / squad_ammo_consume_as'}]"
+        },
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "effect": "변경 준비",
+          "reason": "[{'reason': 'effect type/stat: buff / reload_time_fixed'}]"
+        },
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "effect": "변경 준비 해제",
+          "reason": "[{'reason': 'timing: last_bullet_fire'}]"
+        },
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "effect": "뷰티-풀 3",
+          "reason": "[{'reason': 'effect type/stat: instant / burst_charge_pct'}]"
+        },
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "effect": "디코이",
+          "reason": "[{'reason': 'multiple distinct timing kinds'}]"
+        },
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "effect": "디스트로이",
+          "reason": "[{'reason': 'effect type/stat: buff / part_dmg_pct'}]"
+        },
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "effect": "핀 포인트 해제",
+          "reason": "[{'reason': 'timing: event:저격 모드'}]"
+        },
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "effect": "핀 포인트",
+          "reason": "[{'reason': 'timing: event:state_end:저격 모드'}]"
+        },
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "effect": "디스트로이 해제",
+          "reason": "[{'reason': 'timing: event:state_end:저격 모드'}]"
+        },
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "effect": "모드 스왑 2",
+          "reason": "[{'reason': 'effect fields: hits_parts'}]"
+        },
+        {
+          "character": "신데렐라 : 크리스탈 웨이브",
+          "effect": "모드 스왑 3",
+          "reason": "[{'reason': 'effect type/stat: damage / core_damage'}]"
+        }
+      ]
+    },
+    {
+      "character": "브래디",
+      "supported": false,
+      "issues": [
+        {
+          "character": "브래디",
+          "effect": "머물고 싶은 맛",
+          "reason": "[{'reason': 'timing: event:stat_applied:dot_dmg_pct'}]"
+        },
+        {
+          "character": "브래디",
+          "effect": "머물고 싶은 맛 2",
+          "reason": "[{'reason': 'timing: event:stat_applied:dot_dmg_pct'}]"
+        },
+        {
+          "character": "브래디",
+          "effect": "나누고 싶은 맛",
+          "reason": "[{'reason': 'timing: event:stat_applied:split_dmg_pct'}]"
+        },
+        {
+          "character": "브래디",
+          "effect": "나누고 싶은 맛 2",
+          "reason": "[{'reason': 'timing: event:stat_applied:split_dmg_pct'}]"
+        },
+        {
+          "character": "브래디",
+          "effect": "맛의 여운",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "브래디",
+          "effect": "뉴 플레이버 2",
+          "reason": "[{'reason': 'effect type/stat: buff / dmg_scale_mag_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "크러스트",
+      "supported": false,
+      "issues": [
+        {
+          "character": "크러스트",
+          "effect": "굽고, 데치고",
+          "reason": "[{'reason': 'effect type/stat: instant / named_buff_duration_extend'}]"
+        },
+        {
+          "character": "크러스트",
+          "effect": "굽고, 데치고 2",
+          "reason": "[{'reason': 'effect type/stat: instant / named_buff_duration_extend'}]"
+        },
+        {
+          "character": "크러스트",
+          "effect": "마이야르",
+          "reason": "[{'reason': 'timing: non_full_charge_fire_count:3'}]"
+        },
+        {
+          "character": "크러스트",
+          "effect": "굽고, 데치고 3",
+          "reason": "[{'reason': 'named removal currently verified only for self states'}]"
+        },
+        {
+          "character": "크러스트",
+          "effect": "블렌칭",
+          "reason": "[{'reason': 'timing: charge_hold_count:1:3'}]"
+        },
+        {
+          "character": "크러스트",
+          "effect": "굽고, 데치고 4",
+          "reason": "[{'reason': 'named removal currently verified only for self states'}]"
+        },
+        {
+          "character": "크러스트",
+          "effect": "든든한 요리 2",
+          "reason": "[{'reason': 'effect type/stat: instant / debuff_cleanse'}]"
+        },
+        {
+          "character": "크러스트",
+          "effect": "든든한 요리",
+          "reason": "[{'reason': 'effect type/stat: buff / def_caster_based_pct'}]"
+        },
+        {
+          "character": "크러스트",
+          "effect": "든든한 요리 3",
+          "reason": "[{'reason': 'effect type/stat: instant / debuff_cleanse'}]"
+        },
+        {
+          "character": "크러스트",
+          "effect": "든든한 요리",
+          "reason": "[{'reason': 'effect type/stat: buff / def_caster_based_pct'}]"
+        },
+        {
+          "character": "크러스트",
+          "effect": "든든한 요리 4",
+          "reason": "expected string or bytes-like object, got 'list'"
+        },
+        {
+          "character": "크러스트",
+          "effect": "진짜 맛 3",
+          "reason": "[{'reason': 'effect type/stat: buff / dot_dmg_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "소라",
+      "supported": false,
+      "issues": [
+        {
+          "character": "소라",
+          "effect": "탑승 수속",
+          "reason": "[{'reason': 'effect type/stat: buff / outgoing_heal_pct'}]"
+        },
+        {
+          "character": "소라",
+          "effect": "저장",
+          "reason": "[{'reason': 'effect type/stat: buff / heal_overcharge_store'}]"
+        },
+        {
+          "character": "소라",
+          "effect": "비밀 수화물",
+          "reason": "[{'reason': 'timing: event:part_destroy'}]"
+        },
+        {
+          "character": "소라",
+          "effect": "품 안의 비밀",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "소라",
+          "effect": "품 안의 비밀 2",
+          "reason": "[{'reason': 'effect type/stat: instant / debuff_cleanse'}]"
+        }
+      ]
+    },
+    {
+      "character": "베이",
+      "supported": false,
+      "issues": [
+        {
+          "character": "베이",
+          "effect": "유 캔 두잇",
+          "reason": "[{'reason': 'effect type/stat: buff / received_dmg_split'}]"
+        },
+        {
+          "character": "베이",
+          "effect": "유 캔 두잇 2",
+          "reason": "[{'reason': 'effect type/stat: buff / def_caster_based_pct'}]"
+        },
+        {
+          "character": "베이",
+          "effect": "치얼업 투게더",
+          "reason": "[{'reason': 'effect type/stat: buff / received_dmg_split'}]"
+        },
+        {
+          "character": "베이",
+          "effect": "치얼업 투게더 2",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "베이",
+          "effect": "퍼스트 위너 2",
+          "reason": "[{'reason': 'scaling: max_hp'}]"
+        }
+      ]
+    },
+    {
+      "character": "클레이",
+      "supported": false,
+      "issues": [
+        {
+          "character": "클레이",
+          "effect": "승리의 외침",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_dmg_pct'}]"
+        },
+        {
+          "character": "클레이",
+          "effect": "DON'T MISS!",
+          "reason": "[{'reason': 'effect type/stat: buff / projectile_dmg_pct'}]"
+        },
+        {
+          "character": "클레이",
+          "effect": "WAKE UP!",
+          "reason": "[{'reason': 'effect type/stat: buff / debuff_immune_count'}]"
+        },
+        {
+          "character": "클레이",
+          "effect": "GO! GO! VICTORY!",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_dmg_pct'}]"
+        },
+        {
+          "character": "클레이",
+          "effect": "GO! GO! VICTORY! 2",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_enabled'}]"
+        }
+      ]
+    },
+    {
+      "character": "아크레인저 블랙",
+      "supported": false,
+      "issues": [
+        {
+          "character": "아크레인저 블랙",
+          "effect": "변신! 아크레인저 블랙!",
+          "reason": "[{'reason': 'effect type/stat: buff / part_dmg_pct'}]"
+        },
+        {
+          "character": "아크레인저 블랙",
+          "effect": "배터리 충전",
+          "reason": "[{'reason': 'effect fields: gauge_id, gauge_max'}]"
+        },
+        {
+          "character": "아크레인저 블랙",
+          "effect": "변신! 아크레인저 블랙! 2",
+          "reason": "[{'reason': 'effect type/stat: buff / dot_dmg_pct'}]"
+        },
+        {
+          "character": "아크레인저 블랙",
+          "effect": "아크 블랙 코레더",
+          "reason": "[{'reason': 'effect fields: tick_interval, tick_start'}]"
+        },
+        {
+          "character": "아크레인저 블랙",
+          "effect": "아크 블랙 코레더 해제",
+          "reason": "[{'reason': 'named removal requires a registered self-target state'}]"
+        },
+        {
+          "character": "아크레인저 블랙",
+          "effect": "전율! 아크 블랙 코레더!",
+          "reason": "[{'reason': 'effect type/stat: buff / dot_dmg_pct'}]"
+        },
+        {
+          "character": "아크레인저 블랙",
+          "effect": "아크 블랙 메테오 배터리",
+          "reason": "[{'reason': 'effect fields: gauge_id, gauge_max'}]"
+        },
+        {
+          "character": "아크레인저 블랙",
+          "effect": "배터리 긴급 충전",
+          "reason": "[{'reason': 'effect fields: gauge_id, gauge_max'}]"
+        },
+        {
+          "character": "아크레인저 블랙",
+          "effect": "변신",
+          "reason": "[{'reason': 'timing: event:part_destroy'}]"
+        },
+        {
+          "character": "아크레인저 블랙",
+          "effect": "변신 2",
+          "reason": "[{'reason': 'effect fields: gauge_id, tick_interval'}]"
+        },
+        {
+          "character": "아크레인저 블랙",
+          "effect": "배터리 긴급 충전 2",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "아크레인저 블랙",
+          "effect": "궁극! 아크 블랙 메테오! 2",
+          "reason": "[{'reason': 'effect fields: tick_interval, tick_start'}]"
+        },
+        {
+          "character": "아크레인저 블랙",
+          "effect": "궁극! 아크 블랙 메테오!",
+          "reason": "[{'reason': 'effect type/stat: buff / dot_dmg_pct'}]"
+        },
+        {
+          "character": "아크레인저 블랙",
+          "effect": "변신 해제",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        }
+      ]
+    },
+    {
+      "character": "팬텀",
+      "supported": false,
+      "issues": [
+        {
+          "character": "팬텀",
+          "effect": "괴도의 단검",
+          "reason": "[{'reason': 'condition: not_target_state:예고장'}]"
+        },
+        {
+          "character": "팬텀",
+          "effect": "예고장",
+          "reason": "[{'reason': 'condition: not_target_state:예고장'}]"
+        },
+        {
+          "character": "팬텀",
+          "effect": "괴도의 예고장",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "팬텀",
+          "effect": "괴도의 시선",
+          "reason": "[{'reason': 'condition: target_state:예고장'}]"
+        },
+        {
+          "character": "팬텀",
+          "effect": "괴도의 시선 2",
+          "reason": "[{'reason': 'named removal currently verified only for self states'}]"
+        }
+      ]
+    },
+    {
+      "character": "아르카나",
+      "supported": false,
+      "issues": [
+        {
+          "character": "아르카나",
+          "effect": "마법사 카드",
+          "reason": "[{'reason': 'effect type/stat: buff / skill_cooldown_pct'}]"
+        },
+        {
+          "character": "아르카나",
+          "effect": "마법사 카드 2",
+          "reason": "[{'reason': 'target: 이사벨'}]"
+        },
+        {
+          "character": "아르카나",
+          "effect": "힘 카드",
+          "reason": "[{'reason': 'target: 이사벨'}]"
+        },
+        {
+          "character": "아르카나",
+          "effect": "운명의 수레바퀴 카드",
+          "reason": "[{'reason': 'target: allies_code:전격'}]"
+        }
+      ]
+    },
+    {
+      "character": "레이블",
+      "supported": false,
+      "issues": [
+        {
+          "character": "레이블",
+          "effect": "망상",
+          "reason": "[{'reason': 'effect fields: end_on_shield_consumed'}]"
+        },
+        {
+          "character": "레이블",
+          "effect": "망상 파괴",
+          "reason": "[{'reason': 'effect type/stat: buff / '}]"
+        },
+        {
+          "character": "레이블",
+          "effect": "상상 실연",
+          "reason": "[{'reason': 'effect fields: duration_scaling, duration_scaling_ref'}]"
+        },
+        {
+          "character": "레이블",
+          "effect": "상상 실연 해제 (직접 피격)",
+          "reason": "[{'reason': 'timing: received_hit_count:1'}]"
+        },
+        {
+          "character": "레이블",
+          "effect": "망상 파괴 2",
+          "reason": "[{'reason': 'effect fields: duration_scaling, duration_scaling_ref'}]"
+        },
+        {
+          "character": "레이블",
+          "effect": "연애의 달콤함(상상)",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "레이블",
+          "effect": "연애의 달콤함(상상) 2",
+          "reason": "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]"
+        },
+        {
+          "character": "레이블",
+          "effect": "연애의 달콤함(상상) 4",
+          "reason": "[{'reason': 'condition: target_code:전격'}]"
+        },
+        {
+          "character": "레이블",
+          "effect": "연애의 달콤함(상상) 5",
+          "reason": "[{'reason': 'target: all_allies_excl_self'}]"
+        },
+        {
+          "character": "레이블",
+          "effect": "망상 공유",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_invincible'}]"
+        },
+        {
+          "character": "레이블",
+          "effect": "망상",
+          "reason": "[{'reason': 'effect fields: end_on_shield_consumed'}]"
+        },
+        {
+          "character": "레이블",
+          "effect": "망상",
+          "reason": "[{'reason': 'effect fields: end_on_shield_consumed'}]"
+        }
+      ]
+    },
+    {
+      "character": "아르카나 : 포츈 메이트",
+      "supported": false,
+      "issues": [
+        {
+          "character": "아르카나 : 포츈 메이트",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "모리",
+      "supported": false,
+      "issues": [
+        {
+          "character": "모리",
+          "effect": "발버둥",
+          "reason": "[{'reason': 'effect fields: end_on_shield_consumed'}]"
+        },
+        {
+          "character": "모리",
+          "effect": "두더지 숨기",
+          "reason": "[{'reason': 'timing: event:state_end:발버둥'}]"
+        },
+        {
+          "character": "모리",
+          "effect": "필사의 지원 2",
+          "reason": "[{'reason': 'effect type/stat: buff / dot_dmg_pct'}]"
+        },
+        {
+          "character": "모리",
+          "effect": "필사의 지원 3",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "모리",
+          "effect": "약자의 생존법",
+          "reason": "[{'reason': 'effect type/stat: instant / shield_heal_pct'}]"
+        },
+        {
+          "character": "모리",
+          "effect": "약자의 생존법 3",
+          "reason": "[{'reason': 'effect type/stat: buff / dot_dmg_pct'}]"
+        },
+        {
+          "character": "모리",
+          "effect": "발버둥",
+          "reason": "[{'reason': 'effect fields: end_on_shield_consumed'}]"
+        }
+      ]
+    },
+    {
+      "character": "민트",
+      "supported": false,
+      "issues": [
+        {
+          "character": "민트",
+          "effect": "댄스 효과",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "민트",
+          "effect": "멋진 무대였어요! 5",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_dmg_pct'}]"
+        },
+        {
+          "character": "민트",
+          "effect": "무대 카운트",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "민트",
+          "effect": "무대 파트 : 댄스",
+          "reason": "[{'reason': 'effect type/stat: buff / '}]"
+        },
+        {
+          "character": "민트",
+          "effect": "무대 파트 : 보컬",
+          "reason": "[{'reason': 'effect type/stat: buff / '}]"
+        }
+      ]
+    },
+    {
+      "character": "프리카",
+      "supported": false,
+      "issues": [
+        {
+          "character": "프리카",
+          "effect": "무대, 시작할게. 2",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_dmg_pct'}]"
+        },
+        {
+          "character": "프리카",
+          "effect": "무대, 시작할게. 4",
+          "reason": "[{'reason': 'effect type/stat: buff / outgoing_heal_pct'}]"
+        },
+        {
+          "character": "프리카",
+          "effect": "무대, 시작할게. 5",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_enabled'}]"
+        },
+        {
+          "character": "프리카",
+          "effect": "앵콜 (댄스 해제)",
+          "reason": "[{'reason': 'effect fields: remove_scope'}]"
+        },
+        {
+          "character": "프리카",
+          "effect": "무대 파트 : 보컬",
+          "reason": "[{'reason': 'effect type/stat: buff / '}]"
+        },
+        {
+          "character": "프리카",
+          "effect": "앵콜",
+          "reason": "[{'reason': 'effect type/stat: instant / named_buff_duration_extend'}]"
+        },
+        {
+          "character": "프리카",
+          "effect": "앵콜 2",
+          "reason": "[{'reason': 'timing: event:떼창'}]"
+        },
+        {
+          "character": "프리카",
+          "effect": "앵콜 3",
+          "reason": "[{'reason': 'timing: event:떼창'}]"
+        },
+        {
+          "character": "프리카",
+          "effect": "퍼포먼스",
+          "reason": "[{'reason': 'effect type/stat: buff / '}]"
+        },
+        {
+          "character": "프리카",
+          "effect": "퍼포먼스 2",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        }
+      ]
+    },
+    {
+      "character": "백학",
+      "supported": false,
+      "issues": [
+        {
+          "character": "백학",
+          "effect": "서약 위반 증거",
+          "reason": "[{'reason': 'effect type/stat: buff / outgoing_heal_pct'}]"
+        },
+        {
+          "character": "백학",
+          "effect": "서약 효력",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "백학",
+          "effect": "서약 효력 2",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_from_max_hp_pct'}]"
+        },
+        {
+          "character": "백학",
+          "effect": "서약 해지",
+          "reason": "[{'reason': 'effect type/stat: buff / debuff_immune:서약 위반 증거'}]"
+        },
+        {
+          "character": "백학",
+          "effect": "서약 해지 2",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "백학",
+          "effect": "특약 효력",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "백학",
+          "effect": "특약 효력 2",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_enabled'}]"
+        }
+      ]
+    },
+    {
+      "character": "마키마",
+      "supported": false,
+      "issues": [
+        {
+          "character": "마키마",
+          "effect": "나에게 활약을 보여줄 수 있겠니?",
+          "reason": "[{'reason': 'timing: received_hit_count:20'}]"
+        },
+        {
+          "character": "마키마",
+          "effect": "나에게 활약을 보여줄 수 있겠니? 2",
+          "reason": "[{'reason': 'timing: received_hit_count:20'}]"
+        },
+        {
+          "character": "마키마",
+          "effect": "발각된 모양이네",
+          "reason": "[{'reason': 'effect fields: max_trigger'}]"
+        },
+        {
+          "character": "마키마",
+          "effect": "발각된 모양이네 2",
+          "reason": "[{'reason': 'timing: event:lethal_hit'}]"
+        },
+        {
+          "character": "마키마",
+          "effect": "조용히 해주겠니?",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_enabled'}]"
+        },
+        {
+          "character": "마키마",
+          "effect": "조용히 해주겠니? 3",
+          "reason": "[{'reason': 'condition: self_undying'}]"
+        }
+      ]
+    },
+    {
+      "character": "파워",
+      "supported": false,
+      "issues": [
+        {
+          "character": "파워",
+          "effect": "피의 해머 2",
+          "reason": "B3 deferred bonus damage not supported"
+        }
+      ]
+    },
+    {
+      "character": "히메노",
+      "supported": false,
+      "issues": [
+        {
+          "character": "히메노",
+          "effect": "보이지 않는 손",
+          "reason": "[{'reason': 'target: allies_weapon:SR'}]"
+        },
+        {
+          "character": "히메노",
+          "effect": "보이지 않는 손 2",
+          "reason": "[{'reason': 'target: allies_weapon:SR'}]"
+        },
+        {
+          "character": "히메노",
+          "effect": "고스트",
+          "reason": "[{'reason': 'target: allies_top_atk_excl:1'}]"
+        },
+        {
+          "character": "히메노",
+          "effect": "고스트 2",
+          "reason": "[{'reason': 'target: allies_top_atk_excl:1'}]"
+        }
+      ]
+    },
+    {
+      "character": "2B",
+      "supported": false,
+      "issues": [
+        {
+          "character": "2B",
+          "effect": "연속 공격 2",
+          "reason": "B3 deferred bonus damage not supported"
+        }
+      ]
+    },
+    {
+      "character": "A2",
+      "supported": false,
+      "issues": [
+        {
+          "character": "A2",
+          "effect": "출력 상승 2",
+          "reason": "[{'reason': 'effect type/stat: buff / explosion_range'}]"
+        },
+        {
+          "character": "A2",
+          "effect": "완충전 공격 2",
+          "reason": "[{'reason': 'effect type/stat: buff / part_dmg_pct'}]"
+        },
+        {
+          "character": "A2",
+          "effect": "B 모드 3",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "A2",
+          "effect": "B 모드 해제",
+          "reason": "[{'reason': 'timing: hp_below:40'}]"
+        },
+        {
+          "character": "A2",
+          "effect": "B 모드 해제 2",
+          "reason": "[{'reason': 'timing: hp_below:40'}]"
+        }
+      ]
+    },
+    {
+      "character": "파스칼",
+      "supported": false,
+      "issues": [
+        {
+          "character": "파스칼",
+          "effect": "조심해요!",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "파스칼",
+          "effect": "최선을 다해볼게요.",
+          "reason": "[{'reason': 'target: allies_lowest_hp:3'}]"
+        },
+        {
+          "character": "파스칼",
+          "effect": "다들 다치지 말아요!",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "렘",
+      "supported": false,
+      "issues": [
+        {
+          "character": "렘",
+          "effect": "렘에게 맡겨주세요! 2",
+          "reason": "[{'reason': 'effect type/stat: buff / heal_split'}]"
+        },
+        {
+          "character": "렘",
+          "effect": "렘이 치료하겠습니다! 2",
+          "reason": "[{'reason': 'effect type/stat: buff / heal_split'}]"
+        },
+        {
+          "character": "렘",
+          "effect": "렘은 용서하지 않습니다!",
+          "reason": "[{'reason': 'target: allies_weapon:RL'}]"
+        },
+        {
+          "character": "렘",
+          "effect": "렘은 용서하지 않습니다! 2",
+          "reason": "[{'reason': 'target: allies_weapon:RL'}]"
+        }
+      ]
+    },
+    {
+      "character": "에밀리아",
+      "supported": false,
+      "issues": [
+        {
+          "character": "에밀리아",
+          "effect": "미정령의 축복",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "에밀리아",
+          "effect": "미정령의 축복 2",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "에밀리아",
+          "effect": "대정령의 철퇴",
+          "reason": "[{'reason': 'effect type/stat: damage / dealt_fixed_damage'}]"
+        },
+        {
+          "character": "에밀리아",
+          "effect": "빙결의 마녀 3",
+          "reason": "[{'reason': 'effect type/stat: buff / explosion_range'}]"
+        },
+        {
+          "character": "에밀리아",
+          "effect": "빙결의 마녀",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "에밀리아",
+          "effect": "빙결의 마녀 2",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        }
+      ]
+    },
+    {
+      "character": "람",
+      "supported": false,
+      "issues": [
+        {
+          "character": "람",
+          "effect": "후라 2",
+          "reason": "[{'reason': 'condition: squad_ally_exists'}]"
+        },
+        {
+          "character": "람",
+          "effect": "언니의 위광",
+          "reason": "[{'reason': 'effect type/stat: buff / max_hp_only_pct'}]"
+        },
+        {
+          "character": "람",
+          "effect": "언니의 위광 2",
+          "reason": "[{'reason': 'effect type/stat: buff / def_caster_based_pct'}]"
+        },
+        {
+          "character": "람",
+          "effect": "람을 번거롭게 하지 마",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_from_max_hp_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "아스카",
+      "supported": false,
+      "issues": [
+        {
+          "character": "아스카",
+          "effect": "호승심",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_dmg_pct'}]"
+        },
+        {
+          "character": "아스카",
+          "effect": "호승심 2",
+          "reason": "[{'reason': 'timing: event:heal_received'}]"
+        },
+        {
+          "character": "아스카",
+          "effect": "돌격 전술",
+          "reason": "[{'reason': 'effect type/stat: buff / element_bonus_pct'}]"
+        },
+        {
+          "character": "아스카",
+          "effect": "돌격 전술 2",
+          "reason": "[{'reason': 'target: allies_code:작열'}]"
+        },
+        {
+          "character": "아스카",
+          "effect": "관통 특화 탄환",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_enabled'}]"
+        }
+      ]
+    },
+    {
+      "character": "레이",
+      "supported": false,
+      "issues": [
+        {
+          "character": "레이",
+          "effect": "선두 제압",
+          "reason": "[{'reason': 'effect type/stat: buff / element_bonus_pct'}]"
+        },
+        {
+          "character": "레이",
+          "effect": "공격 지원",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_dmg_pct'}]"
+        },
+        {
+          "character": "레이",
+          "effect": "공격 지원 2",
+          "reason": "[{'reason': 'target: allies_code:작열'}]"
+        },
+        {
+          "character": "레이",
+          "effect": "섬멸용 고폭탄",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_from_max_hp_pct'}]"
+        },
+        {
+          "character": "레이",
+          "effect": "섬멸용 고폭탄 2",
+          "reason": "[{'reason': 'target: allies_code:작열'}]"
+        }
+      ]
+    },
+    {
+      "character": "마리",
+      "supported": false,
+      "issues": [
+        {
+          "character": "마리",
+          "effect": "일점 저격",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_dmg_pct'}]"
+        },
+        {
+          "character": "마리",
+          "effect": "일점 저격 2",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_dmg_pct'}]"
+        },
+        {
+          "character": "마리",
+          "effect": "정신 집중",
+          "reason": "[{'reason': 'effect type/stat: buff / pierce_enabled'}]"
+        }
+      ]
+    },
+    {
+      "character": "미사토",
+      "supported": false,
+      "issues": [
+        {
+          "character": "미사토",
+          "effect": "사격 매뉴얼 2",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "미사토",
+          "effect": "회복 보조",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_dmg_pct'}]"
+        },
+        {
+          "character": "미사토",
+          "effect": "회복 보조 2",
+          "reason": "[{'reason': 'effect type/stat: buff / outgoing_heal_pct'}]"
+        },
+        {
+          "character": "미사토",
+          "effect": "휴식 명령",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        }
+      ]
+    },
+    {
+      "character": "레이 (가칭)",
+      "supported": false,
+      "issues": [
+        {
+          "character": "레이 (가칭)",
+          "effect": "섬멸 지원",
+          "reason": "[{'reason': 'condition: target_state:안티 AT 필드'}]"
+        },
+        {
+          "character": "레이 (가칭)",
+          "effect": "섬멸 지원 2",
+          "reason": "[{'reason': 'effect type/stat: instant / debuff_stack_add'}]"
+        },
+        {
+          "character": "레이 (가칭)",
+          "effect": "섬멸 지원 4",
+          "reason": "[{'reason': 'effect type/stat: buff / effect_target_count_add'}]"
+        },
+        {
+          "character": "레이 (가칭)",
+          "effect": "섬멸 지원 5",
+          "reason": "[{'reason': 'effect type/stat: buff / effect_range_pct'}]"
+        },
+        {
+          "character": "레이 (가칭)",
+          "effect": "섬멸 지원 6",
+          "reason": "[{'reason': 'target: allies_with_buff:섬멸 태세'}]"
+        },
+        {
+          "character": "레이 (가칭)",
+          "effect": "정비 및 보급",
+          "reason": "[{'reason': 'target: allies_burst_casted_weapon:MG'}]"
+        }
+      ]
+    },
+    {
+      "character": "아스카 : WILLE",
+      "supported": false,
+      "issues": [
+        {
+          "character": "아스카 : WILLE",
+          "reason": "stack-scaled skill hit count not supported"
+        }
+      ]
+    },
+    {
+      "character": "사쿠라 (SR)",
+      "supported": false,
+      "issues": [
+        {
+          "character": "사쿠라 (SR)",
+          "effect": "상태 집중 관리",
+          "reason": "[{'reason': 'target: allies_lowest_hp:2'}]"
+        },
+        {
+          "character": "사쿠라 (SR)",
+          "effect": "상태 집중 관리 2",
+          "reason": "[{'reason': 'target: allies_lowest_hp:2'}]"
+        },
+        {
+          "character": "사쿠라 (SR)",
+          "effect": "응급 치료",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        }
+      ]
+    },
+    {
+      "character": "에이다",
+      "supported": false,
+      "issues": [
+        {
+          "character": "에이다",
+          "effect": "은밀한 지원",
+          "reason": "[{'reason': 'target: allies_burst_casted_burst3'}]"
+        },
+        {
+          "character": "에이다",
+          "effect": "은밀한 지원 2",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_dmg_pct'}]"
+        },
+        {
+          "character": "에이다",
+          "effect": "은밀한 지원 3",
+          "reason": "[{'reason': 'target: allies_burst_casted_burst3'}]"
+        },
+        {
+          "character": "에이다",
+          "effect": "섬광 수류탄 투척",
+          "reason": "[{'reason': 'effect type/stat: damage / armor_break_damage'}]"
+        },
+        {
+          "character": "에이다",
+          "effect": "섬광 수류탄 투척 발동 시간 조건",
+          "reason": "[{'reason': 'effect type/stat: buff / effect_interval'}]"
+        },
+        {
+          "character": "에이다",
+          "effect": "시크릿 에이전트 2",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_dmg_pct'}]"
+        },
+        {
+          "character": "에이다",
+          "effect": "특수 개조",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "에이다",
+          "effect": "특수 개조 2",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        }
+      ]
+    },
+    {
+      "character": "질",
+      "supported": false,
+      "issues": [
+        {
+          "character": "질",
+          "effect": "매그넘탄",
+          "reason": "[{'reason': 'effect fields: duration_bullets'}]"
+        },
+        {
+          "character": "질",
+          "effect": "매그넘탄 2",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_dmg_pct'}]"
+        },
+        {
+          "character": "질",
+          "effect": "산성탄",
+          "reason": "[{'reason': 'effect type/stat: buff / '}]"
+        },
+        {
+          "character": "질",
+          "effect": "산성탄 2",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "질",
+          "effect": "슈퍼 캅",
+          "reason": "[{'reason': 'effect type/stat: buff / reload_time_fixed'}]"
+        },
+        {
+          "character": "질",
+          "effect": "슈퍼 캅 2",
+          "reason": "[{'reason': 'effect type/stat: instant / ammo_charge_pct'}]"
+        },
+        {
+          "character": "질",
+          "effect": "슈퍼 캅 3",
+          "reason": "[{'reason': 'effect type/stat: instant / force_reload'}]"
+        },
+        {
+          "character": "질",
+          "effect": "슈퍼 캅 6",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_enabled'}]"
+        }
+      ]
+    },
+    {
+      "character": "클레어",
+      "supported": false,
+      "issues": [
+        {
+          "character": "클레어",
+          "effect": "녹색 허브",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "클레어",
+          "effect": "푸른 허브",
+          "reason": "[{'reason': 'effect type/stat: buff / shield_from_max_hp_pct'}]"
+        },
+        {
+          "character": "클레어",
+          "effect": "R+G+B",
+          "reason": "[{'reason': 'effect type/stat: instant / heal_hp_pct'}]"
+        },
+        {
+          "character": "클레어",
+          "effect": "R+G+B 2",
+          "reason": "[{'reason': 'effect type/stat: instant / debuff_cleanse'}]"
+        }
+      ]
+    },
+    {
+      "character": "이브",
+      "supported": false,
+      "issues": [
+        {
+          "character": "이브",
+          "effect": "불안정 에너지",
+          "reason": "[{'reason': 'effect type/stat: damage / sequential_damage:3'}]"
+        },
+        {
+          "character": "이브",
+          "effect": "임팩트 타입 엑소스파인 2",
+          "reason": "invalid literal for int() with base 10: '불안정 에너지'"
+        },
+        {
+          "character": "이브",
+          "effect": "이글아이 타입 엑소스파인 3",
+          "reason": "[{'reason': 'effect type/stat: instant / ammo_charge_flat'}]"
+        },
+        {
+          "character": "이브",
+          "effect": "카운터 체인",
+          "reason": "[{'reason': 'effect type/stat: damage / sequential_damage:6'}]"
+        },
+        {
+          "character": "이브",
+          "effect": "엑소스파인 Mk2",
+          "reason": "[{'reason': 'effect type/stat: buff / dmg_scale_mag_pct'}]"
+        },
+        {
+          "character": "이브",
+          "effect": "엑소스파인 Mk2 2",
+          "reason": "[{'reason': 'effect type/stat: buff / atk_buff_mag_pct'}]"
+        }
+      ]
+    },
+    {
+      "character": "레이븐",
+      "supported": false,
+      "issues": [
+        {
+          "character": "레이븐",
+          "reason": "stack-scaled skill hit count not supported"
+        }
+      ]
+    },
+    {
+      "character": "릴리",
+      "supported": false,
+      "issues": [
+        {
+          "character": "릴리",
+          "effect": "정밀 조정",
+          "reason": "[{'reason': 'target: allies_random:1'}]"
+        },
+        {
+          "character": "릴리",
+          "effect": "긴급 보수",
+          "reason": "[{'reason': 'effect type/stat: instant / cover_heal_pct'}]"
+        },
+        {
+          "character": "릴리",
+          "effect": "최고의 엔지니어! 3",
+          "reason": "[{'reason': 'target: allies_random:1'}]"
+        },
+        {
+          "character": "릴리",
+          "effect": "최고의 엔지니어! 2",
+          "reason": "[{'reason': 'target: allies_broken_cover_random:1'}]"
+        },
+        {
+          "character": "릴리",
+          "effect": "최고의 엔지니어!",
+          "reason": "[{'reason': 'effect type/stat: instant / cover_revive'}]"
+        }
+      ]
+    },
+    {
+      "character": "치사토",
+      "supported": false,
+      "issues": [
+        {
+          "character": "치사토",
+          "effect": "초감각",
+          "reason": "[{'reason': 'effect fields: gauge_id, gauge_max'}]"
+        },
+        {
+          "character": "치사토",
+          "effect": "사격 간파",
+          "reason": "[{'reason': 'effect type/stat: buff / invincible'}]"
+        },
+        {
+          "character": "치사토",
+          "effect": "초감각 2",
+          "reason": "[{'reason': 'condition: gauge_above:초감각:70'}]"
+        },
+        {
+          "character": "치사토",
+          "effect": "초감각 3",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_dmg_pct'}]"
+        },
+        {
+          "character": "치사토",
+          "effect": "초감각 4",
+          "reason": "[{'reason': 'condition: gauge_above:초감각:25'}]"
+        },
+        {
+          "character": "치사토",
+          "effect": "초감각 5",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        },
+        {
+          "character": "치사토",
+          "effect": "방어 관통 사격",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_enabled'}]"
+        },
+        {
+          "character": "치사토",
+          "effect": "방어 관통 사격 2",
+          "reason": "[{'reason': 'effect type/stat: damage / armor_break_damage'}]"
+        },
+        {
+          "character": "치사토",
+          "effect": "긴급 충전",
+          "reason": "[{'reason': 'effect fields: gauge_id'}]"
+        }
+      ]
+    },
+    {
+      "character": "타키나",
+      "supported": false,
+      "issues": [
+        {
+          "character": "타키나",
+          "effect": "전투 보정",
+          "reason": "[{'reason': 'multiple distinct timing kinds'}]"
+        },
+        {
+          "character": "타키나",
+          "effect": "전투 보정 2",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_dmg_pct'}]"
+        },
+        {
+          "character": "타키나",
+          "effect": "전장 통제 3",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_dmg_pct'}]"
+        },
+        {
+          "character": "타키나",
+          "effect": "제압 개시",
+          "reason": "[{'reason': 'only timed infinite-ammo MG weapon mode currently verified'}]"
+        },
+        {
+          "character": "타키나",
+          "effect": "제압 개시 2",
+          "reason": "[{'reason': 'effect type/stat: buff / armor_break_enabled'}]"
+        }
+      ]
+    },
+    {
+      "character": "쿠루미",
+      "supported": false,
+      "issues": [
+        {
+          "character": "쿠루미",
+          "effect": "해킹",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "쿠루미",
+          "effect": "해킹",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "쿠루미",
+          "effect": "페이로드 확산",
+          "reason": "[{'reason': 'condition: target_state:해킹'}]"
+        }
+      ]
+    },
+    {
+      "character": "퀸(마코토)",
+      "supported": false,
+      "issues": [
+        {
+          "character": "퀸(마코토)",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    },
+    {
+      "character": "유키코",
+      "supported": false,
+      "issues": [
+        {
+          "character": "유키코",
+          "effect": "페르소나 - 코노하나사쿠야",
+          "reason": "[{'reason': 'effect type/stat: buff / persona_state'}]"
+        },
+        {
+          "character": "유키코",
+          "effect": "메디아",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "유키코",
+          "effect": "페르소나 : 코노하나사쿠야",
+          "reason": "[{'reason': 'multiple distinct timing kinds'}]"
+        },
+        {
+          "character": "유키코",
+          "effect": "페르소나 : 코노하나사쿠야 2",
+          "reason": "[{'reason': 'timing: event:1more'}]"
+        },
+        {
+          "character": "유키코",
+          "effect": "진홍의 수호",
+          "reason": "[{'reason': 'condition: target_code:수냉'}]"
+        },
+        {
+          "character": "유키코",
+          "effect": "메디라마",
+          "reason": "[{'reason': 'effect fields: tick_interval'}]"
+        },
+        {
+          "character": "유키코",
+          "effect": "진홍의 꽃 2",
+          "reason": "[{'reason': 'effect type/stat: buff / element_bonus_pct'}]"
+        },
+        {
+          "character": "유키코",
+          "effect": "추격",
+          "reason": "[{'reason': 'effect fields: event_scope'}]"
+        },
+        {
+          "character": "유키코",
+          "effect": "1more",
+          "reason": "[{'reason': 'effect fields: event_scope'}]"
+        }
+      ]
+    },
+    {
+      "character": "아이기스",
+      "supported": false,
+      "issues": [
+        {
+          "character": "아이기스",
+          "reason": "pellet, muzzle or clip mechanics not supported"
+        }
+      ]
+    }
+  ]
+}

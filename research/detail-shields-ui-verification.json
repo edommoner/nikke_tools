@@ -1,0 +1,68 @@
+{
+  "generated_at": "2026-10-16T18:35:27.854321+00:00",
+  "passed": true,
+  "evidence": "Observed browser DOM: normal single-squad result and expanded technical details; not API-only evidence.",
+  "url": "http://127.0.0.1:4332/#single",
+  "fictional_roster": true,
+  "roster_characters": 203,
+  "squad": [
+    "센티",
+    "리타",
+    "크라운",
+    "앨리스",
+    "모더니아"
+  ],
+  "duration": 35,
+  "shooting_policy": "character",
+  "burst_policy": "rules",
+  "burst_gauge_mode": "accumulate",
+  "seed": 12345,
+  "changes": {
+    "센티": {
+      "favorite_stage": 0,
+      "stat_delta_atk": 12345
+    }
+  },
+  "original_favorite_stage": 3,
+  "original_used_cpu_fallback": true,
+  "fallback_reason": "heal_overcharge_store remains unsupported; original fictional Centi favorite stage 3 preserved.",
+  "baseline_total": 189367813,
+  "total": 169430697,
+  "member_damage": [
+    10722108,
+    20137118,
+    15139616,
+    39093031,
+    84338824
+  ],
+  "compute": {
+    "backend": "cuda_detail",
+    "module_backend": "cubin-sm86",
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "elapsed_ms": 5277.71,
+    "initialization_ms": 22.519,
+    "workspace_bytes": 299928,
+    "cpu_verification": {
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "seed_equal": true,
+      "matched": true
+    }
+  },
+  "scope": "One fictional equipped five-member squad, charge weapons and real gauge. Favorite 3 baseline fell back; changed favorite 0 result ran on GPU. Not every character or effect.",
+  "source_sha256": {
+    "app/detail_gpu.py": "1e07f64b34e0926ceb6debab943a43b364d0247c278ebc2fe6955dcb86b1bf84",
+    "app/detail_effects.cu": "9719f6955dd1af1dd0144e73f37d35236a9bb3c1b76478e4d6788b6e892d415d",
+    "app/detail_effects.ptx": "a65fdab2bbabed4ac0c7801ef8909faf925a23f8de0add67e2bcd55eb417ac89",
+    "app/detail_effects-build.json": "4f090b415ef3d9bd025bba26621f5fa89d046b6fb5d2e4a8bc3c612115ed1d0e",
+    "app/detail_effects-sm86.cubin": "03cae5578363e3785651dfb86dd59107ce47a07c39e26ecccd1262cd1635c70b",
+    "app/detail_effects-sm86.json": "a76ae986693b8930a8a47b42147a01203e0526b21b6a65853309395e7e0d25e1",
+    "app/engine_worker.py": "a1b9f46f5c5375f6da7740b37ebc3e8a286fe95973cc19594d7d625a805bb75c",
+    "app/gpu_service.py": "7cc9e2b0f87c633bd09092347207dfa7fbb5773fb399cfeadc6b70aff7a2309d",
+    "server.mjs": "1a4893b15953a714ce8a095ac9777eb13d38302237933f4d428dcd2a8cc64578",
+    "web/app.js": "91847d22a3ffb5238975aadf7e9af8c664db5650b7b85093668ed833041a5389",
+    "web/index.html": "8fb146ea8a433f0028f2a6365ab849e851068311e73787ede33e5ca7152f5b99"
+  }
+}

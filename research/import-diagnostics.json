@@ -1,0 +1,8 @@
+{
+  "checked_on": "2026-10-16",
+  "source_page": "https://www.blablalink.com/user",
+  "observed_public_client_behavior": "Decode URL openid, then take the numeric segment after the game-id prefix for intl_open_id. The current role area_id supplies nikke_area_id.",
+  "public_code_excerpt": "Ee=()=>{let ee=te.user_info?.intl_openid,ie=re.value,[,ae]=(oe.value?ie:ee).split(`-`);return ae},De=()=>ae.value?.area_id,Oe=()=>({intl_open_id:Ee(),nikke_area_id:Number(De())})",
+  "error_1301000_meaning": "Not established by public documentation; do not infer authentication or privacy status from this code alone.",
+  "real_account_verification": "Not executed: browser policy prohibits javascript: bookmark execution by automation."
+}

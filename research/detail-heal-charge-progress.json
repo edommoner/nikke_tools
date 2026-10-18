@@ -1,0 +1,85 @@
+{
+  "generated_at": "2026-10-17T13:33:18.086910+00:00",
+  "previous_goal_turn_classification": "progress",
+  "previous_goal_turn_evidence": "v41 production checkpoint and immutable final archive; ordinary API/browser and both GPU backends accepted.",
+  "stage_abi": "detail_heal_charge_v42",
+  "production_abi": "detail_heal_sharing_v41",
+  "production_unchanged": true,
+  "stage_only": true,
+  "objective_complete": false,
+  "cpu_model_extended": true,
+  "in_game_rules_verified": false,
+  "gpu_implemented_in_source": true,
+  "gpu_parity_verified": true,
+  "gpu_groups": {
+    "new-native": {
+      "passed_current": true,
+      "report_passed": true,
+      "source_current": true,
+      "completed_cases": 20,
+      "planned_cases": 20
+    },
+    "new-ptx": {
+      "passed_current": true,
+      "report_passed": true,
+      "source_current": true,
+      "completed_cases": 20,
+      "planned_cases": 20
+    },
+    "extra-native": {
+      "passed_current": true,
+      "report_passed": true,
+      "source_current": true,
+      "completed_cases": 10,
+      "planned_cases": 10
+    },
+    "extra-ptx": {
+      "passed_current": true,
+      "report_passed": true,
+      "source_current": true,
+      "completed_cases": 10,
+      "planned_cases": 10
+    },
+    "legacy-native": {
+      "passed_current": true,
+      "report_passed": true,
+      "source_current": true,
+      "completed_cases": 178,
+      "planned_cases": 178
+    },
+    "legacy-ptx": {
+      "passed_current": true,
+      "report_passed": true,
+      "source_current": true,
+      "completed_cases": 178,
+      "planned_cases": 178
+    }
+  },
+  "normal_application_promoted": false,
+  "independent_CPU_arithmetic_cases": 31,
+  "CPU_squad_witnesses": 20,
+  "CPU_extra_witnesses": 10,
+  "historical_CPU_total_cases": 178,
+  "boundary_tests": 10,
+  "compiled_characters": 162,
+  "catalog_characters": 203,
+  "favorite_contexts": 639,
+  "favorite_total": 812,
+  "expected_workspace_bytes_per_squad": 1088520,
+  "workspace_bytes_verified_by_passed_new_GPU_groups": true,
+  "reports": [
+    "research/detail-heal-charge-cpu-reference.json",
+    "research/detail-heal-charge-cpu-squads.json",
+    "research/detail-heal-charge-extra-cpu.json",
+    "research/detail-heal-charge-cpu-legacy.json",
+    "research/detail-heal-charge-boundaries.json",
+    "research/detail-heal-charge-coverage.json",
+    "research/detail-heal-charge-favorites.json"
+  ],
+  "CPU_bridge_composition": "Charge wraps BuffManager._dispatch_instant, knock_down, notify, apply_storage_body_heal and timeline._register_instant_handlers; future AST clones must preserve/reapply these wrappers. _activate composes the v40 storage snapshot with the new charge snapshot.",
+  "remaining": [
+    "Finish current legacy backends and rerun the extracted extra compare helper at its current hash.",
+    "Promote only accepted CPU/GPU artifacts, then normal production/API/browser verification.",
+    "Shield amplification, received damage sharing, damage accumulators, enemy effects, geometry and CPU/model gaps remain."
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "status": "v42 healing charge/capacity/discharge: native/PTX208 each, CPU arithmetic/lifecycle/binding31, squad20+extra10, historical totals178, production36, API/browser and Node26 passed. Full objective incomplete.",
+  "objective": "all characters and all special effects on GPU",
+  "objective_complete": false,
+  "current_boundary": {
+    "cpu_adapter": "Validated authored enemy.patterns and fixed live parts accepted; coordinates remain rejected for GPU.",
+    "gpu_compiler": "v40 supports separate overheal reserve capacity, fill/spend/expiry/refresh, source snapshots, ordered overlap, same-cast S3-storage/S2-heal normalization, and prior paths. Other unsupported effects still reject. v41 also autonomously distributes healing by live carrier links, including overlapping Rem/Nayuta, body healing/lifesteal and synchronous nested HP events, against an explicit extended CPU reference model. v42 adds source-ATK healing accumulation, live named capacity modifiers, owner-scoped consumption/release, nested HP-edge release and read-only named pool frames. Other unsupported effects still reject.",
+    "gpu_world": "Per-squad GPU clock selects authored shots and targets using a separate boss MT19937 stream. Every-frame HP/cover and incoming-hit traces are read-only witnesses, never CPU-simulated inputs.",
+    "verification": "Independent whole-squad integers, member damage, bursts, both RNG streams, every-frame HP/cover/control and HP event order; explicit CPU revival condition/value bridges. CPU traces never enter GPU inputs."
+  },
+  "next_required_work": [
+    {
+      "area": "Remaining HP and cover effects",
+      "requirements": [
+        "Continue damage accumulation/discharge, shield amplification, received damage sharing and remaining source effects. Healing charge/discharge is implemented under explicit CPU/GPU model choices; in-game interaction verification remains incomplete.",
+        "Continue shield_dmg_pct/Misato, received_dmg_split/Bay, cover controls, enemy debuffs/DOT, geometry and CPU/model omissions."
+      ]
+    },
+    {
+      "area": "Remaining incoming worlds and survival effects",
+      "requirements": [
+        "Attack-attached debuffs, enemy debuff/DOT patterns, cover controls and all remaining unsupported actual effects.",
+        "Resolve pinned CPU omissions before treating equal omissions as game correctness."
+      ]
+    },
+    {
+      "area": "Remaining boss worlds",
+      "requirements": [
+        "Interrupt/targets-cleared, coordinate geometry and moving targets, shields/vanish/summons and associated enemy-target effects."
+      ]
+    },
+    {
+      "area": "Full completion",
+      "requirements": [
+        "Every current character/favorite/equipment context without omitted source definitions, and independent whole-squad/event-order acceptance.",
+        "Resolve pinned upstream data/model omissions, confirm current catalog coverage, execute in the normal application, and keep scope distinct from a speedup claim."
+      ]
+    }
+  ],
+  "incoming_damage_cpu_groundwork": {
+    "report": "research/detail-incoming-damage-cpu-reference.json",
+    "cases": 20,
+    "gpu_implemented": false,
+    "coverage": [
+      "Final defense and recipient incoming-damage modifiers",
+      "Non-piercing shield overflow stops at the shield; later shields first",
+      "Piercing hits each shield, cover and HP; decoy interception remains separate",
+      "Cover during reload, disabled cover and shield-before-cover priority",
+      "Equal damage sharing with received_hit only on the original target",
+      "Invincibility, undying, lethal-hit reaction before the blow and down events"
+    ],
+    "model_gap_to_resolve": "The literal legacy damage_reduction_pct marker does not change the pinned CPU incoming formula in the controlled case. Do not count a matching omission as game correctness."
+  },
+  "verification": {
+    "native_and_ptx_battles": 40,
+    "native_180_second_battles": 6,
+    "capacity_boundary_battles": 2,
+    "normal_python_tests": 77,
+    "node_tests": 26,
+    "normal_api_total": 334921663,
+    "compiler_acceptance": {
+      "default_characters": 135,
+      "total_default_characters": 203,
+      "favorite_contexts": 529,
+      "total_favorite_contexts": 812
+    },
+    "all_character_parity_proven": false,
+    "browser_interaction_verified_this_phase": false
+  },
+  "incoming_target_transition_cpu_groundwork": {
+    "report": "research/detail-incoming-target-transitions-cpu-reference.json",
+    "cases": 6,
+    "gpu_implemented": false,
+    "coverage": [
+      "Stealth expiry and all-hidden fallback as the live pool changes",
+      "Periodic hidden taunter, enemy-target taunt, first live recipient of a group taunt",
+      "Downed members excluded; separate boss PRNG state before and after every target selection"
+    ]
+  },
+  "down_revive_cpu_groundwork": [
+    {
+      "report": "research/detail-down-revive-cpu-reference.json",
+      "cases": 8,
+      "gpu_implemented": false
+    },
+    {
+      "report": "research/detail-down-continuations-cpu-reference.json",
+      "cases": 6,
+      "gpu_implemented": false
+    },
+    {
+      "report": "research/detail-down-weapon-modes-cpu-reference.json",
+      "cases": 4,
+      "gpu_implemented": false
+    }
+  ],
+  "verification_v33": {
+    "native_cases": 80,
+    "ptx_cases": 80,
+    "long_raw_squads": 4,
+    "lifecycle_cases": 4,
+    "normal_tests": 86,
+    "api_total": 55980775,
+    "compiled_characters": 145,
+    "catalog_characters": 203,
+    "compiled_favorite_contexts": 569,
+    "total_favorite_contexts": 812,
+    "browser_interaction_verified": false,
+    "objective_complete": false
+  },
+  "verification_v34": {
+    "abi": "detail_survival_v34",
+    "archive": "research/ports/v34-survival-final-staged-verified",
+    "native_survival_cases": 49,
+    "ptx_survival_cases": 49,
+    "native_burst_cases_in_normal_suite": 56,
+    "heal_cases_per_backend": 3,
+    "native_repeated_lethal_long": 4,
+    "normal_tests": 87,
+    "previous_extended_matrix_archive": "research/ports/v34-burstfix-staged-verified",
+    "previous_matrix_is_before_final_b1_predicate_fix": true,
+    "api": "research/detail-survival-api-verification.json",
+    "browser": "research/detail-survival-browser-verification.json",
+    "rejected_normal_acceptance": "research/detail-survival-rejected-normal-acceptance.json",
+    "objective_complete": false
+  },
+  "down_revive_gpu_followup": {
+    "implemented": true,
+    "scope": "Authored supported definitions and tested rosters; not every effect/character combination.",
+    "reports": [
+      "research/detail-survival-b1-native-full.json",
+      "research/detail-survival-b1-ptx-full.json",
+      "research/detail-survival-b1-native-repeated-long.json"
+    ]
+  },
+  "verification_v35": {
+    "abi": "detail_hp_edge_v35",
+    "workspace_bytes_per_squad": 1074184,
+    "staged_archive": "research/ports/v35-hp-edge-staged-verified",
+    "cases_per_backend": 39,
+    "authored_cases": 24,
+    "namespace_cases": 3,
+    "actual_skill_squads": 12,
+    "normal_tests": 95,
+    "pre_CUDA_boundary_tests": 5,
+    "api": "research/detail-hp-edge-api-verification.json",
+    "browser": "research/detail-hp-edge-browser-verification.json",
+    "compiled_characters": 150,
+    "catalog_characters": 203,
+    "favorite_contexts": 589,
+    "favorite_total": 812,
+    "objective_complete": false
+  },
+  "survival_scaling_checkpoint": "research/detail-survival-scaling-checkpoint.json",
+  "cover_capacity_checkpoint": "research/detail-cover-capacity-checkpoint.json",
+  "decoy_healing_checkpoint": "research/detail-decoy-healing-checkpoint.json",
+  "outgoing_healing_checkpoint": "research/detail-outgoing-healing-checkpoint.json",
+  "healing_storage_checkpoint": "research/detail-healing-storage-checkpoint.json",
+  "heal_sharing_checkpoint": {
+    "path": "research/detail-heal-sharing-checkpoint.json",
+    "abi": "detail_heal_sharing_v41",
+    "objective_complete": false
+  },
+  "heal_charge_checkpoint": {
+    "path": "research/detail-heal-charge-checkpoint.json",
+    "abi": "detail_heal_charge_v42",
+    "objective_complete": false
+  },
+  "CPU_bridge_composition_note": "Charge wraps BuffManager._dispatch_instant, knock_down, notify, apply_storage_body_heal and timeline._register_instant_handlers. Future AST clones must preserve/reapply those wrappers. _activate composes storage and charge snapshots; simulation remains the v41 shared-heal binding."
+}

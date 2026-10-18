@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-10-16T09:22:39.139Z",
+  "passed": true,
+  "normal_compare_gpu": true,
+  "cpu_verification": true,
+  "board_gpu": true,
+  "cache_separated": true,
+  "unsupported_cpu_fallback": true,
+  "total": 369664402,
+  "abi": "detail_targets_v8",
+  "source_sha256": {
+    "app/detail_gpu.py": "f8d483fe27feb6fbfaeb363729e85d4221a48d3eaf1c95f6e43919fef13d882b",
+    "app/detail_effects.cu": "a43d125fc8539690855816b4a3f198e509b67015295f4a8c22aaa69d091b02b7",
+    "app/detail_effects.ptx": "58f8e22491bea8f0050856e18388898d8db83b746dd9f83ff57ac93b52c65deb",
+    "app/detail_effects-build.json": "458284217e24623200a958f58f2c3abc3b3b6a5c7f68979cdb06856ac19e6e9a",
+    "app/detail_effects-sm86.cubin": "51e7bd0045d5acf5b9eb0d187442f190a75d6f5495fa8ea4cdd2f4ec011011d9",
+    "app/detail_effects-sm86.json": "79522be95c048fe6c5a9a0bdaf2a2f1357ff88e39328e5c554a3ea38c2ce848e",
+    "app/engine_worker.py": "d79f91713dfd44ef1b9108900e64541adf3c3af22922e394aee14a81e7a97370",
+    "server.mjs": "34ef5212b960e7fbd98f0a610a3a1adfb9e9a1ca51d2b9f283f45348e8b46b3b",
+    "web/app.js": "733ac6ea0762c2378395448107b788d59e6f072b7f9f9625e36fc30fd0a95203",
+    "research/detail-time-api-fixture.json": "c664ee61489f577bed17ca0cd06090b4fc73917670f17fc226780488cc09ae48"
+  }
+}

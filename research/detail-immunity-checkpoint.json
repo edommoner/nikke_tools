@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-10-16T19:18:39.142622+00:00",
+  "passed": true,
+  "objective_complete": false,
+  "feature": "v23 debuff immunity and independent-squad CUDA block execution",
+  "abi": "detail_immunity_v23",
+  "workspace_bytes_per_squad": 306072,
+  "compiled_characters": 124,
+  "catalog_characters": 203,
+  "favorite_contexts_compiled": 485,
+  "favorite_contexts_total": 812,
+  "compilation_is_not_all_context_parity": true,
+  "current_catalog_verified": true,
+  "catalog_cases": 248,
+  "catalog_scope": "Current accepted characters, one grown favorite-zero/no-cube five-member squad each, selected settings, raw source skills. Not every favorite or combination.",
+  "python_focused_tests_passed": 30,
+  "python_focused_seconds": 442.732,
+  "node_tests_passed": 20,
+  "immunity_cases": 108,
+  "raw_immunity_cases": 16,
+  "normal_api_total": 573200642,
+  "normal_ui_total": 348869811,
+  "reports": [
+    "research/detail-immunity-verification.json",
+    "research/detail-catalog-batch-verification.json",
+    "research/detail-normal-acceptance.json",
+    "research/detail-immunity-api-verification.json",
+    "research/detail-immunity-ui-verification.json"
+  ],
+  "fixes": [
+    "Retain the enemy sentinel when application filtering uses an ally-only ordered notification list.",
+    "Use one independent CUDA block per autonomous squad; heterogeneous same-warp batches reproduced an execution fault on SM86."
+  ],
+  "remaining": [
+    "79 default characters and 327 favorite contexts still rejected; compilation is not all-situation parity.",
+    "No all-character/all-effect completion claim; incoming boss HP/cover/parts/projectiles and other effects remain.",
+    "Charge-speed immunity has twelve CPU reference cases but is not yet ported to GPU.",
+    "No new full-suite regression claim; the focused suite has 30 tests."
+  ],
+  "source_sha256": {
+    "app/detail_gpu.py": "43ea74c0e417bc1d4b9d923bf69acbd6299cc6e778c3d8ec55d00d668a8d0c8a",
+    "app/detail_effects.cu": "3217df145e6f009392fbe00e4be5094433584a6445c35c12bd812a47b5c7d87c",
+    "app/detail_effects.ptx": "2dba2089a065235deadd05c6b3af3ca30dadb6799c8b7734620fb2c8c08258b8",
+    "app/detail_effects-build.json": "ee0ac25d80515c3ee749226c560189f32c0c980f6028c79535613f0c73e33729",
+    "app/detail_effects-sm86.cubin": "8d13cb2a65adbd441ae9a0488aae5d2309d6cfcb936583e2bacb5187b3e3d9b9",
+    "app/detail_effects-sm86.json": "2e606af188ce6597001033afee029874f5c87039eebabdf36be1d47ef4d52207",
+    "app/engine_worker.py": "a1b9f46f5c5375f6da7740b37ebc3e8a286fe95973cc19594d7d625a805bb75c",
+    "scripts/verify-immunity-detail.py": "fc38b216c8f6ce6020e10d0137162b0bfebf31be1069424e80271ccc786e0231",
+    "scripts/verify-catalog-batch-detail.py": "f1c8e7f683cb064488a2b54c07141218fdcf55e28cc46940a2cef0cd53dc8801",
+    "scripts/verify-normal-detail.py": "aecc05e2861a4721a2911f3a546375c9e52c258ee03c319ef25097064ee1f9db",
+    "tests/test_detail_immunity.py": "13ef1e0addd423b355848cdca5a5ede0e49526fcf352228f15ecf63def9ca32f",
+    "tests/test_detail_batch.py": "c4c09efb02f44224992e04d00ca21dc187ffbe3b50efe08d3208af4d883c4dd1",
+    "app/gpu_service.py": "7cc9e2b0f87c633bd09092347207dfa7fbb5773fb399cfeadc6b70aff7a2309d",
+    "server.mjs": "1a4893b15953a714ce8a095ac9777eb13d38302237933f4d428dcd2a8cc64578",
+    "web/app.js": "91847d22a3ffb5238975aadf7e9af8c664db5650b7b85093668ed833041a5389",
+    "web/index.html": "8fb146ea8a433f0028f2a6365ab849e851068311e73787ede33e5ca7152f5b99"
+  }
+}

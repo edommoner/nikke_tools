@@ -1,0 +1,544 @@
+{
+  "cases": [
+    {
+      "name": "auto-during-charge-and-static-camera",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "shooting_policy": true,
+        "control_state_equal": true
+      },
+      "control_errors": [],
+      "cpu_total": 52130302,
+      "gpu_total": 52130302,
+      "observed": {
+        "holds": [],
+        "partial": 0,
+        "shots": {
+          "리타": 276,
+          "크라운": 571,
+          "모더니아": 571,
+          "앨리스": 6,
+          "N102": 6
+        },
+        "full": 12
+      },
+      "backend": "native",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 12,
+      "gpu_ms": 1463.583,
+      "requirements": {}
+    },
+    {
+      "name": "explicit-camera-앨리스",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "shooting_policy": true,
+        "control_state_equal": true
+      },
+      "control_errors": [],
+      "cpu_total": 31136761,
+      "gpu_total": 31136761,
+      "observed": {
+        "holds": [],
+        "partial": 0,
+        "shots": {
+          "리타": 192,
+          "크라운": 332,
+          "모더니아": 332,
+          "앨리스": 4,
+          "N102": 4
+        },
+        "full": 8
+      },
+      "backend": "native",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "gpu_ms": 512.683,
+      "requirements": {}
+    },
+    {
+      "name": "explicit-camera-",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "shooting_policy": true,
+        "control_state_equal": true
+      },
+      "control_errors": [],
+      "cpu_total": 30233729,
+      "gpu_total": 30233729,
+      "observed": {
+        "holds": [],
+        "partial": 0,
+        "shots": {
+          "리타": 192,
+          "크라운": 332,
+          "모더니아": 332,
+          "앨리스": 4,
+          "N102": 4
+        },
+        "full": 8
+      },
+      "backend": "native",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "gpu_ms": 510.62,
+      "requirements": {}
+    },
+    {
+      "name": "explicit-camera-리타",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "shooting_policy": true,
+        "control_state_equal": true
+      },
+      "control_errors": [],
+      "cpu_total": 30233729,
+      "gpu_total": 30233729,
+      "observed": {
+        "holds": [],
+        "partial": 0,
+        "shots": {
+          "리타": 192,
+          "크라운": 332,
+          "모더니아": 332,
+          "앨리스": 4,
+          "N102": 4
+        },
+        "full": 8
+      },
+      "backend": "native",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 8,
+      "gpu_ms": 522.794,
+      "requirements": {}
+    },
+    {
+      "name": "absolute-hold-multiple-threshold-spellings",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "shooting_policy": true,
+        "control_state_equal": true
+      },
+      "control_errors": [],
+      "cpu_total": 38980892,
+      "gpu_total": 38980892,
+      "observed": {
+        "holds": [
+          [
+            "앨리스",
+            "charge_hold:0.5",
+            2.033333333333331
+          ],
+          [
+            "앨리스",
+            "charge_hold:0.50",
+            2.033333333333331
+          ],
+          [
+            "앨리스",
+            "charge_hold:0.5",
+            4.633333333333322
+          ],
+          [
+            "앨리스",
+            "charge_hold:0.50",
+            4.633333333333322
+          ]
+        ],
+        "partial": 0,
+        "shots": {
+          "리타": 240,
+          "크라운": 451,
+          "모더니아": 451,
+          "N102": 5,
+          "앨리스": 3
+        },
+        "full": 8
+      },
+      "backend": "native",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 10,
+      "gpu_ms": 703.652,
+      "requirements": {
+        "holds": true
+      }
+    },
+    {
+      "name": "hold-full-burst-retains-one-bullet",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "shooting_policy": true,
+        "control_state_equal": true
+      },
+      "control_errors": [],
+      "cpu_total": 113131880,
+      "gpu_total": 113131880,
+      "observed": {
+        "holds": [
+          [
+            "앨리스",
+            "charge_hold:0.5",
+            5.833333333333318
+          ]
+        ],
+        "partial": 0,
+        "shots": {
+          "리타": 648,
+          "크라운": 1353,
+          "모더니아": 1365,
+          "앨리스": 11,
+          "N102": 14
+        },
+        "full": 25
+      },
+      "backend": "native",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 30,
+      "gpu_ms": 1991.739,
+      "requirements": {
+        "holds": true
+      }
+    },
+    {
+      "name": "after-fb-judge-and-force-reload",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "shooting_policy": true,
+        "control_state_equal": true
+      },
+      "control_errors": [],
+      "cpu_total": 117612646,
+      "gpu_total": 117612646,
+      "observed": {
+        "holds": [
+          [
+            "앨리스",
+            "charge_hold:0.5",
+            13.683333333333593
+          ]
+        ],
+        "partial": 0,
+        "shots": {
+          "리타": 648,
+          "크라운": 1353,
+          "모더니아": 1365,
+          "앨리스": 13,
+          "N102": 14
+        },
+        "full": 27
+      },
+      "backend": "native",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 30,
+      "gpu_ms": 1991.822,
+      "requirements": {
+        "holds": true
+      }
+    },
+    {
+      "name": "tap-with-periodic-full-charge",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "shooting_policy": true,
+        "control_state_equal": true
+      },
+      "control_errors": [],
+      "cpu_total": 56830248,
+      "gpu_total": 56830248,
+      "observed": {
+        "holds": [],
+        "partial": 22,
+        "shots": {
+          "리타": 276,
+          "크라운": 571,
+          "모더니아": 571,
+          "앨리스": 24,
+          "N102": 6
+        },
+        "full": 8
+      },
+      "backend": "native",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 12,
+      "gpu_ms": 962.108,
+      "requirements": {
+        "partial": true,
+        "full": true
+      }
+    },
+    {
+      "name": "tap-and-after-fb-judge",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "shooting_policy": true,
+        "control_state_equal": true
+      },
+      "control_errors": [],
+      "cpu_total": 127090520,
+      "gpu_total": 127090520,
+      "observed": {
+        "holds": [
+          [
+            "앨리스",
+            "charge_hold:0.5",
+            13.683333333333593
+          ]
+        ],
+        "partial": 46,
+        "shots": {
+          "리타": 648,
+          "크라운": 1353,
+          "모더니아": 1365,
+          "앨리스": 51,
+          "N102": 14
+        },
+        "full": 19
+      },
+      "backend": "native",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 30,
+      "gpu_ms": 2226.254,
+      "requirements": {
+        "partial": true,
+        "holds": true
+      }
+    },
+    {
+      "name": "full-charge-latch-survives-speed-expiry",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "shooting_policy": true,
+        "control_state_equal": true
+      },
+      "control_errors": [],
+      "cpu_total": 18818867,
+      "gpu_total": 18818867,
+      "observed": {
+        "holds": [
+          [
+            "앨리스",
+            "charge_hold:0.5",
+            0.5166666666666666
+          ]
+        ],
+        "partial": 0,
+        "shots": {
+          "리타": 144,
+          "크라운": 212,
+          "모더니아": 212,
+          "N102": 3,
+          "앨리스": 2
+        },
+        "full": 5
+      },
+      "backend": "native",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 6,
+      "gpu_ms": 412.434,
+      "requirements": {
+        "holds": true
+      }
+    },
+    {
+      "name": "sequence-preempts-tapping-and-releases",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "shooting_policy": true,
+        "control_state_equal": true
+      },
+      "control_errors": [],
+      "cpu_total": 43459655,
+      "gpu_total": 43459655,
+      "observed": {
+        "holds": [
+          [
+            "N102",
+            "charge_hold:0.5",
+            2.033333333333331
+          ]
+        ],
+        "partial": 14,
+        "shots": {
+          "리타": 240,
+          "크라운": 451,
+          "모더니아": 451,
+          "앨리스": 16,
+          "N102": 4
+        },
+        "full": 6
+      },
+      "backend": "native",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 10,
+      "gpu_ms": 793.839,
+      "requirements": {
+        "partial": true,
+        "holds": true
+      }
+    },
+    {
+      "name": "burst-chain-close-releases-held-charge",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "shooting_policy": true,
+        "control_state_equal": true
+      },
+      "control_errors": [],
+      "cpu_total": 57897395,
+      "gpu_total": 57897395,
+      "observed": {
+        "holds": [],
+        "partial": 27,
+        "shots": {
+          "리타": 276,
+          "크라운": 571,
+          "모더니아": 571,
+          "앨리스": 28,
+          "N102": 6
+        },
+        "full": 7
+      },
+      "backend": "native",
+      "squad": [
+        "리타",
+        "크라운",
+        "앨리스",
+        "모더니아",
+        "N102"
+      ],
+      "duration": 12,
+      "gpu_ms": 989.843,
+      "requirements": {
+        "partial": true
+      }
+    },
+    {
+      "name": "equal-priority-new-request-preempts",
+      "passed": false,
+      "error": "앨리스: `burst_chain`과 `hold_until_close`는 서로만 짝짓는다 (받은 것: window='always' mode='hold_until_close'). docs/CONTROL.md §체계",
+      "backend": "native"
+    },
+    {
+      "name": "higher-priority-overrides-older-request",
+      "passed": false,
+      "error": "앨리스: `burst_chain`과 `hold_until_close`는 서로만 짝짓는다 (받은 것: window='always' mode='hold_until_close'). docs/CONTROL.md §체계",
+      "backend": "native"
+    }
+  ],
+  "unsupported_references": [],
+  "passed": false
+}

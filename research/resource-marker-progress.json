@@ -1,0 +1,23 @@
+{
+  "phase": "verified_checkpoint",
+  "live_session": null,
+  "previous_turn": "progress: quantity sources verified, efficiency candidate measured and rejected",
+  "abi": "detail_quantity_sources_v60",
+  "kernel_rebuilt": false,
+  "native_cases": 3,
+  "ptx_cases": 3,
+  "lightweight_methods": 59,
+  "compile_only_supported": 185,
+  "catalog": 203,
+  "existing_programs_identical": 184,
+  "objective_complete": false,
+  "updated_at": "2026-10-18T03:46:04.437730+00:00",
+  "normal_owned_api_verified": true,
+  "checkpoint": "research/resource-marker-checkpoint.json",
+  "archive": "research/ports/v62-resource-marker-verified",
+  "remaining": [
+    "18 standard compile-unaccepted characters",
+    "Favorite/equipment/world/effect/model review",
+    "Final whole-system efficiency review after all-character support"
+  ]
+}

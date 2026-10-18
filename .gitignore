@@ -1,0 +1,12 @@
+research/upstream/
+research/cuda-cache/
+research/ports/
+research/staging/
+__pycache__/
+*.pyc
+.venv/
+local-data/
+.session_cookie
+.env
+.env.*
+!.env.example

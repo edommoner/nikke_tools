@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "port": 4333,
+  "abi": "detail_named_hits_v44",
+  "cases": [
+    {
+      "name": "raw-named-hits-이브-fav0",
+      "passed": true,
+      "total": 199060431,
+      "workspace_bytes": 1101840
+    },
+    {
+      "name": "raw-named-hits-율리아-fav2-reordered",
+      "passed": true,
+      "total": 140842249,
+      "workspace_bytes": 1101840
+    }
+  ],
+  "source_sha256": {
+    "scripts/check-preview-gpu.mjs": "78f4a28cbd18f88afa92a2f8852a572355306d5e1d68223be29dd384b6585189",
+    "research/named-hits-api-fixtures.json": "3e030ddc8f5da115f1a9c0c9bf61bcdccfb55f2db29f5249fdc6879f890fa8c8",
+    "server.mjs": "4ca12e2062be1fcb998393d5e567110cb228055bdcfca3cd82f987c1c65198ab",
+    "app/detail_boss.py": "521a06d1caf6a8b223b65312ab029fac6fd7099702e04db33f0e7c556736afa1",
+    "app/detail_effects-build.json": "c7f2a37e15b4cb47c887f279d7fefb37f6aa84a56669d41b1909c7734c82f39a",
+    "app/detail_effects-sm86.cubin": "3a19917869475e0cba9336568ab2ede88623033bd37740f9f9ebdd6fd02a5df5",
+    "app/detail_effects-sm86.json": "14d96df9225457f9ccf7e9fb749ee92e9e76b774eab479190d4df8a5f19a8468",
+    "app/detail_effects.cu": "011ac14a8715b95e4f733a6d003819590eb137002804ae49ad0aaefc3fe2ba90",
+    "app/detail_effects.ptx": "d6d644cb30ff919e225ac9427765c665c37c6db06604223e9a26a91b78be9387",
+    "app/detail_gpu.py": "083b2c42d50ec77fa29531e9910b958aec91a47defefa6b083906a17751d9d6b",
+    "app/detail_world.py": "3c717ce722fb151fa1bc3cb7990ab632b9a481a5fb379607c52b2ac66a56317c",
+    "app/effect_runtime.py": "efa711755be51ca48052e79ffbc96c52ddd0ce15b90ae877b575a9f01de2a7db",
+    "app/effect_spec.py": "7e9516f4a379fef7275e280508a0fe42ebf9ee6d3e78551907796f867a5d73c4",
+    "app/engine_compat.py": "c944e961469a44088ac89efde11c15edf39f48030a06f6f170ad2cb991f3432d",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/gpu_combat.py": "610c6b1dc97825577bd3d1639691377726c8232909b5816b388d66582b994cb1",
+    "app/gpu_selector.py": "913cf0fdab130614dbf1b73e6016550a4ea07b6fee27f540f6bae079e1c2c2b3",
+    "app/gpu_service.py": "213bd169c8a11f736f2324a01eb7d38cce5acd9cce67e0da4c916d64a994a2de",
+    "app/healing_storage_compat.py": "c75f5dac0a92c93be7a88eb1ad5fbca302d14112a17f2ffe35f7649679b324ac",
+    "app/heal_charge_compat.py": "18f0ed4d12bab0fa81102a2457763e8b65f4cb1d2c24d851311e9c5f4ae0381e",
+    "app/heal_sharing_compat.py": "ab8efb52f72fa4af8390bca7fd1627c20b578fe2d2e379fa6675fcaa3b5ec981",
+    "app/lifecycle_specs.py": "b708b3b0370385a97f77557a6d0d9204d11e3c7d46cc4df8c70c586f4f864676",
+    "app/outgoing_healing_compat.py": "8eb8a8fe2ecd2a9c7d7fbccb087473b0817073da1ee2093b5b36f161df5f8af3",
+    "app/protection_runtime.py": "9b3e83f0a6e84be8e3417dac1ba9ed5059f83e2d4f5d27caf2a86cf4ff56722f",
+    "app/reference_rewrite.py": "7f5a333c922d4b3e58a2420193f438f02a2adf761e87e012262c35e3c35e19b2",
+    "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "app/survival_scaling_compat.py": "7d58315941ff7256dcbeb1fa38c15e7fc5a801d1e96822610d612a114b9b56bc"
+  }
+}

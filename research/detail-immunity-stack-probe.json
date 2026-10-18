@@ -1,0 +1,11 @@
+{
+  "passed": false,
+  "cuda_error": "CUDA cuCtxSynchronize: error 700",
+  "cases": [],
+  "stack_limit_bytes": 262144,
+  "source_sha256": {
+    "app/detail_gpu.py": "625d3ec2d91dbb2f3112fcf132a0e56c301020953e739c37f5ac40862d7d4f75",
+    "app/detail_effects.cu": "aebabbfb126dbdc59402e77f2ac332006c44c1ca09cf2f4e7d4718cf3b7bf3c3",
+    "app/detail_effects-sm86.cubin": "f6fc56f3d43cff54e8906d1a00fd79a9f18032d13ff61a47e0b98c56652c6c1a"
+  }
+}

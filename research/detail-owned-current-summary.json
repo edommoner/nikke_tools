@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-10-16T21:39:33.507832+00:00",
+  "passed": true,
+  "abi": "detail_live_parts_v26",
+  "device": "NVIDIA GeForce RTX 3070 Ti",
+  "combined_cases": 36,
+  "backends": [
+    "native",
+    "ptx"
+  ],
+  "positive_controls": {
+    "native-auto-fixed": {
+      "growth_changes_damage": true,
+      "positions_change_damage": true
+    },
+    "native-auto-accumulate": {
+      "growth_changes_damage": true,
+      "positions_change_damage": true
+    },
+    "native-character-fixed": {
+      "growth_changes_damage": true,
+      "positions_change_damage": true
+    },
+    "native-character-accumulate": {
+      "growth_changes_damage": true,
+      "positions_change_damage": true
+    },
+    "ptx-auto-fixed": {
+      "growth_changes_damage": true,
+      "positions_change_damage": true
+    },
+    "ptx-auto-accumulate": {
+      "growth_changes_damage": true,
+      "positions_change_damage": true
+    },
+    "ptx-character-fixed": {
+      "growth_changes_damage": true,
+      "positions_change_damage": true
+    },
+    "ptx-character-accumulate": {
+      "growth_changes_damage": true,
+      "positions_change_damage": true
+    }
+  },
+  "cpu_trace_used_as_gpu_input": false,
+  "normal_api_total": 549015101,
+  "normal_ui_total": 459518604,
+  "reports": [
+    "research/detail-owned-acceptance.json",
+    "research/detail-owned-current-api-verification.json",
+    "research/detail-owned-current-ui-verification.json"
+  ],
+  "source_sha256": {
+    "research/detail-owned-acceptance.json": "65593d83a6b90346615c62ec7e100e418752ba075153c532cc6ffdb55f0549ed",
+    "research/detail-owned-current-api-verification.json": "ea5624b3d8b8d14a819557af0fad02b35cb5866ef6749f7c759a9efc8bdcbffc",
+    "research/detail-owned-current-ui-verification.json": "54554f5a148d595bd67ef3e2774c696eb4e0f44133743f711566a4f5aefd0bcd",
+    "scripts/summarize-owned-acceptance.py": "bc1de2fa27eb9e9ecec1c575f2c52ac45368830d06fb9a491417dbc738d169f0"
+  },
+  "limitations": [
+    "Fictional owned growth; live BlaBlaLink import is not verified by this acceptance.",
+    "Listed five-member squads and settings; not every character, favorite variant or combination.",
+    "Unsupported GPU effects use the CPU fallback with the reason displayed."
+  ]
+}

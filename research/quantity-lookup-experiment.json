@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "functional_only": true,
+  "adopted": false,
+  "reason": "Measured new-operation API slower by3.6%; existing control faster by1.3%, a small single-measurement difference. No consistent improvement.",
+  "abi": "detail_quantity_lookup_v61",
+  "objective_complete": false,
+  "portable_built": false,
+  "archive_base": "research/ports/v60-quantity-sources-native-stage",
+  "reports": [
+    "research/quantity-lookup-native.json",
+    "research/quantity-lookup-api-after.json",
+    "research/quantity-lookup-control-after.json"
+  ],
+  "generated_at": "2026-10-18T03:32:56.048611+00:00",
+  "archive": "research/ports/v61-quantity-lookup-rejected",
+  "source_sha256": {
+    "app/detail_effects-sm86.cubin": "bf1417069296d76c584e7e49e88b16b8237da582e959b415e122726aa9bbce36",
+    "app/detail_effects-sm86.json": "8d3dcfd333db2c1981c85e54bb2e47034ff7fffffe8c41918a8ec55a4b2dc0c1",
+    "app/detail_effects.cu": "025f06c9690a762354dd13034d3b2e721e222132a99ece16397efd5f0a9a4a7a",
+    "app/detail_gpu.py": "994663f65d9c39f889dd3dc901dd67efb58b61522fa16056352b0af09271092b",
+    "app/quantity_specs.py": "e8a638101b1db68e7fdcaf43867ddabd51c8dc32d09e285d1c334b8ed6674457",
+    "research/benchmark-normal-search.mjs": "e40f3e2615d0aad13cdf14bd87d6e1e48528ed2560a0b6ee43fffc34ef864545",
+    "research/quantity-lookup-api-after.json": "0431506e4ab032a40dd849c47a7b9daeaff6187b315ed29c6eb93955394a6878",
+    "research/quantity-lookup-control-after.json": "e0ee4d34d8f9893c11fbb759031c988e4b01b045b395cdc5e3f8eecc8ad2a003",
+    "research/quantity-lookup-native.json": "e1216d2d0304d56390154576af5b10fd2ca8d90a56b7b5f01ec69b9c5514d3f4",
+    "research/quantity-sources-api-before.json": "24ce56ef0944f2b8390c902f54982898c1a730f56975ab5bd682594d7536252b",
+    "research/quantity-sources-api-fixture.json": "4cb29cec25e94d8b0673bc796ed4e3f693aa41a431c105b2642570617c848784",
+    "research/quantity-sources-control-before.json": "e9ab2dccf21b74a6a986995d34fb79f5da87a14f17cf15834b805722f8d4a459",
+    "research/staged-dot-api-fixture.json": "a8c10e64c0d717cc1670c82fbb08e2ebb5a624dcaf1786af791d92231db19799",
+    "scripts/verify-quantity-sources-detail.py": "ec4ec94f96d7232f25d74491bfd1323e1f556421f761fb890d030202b386d722"
+  }
+}

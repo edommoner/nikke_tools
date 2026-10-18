@@ -1,0 +1,173 @@
+{
+  "passed": true,
+  "catalog_sealed": true,
+  "generated_gpu_hooks_match": true,
+  "single_event_adapter": true,
+  "legacy_inline_protection_removed": true,
+  "operations": [
+    {
+      "operation": {
+        "key": "decoy",
+        "depends": [],
+        "activation_stat": 72,
+        "gpu_activate": "build_decoy",
+        "needs_resolved_targets": true,
+        "gpu_retire": null,
+        "gpu_before_heal": null,
+        "applied_event": null,
+        "cpu_phase": "protection_activate",
+        "additional_stats": []
+      },
+      "callbacks": {
+        "protection_activate": "protection_runtime.install.<locals>.initialize"
+      },
+      "resource_kind": "decoy"
+    },
+    {
+      "operation": {
+        "key": "shield",
+        "depends": [],
+        "activation_stat": 45,
+        "gpu_activate": "build_shield",
+        "needs_resolved_targets": true,
+        "gpu_retire": null,
+        "gpu_before_heal": null,
+        "applied_event": 18,
+        "cpu_phase": "protection_activate",
+        "additional_stats": []
+      },
+      "callbacks": {
+        "protection_activate": "protection_runtime.install.<locals>.initialize"
+      },
+      "resource_kind": "shield"
+    },
+    {
+      "operation": {
+        "key": "overheal_storage",
+        "depends": [],
+        "activation_stat": 74,
+        "gpu_activate": "build_heal_storage",
+        "needs_resolved_targets": true,
+        "gpu_retire": null,
+        "gpu_before_heal": null,
+        "applied_event": null,
+        "cpu_phase": "activate",
+        "additional_stats": []
+      },
+      "callbacks": {
+        "activate": "healing_storage_compat.snapshot",
+        "body_clamp": "healing_storage_compat.body_heal"
+      },
+      "resource_kind": "overheal_storage"
+    },
+    {
+      "operation": {
+        "key": "healing_share",
+        "depends": [
+          "overheal_storage"
+        ],
+        "activation_stat": null,
+        "gpu_activate": null,
+        "needs_resolved_targets": true,
+        "gpu_retire": null,
+        "gpu_before_heal": null,
+        "applied_event": null,
+        "cpu_phase": "heal_plan",
+        "additional_stats": []
+      },
+      "callbacks": {
+        "heal_plan": "heal_sharing_compat.plan"
+      },
+      "resource_kind": null
+    },
+    {
+      "operation": {
+        "key": "healing_charge",
+        "depends": [
+          "healing_share"
+        ],
+        "activation_stat": 76,
+        "gpu_activate": "build_heal_charge",
+        "needs_resolved_targets": false,
+        "gpu_retire": "retire_heal_charge",
+        "gpu_before_heal": "collect_heal_charge",
+        "applied_event": null,
+        "cpu_phase": "activate",
+        "additional_stats": []
+      },
+      "callbacks": {
+        "activate": "heal_charge_compat.snapshot",
+        "before_body_heal": "heal_charge_compat.collect",
+        "before_notify": "heal_charge_compat.before_notify",
+        "instant": "heal_charge_compat.discharge",
+        "retain_removed": "heal_charge_compat.install.<locals>.<lambda>",
+        "collect_removed": "heal_charge_compat.install.<locals>.<lambda>"
+      },
+      "resource_kind": "healing_charge"
+    },
+    {
+      "operation": {
+        "key": "damage_accumulation",
+        "depends": [
+          "healing_charge"
+        ],
+        "activation_stat": 81,
+        "gpu_activate": "build_damage_accum",
+        "needs_resolved_targets": false,
+        "gpu_retire": null,
+        "gpu_before_heal": null,
+        "applied_event": null,
+        "cpu_phase": "activate",
+        "additional_stats": [
+          82
+        ]
+      },
+      "callbacks": {
+        "activate": "damage_accum_runtime.activate"
+      },
+      "resource_kind": "damage_accumulation"
+    },
+    {
+      "operation": {
+        "key": "max_hp_snapshot",
+        "depends": [],
+        "activation_stat": 84,
+        "gpu_activate": "build_max_hp_snapshot",
+        "needs_resolved_targets": true,
+        "gpu_retire": null,
+        "gpu_before_heal": null,
+        "applied_event": null,
+        "cpu_phase": "activate",
+        "additional_stats": []
+      },
+      "callbacks": {
+        "activate": "max_hp_snapshot_runtime.activate"
+      },
+      "resource_kind": "max_hp_snapshot"
+    }
+  ],
+  "game_rules_verified": false,
+  "source_sha256": {
+    "app\\damage_accum_runtime.py": "88523113ba4ddc9f39cb951ec506171f39be92aa6059d963e1b2f5f339c1048b",
+    "app\\detail_boss.py": "521a06d1caf6a8b223b65312ab029fac6fd7099702e04db33f0e7c556736afa1",
+    "app\\detail_gpu.py": "b9f79328548a73d6e48bdb072a63da4f57df98ea546e3e14bfd365262775dc66",
+    "app\\detail_world.py": "3c717ce722fb151fa1bc3cb7990ab632b9a481a5fb379607c52b2ac66a56317c",
+    "app\\effect_runtime.py": "9a74447ef9c461abcdc14706e4da318ddf36d623e3a0ad4c1c3385809281ac2d",
+    "app\\effect_spec.py": "53c4eb0f55ce42846d6ddc252313ba7975d6fa16f3807e32f3dc2fffcbfc090f",
+    "app\\engine_compat.py": "c944e961469a44088ac89efde11c15edf39f48030a06f6f170ad2cb991f3432d",
+    "app\\engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app\\gpu_combat.py": "610c6b1dc97825577bd3d1639691377726c8232909b5816b388d66582b994cb1",
+    "app\\gpu_selector.py": "913cf0fdab130614dbf1b73e6016550a4ea07b6fee27f540f6bae079e1c2c2b3",
+    "app\\gpu_service.py": "213bd169c8a11f736f2324a01eb7d38cce5acd9cce67e0da4c916d64a994a2de",
+    "app\\healing_storage_compat.py": "c75f5dac0a92c93be7a88eb1ad5fbca302d14112a17f2ffe35f7649679b324ac",
+    "app\\heal_charge_compat.py": "18f0ed4d12bab0fa81102a2457763e8b65f4cb1d2c24d851311e9c5f4ae0381e",
+    "app\\heal_sharing_compat.py": "ab8efb52f72fa4af8390bca7fd1627c20b578fe2d2e379fa6675fcaa3b5ec981",
+    "app\\lifecycle_specs.py": "c73837c6d04b4effa32e79b45daf8df4df5a03549d894458d81605719e396150",
+    "app\\max_hp_snapshot_runtime.py": "4e7632bc0eec70c87e9bffdd5deaf7c9d14a3305ab83d948f09222358aa1d26a",
+    "app\\outgoing_healing_compat.py": "8eb8a8fe2ecd2a9c7d7fbccb087473b0817073da1ee2093b5b36f161df5f8af3",
+    "app\\protection_runtime.py": "9b3e83f0a6e84be8e3417dac1ba9ed5059f83e2d4f5d27caf2a86cf4ff56722f",
+    "app\\reference_rewrite.py": "7f5a333c922d4b3e58a2420193f438f02a2adf761e87e012262c35e3c35e19b2",
+    "app\\survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "app\\survival_scaling_compat.py": "7d58315941ff7256dcbeb1fa38c15e7fc5a801d1e96822610d612a114b9b56bc"
+  }
+}

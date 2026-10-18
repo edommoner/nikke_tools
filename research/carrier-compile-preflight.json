@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "carrier-shield_from_max_hp_pct",
+      "instructions": 49
+    },
+    {
+      "name": "carrier-decoy",
+      "instructions": 50
+    },
+    {
+      "name": "carrier-heal_overcharge_store",
+      "instructions": 49
+    },
+    {
+      "name": "carrier-heal_overcharge_store_atk_pct",
+      "instructions": 49
+    },
+    {
+      "name": "carrier-dmg_accum_received_atk_pct",
+      "instructions": 49
+    },
+    {
+      "name": "carrier-max_hp_from_max_hp_pct",
+      "instructions": 49
+    },
+    {
+      "name": "carrier-dmg_accum_dealt_atk_pct",
+      "instructions": 49
+    }
+  ]
+}

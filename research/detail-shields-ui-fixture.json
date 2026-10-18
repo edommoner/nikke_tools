@@ -1,0 +1,670 @@
+{
+  "format": "nikke-tools-session-v1",
+  "snapshot": {
+    "profile": {
+      "base": "ungrown",
+      "_account": {
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        }
+      },
+      "chars": {
+        "센티": {
+          "level": 400,
+          "breakthrough": 0,
+          "core_enhancement": 0,
+          "affinity": 1,
+          "skill_levels": {
+            "1": 3,
+            "2": 9,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 0,
+              "skills": []
+            },
+            "몸통": {
+              "level": 0,
+              "skills": []
+            },
+            "팔": {
+              "level": 0,
+              "skills": []
+            },
+            "다리": {
+              "level": 0,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": [
+              11.11,
+              11.11,
+              12.34
+            ],
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": [
+              2.34,
+              2.34,
+              4.3
+            ],
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "렐릭 베어 큐브",
+            "level": 1
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "SR15",
+          "favorite_stage": 0
+        },
+        "리타": {
+          "level": 400,
+          "breakthrough": 1,
+          "core_enhancement": 0,
+          "affinity": 7,
+          "skill_levels": {
+            "1": 4,
+            "2": 8,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 1,
+              "skills": []
+            },
+            "몸통": {
+              "level": 1,
+              "skills": []
+            },
+            "팔": {
+              "level": 1,
+              "skills": []
+            },
+            "다리": {
+              "level": 1,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": [
+              11.11,
+              11.11,
+              12.34
+            ],
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": [
+              2.34,
+              2.34,
+              4.3
+            ],
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "렐릭 베어 큐브",
+            "level": 4
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "SR15",
+          "favorite_stage": 0
+        },
+        "크라운": {
+          "level": 400,
+          "breakthrough": 2,
+          "core_enhancement": 0,
+          "affinity": 13,
+          "skill_levels": {
+            "1": 5,
+            "2": 7,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 2,
+              "skills": []
+            },
+            "몸통": {
+              "level": 2,
+              "skills": []
+            },
+            "팔": {
+              "level": 2,
+              "skills": []
+            },
+            "다리": {
+              "level": 2,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": [
+              11.11,
+              11.11,
+              12.34
+            ],
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": [
+              2.34,
+              2.34,
+              4.3
+            ],
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "렐릭 베어 큐브",
+            "level": 7
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "SR15",
+          "favorite_stage": 0
+        },
+        "앨리스": {
+          "level": 400,
+          "breakthrough": 3,
+          "core_enhancement": 4,
+          "affinity": 19,
+          "skill_levels": {
+            "1": 6,
+            "2": 6,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 3,
+              "skills": []
+            },
+            "몸통": {
+              "level": 3,
+              "skills": []
+            },
+            "팔": {
+              "level": 3,
+              "skills": []
+            },
+            "다리": {
+              "level": 3,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": [
+              11.11,
+              11.11,
+              12.34
+            ],
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": [
+              2.34,
+              2.34,
+              4.3
+            ],
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "렐릭 베어 큐브",
+            "level": 10
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "SR15",
+          "favorite_stage": 0
+        },
+        "모더니아": {
+          "level": 400,
+          "breakthrough": 0,
+          "core_enhancement": 0,
+          "affinity": 25,
+          "skill_levels": {
+            "1": 7,
+            "2": 5,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 4,
+              "skills": []
+            },
+            "몸통": {
+              "level": 4,
+              "skills": []
+            },
+            "팔": {
+              "level": 4,
+              "skills": []
+            },
+            "다리": {
+              "level": 4,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": [
+              11.11,
+              11.11,
+              12.34
+            ],
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": [
+              2.34,
+              2.34,
+              4.3
+            ],
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "렐릭 베어 큐브",
+            "level": 13
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "SR15",
+          "favorite_stage": 0
+        }
+      }
+    },
+    "warnings": [],
+    "unknown": [],
+    "source": "profile",
+    "is_demo": true,
+    "snapshot_id": "05d8f4e11b291050d895649768850bf0f8fbc71e16a87f9eea7637f41f2b58b6",
+    "missing": {}
+  },
+  "profile": {
+    "chars": {
+      "센티": {
+        "level": 400,
+        "breakthrough": 0,
+        "core_enhancement": 0,
+        "affinity": 1,
+        "skill_levels": {
+          "1": 3,
+          "2": 9,
+          "3": 10
+        },
+        "equipment": {
+          "머리": {
+            "level": 0,
+            "skills": []
+          },
+          "몸통": {
+            "level": 0,
+            "skills": []
+          },
+          "팔": {
+            "level": 0,
+            "skills": []
+          },
+          "다리": {
+            "level": 0,
+            "skills": []
+          }
+        },
+        "equip_skills": {
+          "atk_pct": [
+            11.11,
+            11.11,
+            12.34
+          ],
+          "element_bonus": 88.6,
+          "max_ammo_pct": 129.64,
+          "crit_rate": 0,
+          "crit_dmg": 0,
+          "charge_speed_pct": [
+            2.34,
+            2.34,
+            4.3
+          ],
+          "charge_dmg_pct": 0,
+          "accuracy_pct": 0,
+          "def_pct": 0
+        },
+        "cube": {
+          "name": "렐릭 베어 큐브",
+          "level": 1
+        },
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        },
+        "collection_stage": "SR15",
+        "favorite_stage": 0
+      },
+      "리타": {
+        "level": 400,
+        "breakthrough": 1,
+        "core_enhancement": 0,
+        "affinity": 7,
+        "skill_levels": {
+          "1": 4,
+          "2": 8,
+          "3": 10
+        },
+        "equipment": {
+          "머리": {
+            "level": 1,
+            "skills": []
+          },
+          "몸통": {
+            "level": 1,
+            "skills": []
+          },
+          "팔": {
+            "level": 1,
+            "skills": []
+          },
+          "다리": {
+            "level": 1,
+            "skills": []
+          }
+        },
+        "equip_skills": {
+          "atk_pct": [
+            11.11,
+            11.11,
+            12.34
+          ],
+          "element_bonus": 88.6,
+          "max_ammo_pct": 129.64,
+          "crit_rate": 0,
+          "crit_dmg": 0,
+          "charge_speed_pct": [
+            2.34,
+            2.34,
+            4.3
+          ],
+          "charge_dmg_pct": 0,
+          "accuracy_pct": 0,
+          "def_pct": 0
+        },
+        "cube": {
+          "name": "렐릭 베어 큐브",
+          "level": 4
+        },
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        },
+        "collection_stage": "SR15",
+        "favorite_stage": 0
+      },
+      "크라운": {
+        "level": 400,
+        "breakthrough": 2,
+        "core_enhancement": 0,
+        "affinity": 13,
+        "skill_levels": {
+          "1": 5,
+          "2": 7,
+          "3": 10
+        },
+        "equipment": {
+          "머리": {
+            "level": 2,
+            "skills": []
+          },
+          "몸통": {
+            "level": 2,
+            "skills": []
+          },
+          "팔": {
+            "level": 2,
+            "skills": []
+          },
+          "다리": {
+            "level": 2,
+            "skills": []
+          }
+        },
+        "equip_skills": {
+          "atk_pct": [
+            11.11,
+            11.11,
+            12.34
+          ],
+          "element_bonus": 88.6,
+          "max_ammo_pct": 129.64,
+          "crit_rate": 0,
+          "crit_dmg": 0,
+          "charge_speed_pct": [
+            2.34,
+            2.34,
+            4.3
+          ],
+          "charge_dmg_pct": 0,
+          "accuracy_pct": 0,
+          "def_pct": 0
+        },
+        "cube": {
+          "name": "렐릭 베어 큐브",
+          "level": 7
+        },
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        },
+        "collection_stage": "SR15",
+        "favorite_stage": 0
+      },
+      "앨리스": {
+        "level": 400,
+        "breakthrough": 3,
+        "core_enhancement": 4,
+        "affinity": 19,
+        "skill_levels": {
+          "1": 6,
+          "2": 6,
+          "3": 10
+        },
+        "equipment": {
+          "머리": {
+            "level": 3,
+            "skills": []
+          },
+          "몸통": {
+            "level": 3,
+            "skills": []
+          },
+          "팔": {
+            "level": 3,
+            "skills": []
+          },
+          "다리": {
+            "level": 3,
+            "skills": []
+          }
+        },
+        "equip_skills": {
+          "atk_pct": [
+            11.11,
+            11.11,
+            12.34
+          ],
+          "element_bonus": 88.6,
+          "max_ammo_pct": 129.64,
+          "crit_rate": 0,
+          "crit_dmg": 0,
+          "charge_speed_pct": [
+            2.34,
+            2.34,
+            4.3
+          ],
+          "charge_dmg_pct": 0,
+          "accuracy_pct": 0,
+          "def_pct": 0
+        },
+        "cube": {
+          "name": "렐릭 베어 큐브",
+          "level": 10
+        },
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        },
+        "collection_stage": "SR15",
+        "favorite_stage": 0
+      },
+      "모더니아": {
+        "level": 400,
+        "breakthrough": 0,
+        "core_enhancement": 0,
+        "affinity": 25,
+        "skill_levels": {
+          "1": 7,
+          "2": 5,
+          "3": 10
+        },
+        "equipment": {
+          "머리": {
+            "level": 4,
+            "skills": []
+          },
+          "몸통": {
+            "level": 4,
+            "skills": []
+          },
+          "팔": {
+            "level": 4,
+            "skills": []
+          },
+          "다리": {
+            "level": 4,
+            "skills": []
+          }
+        },
+        "equip_skills": {
+          "atk_pct": [
+            11.11,
+            11.11,
+            12.34
+          ],
+          "element_bonus": 88.6,
+          "max_ammo_pct": 129.64,
+          "crit_rate": 0,
+          "crit_dmg": 0,
+          "charge_speed_pct": [
+            2.34,
+            2.34,
+            4.3
+          ],
+          "charge_dmg_pct": 0,
+          "accuracy_pct": 0,
+          "def_pct": 0
+        },
+        "cube": {
+          "name": "렐릭 베어 큐브",
+          "level": 13
+        },
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        },
+        "collection_stage": "SR15",
+        "favorite_stage": 0
+      }
+    },
+    "_account": {
+      "console": {
+        "common_level": 180,
+        "class_level": 100,
+        "company_level": 100
+      }
+    }
+  },
+  "teams": [
+    [
+      "센티",
+      "리타",
+      "크라운",
+      "앨리스",
+      "모더니아"
+    ]
+  ],
+  "singleMode": true,
+  "raidCount": 1,
+  "activeTeam": 0,
+  "patches": {
+    "센티": {
+      "skill_levels": {
+        "1": 8
+      },
+      "equip_skills": {
+        "charge_speed_pct": [
+          3.2,
+          3.2,
+          5.1
+        ]
+      }
+    }
+  },
+  "deltas": {
+    "센티": {
+      "atk": 12345,
+      "hp": 100000,
+      "def": 345
+    }
+  },
+  "settings": {
+    "duration": 35,
+    "level": 400,
+    "enemy-def": 31784,
+    "enemy-code": "풍압",
+    "core": 50,
+    "distance": 25,
+    "burst-policy": "rules",
+    "shooting-policy": "character",
+    "burst-gauge-mode": "accumulate",
+    "random-seed": 12345,
+    "detail-backend": "cuda_verified"
+  }
+}

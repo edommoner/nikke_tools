@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "native_stage_only": true,
+  "objective_complete": false,
+  "generated_at": "2026-10-18T05:35:37.066916+00:00",
+  "archive_base": "research/ports/v68-mode-commands-verified",
+  "reports": [
+    "research/mode-inputs-native.json",
+    "research/mode-inputs-native-unit.json",
+    "research/mode-inputs-coverage.json"
+  ],
+  "abi": "detail_mode_inputs_v69",
+  "instruction_width": 344,
+  "character_width": 169,
+  "autonomous_manual_mode_input_connected": true,
+  "cpu_reload_entry_initialization_fixed": true,
+  "source_rules_verified_in_game": false,
+  "standard_compile_supported": 187,
+  "next": "Freeze actual mode calculation latency, then replace the per-frame effect scan with the existing event19 index. Portable artifact and normal API/UI validation remain pending.",
+  "archive": "research/ports/v69-mode-inputs-native-stage",
+  "source_sha256": {
+    "app/detail_effects-sm86.cubin": "ec5a58a407b1590ba426369df01d467dba604ada3ff1a356c60d459336950142",
+    "app/detail_effects-sm86.json": "e6e9e55e7ce91dcc178aace63d907cf44adeab8a9b563c22a1507c0b0e76622a",
+    "app/detail_effects.cu": "70cf3f137bb6d214dfd4e1d4e4f70e5577350c8e9a8006164e00e2965f979282",
+    "app/detail_gpu.py": "54ce67be94bfe14cf3569f1bef3532433ee19764e3f1cbd59bd7e77b16c2e801",
+    "app/effect_spec.py": "53f575813f3d6890cadde37ac5a3aa399d68021d59284a2aefb552a0c65bb181",
+    "app/engine_worker.py": "78abef659b0a97c153f23a326d1e7edf57bd48c89bebfb6618e55478e26fab60",
+    "app/weapon_mode_runtime.py": "67d6ca44721d963fe96830888cac4fef5a764c7c3d8b1bbedf342f96331c1150",
+    "research/checkpoint_receipts.py": "9f928fcc6ba97602ed041dfa5d0589409c4076e2d215482427f304907135bf5f",
+    "research/mode-inputs-coverage.json": "449e12c6e8296ee0f4351e765e196ccfb451186613efdde6f06d9f74ed554c24",
+    "research/mode-inputs-native-unit.json": "316b63b1418744184b3c8ba1d369b2ccf0d1c357a3a1dd20cde7fb2c9d878b74",
+    "research/mode-inputs-native.json": "86eec70d20927fab7755ceea18a6bf6aac23fffda4e8a351a494dd5995e68cbf",
+    "research/save-mode-inputs-stage.py": "d8de1fb49af781ab8a7cb9c118dc84c2169d1a07fa8a5135aa5d470a09e0570e",
+    "research/verify-mode-inputs-coverage.py": "2afeecdc68e19eaa148745c27c24ec724f9969f7aebccacd080916054f70dfde",
+    "scripts/verify-common-runtime-unit.py": "0788f2d40dd91badba98d24e99fb94302e9a718427bb8ba618614ccbf81614db",
+    "scripts/verify-mode-inputs-detail.py": "1250e9cb1cb33c29a23abeb2c70aca83cbc3ffae28c7e19a2667e065394a4b62",
+    "tests/test_mode_input_policy.py": "02edaa41926b96430c5c463e8de4775b597542531ccba5bffb50d687e418c51e",
+    "web/app.js": "a750b4804aa043edc5d4842c84de46388d96de8baa4f3c2a65864a175e55b24a",
+    "web/index.html": "d7b80d8354626f8906d0da7844a7a5ba8af922e7b5b39c77ab9305ecd4c19c4a"
+  }
+}

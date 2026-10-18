@@ -1,0 +1,34 @@
+{
+  "phase": "verified_checkpoint",
+  "abi": "detail_staged_queue_v59",
+  "native_build_session": 86283,
+  "cpu_unit_methods": 9,
+  "cpu_quantities": 6,
+  "native_stage_baseline": "research/staged-dot-native-stage.json",
+  "portable_final_pending": false,
+  "objective_complete": false,
+  "updated_at": "2026-10-18T03:11:57.944097+00:00",
+  "remaining": [
+    "20 standard compile-unaccepted characters",
+    "Equipment/favorite/world/effect/model review",
+    "Final whole-system efficiency review after all-character support"
+  ],
+  "native_build_complete": true,
+  "native_primary_cases": 9,
+  "live_session": null,
+  "related_ordering_cases": 25,
+  "independent_batch_squads": 8,
+  "pool_speedup": 1.0279977359496666,
+  "normal_api_speedup": 1.017815973702688,
+  "portable_build_complete": true,
+  "lightweight_methods": 55,
+  "portable_primary_cases": 9,
+  "portable_verified": true,
+  "normal_owned_api_verified": true,
+  "checkpoint": "research/staged-queue-checkpoint.json",
+  "archive": "research/ports/v59-staged-queue-verified",
+  "profile": {
+    "normal_api_kernel_fraction": 0.9541341225069713,
+    "scope": "One warm eight-candidate normal API comparison; not a universal speed claim"
+  }
+}

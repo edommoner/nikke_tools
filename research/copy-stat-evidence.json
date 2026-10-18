@@ -1,0 +1,34 @@
+{
+  "status": "Design evidence only; no compiler acceptance or GPU execution granted yet.",
+  "checked_at_utc": "2026-10-17",
+  "mechanics": [
+    {
+      "stat": "atk_copy",
+      "source": "https://nikke.gg/characterguides/guilty/",
+      "author": "Valkkin",
+      "published": "2023-11-07",
+      "observation": "The guide describes copying the highest base attack and ignoring battle buffs, with self eligible. It describes five stacks and refreshable duration.",
+      "conflict": "Local parsed note says selection uses final attack but copied quantity uses base attack. This is not the same rule as the guide. Do not route copy_from through generic final-attack ranking without resolving that difference.",
+      "cpu_status": "Pinned calculator has no atk_copy or copy_from execution branch. CPU equality alone would certify an omitted effect.",
+      "independent_witness_needed": "Two eligible allies with different base attack, then reverse their final attack rank using a buff. Both copied quantity and selected identity must be asserted."
+    },
+    {
+      "stat": "hp_copy",
+      "source": "https://nikke.gg/characterguides/sin/",
+      "author": "Valkkin",
+      "published": "2023-11-07",
+      "observation": "The guide explicitly selects highest base maximum HP, permits self, describes current HP gaining the copied amount and says a duration-only refresh does not heal again. Healing potency does not increase this HP gain.",
+      "conflict": "Local copy_from names use allies_top_hp:1. Ordinary HP target ranking may observe buffed maximum HP; copy selection needs an explicit basis. Reuse snapshot storage conventions without assuming identical refresh healing to max_hp_from_max_hp_pct.",
+      "cpu_status": "Pinned calculator has no hp_copy or copy_from execution branch.",
+      "independent_witness_needed": "Reverse base/final maximum-HP ranks, reduce recipient current HP, refresh before expiry and after expiry, and apply healing-potency bonuses. Assert source identity, max HP and current HP separately."
+    }
+  ],
+  "shared_design": {
+    "identity": "Selection basis, copied quantity basis and recipient are independent inputs, not character names.",
+    "quantity": "Base ATK/HP after owned equipment/stat assembly versus live buffed ATK/HP must be distinguished.",
+    "lifetime": "Define first activation, stack increment, capped refresh, source changes, expiry and source down/revival explicitly.",
+    "reuse": "Use shared lifecycle and per-instance state, common ranking/snapshot helpers, and parameterized ATK/HP witnesses. Existing maximum-HP snapshot activation conventions can be reused only where semantics match.",
+    "evidence_limit": "Community guide observations are useful independent evidence, not proof of every interaction or the current game patch. Preserve source conflict and seek reproduction before asserting all-game verification."
+  },
+  "execution_gate": "Finish existing v46 native/PTX squad verification before introducing the next mechanism."
+}

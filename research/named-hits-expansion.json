@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "previously_accepted_programs_unchanged": 865,
+  "newly_accepted_compile_contexts": 7,
+  "partially_advanced_contexts": 6,
+  "compiler_calls": 1069,
+  "standard_before": 164,
+  "standard_after": 165,
+  "new_characters": [
+    "이브"
+  ],
+  "favorite_before": 647,
+  "favorite_after": 653,
+  "favorite_total": 812,
+  "scope": "Compilation only; not battle or game correctness."
+}

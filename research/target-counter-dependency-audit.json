@@ -1,0 +1,63 @@
+{
+  "objective_complete": false,
+  "status": "Dependency audit for next common operation; not an implemented GPU counter",
+  "observed_in_current_sources": {
+    "team_hit_stream": "GPU weapon callbacks pass1-core into body/part team-hit events. These events cannot stand for all accepted hits.",
+    "source_ammo_stream": "Ammo-consume events represent shots/resource accounting, not selected enemy identity or accepted hit count.",
+    "accepted_damage_stream": "CPU _land_boss/_land_target gate actual target acceptance; HitEvent already carries target/to/part tags but has no explicit reusable target-generation and hit-credit contract.",
+    "raw_capture_order": "Current capture then cap-conditioned overflow ordering can fire overflow on the capture that first reaches cap. Game-facing description says capture while already at cap; order/snapshot must be corrected together with data migration.",
+    "target_death": "Possessed-target death also completes capture, but the current ammo-only trigger does not represent that route."
+  },
+  "common_contract_requirements": [
+    "Target handle includes identity and generation, independent of marker lifetime.",
+    "Counter key includes exact marker carrier UID/generation and target handle; refresh/replacement/retirement cannot inherit another lifetime accidentally.",
+    "Explicit accepted-hit credit independent of ammo, core classification and damage routing weights. Declare contributing hit families instead of assuming all damage or all weapon events.",
+    "Latch completion before synchronous children; deliver completion once with marker/target context; retire only that same carrier generation after children.",
+    "Target-death completion and threshold completion in the same frame must not grant twice.",
+    "Resource cap condition at capture entry must remain distinct from the value after capture; define via authored effect ordering or an explicit snapshot.",
+    "Use typed target/landing packets as the common boundary for future projectile/shield bonuses; do not map every target to the boss."
+  ],
+  "source_sha256": {
+    "app/detail_effects.cu": "b200f027bc1c0fd0b5b6953a8133bcca3f31ff2e6473988bb862ad4a2123bf7e",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/calculator/sim_result.py": "45456292d7deef92ede8ea3ad45c0e671d54cef4f5427105019868dcab374e67"
+  },
+  "evidence": "https://www.prydwen.gg/nikke/characters/elegg-boom-and-shock",
+  "next_event_contract": {
+    "actor_key": [
+      "kind",
+      "identity",
+      "spawn_generation",
+      "logical_enemy_parent_if_component"
+    ],
+    "impact": [
+      "attacker",
+      "attack_or_pellet_identity",
+      "target_handle",
+      "hit_credit",
+      "outcome: miss/landed-blocked/landed-damaging",
+      "damage_separate_from_credit"
+    ],
+    "event_frames": "Target/impact context belongs in the shared nested event frame. Explicitly inherit it for hit/completion events and clear it for ammo/reload events; no global unscoped last-target variable.",
+    "counter_key": [
+      "exact_carrier_uid_or_slot_generation",
+      "counter_refresh_epoch",
+      "target_spawn_generation"
+    ],
+    "refresh": "Data must explicitly choose reset or preserve; refreshing an existing carrier can require a new counter epoch even when its carrier UID is reused.",
+    "completion": "Latch completion before children. After children, retire only the same counter epoch; a refreshed/reused carrier must survive. Death and threshold completion cannot both grant.",
+    "contributing_hits": "Declare allowed hit families, accepted outcomes and any attack/component deduplication policy. A blocked hit is not necessarily a miss; current damage-gate bool alone cannot decide capture eligibility.",
+    "shared_uses": [
+      "target-scoped capture",
+      "projectile/shield context bonuses",
+      "multi-target sequential hit routing",
+      "target-death completion"
+    ]
+  },
+  "game_rule_evidence_still_needed": [
+    "Which skill/DoT/weapon/pellet hits count toward capture, including blocked hits",
+    "Whether multiple component impacts of one projectile count once or separately for the logical enemy",
+    "Counter progress policy when possession refreshes on the same target"
+  ]
+}

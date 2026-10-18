@@ -1,0 +1,14 @@
+.F
+======================================================================
+FAIL: test_every_frame_damage_and_ammo_through_entry_and_exit (__main__.ModeGPUTests.test_every_frame_damage_and_ammo_through_entry_and_exit) (case='shot-end-removes-ammo')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\owner\Documents\ChatGPT\nikke tools\tests\test_detail_modes.py", line 36, in test_every_frame_damage_and_ammo_through_entry_and_exit
+    for k in [35,38,39,40,41,42,44]:self.assertEqual(a[k],b[k],(label,frame,k,a[k],b[k]))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 6 != 0.0 : ('shot-end-removes-ammo', 82, 44, 6, 0.0)
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.941s
+
+FAILED (failures=1)

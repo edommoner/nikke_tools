@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-10-16T09:15:20.378737+00:00",
+  "passed": true,
+  "objective_complete": false,
+  "engine_revision": "23164e4a88fe46af609cc99b0de38a98313a5f4d",
+  "abi": "detail_time_v7",
+  "effect_row_width": 224,
+  "cached_stats": 59,
+  "workspace_bytes_per_squad": 206760,
+  "definition_capacity": 128,
+  "instance_slot_capacity": 512,
+  "python_runtime": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "python_tests_passed": 77,
+  "python_test_seconds": 352.014,
+  "node_tests_passed": 20,
+  "time_cases": 58,
+  "time_primitives_per_backend": 21,
+  "time_synthetic_squads_per_backend": 5,
+  "time_new_real_squads_per_backend": 2,
+  "time_real_interaction_squads_per_backend": 1,
+  "catalog_cases": 140,
+  "compiled_characters": 70,
+  "catalog_characters": 203,
+  "favorite_contexts_compiled": 272,
+  "favorite_contexts_total": 812,
+  "cpu_trace_used_as_gpu_input": false,
+  "normal_api_total": 369664402,
+  "reports": {
+    "detail-time-verification.json": {
+      "passed": true,
+      "generated_at": "2026-10-16T09:03:06.062813+00:00",
+      "cases": 58
+    },
+    "detail-catalog-verification.json": {
+      "passed": true,
+      "generated_at": "2026-10-16T09:15:16.995892+00:00",
+      "cases": 140
+    },
+    "detail-time-api-verification.json": {
+      "passed": true,
+      "generated_at": "2026-10-16T09:07:53.546Z",
+      "cases": 0
+    }
+  },
+  "scope": "Static-boss fixtures and tested supported mechanics; compilation acceptance and one fixed squad per character do not prove every character/effect/favorite stage/combination",
+  "source_sha256": {
+    "app/detail_gpu.py": "23e5f9c042d67c9c8160e444b61c9938e232ce63e059720fb458dfd790822815",
+    "app/detail_effects.cu": "144772f1447cad311f91d07643135c6a221ceeaf8e16e150cc7cfce68343acac",
+    "app/detail_effects.ptx": "1428016130f74ce45bde6f266372f013c9473d6a703a99f8315e69e8de76618c",
+    "app/detail_effects-build.json": "749e310729029ed9499044f6c0d029a6ea241000582c266e87c1668449d2c1d8",
+    "app/detail_effects-sm86.cubin": "ff057a3bce540ef39824251513995e55687c3105a16797e996c623296047ff5c",
+    "app/detail_effects-sm86.json": "d820beb0cda89e64c0bf7c75d9fbfcc2b55e4ea29f91101b3b4a380a11d12d85",
+    "app/engine_worker.py": "d79f91713dfd44ef1b9108900e64541adf3c3af22922e394aee14a81e7a97370",
+    "scripts/build-combat.py": "6e1505412f2187aa992b5c9069c987b225c9396bb12b09f414923a9882b0d732",
+    "scripts/build-detail-native.py": "c154de49a9c3fc36abae84a3a34760387d18cf7b03673683c44963185501e64f",
+    "scripts/verify-catalog-detail.py": "86fc6b1be49abc7df338700560bc21d9f6bdb83b640a65afbf1304794429fd8b",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/calculator/damage.py": "7884a1aeb2d2d03dd192434e11f21bc1af5d61d7cdb7a65bf39185899c968e2b",
+    "research/upstream/nikke-calc-master/data/parsed_skills.json": "81e2934af7c91b69a49b71721d5f53af25b5ebf006595d3e929db4582ff23137",
+    "scripts/verify-time-detail.py": "ea4f8e6c016e1eb706d48952e2e665499d5d012df6ac2567113a7e37738e538f",
+    "tests/test_detail_time.py": "d9a234e2de9d91168fcd4921167f80e17a888237063c8717c8a52fbd6c9dea24",
+    "tests/test_detail_events.py": "ee8424c7d16d2b9de147e4f8fd1d9556ad08db2c335cdf446743fbf287d2ffa2",
+    "tests/test_detail_gpu.py": "5d667d7dec3522f3282a618f4c5ec6d08ad8eb8430f3d21f3d5d6b270edc0995",
+    "research/detail-time-regression.log": "637b7a4894707e2e1fa63b27be0e5acfb0d29178cf44bd1c1cc3131eb6d862dd",
+    "server.mjs": "34ef5212b960e7fbd98f0a610a3a1adfb9e9a1ca51d2b9f283f45348e8b46b3b",
+    "web/app.js": "733ac6ea0762c2378395448107b788d59e6f072b7f9f9625e36fc30fd0a95203",
+    "research/detail-time-api-fixture.json": "c664ee61489f577bed17ca0cd06090b4fc73917670f17fc226780488cc09ae48",
+    "research/detail-time-ui-fixture.json": "3c6841d8a08f7550a7bda994f16dd61f643d221fb34c1796725944b0a51802e5"
+  }
+}

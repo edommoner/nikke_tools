@@ -1,0 +1,1061 @@
+{
+  "objective_complete": false,
+  "scope": "unsupported constructs in fixed zero-favorite/no-cube compiler contexts; not full semantic audit",
+  "remaining_characters": 131,
+  "characters": [
+    {
+      "character": "아니스",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / received_dmg_split_even'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "벨로타 : 펌킨 위치",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / stealth'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "브리드 : 사일런트 트랙",
+      "required_constructs": [
+        "[{'reason': 'condition: target_code:풍압'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "센티",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / shared_shield_from_max_hp_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "엠마",
+      "required_constructs": [
+        "[{'reason': 'condition: prob:5'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "베스티",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / explosion_range'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "엠마 : 택티컬 업",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / received_dmg_buff_mag_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "베스티 : 택티컬 업",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / explosion_range'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "자칼",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / received_dmg_split_even'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "E.H.",
+      "required_constructs": [
+        "[{'reason': 'effect fields: charge_time, full_charge_mult, max_ammo_scaling_ref'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "앤 : 미라클 페어리",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: instant / revive'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "메어리 : 베이 갓데스",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / max_hp_from_max_hp_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "슈가",
+      "required_constructs": [
+        "[{'reason': 'condition: prob:20'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "유니",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / enemy_movement_disable'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "프리바티",
+      "required_constructs": [
+        "[{'reason': 'condition: target_stunned'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "길로틴 : 윈터 슬레이어",
+      "required_constructs": [
+        "[{'reason': 'condition: not_core'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "토브",
+      "required_constructs": [
+        "[{'reason': 'condition: prob:{0}'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "스노우 화이트",
+      "required_constructs": [
+        "[{'reason': 'effect fields: charge_time, full_charge_mult'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "라푼젤",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: instant / revive'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "홍련",
+      "required_constructs": [
+        "[{'reason': 'condition: prob:30'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "홍련 : 흑영",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / trigger_count_reduce'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "하란",
+      "required_constructs": [
+        "[{'reason': 'condition: prob:25'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "노아",
+      "required_constructs": [
+        "[{'reason': 'condition: prob:10'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "도로시 : 세렌디피티",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / pierce_range'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "루마니",
+      "required_constructs": [
+        "[{'reason': 'timing: part_hit_count:5'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "누아르",
+      "required_constructs": [
+        "[{'reason': 'condition: squad_ally_exists'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "솔져 E.G.",
+      "required_constructs": [
+        "[{'reason': 'condition: prob:5'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "솔져 F.A.",
+      "required_constructs": [
+        "[{'reason': 'condition: prob:10'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "프로덕트 08",
+      "required_constructs": [
+        "[{'reason': 'condition: prob:20'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "솔져 O.W.",
+      "required_constructs": [
+        "[{'reason': 'condition: prob:10'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "iDoll 썬",
+      "required_constructs": [
+        "[{'reason': 'condition: prob:20'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "에이드",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / debuff_immune_count'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "코코아",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: instant / debuff_cleanse'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "마르차나",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / heal_overcharge_store'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "차임",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: instant / burst_reentry'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "앵커",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / projectile_dmg_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "헬름 : 아쿠아마린",
+      "required_constructs": [
+        "[{'reason': 'condition: target_code:전격'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "네로",
+      "required_constructs": [
+        "[{'reason': 'condition: prob:30'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "레오나",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / optimal_range_max_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "츠바이",
+      "required_constructs": [
+        "[{'reason': 'effect fields: charge_time, full_charge_mult'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "길티",
+      "required_constructs": [
+        "[{'reason': 'effect fields: copy_from'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "퀀시",
+      "required_constructs": [
+        "[{'reason': 'effect fields: copy_from'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "레드 후드",
+      "required_constructs": [
+        "multiple or special burst stages"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "브래디",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / dmg_scale_mag_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "프리카",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / outgoing_heal_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "2B",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / atk_from_hp_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "렘",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / heal_split'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "람",
+      "required_constructs": [
+        "[{'reason': 'condition: squad_ally_exists'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "아스카",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / shield_dmg_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "레이",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / shield_dmg_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "마리",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / shield_dmg_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "아스카 : WILLE",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: instant / force_reload'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "클레어",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: instant / debuff_cleanse'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "타키나",
+      "required_constructs": [
+        "[{'reason': 'only timed infinite-ammo MG weapon mode currently verified'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "아이기스",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / persona_state'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "네온 : 블루 오션",
+      "required_constructs": [
+        "[{'reason': 'condition: target_code:작열'}]",
+        "[{'reason': 'effect fields: fire_rate, fire_rate_max'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "폴리",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / received_dmg_split_even'}]",
+        "[{'reason': 'effect type/stat: buff / shared_shield_from_max_hp_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "K",
+      "required_constructs": [
+        "[{'reason': 'effect fields: fire_rate, pellets'}]",
+        "[{'reason': 'effect fields: max_ammo_reduction_exclusive'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "D : 킬러 와이프",
+      "required_constructs": [
+        "[{'reason': 'timing: body_hit_count:1'}]",
+        "[{'reason': 'timing: part_hit_count:1'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "벨로타",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / explosion_range'}]",
+        "[{'reason': 'timing: multi_hit:4'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "미카 : 스노우 버디",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]",
+        "[{'reason': 'effect type/stat: instant / debuff_cleanse'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "디젤 : 윈터 스위츠",
+      "required_constructs": [
+        "[{'reason': 'effect fields: persist_on_revive'}]",
+        "[{'reason': 'effect type/stat: buff / debuff_immune:소음 공해'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "은화 : 택티컬 업",
+      "required_constructs": [
+        "[{'reason': 'effect fields: charge_time, full_charge_mult'}]",
+        "[{'reason': 'effect type/stat: buff / stealth'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "맥스웰",
+      "required_constructs": [
+        "[{'reason': 'condition: enemy_count_above:5'}]",
+        "[{'reason': 'effect fields: charge_time, full_charge_mult'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "라플라스 : 얼티밋 히어로",
+      "required_constructs": [
+        "[{'reason': 'effect fields: max_ammo_buff_applies'}]",
+        "[{'reason': 'effect type/stat: buff / atk_from_hp_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "드레이크 : 그레이트 빌런",
+      "required_constructs": [
+        "[{'reason': 'effect fields: charge, charge_time, entry_reload, full_charge_mult, pellets'}]",
+        "[{'reason': 'effect type/stat: buff / atk_from_hp_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "바이퍼",
+      "required_constructs": [
+        "[{'reason': 'condition: target_is_boss'}]",
+        "[{'reason': 'effect type/stat: buff / stealth'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "율하",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / received_dmg_split_even'}]",
+        "[{'reason': 'target: same_target:히스테릭 워커'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "길로틴",
+      "required_constructs": [
+        "[{'reason': 'scaling: lost_hp_pct'}]",
+        "[{'reason': 'target: same_target:마계흑룡파'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "메이든 : 아이스 로즈",
+      "required_constructs": [
+        "[{'reason': 'effect fields: scaling_hp_pct'}]",
+        "[{'reason': 'effect type/stat: buff / atk_from_hp_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "앨리스 : 원더랜드 바니",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]",
+        "[{'reason': 'effect type/stat: instant / burst_reentry'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "루피 : 윈터 쇼퍼",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]",
+        "[{'reason': 'effect type/stat: instant / burst_reentry'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "스노우 화이트 : 이노센트 데이즈",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / infinite_ammo'}]",
+        "[{'reason': 'effect type/stat: buff / trigger_count_reduce'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "도로시",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / dmg_accum_received_atk_pct'}]",
+        "[{'reason': 'effect type/stat: damage / accum_split_damage'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "니힐리스타",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / pierce_range'}]",
+        "[{'reason': 'timing: multi_hit:2'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "사쿠라",
+      "required_constructs": [
+        "[{'reason': 'condition: target_code:풍압'}]",
+        "[{'reason': 'effect type/stat: buff / projectile_dmg_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "사쿠라 : 블룸 인 서머",
+      "required_constructs": [
+        "[{'reason': 'effect fields: post_ramp_tick_delay, ramp_damage_stack, ramp_interval'}]",
+        "[{'reason': 'effect fields: target_skill'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "마나",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]",
+        "[{'reason': 'effect type/stat: instant / revive'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "에이드 : 에이전트 바니",
+      "required_constructs": [
+        "[{'reason': 'condition: optimal_range'}]",
+        "[{'reason': 'effect type/stat: buff / optimal_range_min'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "앵커 : 이노센트 메이드",
+      "required_constructs": [
+        "[{'reason': 'condition: squad_ally_exists'}]",
+        "[{'reason': 'effect type/stat: buff / heal_overcharge_store'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "비스킷",
+      "required_constructs": [
+        "[{'reason': 'condition: ally_hp_below:50'}]",
+        "[{'reason': 'effect type/stat: instant / cover_revive'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "아인",
+      "required_constructs": [
+        "[{'reason': 'effect fields: feather_id, feather_interval_base, feather_interval_step_pct, feather_slots'}]",
+        "[{'reason': 'timing: feather_tick'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "라이",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: instant / burst_charge_pct'}]",
+        "[{'reason': 'effect type/stat: instant / decoy_heal_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "길티 : 마이티 바니",
+      "required_constructs": [
+        "[{'reason': 'effect fields: charge_time, full_charge_mult'}]",
+        "[{'reason': 'timing: charge_hold:1'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "신 : 스위프트 바니",
+      "required_constructs": [
+        "[{'reason': 'effect fields: charge_time, full_charge_mult'}]",
+        "[{'reason': 'timing: charge_hold:1'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "아비스타",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: instant / burst_reentry'}]",
+        "[{'reason': 'target: 아니스 : 스타'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "티아",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: instant / burst_reentry'}]",
+        "[{'reason': 'scaling: max_hp'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "일레그 : 붐 앤 쇼크",
+      "required_constructs": [
+        "[{'reason': 'effect fields: land_in_full_burst'}]",
+        "[{'reason': 'effect type/stat: buff / possessed'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "신데렐라",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / atk_from_hp_pct'}]",
+        "[{'reason': 'target: same_target:유리 구두 풀 컨텍트'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "리틀 머메이드",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / focus_fire'}]",
+        "[{'reason': 'effect type/stat: instant / burst_charge_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "그레이브",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]",
+        "[{'reason': 'effect type/stat: buff / infinite_ammo'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "베이",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / received_dmg_split'}]",
+        "[{'reason': 'scaling: max_hp'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "클레이",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / debuff_immune_count'}]",
+        "[{'reason': 'effect type/stat: buff / projectile_dmg_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "모리",
+      "required_constructs": [
+        "[{'reason': 'effect fields: end_on_shield_consumed'}]",
+        "[{'reason': 'effect type/stat: instant / shield_heal_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "백학",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / debuff_immune:서약 위반 증거'}]",
+        "[{'reason': 'effect type/stat: buff / outgoing_heal_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "마키마",
+      "required_constructs": [
+        "[{'reason': 'condition: self_undying'}]",
+        "[{'reason': 'effect type/stat: buff / undying'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "파워",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / explosion_range'}]",
+        "[{'reason': 'target: same_target:피의 해머'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "A2",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / explosion_range'}]",
+        "[{'reason': 'timing: hp_below:40'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "미사토",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / outgoing_heal_pct'}]",
+        "[{'reason': 'effect type/stat: buff / shield_dmg_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "레이 (가칭)",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / effect_range_pct'}]",
+        "[{'reason': 'effect type/stat: buff / effect_target_count_add'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "질",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / reload_time_fixed'}]",
+        "[{'reason': 'effect type/stat: instant / force_reload'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "D",
+      "required_constructs": [
+        "[{'reason': 'condition: self_stun_immune'}]",
+        "[{'reason': 'effect type/stat: buff / stun_immune'}]",
+        "[{'reason': 'effect type/stat: instant / burst_charge_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "맥스웰 : 오디너리 미케닉",
+      "required_constructs": [
+        "[{'reason': 'effect fields: charge_time, full_charge_mult'}]",
+        "[{'reason': 'effect type/stat: buff / atk_from_hp_pct'}]",
+        "[{'reason': 'effect type/stat: instant / burst_charge_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "라푼젤 : 퓨어 그레이스",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / shared_shield_from_max_hp_pct'}]",
+        "[{'reason': 'effect type/stat: instant / shield_heal_pct'}]",
+        "[{'reason': 'timing: charge_hold:1'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "블랑",
+      "required_constructs": [
+        "[{'reason': 'condition: squad_ally_exists'}]",
+        "[{'reason': 'effect type/stat: buff / shared_shield_from_max_hp_pct'}]",
+        "[{'reason': 'effect type/stat: buff / undying'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "로산나",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / stealth'}]",
+        "[{'reason': 'effect type/stat: instant / burst_charge_pct'}]",
+        "[{'reason': 'effect type/stat: instant / enemy_buff_cleanse'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "신",
+      "required_constructs": [
+        "[{'reason': 'condition: enemy_count_above:4'}]",
+        "[{'reason': 'effect fields: copy_from'}]",
+        "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "일레그",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / projectile_dmg_pct'}]",
+        "[{'reason': 'effect type/stat: instant / burst_charge_pct'}]",
+        "[{'reason': 'target: target_and_nearby:2'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "트로니",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / dmg_accum_dealt_atk_pct'}]",
+        "[{'reason': 'effect type/stat: buff / dmg_accum_rate_pct'}]",
+        "[{'reason': 'effect type/stat: damage / accum_split_damage'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "크러스트",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: instant / debuff_cleanse'}]",
+        "[{'reason': 'timing: charge_hold_count:1:3'}]",
+        "[{'reason': 'timing: non_full_charge_fire_count:3'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "소라",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / heal_overcharge_store'}]",
+        "[{'reason': 'effect type/stat: buff / outgoing_heal_pct'}]",
+        "[{'reason': 'effect type/stat: instant / debuff_cleanse'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "에밀리아",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / explosion_range'}]",
+        "[{'reason': 'effect type/stat: damage / dealt_fixed_damage'}]",
+        "[{'reason': 'scaling: max_ammo_count'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "릴리",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: instant / cover_revive'}]",
+        "[{'reason': 'target: allies_broken_cover_random:1'}]",
+        "[{'reason': 'target: allies_random:1'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "퀸(마코토)",
+      "required_constructs": [
+        "[{'reason': 'condition: target_code:풍압'}]",
+        "[{'reason': 'effect type/stat: buff / persona_state'}]",
+        "[{'reason': 'target: allies_burst3_persona_excl_self'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "라플라스",
+      "required_constructs": [
+        "[{'reason': 'effect fields: first_damage_coeff'}]",
+        "[{'reason': 'effect type/stat: buff / cover_disabled'}]",
+        "[{'reason': 'effect type/stat: buff / explosion_range'}]",
+        "[{'reason': 'timing: part_hit_count:1'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "밀크 : 블루밍 바니",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / debuff_immune:부끄러움'}]",
+        "[{'reason': 'effect type/stat: buff / reload_time_fixed'}]",
+        "[{'reason': 'effect type/stat: instant / force_reload'}]",
+        "[{'reason': 'timing: charge_hold:0.5'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "나유타",
+      "required_constructs": [
+        "[{'reason': 'effect fields: charge_time, full_charge_mult, skill_damage'}]",
+        "[{'reason': 'effect type/stat: buff / heal_split'}]",
+        "[{'reason': 'effect type/stat: buff / infinite_ammo'}]",
+        "[{'reason': 'effect type/stat: buff / undying'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "마르차나 : 마린 스터디",
+      "required_constructs": [
+        "[{'reason': 'condition: enemy_count_above:6'}]",
+        "[{'reason': 'condition: enemy_count_below:3'}]",
+        "[{'reason': 'condition: enemy_count_below:5'}]",
+        "[{'reason': 'condition: target_code:전격'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "킬로",
+      "required_constructs": [
+        "[{'reason': 'effect fields: end_on_shield_consumed'}]",
+        "[{'reason': 'effect fields: scaling_hp_pct'}]",
+        "[{'reason': 'effect type/stat: buff / next_shield_hp_pct'}]",
+        "[{'reason': 'effect type/stat: instant / shield_heal_pct'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "트리나",
+      "required_constructs": [
+        "[{'reason': 'condition: ally_hp_below:30'}]",
+        "[{'reason': 'condition: ally_hp_below:50'}]",
+        "[{'reason': 'condition: enemy_count_above:2'}]",
+        "[{'reason': 'condition: enemy_count_below:1'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "스노우 화이트 : 헤비암즈",
+      "required_constructs": [
+        "[{'reason': 'condition: during_charge'}]",
+        "[{'reason': 'effect type/stat: buff / effect_target_count_add'}]",
+        "[{'reason': 'effect type/stat: buff / lock_on'}]",
+        "[{'reason': 'target: all_projectiles'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "이브",
+      "required_constructs": [
+        "[{'reason': 'condition: target_code:전격'}]",
+        "[{'reason': 'effect type/stat: buff / atk_buff_mag_pct'}]",
+        "[{'reason': 'effect type/stat: buff / dmg_scale_mag_pct'}]",
+        "invalid literal for int() with base 10: '불안정 에너지'"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "유키코",
+      "required_constructs": [
+        "[{'reason': 'condition: target_code:수냉'}]",
+        "[{'reason': 'condition: target_code:풍압'}]",
+        "[{'reason': 'effect type/stat: buff / persona_state'}]",
+        "[{'reason': 'target: allies_burst3_persona_excl_self'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "네온 : 비전 아이",
+      "required_constructs": [
+        "[{'reason': 'condition: target_is_boss'}]",
+        "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]",
+        "[{'reason': 'effect type/stat: buff / debuff_immune'}]",
+        "[{'reason': 'effect type/stat: buff / explosion_range'}]",
+        "[{'reason': 'gauge fields on a nongauge effect'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "리버렐리오",
+      "required_constructs": [
+        "[{'reason': 'condition: core_hit'}]",
+        "[{'reason': 'condition: target_is_add'}]",
+        "[{'reason': 'condition: target_is_boss'}]",
+        "[{'reason': 'effect type/stat: buff / charge_speed_buff_immune'}]",
+        "[{'reason': 'effect type/stat: buff / charge_speed_debuff_immune'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "신데렐라 : 크리스탈 웨이브",
+      "required_constructs": [
+        "[{'reason': 'condition: core_hit'}]",
+        "[{'reason': 'effect fields: charge_time, full_charge_mult, max_ammo_buff_applies, toggle'}]",
+        "[{'reason': 'effect type/stat: buff / reload_time_fixed'}]",
+        "[{'reason': 'effect type/stat: instant / burst_charge_pct'}]",
+        "[{'reason': 'effect type/stat: instant / squad_ammo_consume_as'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "레이블",
+      "required_constructs": [
+        "[{'reason': 'condition: target_code:전격'}]",
+        "[{'reason': 'effect fields: end_on_shield_consumed'}]",
+        "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]",
+        "[{'reason': 'effect type/stat: buff / shield_invincible'}]",
+        "[{'reason': 'effect type/stat: buff / stealth'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "아니스 : 스타",
+      "required_constructs": [
+        "[{'reason': 'condition: has_burst1_ally'}]",
+        "[{'reason': 'condition: no_burst1_ally'}]",
+        "[{'reason': 'effect type/stat: buff / burst_charge_speed_pct'}]",
+        "[{'reason': 'effect type/stat: buff / burst_stage_override:reenter1'}]",
+        "[{'reason': 'effect type/stat: buff / explosion_range'}]",
+        "[{'reason': 'target: allies_below_def'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "목단",
+      "required_constructs": [
+        "[{'reason': 'effect type/stat: buff / cover_disabled'}]",
+        "[{'reason': 'only timed infinite-ammo MG weapon mode currently verified'}]",
+        "[{'reason': 'scaling: lost_hp_pct'}]",
+        "[{'reason': 'timing: hp_below_count:20:1'}]",
+        "[{'reason': 'timing: hp_below_count:20:2'}]",
+        "[{'reason': 'timing: hp_below_count:20:3'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "라피 : 레드 후드",
+      "required_constructs": [
+        "[{'reason': 'condition: has_burst1_ally'}]",
+        "[{'reason': 'effect fields: target_code'}]",
+        "[{'reason': 'effect type/stat: buff / buff_stack_add'}]",
+        "[{'reason': 'effect type/stat: buff / burst_stage_override:1'}]",
+        "[{'reason': 'effect type/stat: buff / explosion_range'}]",
+        "[{'reason': 'effect type/stat: buff / trigger_count_reduce'}]",
+        "[{'reason': 'timing: weapon_hit:부착형 유탄 4'}]"
+      ],
+      "setup_error": null
+    },
+    {
+      "character": "델타 : 닌자 시프",
+      "required_constructs": [
+        "[{'reason': 'condition: has_defender_ally'}]",
+        "[{'reason': 'condition: no_defender_ally'}]",
+        "[{'reason': 'effect type/stat: buff / accumulate_max_scale_pct'}]",
+        "[{'reason': 'effect type/stat: buff / heal_overcharge_store_atk_pct'}]",
+        "[{'reason': 'effect type/stat: buff / next_shield_hp_pct'}]",
+        "[{'reason': 'effect type/stat: buff / stealth'}]",
+        "[{'reason': 'effect type/stat: instant / heal_overcharge_discharge'}]"
+      ],
+      "setup_error": null
+    }
+  ]
+}

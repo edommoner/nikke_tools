@@ -1,0 +1,2566 @@
+{
+  "passed": true,
+  "port": 4345,
+  "wall_ms": 11706.3397,
+  "normal_api": true,
+  "candidates": 8,
+  "cache_hits": 0,
+  "baseline": "research/periodic-sources-counter-performance.json",
+  "speedup": 1.0567857602833788,
+  "results": [
+    {
+      "value": 1000,
+      "meets": true,
+      "result": {
+        "total_damage": 816110957,
+        "members": [
+          {
+            "name": "N102",
+            "damage": 117419742,
+            "share": 0.14387717870083688
+          },
+          {
+            "name": "크라운",
+            "damage": 84216878,
+            "share": 0.10319292649810606
+          },
+          {
+            "name": "앨리스",
+            "damage": 141244958,
+            "share": 0.1730707776785798
+          },
+          {
+            "name": "모더니아",
+            "damage": 190042329,
+            "share": 0.23286334703627806
+          },
+          {
+            "name": "일레그 : 붐 앤 쇼크",
+            "damage": 283187050,
+            "share": 0.3469957700861992
+          }
+        ],
+        "base_stats": {
+          "N102": {
+            "atk": 98720,
+            "def": 19857,
+            "hp": 2702647
+          },
+          "크라운": {
+            "atk": 87173,
+            "def": 20845,
+            "hp": 3548287
+          },
+          "앨리스": {
+            "atk": 124955,
+            "def": 17716,
+            "hp": 2993617
+          },
+          "모더니아": {
+            "atk": 125311,
+            "def": 17722,
+            "hp": 3001638
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "atk": 138038,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 23,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 23.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 23.2,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 23.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 38.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 43,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 43.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 43.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 43.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 53.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 63,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 63.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 63.2,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 63.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 78.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 83,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 83.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 83.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 83.583,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 11498.357,
+        "initialization_ms": 13.197,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1153816,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 61.979,
+          "allocation_upload_host": 3.358,
+          "kernel_cuda": 11431.088,
+          "kernel_launch_sync_host": 11431.017,
+          "readback_host": 0.374,
+          "decode_host": 1.629
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "N102": {
+            "hp": 2702647,
+            "hp_pct": 100,
+            "max_hp": 2702647
+          },
+          "크라운": {
+            "hp": 3548287,
+            "hp_pct": 100,
+            "max_hp": 3548287
+          },
+          "앨리스": {
+            "hp": 2993617,
+            "hp_pct": 100,
+            "max_hp": 2993617
+          },
+          "모더니아": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "N102": {
+            "charging": false,
+            "phase": 2,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 45,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 3902,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 406,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": false,
+            "phase": 2,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 73,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 4702,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 90.45168666666291
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 3902,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 421,
+            "reloading_until": -1
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 11498.357,
+        "batch_workspace_bytes": 9230528,
+        "amortized_elapsed_ms": 1437.295
+      }
+    },
+    {
+      "value": 2000,
+      "meets": true,
+      "result": {
+        "total_damage": 817138479,
+        "members": [
+          {
+            "name": "N102",
+            "damage": 118447264,
+            "share": 0.14495372209732887
+          },
+          {
+            "name": "크라운",
+            "damage": 84216878,
+            "share": 0.10306316513580803
+          },
+          {
+            "name": "앨리스",
+            "damage": 141244958,
+            "share": 0.17285314745286887
+          },
+          {
+            "name": "모더니아",
+            "damage": 190042329,
+            "share": 0.23257052982325654
+          },
+          {
+            "name": "일레그 : 붐 앤 쇼크",
+            "damage": 283187050,
+            "share": 0.3465594354907377
+          }
+        ],
+        "base_stats": {
+          "N102": {
+            "atk": 99720,
+            "def": 19857,
+            "hp": 2702647
+          },
+          "크라운": {
+            "atk": 87173,
+            "def": 20845,
+            "hp": 3548287
+          },
+          "앨리스": {
+            "atk": 124955,
+            "def": 17716,
+            "hp": 2993617
+          },
+          "모더니아": {
+            "atk": 125311,
+            "def": 17722,
+            "hp": 3001638
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "atk": 138038,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 23,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 23.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 23.2,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 23.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 38.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 43,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 43.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 43.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 43.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 53.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 63,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 63.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 63.2,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 63.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 78.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 83,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 83.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 83.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 83.583,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 11498.357,
+        "initialization_ms": 13.197,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1153816,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 61.979,
+          "allocation_upload_host": 3.358,
+          "kernel_cuda": 11431.088,
+          "kernel_launch_sync_host": 11431.017,
+          "readback_host": 0.374,
+          "decode_host": 1.629
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "N102": {
+            "hp": 2702647,
+            "hp_pct": 100,
+            "max_hp": 2702647
+          },
+          "크라운": {
+            "hp": 3548287,
+            "hp_pct": 100,
+            "max_hp": 3548287
+          },
+          "앨리스": {
+            "hp": 2993617,
+            "hp_pct": 100,
+            "max_hp": 2993617
+          },
+          "모더니아": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "N102": {
+            "charging": false,
+            "phase": 2,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 45,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 3902,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 406,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": false,
+            "phase": 2,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 73,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 4702,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 90.45168666666291
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 3902,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 421,
+            "reloading_until": -1
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 11498.357,
+        "batch_workspace_bytes": 9230528,
+        "amortized_elapsed_ms": 1437.295
+      }
+    },
+    {
+      "value": 3000,
+      "meets": true,
+      "result": {
+        "total_damage": 818166006,
+        "members": [
+          {
+            "name": "N102",
+            "damage": 119474791,
+            "share": 0.1460275666843093
+          },
+          {
+            "name": "크라운",
+            "damage": 84216878,
+            "share": 0.10293372907502588
+          },
+          {
+            "name": "앨리스",
+            "damage": 141244958,
+            "share": 0.1726360628089943
+          },
+          {
+            "name": "모더니아",
+            "damage": 190042329,
+            "share": 0.2322784466799272
+          },
+          {
+            "name": "일레그 : 붐 앤 쇼크",
+            "damage": 283187050,
+            "share": 0.34612419475174333
+          }
+        ],
+        "base_stats": {
+          "N102": {
+            "atk": 100720,
+            "def": 19857,
+            "hp": 2702647
+          },
+          "크라운": {
+            "atk": 87173,
+            "def": 20845,
+            "hp": 3548287
+          },
+          "앨리스": {
+            "atk": 124955,
+            "def": 17716,
+            "hp": 2993617
+          },
+          "모더니아": {
+            "atk": 125311,
+            "def": 17722,
+            "hp": 3001638
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "atk": 138038,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 23,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 23.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 23.2,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 23.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 38.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 43,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 43.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 43.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 43.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 53.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 63,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 63.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 63.2,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 63.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 78.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 83,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 83.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 83.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 83.583,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 11498.357,
+        "initialization_ms": 13.197,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1153816,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 61.979,
+          "allocation_upload_host": 3.358,
+          "kernel_cuda": 11431.088,
+          "kernel_launch_sync_host": 11431.017,
+          "readback_host": 0.374,
+          "decode_host": 1.629
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "N102": {
+            "hp": 2702647,
+            "hp_pct": 100,
+            "max_hp": 2702647
+          },
+          "크라운": {
+            "hp": 3548287,
+            "hp_pct": 100,
+            "max_hp": 3548287
+          },
+          "앨리스": {
+            "hp": 2993617,
+            "hp_pct": 100,
+            "max_hp": 2993617
+          },
+          "모더니아": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "N102": {
+            "charging": false,
+            "phase": 2,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 45,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 3902,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 406,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": false,
+            "phase": 2,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 73,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 4702,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 90.45168666666291
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 3902,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 421,
+            "reloading_until": -1
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 11498.357,
+        "batch_workspace_bytes": 9230528,
+        "amortized_elapsed_ms": 1437.295
+      }
+    },
+    {
+      "value": 4000,
+      "meets": true,
+      "result": {
+        "total_damage": 819193535,
+        "members": [
+          {
+            "name": "N102",
+            "damage": 120502320,
+            "share": 0.1470987194741472
+          },
+          {
+            "name": "크라운",
+            "damage": 84216878,
+            "share": 0.1028046174705224
+          },
+          {
+            "name": "앨리스",
+            "damage": 141244958,
+            "share": 0.17241952232936017
+          },
+          {
+            "name": "모더니아",
+            "damage": 190042329,
+            "share": 0.2319870956989425
+          },
+          {
+            "name": "일레그 : 붐 앤 쇼크",
+            "damage": 283187050,
+            "share": 0.3456900450270277
+          }
+        ],
+        "base_stats": {
+          "N102": {
+            "atk": 101720,
+            "def": 19857,
+            "hp": 2702647
+          },
+          "크라운": {
+            "atk": 87173,
+            "def": 20845,
+            "hp": 3548287
+          },
+          "앨리스": {
+            "atk": 124955,
+            "def": 17716,
+            "hp": 2993617
+          },
+          "모더니아": {
+            "atk": 125311,
+            "def": 17722,
+            "hp": 3001638
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "atk": 138038,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 23,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 23.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 23.2,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 23.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 38.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 43,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 43.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 43.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 43.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 53.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 63,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 63.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 63.2,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 63.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 78.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 83,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 83.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 83.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 83.583,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 11498.357,
+        "initialization_ms": 13.197,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1153816,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 61.979,
+          "allocation_upload_host": 3.358,
+          "kernel_cuda": 11431.088,
+          "kernel_launch_sync_host": 11431.017,
+          "readback_host": 0.374,
+          "decode_host": 1.629
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "N102": {
+            "hp": 2702647,
+            "hp_pct": 100,
+            "max_hp": 2702647
+          },
+          "크라운": {
+            "hp": 3548287,
+            "hp_pct": 100,
+            "max_hp": 3548287
+          },
+          "앨리스": {
+            "hp": 2993617,
+            "hp_pct": 100,
+            "max_hp": 2993617
+          },
+          "모더니아": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "N102": {
+            "charging": false,
+            "phase": 2,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 45,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 3902,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 406,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": false,
+            "phase": 2,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 73,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 4702,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 90.45168666666291
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 3902,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 421,
+            "reloading_until": -1
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 11498.357,
+        "batch_workspace_bytes": 9230528,
+        "amortized_elapsed_ms": 1437.295
+      }
+    },
+    {
+      "value": 5000,
+      "meets": true,
+      "result": {
+        "total_damage": 820221061,
+        "members": [
+          {
+            "name": "N102",
+            "damage": 121529846,
+            "share": 0.14816718538272208
+          },
+          {
+            "name": "크라운",
+            "damage": 84216878,
+            "share": 0.10267582972976111
+          },
+          {
+            "name": "앨리스",
+            "damage": 141244958,
+            "share": 0.17220352502018965
+          },
+          {
+            "name": "모더니아",
+            "damage": 190042329,
+            "share": 0.23169647554319506
+          },
+          {
+            "name": "일레그 : 붐 앤 쇼크",
+            "damage": 283187050,
+            "share": 0.3452569843241321
+          }
+        ],
+        "base_stats": {
+          "N102": {
+            "atk": 102720,
+            "def": 19857,
+            "hp": 2702647
+          },
+          "크라운": {
+            "atk": 87173,
+            "def": 20845,
+            "hp": 3548287
+          },
+          "앨리스": {
+            "atk": 124955,
+            "def": 17716,
+            "hp": 2993617
+          },
+          "모더니아": {
+            "atk": 125311,
+            "def": 17722,
+            "hp": 3001638
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "atk": 138038,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 23,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 23.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 23.2,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 23.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 38.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 43,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 43.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 43.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 43.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 53.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 63,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 63.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 63.2,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 63.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 78.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 83,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 83.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 83.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 83.583,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 11498.357,
+        "initialization_ms": 13.197,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1153816,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 61.979,
+          "allocation_upload_host": 3.358,
+          "kernel_cuda": 11431.088,
+          "kernel_launch_sync_host": 11431.017,
+          "readback_host": 0.374,
+          "decode_host": 1.629
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "N102": {
+            "hp": 2702647,
+            "hp_pct": 100,
+            "max_hp": 2702647
+          },
+          "크라운": {
+            "hp": 3548287,
+            "hp_pct": 100,
+            "max_hp": 3548287
+          },
+          "앨리스": {
+            "hp": 2993617,
+            "hp_pct": 100,
+            "max_hp": 2993617
+          },
+          "모더니아": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "N102": {
+            "charging": false,
+            "phase": 2,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 45,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 3902,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 406,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": false,
+            "phase": 2,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 73,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 4702,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 90.45168666666291
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 3902,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 421,
+            "reloading_until": -1
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 11498.357,
+        "batch_workspace_bytes": 9230528,
+        "amortized_elapsed_ms": 1437.295
+      }
+    },
+    {
+      "value": 6000,
+      "meets": true,
+      "result": {
+        "total_damage": 821248585,
+        "members": [
+          {
+            "name": "N102",
+            "damage": 122557370,
+            "share": 0.14923297554296547
+          },
+          {
+            "name": "크라운",
+            "damage": 84216878,
+            "share": 0.102547364510832
+          },
+          {
+            "name": "앨리스",
+            "damage": 141244958,
+            "share": 0.17198806863088842
+          },
+          {
+            "name": "모더니아",
+            "damage": 190042329,
+            "share": 0.2314065831845543
+          },
+          {
+            "name": "일레그 : 붐 앤 쇼크",
+            "damage": 283187050,
+            "share": 0.34482500813075984
+          }
+        ],
+        "base_stats": {
+          "N102": {
+            "atk": 103720,
+            "def": 19857,
+            "hp": 2702647
+          },
+          "크라운": {
+            "atk": 87173,
+            "def": 20845,
+            "hp": 3548287
+          },
+          "앨리스": {
+            "atk": 124955,
+            "def": 17716,
+            "hp": 2993617
+          },
+          "모더니아": {
+            "atk": 125311,
+            "def": 17722,
+            "hp": 3001638
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "atk": 138038,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 23,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 23.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 23.2,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 23.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 38.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 43,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 43.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 43.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 43.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 53.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 63,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 63.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 63.2,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 63.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 78.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 83,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 83.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 83.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 83.583,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 11498.357,
+        "initialization_ms": 13.197,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1153816,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 61.979,
+          "allocation_upload_host": 3.358,
+          "kernel_cuda": 11431.088,
+          "kernel_launch_sync_host": 11431.017,
+          "readback_host": 0.374,
+          "decode_host": 1.629
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "N102": {
+            "hp": 2702647,
+            "hp_pct": 100,
+            "max_hp": 2702647
+          },
+          "크라운": {
+            "hp": 3548287,
+            "hp_pct": 100,
+            "max_hp": 3548287
+          },
+          "앨리스": {
+            "hp": 2993617,
+            "hp_pct": 100,
+            "max_hp": 2993617
+          },
+          "모더니아": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "N102": {
+            "charging": false,
+            "phase": 2,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 45,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 3902,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 406,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": false,
+            "phase": 2,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 73,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 4702,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 90.45168666666291
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 3902,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 421,
+            "reloading_until": -1
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 11498.357,
+        "batch_workspace_bytes": 9230528,
+        "amortized_elapsed_ms": 1437.295
+      }
+    },
+    {
+      "value": 7000,
+      "meets": true,
+      "result": {
+        "total_damage": 822276119,
+        "members": [
+          {
+            "name": "N102",
+            "damage": 123584904,
+            "share": 0.15029611239384663
+          },
+          {
+            "name": "크라운",
+            "damage": 84216878,
+            "share": 0.10241921910904966
+          },
+          {
+            "name": "앨리스",
+            "damage": 141244958,
+            "share": 0.1717731486252734
+          },
+          {
+            "name": "모더니아",
+            "damage": 190042329,
+            "share": 0.23111741251967455
+          },
+          {
+            "name": "일레그 : 붐 앤 쇼크",
+            "damage": 283187050,
+            "share": 0.34439410735215575
+          }
+        ],
+        "base_stats": {
+          "N102": {
+            "atk": 104720,
+            "def": 19857,
+            "hp": 2702647
+          },
+          "크라운": {
+            "atk": 87173,
+            "def": 20845,
+            "hp": 3548287
+          },
+          "앨리스": {
+            "atk": 124955,
+            "def": 17716,
+            "hp": 2993617
+          },
+          "모더니아": {
+            "atk": 125311,
+            "def": 17722,
+            "hp": 3001638
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "atk": 138038,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 23,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 23.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 23.2,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 23.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 38.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 43,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 43.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 43.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 43.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 53.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 63,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 63.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 63.2,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 63.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 78.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 83,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 83.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 83.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 83.583,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 11498.357,
+        "initialization_ms": 13.197,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1153816,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 61.979,
+          "allocation_upload_host": 3.358,
+          "kernel_cuda": 11431.088,
+          "kernel_launch_sync_host": 11431.017,
+          "readback_host": 0.374,
+          "decode_host": 1.629
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "N102": {
+            "hp": 2702647,
+            "hp_pct": 100,
+            "max_hp": 2702647
+          },
+          "크라운": {
+            "hp": 3548287,
+            "hp_pct": 100,
+            "max_hp": 3548287
+          },
+          "앨리스": {
+            "hp": 2993617,
+            "hp_pct": 100,
+            "max_hp": 2993617
+          },
+          "모더니아": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "N102": {
+            "charging": false,
+            "phase": 2,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 45,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 3902,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 406,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": false,
+            "phase": 2,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 73,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 4702,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 90.45168666666291
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 3902,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 421,
+            "reloading_until": -1
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 11498.357,
+        "batch_workspace_bytes": 9230528,
+        "amortized_elapsed_ms": 1437.295
+      }
+    },
+    {
+      "value": 8000,
+      "meets": true,
+      "result": {
+        "total_damage": 823303632,
+        "members": [
+          {
+            "name": "N102",
+            "damage": 124612417,
+            "share": 0.15135657387698734
+          },
+          {
+            "name": "크라운",
+            "damage": 84216878,
+            "share": 0.1022913961832249
+          },
+          {
+            "name": "앨리스",
+            "damage": 141244958,
+            "share": 0.17155876946258874
+          },
+          {
+            "name": "모더니아",
+            "damage": 190042329,
+            "share": 0.23082896954838164
+          },
+          {
+            "name": "일레그 : 붐 앤 쇼크",
+            "damage": 283187050,
+            "share": 0.34396429092881736
+          }
+        ],
+        "base_stats": {
+          "N102": {
+            "atk": 105720,
+            "def": 19857,
+            "hp": 2702647
+          },
+          "크라운": {
+            "atk": 87173,
+            "def": 20845,
+            "hp": 3548287
+          },
+          "앨리스": {
+            "atk": 124955,
+            "def": 17716,
+            "hp": 2993617
+          },
+          "모더니아": {
+            "atk": 125311,
+            "def": 17722,
+            "hp": 3001638
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "atk": 138038,
+            "def": 17779,
+            "hp": 3010221
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 23,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 23.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 23.2,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 23.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 38.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 43,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 43.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 43.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 43.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 53.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 63,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 63.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 63.2,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 63.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 78.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 83,
+            "event": "stage:1 사용",
+            "character": "N102"
+          },
+          {
+            "time": 83.1,
+            "event": "stage:2 사용",
+            "character": "크라운"
+          },
+          {
+            "time": 83.2,
+            "event": "stage:3 사용",
+            "character": "앨리스"
+          },
+          {
+            "time": 83.583,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "auto",
+        "burst_gauge_mode": "fixed",
+        "parts_state": null,
+        "boss_timeline": null,
+        "incoming_hits": null
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 11498.357,
+        "initialization_ms": 13.197,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1153816,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "timings_ms": {
+          "scope": "batch",
+          "packing_host": 61.979,
+          "allocation_upload_host": 3.358,
+          "kernel_cuda": 11431.088,
+          "kernel_launch_sync_host": 11431.017,
+          "readback_host": 0.374,
+          "decode_host": 1.629
+        },
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "fixed"
+        },
+        "final_hp": {
+          "N102": {
+            "hp": 2702647,
+            "hp_pct": 100,
+            "max_hp": 2702647
+          },
+          "크라운": {
+            "hp": 3548287,
+            "hp_pct": 100,
+            "max_hp": 3548287
+          },
+          "앨리스": {
+            "hp": 2993617,
+            "hp_pct": 100,
+            "max_hp": 2993617
+          },
+          "모더니아": {
+            "hp": 3001638,
+            "hp_pct": 100,
+            "max_hp": 3001638
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "hp": 3010221,
+            "hp_pct": 100,
+            "max_hp": 3010221
+          }
+        },
+        "final_control": {
+          "N102": {
+            "charging": false,
+            "phase": 2,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 45,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "크라운": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 3902,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 406,
+            "reloading_until": -1
+          },
+          "앨리스": {
+            "charging": false,
+            "phase": 2,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 73,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 11,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 4702,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 90.45168666666291
+          },
+          "일레그 : 붐 앤 쇼크": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 3902,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 421,
+            "reloading_until": -1
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 11498.357,
+        "batch_workspace_bytes": 9230528,
+        "amortized_elapsed_ms": 1437.295
+      }
+    }
+  ],
+  "source_sha256": {
+    "server.mjs": "8ee5956ff2f6360e57d35c6ab88d63ef0f0a5a826fbb4fbad01a795e0acae010",
+    "app/detail_gpu.py": "a3320627edd463ae416b52f7acba07b9340ebcde93750c0ed2b9c0fffd022591",
+    "app/gpu_service.py": "a5c9c707479986ab236a15cf73db872e6ac07e4f5148c9575d2c6b3fb025a2c0",
+    "app/detail_effects.cu": "5ccf6adfb59b216b18d0ee7b356b3b34f328903c8f8834e77648212bfb8c5311",
+    "app/detail_effects-sm86.cubin": "5354bf468a7c028d0b639b3f8ef27d2994f3e40e206bea48198bcaeaaef50564",
+    "app/detail_effects-sm86.json": "122bc6f75253d65ec8eea6fefb60e64eb5d5bb6bb71cbb61d89fe5bf2fb461a3",
+    "research/target-counters-api-fixture.json": "d732e34ebd9161cc3b762d854b9cc761d49383aa6df9c34c12e3b1570b7eb429",
+    "research/benchmark-normal-search.mjs": "e40f3e2615d0aad13cdf14bd87d6e1e48528ed2560a0b6ee43fffc34ef864545"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "abi": "detail_timer_registry_v81",
+  "source_sha256": "af2cf0b2cef045e998abf3a469ea579301a3d8daa85751baeca5d4726b7e6e24",
+  "ptx_sha256": "5f5d014c5d6f0c0147c63867180f61e229252dfdfff49b63828fdf9e0dec08bd",
+  "options": [
+    "--gpu-architecture=compute_52",
+    "--std=c++11",
+    "--fmad=false"
+  ]
+}

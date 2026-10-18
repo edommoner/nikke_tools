@@ -1,0 +1,942 @@
+{
+  "generated_at": "2026-10-16T14:17:41.452353+00:00",
+  "passed": true,
+  "cpu_trace_used_as_gpu_input": false,
+  "cases": [
+    {
+      "name": "placeholder-False-False",
+      "backend": "native",
+      "passed": true,
+      "cpu_count": 0,
+      "gpu_count": 0.0
+    },
+    {
+      "name": "placeholder-False-True",
+      "backend": "native",
+      "passed": true,
+      "cpu_count": 0,
+      "gpu_count": 0.0
+    },
+    {
+      "name": "placeholder-True-False",
+      "backend": "native",
+      "passed": true,
+      "cpu_count": 2,
+      "gpu_count": 2.0
+    },
+    {
+      "name": "placeholder-True-True",
+      "backend": "native",
+      "passed": true,
+      "cpu_count": 2,
+      "gpu_count": 2.0
+    },
+    {
+      "name": "temporary-리타-False",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 21355095,
+      "gpu_total": 21355095,
+      "observations": {
+        "cancel_reload": [
+          {
+            "name": "리타",
+            "time": 1.0000000000000013,
+            "ammo": 0,
+            "until": 1.55
+          },
+          {
+            "name": "리타",
+            "time": 2.0166666666666644,
+            "ammo": 0,
+            "until": 2.933333333333333
+          },
+          {
+            "name": "리타",
+            "time": 3.016666666666661,
+            "ammo": 0,
+            "until": 3.9333333333333296
+          },
+          {
+            "name": "리타",
+            "time": 4.016666666666658,
+            "ammo": 0,
+            "until": 4.9333333333333265
+          }
+        ],
+        "ammo_consumed": {
+          "리타": 2,
+          "크라운": 272,
+          "모더니아": 272,
+          "앨리스": 3,
+          "N102": 3
+        },
+        "full_reload": {
+          "리타": 1
+        }
+      }
+    },
+    {
+      "name": "temporary-리타-True",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 21355400,
+      "gpu_total": 21355400,
+      "observations": {
+        "cancel_reload": [
+          {
+            "name": "리타",
+            "time": 1.0000000000000013,
+            "ammo": 0,
+            "until": 1.55
+          },
+          {
+            "name": "리타",
+            "time": 1.100000000000001,
+            "ammo": 0,
+            "until": 2.600000000000001
+          },
+          {
+            "name": "리타",
+            "time": 2.0166666666666644,
+            "ammo": 0,
+            "until": 2.9499999999999997
+          },
+          {
+            "name": "리타",
+            "time": 2.2166666666666637,
+            "ammo": 0,
+            "until": 3.7166666666666637
+          },
+          {
+            "name": "리타",
+            "time": 3.016666666666661,
+            "ammo": 0,
+            "until": 3.9333333333333296
+          },
+          {
+            "name": "리타",
+            "time": 3.3166666666666598,
+            "ammo": 0,
+            "until": 4.816666666666659
+          },
+          {
+            "name": "리타",
+            "time": 4.016666666666658,
+            "ammo": 0,
+            "until": 4.949999999999992
+          }
+        ],
+        "ammo_consumed": {
+          "리타": 2,
+          "크라운": 272,
+          "모더니아": 272,
+          "앨리스": 3,
+          "N102": 3
+        },
+        "full_reload": {
+          "리타": 1
+        }
+      }
+    },
+    {
+      "name": "temporary-앨리스-False",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 26701830,
+      "gpu_total": 26701830,
+      "observations": {
+        "cancel_reload": [
+          {
+            "name": "앨리스",
+            "time": 2.0166666666666644,
+            "ammo": 0,
+            "until": 3.899999999999998
+          },
+          {
+            "name": "앨리스",
+            "time": 4.016666666666658,
+            "ammo": -1,
+            "until": 5.916666666666657
+          }
+        ],
+        "ammo_consumed": {
+          "리타": 168,
+          "크라운": 272,
+          "모더니아": 272,
+          "앨리스": 3,
+          "N102": 3
+        },
+        "full_reload": {}
+      }
+    },
+    {
+      "name": "temporary-앨리스-True",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 22114071,
+      "gpu_total": 22114071,
+      "observations": {
+        "cancel_reload": [
+          {
+            "name": "앨리스",
+            "time": 1.100000000000001,
+            "ammo": 0,
+            "until": 3.100000000000001
+          },
+          {
+            "name": "앨리스",
+            "time": 2.2166666666666637,
+            "ammo": 0,
+            "until": 4.216666666666663
+          },
+          {
+            "name": "앨리스",
+            "time": 3.3166666666666598,
+            "ammo": 0,
+            "until": 5.316666666666659
+          }
+        ],
+        "ammo_consumed": {
+          "리타": 168,
+          "크라운": 272,
+          "모더니아": 272,
+          "N102": 3,
+          "앨리스": 1
+        },
+        "full_reload": {}
+      }
+    },
+    {
+      "name": "finite-mode-SMG",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 72808616,
+      "gpu_total": 72808616,
+      "observations": {
+        "cancel_reload": [],
+        "ammo_consumed": {
+          "리타": 444,
+          "크라운": 752,
+          "모더니아": 764,
+          "앨리스": 8,
+          "N102": 10
+        },
+        "full_reload": {
+          "리타": 1,
+          "모더니아": 1,
+          "크라운": 1
+        }
+      }
+    },
+    {
+      "name": "finite-mode-SR",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 70339401,
+      "gpu_total": 70339401,
+      "observations": {
+        "cancel_reload": [],
+        "ammo_consumed": {
+          "리타": 444,
+          "크라운": 752,
+          "모더니아": 764,
+          "앨리스": 7,
+          "N102": 10
+        },
+        "full_reload": {
+          "리타": 1,
+          "모더니아": 1,
+          "크라운": 1
+        }
+      }
+    },
+    {
+      "name": "tap-and-infinite",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 69552793,
+      "gpu_total": 69552793,
+      "observations": {
+        "cancel_reload": [
+          {
+            "name": "앨리스",
+            "time": 3.1999999999999935,
+            "ammo": 0,
+            "until": 4.616666666666662
+          }
+        ],
+        "ammo_consumed": {
+          "리타": 444,
+          "크라운": 752,
+          "모더니아": 764,
+          "앨리스": 5,
+          "N102": 10
+        },
+        "full_reload": {
+          "앨리스": 3,
+          "리타": 1,
+          "모더니아": 1,
+          "크라운": 1
+        }
+      }
+    },
+    {
+      "name": "runtime-infinite-gate",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 87442304,
+      "gpu_total": 87442304,
+      "observations": {
+        "cancel_reload": [
+          {
+            "name": "리타",
+            "time": 3.5833333333333255,
+            "ammo": 0,
+            "until": 4.6833333333333265
+          },
+          {
+            "name": "리타",
+            "time": 23.583333333333275,
+            "ammo": 0,
+            "until": 24.449999999999978
+          }
+        ],
+        "ammo_consumed": {
+          "리타": 9,
+          "크라운": 1053,
+          "모더니아": 1065,
+          "앨리스": 13,
+          "N102": 13
+        },
+        "full_reload": {
+          "리타": 8,
+          "모더니아": 1,
+          "크라운": 1
+        }
+      }
+    },
+    {
+      "name": "last-fire-does-not-change-current-auto-shot",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 26805975,
+      "gpu_total": 26805975,
+      "observations": {
+        "cancel_reload": [],
+        "ammo_consumed": {
+          "리타": 4,
+          "크라운": 332,
+          "모더니아": 332,
+          "앨리스": 4,
+          "N102": 4
+        },
+        "full_reload": {
+          "리타": 3
+        }
+      }
+    },
+    {
+      "name": "pellet-callback-does-not-change-charge-ammo-snapshot",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 49114652,
+      "gpu_total": 49114652,
+      "observations": {
+        "cancel_reload": [],
+        "ammo_consumed": {
+          "리타": 276,
+          "크라운": 571,
+          "모더니아": 571,
+          "앨리스": 6,
+          "N102": 6
+        },
+        "full_reload": {}
+      }
+    },
+    {
+      "name": "real-스노우 화이트 : 이노센트 데이즈",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 371644340,
+      "gpu_total": 371644340,
+      "observations": {
+        "cancel_reload": [],
+        "ammo_consumed": {
+          "스노우 화이트 : 이노센트 데이즈": 233,
+          "리타": 673,
+          "크라운": 1405,
+          "모더니아": 1391,
+          "앨리스": 25
+        },
+        "full_reload": {
+          "리타": 2,
+          "모더니아": 1,
+          "크라운": 1,
+          "스노우 화이트 : 이노센트 데이즈": 1,
+          "앨리스": 1
+        }
+      }
+    },
+    {
+      "name": "placeholder-False-False",
+      "backend": "ptx",
+      "passed": true,
+      "cpu_count": 0,
+      "gpu_count": 0.0
+    },
+    {
+      "name": "placeholder-False-True",
+      "backend": "ptx",
+      "passed": true,
+      "cpu_count": 0,
+      "gpu_count": 0.0
+    },
+    {
+      "name": "placeholder-True-False",
+      "backend": "ptx",
+      "passed": true,
+      "cpu_count": 2,
+      "gpu_count": 2.0
+    },
+    {
+      "name": "placeholder-True-True",
+      "backend": "ptx",
+      "passed": true,
+      "cpu_count": 2,
+      "gpu_count": 2.0
+    },
+    {
+      "name": "temporary-리타-False",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 21355095,
+      "gpu_total": 21355095,
+      "observations": {
+        "cancel_reload": [
+          {
+            "name": "리타",
+            "time": 1.0000000000000013,
+            "ammo": 0,
+            "until": 1.55
+          },
+          {
+            "name": "리타",
+            "time": 2.0166666666666644,
+            "ammo": 0,
+            "until": 2.933333333333333
+          },
+          {
+            "name": "리타",
+            "time": 3.016666666666661,
+            "ammo": 0,
+            "until": 3.9333333333333296
+          },
+          {
+            "name": "리타",
+            "time": 4.016666666666658,
+            "ammo": 0,
+            "until": 4.9333333333333265
+          }
+        ],
+        "ammo_consumed": {
+          "리타": 2,
+          "크라운": 272,
+          "모더니아": 272,
+          "앨리스": 3,
+          "N102": 3
+        },
+        "full_reload": {
+          "리타": 1
+        }
+      }
+    },
+    {
+      "name": "temporary-리타-True",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 21355400,
+      "gpu_total": 21355400,
+      "observations": {
+        "cancel_reload": [
+          {
+            "name": "리타",
+            "time": 1.0000000000000013,
+            "ammo": 0,
+            "until": 1.55
+          },
+          {
+            "name": "리타",
+            "time": 1.100000000000001,
+            "ammo": 0,
+            "until": 2.600000000000001
+          },
+          {
+            "name": "리타",
+            "time": 2.0166666666666644,
+            "ammo": 0,
+            "until": 2.9499999999999997
+          },
+          {
+            "name": "리타",
+            "time": 2.2166666666666637,
+            "ammo": 0,
+            "until": 3.7166666666666637
+          },
+          {
+            "name": "리타",
+            "time": 3.016666666666661,
+            "ammo": 0,
+            "until": 3.9333333333333296
+          },
+          {
+            "name": "리타",
+            "time": 3.3166666666666598,
+            "ammo": 0,
+            "until": 4.816666666666659
+          },
+          {
+            "name": "리타",
+            "time": 4.016666666666658,
+            "ammo": 0,
+            "until": 4.949999999999992
+          }
+        ],
+        "ammo_consumed": {
+          "리타": 2,
+          "크라운": 272,
+          "모더니아": 272,
+          "앨리스": 3,
+          "N102": 3
+        },
+        "full_reload": {
+          "리타": 1
+        }
+      }
+    },
+    {
+      "name": "temporary-앨리스-False",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 26701830,
+      "gpu_total": 26701830,
+      "observations": {
+        "cancel_reload": [
+          {
+            "name": "앨리스",
+            "time": 2.0166666666666644,
+            "ammo": 0,
+            "until": 3.899999999999998
+          },
+          {
+            "name": "앨리스",
+            "time": 4.016666666666658,
+            "ammo": -1,
+            "until": 5.916666666666657
+          }
+        ],
+        "ammo_consumed": {
+          "리타": 168,
+          "크라운": 272,
+          "모더니아": 272,
+          "앨리스": 3,
+          "N102": 3
+        },
+        "full_reload": {}
+      }
+    },
+    {
+      "name": "temporary-앨리스-True",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 22114071,
+      "gpu_total": 22114071,
+      "observations": {
+        "cancel_reload": [
+          {
+            "name": "앨리스",
+            "time": 1.100000000000001,
+            "ammo": 0,
+            "until": 3.100000000000001
+          },
+          {
+            "name": "앨리스",
+            "time": 2.2166666666666637,
+            "ammo": 0,
+            "until": 4.216666666666663
+          },
+          {
+            "name": "앨리스",
+            "time": 3.3166666666666598,
+            "ammo": 0,
+            "until": 5.316666666666659
+          }
+        ],
+        "ammo_consumed": {
+          "리타": 168,
+          "크라운": 272,
+          "모더니아": 272,
+          "N102": 3,
+          "앨리스": 1
+        },
+        "full_reload": {}
+      }
+    },
+    {
+      "name": "finite-mode-SMG",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 72808616,
+      "gpu_total": 72808616,
+      "observations": {
+        "cancel_reload": [],
+        "ammo_consumed": {
+          "리타": 444,
+          "크라운": 752,
+          "모더니아": 764,
+          "앨리스": 8,
+          "N102": 10
+        },
+        "full_reload": {
+          "리타": 1,
+          "모더니아": 1,
+          "크라운": 1
+        }
+      }
+    },
+    {
+      "name": "finite-mode-SR",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 70339401,
+      "gpu_total": 70339401,
+      "observations": {
+        "cancel_reload": [],
+        "ammo_consumed": {
+          "리타": 444,
+          "크라운": 752,
+          "모더니아": 764,
+          "앨리스": 7,
+          "N102": 10
+        },
+        "full_reload": {
+          "리타": 1,
+          "모더니아": 1,
+          "크라운": 1
+        }
+      }
+    },
+    {
+      "name": "tap-and-infinite",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 69552793,
+      "gpu_total": 69552793,
+      "observations": {
+        "cancel_reload": [
+          {
+            "name": "앨리스",
+            "time": 3.1999999999999935,
+            "ammo": 0,
+            "until": 4.616666666666662
+          }
+        ],
+        "ammo_consumed": {
+          "리타": 444,
+          "크라운": 752,
+          "모더니아": 764,
+          "앨리스": 5,
+          "N102": 10
+        },
+        "full_reload": {
+          "앨리스": 3,
+          "리타": 1,
+          "모더니아": 1,
+          "크라운": 1
+        }
+      }
+    },
+    {
+      "name": "runtime-infinite-gate",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 87442304,
+      "gpu_total": 87442304,
+      "observations": {
+        "cancel_reload": [
+          {
+            "name": "리타",
+            "time": 3.5833333333333255,
+            "ammo": 0,
+            "until": 4.6833333333333265
+          },
+          {
+            "name": "리타",
+            "time": 23.583333333333275,
+            "ammo": 0,
+            "until": 24.449999999999978
+          }
+        ],
+        "ammo_consumed": {
+          "리타": 9,
+          "크라운": 1053,
+          "모더니아": 1065,
+          "앨리스": 13,
+          "N102": 13
+        },
+        "full_reload": {
+          "리타": 8,
+          "모더니아": 1,
+          "크라운": 1
+        }
+      }
+    },
+    {
+      "name": "last-fire-does-not-change-current-auto-shot",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 26805975,
+      "gpu_total": 26805975,
+      "observations": {
+        "cancel_reload": [],
+        "ammo_consumed": {
+          "리타": 4,
+          "크라운": 332,
+          "모더니아": 332,
+          "앨리스": 4,
+          "N102": 4
+        },
+        "full_reload": {
+          "리타": 3
+        }
+      }
+    },
+    {
+      "name": "pellet-callback-does-not-change-charge-ammo-snapshot",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 49114652,
+      "gpu_total": 49114652,
+      "observations": {
+        "cancel_reload": [],
+        "ammo_consumed": {
+          "리타": 276,
+          "크라운": 571,
+          "모더니아": 571,
+          "앨리스": 6,
+          "N102": 6
+        },
+        "full_reload": {}
+      }
+    },
+    {
+      "name": "real-스노우 화이트 : 이노센트 데이즈",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "magazines": true
+      },
+      "errors": [],
+      "cpu_total": 371644340,
+      "gpu_total": 371644340,
+      "observations": {
+        "cancel_reload": [],
+        "ammo_consumed": {
+          "스노우 화이트 : 이노센트 데이즈": 233,
+          "리타": 673,
+          "크라운": 1405,
+          "모더니아": 1391,
+          "앨리스": 25
+        },
+        "full_reload": {
+          "리타": 2,
+          "모더니아": 1,
+          "크라운": 1,
+          "스노우 화이트 : 이노센트 데이즈": 1,
+          "앨리스": 1
+        }
+      }
+    }
+  ],
+  "source_sha256": {
+    "app/detail_gpu.py": "7f18234c66623c693e8b94ded5fff91d4bb4f59665339a1463871991253af298",
+    "app/detail_effects.cu": "a7b9f0c847a050a52616dcc11211577be0d0b7b23d413d8a4c7ebfed90e27a30",
+    "app/detail_effects.ptx": "ea6187adb56b6d6022b7d82054af26a60336f8c90287b928a608ca766a2f2075",
+    "app/detail_effects-build.json": "c3ead949645fb67e20f9ca7f689bd50193e85f7fede5cba113d7534666608061",
+    "app/detail_effects-sm86.cubin": "a21ef8bdddf5a1ada677a5670b02149faccec3a20aa024e38ea2177051305141",
+    "app/detail_effects-sm86.json": "41562c8f3b4ca7ea70ceef19276e49d5d00de571229b613db3a5b3c40ac4a164",
+    "scripts/verify-infinite-detail.py": "a69c194ab3f3a7a32ef4651893f87d3fcd3eeca7b01c0fc37f625037409077be"
+  }
+}

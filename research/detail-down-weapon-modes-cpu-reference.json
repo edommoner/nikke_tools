@@ -1,0 +1,1096 @@
+{
+  "generated_at": "2026-10-17T06:02:50.352260+00:00",
+  "cpu_reference_verified": true,
+  "gpu_implemented": false,
+  "objective_complete": false,
+  "cases": [
+    {
+      "character": "모더니아",
+      "revive": false,
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "total": 19917852,
+      "events": [
+        {
+          "event": "before-down",
+          "time": 3.7999999999999914,
+          "mode_name": "섬멸 모드",
+          "hp": 0.0
+        },
+        {
+          "event": "end-mode",
+          "time": 3.7999999999999914,
+          "already_down": true
+        },
+        {
+          "event": "after-down",
+          "time": 3.7999999999999914,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          }
+        }
+      ],
+      "action_ticks": [
+        {
+          "time": 3.766666666666658,
+          "down": false,
+          "state": {
+            "ammo": 999964,
+            "next_fire_time": 3.766666666666658,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 35,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 1
+        },
+        {
+          "time": 3.7833333333333248,
+          "down": false,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 1
+        },
+        {
+          "time": 3.7999999999999914,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 3.816666666666658,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 3.8333333333333246,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.433333333333319,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.449999999999986,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.466666666666653,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.483333333333319,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.499999999999986,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.516666666666652,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.533333333333319,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.549999999999986,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.566666666666652,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        }
+      ]
+    },
+    {
+      "character": "모더니아",
+      "revive": true,
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "total": 20126056,
+      "events": [
+        {
+          "event": "before-down",
+          "time": 3.7999999999999914,
+          "mode_name": "섬멸 모드",
+          "hp": 0.0
+        },
+        {
+          "event": "end-mode",
+          "time": 3.7999999999999914,
+          "already_down": true
+        },
+        {
+          "event": "after-down",
+          "time": 3.7999999999999914,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          }
+        },
+        {
+          "event": "after-revive",
+          "time": 5.516666666666652,
+          "down": false,
+          "state": {
+            "ammo": 300,
+            "next_fire_time": 5.516666666666652,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          }
+        }
+      ],
+      "action_ticks": [
+        {
+          "time": 3.766666666666658,
+          "down": false,
+          "state": {
+            "ammo": 999964,
+            "next_fire_time": 3.766666666666658,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 35,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 1
+        },
+        {
+          "time": 3.7833333333333248,
+          "down": false,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 1
+        },
+        {
+          "time": 3.7999999999999914,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 3.816666666666658,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 3.8333333333333246,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.433333333333319,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.449999999999986,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.466666666666653,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.483333333333319,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.499999999999986,
+          "down": true,
+          "state": {
+            "ammo": 999963,
+            "next_fire_time": 3.7833333333333248,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.516666666666652,
+          "down": false,
+          "state": {
+            "ammo": 299,
+            "next_fire_time": 6.516666666666652,
+            "reloading_until": -1.0,
+            "_in_weapon_change": false,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 1
+        },
+        {
+          "time": 5.533333333333319,
+          "down": false,
+          "state": {
+            "ammo": 299,
+            "next_fire_time": 6.516666666666652,
+            "reloading_until": -1.0,
+            "_in_weapon_change": false,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.549999999999986,
+          "down": false,
+          "state": {
+            "ammo": 299,
+            "next_fire_time": 6.516666666666652,
+            "reloading_until": -1.0,
+            "_in_weapon_change": false,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.566666666666652,
+          "down": false,
+          "state": {
+            "ammo": 299,
+            "next_fire_time": 6.516666666666652,
+            "reloading_until": -1.0,
+            "_in_weapon_change": false,
+            "_wc_shots": 36,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        }
+      ]
+    },
+    {
+      "character": "맥스웰",
+      "revive": false,
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "total": 19511916,
+      "events": [
+        {
+          "event": "before-down",
+          "time": 3.7999999999999914,
+          "mode_name": "피어스 샷",
+          "hp": 0.0
+        },
+        {
+          "event": "end-mode",
+          "time": 3.7999999999999914,
+          "already_down": true
+        },
+        {
+          "event": "after-down",
+          "time": 3.7999999999999914,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          }
+        }
+      ],
+      "action_ticks": [
+        {
+          "time": 3.766666666666658,
+          "down": false,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "charging",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 3.7833333333333248,
+          "down": false,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "charging",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 3.7999999999999914,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 3.816666666666658,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 3.8333333333333246,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.433333333333319,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.449999999999986,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.466666666666653,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.483333333333319,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.499999999999986,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.516666666666652,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.533333333333319,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.549999999999986,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.566666666666652,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        }
+      ]
+    },
+    {
+      "character": "맥스웰",
+      "revive": true,
+      "cpu_reference_verified": true,
+      "gpu_implemented": false,
+      "total": 20253988,
+      "events": [
+        {
+          "event": "before-down",
+          "time": 3.7999999999999914,
+          "mode_name": "피어스 샷",
+          "hp": 0.0
+        },
+        {
+          "event": "end-mode",
+          "time": 3.7999999999999914,
+          "already_down": true
+        },
+        {
+          "event": "after-down",
+          "time": 3.7999999999999914,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          }
+        },
+        {
+          "event": "after-revive",
+          "time": 5.516666666666652,
+          "down": false,
+          "state": {
+            "ammo": 6,
+            "next_fire_time": 5.516666666666652,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          }
+        }
+      ],
+      "action_ticks": [
+        {
+          "time": 3.766666666666658,
+          "down": false,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "charging",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 3.7833333333333248,
+          "down": false,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "charging",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 3.7999999999999914,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 3.816666666666658,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 3.8333333333333246,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.433333333333319,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.449999999999986,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.466666666666653,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.483333333333319,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.499999999999986,
+          "down": true,
+          "state": {
+            "ammo": 1,
+            "next_fire_time": 0.0,
+            "reloading_until": -1.0,
+            "_in_weapon_change": true,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "ready",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.516666666666652,
+          "down": false,
+          "state": {
+            "ammo": 6,
+            "next_fire_time": 5.516666666666652,
+            "reloading_until": -1.0,
+            "_in_weapon_change": false,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "charging",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.533333333333319,
+          "down": false,
+          "state": {
+            "ammo": 6,
+            "next_fire_time": 5.516666666666652,
+            "reloading_until": -1.0,
+            "_in_weapon_change": false,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "charging",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.549999999999986,
+          "down": false,
+          "state": {
+            "ammo": 6,
+            "next_fire_time": 5.516666666666652,
+            "reloading_until": -1.0,
+            "_in_weapon_change": false,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "charging",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        },
+        {
+          "time": 5.566666666666652,
+          "down": false,
+          "state": {
+            "ammo": 6,
+            "next_fire_time": 5.516666666666652,
+            "reloading_until": -1.0,
+            "_in_weapon_change": false,
+            "_wc_shots": 0,
+            "_wc_ammo_restored": false,
+            "_charge_phase": "charging",
+            "_charge_full_t": -1.0,
+            "_hold_release_t": -1.0
+          },
+          "hits": 0
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "scripts/audit-down-weapon-modes.py": "f3d4f71202ab3a0b0659bc2f9356b241687b902e11caa5aad5cd70a9824e2159",
+    "scripts/verify-incoming-detail.py": "76bf238f9d184c491984c767f5cf8be3d0206d89130a6457f7e78e6d8004aa7d",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/engine_compat.py": "f57f89a81f1f70e83aed7d2a175d33613fc5b126f62d0c67658a326c51455c66",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}

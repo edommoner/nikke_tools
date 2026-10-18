@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-10-18T03:11:37.605Z",
+  "passed": true,
+  "fictional_owned_data": true,
+  "live_import_verified": false,
+  "scalar_and_list_editor_roundtrip": true,
+  "pure_gpu_and_verified_and_cpu_equal": true,
+  "original_total": 595801272,
+  "total": 606133014,
+  "members": [
+    {
+      "name": "사쿠라 : 블룸 인 서머",
+      "damage": 137507872,
+      "share": 0.2268608850267971
+    },
+    {
+      "name": "리타",
+      "damage": 39161683,
+      "share": 0.06460905790556394
+    },
+    {
+      "name": "크라운",
+      "damage": 56261454,
+      "share": 0.09282030956987272
+    },
+    {
+      "name": "앨리스",
+      "damage": 127507895,
+      "share": 0.21036289404292371
+    },
+    {
+      "name": "모더니아",
+      "damage": 245694110,
+      "share": 0.4053468534548425
+    }
+  ],
+  "burst_timeline": [
+    {
+      "time": 3,
+      "event": "stage:1 사용",
+      "character": "리타"
+    },
+    {
+      "time": 3.1,
+      "event": "stage:2 사용",
+      "character": "크라운"
+    },
+    {
+      "time": 3.2,
+      "event": "stage:3 사용",
+      "character": "사쿠라 : 블룸 인 서머"
+    },
+    {
+      "time": 3.583,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 13.583,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 20.667,
+      "event": "stage:1 사용",
+      "character": "리타"
+    },
+    {
+      "time": 20.767,
+      "event": "stage:2 사용",
+      "character": "크라운"
+    },
+    {
+      "time": 20.867,
+      "event": "stage:3 사용",
+      "character": "앨리스"
+    },
+    {
+      "time": 21.25,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 31.25,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 35.633,
+      "event": "stage:1 사용",
+      "character": "리타"
+    },
+    {
+      "time": 35.733,
+      "event": "stage:2 사용",
+      "character": "크라운"
+    },
+    {
+      "time": 35.833,
+      "event": "stage:3 사용",
+      "character": "사쿠라 : 블룸 인 서머"
+    },
+    {
+      "time": 36.217,
+      "event": "full_burst 시작",
+      "character": ""
+    }
+  ],
+  "source_sha256": {
+    "scripts/smoke-owned-detail.mjs": "b6a8f6342ef6fdfe82dbd77889550d08c2976a91ee4b6ed2f22ad26e33292a3e",
+    "web/roster-model.mjs": "e7e700c780d04ab01e3bc82df0af07a989af2b6dbea815a6fef8fbf5db1b8390",
+    "web/app.js": "dc015a14a22e34957529f4e0e7689312178ba2be34dd5d0033d92a044e8d3c39",
+    "web/index.html": "665ec4abdfe129bc31b3e05c81b4ae86dad5175e3c834b07278750596ccc8226",
+    "server.mjs": "8ee5956ff2f6360e57d35c6ab88d63ef0f0a5a826fbb4fbad01a795e0acae010",
+    "research/staged-dot-api-fixture.json": "a8c10e64c0d717cc1670c82fbb08e2ebb5a624dcaf1786af791d92231db19799",
+    "app/detail_gpu.py": "1b8f3db254ad65401b95c166ee946ad6a99d84b5e41dc8cf4d64d22cff0577fe",
+    "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
+    "app/evaluation-queue.mjs": "23a1724c380470261d16b3f4d80e2fa9a9bd7c6862e1ca48ebf94844a6905344",
+    "app/detail_effects.cu": "654421c7c4c38ebfc8de04db2ce63cb423f555d689395c08c61e8383352f9013",
+    "app/detail_effects-sm86.cubin": "b6e78e2487615d1bdde95be5375fb06a83e547c4be52904acfe4a244d48fe5af",
+    "app/detail_effects-sm86.json": "74a3734bad76375147ba5f785eea03f76963aca80e28675cf61122eb2df9e8d7",
+    "app/detail_effects.ptx": "9d471b7abe6d2689e9da8b05cc28fbd12833430eaffddaf93c66feeef0d5cc6c",
+    "app/engine_worker.py": "2303687435aa6a4d7422a62107d064ee063dd91182fdecc526a0709314199845",
+    "app/engine_compat.py": "ca841c7fe18f68682699ee71b52194c079d1a861e7f7e385b7d322e5b4d101d5",
+    "app/gpu_service.py": "a5c9c707479986ab236a15cf73db872e6ac07e4f5148c9575d2c6b3fb025a2c0"
+  }
+}

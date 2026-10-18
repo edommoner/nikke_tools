@@ -1,0 +1,1103 @@
+{
+  "generated_at": "2026-10-16T14:23:16.382824+00:00",
+  "cpu_reference_only": true,
+  "cpu_trace_used_as_gpu_input": false,
+  "cases": [
+    {
+      "mode": "fixed",
+      "timing": "battle_start",
+      "authored_effects": {
+        "크라운": [
+          {
+            "source": "스킬1",
+            "name": "boundary gauge charge",
+            "type": "instant",
+            "stat": "burst_charge_pct",
+            "fixed_value": 150,
+            "target": "self",
+            "trigger": {
+              "timing": [
+                "battle_start"
+              ],
+              "condition": []
+            }
+          }
+        ]
+      },
+      "events": [
+        {
+          "event": "battle_start",
+          "time": 0.0,
+          "phase": "idle",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "instant_charge",
+          "source": "charge_pct:boundary gauge charge",
+          "time": 0.0,
+          "phase": "idle",
+          "charging": true,
+          "before": 0.0,
+          "after": 100.0,
+          "added": 100.0
+        },
+        {
+          "event": "burst_enter:1",
+          "time": 2.9999999999999942,
+          "phase": "stage:1",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "full_burst_start",
+          "time": 3.5833333333333255,
+          "phase": "full_burst",
+          "charging": false,
+          "gauge": 0.0
+        },
+        {
+          "event": "full_burst_end",
+          "time": 13.583333333333588,
+          "phase": "idle",
+          "charging": false,
+          "gauge": 0.0
+        },
+        {
+          "event": "burst_enter:1",
+          "time": 15.583333333333687,
+          "phase": "stage:1",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "full_burst_start",
+          "time": 23.583333333333275,
+          "phase": "full_burst",
+          "charging": false,
+          "gauge": 0.0
+        }
+      ],
+      "cpu_total": 112538969,
+      "burst_timeline": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 23.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 23.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 23.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 23.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "mode": "fixed",
+      "timing": "burst_enter:1",
+      "authored_effects": {
+        "크라운": [
+          {
+            "source": "스킬1",
+            "name": "boundary gauge charge",
+            "type": "instant",
+            "stat": "burst_charge_pct",
+            "fixed_value": 150,
+            "target": "self",
+            "trigger": {
+              "timing": [
+                "burst_enter:1"
+              ],
+              "condition": []
+            }
+          }
+        ]
+      },
+      "events": [
+        {
+          "event": "battle_start",
+          "time": 0.0,
+          "phase": "idle",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "burst_enter:1",
+          "time": 2.9999999999999942,
+          "phase": "stage:1",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "instant_charge",
+          "source": "charge_pct:boundary gauge charge",
+          "time": 2.9999999999999942,
+          "phase": "stage:1",
+          "charging": true,
+          "before": 0.0,
+          "after": 100.0,
+          "added": 100.0
+        },
+        {
+          "event": "full_burst_start",
+          "time": 3.5833333333333255,
+          "phase": "full_burst",
+          "charging": false,
+          "gauge": 100.0
+        },
+        {
+          "event": "full_burst_end",
+          "time": 13.583333333333588,
+          "phase": "idle",
+          "charging": false,
+          "gauge": 100.0
+        },
+        {
+          "event": "burst_enter:1",
+          "time": 15.583333333333687,
+          "phase": "stage:1",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "instant_charge",
+          "source": "charge_pct:boundary gauge charge",
+          "time": 15.583333333333687,
+          "phase": "stage:1",
+          "charging": true,
+          "before": 0.0,
+          "after": 100.0,
+          "added": 100.0
+        },
+        {
+          "event": "full_burst_start",
+          "time": 23.583333333333275,
+          "phase": "full_burst",
+          "charging": false,
+          "gauge": 100.0
+        }
+      ],
+      "cpu_total": 112538969,
+      "burst_timeline": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 23.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 23.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 23.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 23.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "mode": "fixed",
+      "timing": "full_burst_start",
+      "authored_effects": {
+        "크라운": [
+          {
+            "source": "스킬1",
+            "name": "boundary gauge charge",
+            "type": "instant",
+            "stat": "burst_charge_pct",
+            "fixed_value": 150,
+            "target": "self",
+            "trigger": {
+              "timing": [
+                "full_burst_start"
+              ],
+              "condition": []
+            }
+          }
+        ]
+      },
+      "events": [
+        {
+          "event": "battle_start",
+          "time": 0.0,
+          "phase": "idle",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "burst_enter:1",
+          "time": 2.9999999999999942,
+          "phase": "stage:1",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "full_burst_start",
+          "time": 3.5833333333333255,
+          "phase": "full_burst",
+          "charging": false,
+          "gauge": 0.0
+        },
+        {
+          "event": "instant_charge",
+          "source": "charge_pct:boundary gauge charge",
+          "time": 3.5833333333333255,
+          "phase": "full_burst",
+          "charging": false,
+          "before": 0.0,
+          "after": 0.0,
+          "added": 0.0
+        },
+        {
+          "event": "full_burst_end",
+          "time": 13.583333333333588,
+          "phase": "idle",
+          "charging": false,
+          "gauge": 0.0
+        },
+        {
+          "event": "burst_enter:1",
+          "time": 15.583333333333687,
+          "phase": "stage:1",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "full_burst_start",
+          "time": 23.583333333333275,
+          "phase": "full_burst",
+          "charging": false,
+          "gauge": 0.0
+        },
+        {
+          "event": "instant_charge",
+          "source": "charge_pct:boundary gauge charge",
+          "time": 23.583333333333275,
+          "phase": "full_burst",
+          "charging": false,
+          "before": 0.0,
+          "after": 0.0,
+          "added": 0.0
+        }
+      ],
+      "cpu_total": 112538969,
+      "burst_timeline": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 23.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 23.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 23.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 23.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "mode": "fixed",
+      "timing": "full_burst_end",
+      "authored_effects": {
+        "크라운": [
+          {
+            "source": "스킬1",
+            "name": "boundary gauge charge",
+            "type": "instant",
+            "stat": "burst_charge_pct",
+            "fixed_value": 150,
+            "target": "self",
+            "trigger": {
+              "timing": [
+                "full_burst_end"
+              ],
+              "condition": []
+            }
+          }
+        ]
+      },
+      "events": [
+        {
+          "event": "battle_start",
+          "time": 0.0,
+          "phase": "idle",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "burst_enter:1",
+          "time": 2.9999999999999942,
+          "phase": "stage:1",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "full_burst_start",
+          "time": 3.5833333333333255,
+          "phase": "full_burst",
+          "charging": false,
+          "gauge": 0.0
+        },
+        {
+          "event": "full_burst_end",
+          "time": 13.583333333333588,
+          "phase": "idle",
+          "charging": false,
+          "gauge": 0.0
+        },
+        {
+          "event": "instant_charge",
+          "source": "charge_pct:boundary gauge charge",
+          "time": 13.583333333333588,
+          "phase": "idle",
+          "charging": false,
+          "before": 0.0,
+          "after": 0.0,
+          "added": 0.0
+        },
+        {
+          "event": "burst_enter:1",
+          "time": 15.583333333333687,
+          "phase": "stage:1",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "full_burst_start",
+          "time": 23.583333333333275,
+          "phase": "full_burst",
+          "charging": false,
+          "gauge": 0.0
+        }
+      ],
+      "cpu_total": 112538969,
+      "burst_timeline": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 23.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 23.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 23.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 23.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "mode": "accumulate",
+      "timing": "battle_start",
+      "authored_effects": {
+        "크라운": [
+          {
+            "source": "스킬1",
+            "name": "boundary gauge charge",
+            "type": "instant",
+            "stat": "burst_charge_pct",
+            "fixed_value": 150,
+            "target": "self",
+            "trigger": {
+              "timing": [
+                "battle_start"
+              ],
+              "condition": []
+            }
+          }
+        ]
+      },
+      "events": [
+        {
+          "event": "battle_start",
+          "time": 0.0,
+          "phase": "idle",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "instant_charge",
+          "source": "charge_pct:boundary gauge charge",
+          "time": 0.0,
+          "phase": "idle",
+          "charging": true,
+          "before": 0.0,
+          "after": 100.0,
+          "added": 100.0
+        },
+        {
+          "event": "burst_enter:1",
+          "time": 0.0,
+          "phase": "stage:1",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "full_burst_start",
+          "time": 0.5833333333333335,
+          "phase": "full_burst",
+          "charging": false,
+          "gauge": 0.0
+        },
+        {
+          "event": "full_burst_end",
+          "time": 10.583333333333439,
+          "phase": "idle",
+          "charging": false,
+          "gauge": 0.0
+        },
+        {
+          "event": "burst_enter:1",
+          "time": 14.30000000000029,
+          "phase": "stage:1",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "full_burst_start",
+          "time": 20.583333333333446,
+          "phase": "full_burst",
+          "charging": false,
+          "gauge": 0.0
+        }
+      ],
+      "cpu_total": 114203071,
+      "burst_timeline": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 앨리스",
+          "character": ""
+        },
+        {
+          "time": 0.0,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 0.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 0.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 0.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 0.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 10.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 14.3,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 20.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 20.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 20.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 20.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "mode": "accumulate",
+      "timing": "burst_enter:1",
+      "authored_effects": {
+        "크라운": [
+          {
+            "source": "스킬1",
+            "name": "boundary gauge charge",
+            "type": "instant",
+            "stat": "burst_charge_pct",
+            "fixed_value": 150,
+            "target": "self",
+            "trigger": {
+              "timing": [
+                "burst_enter:1"
+              ],
+              "condition": []
+            }
+          }
+        ]
+      },
+      "events": [
+        {
+          "event": "battle_start",
+          "time": 0.0,
+          "phase": "idle",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "burst_enter:1",
+          "time": 5.066666666666654,
+          "phase": "stage:1",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "instant_charge",
+          "source": "charge_pct:boundary gauge charge",
+          "time": 5.066666666666654,
+          "phase": "stage:1",
+          "charging": true,
+          "before": 0.0,
+          "after": 100.0,
+          "added": 100.0
+        },
+        {
+          "event": "full_burst_start",
+          "time": 5.649999999999985,
+          "phase": "full_burst",
+          "charging": false,
+          "gauge": 100.0
+        },
+        {
+          "event": "full_burst_end",
+          "time": 15.650000000000357,
+          "phase": "idle",
+          "charging": false,
+          "gauge": 100.0
+        },
+        {
+          "event": "burst_enter:1",
+          "time": 15.650000000000357,
+          "phase": "stage:1",
+          "charging": false,
+          "gauge": 0.0
+        },
+        {
+          "event": "instant_charge",
+          "source": "charge_pct:boundary gauge charge",
+          "time": 15.650000000000357,
+          "phase": "stage:1",
+          "charging": false,
+          "before": 0.0,
+          "after": 0.0,
+          "added": 0.0
+        },
+        {
+          "event": "full_burst_start",
+          "time": 25.649999999999824,
+          "phase": "full_burst",
+          "charging": false,
+          "gauge": 0.0
+        }
+      ],
+      "cpu_total": 109785119,
+      "burst_timeline": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 앨리스",
+          "character": ""
+        },
+        {
+          "time": 5.067,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.067,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.167,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.267,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 5.65,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 15.65,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 15.65,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 25.067,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 25.167,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 25.267,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 25.65,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "mode": "accumulate",
+      "timing": "full_burst_start",
+      "authored_effects": {
+        "크라운": [
+          {
+            "source": "스킬1",
+            "name": "boundary gauge charge",
+            "type": "instant",
+            "stat": "burst_charge_pct",
+            "fixed_value": 150,
+            "target": "self",
+            "trigger": {
+              "timing": [
+                "full_burst_start"
+              ],
+              "condition": []
+            }
+          }
+        ]
+      },
+      "events": [
+        {
+          "event": "battle_start",
+          "time": 0.0,
+          "phase": "idle",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "burst_enter:1",
+          "time": 5.066666666666654,
+          "phase": "stage:1",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "full_burst_start",
+          "time": 5.649999999999985,
+          "phase": "full_burst",
+          "charging": false,
+          "gauge": 0.0
+        },
+        {
+          "event": "instant_charge",
+          "source": "charge_pct:boundary gauge charge",
+          "time": 5.649999999999985,
+          "phase": "full_burst",
+          "charging": false,
+          "before": 0.0,
+          "after": 0.0,
+          "added": 0.0
+        },
+        {
+          "event": "full_burst_end",
+          "time": 15.650000000000357,
+          "phase": "idle",
+          "charging": false,
+          "gauge": 0.0
+        },
+        {
+          "event": "burst_enter:1",
+          "time": 20.45000000000012,
+          "phase": "stage:1",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "full_burst_start",
+          "time": 25.649999999999824,
+          "phase": "full_burst",
+          "charging": false,
+          "gauge": 0.0
+        },
+        {
+          "event": "instant_charge",
+          "source": "charge_pct:boundary gauge charge",
+          "time": 25.649999999999824,
+          "phase": "full_burst",
+          "charging": false,
+          "before": 0.0,
+          "after": 0.0,
+          "added": 0.0
+        }
+      ],
+      "cpu_total": 109785119,
+      "burst_timeline": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 앨리스",
+          "character": ""
+        },
+        {
+          "time": 5.067,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.067,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.167,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.267,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 5.65,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 15.65,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.45,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 25.067,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 25.167,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 25.267,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 25.65,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "mode": "accumulate",
+      "timing": "full_burst_end",
+      "authored_effects": {
+        "크라운": [
+          {
+            "source": "스킬1",
+            "name": "boundary gauge charge",
+            "type": "instant",
+            "stat": "burst_charge_pct",
+            "fixed_value": 150,
+            "target": "self",
+            "trigger": {
+              "timing": [
+                "full_burst_end"
+              ],
+              "condition": []
+            }
+          }
+        ]
+      },
+      "events": [
+        {
+          "event": "battle_start",
+          "time": 0.0,
+          "phase": "idle",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "burst_enter:1",
+          "time": 5.066666666666654,
+          "phase": "stage:1",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "full_burst_start",
+          "time": 5.649999999999985,
+          "phase": "full_burst",
+          "charging": false,
+          "gauge": 0.0
+        },
+        {
+          "event": "full_burst_end",
+          "time": 15.650000000000357,
+          "phase": "idle",
+          "charging": false,
+          "gauge": 0.0
+        },
+        {
+          "event": "instant_charge",
+          "source": "charge_pct:boundary gauge charge",
+          "time": 15.650000000000357,
+          "phase": "idle",
+          "charging": false,
+          "before": 0.0,
+          "after": 0.0,
+          "added": 0.0
+        },
+        {
+          "event": "burst_enter:1",
+          "time": 20.45000000000012,
+          "phase": "stage:1",
+          "charging": true,
+          "gauge": 0.0
+        },
+        {
+          "event": "full_burst_start",
+          "time": 25.649999999999824,
+          "phase": "full_burst",
+          "charging": false,
+          "gauge": 0.0
+        }
+      ],
+      "cpu_total": 109785119,
+      "burst_timeline": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 앨리스",
+          "character": ""
+        },
+        {
+          "time": 5.067,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.067,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.167,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.267,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 5.65,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 15.65,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.45,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 25.067,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 25.167,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 25.267,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 25.65,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}

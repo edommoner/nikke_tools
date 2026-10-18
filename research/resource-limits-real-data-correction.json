@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "scope": "Intentional CPU data correction, with all raw skills retained. Old data control removes only the new minimum field in a separate simulation; no production state mutated, no GPU acceptance claim.",
+  "old_data_total": 119462286,
+  "corrected_total": 121331548,
+  "removed_minima": [
+    1.0
+  ],
+  "source_sha256": {
+    "app/resource_specs.py": "8e258b9365cd17fdcad0733bc367cfd72478c2c1b585509f71dd017f3d27a8cd",
+    "app/resource_runtime.py": "8356943f18d137bfb90d60ab2096c2505403c9156f088cf29c7aeda38fecd58c",
+    "app/effect_overrides.py": "2219f5b421c6e719af1bc83c73bd1ed020dc7a7f4e18897bc973b291f0c66d43",
+    "app/effect_runtime.py": "2f1775a8cc9dbf62ba68f499cae6081cd977ee73fd8f2dbad5261d6e86980990",
+    "app/engine_compat.py": "ca841c7fe18f68682699ee71b52194c079d1a861e7f7e385b7d322e5b4d101d5",
+    "data/engine-effect-overrides.json": "2ec8bf0ba5f1e96267d724c2d0944d3cfba4f1c530bf3bf398effcc2583d0513"
+  }
+}

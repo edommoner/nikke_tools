@@ -1,0 +1,5 @@
+{"name": "max-hp-refresh-and-healing", "passed": true, "total_damage": 10293638, "snapshot_activations": 9, "positive_activations": 9}
+{"name": "max-hp-simultaneous-expiry", "passed": true, "total_damage": 7568344, "snapshot_activations": 2, "positive_activations": 2}
+{"name": "max-hp-source-down-revive", "passed": true, "total_damage": 9615065, "snapshot_activations": 7, "positive_activations": 7}
+{"name": "raw-max-hp-baseline", "passed": true, "total_damage": 125724424, "snapshot_activations": 3, "positive_activations": 3}
+{"name": "raw-max-hp-grown-reordered", "passed": true, "total_damage": 155744711, "snapshot_activations": 3, "positive_activations": 3}

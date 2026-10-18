@@ -1,0 +1,5602 @@
+{
+  "generated_at": "2026-10-17T08:58:16.979921+00:00",
+  "passed": true,
+  "objective_complete": false,
+  "stage_only": true,
+  "abi": "detail_hp_edge_v35",
+  "backend": "ptx",
+  "planned_cases": 39,
+  "not_run_cases": 0,
+  "cases": [
+    {
+      "name": "crossing-does-not-emit-named-event",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "independent_namespace_positive_control": true
+      },
+      "cpu_total": 2139508,
+      "gpu_total": 2139508,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_activations": [
+        "self witness"
+      ],
+      "group": "namespace"
+    },
+    {
+      "name": "named-event-does-not-cross-hp",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "independent_namespace_positive_control": true
+      },
+      "cpu_total": 1587947,
+      "gpu_total": 1587947,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_activations": [
+        "named witness"
+      ],
+      "group": "namespace"
+    },
+    {
+      "name": "explicit-ally-event-retains-name",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "independent_namespace_positive_control": true
+      },
+      "cpu_total": 1698285,
+      "gpu_total": 1698285,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_activations": [
+        "ally named witness"
+      ],
+      "group": "namespace"
+    },
+    {
+      "name": "self-cross",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 259473,
+      "gpu_total": 259473,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:60"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "already-below",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 259473,
+      "gpu_total": 259473,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:60"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "rearm-after-heal",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 290007,
+      "gpu_total": 290007,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.41666666666666663,
+          "caster": "리타",
+          "event": "hp_below:60"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "self edge witness",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "second-cross-counter",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 248568,
+      "gpu_total": 248568,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.41666666666666663,
+          "caster": "리타",
+          "event": "hp_below:60"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "self edge witness",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "squad-observer-order",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 291146,
+      "gpu_total": 291146,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "N102",
+          "event": "event:ally_hp_below:60"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "squad edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "squad edge witness",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "squad edge witness",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "squad edge witness",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "squad edge witness",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "adjacent-observers",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 244843,
+      "gpu_total": 244843,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:adjacent_hp_below:60"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "adjacent low witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "adjacent low witness",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "adjacent-max-transition",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 260109,
+      "gpu_total": 260109,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "모더니아"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.3,
+          "caster": "리타",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.3,
+          "caster": "모더니아",
+          "event": "event:adjacent_hp_max"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "adjacent low witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "adjacent low witness",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "adjacent max witness",
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "name": "adjacent max witness",
+          "time": 0.3,
+          "caster": "모더니아"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "reentrant-heal",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 259473,
+      "gpu_total": 259473,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:adjacent_hp_below:60"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "self edge witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "adjacent low witness",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "epsilon-cross",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 1295633,
+      "gpu_total": 1295633,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:59.9999995",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:59.9999995"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "epsilon-no-cross",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 1201850,
+      "gpu_total": 1201850,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [],
+      "gpu_hp_events": [],
+      "cpu_witness_activations": [],
+      "group": "authored"
+    },
+    {
+      "name": "registration-high-first",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 1863749,
+      "gpu_total": 1863749,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:80",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:40",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:80"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:40"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "registration-low-first",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 1863749,
+      "gpu_total": 1863749,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:40",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:40"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:80"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "distinct-numeric-spellings",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 1699047,
+      "gpu_total": 1699047,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:60.0",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60.0",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60.0",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:60.0"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.41666666666666663,
+          "caster": "리타",
+          "event": "hp_below:60.0"
+        },
+        {
+          "time": 0.41666666666666663,
+          "caster": "리타",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.6000000000000002,
+          "caster": "리타",
+          "event": "hp_below:60.0"
+        },
+        {
+          "time": 0.6000000000000002,
+          "caster": "리타",
+          "event": "hp_below:60"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "duplicate-key-descriptors",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 1699047,
+      "gpu_total": 1699047,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.41666666666666663,
+          "caster": "리타",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.6000000000000002,
+          "caster": "리타",
+          "event": "hp_below:60"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "multiple timing witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "multiple timing witness",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "multiple timing witness",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "name": "multiple timing witness",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "name": "multiple timing witness",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        },
+        {
+          "name": "multiple timing witness",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "multiple-exact-counts",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 1511519,
+      "gpu_total": 1511519,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.41666666666666663,
+          "caster": "리타",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.6000000000000002,
+          "caster": "리타",
+          "event": "hp_below:60"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "multiple timing witness",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "name": "multiple timing witness",
+          "time": 0.41666666666666663,
+          "caster": "리타"
+        },
+        {
+          "name": "multiple timing witness",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        },
+        {
+          "name": "multiple timing witness",
+          "time": 0.6000000000000002,
+          "caster": "리타"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "health-change-inside-edge",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 1579434,
+      "gpu_total": 1579434,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "N102",
+          "event": "event:ally_hp_below:60"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "startup-max-hp-allies",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 1499201,
+      "gpu_total": 1499201,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "모더니아"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "앨리스"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "N102"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.0,
+          "caster": "리타",
+          "event": "hp_below:80"
+        },
+        {
+          "time": 0.0,
+          "caster": "크라운",
+          "event": "hp_below:80"
+        },
+        {
+          "time": 0.0,
+          "caster": "모더니아",
+          "event": "hp_below:80"
+        },
+        {
+          "time": 0.0,
+          "caster": "앨리스",
+          "event": "hp_below:80"
+        },
+        {
+          "time": 0.0,
+          "caster": "N102",
+          "event": "hp_below:80"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "edge witness 1",
+          "time": 0.0,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.0,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.0,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.0,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.0,
+          "caster": "N102"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "max-hp-expiry",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 1901004,
+      "gpu_total": 1901004,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "모더니아"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "앨리스"
+        },
+        {
+          "event": "hp_below:80",
+          "time": 0.0,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "앨리스"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.0,
+          "caster": "리타",
+          "event": "hp_below:80"
+        },
+        {
+          "time": 0.0,
+          "caster": "크라운",
+          "event": "hp_below:80"
+        },
+        {
+          "time": 0.0,
+          "caster": "모더니아",
+          "event": "hp_below:80"
+        },
+        {
+          "time": 0.0,
+          "caster": "앨리스",
+          "event": "hp_below:80"
+        },
+        {
+          "time": 0.0,
+          "caster": "N102",
+          "event": "hp_below:80"
+        },
+        {
+          "time": 0.3,
+          "caster": "크라운",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.3,
+          "caster": "리타",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.3,
+          "caster": "모더니아",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.3,
+          "caster": "크라운",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.3,
+          "caster": "앨리스",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.3,
+          "caster": "모더니아",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.3,
+          "caster": "N102",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.3,
+          "caster": "앨리스",
+          "event": "event:adjacent_hp_max"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "edge witness 1",
+          "time": 0.0,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.0,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.0,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.0,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.0,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.3,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.3,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.3,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.3,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.3,
+          "caster": "앨리스"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "reduce-all-sequential",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 3310745,
+      "gpu_total": 3310745,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "N102",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "N102",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "N102",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "N102",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "N102",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "N102",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "N102",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "event:adjacent_hp_below:60"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "heal-all-sequential",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 3712505,
+      "gpu_total": 3712505,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_below:60",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.3,
+          "caster": "앨리스"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "N102",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "N102",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "N102",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "N102",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "N102",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "리타",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "N102",
+          "event": "hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "N102",
+          "event": "event:ally_hp_below:60"
+        },
+        {
+          "time": 0.21666666666666665,
+          "caster": "앨리스",
+          "event": "event:adjacent_hp_below:60"
+        },
+        {
+          "time": 0.3,
+          "caster": "크라운",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.3,
+          "caster": "리타",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.3,
+          "caster": "모더니아",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.3,
+          "caster": "크라운",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.3,
+          "caster": "앨리스",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.3,
+          "caster": "모더니아",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.3,
+          "caster": "N102",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.3,
+          "caster": "앨리스",
+          "event": "event:adjacent_hp_max"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 4",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.21666666666666665,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.21666666666666665,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.21666666666666665,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 5",
+          "time": 0.3,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.3,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.3,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.3,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.3,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.3,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.3,
+          "caster": "앨리스"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "lifesteal-to-max",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 1205923,
+      "gpu_total": 1205923,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.21666666666666665,
+          "caster": "크라운",
+          "event": "event:adjacent_hp_max"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "edge witness 0",
+          "time": 0.21666666666666665,
+          "caster": "크라운"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "incoming-crossings",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 2904580,
+      "gpu_total": 2904580,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 15,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "event": "hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "event": "hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.19999999999999998,
+          "caster": "리타",
+          "event": "hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "리타",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "N102",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "리타",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "크라운",
+          "event": "hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "N102",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "리타",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "모더니아",
+          "event": "hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "N102",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "리타",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "앨리스",
+          "event": "hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "N102",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "리타",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "N102",
+          "event": "hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "N102",
+          "event": "event:ally_hp_below:90"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "received-heal-after-edge",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "cpu_activation_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 3323829,
+      "gpu_total": 3323829,
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "incoming_hits": 15,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:90",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "event": "hp_below:90",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "event": "hp_below:90",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "event": "hp_below:90",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "event": "hp_below:90",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "event": "event:ally_hp_below:90",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.15,
+          "caster": "리타",
+          "event": "hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "리타",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "N102",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "리타",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "크라운",
+          "event": "hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "N102",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "리타",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "모더니아",
+          "event": "hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "N102",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "리타",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "앨리스",
+          "event": "hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "N102",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "리타",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "크라운",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "모더니아",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "앨리스",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "N102",
+          "event": "hp_below:90"
+        },
+        {
+          "time": 0.15,
+          "caster": "N102",
+          "event": "event:ally_hp_below:90"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "크라운",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "리타",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "모더니아",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "크라운",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "앨리스",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "모더니아",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "N102",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 0.19999999999999998,
+          "caster": "앨리스",
+          "event": "event:adjacent_hp_max"
+        }
+      ],
+      "cpu_witness_activations": [
+        {
+          "name": "edge witness 2",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 3",
+          "time": 0.15,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 0",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 1",
+          "time": 0.15,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 4",
+          "time": 0.19999999999999998,
+          "caster": "리타"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "크라운"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "모더니아"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "N102"
+        },
+        {
+          "name": "edge witness 2",
+          "time": 0.19999999999999998,
+          "caster": "앨리스"
+        }
+      ],
+      "group": "authored"
+    },
+    {
+      "name": "revival-suppresses-edge",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "cpu_crossing_positive_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 1210490,
+      "gpu_total": 1210490,
+      "cpu_revives": [
+        {
+          "time": 0.19999999999999998,
+          "name": "리타"
+        }
+      ],
+      "raw_skills_retained": false,
+      "incoming_hits": 1,
+      "cpu_hp_events": [],
+      "gpu_hp_events": [],
+      "cpu_witness_activations": [],
+      "group": "authored"
+    },
+    {
+      "name": "raw-A2-dry-fixed",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 202422742,
+      "gpu_total": 202422742,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:40",
+          "time": 26.21666666666646,
+          "caster": "A2"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 26.21666666666646,
+          "caster": "A2",
+          "event": "hp_below:40"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": [
+        {
+          "name": "B 모드 해제",
+          "time": 26.21666666666646
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 26.21666666666646
+        },
+        {
+          "name": "B 모드 해제",
+          "time": 35.83333333333258
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 35.83333333333258
+        }
+      ],
+      "group": "real"
+    },
+    {
+      "name": "raw-A2-regular-heal",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 221119515,
+      "gpu_total": 221119515,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [],
+      "gpu_hp_events": [],
+      "cpu_A2_mode_removal_attempts": [],
+      "group": "real"
+    },
+    {
+      "name": "raw-A2-incoming",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 197877923,
+      "gpu_total": 197877923,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 10,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:40",
+          "time": 6.21666666666665,
+          "caster": "A2"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 6.21666666666665,
+          "caster": "A2",
+          "event": "hp_below:40"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": [
+        {
+          "name": "B 모드 해제",
+          "time": 6.21666666666665
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 6.21666666666665
+        },
+        {
+          "name": "B 모드 해제",
+          "time": 35.83333333333258
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 35.83333333333258
+        }
+      ],
+      "group": "real"
+    },
+    {
+      "name": "raw-A2-start-low",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 196370674,
+      "gpu_total": 196370674,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:40",
+          "time": 0.0,
+          "caster": "A2"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 0.0,
+          "caster": "A2",
+          "event": "hp_below:40"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": [
+        {
+          "name": "B 모드 해제",
+          "time": 0.0
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 0.0
+        },
+        {
+          "name": "B 모드 해제",
+          "time": 3.1999999999999935
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 3.1999999999999935
+        },
+        {
+          "name": "B 모드 해제",
+          "time": 35.83333333333258
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 35.83333333333258
+        }
+      ],
+      "group": "real"
+    },
+    {
+      "name": "raw-A2-accumulate",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 157583169,
+      "gpu_total": 157583169,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:40",
+          "time": 29.616666666666266,
+          "caster": "A2"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 29.616666666666266,
+          "caster": "A2",
+          "event": "hp_below:40"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": [
+        {
+          "name": "B 모드 해제",
+          "time": 29.616666666666266
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 29.616666666666266
+        },
+        {
+          "name": "B 모드 해제",
+          "time": 41.79999999999891
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 41.79999999999891
+        }
+      ],
+      "group": "real"
+    },
+    {
+      "name": "raw-A2-mixed-growth",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 194933444,
+      "gpu_total": 194933444,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "hp_below:40",
+          "time": 24.216666666666573,
+          "caster": "A2"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 24.216666666666573,
+          "caster": "A2",
+          "event": "hp_below:40"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": [
+        {
+          "name": "B 모드 해제",
+          "time": 24.216666666666573
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 24.216666666666573
+        },
+        {
+          "name": "B 모드 해제",
+          "time": 35.83333333333258
+        },
+        {
+          "name": "B 모드 해제 2",
+          "time": 35.83333333333258
+        }
+      ],
+      "group": "real"
+    },
+    {
+      "name": "raw-A2-rapunzel-heal",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 75255277,
+      "gpu_total": 75255277,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [],
+      "gpu_hp_events": [],
+      "cpu_A2_mode_removal_attempts": [],
+      "group": "real"
+    },
+    {
+      "name": "raw-A2-rapunzel-revive",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true
+      },
+      "cpu_total": 74985213,
+      "gpu_total": 74985213,
+      "cpu_revives": [
+        {
+          "time": 2.9999999999999942,
+          "name": "A2"
+        }
+      ],
+      "raw_skills_retained": true,
+      "incoming_hits": 1,
+      "cpu_hp_events": [],
+      "gpu_hp_events": [],
+      "cpu_A2_mode_removal_attempts": [],
+      "group": "real"
+    },
+    {
+      "name": "raw-솔린 : 프로스트 티켓-counted-crossings",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 95074759,
+      "gpu_total": 95074759,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓"
+        },
+        {
+          "event": "event:ally_hp_below:15",
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 3.016666666666661,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "솔린 : 프로스트 티켓",
+          "event": "event:ally_hp_below:15"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": [],
+      "group": "real"
+    },
+    {
+      "name": "raw-플로라-center",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 101073195,
+      "gpu_total": 101073195,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 3.016666666666661,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 3.016666666666661,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 4.016666666666658,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 4.016666666666658,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 6.016666666666651,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 6.016666666666651,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 8.016666666666644,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 8.016666666666644,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 9.000000000000027,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 9.000000000000027,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 12.000000000000176,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 12.000000000000176,
+          "caster": "플로라"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 3.016666666666661,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 3.016666666666661,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 4.016666666666658,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 4.016666666666658,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 8.016666666666644,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 8.016666666666644,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 12.000000000000176,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 12.000000000000176,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": [],
+      "group": "real"
+    },
+    {
+      "name": "raw-플로라-left",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 75284626,
+      "gpu_total": 75284626,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 3.016666666666661,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 4.016666666666658,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 6.016666666666651,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 8.016666666666644,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 9.000000000000027,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 12.000000000000176,
+          "caster": "플로라"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 3.016666666666661,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 4.016666666666658,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 8.016666666666644,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 12.000000000000176,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": [],
+      "group": "real"
+    },
+    {
+      "name": "raw-플로라-right",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "actual_HP_trigger_exercised": true
+      },
+      "cpu_total": 96523963,
+      "gpu_total": 96523963,
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "incoming_hits": 0,
+      "cpu_hp_events": [
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 3.016666666666661,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 4.016666666666658,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 6.016666666666651,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 8.016666666666644,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_below:90",
+          "time": 9.000000000000027,
+          "caster": "플로라"
+        },
+        {
+          "event": "event:adjacent_hp_max",
+          "time": 12.000000000000176,
+          "caster": "플로라"
+        }
+      ],
+      "gpu_hp_events": [
+        {
+          "time": 3.016666666666661,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 4.016666666666658,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 6.016666666666651,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 8.016666666666644,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        },
+        {
+          "time": 9.000000000000027,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_below:90"
+        },
+        {
+          "time": 12.000000000000176,
+          "caster": "플로라",
+          "event": "event:adjacent_hp_max"
+        }
+      ],
+      "cpu_A2_mode_removal_attempts": [],
+      "group": "real"
+    }
+  ],
+  "source_sha256": {
+    "app/detail_boss.py": "521a06d1caf6a8b223b65312ab029fac6fd7099702e04db33f0e7c556736afa1",
+    "app/detail_world.py": "3c717ce722fb151fa1bc3cb7990ab632b9a481a5fb379607c52b2ac66a56317c",
+    "app/engine_compat.py": "9a488b1986b42a49993f7e944c33747c514d5a0d4f4ab1495fee5a4c1436bb71",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/gpu_combat.py": "e4b6f2c5b48c73224dca305624cde19c516046003b56a76e6c80843d2607533f",
+    "app/gpu_service.py": "213bd169c8a11f736f2324a01eb7d38cce5acd9cce67e0da4c916d64a994a2de",
+    "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "research/staging/v35/app/detail_effects-build.json": "7d867fa62053591b4420198c8e4562da5b26b96b40978699340d4b1731cb773f",
+    "research/staging/v35/app/detail_effects.cu": "39e198a9f461280169b645a009432722c4a2ffb3095dfea3b9cd322f18afaefe",
+    "research/staging/v35/app/detail_effects.ptx": "41ee3d3cb8e3ed07555473d2d05df37a578c822e5b257bd451e24e7e9cf42fcf",
+    "research/staging/v35/app/detail_gpu.py": "009f6f86d5f0e8169ccfb6afda9b78fba2ba6fbf3b92c7ef84e25d36e85bed24",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/data/parsed_skills.json": "81e2934af7c91b69a49b71721d5f53af25b5ebf006595d3e929db4582ff23137",
+    "research/verify-staged-hp-edge-suite.py": "6c456dc592b976eb65c30769a85514d7e978e404ca20303eca0ae8cdcd739f2e",
+    "scripts/staged-hp-edge-runtime.py": "1f5111f0aec1a8797145223de009be56849657c06c823793337d6c4b8e290b93",
+    "scripts/verify-all-stage-detail.py": "49e5e638487e30aa3ada731439bf02b27057110e63de7639f0bb6a737b582c48",
+    "scripts/verify-ally-conditions-detail.py": "8a3d2afe578ebe3d9caf1904f16af1daa68a6e7ff7ecdf935a95e10240c12f57",
+    "scripts/verify-ally-routing-detail.py": "c56dc4ed599c837dab5008abde624273637b0e5e806e8e435470ed9265b2b23d",
+    "scripts/verify-boss-buff-boundaries.py": "ed06406f09734adfabf526f825573de19a1ddb4e5a7adc6b4e4968c66937dfa3",
+    "scripts/verify-boss-buffs-detail.py": "4b96a6704add1f5893716aa01d956d2a6b396cfa3097fc80611bae36166e9a6e",
+    "scripts/verify-boss-clock-detail.py": "ac4ba8bcc605efc5d8aa9a364d7da13b47e73afb7814bafb51f84246af616bf5",
+    "scripts/verify-burst-gauge-detail.py": "3d8a81a071e7fbecd4d6cdca3e0fd0d739c09f1d3964eadb3b91f702f6e7849b",
+    "scripts/verify-burst-lists-detail.py": "24dc0e3f5bc8f9c5c96046bc5707c95333aae69f626d03724408a9eff0ae75eb",
+    "scripts/verify-burst-stage-detail.py": "b5ed0590386df73dea2301dbd680649da6414f9223cacfd87b9be529a9c7640a",
+    "scripts/verify-burst-stage-suite.py": "4a972e5dc8b6fc9de83f0360be1c9da747ec970325f15331b2f7053ee74c8b29",
+    "scripts/verify-capacity-detail.py": "e1af1f1775147400e44c9adabd418e9d4f35575fde6d1d78a0b9bdae88410067",
+    "scripts/verify-capacity-regression-detail.py": "a3a6431b5a1c3fe572b83b4d69dfcdcbef77374efc4469e5bbcb08738a4ef18f",
+    "scripts/verify-catalog-batch-detail.py": "f1c8e7f683cb064488a2b54c07141218fdcf55e28cc46940a2cef0cd53dc8801",
+    "scripts/verify-catalog-detail.py": "86fc6b1be49abc7df338700560bc21d9f6bdb83b640a65afbf1304794429fd8b",
+    "scripts/verify-chains-detail.py": "0d9da2f2539a0f3cbf9fe4c28755b98a9b748d76358eff0d89377e1db2eb55d1",
+    "scripts/verify-charge-immunity-detail.py": "679d834f2fc58edafa8689dbaf4409f12142c77f173c03e6309bf2d7dc044ff9",
+    "scripts/verify-cleanse-detail.py": "c3f498fdb1c71061eb5307c8850a471ef73a01b5dc094e12d1ee4a146ecd166b",
+    "scripts/verify-cleanse-nested.py": "e5007d16a5138e605daca7d62745123f3204fe10a14eab08884b11fd64627e1e",
+    "scripts/verify-control-detail.py": "089686455f95157c076abf390feaaf099365baa38ba824a2838e8013cf87d2d0",
+    "scripts/verify-counts-detail.py": "b206d42a4c2a37aeb229ddbeff05ea3a346a8d9e51401f607f66d869985bacb1",
+    "scripts/verify-damage-detail.py": "dd01b21426812f440b48778d63dd2d0cf215d5afb14045787a44a299af2ce5bc",
+    "scripts/verify-detail-random.py": "baf61db0309f1ddb248ff7e46f04f48660ddc819ea4f01f2e53b8d61e44f9609",
+    "scripts/verify-detail.py": "20de1868cf509afa5696af87d94db27974d97c8505702e40eed27886f7c09972",
+    "scripts/verify-enemy-codes-detail.py": "cd17725075d16e2dfd9040ed1b0332f8613c2520ecd135fed65c875e20a74728",
+    "scripts/verify-events-detail.py": "e825a4c7aeeb95ccf51fc784f705aeae0908a4c66a64be94426d814eba8ba1fb",
+    "scripts/verify-extended-detail.py": "18a8e4bf7f88847e9afe2854719d415e9b77f82147e396ce32a761580f4ba092",
+    "scripts/verify-full-detail.py": "bbb97dee8309d57b4084cc3936541cb5c7ca51777c80b51935a3d23def7bca8e",
+    "scripts/verify-gauge-detail.py": "000c31289d5fdf92b13b95d454af1815d8f76c1770ff4b1468cce26c59aa49d1",
+    "scripts/verify-health-reload-detail.py": "35f1708bc256ddbf808973e269f3fdf07f2703a35c646213dc6882fff1eced64",
+    "scripts/verify-immunity-detail.py": "fc38b216c8f6ce6020e10d0137162b0bfebf31be1069424e80271ccc786e0231",
+    "scripts/verify-incoming-detail.py": "76bf238f9d184c491984c767f5cf8be3d0206d89130a6457f7e78e6d8004aa7d",
+    "scripts/verify-incoming-lifecycle.py": "8c221600955397587d052ea7c4e925b0a13796620a76cca275f6802d547bca98",
+    "scripts/verify-infinite-detail.py": "3a34b7f75fa45a9e6dd671c7fa184c773834f970a3060268706c42a65ba8739f",
+    "scripts/verify-instances-detail.py": "5d571f241cd96716aca545ee75350c67450d549f87b47afa16e2d48b3fde3df3",
+    "scripts/verify-lists-detail.py": "f2b20d3c5276fcc675e9d11b61a4b8a90e287858cd3d6ca48f031cb99cc1aaa7",
+    "scripts/verify-live-parts-detail.py": "4b9cb49afc911b7ae0d4c9d30b0330361d9df5e604817c80f5c816535737417f",
+    "scripts/verify-modes-detail.py": "6109574653b1f4c2f2389f0051d2c88a61d7bbbbe43600ddb3ebe632c3acdc78",
+    "scripts/verify-named-capacity-batch.py": "6e083381c7068e7db6cdebc938a680a559d3e2fdcbcb0aaf74061bed6c62dd6f",
+    "scripts/verify-named-capacity-detail.py": "56e152dba6a83df41dbc2f3c7fcf2c34aa3029bc152d2173243c4a3241777fa5",
+    "scripts/verify-named-capacity-regression.py": "df9f205245c81643105c2ede65d3ccadf70de46945070cda12f5657c8f27e01b",
+    "scripts/verify-named-detail.py": "178b73d2dafb5bb43c3e7ed0e8e4940bb17c87148bd82919838a2c2988ff7bfe",
+    "scripts/verify-native-detail.py": "ce6376c1c7f37ab8a86db81e0814ff4368bc197f2d7d87f9789054cba21c8ecd",
+    "scripts/verify-new-damage-characters.py": "e326201a36b39b964b643afa48fa8e95e6b4bac0e8be31832ba51a9da5ad5c6f",
+    "scripts/verify-new-gauge-characters.py": "280a104b95718846667dfa37467e943e5b2b7729d718926ecffc48e084e11c3c",
+    "scripts/verify-new-timer-characters.py": "c3f6883a8b7f8b5365f8cba717e3ebc787350382c6fa10bc8937ac4b32416fe2",
+    "scripts/verify-normal-detail.py": "ecb439daf522ceffd7fc7368dc641d037122ac262b0176c49691c61afe363810",
+    "scripts/verify-optimal-range-detail.py": "ff2bd18f0a203659e719818f4d293f48f9366199931999e3216944157f53c994",
+    "scripts/verify-owned-detail.py": "e23f0298bad00b7a1a9d3ac95d5c6176ba78867ba07dfa2b6b54daaa97ba2cea",
+    "scripts/verify-part-destroy-listeners.py": "169070a103ed3dc05f47f4231c54211714be8c736126d30366cd4a79a71ee759",
+    "scripts/verify-periodic-detail.py": "592431aefb6cbba77fc8b0ac925dbcbe342fa87e488d423cedfa270df0261e05",
+    "scripts/verify-predicate-mixes.py": "d6c3ce874d45bab3a2f4808fa54b236edb7278ac04d921c6a93435cc58ea308f",
+    "scripts/verify-predicate-stimuli.py": "1b94a6b8f2d5c681f0317d6fbc825dfccc8ca95747105e17a52da89e3ef36896",
+    "scripts/verify-predicates-detail.py": "445fad6aee8b59d4dedf0a851a3f265fbed7706661b65fd217b3b2fee3fbf0b3",
+    "scripts/verify-probability-detail.py": "8063ff9e0d76fcffb2fbc0957f4512177efb23df64f44c0154723d8eed2e3c65",
+    "scripts/verify-probability-isolation.py": "b6c8adf85e03f488164f202f5a55955120c6df1112153025f646d6f160f40d5b",
+    "scripts/verify-random-target-detail.py": "7a1b3f92e703d32868789281375774235dbb5596c52e72f8871e34280fa38380",
+    "scripts/verify-revival-compat.py": "467c70b21065b1b6ecbbb798cea39500963ae8e0cb3a66486a982d349230791b",
+    "scripts/verify-shield-lifecycle-detail.py": "af1109124fae4bc0081b48e59868ca535cea4ee8f806dac55f9e7cb3a96c5a29",
+    "scripts/verify-shield-squads-detail.py": "e4fd57c07a6bfadfaa6fdad7d62d634886398ae5de6963610a7e139bf8c6c694",
+    "scripts/verify-squad-condition-detail.py": "099ee09f7338b113667318a41810f28219f29a1ede1a6769ca91d204ec818ba7",
+    "scripts/verify-stackops-detail.py": "e34e5a79088b7f02d6618bf9433a55ffd9b2ad90b03d7183c88fe29c44fcf81c",
+    "scripts/verify-staged-heal-query.py": "09c00c62ff4622566068bcf685ff2e970d9ce8a3b3b089114a12317df86540a8",
+    "scripts/verify-staged-hp-edge-namespace.py": "9688c3ce2115eb941414792650eaa3d4d9f3c8dc4e2ba3ed86f9b5e163f4d16b",
+    "scripts/verify-staged-hp-edge-real.py": "7994826dd48073216ec5b40bd93bc07e0337499f647c37eab91d3f975acd1a9f",
+    "scripts/verify-staged-hp-edge.py": "0474400f80359572b810d6d5894da7f892d0c7312c50f5f4fe1ff713f21ceae1",
+    "scripts/verify-staged-revival-compat.py": "3ab492990b300f24229119026d4a2e1ad94f0facfda9de7b4a95398de313d548",
+    "scripts/verify-staged-survival-long.py": "32a318ab19ce9b18400d458b16856b736e8e17416ba19674adad8c1dfbc8757a",
+    "scripts/verify-staged-survival-regression.py": "17c75855ade9073ef62197ad84fdfe878863508d8fe4a0fbc5592d503702e521",
+    "scripts/verify-staged-survival.py": "689a87b30952b764eb5f4b13241c3615b9b74d0e24f46d7189eaa0f63499ea57",
+    "scripts/verify-survival-detail.py": "109be8847d6506c13d7175f9b7c256fa5ba2b8660f97eebc76e1207bfabf6362",
+    "scripts/verify-targets-detail.py": "3332ad2ccbb5a6c99b64bb78351cbab0cefc15f2ce4b152cb3c1951ae006bcc7",
+    "scripts/verify-team-hits-detail.py": "188bf4d8a406fe3b21abcdebefc5697577988f3a9bde4cfc842af022927902cb",
+    "scripts/verify-team-hits-long-detail.py": "27e0a6f0ac6ffed4637e991c06ac0f84d464f7e23ae5c9ca3a60688446843345",
+    "scripts/verify-time-detail.py": "ea4f8e6c016e1eb706d48952e2e665499d5d012df6ac2567113a7e37738e538f"
+  },
+  "cpu_trace_used_as_gpu_input": false
+}

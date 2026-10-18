@@ -1,0 +1,702 @@
+{
+  "name": "hp-threshold-lifesteal-pierce-mast3-180",
+  "squad": [
+    "마스트 : 로망틱 메이드",
+    "루주",
+    "앨리스",
+    "도라",
+    "모더니아"
+  ],
+  "duration": 180,
+  "passed": true,
+  "total_equal": true,
+  "members_equal": true,
+  "burst_timeline_equal": true,
+  "base_stats_equal": true,
+  "final_health_equal": true,
+  "cpu_total": 1690671322,
+  "gpu_total": 1690671322,
+  "cpu_health": {
+    "마스트 : 로망틱 메이드": {
+      "hp": 4942964.7897,
+      "hp_pct": 100.0,
+      "max_hp": 4942964.7897
+    },
+    "루주": {
+      "hp": 13949154.7897,
+      "hp_pct": 100.0,
+      "max_hp": 13949154.7897
+    },
+    "앨리스": {
+      "hp": 4702764.7897,
+      "hp_pct": 100.0,
+      "max_hp": 4702764.7897
+    },
+    "도라": {
+      "hp": 4966096.7897,
+      "hp_pct": 100.0,
+      "max_hp": 4966096.7897
+    },
+    "모더니아": {
+      "hp": 4692068.7897,
+      "hp_pct": 100.0,
+      "max_hp": 4692068.7897
+    }
+  },
+  "gpu_health": {
+    "마스트 : 로망틱 메이드": {
+      "hp": 4942964.7897,
+      "hp_pct": 100.0,
+      "max_hp": 4942964.7897
+    },
+    "루주": {
+      "hp": 13949154.7897,
+      "hp_pct": 100.0,
+      "max_hp": 13949154.7897
+    },
+    "앨리스": {
+      "hp": 4702764.7897,
+      "hp_pct": 100.0,
+      "max_hp": 4702764.7897
+    },
+    "도라": {
+      "hp": 4966096.7897,
+      "hp_pct": 100.0,
+      "max_hp": 4966096.7897
+    },
+    "모더니아": {
+      "hp": 4692068.7897,
+      "hp_pct": 100.0,
+      "max_hp": 4692068.7897
+    }
+  },
+  "observed_cpu_conditions": {
+    "hp_below_80": true,
+    "lifesteal_active": true,
+    "pierce_active": true
+  },
+  "members": [
+    {
+      "name": "마스트 : 로망틱 메이드",
+      "cpu": 158609705,
+      "gpu": 158609705
+    },
+    {
+      "name": "루주",
+      "cpu": 102537029,
+      "gpu": 102537029
+    },
+    {
+      "name": "앨리스",
+      "cpu": 606738542,
+      "gpu": 606738542
+    },
+    {
+      "name": "도라",
+      "cpu": 105871985,
+      "gpu": 105871985
+    },
+    {
+      "name": "모더니아",
+      "cpu": 716914061,
+      "gpu": 716914061
+    }
+  ],
+  "cpu_bursts": [
+    {
+      "time": 3.0,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 3.1,
+      "event": "stage:2 사용",
+      "character": "도라"
+    },
+    {
+      "time": 3.2,
+      "event": "stage:3 사용",
+      "character": "앨리스"
+    },
+    {
+      "time": 3.583,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 13.583,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 16.1,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 16.2,
+      "event": "stage:2 사용",
+      "character": "도라"
+    },
+    {
+      "time": 16.3,
+      "event": "stage:3 사용",
+      "character": "모더니아"
+    },
+    {
+      "time": 16.683,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 31.683,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 33.683,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 33.783,
+      "event": "stage:2 사용",
+      "character": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 33.883,
+      "event": "stage:3 사용",
+      "character": "앨리스"
+    },
+    {
+      "time": 34.267,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 44.267,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 46.267,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 46.367,
+      "event": "stage:2 사용",
+      "character": "도라"
+    },
+    {
+      "time": 46.467,
+      "event": "stage:3 사용",
+      "character": "모더니아"
+    },
+    {
+      "time": 46.85,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 61.85,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 63.85,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 63.95,
+      "event": "stage:2 사용",
+      "character": "도라"
+    },
+    {
+      "time": 64.05,
+      "event": "stage:3 사용",
+      "character": "앨리스"
+    },
+    {
+      "time": 64.433,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 74.433,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 76.433,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 76.533,
+      "event": "stage:2 사용",
+      "character": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 76.633,
+      "event": "stage:3 사용",
+      "character": "모더니아"
+    },
+    {
+      "time": 77.017,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 92.017,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 94.017,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 94.117,
+      "event": "stage:2 사용",
+      "character": "도라"
+    },
+    {
+      "time": 94.217,
+      "event": "stage:3 사용",
+      "character": "앨리스"
+    },
+    {
+      "time": 94.6,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 104.6,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 106.6,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 106.7,
+      "event": "stage:2 사용",
+      "character": "도라"
+    },
+    {
+      "time": 106.8,
+      "event": "stage:3 사용",
+      "character": "모더니아"
+    },
+    {
+      "time": 107.183,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 122.183,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 124.183,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 124.283,
+      "event": "stage:2 사용",
+      "character": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 124.383,
+      "event": "stage:3 사용",
+      "character": "앨리스"
+    },
+    {
+      "time": 124.767,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 134.767,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 136.767,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 136.867,
+      "event": "stage:2 사용",
+      "character": "도라"
+    },
+    {
+      "time": 136.967,
+      "event": "stage:3 사용",
+      "character": "모더니아"
+    },
+    {
+      "time": 137.35,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 152.35,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 154.35,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 154.45,
+      "event": "stage:2 사용",
+      "character": "도라"
+    },
+    {
+      "time": 154.55,
+      "event": "stage:3 사용",
+      "character": "앨리스"
+    },
+    {
+      "time": 154.933,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 164.933,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 166.933,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 167.033,
+      "event": "stage:2 사용",
+      "character": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 167.133,
+      "event": "stage:3 사용",
+      "character": "모더니아"
+    },
+    {
+      "time": 167.517,
+      "event": "full_burst 시작",
+      "character": ""
+    }
+  ],
+  "gpu_bursts": [
+    {
+      "time": 3.0,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 3.1,
+      "event": "stage:2 사용",
+      "character": "도라"
+    },
+    {
+      "time": 3.2,
+      "event": "stage:3 사용",
+      "character": "앨리스"
+    },
+    {
+      "time": 3.583,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 13.583,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 16.1,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 16.2,
+      "event": "stage:2 사용",
+      "character": "도라"
+    },
+    {
+      "time": 16.3,
+      "event": "stage:3 사용",
+      "character": "모더니아"
+    },
+    {
+      "time": 16.683,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 31.683,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 33.683,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 33.783,
+      "event": "stage:2 사용",
+      "character": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 33.883,
+      "event": "stage:3 사용",
+      "character": "앨리스"
+    },
+    {
+      "time": 34.267,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 44.267,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 46.267,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 46.367,
+      "event": "stage:2 사용",
+      "character": "도라"
+    },
+    {
+      "time": 46.467,
+      "event": "stage:3 사용",
+      "character": "모더니아"
+    },
+    {
+      "time": 46.85,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 61.85,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 63.85,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 63.95,
+      "event": "stage:2 사용",
+      "character": "도라"
+    },
+    {
+      "time": 64.05,
+      "event": "stage:3 사용",
+      "character": "앨리스"
+    },
+    {
+      "time": 64.433,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 74.433,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 76.433,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 76.533,
+      "event": "stage:2 사용",
+      "character": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 76.633,
+      "event": "stage:3 사용",
+      "character": "모더니아"
+    },
+    {
+      "time": 77.017,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 92.017,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 94.017,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 94.117,
+      "event": "stage:2 사용",
+      "character": "도라"
+    },
+    {
+      "time": 94.217,
+      "event": "stage:3 사용",
+      "character": "앨리스"
+    },
+    {
+      "time": 94.6,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 104.6,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 106.6,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 106.7,
+      "event": "stage:2 사용",
+      "character": "도라"
+    },
+    {
+      "time": 106.8,
+      "event": "stage:3 사용",
+      "character": "모더니아"
+    },
+    {
+      "time": 107.183,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 122.183,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 124.183,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 124.283,
+      "event": "stage:2 사용",
+      "character": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 124.383,
+      "event": "stage:3 사용",
+      "character": "앨리스"
+    },
+    {
+      "time": 124.767,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 134.767,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 136.767,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 136.867,
+      "event": "stage:2 사용",
+      "character": "도라"
+    },
+    {
+      "time": 136.967,
+      "event": "stage:3 사용",
+      "character": "모더니아"
+    },
+    {
+      "time": 137.35,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 152.35,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 154.35,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 154.45,
+      "event": "stage:2 사용",
+      "character": "도라"
+    },
+    {
+      "time": 154.55,
+      "event": "stage:3 사용",
+      "character": "앨리스"
+    },
+    {
+      "time": 154.933,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 164.933,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 166.933,
+      "event": "stage:1 사용",
+      "character": "루주"
+    },
+    {
+      "time": 167.033,
+      "event": "stage:2 사용",
+      "character": "마스트 : 로망틱 메이드"
+    },
+    {
+      "time": 167.133,
+      "event": "stage:3 사용",
+      "character": "모더니아"
+    },
+    {
+      "time": 167.517,
+      "event": "full_burst 시작",
+      "character": ""
+    }
+  ],
+  "gpu_execution_ms": 4441.768,
+  "module_initialization_ms": 37875.311,
+  "wall_seconds": 45.956
+}

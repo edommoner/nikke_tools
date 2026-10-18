@@ -1,0 +1,35 @@
+{
+  "scope": "Measurement references only; no GPU benchmark or source changes",
+  "toolkit": "11.3.0",
+  "sources": [
+    {
+      "title": "NVIDIA CUDA 11.3 Driver API Event Management",
+      "url": "https://docs.nvidia.com/cuda/archive/11.3.0/cuda-driver-api/group__CUDA__EVENT.html"
+    },
+    {
+      "title": "NVIDIA CUDA 11.3 Driver API Execution Control",
+      "url": "https://docs.nvidia.com/cuda/archive/11.3.0/cuda-driver-api/group__CUDA__EXEC.html"
+    }
+  ],
+  "local_header": {
+    "path": "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v11.3\\include\\cuda.h",
+    "sha256": "1ba28fb03608ec42a8b2afdae0cca0c28edb8aa178dde2cfea1a750b2db7c203"
+  },
+  "confirmed_signatures": {
+    "cuEventCreate": "CUresult(CUevent*, unsigned int)",
+    "cuEventRecord": "CUresult(CUevent, CUstream)",
+    "cuEventElapsedTime": "CUresult(float*, CUevent, CUevent)"
+  },
+  "function_attributes": {
+    "MAX_THREADS_PER_BLOCK": 0,
+    "SHARED_SIZE_BYTES": 1,
+    "LOCAL_SIZE_BYTES": 3,
+    "NUM_REGS": 4
+  },
+  "measurement_constraints": [
+    "Enable timing on both events, record them around the kernel in the same default stream, then wait for completion before reading elapsed milliseconds.",
+    "Create/destroy measurement events outside the device interval; account for profiler overhead in total request wall time.",
+    "No simultaneous regression/build/API benchmark jobs. Cold module/context costs and warm execution are separate observations.",
+    "Host wall time also covers preparation, allocations/transfers, result formatting and cleanup. Existing elapsed_ms excludes some of these phases and is not a complete request or device-only measure."
+  ]
+}

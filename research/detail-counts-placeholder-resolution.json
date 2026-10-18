@@ -1,0 +1,45 @@
+{
+  "abi": "detail_infinite_v16",
+  "passed": true,
+  "backend": "ptx",
+  "prior_audit_sha256": "821896bacf71b80336a7ea250582f8009939aca96b6ea89403df8d507ef37574",
+  "cases": [
+    {
+      "name": "placeholder-False-False",
+      "backend": "ptx",
+      "passed": true,
+      "cpu_count": 0,
+      "gpu_count": 0.0
+    },
+    {
+      "name": "placeholder-False-True",
+      "backend": "ptx",
+      "passed": true,
+      "cpu_count": 0,
+      "gpu_count": 0.0
+    },
+    {
+      "name": "placeholder-True-False",
+      "backend": "ptx",
+      "passed": true,
+      "cpu_count": 2,
+      "gpu_count": 2.0
+    },
+    {
+      "name": "placeholder-True-True",
+      "backend": "ptx",
+      "passed": true,
+      "cpu_count": 2,
+      "gpu_count": 2.0
+    }
+  ],
+  "source_sha256": {
+    "app/detail_gpu.py": "7f18234c66623c693e8b94ded5fff91d4bb4f59665339a1463871991253af298",
+    "app/detail_effects.cu": "a7b9f0c847a050a52616dcc11211577be0d0b7b23d413d8a4c7ebfed90e27a30",
+    "app/detail_effects.ptx": "ea6187adb56b6d6022b7d82054af26a60336f8c90287b928a608ca766a2f2075",
+    "app/detail_effects-build.json": "c3ead949645fb67e20f9ca7f689bd50193e85f7fede5cba113d7534666608061",
+    "app/detail_effects-sm86.cubin": "a21ef8bdddf5a1ada677a5670b02149faccec3a20aa024e38ea2177051305141",
+    "app/detail_effects-sm86.json": "41562c8f3b4ca7ea70ceef19276e49d5d00de571229b613db3a5b3c40ac4a164",
+    "scripts/verify-infinite-detail.py": "a69c194ab3f3a7a32ef4651893f87d3fcd3eeca7b01c0fc37f625037409077be"
+  }
+}

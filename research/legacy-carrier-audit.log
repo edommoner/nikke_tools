@@ -1,0 +1,71 @@
+{
+  "source_stable": true,
+  "operations": [
+    {
+      "operation": "shield",
+      "registered": [
+        2
+      ],
+      "expected_registered": [
+        2
+      ],
+      "previous_carrier_unchanged": true,
+      "contract_satisfied": true
+    },
+    {
+      "operation": "decoy",
+      "registered": [
+        2
+      ],
+      "expected_registered": [
+        2
+      ],
+      "previous_carrier_unchanged": true,
+      "contract_satisfied": true
+    },
+    {
+      "operation": "overheal_storage",
+      "registered": [
+        2
+      ],
+      "expected_registered": [
+        2
+      ],
+      "previous_carrier_unchanged": true,
+      "contract_satisfied": true
+    },
+    {
+      "operation": "healing_charge",
+      "registered": [
+        2
+      ],
+      "expected_registered": [
+        2
+      ],
+      "previous_carrier_unchanged": true,
+      "contract_satisfied": true
+    },
+    {
+      "operation": "damage_accumulation",
+      "registered": [
+        2
+      ],
+      "expected_registered": [
+        2
+      ],
+      "previous_carrier_unchanged": true,
+      "contract_satisfied": true
+    },
+    {
+      "operation": "max_hp_snapshot",
+      "registered": [
+        2
+      ],
+      "expected_registered": [
+        2
+      ],
+      "previous_carrier_unchanged": true,
+      "contract_satisfied": true
+    }
+  ]
+}

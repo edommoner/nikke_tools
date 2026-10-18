@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-10-18T04:20:28.264Z",
+  "passed": true,
+  "fictional_owned_data": true,
+  "live_import_verified": false,
+  "scalar_and_list_editor_roundtrip": true,
+  "pure_gpu_and_verified_and_cpu_equal": true,
+  "original_total": 704647281,
+  "total": 727983113,
+  "members": [
+    {
+      "name": "네온 : 비전 아이",
+      "damage": 259357971,
+      "share": 0.3562692133491838
+    },
+    {
+      "name": "리타",
+      "damage": 39161683,
+      "share": 0.05379476845089949
+    },
+    {
+      "name": "크라운",
+      "damage": 56261454,
+      "share": 0.07728400974597882
+    },
+    {
+      "name": "앨리스",
+      "damage": 127507895,
+      "share": 0.17515227032471012
+    },
+    {
+      "name": "모더니아",
+      "damage": 245694110,
+      "share": 0.33749973812922773
+    }
+  ],
+  "burst_timeline": [
+    {
+      "time": 3,
+      "event": "stage:1 사용",
+      "character": "리타"
+    },
+    {
+      "time": 3.1,
+      "event": "stage:2 사용",
+      "character": "크라운"
+    },
+    {
+      "time": 3.2,
+      "event": "stage:3 사용",
+      "character": "네온 : 비전 아이"
+    },
+    {
+      "time": 3.583,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 13.583,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 20.667,
+      "event": "stage:1 사용",
+      "character": "리타"
+    },
+    {
+      "time": 20.767,
+      "event": "stage:2 사용",
+      "character": "크라운"
+    },
+    {
+      "time": 20.867,
+      "event": "stage:3 사용",
+      "character": "앨리스"
+    },
+    {
+      "time": 21.25,
+      "event": "full_burst 시작",
+      "character": ""
+    },
+    {
+      "time": 31.25,
+      "event": "full_burst 종료",
+      "character": ""
+    },
+    {
+      "time": 35.633,
+      "event": "stage:1 사용",
+      "character": "리타"
+    },
+    {
+      "time": 35.733,
+      "event": "stage:2 사용",
+      "character": "크라운"
+    },
+    {
+      "time": 35.833,
+      "event": "stage:3 사용",
+      "character": "네온 : 비전 아이"
+    },
+    {
+      "time": 36.217,
+      "event": "full_burst 시작",
+      "character": ""
+    }
+  ],
+  "source_sha256": {
+    "scripts/smoke-owned-detail.mjs": "b6a8f6342ef6fdfe82dbd77889550d08c2976a91ee4b6ed2f22ad26e33292a3e",
+    "web/roster-model.mjs": "e7e700c780d04ab01e3bc82df0af07a989af2b6dbea815a6fef8fbf5db1b8390",
+    "web/app.js": "dc015a14a22e34957529f4e0e7689312178ba2be34dd5d0033d92a044e8d3c39",
+    "web/index.html": "665ec4abdfe129bc31b3e05c81b4ae86dad5175e3c834b07278750596ccc8226",
+    "server.mjs": "8ee5956ff2f6360e57d35c6ab88d63ef0f0a5a826fbb4fbad01a795e0acae010",
+    "research/resource-marker-api-fixture.json": "4bde14d36222033557c77e8ef953b2e4907b639138c0296ae4711376edd951b7",
+    "app/detail_gpu.py": "63d4fbd681bbc71d39ef9c8832d051aa950942e1ead64852a2c9374304ddfec0",
+    "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
+    "app/evaluation-queue.mjs": "23a1724c380470261d16b3f4d80e2fa9a9bd7c6862e1ca48ebf94844a6905344",
+    "app/detail_effects.cu": "eeafc78ed3c2cf17643cfd75abe7a8b75b314c17904d8cf6b285e099c8eb5d0e",
+    "app/detail_effects-sm86.cubin": "2b051cb24d63247d113275b5a69f7675958a5d226b250852a5d309f5395f8289",
+    "app/detail_effects-sm86.json": "42bb7635e357e767c3a3e0d5bdfb456ece507dae9e5195fb7fb7a1bce3b92546",
+    "app/detail_effects.ptx": "dda770077111be32a587c6e5aef636dcb6b58c8bd1b95de7ba972cbff1baef08",
+    "app/engine_worker.py": "2303687435aa6a4d7422a62107d064ee063dd91182fdecc526a0709314199845",
+    "app/engine_compat.py": "ca841c7fe18f68682699ee71b52194c079d1a861e7f7e385b7d322e5b4d101d5",
+    "app/gpu_service.py": "a5c9c707479986ab236a15cf73db872e6ac07e4f5148c9575d2c6b3fb025a2c0"
+  }
+}

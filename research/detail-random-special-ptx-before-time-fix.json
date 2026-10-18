@@ -1,0 +1,316 @@
+{
+  "generated_at": "2026-10-16T17:02:56.089395+00:00",
+  "passed": false,
+  "quick": false,
+  "native_only": false,
+  "cpu_trace_used_as_gpu_input": false,
+  "cases": [
+    {
+      "name": "caster-atk-special-lazy-target",
+      "seed": 0,
+      "mode": "fixed",
+      "backend": "ptx",
+      "passed": false,
+      "checks": {
+        "total_damage": false,
+        "members": false,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true,
+        "seed": true,
+        "final_random_state": false
+      },
+      "cpu_total": 13842603,
+      "gpu_total": 13624800,
+      "cpu_rng_index": 73,
+      "gpu_rng_index": 273,
+      "cpu_members": [
+        {
+          "name": "리타",
+          "damage": 1843516,
+          "share": 0.1331769754575783
+        },
+        {
+          "name": "크라운",
+          "damage": 1574591,
+          "share": 0.11374963220428991
+        },
+        {
+          "name": "앨리스",
+          "damage": 2636616,
+          "share": 0.19047111298359132
+        },
+        {
+          "name": "모더니아",
+          "damage": 6817563,
+          "share": 0.4925058531260342
+        },
+        {
+          "name": "N102",
+          "damage": 970317,
+          "share": 0.0700964262285063
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "리타",
+          "damage": 1843516,
+          "share": 0.13530591274734308
+        },
+        {
+          "name": "크라운",
+          "damage": 1508877,
+          "share": 0.11074489166813457
+        },
+        {
+          "name": "앨리스",
+          "damage": 2867054,
+          "share": 0.21042907051846632
+        },
+        {
+          "name": "모더니아",
+          "damage": 6435036,
+          "share": 0.4723031530738066
+        },
+        {
+          "name": "N102",
+          "damage": 970317,
+          "share": 0.07121697199224943
+        }
+      ]
+    },
+    {
+      "name": "caster-atk-special-lazy-target",
+      "seed": 0,
+      "mode": "accumulate",
+      "backend": "ptx",
+      "passed": false,
+      "checks": {
+        "total_damage": false,
+        "members": false,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true,
+        "seed": true,
+        "final_random_state": false
+      },
+      "cpu_total": 12610656,
+      "gpu_total": 13272681,
+      "cpu_rng_index": 54,
+      "gpu_rng_index": 195,
+      "cpu_members": [
+        {
+          "name": "리타",
+          "damage": 1685280,
+          "share": 0.1336393602362954
+        },
+        {
+          "name": "크라운",
+          "damage": 1372607,
+          "share": 0.108845011710731
+        },
+        {
+          "name": "앨리스",
+          "damage": 2636616,
+          "share": 0.20907841749073164
+        },
+        {
+          "name": "모더니아",
+          "damage": 5945836,
+          "share": 0.47149299766800395
+        },
+        {
+          "name": "N102",
+          "damage": 970317,
+          "share": 0.07694421289423801
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "리타",
+          "damage": 1685280,
+          "share": 0.12697359335314395
+        },
+        {
+          "name": "크라운",
+          "damage": 1216501,
+          "share": 0.09165450446673133
+        },
+        {
+          "name": "앨리스",
+          "damage": 3097492,
+          "share": 0.23337349854185452
+        },
+        {
+          "name": "모더니아",
+          "damage": 6200068,
+          "share": 0.46713003951500076
+        },
+        {
+          "name": "N102",
+          "damage": 1073340,
+          "share": 0.08086836412326945
+        }
+      ]
+    },
+    {
+      "name": "caster-atk-special-lazy-target",
+      "seed": 12345,
+      "mode": "fixed",
+      "backend": "ptx",
+      "passed": false,
+      "checks": {
+        "total_damage": false,
+        "members": false,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true,
+        "seed": true,
+        "final_random_state": false
+      },
+      "cpu_total": 13806658,
+      "gpu_total": 13508873,
+      "cpu_rng_index": 100,
+      "gpu_rng_index": 258,
+      "cpu_members": [
+        {
+          "name": "리타",
+          "damage": 1843516,
+          "share": 0.13352369559671862
+        },
+        {
+          "name": "크라운",
+          "damage": 1601064,
+          "share": 0.11596318240083878
+        },
+        {
+          "name": "앨리스",
+          "damage": 2636616,
+          "share": 0.19096699577841358
+        },
+        {
+          "name": "모더니아",
+          "damage": 6755145,
+          "share": 0.4892672071691788
+        },
+        {
+          "name": "N102",
+          "damage": 970317,
+          "share": 0.0702789190548502
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "리타",
+          "damage": 1843516,
+          "share": 0.13646704651083774
+        },
+        {
+          "name": "크라운",
+          "damage": 1701975,
+          "share": 0.12598941451296491
+        },
+        {
+          "name": "앨리스",
+          "damage": 2867054,
+          "share": 0.21223487703230315
+        },
+        {
+          "name": "모더니아",
+          "damage": 6229034,
+          "share": 0.46110685917322636
+        },
+        {
+          "name": "N102",
+          "damage": 867294,
+          "share": 0.06420180277066784
+        }
+      ]
+    },
+    {
+      "name": "caster-atk-special-lazy-target",
+      "seed": 12345,
+      "mode": "accumulate",
+      "backend": "ptx",
+      "passed": false,
+      "checks": {
+        "total_damage": false,
+        "members": false,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true,
+        "seed": true,
+        "final_random_state": false
+      },
+      "cpu_total": 12574039,
+      "gpu_total": 12178491,
+      "cpu_rng_index": 88,
+      "gpu_rng_index": 173,
+      "cpu_members": [
+        {
+          "name": "리타",
+          "damage": 1685280,
+          "share": 0.1340285329161139
+        },
+        {
+          "name": "크라운",
+          "damage": 1391932,
+          "share": 0.1106988772660877
+        },
+        {
+          "name": "앨리스",
+          "damage": 2636616,
+          "share": 0.20968727709529134
+        },
+        {
+          "name": "모더니아",
+          "damage": 5889894,
+          "share": 0.46841702972290766
+        },
+        {
+          "name": "N102",
+          "damage": 970317,
+          "share": 0.07716828299959941
+        }
+      ],
+      "gpu_members": [
+        {
+          "name": "리타",
+          "damage": 1685280,
+          "share": 0.13838167635054294
+        },
+        {
+          "name": "크라운",
+          "damage": 1451259,
+          "share": 0.11916574886001886
+        },
+        {
+          "name": "앨리스",
+          "damage": 2636616,
+          "share": 0.21649775821979916
+        },
+        {
+          "name": "모더니아",
+          "damage": 5435019,
+          "share": 0.44628016722268793
+        },
+        {
+          "name": "N102",
+          "damage": 970317,
+          "share": 0.0796746493469511
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "scripts/verify-random-target-detail.py": "8d36484b228d0e7695a54e4d71d9a125e1088da7dfe9d57976dd21a457c71426",
+    "scripts/audit-random-target-lifecycle.py": "f70bc0a0b06dc90f499428088db79194c8bb59214c39b44dd91089fcea683323",
+    "app/detail_gpu.py": "bcd22fef4976d5400fbb651009b77834bad840b65cdee608f91ec1287ac61746",
+    "app/detail_effects.cu": "ec39a2da94a5cfc2b915f63d61f4a171da078580fb8afbaefac5f4023241df1a",
+    "app/detail_effects.ptx": "b53b2bf8db377704bbf41ac189bc08319a6d1e60f1ff6bb2966412d27b5d319a",
+    "app/detail_effects-build.json": "763a29cb38413c11245e01da4ee7b5a52eda82aae2ce362da710be749d5bded0",
+    "app/detail_effects-sm86.cubin": "dd3062a73a7a65cb42f66ee08e3c715851cf0e1db9a4e163b7806566c807ab15",
+    "app/detail_effects-sm86.json": "f4e890c0d7ad055ae4c77328fd6c3e02470ec4caa2d03da8afbbd723e02f256e",
+    "app/engine_worker.py": "a1b9f46f5c5375f6da7740b37ebc3e8a286fe95973cc19594d7d625a805bb75c"
+  }
+}

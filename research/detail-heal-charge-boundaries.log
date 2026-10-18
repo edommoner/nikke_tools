@@ -1,0 +1,15 @@
+test_CPU_extension_idempotence_and_binding (__main__.Boundaries.test_CPU_extension_idempotence_and_binding) ... ok
+test_capacity_reference_flags (__main__.Boundaries.test_capacity_reference_flags) ... ok
+test_debug_flag_requires_boolean (__main__.Boundaries.test_debug_flag_requires_boolean) ... ok
+test_discharge_reference_and_type_validation (__main__.Boundaries.test_discharge_reference_and_type_validation) ... ok
+test_distinct_opcodes_and_named_reference (__main__.Boundaries.test_distinct_opcodes_and_named_reference) ... ok
+test_query_bounds (__main__.Boundaries.test_query_bounds) ... ok
+test_required_discharge_reference (__main__.Boundaries.test_required_discharge_reference) ... ok
+test_unknown_or_fractional_instruction_kinds (__main__.Boundaries.test_unknown_or_fractional_instruction_kinds) ... ok
+test_unknown_or_fractional_stat_codes (__main__.Boundaries.test_unknown_or_fractional_stat_codes) ... ok
+test_wrong_effect_types_still_reject (__main__.Boundaries.test_wrong_effect_types_still_reject) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.132s
+
+OK

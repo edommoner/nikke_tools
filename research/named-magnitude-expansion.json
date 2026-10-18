@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "previously_accepted_programs_unchanged": 855,
+  "newly_accepted_compile_contexts": 10,
+  "partially_advanced_contexts": 5,
+  "compiler_calls": 1069,
+  "standard_before": 162,
+  "standard_after": 164,
+  "new_characters": [
+    "브래디",
+    "엠마 : 택티컬 업"
+  ],
+  "favorite_before": 639,
+  "favorite_after": 647,
+  "favorite_total": 812,
+  "scope": "Compilation only, not battle or game correctness."
+}

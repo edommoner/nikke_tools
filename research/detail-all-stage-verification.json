@@ -1,0 +1,2321 @@
+{
+  "generated_at": "2026-10-16T15:56:00.567082+00:00",
+  "passed": true,
+  "cpu_trace_used_as_gpu_input": false,
+  "cases": [
+    {
+      "name": "default-A-is-B3-only-fixed",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 50714803,
+      "gpu_total": 50714803,
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "default-A-is-B3-only-accumulate",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 48254131,
+      "gpu_total": 48254131,
+      "cpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "explicit-A-all-stages-fixed",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 50714803,
+      "gpu_total": 50714803,
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "explicit-A-all-stages-accumulate",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 48254131,
+      "gpu_total": 48254131,
+      "cpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "explicit-A-zero-cooldown-fixed",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 50714803,
+      "gpu_total": 50714803,
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "explicit-A-zero-cooldown-accumulate",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 48254131,
+      "gpu_total": 48254131,
+      "cpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "explicit-B2-zero-cooldown-fixed",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 50714803,
+      "gpu_total": 50714803,
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "explicit-B2-zero-cooldown-accumulate",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 48254131,
+      "gpu_total": 48254131,
+      "cpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "override-A-opens-all-buttons-fixed",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 50714803,
+      "gpu_total": 50714803,
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "override-A-opens-all-buttons-accumulate",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 48254131,
+      "gpu_total": 48254131,
+      "cpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "override-B1-expires-back-to-A-fixed",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 50714803,
+      "gpu_total": 50714803,
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "override-B1-expires-back-to-A-accumulate",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 48254131,
+      "gpu_total": 48254131,
+      "cpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "override-B3-is-explicitly-active-fixed",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 50714803,
+      "gpu_total": 50714803,
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "override-B3-is-explicitly-active-accumulate",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 48254131,
+      "gpu_total": 48254131,
+      "cpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "A-reentry-each-stage-once-fixed",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 49405703,
+      "gpu_total": 49405703,
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.5,
+          "event": "reenter:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.6,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 4.1,
+          "event": "reenter:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 4.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 4.7,
+          "event": "reenter:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.083,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.5,
+          "event": "reenter:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.6,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 4.1,
+          "event": "reenter:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 4.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 4.7,
+          "event": "reenter:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.083,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "A-reentry-each-stage-once-accumulate",
+      "backend": "native",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 46626223,
+      "gpu_total": 46626223,
+      "cpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.9,
+          "event": "reenter:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 6.0,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 6.5,
+          "event": "reenter:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 6.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 7.1,
+          "event": "reenter:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 7.483,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.9,
+          "event": "reenter:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 6.0,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 6.5,
+          "event": "reenter:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 6.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 7.1,
+          "event": "reenter:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 7.483,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "default-A-is-B3-only-fixed",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 50714803,
+      "gpu_total": 50714803,
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "default-A-is-B3-only-accumulate",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 48254131,
+      "gpu_total": 48254131,
+      "cpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "explicit-A-all-stages-fixed",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 50714803,
+      "gpu_total": 50714803,
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "explicit-A-all-stages-accumulate",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 48254131,
+      "gpu_total": 48254131,
+      "cpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "explicit-A-zero-cooldown-fixed",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 50714803,
+      "gpu_total": 50714803,
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "explicit-A-zero-cooldown-accumulate",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 48254131,
+      "gpu_total": 48254131,
+      "cpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "explicit-B2-zero-cooldown-fixed",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 50714803,
+      "gpu_total": 50714803,
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "explicit-B2-zero-cooldown-accumulate",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 48254131,
+      "gpu_total": 48254131,
+      "cpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "override-A-opens-all-buttons-fixed",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 50714803,
+      "gpu_total": 50714803,
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "override-A-opens-all-buttons-accumulate",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 48254131,
+      "gpu_total": 48254131,
+      "cpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "override-B1-expires-back-to-A-fixed",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 50714803,
+      "gpu_total": 50714803,
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "앨리스"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "override-B1-expires-back-to-A-accumulate",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 48254131,
+      "gpu_total": 48254131,
+      "cpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "override-B3-is-explicitly-active-fixed",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 50714803,
+      "gpu_total": 50714803,
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "override-B3-is-explicitly-active-accumulate",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 48254131,
+      "gpu_total": 48254131,
+      "cpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "리타"
+        },
+        {
+          "time": 5.5,
+          "event": "stage:2 사용",
+          "character": "크라운"
+        },
+        {
+          "time": 5.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.983,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "A-reentry-each-stage-once-fixed",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 49405703,
+      "gpu_total": 49405703,
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.5,
+          "event": "reenter:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.6,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 4.1,
+          "event": "reenter:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 4.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 4.7,
+          "event": "reenter:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.083,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.5,
+          "event": "reenter:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 3.6,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 4.1,
+          "event": "reenter:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 4.2,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 4.7,
+          "event": "reenter:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.083,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "name": "A-reentry-each-stage-once-accumulate",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true
+      },
+      "cpu_total": 46626223,
+      "gpu_total": 46626223,
+      "cpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.9,
+          "event": "reenter:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 6.0,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 6.5,
+          "event": "reenter:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 6.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 7.1,
+          "event": "reenter:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 7.483,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 0.0,
+          "event": "카메라 초점: 크라운",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+          "character": ""
+        },
+        {
+          "time": 5.4,
+          "event": "stage:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 5.9,
+          "event": "reenter:1 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 6.0,
+          "event": "stage:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 6.5,
+          "event": "reenter:2 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 6.6,
+          "event": "stage:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 7.1,
+          "event": "reenter:3 사용",
+          "character": "레드 후드"
+        },
+        {
+          "time": 7.483,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "scripts/verify-burst-stage-suite.py": "4a972e5dc8b6fc9de83f0360be1c9da747ec970325f15331b2f7053ee74c8b29",
+    "scripts/verify-burst-stage-detail.py": "b5ed0590386df73dea2301dbd680649da6414f9223cacfd87b9be529a9c7640a",
+    "scripts/verify-all-stage-detail.py": "49e5e638487e30aa3ada731439bf02b27057110e63de7639f0bb6a737b582c48",
+    "scripts/verify-control-detail.py": "089686455f95157c076abf390feaaf099365baa38ba824a2838e8013cf87d2d0",
+    "scripts/verify-periodic-detail.py": "592431aefb6cbba77fc8b0ac925dbcbe342fa87e488d423cedfa270df0261e05",
+    "app/detail_gpu.py": "415719a5cff05b92f3d06dffbb5cf3cb81d9569732399e3a3f5c78281c5c6cb2",
+    "app/detail_effects.cu": "a36b9e5fc30073d507b1a70b7c30ab4220428f01ed341d0eeb3e0f0e700c2998",
+    "app/detail_effects.ptx": "17088857db97c0f4520be52742b62c1bccdb29973002af6a34e96e810240dd32",
+    "app/detail_effects-build.json": "22a2fc4c16a627c4c339f4ffc67df261dbc36e9b03894859023edac91316124d",
+    "app/detail_effects-sm86.cubin": "5b8bcfb7c2aee2d0db80a91f9508e20e387ad88b5118aa5710050bb6e5248447",
+    "app/detail_effects-sm86.json": "1c028a8ebbfb032d8c3a1196fdc44f7666670ecd7b8cb582ed840a0c6703deba",
+    "app/engine_worker.py": "2069f97f963a46c39b8935d2b51c78693e855079cef9f4b198b6417abe0bdba3",
+    "app/engine_compat.py": "f57f89a81f1f70e83aed7d2a175d33613fc5b126f62d0c67658a326c51455c66",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  },
+  "scope": "Synthetic complete raw effect replacement for A-stage selection; not full real Red Hood skill parity"
+}

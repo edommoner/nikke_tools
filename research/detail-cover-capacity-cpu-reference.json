@@ -1,0 +1,110 @@
+{
+  "cpu_reference_verified": true,
+  "gpu_implemented": false,
+  "objective_complete": false,
+  "direct_state_queries": true,
+  "whole_squad_verified": false,
+  "cases": [
+    {
+      "name": "caster-not-recipient-maximum",
+      "capacity": 200.0,
+      "expected_capacity": 200,
+      "current": 200.0,
+      "stored_maximum": 200.0,
+      "passed": true
+    },
+    {
+      "name": "live-caster-HP-bonus",
+      "capacity": 250.0,
+      "expected_capacity": 250,
+      "current": 250.0,
+      "stored_maximum": 250.0,
+      "passed": true
+    },
+    {
+      "name": "base-percentage-plus-caster-flat",
+      "capacity": 220.0,
+      "expected_capacity": 220,
+      "current": 220.0,
+      "stored_maximum": 220.0,
+      "passed": true
+    },
+    {
+      "name": "stacked-caster-capacity",
+      "capacity": 400.0,
+      "expected_capacity": 400,
+      "current": 400.0,
+      "stored_maximum": 400.0,
+      "passed": true
+    },
+    {
+      "name": "expiry-clamps-existing-cover",
+      "capacity": 100.0,
+      "expected_capacity": 100,
+      "current": 100.0,
+      "stored_maximum": 100.0,
+      "passed": true
+    },
+    {
+      "name": "broken-cover-never-revives-from-capacity",
+      "capacity": 200.0,
+      "expected_capacity": 200,
+      "current": 0,
+      "stored_maximum": 200.0,
+      "passed": true
+    },
+    {
+      "name": "increased-capacity-adds-only-difference",
+      "capacity": 200.0,
+      "expected_capacity": 200,
+      "current": 140.0,
+      "stored_maximum": 200.0,
+      "passed": true
+    },
+    {
+      "name": "down-caster-active-capacity-persists",
+      "capacity": 200.0,
+      "expected_capacity": 200,
+      "current": 200.0,
+      "stored_maximum": 200.0,
+      "passed": true
+    },
+    {
+      "name": "caster-HP-bonus-dynamic-lost-HP",
+      "capacity": 275.0,
+      "expected_capacity": 275,
+      "current": 275.0,
+      "stored_maximum": 275.0,
+      "passed": true
+    }
+  ],
+  "raw_carriers": [
+    {
+      "character": "티아",
+      "name": "카멜레온 은신술",
+      "stat": "cover_hp_pct",
+      "target": "self"
+    },
+    {
+      "character": "베이",
+      "name": "퍼스트 위너 2",
+      "stat": "cover_hp_pct",
+      "target": "self"
+    },
+    {
+      "character": "베이",
+      "name": "퍼스트 위너 2",
+      "stat": "cover_hp_pct",
+      "target": "self"
+    }
+  ],
+  "source_sha256": {
+    "research/probe-cover-capacity-cpu-reference.py": "b7cba25081e06a1a8cdfdaa6354c85623ce1dea5836edfd7efae2a5823ab4cfe",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/data/parsed_skills.json": "81e2934af7c91b69a49b71721d5f53af25b5ebf006595d3e929db4582ff23137",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/engine_compat.py": "02ddc15b849b1b26e4dea9ce517bf51bfc3b4f9d4929fcc1c0b1b41739cbdea0",
+    "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "app/survival_scaling_compat.py": "7d58315941ff7256dcbeb1fa38c15e7fc5a801d1e96822610d612a114b9b56bc"
+  }
+}

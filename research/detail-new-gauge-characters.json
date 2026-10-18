@@ -1,0 +1,814 @@
+{
+  "generated_at": "2026-10-16T04:32:59.299977+00:00",
+  "passed": true,
+  "cpu_trace_used_as_gpu_input": false,
+  "cases": [
+    {
+      "name": "루드밀라 : 윈터 오너",
+      "squad": [
+        "루드밀라 : 윈터 오너",
+        "모더니아",
+        "루주",
+        "마스트 : 로망틱 메이드",
+        "도라"
+      ],
+      "duration": 60,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 681231904,
+      "gpu_total": 681231904,
+      "cpu_health": {
+        "루드밀라 : 윈터 오너": {
+          "hp": 2715916.0,
+          "hp_pct": 100.0,
+          "max_hp": 2715916.0
+        },
+        "모더니아": {
+          "hp": 2715916.0,
+          "hp_pct": 100.0,
+          "max_hp": 2715916.0
+        },
+        "루주": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        },
+        "도라": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        }
+      },
+      "gpu_health": {
+        "루드밀라 : 윈터 오너": {
+          "hp": 2715916.0,
+          "hp_pct": 100.0,
+          "max_hp": 2715916.0
+        },
+        "모더니아": {
+          "hp": 2715916.0,
+          "hp_pct": 100.0,
+          "max_hp": 2715916.0
+        },
+        "루주": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        },
+        "도라": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "루드밀라 : 윈터 오너",
+          "cpu": 200060498,
+          "gpu": 200060498
+        },
+        {
+          "name": "모더니아",
+          "cpu": 344522240,
+          "gpu": 344522240
+        },
+        {
+          "name": "루주",
+          "cpu": 33676858,
+          "gpu": 33676858
+        },
+        {
+          "name": "마스트 : 로망틱 메이드",
+          "cpu": 69860462,
+          "gpu": 69860462
+        },
+        {
+          "name": "도라",
+          "cpu": 33111846,
+          "gpu": 33111846
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "루드밀라 : 윈터 오너"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 15.583,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 27.283,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 27.383,
+          "event": "stage:3 사용",
+          "character": "루드밀라 : 윈터 오너"
+        },
+        {
+          "time": 27.767,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 37.767,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 39.767,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 49.267,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 49.367,
+          "event": "stage:3 사용",
+          "character": "루드밀라 : 윈터 오너"
+        },
+        {
+          "time": 49.75,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 59.75,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "루드밀라 : 윈터 오너"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 15.583,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 27.283,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 27.383,
+          "event": "stage:3 사용",
+          "character": "루드밀라 : 윈터 오너"
+        },
+        {
+          "time": 27.767,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 37.767,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 39.767,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 49.267,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 49.367,
+          "event": "stage:3 사용",
+          "character": "루드밀라 : 윈터 오너"
+        },
+        {
+          "time": 49.75,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 59.75,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 3639.656,
+      "module_initialization_ms": 6.627,
+      "wall_seconds": 4.961
+    },
+    {
+      "name": "프리바티 : 언카인드 메이드",
+      "squad": [
+        "프리바티 : 언카인드 메이드",
+        "모더니아",
+        "루주",
+        "마스트 : 로망틱 메이드",
+        "도라"
+      ],
+      "duration": 60,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 545138461,
+      "gpu_total": 545138461,
+      "cpu_health": {
+        "프리바티 : 언카인드 메이드": {
+          "hp": 2715916.0,
+          "hp_pct": 100.0,
+          "max_hp": 2715916.0
+        },
+        "모더니아": {
+          "hp": 2715916.0,
+          "hp_pct": 100.0,
+          "max_hp": 2715916.0
+        },
+        "루주": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        },
+        "도라": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        }
+      },
+      "gpu_health": {
+        "프리바티 : 언카인드 메이드": {
+          "hp": 2715916.0,
+          "hp_pct": 100.0,
+          "max_hp": 2715916.0
+        },
+        "모더니아": {
+          "hp": 2715916.0,
+          "hp_pct": 100.0,
+          "max_hp": 2715916.0
+        },
+        "루주": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        },
+        "도라": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "프리바티 : 언카인드 메이드",
+          "cpu": 115279251,
+          "gpu": 115279251
+        },
+        {
+          "name": "모더니아",
+          "cpu": 307884697,
+          "gpu": 307884697
+        },
+        {
+          "name": "루주",
+          "cpu": 29990803,
+          "gpu": 29990803
+        },
+        {
+          "name": "마스트 : 로망틱 메이드",
+          "cpu": 62433350,
+          "gpu": 62433350
+        },
+        {
+          "name": "도라",
+          "cpu": 29550360,
+          "gpu": 29550360
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "프리바티 : 언카인드 메이드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 15.583,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 27.283,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 27.383,
+          "event": "stage:3 사용",
+          "character": "프리바티 : 언카인드 메이드"
+        },
+        {
+          "time": 27.767,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 37.767,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 39.767,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 49.267,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 49.367,
+          "event": "stage:3 사용",
+          "character": "프리바티 : 언카인드 메이드"
+        },
+        {
+          "time": 49.75,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 59.75,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "프리바티 : 언카인드 메이드"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 13.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 15.583,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 27.283,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 27.383,
+          "event": "stage:3 사용",
+          "character": "프리바티 : 언카인드 메이드"
+        },
+        {
+          "time": 27.767,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 37.767,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 39.767,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 49.267,
+          "event": "stage:2 사용",
+          "character": "마스트 : 로망틱 메이드"
+        },
+        {
+          "time": 49.367,
+          "event": "stage:3 사용",
+          "character": "프리바티 : 언카인드 메이드"
+        },
+        {
+          "time": 49.75,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 59.75,
+          "event": "full_burst 종료",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 3048.362,
+      "module_initialization_ms": 4.432,
+      "wall_seconds": 4.226
+    },
+    {
+      "name": "벨벳",
+      "squad": [
+        "벨벳",
+        "모더니아",
+        "루주",
+        "마스트 : 로망틱 메이드",
+        "도라"
+      ],
+      "duration": 60,
+      "passed": true,
+      "total_equal": true,
+      "members_equal": true,
+      "burst_timeline_equal": true,
+      "base_stats_equal": true,
+      "final_health_equal": true,
+      "cpu_total": 435560528,
+      "gpu_total": 435560528,
+      "cpu_health": {
+        "벨벳": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        },
+        "모더니아": {
+          "hp": 2715916.0,
+          "hp_pct": 100.0,
+          "max_hp": 2715916.0
+        },
+        "루주": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        },
+        "도라": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        }
+      },
+      "gpu_health": {
+        "벨벳": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        },
+        "모더니아": {
+          "hp": 2715916.0,
+          "hp_pct": 100.0,
+          "max_hp": 2715916.0
+        },
+        "루주": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        },
+        "마스트 : 로망틱 메이드": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        },
+        "도라": {
+          "hp": 3000314.0,
+          "hp_pct": 100.0,
+          "max_hp": 3000314.0
+        }
+      },
+      "observed_cpu_conditions": {
+        "hp_below_80": false,
+        "lifesteal_active": false,
+        "pierce_active": false
+      },
+      "observed_crown_conditions": {
+        "stack20": 0,
+        "heal_received": 0,
+        "shield_applied": 0,
+        "auto_reload": 0,
+        "heal_damage_buff": false
+      },
+      "members": [
+        {
+          "name": "벨벳",
+          "cpu": 113735216,
+          "gpu": 113735216
+        },
+        {
+          "name": "모더니아",
+          "cpu": 210153089,
+          "gpu": 210153089
+        },
+        {
+          "name": "루주",
+          "cpu": 29045320,
+          "gpu": 29045320
+        },
+        {
+          "name": "마스트 : 로망틱 메이드",
+          "cpu": 53759341,
+          "gpu": 53759341
+        },
+        {
+          "name": "도라",
+          "cpu": 28867562,
+          "gpu": 28867562
+        }
+      ],
+      "cpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "벨벳"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 20.683,
+          "event": "stage:2 사용",
+          "character": "벨벳"
+        },
+        {
+          "time": 27.383,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 27.767,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 42.767,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 44.767,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 44.867,
+          "event": "stage:2 사용",
+          "character": "벨벳"
+        },
+        {
+          "time": 49.367,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 49.75,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_bursts": [
+        {
+          "time": 3.0,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 3.1,
+          "event": "stage:2 사용",
+          "character": "벨벳"
+        },
+        {
+          "time": 3.2,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 3.583,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 18.583,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 20.583,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 20.683,
+          "event": "stage:2 사용",
+          "character": "벨벳"
+        },
+        {
+          "time": 27.383,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 27.767,
+          "event": "full_burst 시작",
+          "character": ""
+        },
+        {
+          "time": 42.767,
+          "event": "full_burst 종료",
+          "character": ""
+        },
+        {
+          "time": 44.767,
+          "event": "stage:1 사용",
+          "character": "루주"
+        },
+        {
+          "time": 44.867,
+          "event": "stage:2 사용",
+          "character": "벨벳"
+        },
+        {
+          "time": 49.367,
+          "event": "stage:3 사용",
+          "character": "모더니아"
+        },
+        {
+          "time": 49.75,
+          "event": "full_burst 시작",
+          "character": ""
+        }
+      ],
+      "gpu_module_backend": "cubin-sm86",
+      "gpu_execution_ms": 3982.541,
+      "module_initialization_ms": 4.249,
+      "wall_seconds": 5.369
+    }
+  ],
+  "source_sha256": {
+    "app/detail_gpu.py": "46f87392665a852ae0288bcede1fba5be6454b0c96cbe5642c9642a833875342",
+    "app/detail_effects.cu": "3fb710c73db43a9777c6e88c04c69683b4814fb17e26fb88869605e10fa8ef68",
+    "app/detail_effects.ptx": "7f65a89527d2b1aa7f559ecdf4adcaad09dbc70b4182034f6b55dfe387526eab",
+    "app/detail_effects-sm86.cubin": "4566be0cedff337d9d61330cdcbb61b57f5912bf0ed07015d8f1e96e06bfc450",
+    "app/detail_effects-sm86.json": "3bb2fa8d04679dbca9e2d51499d1c12b31393089a72e9b6373cffc3976f9059c"
+  }
+}

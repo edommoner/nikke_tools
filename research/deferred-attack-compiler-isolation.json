@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "character_still_rejected": true,
+  "issues": [
+    {
+      "character": "일레그 : 붐 앤 쇼크",
+      "effect": "빙의",
+      "reason": "[{'reason': 'effect type/stat: buff / possessed'}]"
+    }
+  ],
+  "scope": "Compiler isolation only: deferred instructions do not silently admit possession/gauge-floor gaps",
+  "source_sha256": {
+    "app/attack_timing_specs.py": "976d2beca6053f9c89b57c53c5c364bba3d66b817b571dff5d47aee3d593ad2b",
+    "app/detail_gpu.py": "0bdce3d046dcae7288f93b8ad2940c555cf0c055de6d69634b44952c70e88c0a"
+  }
+}

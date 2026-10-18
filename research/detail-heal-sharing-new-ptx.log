@@ -1,0 +1,9 @@
+{"name": "sharing-no-links", "backend": "ptx", "passed": true, "checks": {"total_equal": true, "members_equal": true, "burst_timeline_equal": true, "base_stats_equal": true, "seed_equal": true, "burst_policy_equal": true, "requested_burst_policy_equal": true, "burst_patterns_equal": true, "shooting_policy_equal": true, "burst_gauge_mode_equal": true, "parts_state_equal": true, "boss_patterns_equal": true, "boss_timeline_equal": true, "incoming_hits_equal": true, "matched": true, "actual_gpu": true, "incoming_frames": true, "final_state": true, "down_frames": true, "final_down": true, "boss_rng": true, "skill_rng": true, "final_control": true, "hp_event_order": true, "scalar_frames": true, "final_HP_percentages": true}, "cpu_total": 254642, "gpu_total": 254642, "cpu_cover_healed": [], "cpu_hp_events": [], "cpu_revives": [], "raw_skills_retained": false}
+Traceback (most recent call last):
+  File "C:\Users\owner\Documents\ChatGPT\nikke tools\research\verify-heal-sharing.py", line 37, in <module>
+    rows.append(row);save()
+                     ^^^^^^
+  File "C:\Users\owner\Documents\ChatGPT\nikke tools\research\verify-heal-sharing.py", line 29, in save
+    assert hashes=={p:sha(ROOT/p) for p in hashes}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

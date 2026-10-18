@@ -1,0 +1,112 @@
+{
+  "passed": true,
+  "scope": "Diagnostic CPU observation, not acceptance of correct game behavior",
+  "cpu_totals": {
+    "none": 29574177,
+    "before": 29952459,
+    "after": 29952459
+  },
+  "finding": "Pinned landing handler recomputes named coefficient magnitude before get_buffs(exclude_names); a later burst-cast magnitude currently doubles this parent despite the authored-order exclusion contract. Current GPU lookup honors the exclusion mask, so a real CPU/GPU divergence remains to resolve, not force to CPU.",
+  "other_query_to_audit": "HP-based attack source reads effective_max_hp separately from get_buffs exclusions on CPU; GPU uses a shared global mask. Define quantity-specific exclusion context before claiming all combinations.",
+  "fixtures": [
+    {
+      "mode": "none",
+      "effects": [
+        {
+          "source": "스킬1",
+          "name": "landing",
+          "type": "damage",
+          "stat": "sequential_damage:1",
+          "fixed_value": 100,
+          "target": "target",
+          "trigger": {
+            "timing": [
+              "burst_cast"
+            ],
+            "condition": []
+          },
+          "land_in_full_burst": true
+        }
+      ]
+    },
+    {
+      "mode": "before",
+      "effects": [
+        {
+          "source": "스킬1",
+          "name": "named magnitude",
+          "type": "buff",
+          "stat": "dmg_scale_mag_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "burst_cast"
+            ],
+            "condition": []
+          },
+          "duration": 10,
+          "target_effect": "landing"
+        },
+        {
+          "source": "스킬1",
+          "name": "landing",
+          "type": "damage",
+          "stat": "sequential_damage:1",
+          "fixed_value": 100,
+          "target": "target",
+          "trigger": {
+            "timing": [
+              "burst_cast"
+            ],
+            "condition": []
+          },
+          "land_in_full_burst": true
+        }
+      ]
+    },
+    {
+      "mode": "after",
+      "effects": [
+        {
+          "source": "스킬1",
+          "name": "landing",
+          "type": "damage",
+          "stat": "sequential_damage:1",
+          "fixed_value": 100,
+          "target": "target",
+          "trigger": {
+            "timing": [
+              "burst_cast"
+            ],
+            "condition": []
+          },
+          "land_in_full_burst": true
+        },
+        {
+          "source": "스킬1",
+          "name": "named magnitude",
+          "type": "buff",
+          "stat": "dmg_scale_mag_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "burst_cast"
+            ],
+            "condition": []
+          },
+          "duration": 10,
+          "target_effect": "landing"
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "app/detail_gpu.py": "0bdce3d046dcae7288f93b8ad2940c555cf0c055de6d69634b44952c70e88c0a",
+    "app/detail_effects.cu": "2b652e634ad54803225bbb53083a91f947dc365a1fc4b0125fbbdc6bd56e396e",
+    "app/attack_timing_specs.py": "976d2beca6053f9c89b57c53c5c364bba3d66b817b571dff5d47aee3d593ad2b",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/docs/GAMEPLAY.md": "9640ef2a5f0c2e651b20075e7b9e72f84890ad7c608809fd1eeb86962ce20e27"
+  }
+}

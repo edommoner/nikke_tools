@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "scope": "Real CPU full timeline: initialization/frame0 calls no longer reopen a self-destructed source. Second generation starts on the next frame.",
+  "frame0_calls": [
+    {
+      "time": 0.0,
+      "before": [
+        0
+      ],
+      "after": [
+        1
+      ],
+      "events": [
+        "event:enemy_spawn",
+        "enemy_death"
+      ]
+    },
+    {
+      "time": 0.0,
+      "before": [
+        1
+      ],
+      "after": [
+        1
+      ],
+      "events": []
+    }
+  ],
+  "incoming_times": [
+    0.0,
+    0.016667
+  ],
+  "source_sha256": {
+    "app/engine_worker.py": "189702abfcfde648c047da61c21409f34da4081b34055e33e7ad7db978662c15",
+    "app/effect_spec.py": "88e59ac69df6f5da63e565105e6c81294d23942c08cd0b501cfb9077641782e0",
+    "app/world_frame_runtime.py": "ee1a371e64967d0ed43a6c3663f290683ec0ef8c3349a3b3eea77e3ad3348ee8",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/calculator/boss_pattern.py": "ccbfde085e5c809b07215b15177a08d725cd56a2691fd26675a9b19b01296565"
+  }
+}

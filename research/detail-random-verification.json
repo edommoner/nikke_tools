@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-10-16T15:48:05.111139+00:00",
+  "passed": true,
+  "combat_integrated": false,
+  "cpu_trace_used_as_gpu_input": false,
+  "oracle_draws_uploaded": false,
+  "cases": [
+    {
+      "seed": 0,
+      "passed": true,
+      "checks": {
+        "draws_and_ordered_samples": true,
+        "final_MT_state": true,
+        "status": true
+      },
+      "operations": 1585
+    },
+    {
+      "seed": 1,
+      "passed": true,
+      "checks": {
+        "draws_and_ordered_samples": true,
+        "final_MT_state": true,
+        "status": true
+      },
+      "operations": 1585
+    },
+    {
+      "seed": 12345,
+      "passed": true,
+      "checks": {
+        "draws_and_ordered_samples": true,
+        "final_MT_state": true,
+        "status": true
+      },
+      "operations": 1585
+    },
+    {
+      "seed": 4294967295,
+      "passed": true,
+      "checks": {
+        "draws_and_ordered_samples": true,
+        "final_MT_state": true,
+        "status": true
+      },
+      "operations": 1585
+    }
+  ],
+  "scope": "MT words, getrandbits<=32, small-pool rejection and ordered sample, including twist boundaries; no gameplay random-target parity claim yet",
+  "source_sha256": {
+    "research/ports/detail_random.cu": "4c8630f69cce2757c2a8ded2f7d62d046b250786af82332e423a023d80d50fa7",
+    "research/ports/detail_random.ptx": "d2b4944e3b994cf5a35b3e8bf2ccca9f4aeb9be1052c22bdf3031bd7679dfb5d",
+    "research/ports/detail_random.json": "301f7af63488d32631f6793006b69ffe31e54d1c9e8994b4cf26f9cf09267ae5",
+    "scripts/build-detail-random.py": "dfd69a64ddd6fa61259dce1e114e8c68a82b38e5838e06c2c93ea9193afd3cf4",
+    "scripts/verify-detail-random.py": "baf61db0309f1ddb248ff7e46f04f48660ddc819ea4f01f2e53b8d61e44f9609",
+    "research/detail-python-random-cpu-references.json": "921410ed5707150e436049cf8e794ed6a2684579b2f523c121cb075e08d69a6e",
+    "app/gpu_selector.py": "913cf0fdab130614dbf1b73e6016550a4ea07b6fee27f540f6bae079e1c2c2b3"
+  }
+}

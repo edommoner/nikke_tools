@@ -1,0 +1,15 @@
+{
+  "backend": "cuda",
+  "model": "combat-prefilter-v1",
+  "approximate": true,
+  "device": "NVIDIA GeForce RTX 3070 Ti",
+  "kernel_ms": 756.906,
+  "transfer_compute_ms": 910.167,
+  "errors": [],
+  "prepare_ms": 2143.165,
+  "elapsed_ms": 3073.667,
+  "candidates": 800,
+  "frames": 43200000,
+  "issue_count": 66,
+  "workload": "same synthetic demo squad repeated; 180 seconds at 60 fps"
+}

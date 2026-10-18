@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "tests_run": 20,
+  "skipped": 0,
+  "source_sha256": {
+    "app/resource_specs.py": "8e258b9365cd17fdcad0733bc367cfd72478c2c1b585509f71dd017f3d27a8cd",
+    "app/resource_runtime.py": "8356943f18d137bfb90d60ab2096c2505403c9156f088cf29c7aeda38fecd58c",
+    "app/effect_overrides.py": "2219f5b421c6e719af1bc83c73bd1ed020dc7a7f4e18897bc973b291f0c66d43",
+    "app/effect_runtime.py": "2f1775a8cc9dbf62ba68f499cae6081cd977ee73fd8f2dbad5261d6e86980990",
+    "app/reference_rewrite.py": "3d183c01a5915fcc5749b304c6f7c3aa68f28483065cdb3758bbb04301e3e15e",
+    "app/damage_query_runtime.py": "fcb22427f84941e5d6a331d02054341e8f5859b274d139a799f3bc8ef202ddd0",
+    "app/engine_compat.py": "ca841c7fe18f68682699ee71b52194c079d1a861e7f7e385b7d322e5b4d101d5",
+    "app/detail_gpu.py": "54381f0226eca36f7b85304d2677fc4c492de8c3e8000720d77fcc90a84ed82a",
+    "data/engine-effect-overrides.json": "2ec8bf0ba5f1e96267d724c2d0944d3cfba4f1c530bf3bf398effcc2583d0513",
+    "scripts/resource_limit_cases.py": "7243a8e48c10e5108beb45f68c0a58c3514e32276a78af56c5ee2ec00c8667ef",
+    "tests/test_resource_specs.py": "3a76f9c2c69286d659144941ea0305b4f07f6e851b32040380b8cb0741d88400",
+    "tests/test_effect_overrides.py": "220b3252806f81f1e72c904f57d7ad69514797fefd52e0500647b13f594de194",
+    "tests/test_reference_rewrite.py": "580c5f02b5257dce8e0275ce85b53e3e2a4d07ad745e8f52c79eef08d923d1f3",
+    "tests/test_damage_query_runtime.py": "6f2dd8bc88af8ebbe59f69cf351e814f5101b5ce496655fa6e9d0d4ca0ff9ec9",
+    "tests/test_effect_runtime.py": "509976070c293407e9e7d5e953c9e267a42d1856a91d9044f4f38ffa5867d47a"
+  },
+  "scope": "Resource quantities/precision, field and bytecode bounds, checked data patch, preserved AST composition and shared state/runtime ordering. Earlier individual runs overlap and are not added."
+}

@@ -1,0 +1,102 @@
+{
+  "versions": [
+    {
+      "path": "research/ports/v49-named-targets-verified/app/detail_effects.ptx",
+      "sha256": "449462558f7e874c5d60994083c97bbfd6e3bfb38c00289150cfe78acf159a2d",
+      "bytes": 14805990,
+      "defined_functions": 35,
+      "largest": [
+        {
+          "symbol": "_Z6notifyPKdS0_iP5StateS0_diiiidid",
+          "bytes": 1723008,
+          "lines": 61130
+        },
+        {
+          "symbol": "detail_named_attack_targets_v49",
+          "bytes": 1615812,
+          "lines": 58038
+        },
+        {
+          "symbol": "_Z16incoming_attacksPKdS0_iP5StateS0_di",
+          "bytes": 1295442,
+          "lines": 46427
+        },
+        {
+          "symbol": "_Z11squad_framePKdS0_iP5StateS0_dPiS0_",
+          "bytes": 997569,
+          "lines": 36786
+        },
+        {
+          "symbol": "_Z9conditionPKdS0_iP5StateS0_iiidii",
+          "bytes": 874827,
+          "lines": 31942
+        },
+        {
+          "symbol": "_Z6damagePKdS0_iP5StateS0_iidii",
+          "bytes": 730152,
+          "lines": 26601
+        },
+        {
+          "symbol": "_Z12weapon_framePKdS0_iP5StateS0_dii",
+          "bytes": 726000,
+          "lines": 27009
+        },
+        {
+          "symbol": "_Z18lifecycle_activatePKdS0_iP5StateiiS0_iiiPiPyS3_",
+          "bytes": 672237,
+          "lines": 24076
+        }
+      ]
+    },
+    {
+      "path": "app/detail_effects.ptx",
+      "sha256": "efe580ac5786809e958897f3cd49372736be387efa7f8f53b8fe5ccaf5e03277",
+      "bytes": 21507327,
+      "defined_functions": 35,
+      "largest": [
+        {
+          "symbol": "_Z6notifyPKdS0_iP5StateS0_diiiidid",
+          "bytes": 1511613,
+          "lines": 53731
+        },
+        {
+          "symbol": "_Z16incoming_attacksPKdS0_iP5StateS0_di",
+          "bytes": 1473198,
+          "lines": 52725
+        },
+        {
+          "symbol": "_Z23apply_storage_body_healPKdS0_iP5Stateidi",
+          "bytes": 1312942,
+          "lines": 47363
+        },
+        {
+          "symbol": "_Z4statPKdS0_iP5Stateiii",
+          "bytes": 1290220,
+          "lines": 46817
+        },
+        {
+          "symbol": "_Z11finish_clipPKdS0_iP5Stateiid",
+          "bytes": 1241634,
+          "lines": 44552
+        },
+        {
+          "symbol": "detail_damage_basis_predicates_v50",
+          "bytes": 1227002,
+          "lines": 44058
+        },
+        {
+          "symbol": "_Z11squad_framePKdS0_iP5StateS0_dPiS0_",
+          "bytes": 1202025,
+          "lines": 44059
+        },
+        {
+          "symbol": "_Z18charge_speed_totalPKdS0_iP5Stateii",
+          "bytes": 977744,
+          "lines": 35979
+        }
+      ]
+    }
+  ],
+  "size_ratio": 1.4526098558758989,
+  "interpretation": "Static PTX expansion evidence only. Does not establish runtime throughput or prove the cause of long native compilation. Investigate helper inlining/call graph after the current build and correctness gate; do not interrupt solely for elapsed time."
+}

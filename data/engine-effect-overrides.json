@@ -1,0 +1,125 @@
+{
+  "corrections": [
+    {
+      "character": "일레그 : 붐 앤 쇼크",
+      "match": {
+        "name": "13 고스트 2",
+        "source": "스킬3",
+        "type": "instant",
+        "stat": "gauge_consume",
+        "gauge_id": "유령",
+        "fixed_value": 6.0
+      },
+      "set": {
+        "minimum_remaining": 1.0
+      },
+      "evidence": {
+        "url": "https://www.prydwen.gg/nikke/characters/elegg-boom-and-shock",
+        "scope": "Consumption6 retains minimum1; no own in-game measurement. Capture is specified separately."
+      }
+    },
+    {
+      "character": "일레그 : 붐 앤 쇼크",
+      "match": {
+        "name": "빙의",
+        "source": "스킬1",
+        "type": "buff",
+        "stat": "possessed"
+      },
+      "set": {
+        "stat": "target_hit_counter",
+        "target_counter": {
+          "threshold": 100,
+          "actor": {
+            "kind": "body",
+            "identity": 0,
+            "generation": 1
+          },
+          "families": [
+            "weapon",
+            "skill",
+            "dot"
+          ],
+          "outcomes": [
+            "damaging"
+          ],
+          "attackers": "squad",
+          "refresh": "reset",
+          "on_death": true,
+          "world_scope": "single_body"
+        },
+        "note": "Single-body interpretation: each accepted allied damage landing contributes one credit. Component and blocked-hit worlds are not admitted."
+      },
+      "evidence": {
+        "url": "https://www.prydwen.gg/nikke/characters/elegg-boom-and-shock",
+        "additional_url": "https://nikke.gg/elegg-boom-and-shock-early-analysis/",
+        "scope": "Skill text specifies target-associated cumulative ally hits. The analysis describes individual damage instances/pellets. All weapon/skill/DoT landings are an explicit bounded model interpretation, not an own in-game validation. Six-second possession windows reset progress. Multi-target/component/barrier policies remain unverified."
+      }
+    },
+    {
+      "character": "일레그 : 붐 앤 쇼크",
+      "match": {
+        "name": "유령 포획",
+        "source": "스킬1",
+        "type": "instant",
+        "stat": "gauge_charge"
+      },
+      "set": {
+        "trigger": {
+          "timing": [
+            "event:target_counter_complete:빙의"
+          ],
+          "condition": []
+        },
+        "note": "Completion from hit threshold or target death grants one resource; ammo-consumption approximation removed."
+      },
+      "evidence": {
+        "url": "https://www.prydwen.gg/nikke/characters/elegg-boom-and-shock",
+        "scope": "Target-hit capture and death completion are distinct from ammunition accounting."
+      }
+    },
+    {
+      "character": "일레그 : 붐 앤 쇼크",
+      "match": {
+        "name": "고스트 버스터 2",
+        "source": "스킬2",
+        "type": "damage",
+        "stat": "damage"
+      },
+      "set": {
+        "trigger": {
+          "timing": [
+            "event:target_counter_complete:빙의"
+          ],
+          "condition": [
+            "gauge_eq:유령:13"
+          ]
+        },
+        "note": "Evaluate already-at-cap before the following capture increment."
+      },
+      "move_before": {
+        "name": "유령 포획",
+        "source": "스킬1",
+        "type": "instant"
+      },
+      "evidence": {
+        "url": "https://www.prydwen.gg/nikke/characters/elegg-boom-and-shock",
+        "scope": "Overflow requires capacity to have already been full at capture entry."
+      }
+    },
+    {
+      "character": "일레그 : 붐 앤 쇼크",
+      "match": {
+        "name": "빙의 해제",
+        "source": "스킬1",
+        "type": "instant",
+        "stat": "remove_named_buff"
+      },
+      "delete": true,
+      "evidence": {
+        "url": "https://www.prydwen.gg/nikke/characters/elegg-boom-and-shock",
+        "scope": "The shared counter retires only its own carrier/refresh epoch after completion callbacks; the old global removal would erase a newly refreshed marker."
+      }
+    }
+  ]
+}

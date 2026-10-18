@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-10-16T23:26:00.224113+00:00",
+  "passed": true,
+  "tests_run": 1,
+  "seconds": 0.4463490000925958,
+  "source_sha256": {
+    "tests/test_detail_charge_immunity.py": "bc291f62e08a0ff2502159142cc1175665af500621138be8335fb7e521441776",
+    "app/detail_gpu.py": "4e1c3bc058880c64aceda7ad359e4585b92b97d50279f840f24cab9e806d7fe7"
+  },
+  "failures": []
+}

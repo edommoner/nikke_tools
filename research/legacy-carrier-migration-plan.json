@@ -1,0 +1,35 @@
+{
+  "status": "Implemented and verified in v48; see research/carrier-checkpoint.json",
+  "scope": "Migrate existing operations to one exact activation-carrier contract before adding any remaining character mechanic",
+  "baseline_probe": "research/ports/v47-before-carrier-migration/research/legacy-carrier-audit.json",
+  "common_identity": [
+    "definition identity",
+    "caster",
+    "carrier object or GPU slot",
+    "GPU entry generation",
+    "remaining captured recipients"
+  ],
+  "CPU": [
+    "Provide one active-carrier resolver using the nested activation context, with explicit carrier support for numerical continuations and cold storage initialization. Require exact object membership in the active set; do not silently fall back to first matching definition.",
+    "Deliver protection callbacks with the same lexical carrier context as ordinary callbacks, restoring it after nested notifications and exceptions.",
+    "Change shield/decoy, storage, healing charge, damage registration and maximum-HP registration to update only that carrier.",
+    "Replace the pinned activation's late numerical next-instance lookups with checked exact-carrier bindings. Updating registration alone would still leave damage-cap and maximum-HP arithmetic attached to the wrong instance.",
+    "Keep lazy storage initialization explicit for the particular live carrier; do not initialize or refresh sibling instances.",
+    "Preserve each operation's declared snapshot, refresh, expiry and event phase. Do not use this identity migration to reorder unrelated effects."
+  ],
+  "GPU": [
+    "Declare current_instance for all registered activation operations after their CPU numerical paths are corrected. Generate dispatch from the catalog.",
+    "Validate slot and entry generation on delayed parent continuations. A removed parent's continuation must not attach to a replacement in the same slot.",
+    "Use the remaining captured recipients for resource creation and HP grants after nested removal; preserve ordered notification delivery.",
+    "Retain distinct semantics for stack initialization and normal activation, matching each operation's independent contract rather than applying copy-specific behavior globally."
+  ],
+  "verification_without_duplicates": [
+    "Use one table-driven carrier-contract witness for all applicable existing operations: two recipient sets, refresh the second, assert the first's state is unchanged and only the second is registered/updated.",
+    "Reuse existing independent quantity and lifecycle comparators for each family instead of creating another copy of its damage/HP formula tests.",
+    "Add only missing order distinctions: nested removal, slot replacement and protection-event observation of initialized resources.",
+    "Run new witnesses first in one full native suite because the shared executor changes; keep exact comparator/input/backend result reuse.",
+    "Check the portable backend on the shared identity/order representatives rather than repeating every character squad."
+  ],
+  "not_claimed": "Identity and existing numerical regressions pass on native and portable GPU. This does not prove every in-game effect or complete all-character support.",
+  "current_probe": "research/legacy-carrier-audit.json"
+}

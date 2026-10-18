@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-10-16T04:17:38.970364+00:00",
+  "passed": true,
+  "fixture": "research/detail-timers-api-fixture.json",
+  "verification_command": "node scripts/smoke-detail.mjs research/detail-timers-api-fixture.json",
+  "normal_compare_gpu": true,
+  "cpu_verification": true,
+  "board_gpu": true,
+  "cache_separated": true,
+  "unsupported_cpu_fallback": true,
+  "total_damage": 367754659,
+  "source_sha256": {
+    "app/detail_gpu.py": "ea9b0699106683d31f95c4ccac759c653013da0be2e1fef79291579e101448c7",
+    "app/detail_effects.cu": "169e1d00d22b5f22db4660f2a0c2c52c482c37f1ffd134196779d28b57858ff7",
+    "app/detail_effects.ptx": "e219615967709429fd85f56bcb5c1e9007dbcd4aa63e4631bd81ac29919e8b32",
+    "app/detail_effects-sm86.cubin": "a0b692b60e4998f016ca9f73983ef455f4ea5fe9ce1c15ca3b9920f269535f3c",
+    "app/detail_effects-sm86.json": "367a3dcef3f837fb40346749828bdcd6b70a18a3656a1d7479f41206b14c4eb8",
+    "app/gpu_selector.py": "913cf0fdab130614dbf1b73e6016550a4ea07b6fee27f540f6bae079e1c2c2b3",
+    "app/gpu_service.py": "25b7dfc8d453fa9a69c7b337d54af36a4dc66660cad802cc0f37a5a4295287a2",
+    "app/engine_worker.py": "714a30a01d585b8d393737de02d935a194f893a64d472fc2db17a1c6b9c6c1b5",
+    "server.mjs": "12c72dd0f660f35b4c53a2c61ed4360712d87ace84dbf4fb50802aef890ae2c4",
+    "web/app.js": "552467d090a9097477b855e06006b96fe445db10b9c02f755055c22bf7d54977",
+    "web/index.html": "97cd5f872be6d71f27ae62127823d0e99e25ab2c7520fb2aa919d69d65e55137",
+    "scripts/smoke-detail.mjs": "7f05dde85ecc30451057001b4dcf1427578207e7712ccdd503f6c0618d166d79",
+    "research/detail-timers-api-fixture.json": "81b4c503daa6305bfd2537db6eb4c5e94563f3f2c0a4a95d0a9d45d3200a8148"
+  }
+}

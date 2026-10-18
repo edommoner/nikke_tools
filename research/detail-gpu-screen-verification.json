@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-10-16T05:48:58.634937+00:00",
+  "browser": "Codex in-app browser",
+  "origin": "http://127.0.0.1:4331",
+  "steps": [
+    "Click GPU詳細を試す",
+    "Confirm 1部隊計算,60sec,GPU詳細＋CPU照合,マスト3の倍数優先",
+    "Click この部隊を計算する",
+    "Observe GPU詳細計算 and CPU照合済み"
+  ],
+  "passed": true,
+  "total": 228058821,
+  "members": [
+    125556490,
+    17254736,
+    31736628,
+    20254869,
+    33256098
+  ],
+  "visible_verification": "部隊合計・5人のダメージ・バースト時刻・基礎ステータス一致",
+  "device": "NVIDIA GeForce RTX 3070 Ti",
+  "source_sha256": {
+    "web/app.js": "733ac6ea0762c2378395448107b788d59e6f072b7f9f9625e36fc30fd0a95203",
+    "web/index.html": "d6ca5e58b30c46a80fc96d5f5e3e9d21dd6663d9f3a540307e41c6489ea3594b",
+    "server.mjs": "34ef5212b960e7fbd98f0a610a3a1adfb9e9a1ca51d2b9f283f45348e8b46b3b",
+    "app/engine_worker.py": "d79f91713dfd44ef1b9108900e64541adf3c3af22922e394aee14a81e7a97370"
+  }
+}

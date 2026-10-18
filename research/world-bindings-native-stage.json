@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "native_stage_only": true,
+  "objective_complete": false,
+  "generated_at": "2026-10-18T08:52:25.736760+00:00",
+  "archive_base": "research/ports/v69-mode-inputs-verified",
+  "reports": [
+    "research/world-bindings-native.json",
+    "research/world-bindings-native-unit.json",
+    "research/world-bindings-coverage.json"
+  ],
+  "abi": "detail_world_bindings_v70",
+  "configured_world_bindings_shared": true,
+  "live_sources": [
+    "body",
+    "fixed_part"
+  ],
+  "summon_live_pool_connected": false,
+  "autonomous_multi_hit_connected": false,
+  "standard_compile_supported": 187,
+  "character_admission_changed": false,
+  "next": "Measure actual normal-path latency, then try canonical direct lookup. Portable backend, normal API and mixed-world regressions remain pending.",
+  "archive": "research/ports/v70-world-bindings-native-stage",
+  "source_sha256": {
+    "app/detail_boss.py": "4026dc9776a760050ed0f79051bc4b81b3929e97116a30a38c082eb633733e45",
+    "app/detail_effects-sm86.cubin": "9971fdb0127169ada44a0853677f45a9b95c06f37b6ca5c6afe42283db9754a5",
+    "app/detail_effects-sm86.json": "d1db4ad9b7e3e27a247ac7692f8418c92c1b9fc1df723d3864e67d8c6ed111ce",
+    "app/detail_effects.cu": "6888d89be1a8f1889810003ecccb0099f05a51efde6d1882db13462f4f5e5925",
+    "app/detail_gpu.py": "315fd8352ea77c41ffefb2bddbd2b59b4993c3c208437ad63676d8d9de60ab35",
+    "app/world_actor_runtime.py": "ced2d0f73d7f32077a17a5a5a9c58906c55f6f2e7c2997a714197965bf633da3",
+    "app/world_actor_specs.py": "111d70e0a0463942f65c689c23b436bc4c53f10823bd1a4aed3cf9854f0401d2",
+    "research/checkpoint_receipts.py": "9f928fcc6ba97602ed041dfa5d0589409c4076e2d215482427f304907135bf5f",
+    "research/save-world-bindings-stage.py": "6e1ae24bc77c78a1b271bf7491f072d2014bb45d2cb69abc02198baa5fe7b0c8",
+    "research/verify-world-bindings-coverage.py": "1b688990032a570e665737e81648ca6e66196dc60de982efa9f89bb7d4163b4e",
+    "research/world-bindings-coverage.json": "0cd4f5162c46ad26f4038fd5e373620129e57081e8ef95e39b06ef12edeaa3ea",
+    "research/world-bindings-native-unit.json": "dc0b03419f212506704f8f929536efca741a80d1a530a952e5ee3ec00e2a77d6",
+    "research/world-bindings-native.json": "ffbbf04ab0cb379817c18eacac30a39e8931741da0fc49dcbd41b3214f0992a8",
+    "scripts/verify-world-bindings-detail.py": "64101f8e1d4e1d12b7e113115cf1e79cba93aa154da8293cd82b7f1365112afd",
+    "tests/test_world_actor_runtime.py": "9cd00c8313b431f2d2a6bfb65dd7d7d9d6978d14fbd765380a4b7411d6de7b5f"
+  }
+}

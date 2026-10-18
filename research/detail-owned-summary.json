@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "objective_complete": false,
+  "combined_cases": 36,
+  "backends": [
+    "native",
+    "ptx"
+  ],
+  "all_final_random_states_equal": true,
+  "positive_controls": {
+    "native-auto-fixed": {
+      "growth_changes_damage": true,
+      "positions_change_damage": true
+    },
+    "native-auto-accumulate": {
+      "growth_changes_damage": true,
+      "positions_change_damage": true
+    },
+    "native-character-fixed": {
+      "growth_changes_damage": true,
+      "positions_change_damage": true
+    },
+    "native-character-accumulate": {
+      "growth_changes_damage": true,
+      "positions_change_damage": true
+    },
+    "ptx-auto-fixed": {
+      "growth_changes_damage": true,
+      "positions_change_damage": true
+    },
+    "ptx-auto-accumulate": {
+      "growth_changes_damage": true,
+      "positions_change_damage": true
+    },
+    "ptx-character-fixed": {
+      "growth_changes_damage": true,
+      "positions_change_damage": true
+    },
+    "ptx-character-accumulate": {
+      "growth_changes_damage": true,
+      "positions_change_damage": true
+    }
+  },
+  "normal_ui_total": 893298342,
+  "normal_api_total": 1055538864,
+  "adapter_tests": 11,
+  "policy_rejection_tests": 1,
+  "node_tests": 20,
+  "reports": [
+    "research/detail-owned-acceptance.json",
+    "research/detail-owned-ui-verification.json",
+    "research/detail-owned-api-verification.json"
+  ],
+  "limitations": [
+    "Fictional owned data; no live account import acceptance claim.",
+    "125 of 203 default characters accepted by v24 compiler; unsupported effects fall back to CPU.",
+    "Static enemy; not all character/gear/team combinations verified."
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "updated_at": "2026-10-17T23:44:10.481028+00:00",
+  "previous_goal_turn": "progress: verified v52 resource limits",
+  "objective_complete": false,
+  "phase": "v53 typed impact transport and precomputed lifecycle phase dispatch verified and archived",
+  "live_handles": {},
+  "checkpoint": "research/typed-impacts-checkpoint.json",
+  "archive": "research/ports/v53-typed-impacts-verified",
+  "checks": {
+    "native_primary_cases": 3,
+    "portable_primary_cases": 3,
+    "unique_primary_cases": 3,
+    "authored_transport_packets": 72,
+    "cpu_gpu_squads": 2,
+    "frames_per_squad": 482,
+    "lightweight_methods": 29,
+    "existing_batch_squads": 8,
+    "related_existing_controls": 16,
+    "normal_owned_api": true,
+    "normal8_uncached_ms": 4585.1135,
+    "cpu_dispatch_control_ms": 1123.4947501216084,
+    "cpu_dispatch_prepared_ms": 1108.3621000871062
+  },
+  "completed_handles": {
+    "native_build": 81116,
+    "native_primary": 83851,
+    "ptx_build": 73325,
+    "portable_primary": 60867,
+    "related_native": 85890,
+    "owned_api": 45740,
+    "cpu_dispatch_benchmark": 83501,
+    "normal_benchmark": 62134,
+    "normal_benchmark_server": {
+      "session_id": 97324,
+      "exit_code": 1,
+      "reason": "Own server deliberately stopped after successful benchmark"
+    }
+  },
+  "source_sha256": {
+    "app/impact_specs.py": "76f41faa18aad844c37dc0a21ea92675a7863f69b10ec087b14f3b7b7ea5e6b6",
+    "app/impact_runtime.py": "05eed31ba59c0745f765f3cdf2337fc7987882c692a4ff85b223821f81351159",
+    "app/effect_runtime.py": "d18202880f6f008ef1a061e63ce958546c0e9c23d58652ca01eccc5d3b1effc3",
+    "app/effect_spec.py": "1f4aa6b57947dfa5e7f886d040ed6bb7e400f9fcb7e2a491177f0f89d42a73ba",
+    "app/detail_gpu.py": "98ca38d53bbbe891772261c01b999ecd8d804e19762bcff98eed7268466dbc47",
+    "app/detail_effects.cu": "6dc1e1598996bc78a0afdda41cc9d2d810b475c7830ad2973593bea9202fc1b2",
+    "research/typed-impacts-checkpoint.json": "12cf4c7caeffecca74b0064751ecfbf181efc424306e4e5bbf8d214476993097"
+  },
+  "next_actions": [
+    "All-character/effect goal remains active; no whole new character is admitted by typed transport alone.",
+    "Implement target-associated counter state with exact carrier UID/slot generation, refresh epoch and target generation.",
+    "Latch completion before synchronous callbacks and retire only the same epoch. Combine hit threshold and target death exactly once.",
+    "Resolve or explicitly scope contributing weapon/skill/DoT/pellet/blocked-hit and refresh policies from game evidence before capture/possession acceptance; never substitute ammo or non-core hit streams.",
+    "Migrate capture/overflow data together, including already-at-cap entry snapshot.",
+    "After common migration is complete, split GPU interval timing into packing, transfer, kernel and readback before optimizing dominant shared work. Current CPU dispatch change and single normal8 measurement do not establish a material speedup.",
+    "Keep one heavy build/JIT/GPU verification at a time. No task-owned jobs remain."
+  ]
+}

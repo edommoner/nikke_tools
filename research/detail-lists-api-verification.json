@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-10-16T09:49:58.268Z",
+  "passed": true,
+  "normal_compare_gpu": true,
+  "cpu_verification": true,
+  "board_gpu": true,
+  "cache_separated": true,
+  "unsupported_cpu_fallback": true,
+  "total": 300962258,
+  "abi": "detail_lists_v9",
+  "source_sha256": {
+    "app/detail_gpu.py": "16c225798669cbae0bf0251e3459f23753df03114cf9649af63e5a4ca968b649",
+    "app/detail_effects.cu": "6148fe9465ed8a42a058cd332119522a9b42b6a6f7cd24d1f82ca2c197733bb6",
+    "app/detail_effects.ptx": "f87a79a872a6f1af1a6e89af0407dda803ab500eef5405f5514d21efce66e1aa",
+    "app/detail_effects-build.json": "9e3ccf70486c111e7ed56864ec62dcbe3b96dbf25067eb54591f29d265eee91a",
+    "app/detail_effects-sm86.cubin": "6e7bd0de943fccdc17c65778925c071bff1d762fae9f6411f4163e274693e577",
+    "app/detail_effects-sm86.json": "7544323b2708a21fbce608b4dd44d78df1a853c20b332c96d76620882b6c4579",
+    "app/engine_worker.py": "06a40f07b3f95c7b8a7e833eafd3d9a86c2c4e2b5ab72cddb37820da41035929",
+    "server.mjs": "1a4893b15953a714ce8a095ac9777eb13d38302237933f4d428dcd2a8cc64578",
+    "web/app.js": "733ac6ea0762c2378395448107b788d59e6f072b7f9f9625e36fc30fd0a95203",
+    "app/engine_compat.py": "f57f89a81f1f70e83aed7d2a175d33613fc5b126f62d0c67658a326c51455c66",
+    "research/detail-lists-api-fixture.json": "c73b7679c43674c43b15871cbc261761f79e14cdbb861acab0a6ae6bce7ebc19"
+  }
+}

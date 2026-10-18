@@ -1,0 +1,17 @@
+"""Current resume state for the final B1 predicate fix; never mark the goal done."""
+import hashlib,json,sys
+from datetime import datetime,timezone
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+cuda=ROOT/'research/staging/v34/app/detail_effects.cu';digest=hashlib.sha256(cuda.read_bytes()).hexdigest()
+meta=json.loads((ROOT/'research/staging/v34/app/detail_effects-sm86.json').read_text(encoding='utf-8'))
+path=ROOT/'research/detail-expansion-next.json';r=json.loads(path.read_text(encoding='utf-8'))
+r['current_work']=dict(generated_at=datetime.now(timezone.utc).isoformat(),abi='detail_survival_v34',objective_complete=False,production_cuda_sha256=hashlib.sha256((ROOT/'app/detail_effects.cu').read_bytes()).hexdigest(),production_has_temporary_lethal_hit_cpu_guard=True,production_fully_accepted=False,
+    final_stage_cuda_sha256=digest,final_stage_host_sha256=hashlib.sha256((ROOT/'research/staging/v34/app/detail_gpu.py').read_bytes()).hexdigest(),final_native_build_complete=meta['source_sha256']==digest,survival_fixture_count=49,
+    regression='B1 ally predicates count down members. Additionally class:N and top innate charge:N truncate before filtering down; code+weapon-leftmost filters alive before truncation. Longer battles and direct activation-target witnesses exposed both errors.',
+    regression_archive='research/ports/v34-before-b1-ally-fix',counted_target_archive='research/ports/v34-before-counted-target-fix',previous_extended_verified_archive='research/ports/v34-burstfix-staged-verified',
+    process_handles=dict(native_build_completed=39312,native_final_suite=int(sys.argv[1]) if len(sys.argv)>1 else 32071,ptx_final_suite=25228,task_preview=13951,preview_port=4332),
+    ptx_cache_path='research/cuda-cache',old_ptx_report_warning='The previous failed full report (31 of46, class target mismatch) remains until the new25228 process completes the heal/JIT stage and rewrites it. Validate source hashes and planned49; do not treat that stale file as the current rerun.',
+    remaining=['Native32071 passed full49 and is running repeated-long; PTX25228 is rerunning the final host fix with a workspace CUDA cache. At most two heavy GPU processes.','Focused suites cover healing3 and survival49; native also covers repeated lethal long4. They intentionally do not rerun unaffected nonlethal matrices; final ordinary87 includes burst56 and broader integration tests.','Do not modify frozen staged CUDA/host/verifier sources during the suites.','Promote only with research/promote-survival-b1-ally-fix.py; it requires49 cases and the final source hashes, archives the closure, updates production verifier/test template (25 inner cases), and removes the temporary lethal-hit CPU guard.','Rerun scripts/verify-normal-detail.py (fail-fast,87), ordinary API smoke, and browser restoration/calculation on the final kernel. Earlier API/browser reports are historical candidate proofs and must be refreshed. Recompute compile coverage/audit after promotion because the host compiler changed.','Then run research/finalize-survival-docs.py and research/save-survival-checkpoint.py. They document the final focused scope49, not the previous broader matrix as this last kernel.','Keep the all-character/effect objective active. HP-edge CPU-only8 groundwork and many unsupported effects remain.'])
+path.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print('Recorded final B1 fix and exact remaining acceptance steps.')

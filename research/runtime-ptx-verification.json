@@ -1,0 +1,657 @@
+{
+  "passed": true,
+  "backend": "ptx",
+  "cases": [
+    {
+      "name": "raw-charge-healer",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "final_HP_percentages": true,
+        "named_charge_frames": true,
+        "positive_charge_control": true,
+        "actual_workspace_bytes": true
+      },
+      "cpu_total": 91886117,
+      "gpu_total": 91886117,
+      "cpu_cover_healed": [
+        {
+          "time": 15.000000000000325,
+          "caster": "앨리스"
+        },
+        {
+          "time": 15.000000000000325,
+          "caster": "리타"
+        }
+      ],
+      "cpu_hp_events": [],
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "charge_frame_rows": 3602,
+      "workspace_bytes": 1088520,
+      "cpu_model_extended": true,
+      "in_game_rules_verified": false
+    },
+    {
+      "name": "raw-charge-Rem-sharing",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "final_HP_percentages": true,
+        "named_charge_frames": true,
+        "positive_charge_control": true,
+        "actual_workspace_bytes": true
+      },
+      "cpu_total": 77139952,
+      "gpu_total": 77139952,
+      "cpu_cover_healed": [
+        {
+          "time": 15.000000000000325,
+          "caster": "리타"
+        },
+        {
+          "time": 15.000000000000325,
+          "caster": "렘"
+        }
+      ],
+      "cpu_hp_events": [],
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "charge_frame_rows": 3602,
+      "workspace_bytes": 1088520,
+      "cpu_model_extended": true,
+      "in_game_rules_verified": false
+    },
+    {
+      "name": "raw-charge-Marciana-storage",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "final_HP_percentages": true,
+        "named_charge_frames": true,
+        "positive_charge_control": true,
+        "actual_workspace_bytes": true
+      },
+      "cpu_total": 80932093,
+      "gpu_total": 80932093,
+      "cpu_cover_healed": [
+        {
+          "time": 15.000000000000325,
+          "caster": "리타"
+        },
+        {
+          "time": 15.000000000000325,
+          "caster": "델타 : 닌자 시프"
+        }
+      ],
+      "cpu_hp_events": [],
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "charge_frame_rows": 3602,
+      "workspace_bytes": 1088520,
+      "cpu_model_extended": true,
+      "in_game_rules_verified": false
+    },
+    {
+      "name": "charge-extra-release-inside-HP-edge",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "scalar_frames": true,
+        "final_HP_percentages": true,
+        "named_charge_frames": true,
+        "positive_charge_control": true,
+        "actual_workspace_bytes": true
+      },
+      "cpu_total": 282649,
+      "gpu_total": 282649,
+      "cpu_cover_healed": [],
+      "cpu_hp_events": [
+        {
+          "time": 0.15,
+          "caster": "리타",
+          "event": "event:adjacent_hp_max"
+        }
+      ],
+      "cpu_revives": [],
+      "raw_skills_retained": false,
+      "charge_frame_rows": 144,
+      "workspace_bytes": 1088520,
+      "cpu_model_extended": true,
+      "in_game_rules_verified": false,
+      "GPU_immediate_release_HP_gain": 146064.0,
+      "independent_ATK_cap_expected_HP_gain": 146064.0,
+      "positive_control_scope": "Nonzero same-frame discharge via recipient HP gain; no positive pool quantity remains at frame end."
+    },
+    {
+      "name": "raw-Rei-decoy-heal-owned-growth",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "final_HP_percentages": true,
+        "per_name_decoy_frames": true,
+        "decoy_healing_positive_control": true
+      },
+      "cpu_total": 104575894,
+      "gpu_total": 104575894,
+      "cpu_cover_healed": [
+        {
+          "time": 15.000000000000325,
+          "caster": "라이"
+        },
+        {
+          "time": 15.000000000000325,
+          "caster": "리타"
+        }
+      ],
+      "cpu_hp_events": [],
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "cpu_decoy_heals": [
+        {
+          "time": 2.466666666666663,
+          "recipient": "라이",
+          "amount": 67625.17259999999,
+          "actual": 3.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 4.016666666666658,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 2.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 4.966666666666654,
+          "recipient": "라이",
+          "amount": 67625.17259999999,
+          "actual": 2.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 5.016666666666654,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 0.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 6.016666666666651,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 0.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 7.016666666666647,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 1.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 8.016666666666644,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 1.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 8.266666666666657,
+          "recipient": "라이",
+          "amount": 67625.17259999999,
+          "actual": 1.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 9.000000000000027,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 1.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 10.000000000000076,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 1.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 10.766666666666781,
+          "recipient": "라이",
+          "amount": 67625.17259999999,
+          "actual": 1.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 11.000000000000126,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 0.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 12.000000000000176,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 0.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 14.050000000000278,
+          "recipient": "라이",
+          "amount": 67625.17259999999,
+          "actual": 3.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 16.55000000000034,
+          "recipient": "라이",
+          "amount": 67625.17259999999,
+          "actual": 3.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 19.83333333333349,
+          "recipient": "라이",
+          "amount": 67625.17259999999,
+          "actual": 3.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 21.683333333333383,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 2.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 22.333333333333346,
+          "recipient": "라이",
+          "amount": 67625.17259999999,
+          "actual": 1.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 22.683333333333326,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 0.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 23.68333333333327,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 1.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 24.683333333333213,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 1.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 25.63333333333316,
+          "recipient": "라이",
+          "amount": 67625.17259999999,
+          "actual": 1.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 25.683333333333156,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 0.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 26.6833333333331,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 2.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 27.683333333333042,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 1.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 28.133333333333017,
+          "recipient": "라이",
+          "amount": 67625.17259999999,
+          "actual": 0.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 28.683333333332985,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 0.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 29.68333333333293,
+          "recipient": "라이",
+          "amount": 83581.674,
+          "actual": 0.0,
+          "had_decoy": true,
+          "has_decoy": true
+        }
+      ],
+      "decoy_frame_rows": 3602
+    },
+    {
+      "name": "raw-Rei-decoy-heal-reordered",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "incoming_hits_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "incoming_frames": true,
+        "final_state": true,
+        "down_frames": true,
+        "final_down": true,
+        "boss_rng": true,
+        "skill_rng": true,
+        "final_control": true,
+        "hp_event_order": true,
+        "final_HP_percentages": true,
+        "per_name_decoy_frames": true,
+        "decoy_healing_positive_control": true
+      },
+      "cpu_total": 122078170,
+      "gpu_total": 122078170,
+      "cpu_cover_healed": [
+        {
+          "time": 15.000000000000325,
+          "caster": "라이"
+        },
+        {
+          "time": 15.000000000000325,
+          "caster": "모더니아"
+        }
+      ],
+      "cpu_hp_events": [],
+      "cpu_revives": [],
+      "raw_skills_retained": true,
+      "cpu_decoy_heals": [
+        {
+          "time": 2.466666666666663,
+          "recipient": "라이",
+          "amount": 44059.620800000004,
+          "actual": 2478.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 4.966666666666654,
+          "recipient": "라이",
+          "amount": 44059.620800000004,
+          "actual": 1654.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 8.683333333333344,
+          "recipient": "라이",
+          "amount": 44059.620800000004,
+          "actual": 3.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 11.183333333333469,
+          "recipient": "라이",
+          "amount": 44059.620800000004,
+          "actual": 3.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 14.883333333333653,
+          "recipient": "라이",
+          "amount": 44059.620800000004,
+          "actual": 4.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 17.383333333333628,
+          "recipient": "라이",
+          "amount": 44059.620800000004,
+          "actual": 3.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 21.100000000000083,
+          "recipient": "라이",
+          "amount": 44059.620800000004,
+          "actual": 1653.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 23.59999999999994,
+          "recipient": "라이",
+          "amount": 44059.620800000004,
+          "actual": 3.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 27.316666666666396,
+          "recipient": "라이",
+          "amount": 44059.620800000004,
+          "actual": 3.0,
+          "had_decoy": true,
+          "has_decoy": true
+        },
+        {
+          "time": 29.816666666666254,
+          "recipient": "라이",
+          "amount": 44059.620800000004,
+          "actual": 0.0,
+          "had_decoy": true,
+          "has_decoy": true
+        }
+      ],
+      "decoy_frame_rows": 3602
+    }
+  ],
+  "seconds": 95.094,
+  "source_sha256": {
+    "app\\detail_boss.py": "521a06d1caf6a8b223b65312ab029fac6fd7099702e04db33f0e7c556736afa1",
+    "app\\detail_gpu.py": "3666d966c324263090dd7f416c2137941d07b8f587ca2c1f5f2c85bfa83f2ce9",
+    "app\\detail_world.py": "3c717ce722fb151fa1bc3cb7990ab632b9a481a5fb379607c52b2ac66a56317c",
+    "app\\effect_runtime.py": "efa711755be51ca48052e79ffbc96c52ddd0ce15b90ae877b575a9f01de2a7db",
+    "app\\effect_spec.py": "365d7655b064cc7f65cd0893af0796f6445ded58dc70afd88f6848c6bfbd15ef",
+    "app\\engine_compat.py": "c944e961469a44088ac89efde11c15edf39f48030a06f6f170ad2cb991f3432d",
+    "app\\engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app\\gpu_combat.py": "610c6b1dc97825577bd3d1639691377726c8232909b5816b388d66582b994cb1",
+    "app\\gpu_selector.py": "913cf0fdab130614dbf1b73e6016550a4ea07b6fee27f540f6bae079e1c2c2b3",
+    "app\\gpu_service.py": "213bd169c8a11f736f2324a01eb7d38cce5acd9cce67e0da4c916d64a994a2de",
+    "app\\healing_storage_compat.py": "c75f5dac0a92c93be7a88eb1ad5fbca302d14112a17f2ffe35f7649679b324ac",
+    "app\\heal_charge_compat.py": "18f0ed4d12bab0fa81102a2457763e8b65f4cb1d2c24d851311e9c5f4ae0381e",
+    "app\\heal_sharing_compat.py": "ab8efb52f72fa4af8390bca7fd1627c20b578fe2d2e379fa6675fcaa3b5ec981",
+    "app\\lifecycle_specs.py": "b708b3b0370385a97f77557a6d0d9204d11e3c7d46cc4df8c70c586f4f864676",
+    "app\\outgoing_healing_compat.py": "8eb8a8fe2ecd2a9c7d7fbccb087473b0817073da1ee2093b5b36f161df5f8af3",
+    "app\\protection_runtime.py": "9b3e83f0a6e84be8e3417dac1ba9ed5059f83e2d4f5d27caf2a86cf4ff56722f",
+    "app\\reference_rewrite.py": "7f5a333c922d4b3e58a2420193f438f02a2adf761e87e012262c35e3c35e19b2",
+    "app\\survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "app\\survival_scaling_compat.py": "7d58315941ff7256dcbeb1fa38c15e7fc5a801d1e96822610d612a114b9b56bc",
+    "app\\detail_effects.cu": "5a72d774cc2d21817f925625f1a6e84d1c700d581e9b52c374417ca03dcd7142",
+    "app\\detail_effects.ptx": "30c855223a60b1497b88ccac333ad2831d1a275bfb0014db285401d4326b8c21",
+    "app\\detail_effects-build.json": "d690e0430e388f5da7a1f71f46e9ccfecc96868d8ac64de243c94e06b789759e"
+  },
+  "scope": "Portable shield/decoy/storage/sharing/charge and nested HP-edge release witnesses; not every native case repeated."
+}

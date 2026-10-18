@@ -1,0 +1,38 @@
+
+> nikke-tools-local@0.1.0 test
+> node --test tests/*.test.mjs
+
+✔ moving a character between squads swaps members without duplication (0.7252ms)
+✔ restoring old sessions filters missing and duplicate members (0.5736ms)
+✔ only complete squads are sent for batch calculation (0.7353ms)
+✔ different live boss inputs cannot be grouped under equal scalar settings (16.503ms)
+✔ enemy contexts are separate for single, solo, and union (13.1083ms)
+✔ grouping identical numeric settings preserves all source occurrences (1.5755ms)
+✔ profile bookmark decodes current BlaBlaLink URLs and transfers no credentials (4.2422ms)
+✔ candidate sets are complete, owned and contain no duplicate members (3.4778ms)
+✔ global selection avoids choosing strongest first when it blocks the total (0.4209ms)
+✔ failed evaluations are excluded without changing original candidate indices (0.1815ms)
+✔ GPU estimates only reorder candidates and preserve a feasible group for final CPU scoring (1.2249ms)
+✔ part settings preserve unbreakable HP and tier while isolating returned edits (1.128ms)
+✔ invalid parts cannot enter saved enemy presets (0.96ms)
+✔ repeat phases use real lifecycle references and round-trip the editing fields (1.2186ms)
+✔ complex imports are retained without flattening dependencies or emissions (0.266ms)
+✔ invalid editor values and non-JSON inputs fail instead of changing numeric meaning (0.2843ms)
+✔ observed power sorting keeps missing values last in both directions (1.2503ms)
+✔ limit break includes core enhancement and incomplete skills are unknown (0.2318ms)
+✔ single-squad view retains the selected squad index (0.2908ms)
+✔ enemy preset rejects missing fields, invalid values, and unknown element (0.2925ms)
+✔ search preserves original input and all unrelated scenario fields (1.3906ms)
+✔ bounded exhaustive search rejects invalid ranges and unowned targets (0.3594ms)
+✔ automatic alternatives enumerate each field separately without mutating other stats (0.5636ms)
+✔ UTF-8 roster data remains intact across arbitrary network chunk boundaries (1.3463ms)
+✔ decimal overload ranges retain exact displayed values (0.2917ms)
+✔ alternative skill representations preserve unrelated skill levels (0.2961ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 262.5857

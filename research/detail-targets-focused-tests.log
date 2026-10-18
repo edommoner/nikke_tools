@@ -1,0 +1,29 @@
+test_caster_weapon_mask_and_pinned_innate_b3 (test_detail_targets.TargetCompilerTests.test_caster_weapon_mask_and_pinned_innate_b3) ... ok
+{"name": "state-membership-snapshot-and-complement", "passed": true, "errors": [], "backend": "auto"}
+{"name": "unresolved-state-is-not-forced-by-membership", "passed": true, "errors": [], "backend": "auto"}
+{"name": "membership-does-not-follow-later-removal", "passed": true, "errors": [], "backend": "auto"}
+{"name": "membership-reselected-on-reapplication", "passed": true, "errors": [], "backend": "auto"}
+{"name": "zero-stack-state-is-still-a-recipient", "passed": true, "errors": [], "backend": "auto"}
+{"name": "expired-state-excluded-after-expiry-pass", "passed": true, "errors": [], "backend": "auto"}
+{"name": "same-frame-zero-duration-state-still-counts", "passed": true, "errors": [], "backend": "auto"}
+{"name": "empty-state-name-matches-empty-weapon-mode", "passed": true, "errors": [], "backend": "auto"}
+{"name": "missing-state-complement-selects-everyone", "passed": true, "errors": [], "backend": "auto"}
+{"name": "weapon-rank-uses-matching-pool-and-live-atk", "passed": true, "errors": [], "backend": "auto"}
+{"name": "weapon-rank-empty-pool-is-empty", "passed": true, "errors": [], "backend": "auto"}
+{"name": "different-weapon-ranks-have-independent-cache-keys", "passed": true, "errors": [], "backend": "auto"}
+{"name": "lowest-atk-innate-b3-uses-live-atk", "passed": true, "errors": [], "backend": "auto"}
+{"name": "lowest-atk-b3-honors-pinned-innate-stage", "passed": true, "errors": [], "backend": "auto"}
+{"name": "filtered-rank-hp-postprocessing-stays-lazy", "passed": true, "errors": [], "backend": "auto"}
+{"name": "generic-weapon-state-and-named-mode-expiry", "passed": true, "errors": [], "backend": "auto"}
+{"name": "full-state-snapshot-remove-and-recreate", "passed": true, "total": 80491743}
+{"name": "full-state-selected-heals-emit-recipient-events", "passed": true, "total": 32926816}
+{"name": "full-filtered-weapon-rank-bullets", "passed": true, "total": 47846720}
+{"name": "full-lowest-b3-rank-refresh", "passed": true, "total": 55101414}
+{"name": "full-casted-weapon-recipient-masks", "passed": true, "total": 166551140}
+{"name": "full-weapon-mode-membership", "passed": true, "total": 88348669}
+test_independent_membership_and_filtered_rank_squads (test_detail_targets.TargetGPUTests.test_independent_membership_and_filtered_rank_squads) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 14.050s
+
+OK

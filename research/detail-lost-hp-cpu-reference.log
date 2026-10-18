@@ -1,0 +1,8 @@
+{"name": "full-health", "passed": true, "gpu_implemented": false}
+{"name": "half-health", "passed": true, "gpu_implemented": false}
+{"name": "heal-rearms-value", "passed": true, "gpu_implemented": false}
+{"name": "stacks-do-not-multiply", "passed": true, "gpu_implemented": false}
+{"name": "receiver-health-does-not-scale", "passed": true, "gpu_implemented": false}
+{"name": "max-HP-denominator", "passed": true, "gpu_implemented": false}
+{"name": "source-down-buff-remains", "passed": true, "gpu_implemented": false}
+{"name": "source-revives", "passed": true, "gpu_implemented": false}

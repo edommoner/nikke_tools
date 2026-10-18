@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "objective_complete": false,
+  "abi": "detail_enemy_fanout_v78",
+  "workspace_bytes": 1274400,
+  "gpu_fanout_connected": true,
+  "portable_verified": false,
+  "normal_summon_admission": false,
+  "archive": "research/ports/v78-enemy-fanout-native-stage",
+  "source_sha256": {
+    "app/detail_effects-sm86.cubin": "812211aaa9ab98c205ecdbbaaec357f0200637cb8b3406b767789d69116c1a59",
+    "app/detail_effects-sm86.json": "6de927e0640ac2438fee1f1c0f6af3f932472aed43c4498469f3f27732889bf3",
+    "app/detail_effects.cu": "b542080a62ed35fe4980a9de1c6af7bff0d1d10739ac9b8eeab80d785328b29c",
+    "app/detail_gpu.py": "a6afa80296823a30f4e6851456ea8b6897935d27b6809248b4672f44093b7468",
+    "app/enemy_recipient_specs.py": "3aa72f90c7e8bd16810fc9fb909321776d5e40a9301765580b7773b692f04269",
+    "research/benchmark-gpu-fanout.py": "890c0c4355399872993019a2d567b62261bc072d92e7e3f9af1117a5e4a98d0f",
+    "research/checkpoint_receipts.py": "9f928fcc6ba97602ed041dfa5d0589409c4076e2d215482427f304907135bf5f",
+    "research/enemy-fanout-native.json": "05964a4adc687ad913bf199cf6d53c60ecf40932582d296fc2205e23c2330b09",
+    "research/enemy-fanout-unit-native-stage.json": "a240181148255f25d15540be1ff3afea61aa42011eabcc96b73149f85c12e967",
+    "research/enemy-fields-api-fixture.json": "f6b963c39cd78435e4c991e439ed1d15f445e4240d595e5e39ed629fb410f427",
+    "research/fanout-before-api.json": "f3c1e38232416cfb88939959b6448557ab6ad41c936860c46490fedffabf0643",
+    "research/fanout-fields-native-stage.json": "10f1e280e5b57bf86fa97bf2e99393c6b3c3fe460598bdd39863a5d2b9fa79b4",
+    "research/fanout-normal-before.json": "ba935163aa0fa6043e7560385e506e38773b92329cf90272711dc4bcaaba893a",
+    "research/gpu-fanout-before.json": "5a15041edacb3f5e9ff1a6220a172eafaab482aeea286a38d649f21c429c849f",
+    "research/save-enemy-fanout-native-stage.py": "aeee4d9db334e845a112c5bbadd4192364adce19bed61bc39e82d3dec79fe538",
+    "research/verify-enemy-fields-normal-witness.py": "82d5cb985706127a8b25218c98b0d1bafb2d4bd58f30c2df5edb03e7f9bd26cf",
+    "scripts/enemy_fanout_cases.py": "b1fecd2ea07088b89f7de5a8f1303bde063701e67e526ac9f9111ed8ea220106",
+    "scripts/verify-common-runtime-unit.py": "7cc63f63e88a10e727e4626cf0d229cfc177df01bb42bfdc068552b511c19381",
+    "scripts/verify-enemy-fanout-detail.py": "8723a8170e8513561541e0dfa3a2c4e1e5e3b1d9de0b262708253cc42f12fcf8",
+    "tests/test_enemy_recipient_runtime.py": "54f69beb6e2ece0ff966488263be81deee8557aa8c1b4986f65bafa170d5e788"
+  }
+}

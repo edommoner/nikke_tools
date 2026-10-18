@@ -1,0 +1,2936 @@
+{
+  "generated_at": "2026-10-17T00:44:47.341633+00:00",
+  "passed": true,
+  "objective_complete": false,
+  "cases": [
+    {
+      "name": "startup-core",
+      "backend": "native",
+      "duration": 12,
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "world_frames": true
+      },
+      "cpu_total": 51134010,
+      "gpu_total": 51134010,
+      "frames": 720,
+      "gpu_frames": 720,
+      "world_frame_difference": null,
+      "cpu_timeline": [
+        {
+          "time": 0.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 2.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        }
+      ],
+      "gpu_timeline": [
+        {
+          "time": 0.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 2.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        }
+      ],
+      "workspace_bytes": 639072,
+      "raw_skills_retained": true,
+      "team_notifications": {
+        "squad_body_hit": 1425
+      }
+    },
+    {
+      "name": "delayed-repeating-core",
+      "backend": "native",
+      "duration": 12,
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "world_frames": true
+      },
+      "cpu_total": 54118749,
+      "gpu_total": 54118749,
+      "frames": 720,
+      "gpu_frames": 720,
+      "world_frame_difference": null,
+      "cpu_timeline": [
+        {
+          "time": 0.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.8,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 2.5,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.6,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 4.3,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 5.4,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 6.1,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 7.2,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 7.9,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 9.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 9.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 10.8,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 11.5,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 12,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "end"
+        }
+      ],
+      "gpu_timeline": [
+        {
+          "time": 0.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.8,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 2.5,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.6,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 4.3,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 5.4,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 6.1,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 7.2,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 7.9,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 9.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 9.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 10.8,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 11.5,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 12.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "end"
+        }
+      ],
+      "workspace_bytes": 639072,
+      "raw_skills_retained": true,
+      "team_notifications": {
+        "squad_body_hit": 1223
+      }
+    },
+    {
+      "name": "start-order-not-declaration",
+      "backend": "native",
+      "duration": 12,
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "world_frames": true
+      },
+      "cpu_total": 50457934,
+      "gpu_total": 50457934,
+      "frames": 720,
+      "gpu_frames": 720,
+      "world_frame_difference": null,
+      "cpu_timeline": [
+        {
+          "time": 1.0,
+          "pattern": "early",
+          "kind": "move",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.0,
+          "pattern": "late",
+          "kind": "move",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 7.0,
+          "pattern": "late",
+          "kind": "move",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 7.0,
+          "pattern": "early",
+          "kind": "move",
+          "event": "end",
+          "outcome": "expired"
+        }
+      ],
+      "gpu_timeline": [
+        {
+          "time": 1.0,
+          "pattern": "early",
+          "kind": "move",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.0,
+          "pattern": "late",
+          "kind": "move",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 7.0,
+          "pattern": "late",
+          "kind": "move",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 7.0,
+          "pattern": "early",
+          "kind": "move",
+          "event": "end",
+          "outcome": "expired"
+        }
+      ],
+      "workspace_bytes": 639072,
+      "raw_skills_retained": true,
+      "team_notifications": {
+        "squad_body_hit": 1430
+      }
+    },
+    {
+      "name": "followed-beats-expired",
+      "backend": "native",
+      "duration": 12,
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "world_frames": true
+      },
+      "cpu_total": 50909130,
+      "gpu_total": 50909130,
+      "frames": 720,
+      "gpu_frames": 720,
+      "world_frame_difference": null,
+      "cpu_timeline": [
+        {
+          "time": 0.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 0.0,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 1.0,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 1.0,
+          "pattern": "far",
+          "kind": "move",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.0,
+          "pattern": "far",
+          "kind": "move",
+          "event": "end",
+          "outcome": "expired"
+        }
+      ],
+      "gpu_timeline": [
+        {
+          "time": 0.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 0.0,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 1.0,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 1.0,
+          "pattern": "far",
+          "kind": "move",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.0,
+          "pattern": "far",
+          "kind": "move",
+          "event": "end",
+          "outcome": "expired"
+        }
+      ],
+      "workspace_bytes": 639072,
+      "raw_skills_retained": true,
+      "team_notifications": {
+        "squad_body_hit": 1427
+      }
+    },
+    {
+      "name": "until-after-consumes-old-ends",
+      "backend": "native",
+      "duration": 12,
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "world_frames": true
+      },
+      "cpu_total": 57444904,
+      "gpu_total": 57444904,
+      "frames": 720,
+      "gpu_frames": 720,
+      "world_frame_difference": null,
+      "cpu_timeline": [
+        {
+          "time": 0.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 0.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 0.5,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 0.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 1.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 1.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 1.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 1.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 2.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 2.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 2.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 2.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 2.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 2.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 2.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 2.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 3.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 3.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 3.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 3.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 4.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 4.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 4.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 4.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 4.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 4.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 4.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 4.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 5.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 5.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 5.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 5.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 5.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 5.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 5.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 5.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 6.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 6.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 6.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 6.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 6.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 6.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 6.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 6.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 7.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 7.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 7.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 7.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 7.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 7.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 7.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 7.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 8.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 8.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 8.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 8.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 8.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 8.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 8.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 8.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 9.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 9.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 9.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 9.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 9.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 9.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 9.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 9.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 10.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 10.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 10.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 10.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 10.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 10.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 10.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 10.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 11.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 11.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 11.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 11.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 11.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 11.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 11.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 11.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 12,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "end"
+        },
+        {
+          "time": 12,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "end"
+        }
+      ],
+      "gpu_timeline": [
+        {
+          "time": 0.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 0.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 0.5,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 0.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 1.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 1.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 1.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 1.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 2.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 2.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 2.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 2.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 2.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 2.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 2.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 2.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 3.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 3.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 3.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 3.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 4.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 4.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 4.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 4.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 4.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 4.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 4.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 4.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 5.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 5.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 5.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 5.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 5.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 5.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 5.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 5.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 6.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 6.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 6.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 6.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 6.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 6.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 6.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 6.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 7.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 7.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 7.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 7.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 7.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 7.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 7.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 7.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 8.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 8.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 8.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 8.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 8.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 8.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 8.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 8.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 9.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 9.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 9.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 9.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 9.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 9.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 9.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 9.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 10.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 10.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 10.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 10.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 10.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 10.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 10.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 10.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 11.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 11.1,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 11.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 11.2,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 11.5,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 11.6,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 11.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "followed"
+        },
+        {
+          "time": 11.7,
+          "pattern": "b",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 12.0,
+          "pattern": "a",
+          "kind": "idle",
+          "event": "end",
+          "outcome": "end"
+        },
+        {
+          "time": 12.0,
+          "pattern": "b",
+          "kind": "core",
+          "event": "end",
+          "outcome": "end"
+        }
+      ],
+      "workspace_bytes": 639072,
+      "raw_skills_retained": true,
+      "team_notifications": {
+        "squad_body_hit": 1093
+      }
+    },
+    {
+      "name": "all-emissions",
+      "backend": "native",
+      "duration": 12,
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "world_frames": true
+      },
+      "cpu_total": 51309892,
+      "gpu_total": 51309892,
+      "frames": 720,
+      "gpu_frames": 720,
+      "world_frame_difference": null,
+      "cpu_timeline": [
+        {
+          "time": 0.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 0.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 0.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.4,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 1.4,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 2.1,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        }
+      ],
+      "gpu_timeline": [
+        {
+          "time": 0.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 0.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 0.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.4,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 1.4,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 2.1,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        }
+      ],
+      "workspace_bytes": 639072,
+      "raw_skills_retained": true,
+      "team_notifications": {
+        "squad_body_hit": 1425
+      }
+    },
+    {
+      "name": "weapon-lists-and-mode",
+      "backend": "native",
+      "duration": 12,
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "world_frames": true
+      },
+      "cpu_total": 50831204,
+      "gpu_total": 50831204,
+      "frames": 720,
+      "gpu_frames": 720,
+      "world_frame_difference": null,
+      "cpu_timeline": [
+        {
+          "time": 0.2,
+          "pattern": "mg",
+          "kind": "move",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.2,
+          "pattern": "mg",
+          "kind": "move",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 2.0,
+          "pattern": "smg",
+          "kind": "move",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 10.0,
+          "pattern": "smg",
+          "kind": "move",
+          "event": "end",
+          "outcome": "expired"
+        }
+      ],
+      "gpu_timeline": [
+        {
+          "time": 0.2,
+          "pattern": "mg",
+          "kind": "move",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.2,
+          "pattern": "mg",
+          "kind": "move",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 2.0,
+          "pattern": "smg",
+          "kind": "move",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 10.0,
+          "pattern": "smg",
+          "kind": "move",
+          "event": "end",
+          "outcome": "expired"
+        }
+      ],
+      "workspace_bytes": 639072,
+      "raw_skills_retained": true,
+      "team_notifications": {
+        "squad_body_hit": 1430
+      }
+    },
+    {
+      "name": "parts-carry-and-phase-events",
+      "backend": "native",
+      "duration": 12,
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "world_frames": true
+      },
+      "cpu_total": 62372249,
+      "gpu_total": 62372249,
+      "frames": 720,
+      "gpu_frames": 720,
+      "world_frame_difference": null,
+      "cpu_timeline": [
+        {
+          "time": 0.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 0.2,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        }
+      ],
+      "gpu_timeline": [
+        {
+          "time": 0.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 0.2,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        }
+      ],
+      "workspace_bytes": 639072,
+      "raw_skills_retained": true,
+      "team_notifications": {
+        "squad_part_hit": 1427
+      }
+    },
+    {
+      "name": "real-team-hits-fixed",
+      "backend": "native",
+      "duration": 20,
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "world_frames": true,
+        "part_and_body_exercised": true
+      },
+      "cpu_total": 77573970,
+      "gpu_total": 77573970,
+      "frames": 1200,
+      "gpu_frames": 1200,
+      "world_frame_difference": null,
+      "cpu_timeline": [
+        {
+          "time": 0.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.8,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 2.0,
+          "pattern": "near",
+          "kind": "move",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 2.5,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.6,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 4.3,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 5.0,
+          "pattern": "near",
+          "kind": "move",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 5.4,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 6.1,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 7.2,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 7.9,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 9.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 9.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 10.8,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 11.5,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 12.6,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 13.3,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 14.4,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 15.1,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 16.2,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 16.9,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 18.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 18.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 19.8,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        }
+      ],
+      "gpu_timeline": [
+        {
+          "time": 0.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.8,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 2.0,
+          "pattern": "near",
+          "kind": "move",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 2.5,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.6,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 4.3,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 5.0,
+          "pattern": "near",
+          "kind": "move",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 5.4,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 6.1,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 7.2,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 7.9,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 9.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 9.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 10.8,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 11.5,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 12.6,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 13.3,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 14.4,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 15.1,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 16.2,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 16.9,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 18.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 18.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 19.8,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        }
+      ],
+      "workspace_bytes": 639072,
+      "raw_skills_retained": true,
+      "team_notifications": {
+        "squad_part_hit": 1,
+        "squad_body_hit": 718
+      }
+    },
+    {
+      "name": "real-team-hits-accumulate",
+      "backend": "native",
+      "duration": 20,
+      "passed": true,
+      "checks": {
+        "total_equal": true,
+        "members_equal": true,
+        "burst_timeline_equal": true,
+        "base_stats_equal": true,
+        "seed_equal": true,
+        "burst_policy_equal": true,
+        "requested_burst_policy_equal": true,
+        "burst_patterns_equal": true,
+        "shooting_policy_equal": true,
+        "burst_gauge_mode_equal": true,
+        "parts_state_equal": true,
+        "boss_patterns_equal": true,
+        "boss_timeline_equal": true,
+        "matched": true,
+        "actual_gpu": true,
+        "final_random_state": true,
+        "world_frames": true,
+        "part_and_body_exercised": true
+      },
+      "cpu_total": 55183058,
+      "gpu_total": 55183058,
+      "frames": 1200,
+      "gpu_frames": 1200,
+      "world_frame_difference": null,
+      "cpu_timeline": [
+        {
+          "time": 0.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.8,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 2.0,
+          "pattern": "near",
+          "kind": "move",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 2.5,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.6,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 4.3,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 5.0,
+          "pattern": "near",
+          "kind": "move",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 5.4,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 6.1,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 7.2,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 7.9,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 9.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 9.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 10.8,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 11.5,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 12.6,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 13.3,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 14.4,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 15.1,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 16.2,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 16.9,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 18.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 18.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 19.8,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        }
+      ],
+      "gpu_timeline": [
+        {
+          "time": 0.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 1.8,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 2.0,
+          "pattern": "near",
+          "kind": "move",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 2.5,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 3.6,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 4.3,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 5.0,
+          "pattern": "near",
+          "kind": "move",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 5.4,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 6.1,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 7.2,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 7.9,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 9.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 9.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 10.8,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 11.5,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 12.6,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 13.3,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 14.4,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 15.1,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 16.2,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 16.9,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 18.0,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        },
+        {
+          "time": 18.7,
+          "pattern": "core",
+          "kind": "core",
+          "event": "start",
+          "outcome": null
+        },
+        {
+          "time": 19.8,
+          "pattern": "core",
+          "kind": "core",
+          "event": "end",
+          "outcome": "expired"
+        }
+      ],
+      "workspace_bytes": 639072,
+      "raw_skills_retained": true,
+      "team_notifications": {
+        "squad_part_hit": 1,
+        "squad_body_hit": 716
+      }
+    }
+  ],
+  "source_sha256": {
+    "scripts/verify-boss-clock-detail.py": "7213ff8939aacadaae159186c294228695da890e52c80881eebf04e0e30d9820",
+    "app/detail_boss.py": "1eb768a58be029bbe5948067db1c45eb60020bd352d545d8c283b7d1ab4012e0",
+    "app/detail_gpu.py": "cd3ba79ae647f7436f75242083b0e89ab2603ca68e35a47d104ff19c17f55e06",
+    "app/detail_world.py": "3c717ce722fb151fa1bc3cb7990ab632b9a481a5fb379607c52b2ac66a56317c",
+    "app/detail_effects.cu": "5e97bafdaa7304bcff5ce0d140bcd3bc81e6b7c6355b1e33ba684519a05604e1",
+    "app/detail_effects.ptx": "1a594c099bdc7a8bfa20775481dc5649e458760e2100aa924ae2810909391bff",
+    "app/detail_effects-build.json": "ba29b02a46d9723094e02918d0f397d18cc78e2fd5b52d7e6360f79dfaa582d6",
+    "app/detail_effects-sm86.cubin": "094c7f8077e4ea2ccd1b7d26734d718f965050b5ba950a0b060ad3b05fa9656c",
+    "app/detail_effects-sm86.json": "df3e3551dd064e94cdfc9db5969670a6e1792885cf824a234469e953a343e2aa",
+    "app/engine_worker.py": "1c33d418e66464ac8007e9000f083f85fff9b24be97b398106b4162ac75ec7f9",
+    "app/gpu_service.py": "03e32cf575590701c5100ac81832ccf1e085ccaec618491db4792b3a4a2da95f"
+  },
+  "cpu_trace_used_as_gpu_input": false,
+  "scope": "GPU-owned core/move/idle/groggy lifecycle, ordered emissions and exact frame state. Other boss kinds, coordinates, incoming damage and target-cleared lifecycle remain unsupported."
+}

@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-10-17T06:21:37.987107+00:00",
+  "passed": true,
+  "objective_complete": false,
+  "gpu_implemented": false,
+  "cases": [
+    {
+      "name": "raw-앨리스",
+      "passed": true,
+      "total": 216771,
+      "gpu_implemented": false
+    },
+    {
+      "name": "raw-솔린",
+      "passed": true,
+      "total": 458307,
+      "gpu_implemented": false
+    },
+    {
+      "name": "raw-크라운",
+      "passed": true,
+      "total": 219351,
+      "gpu_implemented": false
+    },
+    {
+      "name": "controlled-revive-50",
+      "passed": true,
+      "state": {
+        "hp": 1875196.25,
+        "pct": 50.0,
+        "down": false,
+        "max_hp": 3750392.5,
+        "atk_pct": 0.0
+      },
+      "threshold_events": [],
+      "gpu_implemented": false
+    },
+    {
+      "name": "controlled-revive-100",
+      "passed": true,
+      "state": {
+        "hp": 3750392.5,
+        "pct": 100.0,
+        "down": false,
+        "max_hp": 3750392.5,
+        "atk_pct": 50.0
+      },
+      "threshold_events": [],
+      "gpu_implemented": false
+    }
+  ],
+  "scope": "Staged CPU revival HP-condition fix, raw Alice/Soline/Crown and controlled HP thresholds. Not survival GPU parity.",
+  "source_sha256": {
+    "scripts/verify-staged-revival-compat.py": "3ab492990b300f24229119026d4a2e1ad94f0facfda9de7b4a95398de313d548",
+    "research/staging/v34/app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "scripts/probe-revive-hp-passives.py": "a18a34d1461017e08d47d3713862ce330dd7f65a94b4a946e48c2ef383acf6d1",
+    "scripts/verify-incoming-detail.py": "76bf238f9d184c491984c767f5cf8be3d0206d89130a6457f7e78e6d8004aa7d",
+    "app/engine_compat.py": "f57f89a81f1f70e83aed7d2a175d33613fc5b126f62d0c67658a326c51455c66",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299"
+  }
+}

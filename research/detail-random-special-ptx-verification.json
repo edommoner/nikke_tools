@@ -1,0 +1,100 @@
+{
+  "generated_at": "2026-10-16T17:15:21.797151+00:00",
+  "passed": true,
+  "quick": false,
+  "native_only": false,
+  "cpu_trace_used_as_gpu_input": false,
+  "cases": [
+    {
+      "name": "caster-atk-special-lazy-target",
+      "seed": 0,
+      "mode": "fixed",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true,
+        "seed": true,
+        "final_random_state": true
+      },
+      "cpu_total": 136027054,
+      "gpu_total": 136027054,
+      "cpu_rng_index": 430,
+      "gpu_rng_index": 430
+    },
+    {
+      "name": "caster-atk-special-lazy-target",
+      "seed": 0,
+      "mode": "accumulate",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true,
+        "seed": true,
+        "final_random_state": true
+      },
+      "cpu_total": 133734174,
+      "gpu_total": 133734174,
+      "cpu_rng_index": 430,
+      "gpu_rng_index": 430
+    },
+    {
+      "name": "caster-atk-special-lazy-target",
+      "seed": 12345,
+      "mode": "fixed",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true,
+        "seed": true,
+        "final_random_state": true
+      },
+      "cpu_total": 136480182,
+      "gpu_total": 136480182,
+      "cpu_rng_index": 173,
+      "gpu_rng_index": 173
+    },
+    {
+      "name": "caster-atk-special-lazy-target",
+      "seed": 12345,
+      "mode": "accumulate",
+      "backend": "ptx",
+      "passed": true,
+      "checks": {
+        "total_damage": true,
+        "members": true,
+        "base_stats": true,
+        "burst_timeline": true,
+        "burst_gauge_mode": true,
+        "seed": true,
+        "final_random_state": true
+      },
+      "cpu_total": 133937881,
+      "gpu_total": 133937881,
+      "cpu_rng_index": 173,
+      "gpu_rng_index": 173
+    }
+  ],
+  "source_sha256": {
+    "scripts/verify-random-target-detail.py": "7a1b3f92e703d32868789281375774235dbb5596c52e72f8871e34280fa38380",
+    "scripts/audit-random-target-lifecycle.py": "b4c789e25b264123edadff3e9f1d3f8b96ef0ed7f87797a9f0bdcc6d83151c71",
+    "app/detail_gpu.py": "bcd22fef4976d5400fbb651009b77834bad840b65cdee608f91ec1287ac61746",
+    "app/detail_effects.cu": "336a625106940516bfd09edd7e53ce7b6e44105f05565b14b9aa0e0ed83f8dd5",
+    "app/detail_effects.ptx": "8cdee913e482d4246e206745292f22ab5db1650584d117f726ebd845200e9eaf",
+    "app/detail_effects-build.json": "5475869b9c71ba38d76a2f37087fed13a66c2e0e764eff038710fc6476650f98",
+    "app/detail_effects-sm86.cubin": "90df23bf55016fff96ef09e0cf93da11a413885af290b386a74e28a5e64ddebf",
+    "app/detail_effects-sm86.json": "909416456a37add86dbec3382a87c253cada3e4c13f33d230b9c630f14c96bd0",
+    "app/engine_worker.py": "a1b9f46f5c5375f6da7740b37ebc3e8a286fe95973cc19594d7d625a805bb75c"
+  }
+}

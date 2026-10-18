@@ -1,0 +1,16 @@
+{"name": "storage-extra-overlap-newest", "passed": true, "total": 325825, "effects": 48}
+{"name": "storage-extra-overlap-equal-time", "passed": true, "total": 325825, "effects": 48}
+{"name": "storage-extra-snapshot-caster-growth", "passed": true, "total": 325825, "effects": 48}
+{"name": "storage-extra-caster-growth-before", "passed": true, "total": 325825, "effects": 48}
+{"name": "storage-extra-recipient-growth-is-not-capacity", "passed": true, "total": 325825, "effects": 48}
+{"name": "storage-extra-expired-reapplication", "passed": true, "total": 325825, "effects": 47}
+{"name": "storage-extra-lazy-lowest-target", "passed": true, "total": 325825, "effects": 47}
+{"name": "storage-extra-ordered-duplicates", "passed": true, "total": 325825, "effects": 53}
+{"name": "storage-extra-received-and-outgoing", "passed": true, "total": 325825, "effects": 49}
+{"name": "storage-extra-source-down", "passed": true, "total": 83905, "effects": 47}
+{"name": "storage-extra-source-revives", "passed": true, "total": 325825, "effects": 48}
+{"name": "storage-extra-recipient-down-revives", "passed": true, "total": 325825, "effects": 49}
+{"name": "storage-extra-HP-predicate", "passed": true, "total": 399979, "effects": 48}
+{"name": "storage-extra-decoy-before-storage", "passed": true, "total": 325825, "effects": 48}
+{"name": "storage-extra-invincible-before-storage", "passed": true, "total": 325825, "effects": 48}
+{"name": "storage-extra-max-HP-grant-does-not-fill", "passed": true, "total": 325825, "effects": 48}

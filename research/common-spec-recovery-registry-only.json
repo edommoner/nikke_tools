@@ -1,0 +1,1902 @@
+{
+  "generated_at": "2026-10-17T14:58:44.059050+00:00",
+  "passed": true,
+  "selection": "recovery",
+  "source_stable": true,
+  "execution_reuse": {
+    "requested_cases": 433,
+    "executed_cases": 208,
+    "reused_exact_cases": 225,
+    "cases": [
+      {
+        "id": "e09fadee60a6178f70b41c862b6bc7532c1099f0dbb2ca998c7bb0998a7909ca",
+        "name": "raw-Rei-decoy-heal-no-shots",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "7cd4efc6825aa86e2613d2a4a7f298dee70ac51e5357015914d558e393e10aa4",
+        "name": "raw-Rei-decoy-heal-incoming",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "244520ad219dc95e037e38f11eaf3c343dc7baa2c00e0dcc13c0f291a51da234",
+        "name": "raw-Rei-decoy-heal-accumulate",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "7d9aeb05f5a2f5bab693020bd2106217e07a67a8c64cfb7057532682ab656596",
+        "name": "raw-Rei-decoy-heal-owned-growth",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "321706a2d7cb0d064f07597b188f38269dd9d99376b186a65df61e865a538733",
+        "name": "raw-Rei-decoy-heal-reordered",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "9c700ece8f3620d20a477d5a4901e9ee1c0d46641a923bca622dff06142ddea8",
+        "name": "raw-Rei-decoy-heal-revival",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "b871a28077581d5a02059db5d451a5cdc8952f2382375e4ccbeca3007787cad4",
+        "name": "raw-Rei-decoy-heal-dead-first-B1",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "ef4bb7fccfee80939e3325db6d10fd3dd344066bd0cf1c1d55d29f6c8aed2249",
+        "name": "decoy-heal-absent",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "26fa6feba96e9991a2d4c32db35f2656bb47fbc087988666abcb51af96f3a622",
+        "name": "decoy-heal-full",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "c89bdf7e8ff7cdf0f1fdd1d3fc8182e7fff6ac53105f4417397f80f82a9e297d",
+        "name": "decoy-heal-partial",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "d2fac7c49404f930ace9196e023208db36cf3751f228073ea0b8c710538d5bda",
+        "name": "decoy-heal-caster-max",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "9767d7c032dbcd351c1a3d3537ba95a4e06c482af4a1b594c17b67adf5c6e6b9",
+        "name": "decoy-heal-overheal",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "8dab55b54ba723698a609d9ec96692176cf59a97a042fb70a6b6ec3671b5fbd7",
+        "name": "decoy-heal-negative",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "acd84c8e7c51c0a55dc2798b1f145a77f82a98c1d43badc48607905ef419eaab",
+        "name": "decoy-heal-zero",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "e78232daadd37567fea4e3dc9d5f4ccee4f0a06f9407f6d91fe9793acd93346d",
+        "name": "decoy-heal-consumed",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "8c4d1b88781f68b58844840be70f421c55ec3b0ad5440e0ca23d1825cc484590",
+        "name": "decoy-heal-expired",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "442828d517f7595a66491aadb84b5ff98998abfc1b905695dfe2fff7bfa3df4c",
+        "name": "decoy-heal-periodic",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "59e6099c3c21a861922dbf1e1fd9d8ba5f5eda415726cee3e95f9c7a9c55c447",
+        "name": "decoy-heal-caster-max-changes",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "5c50e16504ce142d75d7ed9dd934d0230c56d7bb0a09d8ece476781539cb4c1d",
+        "name": "decoy-heal-ordered-duplicates",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "a6c654736463a410146570d3264df50bc6d27b029f70ec4556562fea867ad2bc",
+        "name": "decoy-heal-shared-empty",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "eba877211350dcb7555bcaeb1f211b9fdeafcad6bb94ee746b436d5f7ecd02d0",
+        "name": "decoy-heal-newer-layers",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "356ccdf80ec70f895a95e66685d2e00ab882d277e22622ad12e667a821ad97b4",
+        "name": "decoy-heal-equal-time",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "a08d3c0bedaa18bd2bf28810116fc6b096213419d71662ed554e1c8acd13fa37",
+        "name": "decoy-heal-cover-gates",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "c54bab24fa769efd90d6df8a289478ef6b7fdbda1115cd9f97a7c512ccf8982b",
+        "name": "decoy-heal-shield-gates",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "dc3d691ff18fa4ddd848e48bf4a33a265badbbfbb51c62d1228b66fecc0ec71e",
+        "name": "decoy-heal-received-heal-modifier",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "c6c4d73defe36ea9e1119688541b3a8ff8dad187c130c559b8f89217f126efbb",
+        "name": "decoy-heal-stack-reference",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "dfff3b9b3e0bc4eeae5666ed40ebbdfdac3291ef70e95e2d62158939b608b62e",
+        "name": "decoy-heal-timer-source-down",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "8a3a233319bd19e168b57b58cef19b9a1b4e21a416559593edfdc7b6b6543252",
+        "name": "decoy-heal-owner-revives",
+        "backend": "native",
+        "comparator": "scripts\\verify-decoy-healing.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "d928c5c68ccff04d803bcb2c8269067c711590d2964df598954a9f4c203e7143",
+        "name": "lost-full-health",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "d23ecb7e758ce16780faeffdb41a85f38f1b07772be8a05b441cfb56d2edeec6",
+        "name": "lost-half-health",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "f5418126d7fc9c17494af0fb12465c51c79b306a95ee9c4c171ac89fc4ce2e7f",
+        "name": "lost-heal-rearms-value",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "266237c000426dfdce057df9333fdf1802f373befd0483f8510c9f5fe8721dee",
+        "name": "lost-stacks-do-not-multiply",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "3ad93b7b2e3cbf106b74ad4842f93747b3056a2a3b88d35dd863a93b9f860796",
+        "name": "lost-receiver-health-does-not-scale",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "ca47672114e9d4bdcf59cc439c8a12c7799392d85d2b90af6b316d625acf3d71",
+        "name": "lost-max-HP-denominator",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "3f455b4041e2f5a294e0f03cdcdad9015bfb1722866950beb333dd0c4ea1c660",
+        "name": "lost-source-down-buff-remains",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "8646f53243cdc976008d18147671d005ec04cde07ea71a095ddd82f08619d995",
+        "name": "lost-source-revives",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "48cd776642a2992ef953e58741a5467ea9a7e414874f7384149bbc935e9cdcf2",
+        "name": "lost-stacks-with-bullets",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "1ba46a74067f7d4fc27f2beca917f41f3516a831c08336f6387b32cde94a1744",
+        "name": "lost-finite-runtime-gate",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "4d8c5e0548a70fa6cebe3499db1763a4afc404bee7e599fc198a4cce2ff4a185",
+        "name": "lost-scaled-maximum",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "e69a05e9e9f25a4ccac1f9a85d77e8b9e0f3ddca154b7ab369df9d3de596a61e",
+        "name": "lost-scaled-maximum-revival",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "1bb23696ba3846ec1ab175a9f36641f1fc48b320cd0a553fad2c91995c2a59d7",
+        "name": "lost-stacked-HP-gain",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "90b89acf88e26df4b3e6b280befe1152961ad186ca887409d572d80f49676fbf",
+        "name": "cover-no-broken-cover",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "cea319161fb23685b1932ead8d180368f4f3d0ae06ed23126f7a773d782f2102",
+        "name": "cover-only-broken-revives",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "c4d30ee52217b5b37275ec0567ff5f26243b04d7473e46e14ef94fad9fc8e8cb",
+        "name": "cover-recipient-maximum",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "d4d3f1b64a18a3588d91f3929928a70e04e78579dee2894b6f0043e51be321fc",
+        "name": "cover-healing-cannot-revive",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "6df584a9718d09b09514b19a81343cd9619d5c6a5c3430ecf7ed69cb2eb03caa",
+        "name": "cover-ordinary-heal-living-positive",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "de349e4bb41058758aa1f36c601ac66e9dfdf52e2ad152d8846f4be8f198e25c",
+        "name": "cover-repeat-revival",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "d8d8dddd55aebbf5a9a0f54bb44a9b2e22a09a64bf5a04ed7c2c1bf785a76e2f",
+        "name": "cover-random-includes-caster",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "8c00bd8ad043be0116a72e59ba44c41988550b71748c2eb41f64956aec6cfeed",
+        "name": "cover-random-excludes-down",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "18f844f1de26e6be02f46d8f2dcd93fb899bce1fab88496c67d7a1b74c10f4ba",
+        "name": "cover-cover-condition-rearms",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "a3e402202df7d0e04c3eac215dea8fcb1281d39185fd290ac873c44409cc1b3b",
+        "name": "cover-overmaximum-percentage",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "11f27bbcf493cc32cfab4a3529d30d35c5e337bfed0d5ef97316fd7e7f0094b9",
+        "name": "cover-stack-reference",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "bdd71c226cbdf749c6cf50b4d53420b2d56386aaec69e0cdb99c743a3bae24af",
+        "name": "cover-empty-budget-then-break",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "01333c33d88a490d803ac10a3fa74be9f031bfc8892879dc3d4fa6a67c20adcb",
+        "name": "cover-ordered-list-duplicates",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "6e510c333cde8089149b3d4fd3e2d16ec1491af93f38e6f8b1a7e42ec2fbbef8",
+        "name": "cover-revive-then-heal",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "1fa8c269fb22ea98772a7d0d4f4f57a418a961c1b1d29a96f1db93a562e4e922",
+        "name": "cover-registered-timer-source-down",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "6f4a79cb97fb787ebfcebac6c020cf52a09050d8f9dff66ae1c2cf792f94a95c",
+        "name": "down",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "744f9e9008b00ecdd9030b8a999511ddbd44e9628495d01f4c3ace69b9066239",
+        "name": "revive",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "808555bce21ff7a769e9e0ff0fcbb473d114e0aef4539e6101e9da169d8ba384",
+        "name": "preserve-marker",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "1cbd1e77edbad2dfd88919d5f2f074c37f89fc2a1dabd3e2db07da61b9d55671",
+        "name": "restore-passive-not-periodic",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "ff58e38df3a94bfab33fae800f1ac8409db1b36f64963ef9f3dbfb6b40f2cc32",
+        "name": "shared-passive-no-double-stack",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "fd1581c9dc2fa34dd024f247eae9d7f15a57a15de74cd4925fda7bbe6ac11eff",
+        "name": "once-only-revive",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "e82c399d6763d910103f3660fd3f9fa0ee0695d25930dfad6b91dd8f9e381c44",
+        "name": "whole-squad-hit-order",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "3f137f38a36b61b878850a0385d8603a66c6019eb9dd59fc5a415b8383c1c7f8",
+        "name": "registered-dot",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "246da06a6fa6be43685148c6f33e7a936c0415bd965d513645930a0e285ca26e",
+        "name": "global-ammo-counter",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "5c24761de280569a4e83abdae4a25cb84d1d47118b06dbba8a0d896c0ac8a8a5",
+        "name": "persisted-dot-power",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "a15acf9338fc1cc39c3d388abacf2c92cac5e50ef37c1ea113734a44419b9f2a",
+        "name": "capacity-caster-not-recipient",
+        "backend": "native",
+        "comparator": "scripts\\verify-cover-capacity.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "406f3b8a87c1b2bab7c0bcb682d7a3ebe74af7733e0df9e5017a35eb63f25ad2",
+        "name": "capacity-caster-max-increases",
+        "backend": "native",
+        "comparator": "scripts\\verify-cover-capacity.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "47e0cc987156db8d847ca2878e63bb4198d561d8bf60669ec836f0280e77abb8",
+        "name": "capacity-caster-max-expires",
+        "backend": "native",
+        "comparator": "scripts\\verify-cover-capacity.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "ff5c62897031bbcb17628e00d0ad7b001c2dde9fa945d7f96029140fbdb14508",
+        "name": "capacity-base-pct-plus-flat",
+        "backend": "native",
+        "comparator": "scripts\\verify-cover-capacity.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "56985abb353a70b2feb529785944377793f4a16cf9b0101706f1d0d50e79e72e",
+        "name": "capacity-stacked-capacity",
+        "backend": "native",
+        "comparator": "scripts\\verify-cover-capacity.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "beda1f7f341d66e17fc942133b7f00d25b5a77170339f8d531dc7adaddc3537a",
+        "name": "capacity-lost-HP-source-maximum",
+        "backend": "native",
+        "comparator": "scripts\\verify-cover-capacity.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "0aa24b6cd64e911986b8f3ec300bfbe5aa1185be6c7eccbbacc011fe9c955e17",
+        "name": "capacity-broken-cover-no-revive",
+        "backend": "native",
+        "comparator": "scripts\\verify-cover-capacity.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "2857c8c3070c9ab9c6fdaef6393242760eea7b2f5b322909ffcc7edd293f0bf6",
+        "name": "capacity-revive-after-capacity-change",
+        "backend": "native",
+        "comparator": "scripts\\verify-cover-capacity.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "0f743fb23fd80f8e2b8eadc6363594dc3c3d0d6a928180d783bbfd357cd25fe0",
+        "name": "capacity-cover-runtime-gate",
+        "backend": "native",
+        "comparator": "scripts\\verify-cover-capacity.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "bbffd326573498040eac10f5975559cf85044271cb705d6213be6863c9c4ce76",
+        "name": "capacity-source-down",
+        "backend": "native",
+        "comparator": "scripts\\verify-cover-capacity.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "3c27017b7c0bc956eacc00040cce21f8a565fa00a037236c171757b5b1091c47",
+        "name": "capacity-source-revives",
+        "backend": "native",
+        "comparator": "scripts\\verify-cover-capacity.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "b31ad3d2ea0777604b2e696381b8cca5c2bafd84a38a312e1f6ba47c47404b18",
+        "name": "capacity-ordered-duplicates",
+        "backend": "native",
+        "comparator": "scripts\\verify-cover-capacity.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "64c432f8254dae8a6f8e864ff9f42088a6ba518dfb7575b769950835a0bc22ed",
+        "name": "capacity-lazy-recipients",
+        "backend": "native",
+        "comparator": "scripts\\verify-cover-capacity.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "99d24a7afbf549c8c5c1b74936cdf2009ad492121140d51c275cc7feac205a8d",
+        "name": "capacity-plain-bullet-stacks",
+        "backend": "native",
+        "comparator": "scripts\\verify-cover-capacity.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "e214677ab5cc5cfd6e36c71505f54736bbde6f76287d7510062959622d10089f",
+        "name": "capacity-flat-bullet-stacks",
+        "backend": "native",
+        "comparator": "scripts\\verify-cover-capacity.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "b4c234db11ad018920baf20cdd49ae42eb782aee8132c8866d21a52d92ad0d6e",
+        "name": "raw-Tia-capacity-owned-cover-cube",
+        "backend": "native",
+        "comparator": "scripts\\verify-cover-capacity.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "97a6cc9366a20629d96181d81dc8352a480cd08c484eafffb69a870dc7182f9b",
+        "name": "layers-body",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "22b28d2ac4626e488dc3e97a18f81fe48e36e16635b41507d7b3a4be44e9cc10",
+        "name": "layers-defense",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "614e6881ee7f00af39bf69f8f553b1be976c941960cdfdf7bef02384490962a5",
+        "name": "layers-received",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "5bebcb9561cf40b575d57bba829f9f04f50fede08aa1f7eb97a4f62e0a9dd5de",
+        "name": "layers-invincible",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "69cf8e0fbfb7346990929c8efe76e0ed21cd426132dc11c5b6c957fe7cb53155",
+        "name": "layers-shield",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "a3e9637d231339f638267bec2df357400ee834c02d3a3cde50ba129d3e40807c",
+        "name": "layers-shield-pierce",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "e6cdc8ded47b72c036e01cccbc32b4d70ce2fac42fb8472547c9a8a68467ee8a",
+        "name": "layers-two-shields",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "94b6682ef7c9fcb945daefb3b6e992ad171612af0f0d0794cd95e81f552d7378",
+        "name": "layers-two-shields-pierce",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "7c2493615acf86050dc2560c9f929cffc653e4a27ce01fda25641ce44768f72e",
+        "name": "layers-cover",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "8e63b0cc7bf68baba9b8484824f7565ee72a743df625487c626b6605ed245708",
+        "name": "layers-cover-pierce",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "6fdf4fe564c2f73892de40220d473b7b985742b679cb9e1a3fa41b338271f416",
+        "name": "layers-cover-disabled",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "dafa6f4335583514da052e2223308f6a4ee67735fc2d6db2654f90e11df02a4b",
+        "name": "layers-shield-before-cover",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "42c910ff2c4b45444891d7d3dbe3a568e71437dc228cc870779ab11f3c48edc0",
+        "name": "layers-shield-and-cover-pierce",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "efb985681e2e085925d3c024e7fc906cab9b7edc45e42600c1cf4eb17caa4f59",
+        "name": "layers-decoy",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "7de665bd14c1c856ab2b5f6716c9caacb87280d5c42882449e4224d290beb61e",
+        "name": "layers-decoy-pierce",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "9b4117d85a08ae9a6f4dd80d07e96311be0e80282ba1deeba2acd0ed80a20385",
+        "name": "layers-shared",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "762dc3d3e2556d4320ba47e9c2f3aba3e76ad59b6de492d5923a97574f257e5e",
+        "name": "layers-undying",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "38518216a86c80cb255ac06c132edd43d94ab142bf60a030d0320cbf43726b05",
+        "name": "layers-lethal-trigger-undying",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "2d7728f0e0d7aa790897c1e0dce2a2d966af424c0d83de26024e25e8c6170e42",
+        "name": "decoy-consumed-state-end",
+        "backend": "native",
+        "comparator": "scripts\\verify-incoming-detail.py",
+        "requests": 3,
+        "executions": 1
+      },
+      {
+        "id": "4567d35949109c9b014a537023fa8afb78ce6d0fb7a0731df7ecf132520d1b30",
+        "name": "raw-outgoing-프리카-incoming",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "5690e846ad62c4285dafd8d737d7640e010b0803dae9df158e68e4cc5b535d1e",
+        "name": "raw-outgoing-프리카-owned-healing-cube",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "8e7b0cf2db706cc96185e8965f98d9237a066e0f69262f987ace6dbe406395c6",
+        "name": "raw-outgoing-백학-incoming",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "e5a2547368a419c0227f740b15e8bee2d3338bdfd8ba3ca3becf3d49cbb182a4",
+        "name": "raw-outgoing-백학-owned-healing-cube",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "934162965ca4b152a3b34cb1c443dea1036bf1f2c53d08800f439aba9a7c8fbe",
+        "name": "outgoing-source-only",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "395598141ac55ab6f798b975878c63d6a79ebece03984b34f4ef844eeb6e2491",
+        "name": "outgoing-recipient-is-not-source",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "92041a19e4b224cf27e6b27d20794e4bbf6a9d3881e71b6c372f8bab80cf4dce",
+        "name": "outgoing-separate-layers",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "dc4df67ec181336186fc81865b2d82de1d1bc23c98e45b8415ee08c30d4bcf76",
+        "name": "outgoing-additive-sources",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "d1c628231fe736823bba70806ddfa909f3aa7338f5e05cb759e77bece084f1f4",
+        "name": "outgoing-negative-source",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "69cbf7ba48228a73ea2d6b7497b329a0df1ee65dce2515f15b35b9ed2bd0bfcc",
+        "name": "outgoing-negative-recipient",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "54732c48cc43cf6df9b4a10aac428e8b732691d1d2788639b7d235bd0ba508ce",
+        "name": "outgoing-stacked-source",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "0b9af19e8482370dc54de92b69b476693722e7ba299c3bb61c6fa5a17ed21594",
+        "name": "outgoing-periodic",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "69e853c5ec6a325186eb24865b24a4076e97eda814477a549b2fe4f0958f57f6",
+        "name": "outgoing-caster-max",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "32a9c656a9e9baae63b2ef57ee4715655e4cf65e7094db6428ced6d2be7a59c9",
+        "name": "outgoing-duplicates",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "fdb98ed2401902097b753159e9b0fe1493e6c4e31c8a9b0e5b8cdbe0d69a5b4a",
+        "name": "outgoing-expired",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "5030b43e4a65f529138e6458bdc4a06cf8b75f2fae0a9a5dfd2c11f0e7649926",
+        "name": "outgoing-lazy-target",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "cb1d70fbff885f352f81d34def5af9b180bf53ec7f1304427c66b609458a5118",
+        "name": "outgoing-conditional",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "af13ac9cc525cba126b9dd7145785053d1a00c90e4230691039f265c4baaab5e",
+        "name": "outgoing-lifesteal",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "10b17eeb3a0af708dc4919a9b67cf16436fde6b5ce0f37927dd27b5be1fe9f19",
+        "name": "outgoing-lifesteal-negative",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "7b1a95dc629e71c343945b1b67c315b0a35afd05884d81cf1734981fa7cbe52d",
+        "name": "outgoing-cover-unaffected",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "7cbb0a87928f7cea210a99a4b1beb84908a0a2c497b69e70daef855e5b080372",
+        "name": "outgoing-shield-unaffected",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "a8fab1174afadd8478282195806df4c4e6d1c249acd384abf145d3c70987f01f",
+        "name": "outgoing-decoy-unaffected",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "6e0942f338f1844c291751a5d69e063f51c10bfb8786620712369c2ac895ee86",
+        "name": "outgoing-registered-timer-source-down",
+        "backend": "native",
+        "comparator": "scripts\\verify-outgoing-healing.py",
+        "requests": 2,
+        "executions": 1
+      },
+      {
+        "id": "b2697f87f1e02a043f8a13a0c19c5efaf33862faf19d32b37bdd3636657679ce",
+        "name": "raw-storage-앵커 : 이노센트 메이드",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "9d047e20b794c02127b2dfdc0b9fd4b02a33fca2736e61bce5b3f8b1c944c2c8",
+        "name": "raw-storage-센티",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "ef56e33acb882f104c517fbfcae806644d1c9992cbacbc0c890d3ef955860d50",
+        "name": "raw-storage-센티-favorite3",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "ac3a3a9c1f299595c5d1c8b504a5945f8160ec32245456b38eb8fe8cc58b36a4",
+        "name": "raw-storage-소라",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "2433a4a3c6e335c2d7479feb2f5cf9282f5d2eb9292878ca908fe066a1bf535b",
+        "name": "raw-storage-마르차나",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "dfc1863fb9c8af7c93c27ddcd914417bdce838469a08ec8f0ec02596044d7afe",
+        "name": "storage-empty",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "291779713d67be02f369c28028c0a25de8e2dd85119bb0cbc0846f2393bdec47",
+        "name": "storage-overflow",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "8bd4204773d5f522e35a98702571cbf0f830f5c2bcfcfcbcb5e64bcf4e4cfc5b",
+        "name": "storage-damage",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "ecb27105bca8f22aec50635b89b085caf9b3ee5e36db410386a13861c9a32043",
+        "name": "storage-drain",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "81bd7060dc3460d0eddc8019a16f1f36ee29e6a52af733b25d85935d466b91b3",
+        "name": "storage-expiry",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "e1e44aa6391f5630a31efb6ec7c8b032b7a06cd4a96d5990f0eef031dec13a06",
+        "name": "storage-stacked",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "70d281b7fc5797c985a7d2d45f98876f1b7e4cf94a160f30135a119832351740",
+        "name": "storage-refresh",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "f708973bb9967dba0382c5f7f124585b08184e3d90481404c8f9c5503ab75d29",
+        "name": "storage-shield-before-storage",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "6d7d123df9c1c48d68f3f4c752ed353fbcc504f5a9890387e7fd9e59e0d06a44",
+        "name": "storage-extra-overlap-newest",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "c0d3e27bfcf7a576080c2f3c095159d674ae0dcaaeb1642c4a679ec0e3e5cccf",
+        "name": "storage-extra-overlap-equal-time",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "f2f0ca3627dfb6164717d0752b8943a3defc0003b4dde7690d64c82cc3280b1b",
+        "name": "storage-extra-snapshot-caster-growth",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "157b2716c27e62b05344fdf401445cb401853ef9472a2cd98356665cc513eb19",
+        "name": "storage-extra-caster-growth-before",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "41c2680935eb968ed71b06ae66c6c07cb4a56f7e5c926f44156b8aaa9febd07a",
+        "name": "storage-extra-recipient-growth-is-not-capacity",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "bce9b70dcb15b9956f465e7e8598e7eeae7ad8ee5bb41c8723ee4f165dcb7c35",
+        "name": "storage-extra-expired-reapplication",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "3347dd12649ebd2d5521936ccc6de8454a9b0dc19e22cc1506fe3b3d4e8d297a",
+        "name": "storage-extra-lazy-lowest-target",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "245bbce8024ec88ccfa93384086a2c1595f5e5a015f89e9cdc4d7d3ee1e7dc74",
+        "name": "storage-extra-ordered-duplicates",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "8a2c162a0e0285ffb649704254d4bd8cd65bcc7fd7c361d9dc0053da5b8479fc",
+        "name": "storage-extra-received-and-outgoing",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "dfcd8157648adfa0670bc3db5ec03661954b940b1e9160643ed4a679bdb6f2f0",
+        "name": "storage-extra-source-down",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "8b0ab57e6729f89ebcbd2b628c2164475d1dfd571ebd43ad59c449537353dfa3",
+        "name": "storage-extra-source-revives",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "ccba9cbeceff8241f57e81782576d2e8fe91d6845f7fb89f01b5bdd526437fed",
+        "name": "storage-extra-recipient-down-revives",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "74eac02dcd7ae5c9b3025f79c3fcedb1ee2f952b86bef8e8d4cdadc6477be73b",
+        "name": "storage-extra-HP-predicate",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "7026be4f247e34eda63437bb6b0ceb54c3ea9a68300957c2dca287b93d0ab3e2",
+        "name": "storage-extra-decoy-before-storage",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "339bfaa5cbe2cc0425c4cf0607a95c3e092a02f4c63037c8d3cec2753451d463",
+        "name": "storage-extra-invincible-before-storage",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "1150f04bc55543faccb85dfa35417a377df62f4e0e90fd178230daafa47b17ff",
+        "name": "storage-extra-max-HP-grant-does-not-fill",
+        "backend": "native",
+        "comparator": "scripts\\verify-healing-storage.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "a6b2c13678a1d97a1414ba83885f68abd6c12ab876a990533935595f553a940f",
+        "name": "raw-sharing-zero-RL",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "953023ec2058cc2389658eaf239f0b845cbd2c48a62a9d36f58f6e716355a021",
+        "name": "raw-sharing-two-RL",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "63173c66d75a53c62ffc6b7151ee7e837a5dde8ad7e1cc4ef152a77da7624e10",
+        "name": "raw-sharing-Crown",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "b94e6916197a21edfe7beab138227d7b86e59272c222b5b653bed68a4d113286",
+        "name": "raw-sharing-storage",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "034991f564066cc6fc4489fa5edefc6eaaeee77ce788a780bbb4f9777e2befe0",
+        "name": "raw-sharing-Nayuta",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "13b7c1fd424fec5726b4a8941b36c2b5bd19e5a0d134958cce60fcf968831aa2",
+        "name": "sharing-no-links",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "b190ecdddec34df406c7d1cf21e1b5c0782f5491b09e2d34d1b5562b4420fefa",
+        "name": "sharing-single",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "caead489fe9c4ba5279703f3931dba6bc508f6ede69b24ffa5d8bee44cdc9209",
+        "name": "sharing-equal",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "b8ee0fb29739b1f8b384af0f08b8edaccdf0621c917e0a2f9d2f289f0091f73e",
+        "name": "sharing-Rem-zero-RL",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "59fbb3507143e895ee34ad488d00d2f469b7084bd922b09cc5fbc0d8647cd5d3",
+        "name": "sharing-Rem-two-RL",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "b876cb98d997a32efe4cff0b21c0822657bab36b5adee96776e145d400bbf102",
+        "name": "sharing-external-heal",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "7d3a5377a7a6cda732d3dc1e76bb60f640027250ca7c863c1fd35024bd5bd022",
+        "name": "sharing-overlap-chain",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "4d4b3d1be73bc52cc73cc7ff55dcde595abfa4a80725387c525cba87f722c4cf",
+        "name": "sharing-duplicates",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "94fe8db15f949b44944de614ec401f93fdcfaccc6a47db212e5e89868a0c33bb",
+        "name": "sharing-stacked",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "b6ff0e925fe8285e0e74898eda91876de4a8255eefa3283c81fcc6a90e023083",
+        "name": "sharing-expired",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "6502e3158e67827b9f79cbd90344e7a5ced0786f702f3108cda912351fc75c0f",
+        "name": "sharing-lazy",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "c20c0177aeceee78057c69fcf7b9457aba0f269f5c6e51430038871f6c1c4e3e",
+        "name": "sharing-conditional",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "43f7306dbf6531c9481d8065877b2d14263a2f24e723c14f7d0eac846a16a5cb",
+        "name": "sharing-full-HP",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "ed6e4e78d0da8960ab79e7fbc981481d8feb3298e1b9bb3affb4899c64d355e4",
+        "name": "sharing-received-potency",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "c60f397977549e0966d6c9c6eca3cfe0ed041aa3364be7fecd30827bd0c739bf",
+        "name": "sharing-outgoing-potency",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "adc9da5bbc731ba32167a2dc09fc228535194c1e924bde431e3a23d585a8b21d",
+        "name": "sharing-storage",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "d91bba57b3a5270976329f383158155220634a066184140b51795abdb64b7208",
+        "name": "sharing-lifesteal",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "cd29dd8bb40f28ec6a86e54f771e6827e3e4bb7805a18872eb54fed67c8a2dfb",
+        "name": "sharing-down-revive",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "840db354169548f7bb77a62f65f3fef32399864ce2b4e386a7fc886b661dc22e",
+        "name": "sharing-nested-HP-heal",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "867a190cb8380d4d7220126bf8f30bd5f526717dc71e35e3ae7f67ead035437e",
+        "name": "sharing-notification-original-only",
+        "backend": "native",
+        "comparator": "scripts\\verify-survival-scaling.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "267f3a8f1c5a792e0abd4b1e0f61acf7cc507a8c8c3185500bc182ef8d5ce2aa",
+        "name": "charge-empty",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "8a48bb3d79cc4024e063020f5d7066e7701e449283c4ff2aef81101ad63ef556",
+        "name": "charge-full-HP",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "ad153d98682986d6bcab7bac0c52f3b23fdb3b601d534823bd66f96a4b994be8",
+        "name": "charge-damaged",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "85bdedb7aff5ea29e4f0bdc9627be9622ade52e0f41b305106aa38f449bbf4e9",
+        "name": "charge-lifesteal",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "6f7f4c72d5cde998da2a864dee0acb2ec9ff35b269c8ead3d54222f754168489",
+        "name": "charge-storage",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "04dbd9a0217dd7572b2c97f116668ffa7f52c0f157da958b651c1bb60debb688",
+        "name": "charge-shared-heal",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "4f6097322919ed7a9c65f4a587265b372f8d78b780b3914d2aae61a4693268a3",
+        "name": "charge-late-bonus",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "cb6e63ad74968c11ac7b3348c19024865e9e6d76da0e4e7ef5773b7d8fd9ce5d",
+        "name": "charge-expired-bonus",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "27130728ccd8c8b41b9796e09a3600c36eaa68e29a0b638ae7fce02ea1d93611",
+        "name": "charge-wrong-bonus-name",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "f4094de233fcabab5da3f8d2e2564b868fc64e407ef263240a42e3fe72901ae3",
+        "name": "charge-source-ATK-snapshot",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "d8f66fe6979f4815fa75a73937154f9b9b994aaa50255ebab207103c9590b2d2",
+        "name": "charge-refresh",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "b4871dc5f6763458033854de62e878d14d4825b944a2ec98aa27b21d04318ae2",
+        "name": "charge-ordered-duplicates",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "5817a63401a566ce72a27b01a2b9cdebeb3c01bb999cfeb9de5fabdcde35cf0a",
+        "name": "charge-early-discharge",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "87406ae3071f5a5566e88b1018cde2cc0dda69b86d80e3cadb8b4af5e50339e5",
+        "name": "charge-cleanse-no-release",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "16f4905b668f8a1e8ba3d6c56592aed401882bc3e42b21c6adb31b192cb86764",
+        "name": "charge-named-removal",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "2c5f7f6299897a8d27af92204e915934e061ec8ae1e321c30de16235ab2b676a",
+        "name": "charge-down-source",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "3b5fb7783881bf8e7213d445abda7e365a863bbb59a0895a7368ba616d2ef37b",
+        "name": "charge-extra-same-name-two-owners",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge-extra.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "7994dd12afbf217b95ae928e78b29c05f6d4fe4bc6582469a3a1c53b40675fb9",
+        "name": "charge-extra-expiry-recreate-before-release",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge-extra.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "f1c1aa4b14ee7d0e02141a4f912fbecffc08420a2cea0f45b0f4229843eaff05",
+        "name": "charge-extra-cleanse-then-new-same-name",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge-extra.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "b3d02f4cb28ededa057e38ec650ebd2ba52537032d32c771952ab1980cf4f994",
+        "name": "charge-extra-expired-boost-keeps-collected",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge-extra.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "ec3c8c157f66a1f36bd725eb6188dd4094c0ba3b3f6a86a91a7f88a644b55d3a",
+        "name": "charge-extra-zero-cap-companion",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge-extra.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "0730f89526426ed49344095dc816ea505bab1f9193b2337d611137d587f90514",
+        "name": "charge-extra-negative-cap-companion",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge-extra.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "94385aa97d9754fbba98e1eed9b6923b2814dba4fc392563df992072671de0f1",
+        "name": "charge-extra-release-inside-HP-edge",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge-extra.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "ac2d6cd3c17575d86933019c9fa3aada2edf2253fc92165a265bd29851ded08e",
+        "name": "charge-extra-live-second-pool-receives-release",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge-extra.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "b1f5c74beebbec1d025f4662b146de3ea04bdfc3347fd591002376a0094867dc",
+        "name": "charge-extra-other-caster-capacity-bonus",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge-extra.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "cc93808bd71aee8a48397f0cb66eed41d820df604db827e93fee5a4bf4c27dee",
+        "name": "charge-extra-fractional-gear-and-potency",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge-extra.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "57ee995b8e94764d25d4e8d2a0c07c65eefc064deb60114c33c160153d53cc8b",
+        "name": "raw-charge-healer",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "778c671b49ae91277143bee39c77dc540b09d328d85220d66341972c91512819",
+        "name": "raw-charge-taunter-negative",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "8dfc5036b40e1a95bd5df21bd4744a092188dc70f6aeeb35ccbe4331dacdbfee",
+        "name": "raw-charge-Rem-sharing",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      },
+      {
+        "id": "a36129c18d1b95d64f9f9c29f0be2647c384e2a8d5d1e491b44bf2f138396ab1",
+        "name": "raw-charge-Marciana-storage",
+        "backend": "native",
+        "comparator": "scripts\\verify-heal-charge.py",
+        "requests": 1,
+        "executions": 1
+      }
+    ],
+    "scope": "Migrated recovery tests; exact comparator and inputs only"
+  },
+  "tests_run": 67,
+  "skipped": 0,
+  "seconds": 397.115,
+  "modules": [
+    "test_effect_spec",
+    "test_verification_session",
+    "test_adapter",
+    "test_detail_decoy_healing",
+    "test_detail_decoy_healing_boundary",
+    "test_detail_outgoing_healing",
+    "test_detail_outgoing_healing_boundary",
+    "test_detail_healing_storage",
+    "test_detail_healing_storage_boundary",
+    "test_detail_heal_sharing",
+    "test_detail_heal_sharing_boundary",
+    "test_detail_heal_charge",
+    "test_detail_heal_charge_boundary"
+  ],
+  "failures": [],
+  "scope": "Owned adapter, common specification, migrated recovery GPU comparators and their original state/witness checks plus boundaries. Includes historical cases once per exact comparator/input.",
+  "source_sha256": {
+    "app/detail_boss.py": "521a06d1caf6a8b223b65312ab029fac6fd7099702e04db33f0e7c556736afa1",
+    "app/detail_effects-build.json": "d9e184923165a214dad8dde0ecc4b7363aa3e05bf8cf26244e08f7274c0da006",
+    "app/detail_effects-sm86.cubin": "bcf6808bfa99c572e18599ec12cc32f5f48c9d288d0b60f44d4137dd6137e7c1",
+    "app/detail_effects-sm86.json": "83b6dbb57b29a168d71ec78e41f78b8265c55ff5d04e0a9d2ae73f834b87d201",
+    "app/detail_effects.cu": "b7646ef484aa639ddad59d91f023b1d96b76e8723f7444cdd6aa0276534a244c",
+    "app/detail_effects.ptx": "d65f5d9916a9011a261c4a22396f0cea92480e460f608cae47ea981de228c151",
+    "app/detail_gpu.py": "c67ce0b68ad9bd3a77454ced7574b09919b997a9bbb32d2462f75e04f19ceb95",
+    "app/detail_world.py": "3c717ce722fb151fa1bc3cb7990ab632b9a481a5fb379607c52b2ac66a56317c",
+    "app/effect_spec.py": "365d7655b064cc7f65cd0893af0796f6445ded58dc70afd88f6848c6bfbd15ef",
+    "app/engine_compat.py": "9e2bf6a5c519339838faa994cafff1aa019be37ffdf3c7aad380fc9f239ca8f9",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/gpu_combat.py": "610c6b1dc97825577bd3d1639691377726c8232909b5816b388d66582b994cb1",
+    "app/gpu_selector.py": "913cf0fdab130614dbf1b73e6016550a4ea07b6fee27f540f6bae079e1c2c2b3",
+    "app/gpu_service.py": "213bd169c8a11f736f2324a01eb7d38cce5acd9cce67e0da4c916d64a994a2de",
+    "app/heal_charge_compat.py": "3a0c50058270f6be89511f0585b4d2cc907d8c72d8439288b49d9c9db5bc0c2c",
+    "app/heal_sharing_compat.py": "8ae450810a8fb4aec635c99a3f62713bd4b6dca4196098ee3e419594cf858de4",
+    "app/healing_storage_compat.py": "be7f0c0eea3f71f25585ed0b5677e948f82a63cc11efc56ff2b48b038289dfd7",
+    "app/outgoing_healing_compat.py": "8eb8a8fe2ecd2a9c7d7fbccb087473b0817073da1ee2093b5b36f161df5f8af3",
+    "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "app/survival_scaling_compat.py": "7d58315941ff7256dcbeb1fa38c15e7fc5a801d1e96822610d612a114b9b56bc",
+    "scripts/audit-ally-conditions.py": "fafb65ed02a78fcad75aade2318913eccfc287c014ccebaa71727b358d86e90c",
+    "scripts/audit-burst-gauge-boundaries.py": "151bccd21934c91a1cbbd6c4167d5bd533f38f7f64e75c2c7a0c43cbd43f415b",
+    "scripts/audit-burst-gauge.py": "db41a5188c43e51974861c502933cd51de1ed3dc1a123bda67b184371e7b567f",
+    "scripts/audit-charge-control.py": "2bc7806f6a3194c9f4c800ec5d8f01f1eee67d996a27bdece3ae4dd4baf04a0a",
+    "scripts/audit-charge-immunity.py": "ab19671a2d2daeb1b4e13c9562f883f9c10928e02844d128d8fa5c9dd33113a6",
+    "scripts/audit-common-migration.py": "24c0ccaa479417fb2c22d4fb8a7601b2ca03f34da592c5b3e6f58e3607ce731c",
+    "scripts/audit-debuff-cleanse.py": "d51207b8ceb9e3326fbbe37efa75805b0e379862c5f2f938b381402ec88f55cb",
+    "scripts/audit-detail-capacity.py": "ba3a3ebb7b0f12fdcab89b7d9ad5172fd7f0e7a99870bdd796956c98be400ce0",
+    "scripts/audit-detail-support.py": "03a6fe645e1b86af1bf1c82f1d365ab829d85e9b0a0afcb761c80f29ca90f03b",
+    "scripts/audit-down-continuations.py": "29acd56e92a63fad610fddaa080625c6e5901d51f0b0077d08eb07df58cfb20f",
+    "scripts/audit-down-revive.py": "216fff9a1e52148cd7e00e26bb4f901e587308276a4a1c6851436940eb306673",
+    "scripts/audit-down-weapon-modes.py": "f3d4f71202ab3a0b0659bc2f9356b241687b902e11caa5aad5cd70a9824e2159",
+    "scripts/audit-harmful-random.py": "dbb0bb9dd9c2b73618edfb128e32b77629f1edbdf720eaadbc6bf24563a84d5c",
+    "scripts/audit-hp-edge-events.py": "e5b027e273fb152214e4d8215b3ec3ac9c4039f8c2d95577b95ffd88e4ccf022",
+    "scripts/audit-incoming-damage.py": "2f9fb90dcf38fa6c06c3e05ed2a2284014e55894404dad7d7c77048cd0b85a47",
+    "scripts/audit-incoming-target-transitions.py": "b9e9113301825cdb65674b420bfa8f1f3408323eb248fa9b4676ff0dd2d5a328",
+    "scripts/audit-incoming-targets.py": "3d8650d4b03c323e256f7a49b0c8aee7e2846dbf0dae0dc02f464462c575d4e4",
+    "scripts/audit-infinite-ammo.py": "25758f9741c30b79fc5bc000b26c83b2f0266d33e07492a2a983d9471afcf577",
+    "scripts/audit-live-reach.py": "7d346bac4f9abfba4384feec42b831e7a824e07f8f48893b266505750f71ef4e",
+    "scripts/audit-named-capacity.py": "e481ed09935747bfb0ec25f61df0ca6ceccff1e8b5f5a996b3662ffa55edba6f",
+    "scripts/audit-python-random.py": "c5c212e300b92d49e49177b7739e9ddec7157945ba4bf27dae129cfffd32abec",
+    "scripts/audit-random-target-lifecycle.py": "b4c789e25b264123edadff3e9f1d3f8b96ef0ed7f87797a9f0bdcc6d83151c71",
+    "scripts/audit-range-geometry.py": "ade73e98fa9aad91a00636542a4439952c500d8fdc60f679a0cc026156c8a0df",
+    "scripts/audit-real-cleanse.py": "95500e4579613ac2a47363051c1365e919995fdcf04ff57c4feaf0124193b6d9",
+    "scripts/audit-shield-lifecycle.py": "295d398e9119ff11a3bd1266d2b819cad98c6413530b7399249726c99cfcec15",
+    "scripts/audit-squad-condition.py": "a0f050c36e950066a9afd15c467c1a1b3db98d067546eea892dad640b9bf265f",
+    "scripts/audit-team-hits.py": "7311103a5496ef4e281bb933b12ce09e234883e54f69765fbadc09ddff917203",
+    "scripts/benchmark-combat.py": "59f36be13bb1540eb89eceadfd1b8d5363e455be11f75346631f8a015d0d9741",
+    "scripts/build-combat.py": "042ff161017255731ace10998b91f9f6d69d4fafa83f5cb70f9cdd2ec87c78ca",
+    "scripts/build-detail-native.py": "3737935a47c66bdfe6023c967d223d4031c61ea2fd1b3ff3e79e71b1f9122c59",
+    "scripts/build-detail-random.py": "dfd69a64ddd6fa61259dce1e114e8c68a82b38e5838e06c2c93ea9193afd3cf4",
+    "scripts/debug-boss-buff-rng.py": "c170e29a008ab15776f036587b4fe70f70bc432b335d87189338eb6ff23c0750",
+    "scripts/debug-control-cache.py": "005496a9f7d863351760483b826962356f8e7a8ed8b8309eb8ad8ac43f188e08",
+    "scripts/debug-mode-charge-restore.py": "f7cf45dd041bb646e6fe8a0ade585a498faea6276918358e21be0f5b65b2c42c",
+    "scripts/debug-random-query.py": "90f8b861437bb9660b16d629924e9ba068f063183b10432d697357ba9975e4c6",
+    "scripts/detail_coverage.py": "eef94f7675f270e8a4870323cb1e55e8506f2e5fe47e6fa4b1645d9aaf71dc40",
+    "scripts/fetch-raid-presets.py": "018033090d6fc54bab9acc12825b959ba5daaa556235cd30c0ec67ed3971d8b4",
+    "scripts/fetch-union-presets.py": "999a3c5015691c1c1ca25791dc0a1a0cd974959334f88fbaf2357d25d06afe11",
+    "scripts/heal-charge-extra-fixtures.py": "701eba00e3fdacaa89abf45f05b6bfc4d15c1318bf51b42f9dae117b960464a5",
+    "scripts/heal-charge-fixtures.py": "f28c84aa920894ae03a455c91988d70db4137f324d77576395bff22555ff7ebd",
+    "scripts/heal-sharing-fixtures.py": "baff8907d27658d3ab3371fc7e2a3847737306d813b4276e3c8f705618308c84",
+    "scripts/healing-storage-extra-fixtures.py": "934ba503d1a026983db6f319ff895b161409b0254e5254d76948434a048a8bbf",
+    "scripts/healing-storage-fixtures.py": "4ee25bcf16f95744e273a2d5162ff050cc06cc90a6d242f042786638a7386b07",
+    "scripts/inventory-effect-spec.py": "b93ab62b582dce7ebcb415ec4d0fb4fcead66c8f62ec780c7140d63d3b3154ea",
+    "scripts/make-ally-conditions-fixture.py": "dd5305f5be196438de3d9174860855381872acc105dfee0e84ca05e906d6e056",
+    "scripts/make-capacity-fixture.py": "b69b709ad6e0f60eb8d8f7ffd534e9c3fea09413c0f7d335ebd7b9c78f528307",
+    "scripts/make-charge-immunity-fixture.py": "6a8c0c0a80f692c93a45369470fe8a1bbbc275e3f10fe05341c3b3c1ce3a2acf",
+    "scripts/make-crown-fixture.py": "1b8a4e8b3646c1c314e809e0804662a8782b4da92f44b8c439e89dc7a18fc1e5",
+    "scripts/make-damage-fixture.py": "cec7494b76df20e50efcd1e9b7c8d8984670cd985adda08c6e4d49dc15d09b1c",
+    "scripts/make-detail-fixture.py": "3b48b7c21224bc75a0edfb1e771d2f5c33575eb766bf8cdeb826cf8b4af05b56",
+    "scripts/make-gauges-fixture.py": "0dc4c8a67a31770ead9abb23c9abb1abe9432ba1b6e86584d8ffab28a1cfabeb",
+    "scripts/make-immunity-fixture.py": "ce2f28d9d80f1a29116c291294f3f415f24ea183f821c169a65776b9d977f094",
+    "scripts/make-kiri-fixture.py": "469d14c266bc08690619a4b05b719009fcd265e5af9569a3a0e5e7153dc0afca",
+    "scripts/make-live-parts-fixture.py": "70fc5fb0d3ceeefbe551028f3f900677e944bc9f44a8a65d76bbed503640439c",
+    "scripts/make-optimal-range-fixture.py": "f4d0555f6886c88b652dd3f1375c2c399506eeb05a83575250760918f8b66b46",
+    "scripts/make-shield-fixture.py": "c14062c687e889669c9b0263976b65f92d91dc73cda9962ca87ba73ce53c1fc1",
+    "scripts/make-team-hits-fixture.py": "6d10e2b2273e4d98ec42f212e3f984cb6409a00237d2aacd356a025ae2c47cef",
+    "scripts/make-timers-fixture.py": "0566107152a2c6e3160e821312187d8f597434353c59025bceb532799e7c1b56",
+    "scripts/make-weapons-fixture.py": "5fdbaa0fd0d4f718bad00714841496be956712b8faac15eaf3d6a50437b6a5f9",
+    "scripts/prepare_metadata.py": "a3dbec2b9c635a2fefae3dfe7511cc1c2b9b7155b3cd77392fe3b771667fdf7c",
+    "scripts/probe-revive-hp-passives.py": "a18a34d1461017e08d47d3713862ce330dd7f65a94b4a946e48c2ef383acf6d1",
+    "scripts/staged-cover-capacity-runtime.py": "59959af182e8a824db1261dee81f88a48ce9fdb378d2dd781f22cb0d5b01fd3f",
+    "scripts/staged-decoy-healing-runtime.py": "77ef6ab1bfa47ce8c10edf7d0826c980e194aca12ca2d37fcc124842aa8b06b6",
+    "scripts/staged-heal-charge-runtime.py": "d1d17eb45df2539023d03848adef41067fa1e87d5141ad270f2fbfa0c8185dcf",
+    "scripts/staged-heal-sharing-runtime.py": "ee65c336da301f4a62082546aba5e0d9c233483b5f738c8d411a3021a933d16c",
+    "scripts/staged-healing-storage-runtime.py": "aa62a850840a39044889633dbf998d66707269474ee4d90cbe35617394fa0b20",
+    "scripts/staged-hp-edge-runtime.py": "1f5111f0aec1a8797145223de009be56849657c06c823793337d6c4b8e290b93",
+    "scripts/staged-outgoing-healing-runtime.py": "2b6216bd0e9239b25c5ac2fac4e446d6d3d93f8a9d42451af2d1f59dcb6d35b9",
+    "scripts/staged-survival-runtime.py": "78b7b823058dbf4ce591473132925c938a273e07b9bf8657395f71e809812ec9",
+    "scripts/staged-survival-scaling-runtime.py": "6fbd54650cda74e03f8007f43b7d69a82837420f3a4cf58ad4492d517a2fa170",
+    "scripts/summarize-owned-acceptance.py": "bc1de2fa27eb9e9ecec1c575f2c52ac45368830d06fb9a491417dbc738d169f0",
+    "scripts/verification_session.py": "f1e02f3bfd1dab9b4608da02ab23e5bace04872b438219fd68ee3c5303c5e993",
+    "scripts/verify-all-stage-detail.py": "49e5e638487e30aa3ada731439bf02b27057110e63de7639f0bb6a737b582c48",
+    "scripts/verify-ally-conditions-detail.py": "8a3d2afe578ebe3d9caf1904f16af1daa68a6e7ff7ecdf935a95e10240c12f57",
+    "scripts/verify-ally-routing-detail.py": "c56dc4ed599c837dab5008abde624273637b0e5e806e8e435470ed9265b2b23d",
+    "scripts/verify-boss-buff-boundaries.py": "ed06406f09734adfabf526f825573de19a1ddb4e5a7adc6b4e4968c66937dfa3",
+    "scripts/verify-boss-buffs-detail.py": "4b96a6704add1f5893716aa01d956d2a6b396cfa3097fc80611bae36166e9a6e",
+    "scripts/verify-boss-clock-detail.py": "ac4ba8bcc605efc5d8aa9a364d7da13b47e73afb7814bafb51f84246af616bf5",
+    "scripts/verify-burst-gauge-detail.py": "3d8a81a071e7fbecd4d6cdca3e0fd0d739c09f1d3964eadb3b91f702f6e7849b",
+    "scripts/verify-burst-lists-detail.py": "24dc0e3f5bc8f9c5c96046bc5707c95333aae69f626d03724408a9eff0ae75eb",
+    "scripts/verify-burst-stage-detail.py": "b5ed0590386df73dea2301dbd680649da6414f9223cacfd87b9be529a9c7640a",
+    "scripts/verify-burst-stage-suite.py": "4a972e5dc8b6fc9de83f0360be1c9da747ec970325f15331b2f7053ee74c8b29",
+    "scripts/verify-capacity-detail.py": "e1af1f1775147400e44c9adabd418e9d4f35575fde6d1d78a0b9bdae88410067",
+    "scripts/verify-capacity-regression-detail.py": "a3a6431b5a1c3fe572b83b4d69dfcdcbef77374efc4469e5bbcb08738a4ef18f",
+    "scripts/verify-catalog-batch-detail.py": "f1c8e7f683cb064488a2b54c07141218fdcf55e28cc46940a2cef0cd53dc8801",
+    "scripts/verify-catalog-detail.py": "86fc6b1be49abc7df338700560bc21d9f6bdb83b640a65afbf1304794429fd8b",
+    "scripts/verify-chains-detail.py": "0d9da2f2539a0f3cbf9fe4c28755b98a9b748d76358eff0d89377e1db2eb55d1",
+    "scripts/verify-charge-immunity-detail.py": "679d834f2fc58edafa8689dbaf4409f12142c77f173c03e6309bf2d7dc044ff9",
+    "scripts/verify-cleanse-detail.py": "c3f498fdb1c71061eb5307c8850a471ef73a01b5dc094e12d1ee4a146ecd166b",
+    "scripts/verify-cleanse-nested.py": "e5007d16a5138e605daca7d62745123f3204fe10a14eab08884b11fd64627e1e",
+    "scripts/verify-control-detail.py": "089686455f95157c076abf390feaaf099365baa38ba824a2838e8013cf87d2d0",
+    "scripts/verify-counts-detail.py": "b206d42a4c2a37aeb229ddbeff05ea3a346a8d9e51401f607f66d869985bacb1",
+    "scripts/verify-cover-capacity-cube-carriers.py": "ff4e145adfc51a62395c296003d3e03730cee4a851b322a8b7a2f368a58636f5",
+    "scripts/verify-cover-capacity-regressions.py": "23896c0c9528c3d6f5024ae416828330e4915619e91f5ea8149522fb0c4de5d7",
+    "scripts/verify-cover-capacity.py": "58ed168098bbefdb0047b7e132cbeafd0a6031e08efb88e384f91b325245a8e3",
+    "scripts/verify-damage-detail.py": "dd01b21426812f440b48778d63dd2d0cf215d5afb14045787a44a299af2ce5bc",
+    "scripts/verify-decoy-healing-regressions.py": "17ac153c1a852613b6a6681af2c6898408ec584e9259af83f1a1d55ace6c3925",
+    "scripts/verify-decoy-healing.py": "1c372e7a22a6f932be1de0503d506b440f9282395712b016cc0fdc6a6d6c62b3",
+    "scripts/verify-detail-random.py": "baf61db0309f1ddb248ff7e46f04f48660ddc819ea4f01f2e53b8d61e44f9609",
+    "scripts/verify-detail.py": "20de1868cf509afa5696af87d94db27974d97c8505702e40eed27886f7c09972",
+    "scripts/verify-enemy-codes-detail.py": "cd17725075d16e2dfd9040ed1b0332f8613c2520ecd135fed65c875e20a74728",
+    "scripts/verify-events-detail.py": "e825a4c7aeeb95ccf51fc784f705aeae0908a4c66a64be94426d814eba8ba1fb",
+    "scripts/verify-extended-detail.py": "18a8e4bf7f88847e9afe2854719d415e9b77f82147e396ce32a761580f4ba092",
+    "scripts/verify-full-detail.py": "bbb97dee8309d57b4084cc3936541cb5c7ca51777c80b51935a3d23def7bca8e",
+    "scripts/verify-gauge-detail.py": "000c31289d5fdf92b13b95d454af1815d8f76c1770ff4b1468cce26c59aa49d1",
+    "scripts/verify-heal-charge-extra.py": "a66c86dc65727f16e50d20b0721bd01223f7a2d3c8b53b7698261b7d3f045061",
+    "scripts/verify-heal-charge.py": "6cff41dd92ab37613b5c29a883dbabc34f7dcfc1f05da95f0e8b529c9981232f",
+    "scripts/verify-heal-sharing.py": "4a215b651d45b8820cb5f6065393a22261e8fc142fb973cd30768b4898243da2",
+    "scripts/verify-healing-storage-extra.py": "7bf58041b418f49d65699fc9fe1c21bfb3ac5fe766228af638d5e71bac67dc29",
+    "scripts/verify-healing-storage-regressions.py": "f8e0bc9d9bbbf86c8984d2084d283edc8a71b5b26e91f0a15920fab845c9b3ba",
+    "scripts/verify-healing-storage.py": "3dfb6a79664244d13620f77d8a23c718b89c6813cc47b62e744e0c673e3e74c1",
+    "scripts/verify-health-reload-detail.py": "35f1708bc256ddbf808973e269f3fdf07f2703a35c646213dc6882fff1eced64",
+    "scripts/verify-hp-edge-namespace.py": "126ec1ea49339f9fa41b4bd146b26c1071394b065575ef2be84000f3a363c68e",
+    "scripts/verify-hp-edge-real.py": "7750fa9a15d0ee97be5f6cc1ea47cfd94c56884eba49359c598b8631acb85697",
+    "scripts/verify-hp-edge.py": "aaa4767aa661a273f22969f53974b14cec30bd5e21ec48ac426ebe7a0b2cf051",
+    "scripts/verify-immunity-detail.py": "fc38b216c8f6ce6020e10d0137162b0bfebf31be1069424e80271ccc786e0231",
+    "scripts/verify-incoming-detail.py": "76bf238f9d184c491984c767f5cf8be3d0206d89130a6457f7e78e6d8004aa7d",
+    "scripts/verify-incoming-lifecycle.py": "8c221600955397587d052ea7c4e925b0a13796620a76cca275f6802d547bca98",
+    "scripts/verify-infinite-detail.py": "3a34b7f75fa45a9e6dd671c7fa184c773834f970a3060268706c42a65ba8739f",
+    "scripts/verify-instances-detail.py": "5d571f241cd96716aca545ee75350c67450d549f87b47afa16e2d48b3fde3df3",
+    "scripts/verify-lists-detail.py": "f2b20d3c5276fcc675e9d11b61a4b8a90e287858cd3d6ca48f031cb99cc1aaa7",
+    "scripts/verify-live-parts-detail.py": "4b9cb49afc911b7ae0d4c9d30b0330361d9df5e604817c80f5c816535737417f",
+    "scripts/verify-modes-detail.py": "6109574653b1f4c2f2389f0051d2c88a61d7bbbbe43600ddb3ebe632c3acdc78",
+    "scripts/verify-named-capacity-batch.py": "6e083381c7068e7db6cdebc938a680a559d3e2fdcbcb0aaf74061bed6c62dd6f",
+    "scripts/verify-named-capacity-detail.py": "56e152dba6a83df41dbc2f3c7fcf2c34aa3029bc152d2173243c4a3241777fa5",
+    "scripts/verify-named-capacity-regression.py": "df9f205245c81643105c2ede65d3ccadf70de46945070cda12f5657c8f27e01b",
+    "scripts/verify-named-detail.py": "178b73d2dafb5bb43c3e7ed0e8e4940bb17c87148bd82919838a2c2988ff7bfe",
+    "scripts/verify-native-detail.py": "ce6376c1c7f37ab8a86db81e0814ff4368bc197f2d7d87f9789054cba21c8ecd",
+    "scripts/verify-new-damage-characters.py": "e326201a36b39b964b643afa48fa8e95e6b4bac0e8be31832ba51a9da5ad5c6f",
+    "scripts/verify-new-gauge-characters.py": "280a104b95718846667dfa37467e943e5b2b7729d718926ecffc48e084e11c3c",
+    "scripts/verify-new-timer-characters.py": "c3f6883a8b7f8b5365f8cba717e3ebc787350382c6fa10bc8937ac4b32416fe2",
+    "scripts/verify-normal-detail.py": "f703dd3b4e2b54ec187cf8f1c19ac3ff8a48b05f6afe42b5a0229393776e6fd4",
+    "scripts/verify-optimal-range-detail.py": "ff2bd18f0a203659e719818f4d293f48f9366199931999e3216944157f53c994",
+    "scripts/verify-outgoing-healing-regressions.py": "c88190e8ae011b5406f69e9a0d542d041f999a5f3bf996f7ed043d48a673409f",
+    "scripts/verify-outgoing-healing.py": "8a62b2b0b5478c96af2418874b00517e38eff144ac9d8f6601a6661dc91f12fd",
+    "scripts/verify-owned-detail.py": "e23f0298bad00b7a1a9d3ac95d5c6176ba78867ba07dfa2b6b54daaa97ba2cea",
+    "scripts/verify-part-destroy-listeners.py": "169070a103ed3dc05f47f4231c54211714be8c736126d30366cd4a79a71ee759",
+    "scripts/verify-periodic-detail.py": "592431aefb6cbba77fc8b0ac925dbcbe342fa87e488d423cedfa270df0261e05",
+    "scripts/verify-predicate-mixes.py": "d6c3ce874d45bab3a2f4808fa54b236edb7278ac04d921c6a93435cc58ea308f",
+    "scripts/verify-predicate-stimuli.py": "1b94a6b8f2d5c681f0317d6fbc825dfccc8ca95747105e17a52da89e3ef36896",
+    "scripts/verify-predicates-detail.py": "445fad6aee8b59d4dedf0a851a3f265fbed7706661b65fd217b3b2fee3fbf0b3",
+    "scripts/verify-probability-detail.py": "8063ff9e0d76fcffb2fbc0957f4512177efb23df64f44c0154723d8eed2e3c65",
+    "scripts/verify-probability-isolation.py": "b6c8adf85e03f488164f202f5a55955120c6df1112153025f646d6f160f40d5b",
+    "scripts/verify-random-target-detail.py": "7a1b3f92e703d32868789281375774235dbb5596c52e72f8871e34280fa38380",
+    "scripts/verify-revival-compat.py": "467c70b21065b1b6ecbbb798cea39500963ae8e0cb3a66486a982d349230791b",
+    "scripts/verify-shield-lifecycle-detail.py": "af1109124fae4bc0081b48e59868ca535cea4ee8f806dac55f9e7cb3a96c5a29",
+    "scripts/verify-shield-squads-detail.py": "e4fd57c07a6bfadfaa6fdad7d62d634886398ae5de6963610a7e139bf8c6c694",
+    "scripts/verify-squad-condition-detail.py": "099ee09f7338b113667318a41810f28219f29a1ede1a6769ca91d204ec818ba7",
+    "scripts/verify-stackops-detail.py": "e34e5a79088b7f02d6618bf9433a55ffd9b2ad90b03d7183c88fe29c44fcf81c",
+    "scripts/verify-staged-cover-capacity.py": "3c9511d01fa765438c866ea2afe5ac4e102378a722c92f73824c505105af25fd",
+    "scripts/verify-staged-decoy-healing.py": "a25c3417dc00e5b52f9209c69a7ac0a6b5285fe0b97a4e6298ad495de1ac0b19",
+    "scripts/verify-staged-heal-query.py": "09c00c62ff4622566068bcf685ff2e970d9ce8a3b3b089114a12317df86540a8",
+    "scripts/verify-staged-healing-storage.py": "f0cb57d1e147b9d4e165f60b3d512347b3ed00099282395d0b8b3044b4cb8735",
+    "scripts/verify-staged-hp-edge-namespace.py": "9688c3ce2115eb941414792650eaa3d4d9f3c8dc4e2ba3ed86f9b5e163f4d16b",
+    "scripts/verify-staged-hp-edge-real.py": "7994826dd48073216ec5b40bd93bc07e0337499f647c37eab91d3f975acd1a9f",
+    "scripts/verify-staged-hp-edge.py": "0474400f80359572b810d6d5894da7f892d0c7312c50f5f4fe1ff713f21ceae1",
+    "scripts/verify-staged-outgoing-healing.py": "509cdbdd22d9555421ae924dbf5be994e4b247a377d5295885eae44835850e5c",
+    "scripts/verify-staged-revival-compat.py": "3ab492990b300f24229119026d4a2e1ad94f0facfda9de7b4a95398de313d548",
+    "scripts/verify-staged-survival-long.py": "32a318ab19ce9b18400d458b16856b736e8e17416ba19674adad8c1dfbc8757a",
+    "scripts/verify-staged-survival-regression.py": "17c75855ade9073ef62197ad84fdfe878863508d8fe4a0fbc5592d503702e521",
+    "scripts/verify-staged-survival-scaling.py": "35c0e6fe93ab1e3d135985c7480d6ae9dd99795896495c3f97a8c79bae7f89ef",
+    "scripts/verify-staged-survival.py": "689a87b30952b764eb5f4b13241c3615b9b74d0e24f46d7189eaa0f63499ea57",
+    "scripts/verify-survival-detail.py": "109be8847d6506c13d7175f9b7c256fa5ba2b8660f97eebc76e1207bfabf6362",
+    "scripts/verify-survival-scaling-real.py": "057accea69ef7c669b79bf5cd914d3b4e244fad44dcaf8c9be5143a4dba77305",
+    "scripts/verify-survival-scaling.py": "d1a20d09b19197a9d467e3fe27f6d5a66943defb7791de30955c070a9f971a74",
+    "scripts/verify-targets-detail.py": "3332ad2ccbb5a6c99b64bb78351cbab0cefc15f2ce4b152cb3c1951ae006bcc7",
+    "scripts/verify-team-hits-detail.py": "188bf4d8a406fe3b21abcdebefc5697577988f3a9bde4cfc842af022927902cb",
+    "scripts/verify-team-hits-long-detail.py": "27e0a6f0ac6ffed4637e991c06ac0f84d464f7e23ae5c9ca3a60688446843345",
+    "scripts/verify-time-detail.py": "ea4f8e6c016e1eb706d48952e2e665499d5d012df6ac2567113a7e37738e538f",
+    "tests/test_adapter.py": "73e824b256f02e1b7c65ce58c94c18daa5bde6c452812e8f96db59e62f4c7cc6",
+    "tests/test_detail_decoy_healing.py": "2a83edd3b995f7e871bd019b0ad0f09736e074c2effd71585e07025f03e04801",
+    "tests/test_detail_decoy_healing_boundary.py": "33534e71d5b7f804ffc6801b7e9c9d35344864439294abd167975fd0c67653c1",
+    "tests/test_detail_heal_charge.py": "623363be3acc5ab0f823f4c1bae2034708ee94f1d9b22d076214932daa5134eb",
+    "tests/test_detail_heal_charge_boundary.py": "4d41249e0758b3d4b28ed5c8056bcb7837c51c0c2d17910420469195168551f4",
+    "tests/test_detail_heal_sharing.py": "23cfc625a320bde6f17c9cb185ecb3a0bccb11967d8b55209603559d741c8278",
+    "tests/test_detail_heal_sharing_boundary.py": "9eb4d043102a2a040dc3d59deeee40041790d761d45b441da78fb7b627fa861d",
+    "tests/test_detail_healing_storage.py": "aa9135c4cdb3d5e1dce48c5303d8bbfe52409f9c13fb04ba8601c741b48658c8",
+    "tests/test_detail_healing_storage_boundary.py": "b6d4ce0c78ec99c23bbc7ced46c6197d94feacbbc864fa45c3bc2531d8bd0243",
+    "tests/test_detail_outgoing_healing.py": "8e78b20f0fd6e8bf94470343d8fe6ccde5134630002a8f90398369d874c48f07",
+    "tests/test_detail_outgoing_healing_boundary.py": "ee15c190d34241184c3984b7e05fd083c7e6f9efac29b5b6313197447e172255",
+    "tests/test_effect_spec.py": "cd38acf8551a1bcf11a63a7f88d3f7e2b59bad7d6200d18ddc3d1e48f1d93067",
+    "tests/test_verification_session.py": "2cb954c5d49e2052b57d36285327b42e17ab0d79772b60663ca689aeba591495"
+  }
+}

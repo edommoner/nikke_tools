@@ -1,0 +1,1959 @@
+{
+  "passed": true,
+  "port": 4345,
+  "wall_ms": 4703.012,
+  "normal_api": true,
+  "candidates": 8,
+  "cache_hits": 0,
+  "baseline": "research/damage-basis-api-performance.json",
+  "speedup": 0.9902702778559782,
+  "results": [
+    {
+      "value": 1000,
+      "meets": true,
+      "result": {
+        "total_damage": 68253528,
+        "members": [
+          {
+            "name": "길티",
+            "damage": 19461711,
+            "share": 0.28513853525637534
+          },
+          {
+            "name": "신",
+            "damage": 5799158,
+            "share": 0.08496495595070191
+          },
+          {
+            "name": "퀀시",
+            "damage": 8233078,
+            "share": 0.12062494410545342
+          },
+          {
+            "name": "리타",
+            "damage": 8203924,
+            "share": 0.12019780135028331
+          },
+          {
+            "name": "모더니아",
+            "damage": 26555657,
+            "share": 0.389073763337186
+          }
+        ],
+        "base_stats": {
+          "길티": {
+            "atk": 115698,
+            "def": 17298,
+            "hp": 2679019
+          },
+          "신": {
+            "atk": 77485,
+            "def": 21655,
+            "hp": 3246487
+          },
+          "퀀시": {
+            "atk": 96483,
+            "def": 17621,
+            "hp": 2973537
+          },
+          "리타": {
+            "atk": 96780,
+            "def": 17680,
+            "hp": 2982449
+          },
+          "모더니아": {
+            "atk": 116005,
+            "def": 15721,
+            "hp": 2708421
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 0,
+            "event": "카메라 초점: 퀀시",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.5,
+            "event": "stage:2 사용",
+            "character": "길티"
+          },
+          {
+            "time": 3.6,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 3.983,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 18.983,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 22.317,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 22.317,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 22.417,
+            "event": "stage:2 사용",
+            "character": "길티"
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "character",
+        "burst_gauge_mode": "accumulate",
+        "parts_state": null,
+        "boss_timeline": [],
+        "incoming_hits": []
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 4403.137,
+        "initialization_ms": 9.644,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1103888,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "accumulate"
+        },
+        "final_hp": {
+          "길티": {
+            "hp": 2679019,
+            "hp_pct": 100,
+            "max_hp": 2679019
+          },
+          "신": {
+            "hp": 3580875.161,
+            "hp_pct": 100,
+            "max_hp": 3580875.161
+          },
+          "퀀시": {
+            "hp": 3264746.8839,
+            "hp_pct": 100,
+            "max_hp": 3264746.8839
+          },
+          "리타": {
+            "hp": 2982449,
+            "hp_pct": 100,
+            "max_hp": 2982449
+          },
+          "모더니아": {
+            "hp": 2708421,
+            "hp_pct": 100,
+            "max_hp": 2708421
+          }
+        },
+        "final_control": {
+          "길티": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 38,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 36.10333333333272
+          },
+          "신": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 359,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 35,
+            "reloading_until": -1
+          },
+          "퀀시": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 637,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 117,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 657,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 97,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1445,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 222,
+            "reloading_until": -1
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 4403.137,
+        "batch_workspace_bytes": 8831104,
+        "amortized_elapsed_ms": 550.392
+      }
+    },
+    {
+      "value": 2000,
+      "meets": true,
+      "result": {
+        "total_damage": 68454321,
+        "members": [
+          {
+            "name": "길티",
+            "damage": 19662504,
+            "share": 0.28723539599494385
+          },
+          {
+            "name": "신",
+            "damage": 5799158,
+            "share": 0.08471573328438975
+          },
+          {
+            "name": "퀀시",
+            "damage": 8233078,
+            "share": 0.12027112211075762
+          },
+          {
+            "name": "리타",
+            "damage": 8203924,
+            "share": 0.1198452322680989
+          },
+          {
+            "name": "모더니아",
+            "damage": 26555657,
+            "share": 0.3879325163418099
+          }
+        ],
+        "base_stats": {
+          "길티": {
+            "atk": 116698,
+            "def": 17298,
+            "hp": 2679019
+          },
+          "신": {
+            "atk": 77485,
+            "def": 21655,
+            "hp": 3246487
+          },
+          "퀀시": {
+            "atk": 96483,
+            "def": 17621,
+            "hp": 2973537
+          },
+          "리타": {
+            "atk": 96780,
+            "def": 17680,
+            "hp": 2982449
+          },
+          "모더니아": {
+            "atk": 116005,
+            "def": 15721,
+            "hp": 2708421
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 0,
+            "event": "카메라 초점: 퀀시",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.5,
+            "event": "stage:2 사용",
+            "character": "길티"
+          },
+          {
+            "time": 3.6,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 3.983,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 18.983,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 22.317,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 22.317,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 22.417,
+            "event": "stage:2 사용",
+            "character": "길티"
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "character",
+        "burst_gauge_mode": "accumulate",
+        "parts_state": null,
+        "boss_timeline": [],
+        "incoming_hits": []
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 4403.137,
+        "initialization_ms": 9.644,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1103888,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "accumulate"
+        },
+        "final_hp": {
+          "길티": {
+            "hp": 2679019,
+            "hp_pct": 100,
+            "max_hp": 2679019
+          },
+          "신": {
+            "hp": 3580875.161,
+            "hp_pct": 100,
+            "max_hp": 3580875.161
+          },
+          "퀀시": {
+            "hp": 3264746.8839,
+            "hp_pct": 100,
+            "max_hp": 3264746.8839
+          },
+          "리타": {
+            "hp": 2982449,
+            "hp_pct": 100,
+            "max_hp": 2982449
+          },
+          "모더니아": {
+            "hp": 2708421,
+            "hp_pct": 100,
+            "max_hp": 2708421
+          }
+        },
+        "final_control": {
+          "길티": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 38,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 36.10333333333272
+          },
+          "신": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 359,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 35,
+            "reloading_until": -1
+          },
+          "퀀시": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 637,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 117,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 657,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 97,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1445,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 222,
+            "reloading_until": -1
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 4403.137,
+        "batch_workspace_bytes": 8831104,
+        "amortized_elapsed_ms": 550.392
+      }
+    },
+    {
+      "value": 3000,
+      "meets": true,
+      "result": {
+        "total_damage": 68662639,
+        "members": [
+          {
+            "name": "길티",
+            "damage": 19870822,
+            "share": 0.28939787764347363
+          },
+          {
+            "name": "신",
+            "damage": 5799158,
+            "share": 0.0844587112359605
+          },
+          {
+            "name": "퀀시",
+            "damage": 8233078,
+            "share": 0.11990622731526529
+          },
+          {
+            "name": "리타",
+            "damage": 8203924,
+            "share": 0.11948162959480774
+          },
+          {
+            "name": "모더니아",
+            "damage": 26555657,
+            "share": 0.38675555421049285
+          }
+        ],
+        "base_stats": {
+          "길티": {
+            "atk": 117698,
+            "def": 17298,
+            "hp": 2679019
+          },
+          "신": {
+            "atk": 77485,
+            "def": 21655,
+            "hp": 3246487
+          },
+          "퀀시": {
+            "atk": 96483,
+            "def": 17621,
+            "hp": 2973537
+          },
+          "리타": {
+            "atk": 96780,
+            "def": 17680,
+            "hp": 2982449
+          },
+          "모더니아": {
+            "atk": 116005,
+            "def": 15721,
+            "hp": 2708421
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 0,
+            "event": "카메라 초점: 퀀시",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.5,
+            "event": "stage:2 사용",
+            "character": "길티"
+          },
+          {
+            "time": 3.6,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 3.983,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 18.983,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 22.317,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 22.317,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 22.417,
+            "event": "stage:2 사용",
+            "character": "길티"
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "character",
+        "burst_gauge_mode": "accumulate",
+        "parts_state": null,
+        "boss_timeline": [],
+        "incoming_hits": []
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 4403.137,
+        "initialization_ms": 9.644,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1103888,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "accumulate"
+        },
+        "final_hp": {
+          "길티": {
+            "hp": 2679019,
+            "hp_pct": 100,
+            "max_hp": 2679019
+          },
+          "신": {
+            "hp": 3580875.161,
+            "hp_pct": 100,
+            "max_hp": 3580875.161
+          },
+          "퀀시": {
+            "hp": 3264746.8839,
+            "hp_pct": 100,
+            "max_hp": 3264746.8839
+          },
+          "리타": {
+            "hp": 2982449,
+            "hp_pct": 100,
+            "max_hp": 2982449
+          },
+          "모더니아": {
+            "hp": 2708421,
+            "hp_pct": 100,
+            "max_hp": 2708421
+          }
+        },
+        "final_control": {
+          "길티": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 38,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 36.10333333333272
+          },
+          "신": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 359,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 35,
+            "reloading_until": -1
+          },
+          "퀀시": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 637,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 117,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 657,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 97,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1445,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 222,
+            "reloading_until": -1
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 4403.137,
+        "batch_workspace_bytes": 8831104,
+        "amortized_elapsed_ms": 550.392
+      }
+    },
+    {
+      "value": 4000,
+      "meets": true,
+      "result": {
+        "total_damage": 68871107,
+        "members": [
+          {
+            "name": "길티",
+            "damage": 20079290,
+            "share": 0.2915488203202542
+          },
+          {
+            "name": "신",
+            "damage": 5799158,
+            "share": 0.08420306065357712
+          },
+          {
+            "name": "퀀시",
+            "damage": 8233078,
+            "share": 0.11954327959328431
+          },
+          {
+            "name": "리타",
+            "damage": 8203924,
+            "share": 0.11911996710028198
+          },
+          {
+            "name": "모더니아",
+            "damage": 26555657,
+            "share": 0.3855848723326024
+          }
+        ],
+        "base_stats": {
+          "길티": {
+            "atk": 118698,
+            "def": 17298,
+            "hp": 2679019
+          },
+          "신": {
+            "atk": 77485,
+            "def": 21655,
+            "hp": 3246487
+          },
+          "퀀시": {
+            "atk": 96483,
+            "def": 17621,
+            "hp": 2973537
+          },
+          "리타": {
+            "atk": 96780,
+            "def": 17680,
+            "hp": 2982449
+          },
+          "모더니아": {
+            "atk": 116005,
+            "def": 15721,
+            "hp": 2708421
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 0,
+            "event": "카메라 초점: 퀀시",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.5,
+            "event": "stage:2 사용",
+            "character": "길티"
+          },
+          {
+            "time": 3.6,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 3.983,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 18.983,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 22.317,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 22.317,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 22.417,
+            "event": "stage:2 사용",
+            "character": "길티"
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "character",
+        "burst_gauge_mode": "accumulate",
+        "parts_state": null,
+        "boss_timeline": [],
+        "incoming_hits": []
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 4403.137,
+        "initialization_ms": 9.644,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1103888,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "accumulate"
+        },
+        "final_hp": {
+          "길티": {
+            "hp": 2679019,
+            "hp_pct": 100,
+            "max_hp": 2679019
+          },
+          "신": {
+            "hp": 3580875.161,
+            "hp_pct": 100,
+            "max_hp": 3580875.161
+          },
+          "퀀시": {
+            "hp": 3264746.8839,
+            "hp_pct": 100,
+            "max_hp": 3264746.8839
+          },
+          "리타": {
+            "hp": 2982449,
+            "hp_pct": 100,
+            "max_hp": 2982449
+          },
+          "모더니아": {
+            "hp": 2708421,
+            "hp_pct": 100,
+            "max_hp": 2708421
+          }
+        },
+        "final_control": {
+          "길티": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 38,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 36.10333333333272
+          },
+          "신": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 359,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 35,
+            "reloading_until": -1
+          },
+          "퀀시": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 637,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 117,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 657,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 97,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1445,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 222,
+            "reloading_until": -1
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 4403.137,
+        "batch_workspace_bytes": 8831104,
+        "amortized_elapsed_ms": 550.392
+      }
+    },
+    {
+      "value": 5000,
+      "meets": true,
+      "result": {
+        "total_damage": 69079505,
+        "members": [
+          {
+            "name": "길티",
+            "damage": 20287688,
+            "share": 0.2936860650637262
+          },
+          {
+            "name": "신",
+            "damage": 5799158,
+            "share": 0.08394903814090734
+          },
+          {
+            "name": "퀀시",
+            "damage": 8233078,
+            "share": 0.11918264324563414
+          },
+          {
+            "name": "리타",
+            "damage": 8203924,
+            "share": 0.11876060779532222
+          },
+          {
+            "name": "모더니아",
+            "damage": 26555657,
+            "share": 0.38442164575441007
+          }
+        ],
+        "base_stats": {
+          "길티": {
+            "atk": 119698,
+            "def": 17298,
+            "hp": 2679019
+          },
+          "신": {
+            "atk": 77485,
+            "def": 21655,
+            "hp": 3246487
+          },
+          "퀀시": {
+            "atk": 96483,
+            "def": 17621,
+            "hp": 2973537
+          },
+          "리타": {
+            "atk": 96780,
+            "def": 17680,
+            "hp": 2982449
+          },
+          "모더니아": {
+            "atk": 116005,
+            "def": 15721,
+            "hp": 2708421
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 0,
+            "event": "카메라 초점: 퀀시",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.5,
+            "event": "stage:2 사용",
+            "character": "길티"
+          },
+          {
+            "time": 3.6,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 3.983,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 18.983,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 22.317,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 22.317,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 22.417,
+            "event": "stage:2 사용",
+            "character": "길티"
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "character",
+        "burst_gauge_mode": "accumulate",
+        "parts_state": null,
+        "boss_timeline": [],
+        "incoming_hits": []
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 4403.137,
+        "initialization_ms": 9.644,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1103888,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "accumulate"
+        },
+        "final_hp": {
+          "길티": {
+            "hp": 2679019,
+            "hp_pct": 100,
+            "max_hp": 2679019
+          },
+          "신": {
+            "hp": 3580875.161,
+            "hp_pct": 100,
+            "max_hp": 3580875.161
+          },
+          "퀀시": {
+            "hp": 3264746.8839,
+            "hp_pct": 100,
+            "max_hp": 3264746.8839
+          },
+          "리타": {
+            "hp": 2982449,
+            "hp_pct": 100,
+            "max_hp": 2982449
+          },
+          "모더니아": {
+            "hp": 2708421,
+            "hp_pct": 100,
+            "max_hp": 2708421
+          }
+        },
+        "final_control": {
+          "길티": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 38,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 36.10333333333272
+          },
+          "신": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 359,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 35,
+            "reloading_until": -1
+          },
+          "퀀시": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 637,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 117,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 657,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 97,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1445,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 222,
+            "reloading_until": -1
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 4403.137,
+        "batch_workspace_bytes": 8831104,
+        "amortized_elapsed_ms": 550.392
+      }
+    },
+    {
+      "value": 6000,
+      "meets": true,
+      "result": {
+        "total_damage": 69287864,
+        "members": [
+          {
+            "name": "길티",
+            "damage": 20496047,
+            "share": 0.29581005701084967
+          },
+          {
+            "name": "신",
+            "damage": 5799158,
+            "share": 0.08369659079113768
+          },
+          {
+            "name": "퀀시",
+            "damage": 8233078,
+            "share": 0.11882424316038953
+          },
+          {
+            "name": "리타",
+            "damage": 8203924,
+            "share": 0.11840347683398063
+          },
+          {
+            "name": "모더니아",
+            "damage": 26555657,
+            "share": 0.38326563220364246
+          }
+        ],
+        "base_stats": {
+          "길티": {
+            "atk": 120698,
+            "def": 17298,
+            "hp": 2679019
+          },
+          "신": {
+            "atk": 77485,
+            "def": 21655,
+            "hp": 3246487
+          },
+          "퀀시": {
+            "atk": 96483,
+            "def": 17621,
+            "hp": 2973537
+          },
+          "리타": {
+            "atk": 96780,
+            "def": 17680,
+            "hp": 2982449
+          },
+          "모더니아": {
+            "atk": 116005,
+            "def": 15721,
+            "hp": 2708421
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 0,
+            "event": "카메라 초점: 퀀시",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.5,
+            "event": "stage:2 사용",
+            "character": "길티"
+          },
+          {
+            "time": 3.6,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 3.983,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 18.983,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 22.317,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 22.317,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 22.417,
+            "event": "stage:2 사용",
+            "character": "길티"
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "character",
+        "burst_gauge_mode": "accumulate",
+        "parts_state": null,
+        "boss_timeline": [],
+        "incoming_hits": []
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 4403.137,
+        "initialization_ms": 9.644,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1103888,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "accumulate"
+        },
+        "final_hp": {
+          "길티": {
+            "hp": 2679019,
+            "hp_pct": 100,
+            "max_hp": 2679019
+          },
+          "신": {
+            "hp": 3580875.161,
+            "hp_pct": 100,
+            "max_hp": 3580875.161
+          },
+          "퀀시": {
+            "hp": 3264746.8839,
+            "hp_pct": 100,
+            "max_hp": 3264746.8839
+          },
+          "리타": {
+            "hp": 2982449,
+            "hp_pct": 100,
+            "max_hp": 2982449
+          },
+          "모더니아": {
+            "hp": 2708421,
+            "hp_pct": 100,
+            "max_hp": 2708421
+          }
+        },
+        "final_control": {
+          "길티": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 38,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 36.10333333333272
+          },
+          "신": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 359,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 35,
+            "reloading_until": -1
+          },
+          "퀀시": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 637,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 117,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 657,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 97,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1445,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 222,
+            "reloading_until": -1
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 4403.137,
+        "batch_workspace_bytes": 8831104,
+        "amortized_elapsed_ms": 550.392
+      }
+    },
+    {
+      "value": 7000,
+      "meets": true,
+      "result": {
+        "total_damage": 69496272,
+        "members": [
+          {
+            "name": "길티",
+            "damage": 20704455,
+            "share": 0.2979218079496408
+          },
+          {
+            "name": "신",
+            "damage": 5799158,
+            "share": 0.08344559834806678
+          },
+          {
+            "name": "퀀시",
+            "damage": 8233078,
+            "share": 0.11846790860954383
+          },
+          {
+            "name": "리타",
+            "damage": 8203924,
+            "share": 0.11804840409281235
+          },
+          {
+            "name": "모더니아",
+            "damage": 26555657,
+            "share": 0.3821162809999362
+          }
+        ],
+        "base_stats": {
+          "길티": {
+            "atk": 121698,
+            "def": 17298,
+            "hp": 2679019
+          },
+          "신": {
+            "atk": 77485,
+            "def": 21655,
+            "hp": 3246487
+          },
+          "퀀시": {
+            "atk": 96483,
+            "def": 17621,
+            "hp": 2973537
+          },
+          "리타": {
+            "atk": 96780,
+            "def": 17680,
+            "hp": 2982449
+          },
+          "모더니아": {
+            "atk": 116005,
+            "def": 15721,
+            "hp": 2708421
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 0,
+            "event": "카메라 초점: 퀀시",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.5,
+            "event": "stage:2 사용",
+            "character": "길티"
+          },
+          {
+            "time": 3.6,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 3.983,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 18.983,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 22.317,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 22.317,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 22.417,
+            "event": "stage:2 사용",
+            "character": "길티"
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "character",
+        "burst_gauge_mode": "accumulate",
+        "parts_state": null,
+        "boss_timeline": [],
+        "incoming_hits": []
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 4403.137,
+        "initialization_ms": 9.644,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1103888,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "accumulate"
+        },
+        "final_hp": {
+          "길티": {
+            "hp": 2679019,
+            "hp_pct": 100,
+            "max_hp": 2679019
+          },
+          "신": {
+            "hp": 3580875.161,
+            "hp_pct": 100,
+            "max_hp": 3580875.161
+          },
+          "퀀시": {
+            "hp": 3264746.8839,
+            "hp_pct": 100,
+            "max_hp": 3264746.8839
+          },
+          "리타": {
+            "hp": 2982449,
+            "hp_pct": 100,
+            "max_hp": 2982449
+          },
+          "모더니아": {
+            "hp": 2708421,
+            "hp_pct": 100,
+            "max_hp": 2708421
+          }
+        },
+        "final_control": {
+          "길티": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 38,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 36.10333333333272
+          },
+          "신": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 359,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 35,
+            "reloading_until": -1
+          },
+          "퀀시": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 637,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 117,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 657,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 97,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1445,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 222,
+            "reloading_until": -1
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 4403.137,
+        "batch_workspace_bytes": 8831104,
+        "amortized_elapsed_ms": 550.392
+      }
+    },
+    {
+      "value": 8000,
+      "meets": true,
+      "result": {
+        "total_damage": 69704579,
+        "members": [
+          {
+            "name": "길티",
+            "damage": 20912762,
+            "share": 0.30001991691248864
+          },
+          {
+            "name": "신",
+            "damage": 5799158,
+            "share": 0.0831962273238893
+          },
+          {
+            "name": "퀀시",
+            "damage": 8233078,
+            "share": 0.11811387599084416
+          },
+          {
+            "name": "리타",
+            "damage": 8203924,
+            "share": 0.1176956251324608
+          },
+          {
+            "name": "모더니아",
+            "damage": 26555657,
+            "share": 0.3809743546403171
+          }
+        ],
+        "base_stats": {
+          "길티": {
+            "atk": 122698,
+            "def": 17298,
+            "hp": 2679019
+          },
+          "신": {
+            "atk": 77485,
+            "def": 21655,
+            "hp": 3246487
+          },
+          "퀀시": {
+            "atk": 96483,
+            "def": 17621,
+            "hp": 2973537
+          },
+          "리타": {
+            "atk": 96780,
+            "def": 17680,
+            "hp": 2982449
+          },
+          "모더니아": {
+            "atk": 116005,
+            "def": 15721,
+            "hp": 2708421
+          }
+        },
+        "burst_timeline": [
+          {
+            "time": 0,
+            "event": "카메라 초점: 퀀시",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 3.5,
+            "event": "stage:2 사용",
+            "character": "길티"
+          },
+          {
+            "time": 3.6,
+            "event": "stage:3 사용",
+            "character": "모더니아"
+          },
+          {
+            "time": 3.983,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 18.983,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 22.317,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 22.317,
+            "event": "stage:1 사용",
+            "character": "리타"
+          },
+          {
+            "time": 22.417,
+            "event": "stage:2 사용",
+            "character": "길티"
+          }
+        ],
+        "seed": 12345,
+        "burst_policy": "auto",
+        "shooting_policy": "character",
+        "burst_gauge_mode": "accumulate",
+        "parts_state": null,
+        "boss_timeline": [],
+        "incoming_hits": []
+      },
+      "compute": {
+        "requested": "cuda_detail",
+        "backend": "cuda_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "elapsed_ms": 4403.137,
+        "initialization_ms": 9.644,
+        "module_backend": "cubin-sm86",
+        "workspace_bytes": 1103888,
+        "scope": "five-member autonomous detailed simulation",
+        "parity": "regression-tested supported mechanics; not all characters",
+        "burst_gauge": {
+          "amount": 0,
+          "charging": false,
+          "mode": "accumulate"
+        },
+        "final_hp": {
+          "길티": {
+            "hp": 2679019,
+            "hp_pct": 100,
+            "max_hp": 2679019
+          },
+          "신": {
+            "hp": 3580875.161,
+            "hp_pct": 100,
+            "max_hp": 3580875.161
+          },
+          "퀀시": {
+            "hp": 3264746.8839,
+            "hp_pct": 100,
+            "max_hp": 3264746.8839
+          },
+          "리타": {
+            "hp": 2982449,
+            "hp_pct": 100,
+            "max_hp": 2982449
+          },
+          "모더니아": {
+            "hp": 2708421,
+            "hp_pct": 100,
+            "max_hp": 2708421
+          }
+        },
+        "final_control": {
+          "길티": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 38,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 0,
+            "reloading_until": 36.10333333333272
+          },
+          "신": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 359,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 35,
+            "reloading_until": -1
+          },
+          "퀀시": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 637,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 117,
+            "reloading_until": -1
+          },
+          "리타": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 657,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 97,
+            "reloading_until": -1
+          },
+          "모더니아": {
+            "charging": false,
+            "phase": 0,
+            "full_at": -1,
+            "release_at": -1,
+            "owner": "",
+            "camera_mask": 4,
+            "shots": 1445,
+            "sequence_index": 0,
+            "preemptions": 0,
+            "normal_landed": true,
+            "ammo": 222,
+            "reloading_until": -1
+          }
+        },
+        "batch_size": 8,
+        "batch_elapsed_ms": 4403.137,
+        "batch_workspace_bytes": 8831104,
+        "amortized_elapsed_ms": 550.392
+      }
+    }
+  ],
+  "source_sha256": {
+    "server.mjs": "fb240ef4c63a77af02cc2892a7802a288880e0cc6b28ae742d341d8efa39d34d",
+    "app/detail_gpu.py": "0bdce3d046dcae7288f93b8ad2940c555cf0c055de6d69634b44952c70e88c0a",
+    "app/gpu_service.py": "a5c9c707479986ab236a15cf73db872e6ac07e4f5148c9575d2c6b3fb025a2c0",
+    "app/detail_effects.cu": "f2e6c7536c4f511ae50495593aee9d93f998079db427af231d0d7e513fd46612",
+    "app/detail_effects-sm86.cubin": "12e9b19f9ea5f311277ea63a868d8ff249f7cbdacb60c3d494b03f1e0fa923a4",
+    "app/detail_effects-sm86.json": "4d139934cb733e82c4e3f022715a4d74618495669dad0d7889b2dc416d991d91",
+    "research/base-copy-api-fixtures.json": "83d0ea7a05958030ddbb68275810f093a90106dee5915b7faf525d5708e4d5c4",
+    "research/benchmark-normal-search.mjs": "7d843467c3cb00f5fe0563c96dff01d479596e22188aa8564cdd9948b08044b4",
+    "app/attack_timing_specs.py": "976d2beca6053f9c89b57c53c5c364bba3d66b817b571dff5d47aee3d593ad2b",
+    "app/base_copy_runtime.py": "e2877bc274988a6ca3684cc43d7630687f46bf89a328ddf9593d7c42568dfd32",
+    "app/damage_accum_runtime.py": "b6a97700f8690219bb4ad25b529c9cc24c14e5c9a9396aa3661211483757a982",
+    "app/damage_basis_specs.py": "9dcc0575639c404dea26d29be74ef49fbc4b0e762c7a3f8d1674b079b1ac2261",
+    "app/damage_query_runtime.py": "fcb22427f84941e5d6a331d02054341e8f5859b274d139a799f3bc8ef202ddd0",
+    "app/detail_boss.py": "521a06d1caf6a8b223b65312ab029fac6fd7099702e04db33f0e7c556736afa1",
+    "app/detail_world.py": "3c717ce722fb151fa1bc3cb7990ab632b9a481a5fb379607c52b2ac66a56317c",
+    "app/effect_runtime.py": "5b6c78e6f1382d2b9ed2523fdc3f674bd1f9699961b59490c74870084e114bf9",
+    "app/effect_spec.py": "95e86dea959b0c53fbf355148905b8c1034b98d184d011e039689d60036415c8",
+    "app/engine_compat.py": "c944e961469a44088ac89efde11c15edf39f48030a06f6f170ad2cb991f3432d",
+    "app/engine_worker.py": "1fbf86567135249f726dc41a6604a8b5cf1c5ba1a71334dc16443e8a463a33e0",
+    "app/gpu_combat.py": "610c6b1dc97825577bd3d1639691377726c8232909b5816b388d66582b994cb1",
+    "app/gpu_selector.py": "913cf0fdab130614dbf1b73e6016550a4ea07b6fee27f540f6bae079e1c2c2b3",
+    "app/heal_charge_compat.py": "018e94d88ea36eda21b1b34e2c196f7aaa742f4dc4808c84c05835620b25197e",
+    "app/heal_sharing_compat.py": "45578674e4697405037ebb556cb5e4e7698edd33312b2242e85bf55b908f3919",
+    "app/healing_storage_compat.py": "1faf3c33b20f7c3e76aa04f9e1e9cf47c509845735a1eaca3cb636df3c0001ff",
+    "app/lifecycle_specs.py": "716056a8f7b145e3c30dcc28f43c6cc2b6e9b002724b74de947527622e4dc90f",
+    "app/max_hp_snapshot_runtime.py": "4cf4f91b4ceb4232a4b960d1b30e60c665ee6bfcd410c1d1be3fa28df63c6b5c",
+    "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
+    "app/outgoing_healing_compat.py": "8eb8a8fe2ecd2a9c7d7fbccb087473b0817073da1ee2093b5b36f161df5f8af3",
+    "app/protection_runtime.py": "a6909bbdd73ef24ebdd3136cc67932c7ab433f23ae9ecabfc2a5069a5db37c81",
+    "app/reference_rewrite.py": "3d183c01a5915fcc5749b304c6f7c3aa68f28483065cdb3758bbb04301e3e15e",
+    "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
+    "app/survival_scaling_compat.py": "7d58315941ff7256dcbeb1fa38c15e7fc5a801d1e96822610d612a114b9b56bc"
+  },
+  "interpretation": "Single isolated run:4703.012ms vs previous4657.253ms (about1% difference). Approximately retained speed, not a statistical regression or speedup claim."
+}

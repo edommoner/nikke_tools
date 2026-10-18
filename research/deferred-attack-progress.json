@@ -1,0 +1,100 @@
+{
+  "updated_at": "2026-10-17T22:47:53.870286+00:00",
+  "previous_goal_turn": "progress: v50 verified and archived",
+  "objective_complete": false,
+  "phase": "Verified and archived v51 common cast/landing plus scoped damage queries",
+  "native_build_handle": null,
+  "interrupted_handle": {
+    "session_id": 31084,
+    "exit_code": 1,
+    "reason": "Stopped after code review found landing packets must be delivered before weapons in the same frame. Not an observation timeout."
+  },
+  "checks": {
+    "unit_methods": 3,
+    "cpu_witness_cases": 8,
+    "GPU_verified": false,
+    "compiler_isolation": true,
+    "independent_GPU_quantities_pending": 0,
+    "native_cases": 22,
+    "related_existing_methods": 4,
+    "related_existing_squads": 8,
+    "normal_owned_api": true,
+    "same_frame_quantities_passed": 8,
+    "build_contract_methods": 2,
+    "portable_cases": 22,
+    "phase_complete": true,
+    "query_scope_CPU_correction": true,
+    "damage_query_unit_methods": 3,
+    "reference_rewrite_methods": 3,
+    "expanded_query_squads": 2,
+    "lightweight_methods": 12,
+    "related_raw_recovery_cases": 14,
+    "copy_control": 1,
+    "basis_controls": 2,
+    "checkpoint_source_bound": true,
+    "isolated_normal_candidates": 8
+  },
+  "contract": "research/deferred-attack-contract.json",
+  "source_sha256": {
+    "app/attack_timing_specs.py": "976d2beca6053f9c89b57c53c5c364bba3d66b817b571dff5d47aee3d593ad2b",
+    "app/detail_gpu.py": "0bdce3d046dcae7288f93b8ad2940c555cf0c055de6d69634b44952c70e88c0a",
+    "app/detail_effects.cu": "f2e6c7536c4f511ae50495593aee9d93f998079db427af231d0d7e513fd46612",
+    "app/damage_query_runtime.py": "fcb22427f84941e5d6a331d02054341e8f5859b274d139a799f3bc8ef202ddd0",
+    "app/reference_rewrite.py": "3d183c01a5915fcc5749b304c6f7c3aa68f28483065cdb3758bbb04301e3e15e",
+    "app/effect_spec.py": "95e86dea959b0c53fbf355148905b8c1034b98d184d011e039689d60036415c8"
+  },
+  "next_actions": [
+    "All-character/effect goal remains active. This checkpoint accepts a common mechanism, not a whole new real character.",
+    "Implement target-associated live marker/hit counters and explicit per-consumption resource minimums; replace the pinned squad-ammo approximation before accepting possession-based characters.",
+    "Continue typed target/protection contexts for projectile/shield bonuses and scheduled emitter/weapon-toggle/shared-damage families; retain strict rejection of missing behavior.",
+    "For new CPU query transforms use retained-tree compose=True and checked counts; do not lose storage/sharing/hp_copy transforms.",
+    "Reuse the8 shared quantity table entries and10 squad scenarios, old4 legacy controls and dependency-selected regressions; do not duplicate every character combination.",
+    "Keep one heavy build/JIT/verification at a time. Current phase has no live jobs."
+  ],
+  "native_build_pid": 106108,
+  "completed_handles": {
+    "native_build": 53355,
+    "native_verifier": 36651,
+    "ptx_build": 64403,
+    "final_native_verifier": 35474,
+    "related_regression": 37033,
+    "normal_owned_api": 60328,
+    "portable_verifier": 94198,
+    "query_scope_native_build": 31127,
+    "query_scope_native_verifier": 90230,
+    "query_scope_ptx_build": 79341,
+    "query_scope_related": 51483,
+    "query_scope_owned_api": 98855,
+    "query_scope_portable": 48943,
+    "isolated_benchmark": 68269,
+    "benchmark_server": {
+      "session_id": 84505,
+      "exit_code": 1,
+      "reason": "Own verification server deliberately stopped after successful benchmark"
+    }
+  },
+  "native_receipt": "research/deferred-attack-native.json",
+  "observer_fixture_fix": "Independent quantities now use explicit no-equipment instructions and minimal weapon damage; default owned-overload22.22% had contaminated the initial hand-calculation fixture. No expected-value relaxation or production arithmetic change.",
+  "ptx_build_handle": null,
+  "portable_verifier_handle": null,
+  "live_handles": {},
+  "query_scope_audit": "research/deferred-attack-query-scope-audit.json",
+  "last_goal_turn_classification": "progress: corrected observed CPU order error and GPU HP-source exclusion, verified22 each backend plus affected legacy/API paths, performance retained, source-bound checkpoint archived",
+  "rewrite_inventory": {
+    "outgoing_healing_compat": "custom AST instrumentation of timeline.simulate and instant handlers",
+    "healing_storage_compat": "reparses original source and reapplies heal_source/body/incoming changes",
+    "heal_sharing_compat": "subclasses storage Rewrite and reconstructs combined final rewrites",
+    "base_copy_runtime": "rewrites effective_max_hp to include hp_copy",
+    "warning": "Blindly reusing original source loses previous edits; blindly replaying the existing reconstructing transformers on a retained transformed tree double-applies edits. Preserve the final combined transform or explicitly centralize stages and expected counts."
+  },
+  "checkpoint": "research/deferred-attack-checkpoint.json",
+  "archive": "research/ports/v51-deferred-attack-verified",
+  "runtime_measurement": {
+    "candidates": 8,
+    "cache_hits": 0,
+    "wall_ms": 4703.012,
+    "prior_ms": 4657.253,
+    "scope": "Single isolated run, approximately retained speed"
+  },
+  "known_query_scope_issue": "Resolved for declared magnitude and HP-basis combinations; before/after evidence retained in audit and correction reports."
+}
