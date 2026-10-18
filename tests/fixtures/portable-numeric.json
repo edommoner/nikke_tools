@@ -1,0 +1,17 @@
+{
+  "seed": 20261019,
+  "cases": [
+    {"name":"one-unit-above-float32", "op":1, "a":"4170000000000000", "b":"3ff0000000000000", "expected":"4170000010000000"},
+    {"name":"half-ulp-rounds-to-even-down", "op":1, "a":"3ff0000000000000", "b":"3ca0000000000000", "expected":"3ff0000000000000"},
+    {"name":"half-ulp-rounds-to-even-up", "op":1, "a":"3ff0000000000001", "b":"3ca0000000000000", "expected":"3ff0000000000002"},
+    {"name":"cancellation-retains-low-bit", "op":2, "a":"4340000000000001", "b":"4340000000000000", "expected":"4000000000000000"},
+    {"name":"smallest-subnormal-add", "op":1, "a":"0000000000000001", "b":"0000000000000001", "expected":"0000000000000002"},
+    {"name":"subnormal-normal-boundary", "op":1, "a":"000fffffffffffff", "b":"0000000000000001", "expected":"0010000000000000"},
+    {"name":"underflow-tie-to-zero", "op":3, "a":"0000000000000001", "b":"3fe0000000000000", "expected":"0000000000000000"},
+    {"name":"underflow-tie-to-even-subnormal", "op":3, "a":"0000000000000003", "b":"3fe0000000000000", "expected":"0000000000000002"},
+    {"name":"one-third", "op":4, "a":"3ff0000000000000", "b":"4008000000000000", "expected":"3fd5555555555555"},
+    {"name":"negative-zero-product", "op":3, "a":"8000000000000000", "b":"3ff0000000000000", "expected":"8000000000000000"},
+    {"name":"overflow", "op":3, "a":"7fefffffffffffff", "b":"4000000000000000", "expected":"7ff0000000000000"},
+    {"name":"invalid-inf-subtraction", "op":2, "a":"7ff0000000000000", "b":"7ff0000000000000", "expected":"7ff8000000000000"}
+  ]
+}

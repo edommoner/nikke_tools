@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "production_runtime_connected": false,
+  "gpu_execution_verified": true,
+  "stage": "gpu-execution",
+  "scope": "Binary64 arithmetic/comparison candidate only; no pow, conversions, game state, or production performance validation.",
+  "source_sha256": {
+    "gpu/binary64.slang": "2b5912b78b6889933064432c2986ec4d3a2b3cf03505ead140f5f678d91b772f",
+    "gpu/numeric_probe.slang": "f66dd2beda877c42920b0878276e66be69682269fae712e6f1e7668d8f3d33ac",
+    "tests/fixtures/portable-numeric.json": "b2f2ac6290fff71b8c351ad1e20d4f5c17a7b72052acb481463031aa4f1619e7",
+    "scripts/verify-portable-numeric.py": "9dae66672ec7e5c9e2bffe639e0e1ff40d1fb9f234f5da326a0c5df9dac07c7e",
+    "scripts/run-metal-probe.swift": "1db1b43316d2321c276ca5b21f420d6d4350356c24713ae6fa64afae7d115610"
+  },
+  "cases": 14034,
+  "groups": {
+    "one-unit-above-float32": 1,
+    "half-ulp-rounds-to-even-down": 1,
+    "half-ulp-rounds-to-even-up": 1,
+    "cancellation-retains-low-bit": 1,
+    "smallest-subnormal-add": 1,
+    "subnormal-normal-boundary": 1,
+    "underflow-tie-to-zero": 1,
+    "underflow-tie-to-even-subnormal": 1,
+    "one-third": 1,
+    "negative-zero-product": 1,
+    "overflow": 1,
+    "invalid-inf-subtraction": 1,
+    "edge": 1734,
+    "random-bits": 6144,
+    "close-magnitudes": 6144
+  },
+  "rounding": "nearest-ties-to-even",
+  "oracle": "exact rational, rounded once to binary64",
+  "random_count_per_operation_per_group": 1024,
+  "backend": "metal",
+  "transport": {
+    "backend": "metal",
+    "cases": 14034,
+    "command_status": "completed",
+    "device": "Apple M5",
+    "gpu_seconds": 0.0001982916728593409,
+    "input_bytes": 280684,
+    "output_bytes": 112272,
+    "registry_id": "4294968313"
+  },
+  "outputs_sha256": {
+    "cuda": "10641de80925e27d85c144e12e977e14979cb5ff386232f0f15332e21b8b00d7",
+    "metal": "fe9b16e7b2c955d34d20e455977d546e5addc7298f03450c44768d46dcf27ae5"
+  },
+  "input_sha256": "de06dbe0e2f45bec5b2249fe6a0a2af0a5b7a94a7241fa660a130e67fde8e832",
+  "output_sha256": "567107c1e6bb27e3731bdb7e52f23a9ccdd24f9ecb5c1f1c89b5f19650366f4e",
+  "mismatch_count": 0,
+  "mismatches": []
+}

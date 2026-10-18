@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "production_runtime_connected": false,
+  "gpu_execution_verified": false,
+  "stage": "fixture-validation",
+  "scope": "Binary64 arithmetic/comparison candidate only; no pow, conversions, game state, or production performance validation.",
+  "source_sha256": {
+    "gpu/binary64.slang": "2b5912b78b6889933064432c2986ec4d3a2b3cf03505ead140f5f678d91b772f",
+    "gpu/numeric_probe.slang": "f66dd2beda877c42920b0878276e66be69682269fae712e6f1e7668d8f3d33ac",
+    "tests/fixtures/portable-numeric.json": "b2f2ac6290fff71b8c351ad1e20d4f5c17a7b72052acb481463031aa4f1619e7",
+    "scripts/verify-portable-numeric.py": "9dae66672ec7e5c9e2bffe639e0e1ff40d1fb9f234f5da326a0c5df9dac07c7e",
+    "scripts/run-metal-probe.swift": "1db1b43316d2321c276ca5b21f420d6d4350356c24713ae6fa64afae7d115610"
+  },
+  "cases": 14034,
+  "groups": {
+    "one-unit-above-float32": 1,
+    "half-ulp-rounds-to-even-down": 1,
+    "half-ulp-rounds-to-even-up": 1,
+    "cancellation-retains-low-bit": 1,
+    "smallest-subnormal-add": 1,
+    "subnormal-normal-boundary": 1,
+    "underflow-tie-to-zero": 1,
+    "underflow-tie-to-even-subnormal": 1,
+    "one-third": 1,
+    "negative-zero-product": 1,
+    "overflow": 1,
+    "invalid-inf-subtraction": 1,
+    "edge": 1734,
+    "random-bits": 6144,
+    "close-magnitudes": 6144
+  },
+  "rounding": "nearest-ties-to-even",
+  "oracle": "exact rational, rounded once to binary64",
+  "random_count_per_operation_per_group": 1024
+}

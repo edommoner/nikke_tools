@@ -26,6 +26,8 @@ def main():
     before={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
     report=dict(passed=True,stage='fixture-validation',gpu_execution_verified=False,production_runtime_connected=False,cases=[c['name'] for c in cases],source_sha256=before)
     if not args.validate_only:
+        # Invalidate prior success before compilation/dispatch can fail.
+        (ROOT/'research/portable-probe-metal.json').write_text(json.dumps({**report,'passed':False,'stage':'execution-pending'},indent=2)+'\n',encoding='utf-8')
         if sys.platform!='darwin':raise SystemExit('Metal execution requires macOS; no CPU fallback counts as GPU verification')
         directory=ROOT/'research/portable-build';source=directory/'portable_probe.metal'
         build=json.loads((ROOT/'research/portable-probe-build.json').read_text(encoding='utf-8'))
@@ -41,7 +43,9 @@ def main():
         actual=list(struct.unpack('<'+'I'*(len(cases)*7),output_path.read_bytes()))
         for index,case in enumerate(cases):
             if actual[index*7:(index+1)*7]!=case['expected']:raise AssertionError((case['name'],actual[index*7:(index+1)*7],case['expected']))
-        report.update(stage='gpu-execution',gpu_execution_verified=True,backend='metal',device=json.loads(process.stdout)['device'],output=actual)
+        transport=json.loads(process.stdout)
+        report.update(stage='gpu-execution',gpu_execution_verified=True,backend='metal',device=transport['device'],output=actual,transport=transport,
+                      case_results=[dict(name=c['name'],expected=c['expected'],actual=actual[i*7:(i+1)*7],passed=True) for i,c in enumerate(cases)])
     assert before=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in before}
     suffix='fixtures' if args.validate_only else args.backend
     (ROOT/f'research/portable-probe-{suffix}.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8');print(json.dumps(report))

@@ -10,11 +10,11 @@
   "outputs": {
     "cuda": {
       "path": "research/portable-build/portable_probe.cu",
-      "sha256": "d647a8ea013756b8bebbdea86a59abd80d774926e7a8710a2ac30d67670eb0c7"
+      "sha256": "df12b862c271a2b50df4b57dcfb18fb117f8b16053260ff5fb7168404c883c85"
     },
     "metal": {
       "path": "research/portable-build/portable_probe.metal",
-      "sha256": "1fa63dd862361ad82b457068b1a311974a0231b5711abf167bb71f901281d84b"
+      "sha256": "6bfca73a7bb520252d5b865fc54bdc843842dad91d7f8502e89a0f215ff94a27"
     }
   }
 }

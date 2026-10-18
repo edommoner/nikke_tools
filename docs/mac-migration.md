@@ -1,6 +1,6 @@
 # MacBookへの開発環境の移行
 
-対象はユーザー申告のM5・24GB・macOS 26.6.2です。Mac実機での検証はこれからです。現時点で本体のGPU計算はCUDA専用で、Metal向けの本体移植は未完成です。MacでCPUを使う作業環境と、共通GPUコアの小さな実証を先行して整備しています。
+2026-10-19にMacBook Air・Apple M5（GPU 10コア）・24GB・macOS 26.6.2 arm64を実機確認しました。CPU起動（203体）とMetal実証4ケースは成功し、`research/portable-probe-metal.json` に実GPUの結果を保存しています。現時点で本体のGPU計算はCUDA専用で、Metal向けの本体移植は未完成です。MacでCPUを使う作業環境と、共通GPUコアの小さな実証を先行して整備しています。
 
 ## 移行時の問題と対処
 
@@ -27,7 +27,7 @@ SlangのMetal側では型・ポインター等に制約があります。約2,70
 - 対象が再出現した後に旧世代へ向けた処理を適用しないこと
 - 周期時計の再登録・解除・期限と、古い登録の拒否
 
-入力と期待値は `tests/fixtures/portable-probe.json` に一度だけ書きます。`scripts/verify-portable-probe.py` が梱包と結果比較を共有し、Swift側にはMetalの起動・転送だけを置きます。現時点ではCUDA向けの生成確認までで、この実証のCUDA実行アダプター、本体のダメージ数式・float64規約・実編成は未接続です。Windowsで両方のソース生成と入力検査を確認しました。Metalのコンパイル・GPU実行・速度はMacで確認が必要です。
+入力と期待値は `tests/fixtures/portable-probe.json` に一度だけ書きます。`scripts/verify-portable-probe.py` が梱包と結果比較を共有し、Swift側にはMetalの起動・転送だけを置きます。現時点ではCUDA向けの生成確認までで、この実証のCUDA実行アダプター、本体のダメージ数式・float64規約・実編成は未接続です。Windowsで両方のソース生成と入力検査を確認しました。Metalのコンパイル・実GPU4ケースはApple M5で成功しました。本体の速度・メモリは未検証です。追加のbinary64共通コア候補と14,034ケースの実GPU検証は[数値規約](portable-numerics.md)を参照してください。
 
 テストの記述は共通にしますが、機器固有の障害を検出するために各GPUで同じケースを実行することは必要です。CPU由来の途中状態や発射時刻をGPU入力に流用せず、仕様から作った期待値と既存の代表的な部隊検証を使います。
 
@@ -50,7 +50,7 @@ node --version
 
 `arm64`、`Python 3.12.x`、`v24.x`を確認します。Node 24はHomebrewのkeg-only formulaなのでPATHを明示します。新しいターミナルでも同じPATHが必要です。この手順ではシェルの設定ファイルを自動変更しません。
 
-Mac App Store等でXcodeを導入し、一度起動してライセンス確認と初期設定を完了します。Metal実証にはSwiftとMetalコンパイラーが必要です。通常のXcodeを`/Applications/Xcode.app`へ配置した場合、同じターミナルで次を実行します。
+実機ではCommand Line ToolsのSwift 6.3.3と、`device.makeLibrary(source:)` による実行時コンパイルで両方のMetal実証が成功しました。`xcrun --find metal` は見つかりませんが、今回のソース実行には不要でした。オフラインのMetalコンパイルやXcodeでの解析が必要な段階では、Mac App Store等でXcodeを導入し、一度起動してライセンス確認と初期設定を完了します。通常のXcodeを`/Applications/Xcode.app`へ配置した場合、同じターミナルで次を実行します。
 
 ```sh
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
@@ -95,7 +95,7 @@ python scripts/verify-portable-probe.py --backend metal
 
 `research/portable-probe-build.json` はソース生成、`portable-probe-fixtures.json` は入力の検査、`portable-probe-metal.json` はMacでの実行結果です。`gpu_execution_verified` と `production_runtime_connected` を分けて記録し、CPUフォールバックをGPU成功として扱いません。
 
-最後の出力で`passed: true`、`gpu_execution_verified: true`、`backend: metal`、MacのGPU名、4ケースの一覧を確認します。`production_runtime_connected: false`はこの段階では正常です。`--validate-only`だけの成功はMetal実行の確認になりません。Swift／MSLが失敗した場合は診断を表示します。入力検査だけへ置き換えて成功扱いにせず、実際の診断から修正します。
+最後の出力で`passed: true`、`gpu_execution_verified: true`、`backend: metal`、MacのGPU名、4ケースの一覧を確認します。`production_runtime_connected: false`はこの段階では正常です。`--validate-only`だけの成功はMetal実行の確認になりません。Swift／MSLが失敗した場合は診断を表示します。SwiftのキャッシュやGPUデバイスへのアクセスがサンドボックスで拒否される場合は、通常のMacターミナルで実行するか、その実行へのアクセス承認を利用します。入力検査だけへ置き換えて成功扱いにせず、実際の診断から修正します。
 
 ## 通常画面の起動と設定の復元
 
@@ -122,7 +122,7 @@ source .venv/bin/activate
 - `xcodebuild`がCommand Line Toolsを参照している：Xcodeの配置と`DEVELOPER_DIR`を確認し、Xcodeの初期設定を済ませます。
 - Metal Toolchainがない：XcodeのComponentsか`xcodebuild -downloadComponent metalToolchain`で導入します。
 - `Rebuild the changed portable probe first`：`python scripts/build-portable-probe.py`を再実行します。Windowsの生成物はコピーせずMacで生成します。
-- Swift・MSLのエラー：ターミナルの診断と`research/migration-readiness.json`を確認します。Macでの初回実行は未検証です。
+- Swift・MSLのエラー：ターミナルの診断と`research/migration-readiness.json`を確認します。初回実行はApple M5で成功していますが、環境ごとに診断を確認してください。
 - ポート4317が使用中：既存サーバーを確認するか、`PORT=4318 NIKKE_PYTHON=python node server.mjs`として、ブラウザーも4318へ合わせます。
 
 Macでの実行により`research/`のレポートJSONがMacの結果へ書き換わるのは正常です。個人のセッションJSON、`.venv/`、`.tools/`、キャッシュはGitへ追加しません。続きを開発する際は[引き継ぎ情報](mac-handoff.md)を先に確認してください。
@@ -135,3 +135,9 @@ Macでの実行により`research/`のレポートJSONがMacの結果へ書き�
 - [Apple：Xcodeの追加コンポーネント](https://developer.apple.com/documentation/xcode/downloading-and-installing-additional-xcode-components)
 - [Homebrew：Python 3.12](https://formulae.brew.sh/formula/python@3.12)
 - [Homebrew：Node 24](https://formulae.brew.sh/formula/node@24)
+
+## このMacでの再起動と復元済みデータ
+
+`./Start-NikkeTools.command` でNode 24と`.venv`のPythonを選んで起動します。起動先は `http://127.0.0.1:4317` です。同じポートのサーバーを二重に起動しないでください。今回の元セッションとCPU選択・再計算後のセッションはGit対象外の `local-data/session-original.json` と `local-data/session-mac-cpu.json` に保存しました。後者を画面で読み込むと復元できます。育成データの自動永続保存は既存画面の仕様に含まれないため、再読み込み時はJSONを読み込んでください。
+
+添付の5人・15秒設定で、CPUの現在育成は45,251,089、取り込み時育成は44,888,797でした。デモと記録された5人のセッションであり、全所持キャラのインポート件数ではありません。Pythonは3.12.15、Nodeは24.22.0で、Windowsの記録とパッチ版が異なります。
