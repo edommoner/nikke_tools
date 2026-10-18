@@ -41,7 +41,7 @@ struct Runtime
     uint64_t targetHP[8], targetDamage[8], targetDefense[8];
     uint timerTarget[32];
     uint weaponEnabled[5], weaponMode[5], capacity[5], ammo[5], shots[5], stage[5], charging[5];
-    uint phase, castMask;
+    uint phase, castMask, traceMode, traceTotal, burstTraceTotal, nextFrame, frameCount;
     uint64_t coefficient[5], interval[5], reloadTime[5], chargeTime[5], gain[5], cooldown[5];
     uint64_t nextShot[5], reloadUntil[5], ready[5], chargeUntil[5], gauge, action, fullEnd;
     uint count, error, timerClock, entryClock, traceCount, maxDepth, generation;
@@ -91,6 +91,7 @@ uint aimedTarget(inout Runtime s, uint who)
 }
 void land(inout Runtime s, uint who, uint target, uint64_t amount)
 {
+    if (s.combat != 0 && s.targetHits[target] == 0x7fffffff) { s.error = 2; return; }
     s.total[who] = f64Add(s.total[who],amount);
     if (s.combat == 0) return;
     s.targetDamage[target] = f64Add(s.targetDamage[target],amount);
@@ -244,6 +245,9 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             uint64_t amount = damageValue(s,d.owner,f64Mul(d.value,f64FromI64(s.stacks[row])),f.time,false,s.coreBonus);
             if (s.error != 0) break;
             land(s,d.owner,target,amount);
+            if (s.traceTotal == 0x7fffffff) { s.error = 2; break; }
+            s.traceTotal++;
+            if (s.traceMode == 0) { pushFrame(s,frames,depth,0,49,d.owner,int(d.name),f.time); continue; }
             if (s.traceCount == P_TRACE) { s.error = 8; break; }
             uint at = output + P_TRACE_BASE + s.traceCount++*P_TRACE_WORDS;
             results[at] = row; storeNumber(at+1,f.time); results[at+3] = s.timerEpoch[row];
@@ -300,8 +304,8 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
 {
     if (id.x >= commands[0]) return;
     uint input = 1 + id.x*P_INPUT_WORDS, output = id.x*P_OUTPUT_WORDS;
-    Runtime s = {}; s.generation = 1; s.count = commands[input+1]; s.combat = commands[input+3]; s.inputBase = input;
-    if (commands[input] != PORTABLE_ABI || s.count == 0 || s.count > P_DEFINITIONS || commands[input+2] > P_COMMANDS)
+    Runtime s = {}; s.generation = 1; s.count = commands[input+1]; s.combat = commands[input+3]; s.inputBase = input; s.traceMode = commands[input+5];
+    if (commands[input] != PORTABLE_ABI || s.count == 0 || s.count > P_DEFINITIONS || commands[input+2] > P_COMMANDS || s.traceMode > 1)
     { results[output] = 64; return; }
     for (uint i = 0; i < 5; i++) s.baseAttack[i] = loadNumber(input+8+2*i);
     s.defense = loadNumber(input+18); s.coreBonus = loadNumber(input+22);
@@ -333,7 +337,8 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         if (s.combat == 0 || op == 4) tick(s,when,output);
         if (s.error != 0) break;
         if (op == 0) dispatch(s,0,commands[at+3],commands[at+4],int(commands[at+5]),when,output);
-        else if (op == 4 && s.combat != 0) squadFrame(s,when,output);
+        else if (op == 4 && s.combat != 0) { squadFrame(s,when,output); s.frameCount++; }
+        else if (op == 24 && s.combat != 0) advanceCombat(s,when,output);
         else if ((op == 20 || op == 21 || op == 22) && s.combat != 0)
         {
             uint target = commands[at+5], who = commands[at+4];
@@ -385,5 +390,6 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         results[dst] = s.targetGeneration[j]; results[dst+1] = s.targetAlive[j];
         storeNumber(dst+2,s.targetHP[j]); storeNumber(dst+4,s.targetDamage[j]); results[dst+6] = s.targetHits[j];
     }
-    results[output] = s.error; results[output+1] = queries; results[output+2] = s.traceCount; results[output+3] = s.maxDepth; results[output+4] = s.burstTraceCount;
+    results[output] = s.error; results[output+1] = queries; results[output+2] = s.traceCount; results[output+3] = s.maxDepth; results[output+4] = s.burstTraceCount; results[output+6] = s.traceTotal;
+    results[output+7] = s.burstTraceTotal; results[output+8] = s.frameCount;
 }

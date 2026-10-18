@@ -29,43 +29,46 @@ def double_words(value):
     return list(struct.unpack('<II',struct.pack('<d',value)))
 
 
+def validate_effect(eff, *, combat=None):
+    allowed = {'name','source','type','stat','fixed_value','values','duration','duration_values',
+               'target','trigger','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
+    effect_allowed=allowed | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','pellets','muzzles','post_fire_delay','first_damage_coeff','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
+    if set(eff)-effect_allowed:
+        raise UnsupportedPortable('Unported effect fields: '+', '.join(sorted(set(eff)-effect_allowed)))
+    trigger=eff.get('trigger',{})
+    if set(trigger)-{'timing','condition'} or trigger.get('condition') or len(trigger.get('timing',[])) != 1:
+        raise UnsupportedPortable('Exactly one unconditional timing is currently supported')
+    timing=trigger['timing'][0]
+    if not isinstance(timing,str) or not re.fullmatch(r'battle_start|on_attack|burst_cast|full_burst_start|full_burst_end|event:full_reload|last_bullet|last_bullet_fire|full_charge|full_charge_fire|full_charge_hit|squad_ammo_consume(?::[1-9][0-9]*)?|pellet_hit(?::[1-9][0-9]*)?|burst_enter:[123]|event:state_end:[^:]+|hit_count:(?:[^:]+:)?[1-9][0-9]*',timing):
+        raise UnsupportedPortable('Unported timing policy (including passive/every)')
+    kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
+    if kind=='buff':
+        if (stat not in ('atk_pct','crit_rate','crit_dmg') and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat))) or target not in ('self','all_allies'):
+            raise UnsupportedPortable('Unported buff or recipient selector')
+    elif kind=='damage':
+        if stat not in ('damage','dot_damage','auto_damage') or target not in ('target','boss'):
+            raise UnsupportedPortable('Unported damage family or geometry')
+    elif kind=='instant':
+        if stat not in ('remove_named_buff','force_skill_use','burst_reentry') or target!='self':
+            raise UnsupportedPortable('Unported instant or recipient selector')
+    elif kind=='weapon_change':
+        if combat is None or target!='self':raise UnsupportedPortable('Weapon mode requires combat and self recipient')
+        if eff.get('tick_interval'):raise UnsupportedPortable('Periodic weapon-mode activation is not ported')
+    else:raise UnsupportedPortable('Unported effect kind')
+    if (stat=='burst_reentry' or isinstance(stat,str) and stat.startswith('burst_stage_override:')) and (combat is None or target!='self'):
+        raise UnsupportedPortable('Burst stage state requires combat and self recipient')
+    # Count/stack bounds are discrete. Do not truncate malformed definitions.
+    for key in ('max_stack','max_trigger'):
+        value=eff.get(key,1 if key=='max_stack' else -1)
+        if type(value) is not int or not -1<=value<=2**31-1 or key=='max_stack' and value==0:
+            raise ValueError('Invalid '+key)
+
+
 def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None):
     import detail_gpu as legacy
     check_schema()
     effects = list(effects)
-    allowed = {'name','source','type','stat','fixed_value','values','duration','duration_values',
-               'target','trigger','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
-    for eff, owner in effects:
-        effect_allowed=allowed | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','pellets','muzzles','post_fire_delay','first_damage_coeff','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
-        if set(eff)-effect_allowed:
-            raise UnsupportedPortable('Unported effect fields: '+', '.join(sorted(set(eff)-effect_allowed)))
-        trigger=eff.get('trigger',{})
-        if set(trigger)-{'timing','condition'} or trigger.get('condition') or len(trigger.get('timing',[])) != 1:
-            raise UnsupportedPortable('Exactly one unconditional timing is currently supported')
-        timing=trigger['timing'][0]
-        if not isinstance(timing,str) or not re.fullmatch(r'battle_start|on_attack|burst_cast|full_burst_start|full_burst_end|event:full_reload|last_bullet|last_bullet_fire|full_charge|full_charge_fire|full_charge_hit|squad_ammo_consume(?::[1-9][0-9]*)?|pellet_hit(?::[1-9][0-9]*)?|burst_enter:[123]|event:state_end:[^:]+|hit_count:(?:[^:]+:)?[1-9][0-9]*',timing):
-            raise UnsupportedPortable('Unported timing policy (including passive/every)')
-        kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
-        if kind=='buff':
-            if (stat not in ('atk_pct','crit_rate','crit_dmg') and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat))) or target not in ('self','all_allies'):
-                raise UnsupportedPortable('Unported buff or recipient selector')
-        elif kind=='damage':
-            if stat not in ('damage','dot_damage','auto_damage') or target not in ('target','boss'):
-                raise UnsupportedPortable('Unported damage family or geometry')
-        elif kind=='instant':
-            if stat not in ('remove_named_buff','force_skill_use','burst_reentry') or target!='self':
-                raise UnsupportedPortable('Unported instant or recipient selector')
-        elif kind=='weapon_change':
-            if combat is None or target!='self':raise UnsupportedPortable('Weapon mode requires combat and self recipient')
-            if eff.get('tick_interval'):raise UnsupportedPortable('Periodic weapon-mode activation is not ported')
-        else:raise UnsupportedPortable('Unported effect kind')
-        if (stat=='burst_reentry' or isinstance(stat,str) and stat.startswith('burst_stage_override:')) and (combat is None or target!='self'):
-            raise UnsupportedPortable('Burst stage state requires combat and self recipient')
-        # Count/stack bounds are discrete. Do not truncate malformed definitions.
-        for key in ('max_stack','max_trigger'):
-            value=eff.get(key,1 if key=='max_stack' else -1)
-            if type(value) is not int or not -1<=value<=2**31-1 or key=='max_stack' and value==0:
-                raise ValueError('Invalid '+key)
+    for eff, owner in effects:validate_effect(eff,combat=combat)
     program=legacy.compile_effects(chars,effects)
     if len(program['effects'])!=len(effects) or not 1<=len(effects)<=L['DEFINITIONS']:
         raise UnsupportedPortable('Portable definition capacity or expansion exceeded')
@@ -73,7 +76,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         raise UnsupportedPortable('Multiple definitions for the same named carrier are not yet ported')
     if not 1<=len(script)<=L['COMMANDS'] or len(base_atk)!=5:
         raise ValueError('Invalid portable command/base-stat dimensions')
-    words=[0]*L['INPUT_WORDS'];words[0:3]=[ABI,len(effects),len(script)]
+    words=[0]*L['INPUT_WORDS'];words[0:3]=[ABI,len(effects),len(script)];words[5]=1
     for i,attack in enumerate(base_atk):
         if attack<0:raise ValueError('Negative base attack')
         words[8+2*i:10+2*i]=double_words(attack)
@@ -107,17 +110,22 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         combat_meta=pack_combat(words,combat,double_words)
     if combat is not None and defense != 0:
         raise UnsupportedPortable('Combat uses explicit per-target defense')
-    previous=-1; previous_frame=None
+    previous=-1; previous_frame=None; frame_mode=None
     for i,cmd in enumerate(script):
         if len(cmd)!=8:raise ValueError('Expected eight-word stimulus command')
         t,op,event,owner,arg,query,extra,extra2=cmd
         double_words(t)
         if not 0<=t<=180 or t<previous:raise ValueError('Commands must have monotonic times in 0..180 seconds')
         previous=t
-        if op in (4,20,21,22):
+        if op in (4,20,21,22,24):
             if combat is None:raise UnsupportedPortable('Combat command requires combat configuration')
             if any(type(v) is not int for v in (op,event,owner,arg,query,extra2)) or event or extra2 or not 0<=owner<5:
                 raise ValueError('Invalid combat command')
+            if op in (4,24):
+                if frame_mode is not None and frame_mode!=op:raise UnsupportedPortable('Do not mix explicit frames and GPU timeline advancement')
+                frame_mode=op
+            if op==24:
+                if arg!=0 or extra!=0:raise ValueError('Timeline advance has no shot payload')
             if op==4:
                 if arg!=0 or extra!=0:raise ValueError('Frame has no shot payload')
                 if previous_frame is None and t!=0 or previous_frame is not None and t<=previous_frame:
@@ -143,7 +151,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         if combat is not None and op==0 and event==0:raise UnsupportedPortable('Combat emits startup notifications on its first frame')
         at=L['COMMAND_BASE']+i*8
         words[at:at+8]=[op,*double_words(t),event,owner,*(double_words(extra) if op==18 else [arg & 0xffffffff,query & 0xffffffff]),0]
-    return words,dict(states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],combat=combat_meta)
+    return words,dict(states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
 
 
 def decode(words,metadata):
@@ -190,7 +198,7 @@ def decode(words,metadata):
         for i,t in enumerate(metadata['combat']['targets']):
             at=L['TARGET_STATE_BASE']+i*10
             targets.append(dict(kind=t.get('kind',0),identity=t.get('identity',i),generation=words[at],active=bool(words[at+1]),hp=number(at+2),damage=number(at+4),hits=words[at+6]))
-    return dict(status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,max_stack_depth=words[3])
+    return dict(status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
 
 
 def run_programs(programs, *, backend='metal'):
@@ -205,7 +213,8 @@ def run_programs(programs, *, backend='metal'):
     results=[decode(output[i*L['OUTPUT_WORDS']:(i+1)*L['OUTPUT_WORDS']],metadata) for i,(_,metadata) in enumerate(programs)]
     if any(r['status'] for r in results):
         raise PortableExecutionError(results,evidence)
-    return dict(results=results,**evidence,application_event_runtime_connected=True,autonomous_battle_connected=False,weapon_burst_target_connected=any(m.get('combat') is not None for _,m in programs))
+    return dict(results=results,**evidence,application_event_runtime_connected=True,autonomous_battle_connected=False,weapon_burst_target_connected=any(m.get('combat') is not None for _,m in programs),
+                gpu_timeline_connected=any(m.get('timeline',False) for _,m in programs))
 
 
 def evaluate(body):

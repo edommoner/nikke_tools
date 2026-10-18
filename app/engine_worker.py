@@ -342,6 +342,9 @@ def evaluate(body):
         for char in run.squad:
             if char['name'] in no_cube:
                 char['cube'] = {'name': '__none__', 'level': 1}
+        if body.get('_audit_portable'):
+            from portable_catalog import audit_prepared
+            return audit_prepared(run, changed, body)
         if body.get('_compile_gpu_detail'):
             from detail_gpu import compile_full
             return compile_full(run, changed, body, policy, requested_policy)

@@ -71,6 +71,8 @@ Weapon selectWeapon(inout Runtime s, uint who, uint64_t when)
 }
 void logBurst(inout Runtime s, uint event, uint who, uint64_t when, uint output)
 {
+    s.burstTraceTotal++;
+    if (s.traceMode == 0) return;
     if (s.burstTraceCount == 64) { s.error = 8; return; }
     uint at = output+P_BURST_TRACE_BASE+s.burstTraceCount++*8;
     storeNumber(at,when); results[at+2] = event; results[at+3] = who+1;
@@ -198,6 +200,22 @@ void squadFrame(inout Runtime s, uint64_t when, uint output)
     burstFrame(s,when,output);
     for (uint who = 0; who < 5 && s.error == 0; who++) weaponFrame(s,who,when,output);
 }
+// Fixed clock generation belongs to the GPU, not to an authored shot schedule.
+void advanceCombat(inout Runtime s, uint64_t through, uint output)
+{
+    if (s.combatStarted == 0)
+    { s.combatStarted = 1; teamNotify(s,0,0,output); }
+    for (uint work = 0; work <= 10800 && s.error == 0; work++)
+    {
+        if (s.nextFrame > 10800) return;
+        uint64_t when = f64Div(f64FromI64(s.nextFrame),uint64_t(0x404e0000) << 32); // 60
+        if (f64Less(through,when)) return;
+        s.nextFrame++; s.frameCount++;
+        tick(s,when,output);
+        if (s.error == 0) squadFrame(s,when,output);
+    }
+}
+
 void writeCombatQuery(inout Runtime s, uint output, uint states)
 {
     for (uint who = 0; who < 5; who++)

@@ -4,7 +4,7 @@ Effect/stat/event IDs and force-selection masks come from detail_gpu's compiler.
 from pathlib import Path
 from world_condition_specs import target_inheritance_events
 
-ABI = 0x50455633
+ABI = 0x50455634
 LIMITS = dict(DEFINITIONS=32, COMMANDS=64, DEPTH=32, TRACE=128,
               INPUT_WORDS=4096, OUTPUT_WORDS=16384, DEFINITION_BASE=32,
               DEFINITION_WORDS=32, COMMAND_BASE=1056, QUERY_BASE=16,
