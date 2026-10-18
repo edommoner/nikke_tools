@@ -1,0 +1,19 @@
+{
+  "platform": "Windows",
+  "architecture": "AMD64",
+  "python": "3.12.14",
+  "engine_present": true,
+  "gpu_executed": false,
+  "warnings": [],
+  "node": {
+    "passed": true,
+    "output": "v24.19.0"
+  },
+  "slang_installed": true,
+  "cpu_catalog": {
+    "passed": true,
+    "characters": 203
+  },
+  "passed": true,
+  "scope": "Host/CPU startup only. This does not validate Metal execution, CUDA equivalence, numerical portability, or performance."
+}
