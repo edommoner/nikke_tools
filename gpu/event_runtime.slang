@@ -72,6 +72,7 @@ struct Runtime
     uint timerTarget[P_DEFINITIONS];
     uint weaponEnabled[5], weaponMode[5], capacity[5], ammo[5], shots[5], stage[5], charging[5];
     uint phase, castMask, traceMode, traceTotal, burstTraceTotal, nextFrame, frameCount;
+    uint burstModifierMask, cooldownWaitMask, gaugeCharging; uint64_t cooldownApplied[5];
     uint64_t coefficient[5], interval[5], reloadTime[5], chargeTime[5], gain[5], cooldown[5];
     uint64_t nextShot[5], reloadUntil[5], ready[5], chargeUntil[5], gauge, action, fullEnd;
     uint count, error, timerClock, entryClock, traceCount, maxDepth, generation;
@@ -330,6 +331,7 @@ void registerTimer(inout Runtime s, uint row, uint64_t when)
 
 #include "damage_runtime.slang"
 #include "incoming_runtime.slang"
+#include "burst_runtime.slang"
 
 [noinline]
 void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, uint64_t when, uint output)
@@ -512,7 +514,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         { pushFrame(s,frames,depth,1,47,d.owner,int(row),f.time); continue; }
         if (f.mode == 0 && !activationConditions(s,row,f.time) && !(f.event == 0 && f64Less(d.duration,0) && passive != 0)) continue;
         uint recipientOrder = 0, recipientMask = d.recipients;
-        if (d.kind == 0 || d.kind == 4 || d.kind == 6 || d.kind == 8)
+        if (d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 8 || d.kind == 24)
         {
             if (d.lazyGroup == 0) recipientMask = selectRecipients(s,row,f.time,recipientOrder);
             else recipientMask = 0;
@@ -583,6 +585,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 syncHealth(s,f.time);
             }
         }
+        else if (d.kind == 5) reduceBurstReady(s,recipientMask,d.value,f.time);
+        else if (d.kind == 24) { if (recipientMask != 0) addBurstGauge(s,d.value); }
         else if (d.kind == 25) s.pendingReentry[d.owner] = 1;
         else if (d.kind == 2)
         {
@@ -750,7 +754,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         d.mergeEligible = commands[input+P_RECIPIENT_BASE+j*8+7] & 3;
         d.queryResolve = (commands[input+P_RECIPIENT_BASE+j*8+7] >> 2) & 1;
         d.lazyGroup = commands[input+P_RECIPIENT_BASE+j*8+7] >> 4; s.lazyEnabled |= uint(d.lazyGroup != 0); d.statKey = commands[input+P_RECIPIENT_BASE+j*8+6];
-        if ((d.kind == 0 || d.kind == 4 || d.kind == 6 || d.kind == 8) && !validRecipientPlan(input+P_RECIPIENT_BASE+j*8)) { s.error = 64; break; }
+        if ((d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 8 || d.kind == 24) && !validRecipientPlan(input+P_RECIPIENT_BASE+j*8)) { s.error = 64; break; }
         if (d.lazyGroup != 0)
         {
             uint plan = input+P_RECIPIENT_BASE+j*8, selector = commands[plan];
@@ -782,6 +786,8 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         if (d.kind == 0 && d.stat == S_invincible) s.incomingMask |= 1;
         if (d.kind == 0 && d.stat == S_undying) s.incomingMask |= 2;
         if (d.kind == 0 && d.stat == S_received_dmg_pct) s.incomingMask |= 4;
+        if ((d.kind == 5 || d.kind == 24 || d.kind == 0 && d.stat == S_burst_cooldown) && s.combat == 0) { s.error = 64; break; }
+        if (d.kind == 0 && d.stat == S_burst_cooldown) s.burstModifierMask |= 1;
         if (d.kind == 0 && d.stat == S_reload_speed_pct) s.quantityMask |= 64;
         if (d.kind == 0 && d.stat == S_max_ammo_flat) s.quantityMask |= 16;
         if (d.kind == 0 && d.stat == S_charge_time_flat) s.quantityMask |= 32;

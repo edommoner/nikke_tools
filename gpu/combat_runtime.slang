@@ -7,6 +7,7 @@ static const uint64_t TEN = uint64_t(0x40240000) << 32;
 
 void initializeCombat(inout Runtime s, uint input)
 {
+    s.gaugeCharging = 1;
     s.targetCount = commands[input+4]; s.gauge = loadNumber(input+28); s.reentryDelay = loadNumber(input+30);
     if (s.combat != 1 || s.targetCount == 0 || s.targetCount > 8) { s.error = 64; return; }
     for (uint who = 0; who < 5; who++)
@@ -128,21 +129,29 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
         s.gauge = 0; s.phase = 1; s.action = when; s.reentryDone = 0; s.reentrySlot = 0;
         logBurst(s,6,0xffffffff,when,output); enterStage(s,1,when,output);
     }
+    if (s.cooldownWaitMask != 0)
+    {
+        uint64_t earliest = FOREVER;
+        for (uint who = 0; who < 5; who++) if ((s.cooldownWaitMask & (1U << who)) != 0) earliest = smaller(earliest,s.ready[who]);
+        s.action = smaller(s.action,larger(when,earliest));
+    }
     if (s.phase >= 1 && s.phase <= 3 && reached(when,s.action))
     {
-        uint picked = 5; uint64_t earliest = FOREVER;
+        uint picked = 5, candidates = 0; uint64_t earliest = FOREVER; s.cooldownWaitMask = 0;
         if (s.reentrySlot != 0) enterStage(s,s.phase,when,output);
         for (uint who = 0; who < 5; who++) if ((s.downMask & (1U << who)) == 0 && (stages[who] == s.phase || stages[who] == 4))
         {
-            earliest = smaller(earliest,s.ready[who]);
+            candidates |= 1U << who; earliest = smaller(earliest,s.ready[who]);
             if (reached(when,s.ready[who])) { picked = who; break; }
-            if (s.phase < 3 && s.reentrySlot == 0) { s.action = s.ready[who]; break; }
+            // Default automatic B1/B2 reserves the first candidate; reentry and B3 scan alternatives.
+            if (s.phase < 3 && s.reentrySlot == 0) break;
         }
-        if (picked == 5) s.action = larger(s.action,earliest);
+        if (picked == 5) { s.action = larger(s.action,earliest); s.cooldownWaitMask = candidates; }
         if (picked < 5)
         {
             uint stage = s.phase; s.castMask |= 1U << picked; s.casts[picked]++;
-            s.ready[picked] = f64Add(when,s.cooldown[picked]);
+            setBurstReady(s,picked,when);
+            if (s.error != 0) return;
             uint target = s.target; s.target = 0;
             dispatch(s,0,3,picked,0,when,output); s.target = target;
             logBurst(s,stage+(s.reentrySlot != 0 ? 6 : 0),picked,when,output);
@@ -160,7 +169,8 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
         }
     }
     if (s.phase == 4 && reached(when,s.action))
-    { s.phase = 5; s.fullEnd = f64Add(when,TEN); teamNotify(s,1,when,output); logBurst(s,4,0xffffffff,when,output); }
+    { s.phase = 5; s.fullEnd = f64Add(when,TEN); teamNotify(s,1,when,output); reconcileBurstCooldowns(s,when); logBurst(s,4,0xffffffff,when,output); }
+    s.gaugeCharging = uint(s.phase == 0);
 }
 [noinline]
 void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
@@ -236,7 +246,7 @@ void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
         if (w.mode != 1 || count > 1) dispatch(s,0,20,who,0,when,output);
     }
     s.shots[who] = completedShots;
-    if (s.phase == 0) s.gauge = smaller(HUNDRED,f64Add(s.gauge,f64Mul(f64Mul(w.gain,f64FromI64(count)),w.gaugeMultiplier)));
+    addBurstGauge(s,f64Mul(f64Mul(w.gain,f64FromI64(count)),w.gaugeMultiplier));
     if (w.mode == 1 && w.infinite == 0) { if (s.modeEpoch[who] == epoch) s.ammo[who]--; dispatch(s,0,26,who,0,when,output); }
     dispatch(s,0,7,who,0,when,output);
     if (w.mode == 1) dispatch(s,0,11,who,0,when,output);
@@ -300,6 +310,8 @@ void writeCombatQuery(inout Runtime s, uint output, uint states)
         results[at+4] = s.charging[who]; results[at+5] = s.aim[who];
         results[at+6] = uint(s.modeIndex[who]+1); results[at+7] = s.modeShots[who];
     }
+    for (uint who = 0; who < 5; who++) storeNumber(states+112+who*2,s.cooldownApplied[who]);
+    results[states+122] = s.cooldownWaitMask; results[states+123] = s.gaugeCharging;
     results[states+104] = s.reentrySlot; results[states+105] = s.reentryDone;
     for (uint who = 0; who < 5; who++) results[states+106+who] = s.casts[who];
 }

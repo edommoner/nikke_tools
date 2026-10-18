@@ -158,4 +158,15 @@ class PortableBulletInputTests(unittest.TestCase):
         with self.assertRaises(UnsupportedPortable):validate_effect({**effect,'duration_bullets':1})
 
 
+class PortableBurstAdmissionTests(unittest.TestCase):
+    def test_burst_effects_require_combat_and_ally_recipient(self):
+        from portable_runtime import validate_effect
+        for kind,stat in [('buff','burst_cooldown'),('instant','burst_cooldown_reduce'),('instant','burst_charge_pct')]:
+            effect=dict(name=stat,type=kind,stat=stat,fixed_value=5,target='all_allies',trigger=dict(timing=['battle_start'],condition=[]))
+            with self.subTest(stat=stat):
+                validate_effect(effect,combat={})
+                with self.assertRaises(ValueError):validate_effect(effect)
+                with self.assertRaises(ValueError):validate_effect({**effect,'target':'boss'},combat={})
+
+
 if __name__=='__main__':unittest.main()

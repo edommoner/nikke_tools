@@ -817,6 +817,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -2798,6 +2807,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -4779,6 +4797,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -6760,6 +6787,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -8741,6 +8777,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -10722,6 +10767,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -12703,6 +12757,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -14684,6 +14747,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -16665,6 +16737,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -18646,6 +18727,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -20627,6 +20717,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -22608,6 +22707,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -24589,6 +24697,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -26570,6 +26687,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -28551,6 +28677,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -30532,6 +30667,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -32513,6 +32657,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -34494,6 +34647,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -36475,6 +36637,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -38456,6 +38627,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -40437,6 +40617,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -42418,6 +42607,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -44399,6 +44597,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -46380,6 +46587,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -48361,6 +48577,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -50342,6 +50567,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -52323,6 +52557,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -54304,6 +54547,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -56285,6 +56537,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -58266,6 +58527,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -60247,6 +60517,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -62228,6 +62507,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -64209,6 +64497,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -66190,6 +66487,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -68171,6 +68477,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -70152,6 +70467,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -72133,6 +72457,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -74114,6 +74447,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -76095,6 +76437,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -78076,6 +78427,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -80057,6 +80417,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -82038,6 +82407,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -84019,6 +84397,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -86000,6 +86387,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -87981,6 +88377,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -89962,6 +90367,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -91943,6 +92357,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -93924,6 +94347,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -95905,6 +96337,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -97886,6 +98327,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -99867,6 +100317,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -101848,6 +102307,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -103829,6 +104297,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -105810,6 +106287,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -107791,6 +108277,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -109772,6 +110267,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -111753,6 +112257,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -113734,6 +114247,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -115715,6 +116237,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -117696,6 +118227,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -119677,6 +120217,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -121658,6 +122207,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -123639,6 +124197,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -125620,6 +126187,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -127601,6 +128177,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -129582,6 +130167,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -131563,6 +132157,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -133544,6 +134147,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -135525,6 +136137,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -137506,6 +138127,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -139487,6 +140117,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -141468,6 +142107,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -143449,6 +144097,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -145430,6 +146087,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -147411,6 +148077,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -149392,6 +150067,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -151373,6 +152057,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -153354,6 +154047,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -155335,6 +156037,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -157316,6 +158027,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -159297,6 +160017,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -161278,6 +162007,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -163259,6 +163997,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -165240,6 +165987,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -167221,6 +167977,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -169202,6 +169967,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -171183,6 +171957,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -173164,6 +173947,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -175145,6 +175937,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -177126,6 +177927,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -179107,6 +179917,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -181088,6 +181907,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -183069,6 +183897,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -185050,6 +185887,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -187031,6 +187877,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -189012,6 +189867,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -190993,6 +191857,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -192974,6 +193847,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -194955,6 +195837,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -196936,6 +197827,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -198917,6 +199817,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -200898,6 +201807,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -202879,6 +203797,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -204860,6 +205787,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -206841,6 +207777,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -208822,6 +209767,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -210803,6 +211757,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -212784,6 +213747,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -214765,6 +215737,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -216746,6 +217727,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -218727,6 +219717,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -220708,6 +221707,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -222689,6 +223697,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -224670,6 +225687,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -226651,6 +227677,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -228632,6 +229667,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -230613,6 +231657,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -232594,6 +233647,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -234575,6 +235637,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -236556,6 +237627,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -238537,6 +239617,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -240518,6 +241607,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -242499,6 +243597,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -244480,6 +245587,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -246461,6 +247577,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -248442,6 +249567,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -250423,6 +251557,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -252404,6 +253547,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -254385,6 +255537,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -256366,6 +257527,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -258347,6 +259517,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -260328,6 +261507,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -262309,6 +263497,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -264290,6 +265487,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -266271,6 +267477,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -268252,6 +269467,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -270233,6 +271457,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -272214,6 +273447,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -274195,6 +275437,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -276176,6 +277427,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -278157,6 +279417,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -280138,6 +281407,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -282119,6 +283397,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -284100,6 +285387,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -286081,6 +287377,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -288062,6 +289367,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -290043,6 +291357,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -292024,6 +293347,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -294005,6 +295337,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -295986,6 +297327,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -297967,6 +299317,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -299948,6 +301307,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -301929,6 +303297,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -303910,6 +305287,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -305891,6 +307277,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -307872,6 +309267,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -309853,6 +311257,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -311834,6 +313247,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -313815,6 +315237,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -315796,6 +317227,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -317777,6 +319217,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -319758,6 +321207,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -321739,6 +323197,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -323720,6 +325187,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -325701,6 +327177,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -327682,6 +329167,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -329663,6 +331157,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -331644,6 +333147,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -333625,6 +335137,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -335606,6 +337127,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -337587,6 +339117,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -339568,6 +341107,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -341549,6 +343097,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -343530,6 +345087,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -345511,6 +347077,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -347492,6 +349067,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -349473,6 +351057,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -351454,6 +353047,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -353435,6 +355037,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -355416,6 +357027,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -357397,6 +359017,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -359378,6 +361007,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -361359,6 +362997,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -363340,6 +364987,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -365321,6 +366977,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -367302,6 +368967,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -369283,6 +370957,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -371264,6 +372947,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -373245,6 +374937,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -375226,6 +376927,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -377207,6 +378917,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -379188,6 +380907,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -381169,6 +382897,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -383150,6 +384887,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -385131,6 +386877,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -387112,6 +388867,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -389093,6 +390857,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -391074,6 +392847,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -393055,6 +394837,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -395036,6 +396827,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -397017,6 +398817,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -398998,6 +400807,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -400979,6 +402797,15 @@
                 "hits": 0
               }
             ],
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
             "reentry_slot": false,
             "reentry_done": 0,
             "casts": [
@@ -402149,16 +403976,16 @@
     "cases": 203,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.009615749993827194,
+    "gpu_seconds": 0.0024154999991878867,
     "input_bytes": 39911428,
-    "output_bytes": 29933568,
+    "output_bytes": 33259520,
     "registry_id": "4294968313"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "7e0f8c961c38e82e4e12617f50ec7a394b79e1a1eb05d01216195baac371dacc",
+    "gpu/event_runtime.slang": "b6570ed4137e6a899417cadaa9df66ccf213e8cc03990fd4141971d1284bc960",
     "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "566a429ceffe3ea68fce5f8cbcc41254082d4f432a421e03afd872afb933ae29",
+    "gpu/portable_schema.slang": "f242be27a7b81cccbf71e3826cd16e7bc8762f8fd16e3424667b81cc95c78022",
     "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
     "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
     "gpu/lazy_runtime.slang": "ab04468b7d16b0213406d327384323005501b1c3b44351e16caf3f4db7bf16a3",
@@ -402169,16 +403996,17 @@
     "gpu/recipient_runtime.slang": "72de3353734ab82dcd989e39c40f016a557d3114f6e1404239b061e1cebbdb0b",
     "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
     "gpu/incoming_runtime.slang": "322e92344f55def51fe181360ce35aba89daf341d423bed94b7da22923fa701b",
+    "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-    "gpu/combat_runtime.slang": "919d10e072bf33e2fbda09cad0f9492357c34ca909800452a4abc86f4226418d",
+    "gpu/combat_runtime.slang": "1b127da6667202d9238f47b2e0f6d46c019e7705c3db519a827c7e91ad2be426",
     "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
   },
   "generated_sha256": {
-    "cuda": "20e7b9e9f15e1dc7b7c02825221c1c11d65fdfd1ccb880833fdef9300b9c5df1",
-    "metal": "9b7b76a45955286c213fe5e61ded1d387c2325111bfb8eb26fcd1bd94968b2f6"
+    "cuda": "ed5d9d1a90856668d207b33368318a77d6e30210e7bbf15148f8f10423beda86",
+    "metal": "47aecfa27c284d08bc71f33f0793a34587951b9eb26fa2d569ed4cdc72a21071"
   },
-  "input_sha256": "009136224cd52f5e42400141767ca3c89cd6a3e82bf2644b92bfe4dee85aa6ac",
-  "output_sha256": "4df8151bbcd1d6ea5c6cfaca92d1b9177ce756f021ab40109f8003e49f7b3d30",
+  "input_sha256": "0f210a5c08d215aec0cdf559b85e7d0659d92735eef9f9e24d05dd21cc42891d",
+  "output_sha256": "acbeab6c97286b6ec947be2265556b11262e477ff555a23a3311ad7764e16781",
   "gpu_execution_verified": true,
   "backend": "metal",
   "application_event_runtime_connected": true,
@@ -402226,11 +404054,11 @@
     "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
     "app/portable_catalog.py": "01aa57c7dafbe14720a5817c2b2592cb8a47ec94163e2dbc9b0490b6779cfb59",
     "app/portable_combat.py": "e59690a2d46ace2902b4d3aee0270b559bd5a09f46c561a0b9bf036d8effb0d1",
-    "app/portable_damage_specs.py": "8f2c2c97f6b017276853501dfe9fd2ceea2dd1a993217f801df6df2000b62e49",
+    "app/portable_damage_specs.py": "4fdac883c2307f9b7850d829914caf4249adfbc8efc7b5abf06a172e10ea1b02",
     "app/portable_recipient_specs.py": "f48f12865f8b6cdd7ebaaf155b25b4352b79f4a3db3780a4c6fafcce4bf373ec",
     "app/portable_roster_input.py": "02707af9bec615d14337d87fdacdbf2d2a6131120fe215f87340f1771efc3770",
-    "app/portable_runtime.py": "baea860cd7d34c701688b82da3803f81908cfa7653a55e85e0de352d570ca539",
-    "app/portable_specs.py": "c1562470bfd071a59ef4b39eca8a14c9b3d77b8a2feb8247fe85ba71b66a34f7",
+    "app/portable_runtime.py": "a42867f2ed373aa6fdc54e668d217f6128046aef850f44c6af53009d5545642e",
+    "app/portable_specs.py": "ce63d501f1d8a9e73553cb6ffe996e601b99971bb1b90857dec868cc28cd8fcc",
     "app/portable_trigger_specs.py": "61aaa3740ee6f6c6753d321a2848f3ed4e16474e63fc526f5fc14cee69ff01ad",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/protection_runtime.py": "a6909bbdd73ef24ebdd3136cc67932c7ab433f23ae9ecabfc2a5069a5db37c81",
@@ -402316,7 +404144,8 @@
     "scripts/audit-squad-condition.py": "a0f050c36e950066a9afd15c467c1a1b3db98d067546eea892dad640b9bf265f",
     "scripts/audit-team-hits.py": "7311103a5496ef4e281bb933b12ce09e234883e54f69765fbadc09ddff917203",
     "scripts/benchmark-combat.py": "59f36be13bb1540eb89eceadfd1b8d5363e455be11f75346631f8a015d0d9741",
-    "scripts/benchmark-portable-bullets.py": "2fbcde93473eb486031e0610d2629dd7d785ee0ac42901920bfabebb06d543a6",
+    "scripts/benchmark-portable-bullets.py": "0ca84556c19473306a989d4f3d3a1d488dbd137f18f962737453b7c60fa029fb",
+    "scripts/benchmark-portable-burst.py": "588b6dbaf3f42efc29394a8ada75b07db89c329a8d13bb2b57b394eb05f6c881",
     "scripts/benchmark-portable-capacity.py": "b58f33ca679bf318bd14cf1b0c1f80ef1a31ad20a2c550c8ede176e9afc35734",
     "scripts/benchmark-portable-carriers.py": "c14f9634e3d56ee34fe5179522bcef8bd3c37e35195af2b29e9b3ecbce959df1",
     "scripts/benchmark-portable-charge-control.py": "cf4ffbe2c8044e1d03650102190d5fb35fc9d6b26f5341b5341e3a30f3d1618e",
@@ -402369,6 +404198,7 @@
     "scripts/make-weapons-fixture.py": "5fdbaa0fd0d4f718bad00714841496be956712b8faac15eaf3d6a50437b6a5f9",
     "scripts/periodic_target_cases.py": "5e2c1522e9f6aeabafd60f95775670061a9461a9c7b37c2ad1794ab0da626f81",
     "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
+    "scripts/portable_burst_oracle.py": "ead02982a73a73a929be98a20839bc2595618b3e2c2d0a043599a44bde0495b3",
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
     "scripts/portable_health_oracle.py": "8aa63838b72808fa2cce41d3434d9e4795286893e3042f9e807b5fea32a1e3fc",
     "scripts/portable_weapon_oracle.py": "1e3d0ddd94570a6d358e2593ee53b1a7deb68d465b28d3f977dfef95c3255680",
@@ -402482,9 +404312,9 @@
     "scripts/verify-periodic-detail.py": "592431aefb6cbba77fc8b0ac925dbcbe342fa87e488d423cedfa270df0261e05",
     "scripts/verify-periodic-sources-detail.py": "bece3113347f76c55022591fb7308cc2bcd181ff56497cb17de691f791450dda",
     "scripts/verify-periodic-targets-detail.py": "e159b1a38c095cfedb489105ae2c90051f6cf34cdbc8a35acb351b1e9b835159",
-    "scripts/verify-portable-api.py": "fea72b86a59d950f9e23010ee0d463a94c6c58cad889a1d9fdbfdff7de57d9e3",
+    "scripts/verify-portable-api.py": "4e865b09319316ba25e67136f01fb3a5a66095f4e5eb20670a95e869c0bb8a62",
     "scripts/verify-portable-catalog-weapons.py": "4986f71dc931d68ffad1bcdea2bf9be5e1dcb586e8d0c1a6001b5ca75799e3e6",
-    "scripts/verify-portable-combat.py": "3472f227c7435d5f5b017d37a43f961fd1e6854c0e2e947b7cb891190a8340be",
+    "scripts/verify-portable-combat.py": "fffafb56ae25d08bc092b80e52c885d49a3cb31609cbda1048ee632d930492c1",
     "scripts/verify-portable-events.py": "a0c19364ccfbb0436268ca56a79457abbb588235c71a8e6d1565d8fe757cd6a7",
     "scripts/verify-portable-numeric.py": "6f69e28e3de824899cc5e25320eb9ebfc2a5a4f44c5a3e5dc393a0ce7b664d9e",
     "scripts/verify-portable-probe.py": "e2bd6b6f9148a178477a3a11c83a4ac4387bc865b4d18b2252e989387917ff13",
