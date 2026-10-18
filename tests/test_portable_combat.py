@@ -19,8 +19,8 @@ class CombatBoundaryTests(unittest.TestCase):
 
     def test_unported_mechanics_and_invalid_target_identity_fail_closed(self):
         base=v.fixtures()[0]
-        changes=[('weapon',dict(mode='auto_warmup')),('weapon',dict(pellets=2)),('weapon',dict(toggle=True)),
-                 ('weapon',dict(stage=4)),('weapon',dict(capacity=True)),('weapon',dict(interval=0)),
+        changes=[('weapon',dict(mode='auto_warmup')),('weapon',dict(pellets=65)),('weapon',dict(toggle=True)),
+                 ('weapon',dict(stage=5)),('weapon',dict(capacity=True)),('weapon',dict(interval=0)),
                  ('weapon',dict(reload=float('nan'))),('weapon',dict(mode='charge',charge=2,interval=1)),
                  ('target',dict(kind=1)),('target',dict(kind=5)),('target',dict(generation=0)),
                  ('target',dict(identity=True)),('target',dict(hp=0)),('target',dict(shield=1))]
@@ -32,13 +32,21 @@ class CombatBoundaryTests(unittest.TestCase):
         c=copy.deepcopy(base);c['combat']['targets'] += [dict(kind=5,identity=9,hp=1)]*2
         with self.assertRaises(ValueError):v.compile_case(c)
 
+    def test_unported_mode_mechanics_fail_before_gpu(self):
+        base=next(c for c in v.fixtures() if c['name']=='mode-duration-restores-base')
+        for patch in (dict(full_charge_mult=250),dict(fire_rate_max=8),dict(entry_reload=True),
+                      dict(max_ammo_buff_applies=True),dict(duration_bullets=2),dict(tick_interval=.1)):
+            c=copy.deepcopy(base);c['effects'][1].update(patch)
+            with self.subTest(patch=patch),self.assertRaises(ValueError):v.compile_case(c)
+
     def test_wire_regions_do_not_overlap_or_exceed_transport_capacity(self):
         inputs=[(0,32),(L['DEFINITION_BASE'],L['DEFINITIONS']*L['DEFINITION_WORDS']),
                 (L['COMMAND_BASE'],L['COMMANDS']*8),(L['WEAPON_BASE'],5*L['WEAPON_WORDS']),
-                (L['TARGET_BASE'],8*L['TARGET_WORDS'])]
+                (L['TARGET_BASE'],8*L['TARGET_WORDS']),
+                (L['WEAPON_EXTRA_BASE'],5*4),(L['MODE_BASE'],L['DEFINITIONS']*L['MODE_WORDS'])]
         outputs=[(0,16),(L['QUERY_BASE'],L['COMMANDS']*L['QUERY_WORDS']),
                  (L['TRACE_BASE'],L['TRACE']*L['TRACE_WORDS']),(L['STATE_BASE'],L['DEFINITIONS']*10),
-                 (L['TIMER_TARGET_BASE'],L['DEFINITIONS']*2),
+                 (L['TIMER_TARGET_BASE'],L['DEFINITIONS']*2),(L['BURST_TRACE_BASE'],64*8),
                  (L['COMBAT_QUERY_BASE'],L['COMMANDS']*L['COMBAT_QUERY_WORDS']),
                  (L['TARGET_STATE_BASE'],8*10),
                  (L['COMBAT_STATE_QUERY_BASE'],L['COMMANDS']*L['COMBAT_STATE_QUERY_WORDS'])]

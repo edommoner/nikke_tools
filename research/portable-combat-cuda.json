@@ -1,1 +1,7 @@
-{"passed": false, "gpu_execution_verified": false, "stage": "execution-pending"}
+{
+  "passed": false,
+  "gpu_execution_verified": false,
+  "backend": "cuda",
+  "stage": "new-runtime-not-yet-verified",
+  "baseline_report": "portable-combat-cuda-v2.json"
+}

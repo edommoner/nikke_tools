@@ -36,25 +36,31 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     allowed = {'name','source','type','stat','fixed_value','values','duration','duration_values',
                'target','trigger','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
     for eff, owner in effects:
-        if set(eff)-allowed:
-            raise UnsupportedPortable('Unported effect fields: '+', '.join(sorted(set(eff)-allowed)))
+        effect_allowed=allowed | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','pellets','muzzles','post_fire_delay','first_damage_coeff','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
+        if set(eff)-effect_allowed:
+            raise UnsupportedPortable('Unported effect fields: '+', '.join(sorted(set(eff)-effect_allowed)))
         trigger=eff.get('trigger',{})
         if set(trigger)-{'timing','condition'} or trigger.get('condition') or len(trigger.get('timing',[])) != 1:
             raise UnsupportedPortable('Exactly one unconditional timing is currently supported')
         timing=trigger['timing'][0]
-        if not isinstance(timing,str) or not re.fullmatch(r'battle_start|on_attack|burst_cast|full_burst_start|full_burst_end|event:full_reload|last_bullet|last_bullet_fire|full_charge|full_charge_fire|full_charge_hit|squad_ammo_consume|hit_count:(?:[^:]+:)?[1-9][0-9]*',timing):
+        if not isinstance(timing,str) or not re.fullmatch(r'battle_start|on_attack|burst_cast|full_burst_start|full_burst_end|event:full_reload|last_bullet|last_bullet_fire|full_charge|full_charge_fire|full_charge_hit|squad_ammo_consume(?::[1-9][0-9]*)?|pellet_hit(?::[1-9][0-9]*)?|burst_enter:[123]|event:state_end:[^:]+|hit_count:(?:[^:]+:)?[1-9][0-9]*',timing):
             raise UnsupportedPortable('Unported timing policy (including passive/every)')
         kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
         if kind=='buff':
-            if stat not in ('atk_pct','crit_rate','crit_dmg') or target not in ('self','all_allies'):
+            if (stat not in ('atk_pct','crit_rate','crit_dmg') and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat))) or target not in ('self','all_allies'):
                 raise UnsupportedPortable('Unported buff or recipient selector')
         elif kind=='damage':
             if stat not in ('damage','dot_damage','auto_damage') or target not in ('target','boss'):
                 raise UnsupportedPortable('Unported damage family or geometry')
         elif kind=='instant':
-            if stat not in ('remove_named_buff','force_skill_use') or target!='self':
+            if stat not in ('remove_named_buff','force_skill_use','burst_reentry') or target!='self':
                 raise UnsupportedPortable('Unported instant or recipient selector')
+        elif kind=='weapon_change':
+            if combat is None or target!='self':raise UnsupportedPortable('Weapon mode requires combat and self recipient')
+            if eff.get('tick_interval'):raise UnsupportedPortable('Periodic weapon-mode activation is not ported')
         else:raise UnsupportedPortable('Unported effect kind')
+        if (stat=='burst_reentry' or isinstance(stat,str) and stat.startswith('burst_stage_override:')) and (combat is None or target!='self'):
+            raise UnsupportedPortable('Burst stage state requires combat and self recipient')
         # Count/stack bounds are discrete. Do not truncate malformed definitions.
         for key in ('max_stack','max_trigger'):
             value=eff.get(key,1 if key=='max_stack' else -1)
@@ -76,7 +82,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         words[at:at+2]=double_words(value)
     words[24:26]=double_words(.15);words[26:28]=double_words(.5)
     for index,row in enumerate(program['effects']):
-        if row[144]!=1 or int(row[145]) not in (0,1,2,3,7,8,10,11,12,14,19,21,26,49):
+        if row[144]!=1 or int(row[145]) not in (0,1,2,3,4,7,8,10,11,12,14,19,20,21,26,29,49):
             raise UnsupportedPortable('Unported trigger event')
         if row[146]>2**31-1 or row[146]!=int(row[146]) or row[147] not in (0,1):
             raise UnsupportedPortable('Unported count policy')
@@ -87,10 +93,14 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
                 'EVENT':int(row[145]),'THRESHOLD':int(row[146]),'COUNT_MODE':int(row[147]),
                 'EVENT_NAME':int(row[148]),'TARGET_NAME':int(row[36]),
                 'FORCE_MASK':int(row[legacy.B3_MASK]),'RECIPIENTS':31 if row[4]==1 else 1<<int(row[0]),
-                'TARGET':int(effects[index][0].get('target')=='boss')}
+                'TARGET':int(effects[index][0].get('target')=='boss'), 'STAGE_ARG':int(row[151]),
+                'STAGE_OVERRIDE':int(row[252]),'REENTRY':int(row[253]),'TOGGLE':int(bool(int(row[213]) & 128))}
         for key,value in fields.items():compact[F[key]]=value & 0xffffffff
         for key,offset in [('VALUE',6),('DURATION',7),('INTERVAL',59)]:compact[F[key]:F[key]+2]=double_words(row[offset])
         at=L['DEFINITION_BASE']+index*L['DEFINITION_WORDS'];words[at:at+len(compact)]=compact
+        if row[1]==2:
+            from portable_combat import pack_mode
+            pack_mode(words,index,row,double_words)
     combat_meta = None
     if combat is not None:
         from portable_combat import pack_combat
@@ -156,7 +166,8 @@ def decode(words,metadata):
             q['combat']['targets']=[dict(generation=words[states+8*j],active=bool(words[states+8*j+1]),hp=number(states+8*j+2),damage=number(states+8*j+4),hits=words[states+8*j+6]) for j in range(len(metadata['combat']['targets']))]
             for who,w in enumerate(q['combat']['weapons']):
                 at=states+64+who*8
-                w.update(ready=number(at),charge_until=number(at+2),charging=bool(words[at+4]),aim=words[at+5])
+                w.update(ready=number(at),charge_until=number(at+2),charging=bool(words[at+4]),aim=words[at+5],mode_index=words[at+6]-1,mode_shots=words[at+7])
+            q['combat'].update(reentry_slot=bool(words[states+104]),reentry_done=words[states+105],casts=list(words[states+106:states+111]))
     trace=[]
     for i in range(words[2]):
         at=L['TRACE_BASE']+i*L['TRACE_WORDS'];row=words[at]
@@ -169,12 +180,17 @@ def decode(words,metadata):
         timers.append(dict(effect=name,due=number(at),expiry=number(at+2),epoch=words[at+4],
                            order=words[at+5],active=bool(words[at+6]),stacks=words[at+7],activations=words[at+8],
                            target_slot=words[L['TIMER_TARGET_BASE']+2*i],target_generation=words[L['TIMER_TARGET_BASE']+2*i+1]))
+    if words[4]>64:raise RuntimeError('Invalid burst trace count')
+    burst_trace=[]
+    for i in range(words[4]):
+        at=L['BURST_TRACE_BASE']+i*8
+        burst_trace.append(dict(time=number(at),event=words[at+2],owner=words[at+3]-1))
     targets=[]
     if metadata.get('combat') is not None:
         for i,t in enumerate(metadata['combat']['targets']):
             at=L['TARGET_STATE_BASE']+i*10
             targets.append(dict(kind=t.get('kind',0),identity=t.get('identity',i),generation=words[at],active=bool(words[at+1]),hp=number(at+2),damage=number(at+4),hits=words[at+6]))
-    return dict(status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,max_stack_depth=words[3])
+    return dict(status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,max_stack_depth=words[3])
 
 
 def run_programs(programs, *, backend='metal'):

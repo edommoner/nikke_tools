@@ -14,12 +14,12 @@ from portable_runtime import compile_program,run_programs,PortableExecutionError
 
 
 def fixtures():
-    return json.loads((ROOT/'tests/fixtures/portable-combat.json').read_text(encoding='utf-8'))['cases']
+    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json')),[])
 
 
 def compile_case(case):
     chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES]
-    return compile_program(chars,[(e,NAMES[0]) for e in case['effects']],case['script'],[1000]*5,combat=case['combat'])
+    return compile_program(chars,[(e,NAMES[o]) for e,o in zip(case['effects'],case.get('owners',[0]*len(case['effects'])))],case['script'],[1000]*5,combat=case['combat'])
 
 
 def contains(actual,expected,path=''):
@@ -42,7 +42,7 @@ def main():
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n',encoding='utf-8')
     tracked=['app/portable_runtime.py','app/portable_combat.py','app/portable_specs.py','app/portable_backend.py',
              'app/detail_gpu.py','app/effect_spec.py','app/impact_specs.py','app/world_condition_specs.py','scripts/verify-portable-combat.py',
-             'tests/fixtures/portable-combat.json','scripts/run-metal-probe.swift']
+             'tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','scripts/run-metal-probe.swift']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     cases=fixtures();programs=[compile_case(c) for c in cases]
     # The same identity may be re-used only with a new bounded generation.
@@ -76,12 +76,15 @@ def main():
         assert len(r['queries'])==len(c['expected_queries'])
         contains(r['queries'],c['expected_queries'],c['name'])
         if 'expected_targets' in c:contains(r['targets'],c['expected_targets'],c['name']+'.targets')
+        if 'expected_burst_trace' in c:
+            assert len(r['burst_trace'])==len(c['expected_burst_trace'])
+            contains(r['burst_trace'],c['expected_burst_trace'],c['name']+'.burst_trace')
         if 'expected_timers' in c:contains(r['timers'],c['expected_timers'],c['name']+'.timers')
         rows.append(dict(name=c['name'],passed=True,actual=r))
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     result.update(passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
                   rejection_execution=negative,rejected_cases=[dict(name='target-generation-overflow',status=2),dict(name='wire-target-capacity',status=64)],
-                  scope='Bounded fixed-rate/automatic full-charge weapons, simple 1-2-3 burst policy, body/add HP pools and captured periodic generations; no general battle acceptance')
+                  scope='Shared bounded weapon modes, physical pellets/muzzles, burst reentry and body/add targets; no general battle acceptance')
     path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(dict(passed=True,cases=len(rows),device=result['transport']['device'],backend=args.backend)))
 

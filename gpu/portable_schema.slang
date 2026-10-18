@@ -1,5 +1,5 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721330U;
+static const uint PORTABLE_ABI = 1346721331U;
 static const uint P_DEFINITIONS = 32U;
 static const uint P_COMMANDS = 64U;
 static const uint P_DEPTH = 32U;
@@ -14,6 +14,10 @@ static const uint P_QUERY_WORDS = 32U;
 static const uint P_TRACE_BASE = 2064U;
 static const uint P_TRACE_WORDS = 8U;
 static const uint P_STATE_BASE = 3088U;
+static const uint P_WEAPON_EXTRA_BASE = 1744U;
+static const uint P_MODE_BASE = 1800U;
+static const uint P_MODE_WORDS = 32U;
+static const uint P_BURST_TRACE_BASE = 3600U;
 static const uint P_WEAPON_BASE = 1600U;
 static const uint P_WEAPON_WORDS = 16U;
 static const uint P_TARGET_BASE = 1680U;
@@ -43,5 +47,9 @@ static const uint D_TARGET_NAME = 18U;
 static const uint D_FORCE_MASK = 19U;
 static const uint D_RECIPIENTS = 20U;
 static const uint D_TARGET = 21U;
+static const uint D_STAGE_ARG = 22U;
+static const uint D_STAGE_OVERRIDE = 23U;
+static const uint D_REENTRY = 24U;
+static const uint D_TOGGLE = 25U;
 static const uint P_TARGET_INHERIT_0 = 256U;
 static const uint P_TARGET_INHERIT_1 = 662863872U;
