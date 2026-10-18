@@ -2,7 +2,7 @@
 
 ## 2026-10-19 受領者別の発数寿命
 
-発数制バフの受領者別消費・再付与・stack、遅延対象、終了通知を共通実行器へ接続しました。ABI `0x50455641`、Metalの389正例・19拒否、発数寿命33件の独立CPU参照が成功しています。[消費順序・CPUとの差異・効率化](portable-bullet-runtime.md)を確認してください。Windowsの再検証結果と固定版は `research/portable-combat-checkpoint.json` に記録します。実編成GPU検証は0/203体、通常画面と全効果の接続は未完了です。
+発数制バフの受領者別消費・再付与・stack、遅延対象、終了通知を共通実行器へ接続しました。ABI `0x50455641`、Metalの389正例・19拒否、発数寿命33件の独立CPU参照が成功しています。[消費順序・CPUとの差異・効率化](portable-bullet-runtime.md)を確認してください。固定版 `d8d0d79` はWindowsのRTX 3070 Tiでも通常条件・低優先度の1回、95.711秒で成功し、共通ソース・入力・全出力・検証コード・status・全CPU参照リストがMetalと一致しました。診断トレース付きの先行実行は120秒で打ち切り、失敗記録も保持しています。照合は `research/portable-combat-checkpoint.json`、前段353正例の両GPU一致は `portable-combat-v16-checkpoint.json` に保存しています。実編成GPU検証は0/203体、通常画面と全効果の接続は未完了です。
 
 ## 2026-10-19 遅延対象と共有スナップショット
 
