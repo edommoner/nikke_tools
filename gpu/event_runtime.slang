@@ -33,11 +33,13 @@ struct Frame
 {
     uint mode, event, owner, cursor, target, value, repeatRow, repeatLeft, repeatPassive;
     int argument;
-    uint64_t time;
+    uint64_t time, healthValue, healthPrevious, healthNext;
 };
 struct Runtime
 {
     Definition defs[32];
+    uint hpWatchCount, hpWatchSlots[256], hpDirtyMask, hpPendingMask, hpEdgeGuard;
+    uint64_t hpPrevious[5], hpNext[5];
     uint healthMask; int healSource;
     uint64_t baseHP[5], hp[5], hpPct[5], baseDefense[5], hpSnapshot[32], healing[5];
     uint quantityMask, weaponInitialized[5], modeMagazine[5], delayCover[5], pendingAutoReload[5];
@@ -154,6 +156,7 @@ void markEntry(inout Runtime s, uint row)
 
 #include "quantity_runtime.slang"
 #include "health_runtime.slang"
+#include "hp_edge_runtime.slang"
 
 // Collect in resident order once per query/hit. Four critical sums use the
 // same compensated accumulation as the reference; other scalar sums are ordered.
@@ -308,7 +311,56 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
     while (depth >= 0 && s.error == 0)
     {
         if (++work > 4096) { s.error = 4; break; }
+        if (s.hpPendingMask != 0 && s.hpEdgeGuard == 0)
+        {
+            uint who = 0; while ((s.hpPendingMask & (1U << who)) == 0) who++;
+            s.hpPendingMask &= ~(1U << who);
+            uint64_t previous = s.hpPrevious[who], next = s.hpNext[who];
+            pushFrame(s,frames,depth,4,f64Less(next,previous) ? 0 : 2,who,0,frames[depth].time);
+            if (s.error != 0) break;
+            frames[depth].healthPrevious = previous; frames[depth].healthNext = next; s.hpEdgeGuard = 1; continue;
+        }
+        if (s.hpDirtyMask != 0)
+        {
+            uint who = 0; while ((s.hpDirtyMask & (1U << who)) == 0) who++;
+            s.hpDirtyMask &= ~(1U << who); syncHealthActor(s,who,frames[depth].time); continue;
+        }
         Frame f = frames[depth]; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; uint row = s.count, passive = 0;
+        if (f.mode == 7) { depth--; continue; }
+        if (f.mode == 4)
+        {
+            bool delivered = false;
+            while (frames[depth].cursor < s.hpWatchCount)
+            {
+                uint watch = frames[depth].cursor++, at = hpWatchAddress(s,watch);
+                uint observer = s.defs[s.hpWatchSlots[watch]/8].owner;
+#ifdef PORTABLE_HP_WATCH_SCAN_REFERENCE
+                bool seen = false;
+                for (uint i = 0; i < watch; i++)
+                {
+                    uint prior = hpWatchAddress(s,i);
+                    if (s.defs[s.hpWatchSlots[i]/8].owner == observer && commands[prior] == commands[at] && commands[prior+4] == commands[at+4]) seen = true;
+                }
+                if (seen) continue;
+#endif
+                if (!hpEdgeMatches(f.owner,observer,int(commands[at+7]),f.event,f.healthPrevious,f.healthNext,loadNumber(at+5))) continue;
+                pushFrame(s,frames,depth,0,commands[at],observer,int(commands[at+4]),f.time); delivered = true; break;
+            }
+            if (delivered) continue;
+            if (f.event == 0) { frames[depth].event = 1; frames[depth].cursor = 0; continue; }
+            s.hpEdgeGuard = 0; depth--; continue;
+        }
+        if (f.mode == 5 || f.mode == 6)
+        {
+            Definition health = s.defs[uint(f.argument)];
+            uint who = frames[depth].cursor;
+            while (who < 5 && (health.recipients & (1U << who)) == 0) who++;
+            if (who == 5) { depth--; continue; }
+            frames[depth].cursor = who+1;
+            if (f.mode == 5) s.hp[who] = smaller(f64Add(s.hp[who],f.healthValue),effectiveMaxHP(s,who,f.time));
+            else s.hp[who] = larger(0,f64Mul(s.hp[who],f64Add(ONE,f64Div(health.value,HUNDRED) ^ F64_SIGN)));
+            syncHealthActor(s,who,f.time); continue;
+        }
         if (f.mode == 3)
         {
             depth--; Definition heal = s.defs[uint(f.argument)];
@@ -318,7 +370,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             uint64_t before = s.hp[f.owner];
             s.hp[f.owner] = smaller(f64Add(before,amount),effectiveMaxHP(s,f.owner,f.time));
             s.healing[f.owner] = f64Add(s.healing[f.owner],larger(0,f64Add(s.hp[f.owner],before ^ F64_SIGN)));
-            syncHealth(s,f.time);
+            syncHealthActor(s,f.owner,f.time);
             pushFrame(s,frames,depth,0,16,f.owner,int(heal.owner),f.time); continue;
         }
         if (f.mode == 1)
@@ -346,7 +398,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                     uint event = commands[at], mode = commands[at+3]; int tag = int(commands[at+4]), stage = int(commands[at+7]);
                     if (event != f.event) continue;
                     if (event == 4 && stage != f.argument || event == 6 && int(j) != f.argument) continue;
-                    if ((event == 9 || event == 29 || event == 49) && tag != f.argument) continue;
+                    if ((event == 9 || event == 29 || event == 31 || event == 48 || event == 49) && tag != f.argument) continue;
                     if (event == 9 && commands[at+5] != f.value) continue;
                     multiplicity++; bool ok = true;
                     if (mode != 0 || event == 7 || event == 8)
@@ -386,8 +438,18 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (!live) { s.stacks[row] = 0; s.hpSnapshot[row] = 0; markEntry(s,row); }
             s.stacks[row] = min(s.stacks[row]+1,d.maxStack); s.alive[row] = 1; s.activated[row] = f.time;
             s.end[row] = f64Less(d.duration,0) ? FOREVER : f64Add(f.time,d.duration);
-            applyHealthBuff(s,row,f.time);
-            pushFrame(s,frames,depth,0,9,d.owner,int(d.name),f.time,s.stacks[row]);
+            if (s.hpWatchCount != 0 && (d.stat >= S_max_hp_pct && d.stat <= S_max_hp_only_pct || d.stat == S_max_hp_from_max_hp_pct))
+            {
+                uint64_t grant = prepareHealthGrant(s,row,f.time);
+                pushFrame(s,frames,depth,0,9,d.owner,int(d.name),f.time,s.stacks[row]);
+                pushFrame(s,frames,depth,5,0,d.owner,int(row),f.time);
+                if (s.error == 0) frames[depth].healthValue = grant;
+            }
+            else
+            {
+                applyHealthBuff(s,row,f.time);
+                pushFrame(s,frames,depth,0,9,d.owner,int(d.name),f.time,s.stacks[row]);
+            }
         }
         else if (d.kind == 6)
         {
@@ -397,9 +459,13 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         }
         else if (d.kind == 8)
         {
-            for (uint who = 0; who < 5; who++) if ((d.recipients & (1U << who)) != 0)
-                s.hp[who] = larger(0,f64Mul(s.hp[who],f64Add(ONE,f64Div(d.value,HUNDRED) ^ F64_SIGN)));
-            syncHealth(s,f.time);
+            if (s.hpWatchCount != 0) pushFrame(s,frames,depth,6,0,d.owner,int(row),f.time);
+            else
+            {
+                for (uint who = 0; who < 5; who++) if ((d.recipients & (1U << who)) != 0)
+                    s.hp[who] = larger(0,f64Mul(s.hp[who],f64Add(ONE,f64Div(d.value,HUNDRED) ^ F64_SIGN)));
+                syncHealth(s,f.time);
+            }
         }
         else if (d.kind == 25) s.pendingReentry[d.owner] = 1;
         else if (d.kind == 2)
@@ -484,6 +550,7 @@ void timerPass(inout Runtime s, uint64_t when, bool damagePass, uint output)
 [noinline]
 void tick(inout Runtime s, uint64_t when, uint output)
 {
+    if (s.hpWatchCount != 0) dispatch(s,7,0,0,0,when,output);
     timerPass(s,when,true,output);
     for (uint j = 0; j < s.count; j++) if (s.alive[j] != 0 && !f64Less(when,s.end[j]))
     { s.alive[j] = 0; s.stacks[j] = 0; syncHealth(s,when); dispatch(s,0,29,s.defs[j].owner,int(s.defs[j].name),when,output); }
@@ -509,6 +576,7 @@ void tick(inout Runtime s, uint64_t when, uint output)
             { dispatch(s,0,6,s.defs[j].owner,int(j),when,output); s.periodDue[j] = f64Add(next,interval); }
         }
     timerPass(s,when,false,output); syncHealth(s,when);
+    if (s.hpWatchCount != 0) dispatch(s,7,0,0,0,when,output);
 }
 
 #include "combat_runtime.slang"
@@ -569,6 +637,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         if (d.kind == 0 && d.stat == S_charge_time_fixed) s.quantityMask |= 8;
         if (d.owner >= 5 || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; } s.defs[j] = d;
     }
+    initializeHPWatches(s);
     uint queries = 0;
     for (uint step = 0; step < commands[input+2] && s.error == 0; step++)
     {
@@ -615,7 +684,8 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         {
             uint index = commands[at+6];
             if (index >= P_COMMANDS) { s.error = 64; break; }
-            syncHealth(s,when); writeHealth(s,when,output+P_HEALTH_QUERY_BASE+index*P_HEALTH_QUERY_WORDS);
+            if (s.hpWatchCount != 0) dispatch(s,7,0,0,0,when,output); else syncHealth(s,when);
+            writeHealth(s,when,output+P_HEALTH_QUERY_BASE+index*P_HEALTH_QUERY_WORDS);
             queries = max(queries,index+1); uint dst = output+P_QUERY_BASE+index*P_QUERY_WORDS;
             storeNumber(dst,when);
             for (uint who = 0; who < 5; who++) { storeNumber(dst+2+2*who,s.total[who]); storeNumber(dst+16+2*who,readStat(s,who,0,when)); }

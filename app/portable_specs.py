@@ -6,7 +6,7 @@ from portable_trigger_specs import CONDITIONS
 from portable_damage_specs import STATS, FLAGS
 from world_condition_specs import target_inheritance_events
 
-ABI = 0x5045563A
+ABI = 0x5045563B
 LIMITS = dict(BATCH=256, TRIGGERS=8, CONDITIONS=3, DEFINITIONS=32, COMMANDS=64, DEPTH=32, TRACE=128,
               INPUT_WORDS=8192, OUTPUT_WORDS=20480, DEFINITION_BASE=32,
               DEFINITION_WORDS=32, COMMAND_BASE=1056, QUERY_BASE=16,

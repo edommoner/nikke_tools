@@ -1,4 +1,5 @@
 // Allied body state and healing. All arithmetic uses shared software binary64.
+[noinline]
 uint64_t effectiveMaxHP(inout Runtime s, uint who, uint64_t when)
 {
 #ifndef PORTABLE_HEALTH_SCAN_REFERENCE
@@ -19,6 +20,7 @@ uint64_t effectiveMaxHP(inout Runtime s, uint who, uint64_t when)
     if (!f64Finite(maximum) || !f64Less(0,maximum)) s.error = 16;
     return maximum;
 }
+[noinline]
 uint64_t effectiveDefense(inout Runtime s, uint who, uint64_t when)
 {
 #ifndef PORTABLE_HEALTH_SCAN_REFERENCE
@@ -37,25 +39,33 @@ uint64_t effectiveDefense(inout Runtime s, uint who, uint64_t when)
     if (!f64Finite(result)) s.error = 16;
     return result;
 }
-void syncHealth(inout Runtime s, uint64_t when)
+[noinline]
+void syncHealthActor(inout Runtime s, uint who, uint64_t when)
 {
-    if (s.healthMask == 0) return;
-    for (uint who = 0; who < 5 && s.error == 0; who++)
+    uint64_t previous = s.hpPct[who], maximum = effectiveMaxHP(s,who,when);
+    if (s.error != 0) return;
+    s.hp[who] = larger(0,smaller(maximum,s.hp[who]));
+    s.hpPct[who] = f64Mul(f64Div(s.hp[who],maximum),HUNDRED);
+    if (!f64Finite(s.hpPct[who])) { s.error = 16; return; }
+    if (s.hpWatchCount != 0 && s.hpEdgeGuard == 0 && !f64Equal(previous,s.hpPct[who]))
     {
-        uint64_t maximum = effectiveMaxHP(s,who,when);
-        if (s.error != 0) return;
-        s.hp[who] = larger(0,smaller(maximum,s.hp[who]));
-        s.hpPct[who] = f64Mul(f64Div(s.hp[who],maximum),HUNDRED);
-        if (!f64Finite(s.hpPct[who])) s.error = 16;
+        if ((s.hpPendingMask & (1U << who)) != 0) { s.error = 64; return; }
+        s.hpPrevious[who] = previous; s.hpNext[who] = s.hpPct[who]; s.hpPendingMask |= 1U << who;
     }
 }
-void applyHealthBuff(inout Runtime s, uint row, uint64_t when)
+[noinline]
+void syncHealth(inout Runtime s, uint64_t when)
 {
-    Definition d = s.defs[row];
-#ifndef PORTABLE_HEALTH_SCAN_REFERENCE
-    if (!(d.stat >= S_max_hp_pct && d.stat <= S_max_hp_only_pct || d.stat == S_max_hp_from_max_hp_pct)) return;
-#endif
-    uint64_t grant = 0;
+    if (s.healthMask == 0 && s.hpWatchCount == 0) return;
+    // With listeners, synchronize one actor at a time in the explicit event
+    // stack. A crossing's children finish before the next actor is observed.
+    if (s.hpWatchCount != 0) { s.hpDirtyMask |= 31; return; }
+    for (uint who = 0; who < 5 && s.error == 0; who++) syncHealthActor(s,who,when);
+}
+[noinline]
+uint64_t prepareHealthGrant(inout Runtime s, uint row, uint64_t when)
+{
+    Definition d = s.defs[row]; uint64_t grant = 0;
     if (d.stat == S_max_hp_pct || d.stat == S_hp_caster_based_pct)
         grant = f64Div(f64Mul(s.baseHP[d.owner],d.value),HUNDRED);
     if (d.stat == S_max_hp_from_max_hp_pct)
@@ -64,17 +74,30 @@ void applyHealthBuff(inout Runtime s, uint row, uint64_t when)
         s.hpSnapshot[row] = f64Div(f64Mul(effectiveMaxHP(s,d.owner,when),scalarValue(s,row,d.owner)),HUNDRED);
         grant = larger(0,f64Add(s.hpSnapshot[row],previous ^ F64_SIGN));
     }
-    if (!f64Finite(grant)) { s.error = 16; return; }
+    if (!f64Finite(grant)) s.error = 16;
+    return grant;
+}
+[noinline]
+void applyHealthBuff(inout Runtime s, uint row, uint64_t when)
+{
+    Definition d = s.defs[row];
+#ifndef PORTABLE_HEALTH_SCAN_REFERENCE
+    if (!(d.stat >= S_max_hp_pct && d.stat <= S_max_hp_only_pct || d.stat == S_max_hp_from_max_hp_pct)) return;
+#endif
+    uint64_t grant = prepareHealthGrant(s,row,when);
+    if (s.error != 0) return;
     if (!f64Zero(grant)) for (uint who = 0; who < 5; who++) if ((d.recipients & (1U << who)) != 0)
         s.hp[who] = smaller(f64Add(s.hp[who],grant),effectiveMaxHP(s,who,when));
     syncHealth(s,when);
 }
+[noinline]
 uint64_t healMultiplier(inout Runtime s, uint recipient, uint source, uint64_t when)
 {
     uint64_t received = larger(0,f64Add(ONE,f64Div(plainQuantity(s,recipient,S_heal_received_pct,when),HUNDRED)));
     uint64_t outgoing = larger(0,f64Add(ONE,f64Div(plainQuantity(s,source,S_outgoing_heal_pct,when),HUNDRED)));
     return f64Mul(received,outgoing);
 }
+[noinline]
 void writeHealth(inout Runtime s, uint64_t when, uint output)
 {
     if (s.error != 0) return;

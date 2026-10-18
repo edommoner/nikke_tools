@@ -87,4 +87,19 @@ class PortableHealthInputTests(unittest.TestCase):
             allies=[dict(base_hp=1000,hp=500) for _ in range(5)];allies[0].update(patch)
             with self.subTest(patch=patch),self.assertRaises(ValueError):compile_program(chars,[(effect,NAMES[0])],[[0,2,0,0,-1,0,0,0]],[1000]*5,allies=allies)
 
+
+class PortableHPEdgeInputTests(unittest.TestCase):
+    def test_invalid_hp_edge_thresholds_and_counts_fail_before_gpu(self):
+        from portable_trigger_specs import validate_input
+        for timing in ('hp_below:nan','hp_below:inf','hp_below_count:50:0','hp_below_count:50:-1','hp_below_count:50:2.5','event:adjacent_hp_below:nan'):
+            with self.subTest(timing=timing),self.assertRaises(ValueError):validate_input(dict(trigger=dict(timing=[timing],condition=[])))
+
+    def test_callers_cannot_inject_hp_edge_history_as_external_notifications(self):
+        import importlib.util
+        spec=importlib.util.spec_from_file_location('hp_edge_verify',ROOT/'scripts/verify-portable-combat.py')
+        v=importlib.util.module_from_spec(spec);spec.loader.exec_module(v)
+        for event in (31,48):
+            case=copy.deepcopy(v.fixtures()[0]);case['script']=[[0,0,event,0,0,-1,0,0]]
+            with self.subTest(event=event),self.assertRaises(ValueError):v.compile_case(case)
+
 if __name__=='__main__':unittest.main()

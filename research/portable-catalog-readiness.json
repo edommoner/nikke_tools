@@ -8,7 +8,7 @@
   "cpu_simulation_executed": false,
   "gpu_execution_performed": false,
   "issues": {
-    "Unported buff or recipient selector": 596,
+    "Unported buff or recipient selector": 598,
     "Unported damage family or geometry": 140,
     "Unported instant or recipient selector": 83,
     "Unported effect fields: duration_bullets": 44,
@@ -16,7 +16,7 @@
     "Unported effect fields: gauge_id, gauge_max": 23,
     "Unported effect fields: scaling, scaling_ref": 22,
     "Unported trigger timing: received_hit_count:1": 18,
-    "Unported health recipient selector": 17,
+    "Unported health recipient selector": 18,
     "Unported trigger timing: event:part_destroy": 13,
     "Unported effect fields: scaling": 12,
     "Unported effect fields: event_scope": 11,
@@ -59,7 +59,6 @@
     "Unported trigger timing: charge_hold:1": 2,
     "Unported predicate: core_hit": 2,
     "Unported predicate: optimal_range": 2,
-    "Unported trigger timing: event:ally_hp_below:50": 2,
     "Unported effect fields: feather_id, feather_interval_base, feather_interval_step_pct, feather_slots": 2,
     "Unported predicate: during_shield": 2,
     "Unported trigger timing: event:cover_healed": 2,
@@ -75,7 +74,6 @@
     "Unported predicate: target_state:예고장": 2,
     "Unported effect fields: duration_scaling, duration_scaling_ref": 2,
     "Unported trigger timing: event:lethal_hit": 2,
-    "Unported trigger timing: hp_below:40": 2,
     "Unported predicate: target_state:안티 AT 필드": 2,
     "Unported trigger timing: received_hit_count:40": 1,
     "Unported predicate: target_code:작열": 1,
@@ -84,7 +82,7 @@
     "Unported predicate: self_stun_immune": 1,
     "Unported trigger timing: crit_hit_count:4": 1,
     "Unported trigger timing: body_hit_count:1": 1,
-    "Unported trigger timing: event:ally_hp_below:15": 1,
+    "Unported predicate: gauge_above:티켓:1": 1,
     "Unported predicate: target_state:내부 폭발탄": 1,
     "Unported predicate: gauge_above:오버 에너지 단계:1": 1,
     "Unported predicate: gauge_above:오버 에너지 단계:2": 1,
@@ -108,9 +106,6 @@
     "Unported trigger timing: part_hit_count:5": 1,
     "Unported predicate: self_stat_above:accuracy_pct:0": 1,
     "Unported trigger timing: multi_hit:2": 1,
-    "Unported trigger timing: hp_below_count:20:1": 1,
-    "Unported trigger timing: hp_below_count:20:2": 1,
-    "Unported trigger timing: hp_below_count:20:3": 1,
     "Unported effect fields: post_ramp_tick_delay, ramp_damage_stack, ramp_interval, scaling": 1,
     "Unported predicate: prob:5": 1,
     "Unported predicate: prob:20": 1,
@@ -119,8 +114,6 @@
     "Unported predicate: target_state:고위험 대상": 1,
     "Unported trigger timing: crit_hit_count:2": 1,
     "Unported trigger timing: feather_tick": 1,
-    "Unported trigger timing: event:adjacent_hp_below:90": 1,
-    "Unported trigger timing: event:adjacent_hp_max": 1,
     "Unported trigger timing: event:shield_applied": 1,
     "Unported trigger timing: event:비스트 케이지": 1,
     "Unported trigger timing: event:엔드 하울링": 1,
@@ -158,7 +151,7 @@
     "Unported predicate: target_code:수냉": 1
   },
   "diagnostic_semantic_issues": {
-    "Unported buff or recipient selector": 596,
+    "Unported buff or recipient selector": 598,
     "Unported damage family or geometry": 140,
     "Unported instant or recipient selector": 83,
     "Unported effect fields: duration_bullets": 44,
@@ -166,7 +159,7 @@
     "Unported effect fields: gauge_id, gauge_max": 23,
     "Unported effect fields: scaling, scaling_ref": 22,
     "Unported trigger timing: received_hit_count:1": 18,
-    "Unported health recipient selector": 17,
+    "Unported health recipient selector": 18,
     "Unported trigger timing: event:part_destroy": 13,
     "Unported effect fields: scaling": 12,
     "Unported effect fields: event_scope": 11,
@@ -209,7 +202,6 @@
     "Unported trigger timing: charge_hold:1": 2,
     "Unported predicate: core_hit": 2,
     "Unported predicate: optimal_range": 2,
-    "Unported trigger timing: event:ally_hp_below:50": 2,
     "Unported effect fields: feather_id, feather_interval_base, feather_interval_step_pct, feather_slots": 2,
     "Unported predicate: during_shield": 2,
     "Unported trigger timing: event:cover_healed": 2,
@@ -225,7 +217,6 @@
     "Unported predicate: target_state:예고장": 2,
     "Unported effect fields: duration_scaling, duration_scaling_ref": 2,
     "Unported trigger timing: event:lethal_hit": 2,
-    "Unported trigger timing: hp_below:40": 2,
     "Unported predicate: target_state:안티 AT 필드": 2,
     "Unported trigger timing: received_hit_count:40": 1,
     "Unported predicate: target_code:작열": 1,
@@ -234,7 +225,7 @@
     "Unported predicate: self_stun_immune": 1,
     "Unported trigger timing: crit_hit_count:4": 1,
     "Unported trigger timing: body_hit_count:1": 1,
-    "Unported trigger timing: event:ally_hp_below:15": 1,
+    "Unported predicate: gauge_above:티켓:1": 1,
     "Unported predicate: target_state:내부 폭발탄": 1,
     "Unported predicate: gauge_above:오버 에너지 단계:1": 1,
     "Unported predicate: gauge_above:오버 에너지 단계:2": 1,
@@ -258,9 +249,6 @@
     "Unported trigger timing: part_hit_count:5": 1,
     "Unported predicate: self_stat_above:accuracy_pct:0": 1,
     "Unported trigger timing: multi_hit:2": 1,
-    "Unported trigger timing: hp_below_count:20:1": 1,
-    "Unported trigger timing: hp_below_count:20:2": 1,
-    "Unported trigger timing: hp_below_count:20:3": 1,
     "Unported effect fields: post_ramp_tick_delay, ramp_damage_stack, ramp_interval, scaling": 1,
     "Unported predicate: prob:5": 1,
     "Unported predicate: prob:20": 1,
@@ -269,8 +257,6 @@
     "Unported predicate: target_state:고위험 대상": 1,
     "Unported trigger timing: crit_hit_count:2": 1,
     "Unported trigger timing: feather_tick": 1,
-    "Unported trigger timing: event:adjacent_hp_below:90": 1,
-    "Unported trigger timing: event:adjacent_hp_max": 1,
     "Unported trigger timing: event:shield_applied": 1,
     "Unported trigger timing: event:비스트 케이지": 1,
     "Unported trigger timing: event:엔드 하울링": 1,
@@ -308,9 +294,9 @@
     "Unported predicate: target_code:수냉": 1
   },
   "missing_families": {
-    "damage_modifiers": 483,
+    "damage_modifiers": 482,
     "damage": 199,
-    "effect_lifecycle": 105,
+    "effect_lifecycle": 103,
     "weapon": 79,
     "protection": 59,
     "healing": 58,
@@ -319,7 +305,7 @@
     "burst_cooldown": 51,
     "ammo_reload": 50,
     "charge": 43,
-    "hp": 20,
+    "hp": 17,
     "healing_buffers": 9,
     "character_state": 5
   },
@@ -8118,12 +8104,12 @@
             "gauge_above:티켓:1"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:ally_hp_below:15",
+          "diagnostic_semantic_issue": "Unported predicate: gauge_above:티켓:1",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported trigger timing: event:ally_hp_below:15"
+          "issue": "Unported predicate: gauge_above:티켓:1"
         },
         {
           "name": "열차 탑승 도와줄게! 2",
@@ -30615,11 +30601,10 @@
             "hp_below_count:20:1"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: hp_below_count:20:1",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: hp_below_count:20:1"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "근성 2",
@@ -30630,11 +30615,10 @@
             "hp_below_count:20:2"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: hp_below_count:20:2",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: hp_below_count:20:2"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "근성 3",
@@ -30645,11 +30629,10 @@
             "hp_below_count:20:3"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: hp_below_count:20:3",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: hp_below_count:20:3"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "정정당당 승부다!",
@@ -40453,12 +40436,12 @@
             "ally_hp_below:50"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:ally_hp_below:50",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported trigger timing: event:ally_hp_below:50"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "터그 놀이 2",
@@ -40472,10 +40455,10 @@
             "ally_hp_below:50"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:ally_hp_below:50",
+          "diagnostic_semantic_issue": "Unported health recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: event:ally_hp_below:50"
+          "issue": "Unported health recipient selector"
         },
         {
           "name": "산책 훈련",
@@ -44209,10 +44192,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:adjacent_hp_below:90",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: event:adjacent_hp_below:90"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "아이리스 2",
@@ -44223,11 +44206,10 @@
             "event:adjacent_hp_max"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:adjacent_hp_max",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: event:adjacent_hp_max"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "시크릿 가든",
@@ -56570,13 +56552,10 @@
           "conditions": [
             "self_hp_below:40"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: hp_below:40",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported trigger timing: hp_below:40"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "B 모드 해제 2",
@@ -56590,13 +56569,10 @@
           "conditions": [
             "self_hp_below:40"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: hp_below:40",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported trigger timing: hp_below:40"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -63884,8 +63860,8 @@
     "app/portable_combat.py": "e59690a2d46ace2902b4d3aee0270b559bd5a09f46c561a0b9bf036d8effb0d1",
     "app/portable_damage_specs.py": "5476b5318ed0d07731e0baed3a66d73a48cbd2922eb1921f905e40794ba4740a",
     "app/portable_runtime.py": "c8aae4d7ee7a9a78a155a5cc93004e84647d039251d76751dffef23dab82a226",
-    "app/portable_specs.py": "e945e87200fadfc0841d7c9967d91a0ab21c30106a903cb46a1f8b6a0e0837a9",
-    "app/portable_trigger_specs.py": "83b6fa51124f33981ede9e2808e578442cce6d57f9c2dcd661a9884e9ada313a",
+    "app/portable_specs.py": "3d61192a0a283e496c7f9bf523c08e041022cec0ae7ea2ab87d9aaf33e8004fc",
+    "app/portable_trigger_specs.py": "e6d900cc9e6b6356a552451bee9528abdddaa6e86c7777019bbf170ea97ce801",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",
     "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",

@@ -101311,35 +101311,3612 @@
       "burst_trace_total": 0,
       "frames": 0,
       "max_stack_depth": 2
+    },
+    {
+      "allies": [
+        {
+          "hp": 250.0,
+          "max_hp": 1000.0,
+          "hp_pct": 25.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        },
+        {
+          "time": 1.0,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 250.0,
+              "max_hp": 1000.0,
+              "hp_pct": 25.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "spend",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 2,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "edge",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 5
+    },
+    {
+      "allies": [
+        {
+          "hp": 500.0,
+          "max_hp": 1000.0,
+          "hp_pct": 50.0,
+          "defense": 100.0,
+          "healing": 500.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            2.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 500.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "spend",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 2,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "heal",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "edge",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 2,
+          "activations": 2,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 5
+    },
+    {
+      "allies": [
+        {
+          "hp": 500.0,
+          "max_hp": 1000.0,
+          "hp_pct": 50.0,
+          "defense": 100.0,
+          "healing": 1000.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 500.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        },
+        {
+          "time": 2.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 1000.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "spend",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 3,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "heal",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 2,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "second edge",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 5
+    },
+    {
+      "allies": [
+        {
+          "hp": 500.0,
+          "max_hp": 1000.0,
+          "hp_pct": 50.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            3.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "spend",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "edge A",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "edge B",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 5
+    },
+    {
+      "allies": [
+        {
+          "hp": 500.0,
+          "max_hp": 1000.0,
+          "hp_pct": 50.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            3.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "spend",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "integer edge",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "decimal edge",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 5
+    },
+    {
+      "allies": [
+        {
+          "hp": 505.0,
+          "max_hp": 1000.0,
+          "hp_pct": 50.5,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 505.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.5,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "spend",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "fraction edge",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 5
+    },
+    {
+      "allies": [
+        {
+          "hp": 250.0000025,
+          "max_hp": 1000.0,
+          "hp_pct": 25.00000025,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 250.0000025,
+              "max_hp": 1000.0,
+              "hp_pct": 25.00000025,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "spend",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "edge",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 0,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 3
+    },
+    {
+      "allies": [
+        {
+          "hp": 500.000005,
+          "max_hp": 1000.0,
+          "hp_pct": 50.0000005,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 500.000005,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0000005,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "spend",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "edge",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 5
+    },
+    {
+      "allies": [
+        {
+          "hp": 500.0000200000001,
+          "max_hp": 1000.0,
+          "hp_pct": 50.00000200000001,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 500.0000200000001,
+              "max_hp": 1000.0,
+              "hp_pct": 50.00000200000001,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "spend",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "edge",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 0,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 3
+    },
+    {
+      "allies": [
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 500.0,
+          "max_hp": 1000.0,
+          "hp_pct": 50.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "allies": [
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "spend",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "observer zero",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "observer one",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "observer four",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 5
+    },
+    {
+      "allies": [
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 500.0,
+          "max_hp": 1000.0,
+          "hp_pct": 50.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "spend",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "adjacent 0",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "adjacent 1",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 0,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "adjacent 2",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "adjacent 3",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 0,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "adjacent 4",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 0,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 5
+    },
+    {
+      "allies": [
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 500.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 500.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        },
+        {
+          "time": 1.0,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 500.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "heal",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 2,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "left max",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "self max",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 0,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "right max",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 5
+    },
+    {
+      "allies": [
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 600.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 600.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "spend",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "edge heal",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "neighbor full",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 0,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "neighbor below",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 5
+    },
+    {
+      "allies": [
+        {
+          "hp": 200.0,
+          "max_hp": 1000.0,
+          "hp_pct": 20.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 200.0,
+              "max_hp": 1000.0,
+              "hp_pct": 20.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "spend",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "edge spend",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "lower edge",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 0,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 5
+    },
+    {
+      "allies": [
+        {
+          "hp": 1000.0,
+          "max_hp": 2000.0,
+          "hp_pct": 50.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 1000.0,
+              "max_hp": 2000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "max only",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "ratio edge",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 6
+    },
+    {
+      "allies": [
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 1000.0,
+              "max_hp": 2000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        },
+        {
+          "time": 1.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "max only",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "neighbor full",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 4
+    },
+    {
+      "allies": [
+        {
+          "hp": 500.0,
+          "max_hp": 1000.0,
+          "hp_pct": 50.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 500.0,
+          "max_hp": 1000.0,
+          "hp_pct": 50.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 500.0,
+          "max_hp": 1000.0,
+          "hp_pct": 50.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 500.0,
+          "max_hp": 1000.0,
+          "hp_pct": 50.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 500.0,
+          "max_hp": 1000.0,
+          "hp_pct": 50.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            5.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "team spend",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "team observer",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 5,
+          "activations": 5,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 5
+    },
+    {
+      "allies": [
+        {
+          "hp": 1000.0,
+          "max_hp": 1000.0,
+          "hp_pct": 100.0,
+          "defense": 100.0,
+          "healing": 500.0
+        },
+        {
+          "hp": 500.0,
+          "max_hp": 1000.0,
+          "hp_pct": 50.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 500.0,
+          "max_hp": 1000.0,
+          "hp_pct": 50.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 500.0,
+          "max_hp": 1000.0,
+          "hp_pct": 50.0,
+          "defense": 100.0,
+          "healing": 0.0
+        },
+        {
+          "hp": 500.0,
+          "max_hp": 1000.0,
+          "hp_pct": 50.0,
+          "defense": 100.0,
+          "healing": 0.0
+        }
+      ],
+      "weapons": [],
+      "status": 0,
+      "queries": [
+        {
+          "time": 0.5,
+          "damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            0.0,
+            0.0,
+            5.0,
+            0.0,
+            0.0
+          ],
+          "allies": [
+            {
+              "hp": 1000.0,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0,
+              "healing": 500.0
+            },
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            },
+            {
+              "hp": 500.0,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0,
+              "healing": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "team spend",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "synchronous team recovery",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "later observer",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 5,
+          "activations": 5,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [],
+      "burst_trace": [],
+      "trace_total": 0,
+      "burst_trace_total": 0,
+      "frames": 0,
+      "max_stack_depth": 9
     }
   ],
   "transport": {
     "backend": "metal",
-    "cases": 219,
+    "cases": 237,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.20101974997669458,
-    "input_bytes": 7176196,
-    "output_bytes": 17940480,
+    "gpu_seconds": 0.20719062496209517,
+    "input_bytes": 7766020,
+    "output_bytes": 19415040,
     "registry_id": "4294968313"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "b624cbc5cb70ff1b75958947f49622811edacec66c856de10d811dc0fa9881be",
+    "gpu/event_runtime.slang": "2ef58f969db7340a5ecc27bb2a39e76884af883fbb6b5ba14b4d7d8a0de7d3bb",
     "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "5eb79818163da22ec4fdeec9496baf6b9a33aa4ff0bbd9a9313ed0f4746b5213",
+    "gpu/portable_schema.slang": "d0e4958da59ba86e466f9e3dd6953504d754d1f854aab5c1ccf92fe9ea6907b1",
     "gpu/quantity_runtime.slang": "3ab8aaad15c453f7e49eae74758566e149a621a1286358649c52c52551e133b3",
-    "gpu/health_runtime.slang": "468f85aa2e26ccce68c9a7da36f50a373ceea1a8d50ab170a4033ebb5383f297",
+    "gpu/health_runtime.slang": "651317c6e4c4a7b7c389dbd5d774ff10e2778b32ab0741f50666b1841039237e",
+    "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
     "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
     "gpu/combat_runtime.slang": "10a92c58044738fe7bb84011604ea33b45304d41d427314d7516829b546db9e2",
     "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
   },
   "generated_sha256": {
-    "cuda": "7e2e7e3004e6ebde5774b6e265d6ea3a67cc5c406381ef89b3f595f9b81c5b6f",
-    "metal": "b4fa39fd94ef1cf1f9fee9055929ee7f904ca82a5778bed627941e0cff53ef47"
+    "cuda": "5a33a451259a4e690248ea8e5854109c3fd2ad5e2ea89548c516e93f56aa98cc",
+    "metal": "525b7cb2389151408b72ab7533c701f83ebab45d0880a7092f8222094c425cfc"
   },
-  "input_sha256": "283b27398d128d508df5b73ee3361c794fd75dbc75902ccb16beebb15c57e76a",
-  "output_sha256": "342365c07b466909fb4af7854efd3e92a065a254096db3c9a59c3e60399c4e18",
+  "input_sha256": "4ffd7809a3ac5ae4ca9de524dcfca432744460ab2426b4029726fa73b7c711db",
+  "output_sha256": "b8948133f85de5839b05ee4cf4e9599e15b47d99f5d4626d1b0ed12f5eeeafb4",
   "gpu_execution_verified": true,
   "backend": "metal",
   "application_event_runtime_connected": true,
@@ -101347,6 +104924,24 @@
   "autonomous_battle_connected": false,
   "gpu_timeline_connected": true,
   "actual_statuses": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0,
     0,
@@ -101572,9 +105167,9 @@
   "validation_sha256": {
     "app/portable_runtime.py": "c8aae4d7ee7a9a78a155a5cc93004e84647d039251d76751dffef23dab82a226",
     "app/portable_combat.py": "e59690a2d46ace2902b4d3aee0270b559bd5a09f46c561a0b9bf036d8effb0d1",
-    "app/portable_specs.py": "e945e87200fadfc0841d7c9967d91a0ab21c30106a903cb46a1f8b6a0e0837a9",
+    "app/portable_specs.py": "3d61192a0a283e496c7f9bf523c08e041022cec0ae7ea2ab87d9aaf33e8004fc",
     "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
-    "app/portable_trigger_specs.py": "83b6fa51124f33981ede9e2808e578442cce6d57f9c2dcd661a9884e9ada313a",
+    "app/portable_trigger_specs.py": "e6d900cc9e6b6356a552451bee9528abdddaa6e86c7777019bbf170ea97ce801",
     "app/portable_damage_specs.py": "5476b5318ed0d07731e0baed3a66d73a48cbd2922eb1921f905e40794ba4740a",
     "scripts/portable_health_oracle.py": "3abc3d32e28369d582d2b150628df6483868a5d25968ca607c2bacc7ce2a6fe6",
     "scripts/portable_weapon_oracle.py": "5fa773a498d5103388f2faee38a69cc56898b1ff9ebff842fe6ccb8fb8736f1f",
@@ -101583,7 +105178,8 @@
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "092f2ab3173a5b722f8a7fa09ab9573b4285cedb54d8a2b96da4bd52a0c7db2a",
+    "scripts/verify-portable-combat.py": "76d4c796f406d2dd9a9920da84e6d8813b9e6ef86eb3eee054bbd1d6d7a4f0a8",
+    "tests/fixtures/portable-hp-edges.json": "2342470a63a6a2a0505b81a0e6356a6254d9b4fc8c9d3db95bea334004a9d6f0",
     "tests/fixtures/portable-health.json": "614201f346546358376038785f3196032efd3b0aa51276474da723a41267c365",
     "tests/fixtures/portable-charge-control.json": "00b643a72ad7026de9cb122386cc3dce521ae13bc5813383886e637d635f4994",
     "tests/fixtures/portable-quantities.json": "53affbf8b6cfb6b87639a4bfe1090c3b30a44596c09f7f334ee9073daad3a9fa",
@@ -101596,18 +105192,36 @@
     "scripts/run-metal-probe.swift": "7d239896d03babd28326607a9133330d9fda37eee772055eac9a5112d58f5adb"
   },
   "batch_layout": {
-    "positive_count": 212,
+    "positive_count": 230,
     "rejection_indices": [
-      212,
-      213,
-      214,
-      215,
-      216,
-      217,
-      218
+      230,
+      231,
+      232,
+      233,
+      234,
+      235,
+      236
     ]
   },
   "expected_statuses": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0,
     0,
@@ -101853,7 +105467,25 @@
     "periodic-heal-sees-expired-max-hp",
     "heal-recipient-children-finish-before-next-recipient",
     "heal-notice-reentry-is-bounded-by-activation-budget",
-    "expired-hp-snapshot-reactivates-with-fresh-grant"
+    "expired-hp-snapshot-reactivates-with-fresh-grant",
+    "hp-below-is-a-crossing-not-a-level",
+    "hp-crossing-can-repeat-after-recovery",
+    "hp-crossing-counter-fires-at-exact-count",
+    "shared-hp-key-is-not-notified-per-listener",
+    "numeric-hp-key-spellings-remain-distinct",
+    "fractional-hp-threshold-keeps-binary64",
+    "hp-edge-epsilon-applies-to-previous-percent",
+    "hp-edge-epsilon-applies-to-new-percent",
+    "hp-edge-outside-epsilon-does-not-fire",
+    "ally-hp-edge-includes-source-and-distant-observers",
+    "adjacent-hp-edge-uses-physical-neighbors",
+    "adjacent-full-hp-edge-is-transition-only",
+    "nested-hp-edge-is-suppressed-until-family-finishes",
+    "nested-hp-loss-does-not-invent-another-crossing",
+    "maximum-hp-increase-can-cross-hp-ratio",
+    "maximum-hp-expiry-can-reach-adjacent-full",
+    "team-hp-loss-processes-all-five-physical-crossings",
+    "hp-loss-child-finishes-before-next-team-recipient"
   ],
   "known_health_cpu_differences": [
     {
@@ -101975,6 +105607,162 @@
             {
               "hp": 1000,
               "max_hp": 1000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "maximum-hp-expiry-can-reach-adjacent-full",
+      "reason": "Pinned CPU leaves stale hp_pct after max_hp_only_pct expiry and misses adjacent-full transition",
+      "actual_cpu_queries": [
+        {
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 2000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0
+            }
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 50.0,
+              "defense": 100.0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0
+            },
+            {
+              "hp": 1000,
+              "max_hp": 1000.0,
+              "hp_pct": 100.0,
+              "defense": 100.0
+            }
+          ],
+          "attack_buffs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "expected_cpu_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 2000,
+              "hp_pct": 50
+            }
+          ]
+        },
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 1000,
+              "hp_pct": 50
+            }
+          ]
+        }
+      ],
+      "expected_gpu_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 2000,
+              "hp_pct": 50
+            }
+          ]
+        },
+        {
+          "attack_buffs": [
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 1000,
+              "hp_pct": 100
             }
           ]
         }
@@ -204340,47 +208128,3696 @@
         "frames": 0,
         "max_stack_depth": 2
       }
+    },
+    {
+      "name": "hp-below-is-a-crossing-not-a-level",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 250.0,
+            "max_hp": 1000.0,
+            "hp_pct": 25.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          },
+          {
+            "time": 1.0,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 250.0,
+                "max_hp": 1000.0,
+                "hp_pct": 25.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "spend",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 2,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "edge",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 5
+      }
+    },
+    {
+      "name": "hp-crossing-can-repeat-after-recovery",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 500.0,
+            "max_hp": 1000.0,
+            "hp_pct": 50.0,
+            "defense": 100.0,
+            "healing": 500.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          },
+          {
+            "time": 1.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              2.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 500.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "spend",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 2,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "heal",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "edge",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 2,
+            "activations": 2,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 5
+      }
+    },
+    {
+      "name": "hp-crossing-counter-fires-at-exact-count",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 500.0,
+            "max_hp": 1000.0,
+            "hp_pct": 50.0,
+            "defense": 100.0,
+            "healing": 1000.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          },
+          {
+            "time": 1.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 500.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          },
+          {
+            "time": 2.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 1000.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "spend",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 3,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "heal",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 2,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "second edge",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 5
+      }
+    },
+    {
+      "name": "shared-hp-key-is-not-notified-per-listener",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 500.0,
+            "max_hp": 1000.0,
+            "hp_pct": 50.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              3.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "spend",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "edge A",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "edge B",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 5
+      }
+    },
+    {
+      "name": "numeric-hp-key-spellings-remain-distinct",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 500.0,
+            "max_hp": 1000.0,
+            "hp_pct": 50.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              3.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "spend",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "integer edge",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "decimal edge",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 5
+      }
+    },
+    {
+      "name": "fractional-hp-threshold-keeps-binary64",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 505.0,
+            "max_hp": 1000.0,
+            "hp_pct": 50.5,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 505.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.5,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "spend",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "fraction edge",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 5
+      }
+    },
+    {
+      "name": "hp-edge-epsilon-applies-to-previous-percent",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 250.0000025,
+            "max_hp": 1000.0,
+            "hp_pct": 25.00000025,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 250.0000025,
+                "max_hp": 1000.0,
+                "hp_pct": 25.00000025,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "spend",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "edge",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 0,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 3
+      }
+    },
+    {
+      "name": "hp-edge-epsilon-applies-to-new-percent",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 500.000005,
+            "max_hp": 1000.0,
+            "hp_pct": 50.0000005,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 500.000005,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0000005,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "spend",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "edge",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 5
+      }
+    },
+    {
+      "name": "hp-edge-outside-epsilon-does-not-fire",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 500.0000200000001,
+            "max_hp": 1000.0,
+            "hp_pct": 50.00000200000001,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 500.0000200000001,
+                "max_hp": 1000.0,
+                "hp_pct": 50.00000200000001,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "spend",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "edge",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 0,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 3
+      }
+    },
+    {
+      "name": "ally-hp-edge-includes-source-and-distant-observers",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 500.0,
+            "max_hp": 1000.0,
+            "hp_pct": 50.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              1.0,
+              1.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "allies": [
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "spend",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "observer zero",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "observer one",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "observer four",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 5
+      }
+    },
+    {
+      "name": "adjacent-hp-edge-uses-physical-neighbors",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 500.0,
+            "max_hp": 1000.0,
+            "hp_pct": 50.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "spend",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "adjacent 0",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "adjacent 1",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 0,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "adjacent 2",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "adjacent 3",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 0,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "adjacent 4",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 0,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 5
+      }
+    },
+    {
+      "name": "adjacent-full-hp-edge-is-transition-only",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 500.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 500.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          },
+          {
+            "time": 1.0,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 500.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "heal",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 2,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "left max",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "self max",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 0,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "right max",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 5
+      }
+    },
+    {
+      "name": "nested-hp-edge-is-suppressed-until-family-finishes",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 600.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 600.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "spend",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "edge heal",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "neighbor full",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 0,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "neighbor below",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 5
+      }
+    },
+    {
+      "name": "nested-hp-loss-does-not-invent-another-crossing",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 200.0,
+            "max_hp": 1000.0,
+            "hp_pct": 20.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 200.0,
+                "max_hp": 1000.0,
+                "hp_pct": 20.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "spend",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "edge spend",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "lower edge",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 0,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 5
+      }
+    },
+    {
+      "name": "maximum-hp-increase-can-cross-hp-ratio",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 1000.0,
+            "max_hp": 2000.0,
+            "hp_pct": 50.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 1000.0,
+                "max_hp": 2000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "max only",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "ratio edge",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 6
+      }
+    },
+    {
+      "name": "maximum-hp-expiry-can-reach-adjacent-full",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 1000.0,
+                "max_hp": 2000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          },
+          {
+            "time": 1.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "max only",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "neighbor full",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 4
+      }
+    },
+    {
+      "name": "team-hp-loss-processes-all-five-physical-crossings",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 500.0,
+            "max_hp": 1000.0,
+            "hp_pct": 50.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 500.0,
+            "max_hp": 1000.0,
+            "hp_pct": 50.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 500.0,
+            "max_hp": 1000.0,
+            "hp_pct": 50.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 500.0,
+            "max_hp": 1000.0,
+            "hp_pct": 50.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 500.0,
+            "max_hp": 1000.0,
+            "hp_pct": 50.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              5.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "team spend",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "team observer",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 5,
+            "activations": 5,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 5
+      }
+    },
+    {
+      "name": "hp-loss-child-finishes-before-next-team-recipient",
+      "passed": true,
+      "actual": {
+        "allies": [
+          {
+            "hp": 1000.0,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "defense": 100.0,
+            "healing": 500.0
+          },
+          {
+            "hp": 500.0,
+            "max_hp": 1000.0,
+            "hp_pct": 50.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 500.0,
+            "max_hp": 1000.0,
+            "hp_pct": 50.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 500.0,
+            "max_hp": 1000.0,
+            "hp_pct": 50.0,
+            "defense": 100.0,
+            "healing": 0.0
+          },
+          {
+            "hp": 500.0,
+            "max_hp": 1000.0,
+            "hp_pct": 50.0,
+            "defense": 100.0,
+            "healing": 0.0
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0.0,
+              0.0,
+              5.0,
+              0.0,
+              0.0
+            ],
+            "allies": [
+              {
+                "hp": 1000.0,
+                "max_hp": 1000.0,
+                "hp_pct": 100.0,
+                "defense": 100.0,
+                "healing": 500.0
+              },
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              },
+              {
+                "hp": 500.0,
+                "max_hp": 1000.0,
+                "hp_pct": 50.0,
+                "defense": 100.0,
+                "healing": 0.0
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "team spend",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "synchronous team recovery",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          },
+          {
+            "effect": "later observer",
+            "due": 0.0,
+            "expiry": 0.0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 5,
+            "activations": 5,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0.0,
+            "every_interval": 0.0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 9
+      }
     }
   ],
   "cpu_trace_used_as_gpu_input": false,
   "rejection_execution": {
     "transport": {
       "backend": "metal",
-      "cases": 219,
+      "cases": 237,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.20101974997669458,
-      "input_bytes": 7176196,
-      "output_bytes": 17940480,
+      "gpu_seconds": 0.20719062496209517,
+      "input_bytes": 7766020,
+      "output_bytes": 19415040,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "b624cbc5cb70ff1b75958947f49622811edacec66c856de10d811dc0fa9881be",
+      "gpu/event_runtime.slang": "2ef58f969db7340a5ecc27bb2a39e76884af883fbb6b5ba14b4d7d8a0de7d3bb",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "5eb79818163da22ec4fdeec9496baf6b9a33aa4ff0bbd9a9313ed0f4746b5213",
+      "gpu/portable_schema.slang": "d0e4958da59ba86e466f9e3dd6953504d754d1f854aab5c1ccf92fe9ea6907b1",
       "gpu/quantity_runtime.slang": "3ab8aaad15c453f7e49eae74758566e149a621a1286358649c52c52551e133b3",
-      "gpu/health_runtime.slang": "468f85aa2e26ccce68c9a7da36f50a373ceea1a8d50ab170a4033ebb5383f297",
+      "gpu/health_runtime.slang": "651317c6e4c4a7b7c389dbd5d774ff10e2778b32ab0741f50666b1841039237e",
+      "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
       "gpu/combat_runtime.slang": "10a92c58044738fe7bb84011604ea33b45304d41d427314d7516829b546db9e2",
       "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "7e2e7e3004e6ebde5774b6e265d6ea3a67cc5c406381ef89b3f595f9b81c5b6f",
-      "metal": "b4fa39fd94ef1cf1f9fee9055929ee7f904ca82a5778bed627941e0cff53ef47"
+      "cuda": "5a33a451259a4e690248ea8e5854109c3fd2ad5e2ea89548c516e93f56aa98cc",
+      "metal": "525b7cb2389151408b72ab7533c701f83ebab45d0880a7092f8222094c425cfc"
     },
-    "input_sha256": "283b27398d128d508df5b73ee3361c794fd75dbc75902ccb16beebb15c57e76a",
-    "output_sha256": "342365c07b466909fb4af7854efd3e92a065a254096db3c9a59c3e60399c4e18",
+    "input_sha256": "4ffd7809a3ac5ae4ca9de524dcfca432744460ab2426b4029726fa73b7c711db",
+    "output_sha256": "b8948133f85de5839b05ee4cf4e9599e15b47d99f5d4626d1b0ed12f5eeeafb4",
     "gpu_execution_verified": true,
     "backend": "metal",
     "case_indices": [
-      212,
-      213,
-      214,
-      215,
-      216,
-      217,
-      218
+      230,
+      231,
+      232,
+      233,
+      234,
+      235,
+      236
     ]
   },
   "rejected_cases": [

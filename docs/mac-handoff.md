@@ -1,5 +1,9 @@
 # Mac側で開発を続けるための引き継ぎ
 
+## 2026-10-19 HP通過通知と同期順
+
+共通実行器へ本人・部隊・隣接者のHP通過／満タン復帰通知、通算回数、同キーの重複除去、子によるHP再変化の抑制を追加しました。ABIは `0x5045563B`。Metalの230正例・7拒否、HP43ケースの独立CPU参照（失効時の既知差異2件を明示）、API、単体21件、203体の武器回帰が成功しました。[通知の数値規約・効率化・残る範囲](portable-health-runtime.md)を確認してください。最新CUDA照合状況は `research/portable-combat-checkpoint.json`、前段212ケースの両GPU一致は `portable-combat-v10-checkpoint.json` に固定しました。実編成のGPU検証済みは0体、全キャラ・通常画面への接続は未完了です。
+
 ## 2026-10-19 味方HP・防御・回復
 
 共通Slangへ味方の初期HP／防御、最大HP・スナップショット、回復倍率・回復通知と子の順序、HP条件を接続しました。ABIは `0x5045563A`。Metalの212正例・7拒否、25ケースの独立CPU参照（HP失効時の既知差異1件を明示）、API、単体19件、203体の武器回帰が成功しています。[規約・効率化・未接続範囲](portable-health-runtime.md)を確認してください。固定版 `37c2e36` はWindowsのRTX 3070 Tiでも低優先度・1回の検証が76.388秒で成功しました。212正例・7拒否の共通ソース・入力・全出力・検証コード・statusと既知CPU差異がMetalと一致し、元のWindows作業状態を保持しています。最新記録は `research/portable-combat-checkpoint.json`、前段187ケースの両GPU一致は `portable-combat-v9-checkpoint.json` へ固定しました。実編成・通常画面・全キャラ対応は未完了です。

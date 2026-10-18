@@ -1,0 +1,2550 @@
+{
+  "cases": [
+    {
+      "name": "hp-below-is-a-crossing-not-a-level",
+      "effects": [
+        {
+          "name": "spend",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "current_hp_reduce",
+          "fixed_value": 50,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "edge",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "attack_buffs": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "health_reference": true
+    },
+    {
+      "name": "hp-crossing-can-repeat-after-recovery",
+      "effects": [
+        {
+          "name": "spend",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "current_hp_reduce",
+          "fixed_value": 50,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "heal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "heal_hp_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:full_reload"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "edge",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          19,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.5,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "attack_buffs": [
+            2,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "health_reference": true
+    },
+    {
+      "name": "hp-crossing-counter-fires-at-exact-count",
+      "effects": [
+        {
+          "name": "spend",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "current_hp_reduce",
+          "fixed_value": 50,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "heal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "heal_hp_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:full_reload"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "second edge",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hp_below_count:50:2"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          19,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.5,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          19,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          2.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          2.5,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "attack_buffs": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "attack_buffs": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "health_reference": true
+    },
+    {
+      "name": "shared-hp-key-is-not-notified-per-listener",
+      "effects": [
+        {
+          "name": "spend",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "current_hp_reduce",
+          "fixed_value": 50,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "edge A",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        },
+        {
+          "name": "edge B",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 2,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            3,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "health_reference": true,
+      "expected_timers": [
+        {},
+        {
+          "activations": 1
+        },
+        {
+          "activations": 1
+        }
+      ]
+    },
+    {
+      "name": "numeric-hp-key-spellings-remain-distinct",
+      "effects": [
+        {
+          "name": "spend",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "current_hp_reduce",
+          "fixed_value": 50,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "integer edge",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        },
+        {
+          "name": "decimal edge",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 2,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hp_below:50.0"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            3,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "health_reference": true
+    },
+    {
+      "name": "fractional-hp-threshold-keeps-binary64",
+      "effects": [
+        {
+          "name": "spend",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "current_hp_reduce",
+          "fixed_value": 49.5,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "fraction edge",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hp_below:50.5"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "health_reference": true
+    },
+    {
+      "name": "hp-edge-epsilon-applies-to-previous-percent",
+      "effects": [
+        {
+          "name": "spend",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "current_hp_reduce",
+          "fixed_value": 50,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "edge",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500.000005,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "health_reference": true
+    },
+    {
+      "name": "hp-edge-epsilon-applies-to-new-percent",
+      "effects": [
+        {
+          "name": "spend",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "current_hp_reduce",
+          "fixed_value": 49.9999995,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "edge",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "health_reference": true
+    },
+    {
+      "name": "hp-edge-outside-epsilon-does-not-fire",
+      "effects": [
+        {
+          "name": "spend",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "current_hp_reduce",
+          "fixed_value": 49.999998,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "edge",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "health_reference": true
+    },
+    {
+      "name": "ally-hp-edge-includes-source-and-distant-observers",
+      "effects": [
+        {
+          "name": "spend",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "current_hp_reduce",
+          "fixed_value": 50,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observer zero",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:ally_hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        },
+        {
+          "name": "observer one",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:ally_hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        },
+        {
+          "name": "observer four",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:ally_hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          1,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            1,
+            1,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "health_reference": true,
+      "owners": [
+        1,
+        0,
+        1,
+        4
+      ]
+    },
+    {
+      "name": "adjacent-hp-edge-uses-physical-neighbors",
+      "effects": [
+        {
+          "name": "spend",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "current_hp_reduce",
+          "fixed_value": 50,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "adjacent 0",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:adjacent_hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        },
+        {
+          "name": "adjacent 1",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:adjacent_hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        },
+        {
+          "name": "adjacent 2",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:adjacent_hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        },
+        {
+          "name": "adjacent 3",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:adjacent_hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        },
+        {
+          "name": "adjacent 4",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:adjacent_hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          1,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "health_reference": true,
+      "owners": [
+        1,
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "adjacent-full-hp-edge-is-transition-only",
+      "effects": [
+        {
+          "name": "heal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "heal_hp_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:full_reload"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "left max",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:adjacent_hp_max"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        },
+        {
+          "name": "self max",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:adjacent_hp_max"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        },
+        {
+          "name": "right max",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:adjacent_hp_max"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          19,
+          1,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          19,
+          1,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "attack_buffs": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "health_reference": true,
+      "owners": [
+        1,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "nested-hp-edge-is-suppressed-until-family-finishes",
+      "effects": [
+        {
+          "name": "spend",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "current_hp_reduce",
+          "fixed_value": 60,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "edge heal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "heal_hp_pct",
+          "fixed_value": 80,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hp_below:50"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "neighbor full",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:adjacent_hp_max"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        },
+        {
+          "name": "neighbor below",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:adjacent_hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1000
+            }
+          ]
+        }
+      ],
+      "health_reference": true,
+      "owners": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "nested-hp-loss-does-not-invent-another-crossing",
+      "effects": [
+        {
+          "name": "spend",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "current_hp_reduce",
+          "fixed_value": 60,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "edge spend",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "current_hp_reduce",
+          "fixed_value": 50,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hp_below:50"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "lower edge",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hp_below:25"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 200
+            }
+          ]
+        }
+      ],
+      "health_reference": true
+    },
+    {
+      "name": "maximum-hp-increase-can-cross-hp-ratio",
+      "effects": [
+        {
+          "name": "max only",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_hp_only_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "duration": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "max_stack": 1
+        },
+        {
+          "name": "ratio edge",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 2000,
+              "hp_pct": 50
+            }
+          ]
+        }
+      ],
+      "health_reference": true
+    },
+    {
+      "name": "maximum-hp-expiry-can-reach-adjacent-full",
+      "effects": [
+        {
+          "name": "max only",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_hp_only_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "duration": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "max_stack": 1
+        },
+        {
+          "name": "neighbor full",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:adjacent_hp_max"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          1.5,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 2000,
+              "hp_pct": 50
+            }
+          ]
+        },
+        {
+          "attack_buffs": [
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1000,
+              "max_hp": 1000,
+              "hp_pct": 100
+            }
+          ]
+        }
+      ],
+      "health_reference": true,
+      "owners": [
+        0,
+        1
+      ],
+      "known_health_cpu_difference": {
+        "reason": "Pinned CPU leaves stale hp_pct after max_hp_only_pct expiry and misses adjacent-full transition",
+        "expected_queries": [
+          {
+            "attack_buffs": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "allies": [
+              {
+                "hp": 1000,
+                "max_hp": 2000,
+                "hp_pct": 50
+              }
+            ]
+          },
+          {
+            "attack_buffs": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "allies": [
+              {
+                "hp": 1000,
+                "max_hp": 1000,
+                "hp_pct": 50
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "team-hp-loss-processes-all-five-physical-crossings",
+      "effects": [
+        {
+          "name": "team spend",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "current_hp_reduce",
+          "fixed_value": 50,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "team observer",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:ally_hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            5,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "health_reference": true,
+      "expected_timers": [
+        {},
+        {
+          "activations": 5,
+          "stacks": 5
+        }
+      ]
+    },
+    {
+      "name": "hp-loss-child-finishes-before-next-team-recipient",
+      "effects": [
+        {
+          "name": "team spend",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "current_hp_reduce",
+          "fixed_value": 50,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "synchronous team recovery",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "heal_hp_pct",
+          "fixed_value": 100,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_trigger": 1
+        },
+        {
+          "name": "later observer",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:ally_hp_below:50"
+            ],
+            "condition": []
+          },
+          "max_stack": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000,
+            "base_defense": 100
+          }
+        ]
+      },
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 1000
+            },
+            {
+              "hp": 500
+            },
+            {
+              "hp": 500
+            },
+            {
+              "hp": 500
+            },
+            {
+              "hp": 500
+            }
+          ]
+        }
+      ],
+      "health_reference": true,
+      "owners": [
+        0,
+        0,
+        2
+      ]
+    }
+  ]
+}

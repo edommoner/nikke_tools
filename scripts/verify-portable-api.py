@@ -27,7 +27,7 @@ def main():
     tracked=['server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_backend.py',
              'scripts/verify-portable-api.py','tests/fixtures/portable-events.json',
              'app/portable_combat.py','app/portable_specs.py','app/world_condition_specs.py','app/impact_specs.py',
-             'tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
+             'tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases'][0]
     payload=dict(chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES],
@@ -145,6 +145,20 @@ def main():
         assert error.code==400;assert 'Invalid initial ally health' in json.load(error)['error']
     else:raise AssertionError('Invalid initial ally health accepted')
     result['health_unsupported_status']=400
+    edge_case=json.loads((ROOT/'tests/fixtures/portable-hp-edges.json').read_text(encoding='utf-8'))['cases']
+    edge_case=next(c for c in edge_case if c['name']=='nested-hp-edge-is-suppressed-until-family-finishes')
+    edge_body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(edge_case['effects'],edge_case['owners'])],
+                   script=edge_case['script'],base_atk=[1000]*5,environment=edge_case['environment'],backend=args.backend)
+    actual=request(edge_body);assert actual['gpu_execution_verified']
+    assert actual['results'][0]['queries'][0]['attack_buffs']==[0,1,0,0,0]
+    assert actual['results'][0]['queries'][0]['allies'][0]['hp']==1000
+    result['hp_edge_execution']=actual
+    malformed=copy.deepcopy(edge_body);malformed['effects'][1]['effect']['trigger']['timing']=['hp_below_count:50:0']
+    try:request(malformed)
+    except urllib.error.HTTPError as error:
+        assert error.code==400;assert 'Unported trigger timing' in json.load(error)['error']
+    else:raise AssertionError('Invalid HP crossing count accepted')
+    result['hp_edge_unsupported_status']=400
     result['quantity_unsupported_status']=400
     result['timeline_execution']=timeline_result
     result['extension_execution']=extension_result

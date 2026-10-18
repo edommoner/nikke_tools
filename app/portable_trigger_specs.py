@@ -9,11 +9,13 @@ CONDITIONS=dict(FULL=1,NOT_FULL=2,SELF_STATE=3,NOT_SELF_STATE=4,SELF_STACK=5,
                 BACK_ROW=7,STAT_ABOVE=8,HP_ABOVE=9,HP_BELOW=10,HP_MAX=11,NOT_SELF_HEAL=13,CAST=14,NOT_CAST=15,STATIC=25,CHARGING=29,
                 BURST1_ALLY=31,NO_BURST1_ALLY=32,ALLY_HP_BELOW=34,ENEMIES_ABOVE=ENEMY_COUNT_ABOVE,
                 ENEMIES_BELOW=ENEMY_COUNT_BELOW,TARGET_BOSS=TARGET_IS_BOSS,TARGET_ADD=TARGET_IS_ADD)
-EVENTS=frozenset((0,1,2,3,4,6,7,8,9,10,11,12,14,16,19,20,21,26,29,49))
+EVENTS=frozenset((0,1,2,3,4,6,7,8,9,10,11,12,14,16,19,20,21,26,29,31,48,49))
 COUNT=r'(?:[1-9][0-9]*|\{0\})'
 SIMPLE=r'event:heal_received|battle_start|passive|on_attack|hit_count|burst_cast|full_burst_start|full_burst_end|event:full_reload|last_bullet|last_bullet_fire|full_charge|full_charge_fire|full_charge_hit|squad_ammo_consume|pellet_hit'
 COUNTERS=rf'(?:on_attack_count|hit_count|squad_ammo_consume|pellet_hit|pellet_hit_count|full_charge_fire_count|full_charge_count|full_charge_hit_count|burst_cast_count|full_burst_start_count|full_burst_end_count|full_burst_start_exact):{COUNT}'
-TIMING=rf'{SIMPLE}|{COUNTERS}|burst_enter:[123]|burst_enter_count:[123]:{COUNT}|event:state_end:[^:]+|hit_count:[^:]+:{COUNT}|stack_reach:[^:]+:[1-9][0-9]*'
+HP_NUMBER=r'[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
+HP_TIMING=rf'hp_below:{HP_NUMBER}|hp_below_count:{HP_NUMBER}:[1-9][0-9]*|event:(?:ally_hp_below|adjacent_hp_below):{HP_NUMBER}|event:adjacent_hp_max'
+TIMING=rf'{HP_TIMING}|{SIMPLE}|{COUNTERS}|burst_enter:[123]|burst_enter_count:[123]:{COUNT}|event:state_end:[^:]+|hit_count:[^:]+:{COUNT}|stack_reach:[^:]+:[1-9][0-9]*'
 CONDITION=r'not_self_caused_heal|self_hp_max|(?:self_hp_above|self_hp_below|ally_hp_below):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)|during_full_burst|not_during_full_burst|during_charge|burst_casted|burst_not_casted|has_burst1_ally|no_burst1_ally|has_defender_ally|no_defender_ally|squad_ally_exists|back_row|target_is_boss|target_is_add|(?:self_state|not_self_state):[^:]*|self_stack_above:[^:]+:[0-9]+|enemy_count_(?:above|below):[+-]?[0-9]+|self_stat_above:(?:atk_pct|crit_rate|crit_dmg):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
 
 
@@ -45,7 +47,10 @@ def pack_descriptors(words,index,row,L,F,double_words):
         if event==6 and (not math.isfinite(threshold) or threshold<=0):raise ValueError('Invalid compiled period')
         if event==9 and (value!=int(value) or not 0<=value<=2**31-1):raise ValueError('Invalid stack reach value')
         at=L['EVENT_BASE']+index*L['EVENT_WORDS']+slot*8
-        words[at:at+8]=[int(event),*double_words(threshold),int(mode),int(tag)&0xffffffff,int(value)&0xffffffff,int(passive),int(stage)&0xffffffff]
+        edge=stage in (-11,-12,-13,-14)
+        if edge and (event not in (31,48) or not math.isfinite(value)):raise ValueError('Invalid compiled HP edge')
+        payload=double_words(value) if edge else [int(value)&0xffffffff,int(passive)]
+        words[at:at+8]=[int(event),*double_words(threshold),int(mode),int(tag)&0xffffffff,*payload,int(stage)&0xffffffff]
     for slot in range(nc):
         kind,name,arg=row[15+slot*3:18+slot*3]
         if kind not in CONDITIONS.values() or kind==8 and name not in (0,5,6):raise ValueError('Unported compiled predicate')
