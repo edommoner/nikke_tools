@@ -34,4 +34,4 @@ HTTP APIでは256定義・高位時計maskの読み戻しと、257定義の拒�
 
 監査に使った203部隊の準備済み効果数82～104は容量へ収まります。この範囲は今回の固定監査部隊の値で、全ての編成・変種の上限ではありません。個別の未対応効果・条件・対象指定、複数キャリア、復活・保護層、操作方針・実編成・通常画面への接続を引き続き進めます。
 
-最新CUDA照合状況は `research/portable-combat-checkpoint.json`、前段258ケースの両GPU一致は `portable-combat-v12-checkpoint.json` に固定しています。
+固定版 `e1960cd` はWindowsのRTX 3070 Tiでも低優先度・1回、63.396秒で成功しました。271正例・9拒否の共通ソース・入力・全出力・検証コード・statusとCPU参照がMetalと一致し、元のWindows作業状態を保持しています。最新記録は `research/portable-combat-checkpoint.json`、前段258ケースの両GPU一致は `portable-combat-v12-checkpoint.json` に固定しています。
