@@ -7,35 +7,50 @@
           "max_hp": 1000000,
           "hp_pct": 100,
           "defense": 0,
-          "healing": 0
+          "healing": 0,
+          "received_damage": 0,
+          "received_hits": 0,
+          "down": false
         },
         {
           "hp": 1000000,
           "max_hp": 1000000,
           "hp_pct": 100,
           "defense": 0,
-          "healing": 0
+          "healing": 0,
+          "received_damage": 0,
+          "received_hits": 0,
+          "down": false
         },
         {
           "hp": 1000000,
           "max_hp": 1000000,
           "hp_pct": 100,
           "defense": 0,
-          "healing": 0
+          "healing": 0,
+          "received_damage": 0,
+          "received_hits": 0,
+          "down": false
         },
         {
           "hp": 1000000,
           "max_hp": 1000000,
           "hp_pct": 100,
           "defense": 0,
-          "healing": 0
+          "healing": 0,
+          "received_damage": 0,
+          "received_hits": 0,
+          "down": false
         },
         {
           "hp": 1000000,
           "max_hp": 1000000,
           "hp_pct": 100,
           "defense": 0,
-          "healing": 0
+          "healing": 0,
+          "received_damage": 0,
+          "received_hits": 0,
+          "down": false
         }
       ],
       "weapons": [],
@@ -67,35 +82,50 @@
               "max_hp": 1000000,
               "hp_pct": 100,
               "defense": 0,
-              "healing": 0
+              "healing": 0,
+              "received_damage": 0,
+              "received_hits": 0,
+              "down": false
             },
             {
               "hp": 1000000,
               "max_hp": 1000000,
               "hp_pct": 100,
               "defense": 0,
-              "healing": 0
+              "healing": 0,
+              "received_damage": 0,
+              "received_hits": 0,
+              "down": false
             },
             {
               "hp": 1000000,
               "max_hp": 1000000,
               "hp_pct": 100,
               "defense": 0,
-              "healing": 0
+              "healing": 0,
+              "received_damage": 0,
+              "received_hits": 0,
+              "down": false
             },
             {
               "hp": 1000000,
               "max_hp": 1000000,
               "hp_pct": 100,
               "defense": 0,
-              "healing": 0
+              "healing": 0,
+              "received_damage": 0,
+              "received_hits": 0,
+              "down": false
             },
             {
               "hp": 1000000,
               "max_hp": 1000000,
               "hp_pct": 100,
               "defense": 0,
-              "healing": 0
+              "healing": 0,
+              "received_damage": 0,
+              "received_hits": 0,
+              "down": false
             }
           ]
         },
@@ -125,35 +155,50 @@
               "max_hp": 1000000,
               "hp_pct": 100,
               "defense": 0,
-              "healing": 0
+              "healing": 0,
+              "received_damage": 0,
+              "received_hits": 0,
+              "down": false
             },
             {
               "hp": 1000000,
               "max_hp": 1000000,
               "hp_pct": 100,
               "defense": 0,
-              "healing": 0
+              "healing": 0,
+              "received_damage": 0,
+              "received_hits": 0,
+              "down": false
             },
             {
               "hp": 1000000,
               "max_hp": 1000000,
               "hp_pct": 100,
               "defense": 0,
-              "healing": 0
+              "healing": 0,
+              "received_damage": 0,
+              "received_hits": 0,
+              "down": false
             },
             {
               "hp": 1000000,
               "max_hp": 1000000,
               "hp_pct": 100,
               "defense": 0,
-              "healing": 0
+              "healing": 0,
+              "received_damage": 0,
+              "received_hits": 0,
+              "down": false
             },
             {
               "hp": 1000000,
               "max_hp": 1000000,
               "hp_pct": 100,
               "defense": 0,
-              "healing": 0
+              "healing": 0,
+              "received_damage": 0,
+              "received_hits": 0,
+              "down": false
             }
           ]
         },
@@ -183,35 +228,50 @@
               "max_hp": 1000000,
               "hp_pct": 100,
               "defense": 0,
-              "healing": 0
+              "healing": 0,
+              "received_damage": 0,
+              "received_hits": 0,
+              "down": false
             },
             {
               "hp": 1000000,
               "max_hp": 1000000,
               "hp_pct": 100,
               "defense": 0,
-              "healing": 0
+              "healing": 0,
+              "received_damage": 0,
+              "received_hits": 0,
+              "down": false
             },
             {
               "hp": 1000000,
               "max_hp": 1000000,
               "hp_pct": 100,
               "defense": 0,
-              "healing": 0
+              "healing": 0,
+              "received_damage": 0,
+              "received_hits": 0,
+              "down": false
             },
             {
               "hp": 1000000,
               "max_hp": 1000000,
               "hp_pct": 100,
               "defense": 0,
-              "healing": 0
+              "healing": 0,
+              "received_damage": 0,
+              "received_hits": 0,
+              "down": false
             },
             {
               "hp": 1000000,
               "max_hp": 1000000,
               "hp_pct": 100,
               "defense": 0,
-              "healing": 0
+              "healing": 0,
+              "received_damage": 0,
+              "received_hits": 0,
+              "down": false
             }
           ]
         }
@@ -280,28 +340,29 @@
     "cases": 1,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.002937749959528446,
+    "gpu_seconds": 0.00289499998325482,
     "input_bytes": 32772,
     "output_bytes": 81920,
     "registry_id": "4294968313"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "2ef58f969db7340a5ecc27bb2a39e76884af883fbb6b5ba14b4d7d8a0de7d3bb",
+    "gpu/event_runtime.slang": "58336e90b7d6758147bc7a03cefd59feea436fb0cdb2888b52779d2017498498",
     "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "d0e4958da59ba86e466f9e3dd6953504d754d1f854aab5c1ccf92fe9ea6907b1",
-    "gpu/quantity_runtime.slang": "3ab8aaad15c453f7e49eae74758566e149a621a1286358649c52c52551e133b3",
-    "gpu/health_runtime.slang": "651317c6e4c4a7b7c389dbd5d774ff10e2778b32ab0741f50666b1841039237e",
+    "gpu/portable_schema.slang": "4ab794d55f8c72726d297b4bc410b37b509ddde866fe00a7176fa27200b2884d",
+    "gpu/quantity_runtime.slang": "58c63447e927fbeb69f30e072e32442dbfd20109f8752b4b25d88f5cf142b385",
+    "gpu/health_runtime.slang": "b7de067859187536dc27be2427ed5642d87c45abf8f558678b87dd003046a2eb",
     "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
     "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-    "gpu/combat_runtime.slang": "10a92c58044738fe7bb84011604ea33b45304d41d427314d7516829b546db9e2",
+    "gpu/incoming_runtime.slang": "3e34f009d4b37fdeda27100f25ed62f44e287261b2b294821f16435f8d9ac998",
+    "gpu/combat_runtime.slang": "40300de06711a9ba47894912f0ce199e20cb71c97168d47c70ecb270590c7615",
     "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
   },
   "generated_sha256": {
-    "cuda": "5a33a451259a4e690248ea8e5854109c3fd2ad5e2ea89548c516e93f56aa98cc",
-    "metal": "525b7cb2389151408b72ab7533c701f83ebab45d0880a7092f8222094c425cfc"
+    "cuda": "fd682ddd96b34877bca1b3d063fd686575204c44fa0340437f3723cf4d97648e",
+    "metal": "7c455b15318e00ff2b3c92210f478c2170ef9b5b79d4bbdec0b0862ce7130c81"
   },
-  "input_sha256": "50b12ac49ab0cc2cd9940d63503bb2f84b295392905190ed69c7a210c5197242",
+  "input_sha256": "2f0ca8b2e2654c0b56d7f343ed62486631145a1a8e9620a7cee09bf767d743eb",
   "output_sha256": "3c5483f46dbe27fcdad300bae46e48663735271c9f2b62d23414819a8f393859",
   "gpu_execution_verified": true,
   "backend": "metal",
@@ -318,35 +379,50 @@
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           }
         ],
         "weapons": [
@@ -522,35 +598,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           }
@@ -821,28 +912,29 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.0014877916546538472,
+      "gpu_seconds": 0.001672291662544012,
       "input_bytes": 32772,
       "output_bytes": 81920,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "2ef58f969db7340a5ecc27bb2a39e76884af883fbb6b5ba14b4d7d8a0de7d3bb",
+      "gpu/event_runtime.slang": "58336e90b7d6758147bc7a03cefd59feea436fb0cdb2888b52779d2017498498",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "d0e4958da59ba86e466f9e3dd6953504d754d1f854aab5c1ccf92fe9ea6907b1",
-      "gpu/quantity_runtime.slang": "3ab8aaad15c453f7e49eae74758566e149a621a1286358649c52c52551e133b3",
-      "gpu/health_runtime.slang": "651317c6e4c4a7b7c389dbd5d774ff10e2778b32ab0741f50666b1841039237e",
+      "gpu/portable_schema.slang": "4ab794d55f8c72726d297b4bc410b37b509ddde866fe00a7176fa27200b2884d",
+      "gpu/quantity_runtime.slang": "58c63447e927fbeb69f30e072e32442dbfd20109f8752b4b25d88f5cf142b385",
+      "gpu/health_runtime.slang": "b7de067859187536dc27be2427ed5642d87c45abf8f558678b87dd003046a2eb",
       "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "10a92c58044738fe7bb84011604ea33b45304d41d427314d7516829b546db9e2",
+      "gpu/incoming_runtime.slang": "3e34f009d4b37fdeda27100f25ed62f44e287261b2b294821f16435f8d9ac998",
+      "gpu/combat_runtime.slang": "40300de06711a9ba47894912f0ce199e20cb71c97168d47c70ecb270590c7615",
       "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5a33a451259a4e690248ea8e5854109c3fd2ad5e2ea89548c516e93f56aa98cc",
-      "metal": "525b7cb2389151408b72ab7533c701f83ebab45d0880a7092f8222094c425cfc"
+      "cuda": "fd682ddd96b34877bca1b3d063fd686575204c44fa0340437f3723cf4d97648e",
+      "metal": "7c455b15318e00ff2b3c92210f478c2170ef9b5b79d4bbdec0b0862ce7130c81"
     },
-    "input_sha256": "c7a8835087486f0c1f965fdd88921972f44e1f0464db7216dfbc56912155a867",
+    "input_sha256": "cd421408e7a5d851e056b172f8ff0581cd7044f77067589e8e41743f26c10627",
     "output_sha256": "e69cc0684ab73577bf211a5df6115d3470a77af65eb0dd07c42be0840cbca9ba",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -860,35 +952,50 @@
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           }
         ],
         "weapons": [
@@ -1064,35 +1171,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           },
@@ -1210,35 +1332,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           },
@@ -1356,35 +1493,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           }
@@ -1439,28 +1591,29 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.002585041685961187,
+      "gpu_seconds": 0.0027467499603517354,
       "input_bytes": 32772,
       "output_bytes": 81920,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "2ef58f969db7340a5ecc27bb2a39e76884af883fbb6b5ba14b4d7d8a0de7d3bb",
+      "gpu/event_runtime.slang": "58336e90b7d6758147bc7a03cefd59feea436fb0cdb2888b52779d2017498498",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "d0e4958da59ba86e466f9e3dd6953504d754d1f854aab5c1ccf92fe9ea6907b1",
-      "gpu/quantity_runtime.slang": "3ab8aaad15c453f7e49eae74758566e149a621a1286358649c52c52551e133b3",
-      "gpu/health_runtime.slang": "651317c6e4c4a7b7c389dbd5d774ff10e2778b32ab0741f50666b1841039237e",
+      "gpu/portable_schema.slang": "4ab794d55f8c72726d297b4bc410b37b509ddde866fe00a7176fa27200b2884d",
+      "gpu/quantity_runtime.slang": "58c63447e927fbeb69f30e072e32442dbfd20109f8752b4b25d88f5cf142b385",
+      "gpu/health_runtime.slang": "b7de067859187536dc27be2427ed5642d87c45abf8f558678b87dd003046a2eb",
       "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "10a92c58044738fe7bb84011604ea33b45304d41d427314d7516829b546db9e2",
+      "gpu/incoming_runtime.slang": "3e34f009d4b37fdeda27100f25ed62f44e287261b2b294821f16435f8d9ac998",
+      "gpu/combat_runtime.slang": "40300de06711a9ba47894912f0ce199e20cb71c97168d47c70ecb270590c7615",
       "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5a33a451259a4e690248ea8e5854109c3fd2ad5e2ea89548c516e93f56aa98cc",
-      "metal": "525b7cb2389151408b72ab7533c701f83ebab45d0880a7092f8222094c425cfc"
+      "cuda": "fd682ddd96b34877bca1b3d063fd686575204c44fa0340437f3723cf4d97648e",
+      "metal": "7c455b15318e00ff2b3c92210f478c2170ef9b5b79d4bbdec0b0862ce7130c81"
     },
-    "input_sha256": "c57f325db783e05ecc6fff35e01f08fd707bfedf7aaf2e4155d231777bda6d4d",
+    "input_sha256": "2167d2f8a43147adee3cae40462326fce5a76d8e729931603af9eee10d5fe3ea",
     "output_sha256": "67927729aa3ac2c98d0ecc2d9788b304c8e8e9d04f01156ae74ab547dfbe0a32",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -1478,35 +1631,50 @@
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           }
         ],
         "weapons": [
@@ -1682,35 +1850,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           }
@@ -1789,28 +1972,29 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.008535749977454543,
+      "gpu_seconds": 0.008553749998100102,
       "input_bytes": 32772,
       "output_bytes": 81920,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "2ef58f969db7340a5ecc27bb2a39e76884af883fbb6b5ba14b4d7d8a0de7d3bb",
+      "gpu/event_runtime.slang": "58336e90b7d6758147bc7a03cefd59feea436fb0cdb2888b52779d2017498498",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "d0e4958da59ba86e466f9e3dd6953504d754d1f854aab5c1ccf92fe9ea6907b1",
-      "gpu/quantity_runtime.slang": "3ab8aaad15c453f7e49eae74758566e149a621a1286358649c52c52551e133b3",
-      "gpu/health_runtime.slang": "651317c6e4c4a7b7c389dbd5d774ff10e2778b32ab0741f50666b1841039237e",
+      "gpu/portable_schema.slang": "4ab794d55f8c72726d297b4bc410b37b509ddde866fe00a7176fa27200b2884d",
+      "gpu/quantity_runtime.slang": "58c63447e927fbeb69f30e072e32442dbfd20109f8752b4b25d88f5cf142b385",
+      "gpu/health_runtime.slang": "b7de067859187536dc27be2427ed5642d87c45abf8f558678b87dd003046a2eb",
       "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "10a92c58044738fe7bb84011604ea33b45304d41d427314d7516829b546db9e2",
+      "gpu/incoming_runtime.slang": "3e34f009d4b37fdeda27100f25ed62f44e287261b2b294821f16435f8d9ac998",
+      "gpu/combat_runtime.slang": "40300de06711a9ba47894912f0ce199e20cb71c97168d47c70ecb270590c7615",
       "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5a33a451259a4e690248ea8e5854109c3fd2ad5e2ea89548c516e93f56aa98cc",
-      "metal": "525b7cb2389151408b72ab7533c701f83ebab45d0880a7092f8222094c425cfc"
+      "cuda": "fd682ddd96b34877bca1b3d063fd686575204c44fa0340437f3723cf4d97648e",
+      "metal": "7c455b15318e00ff2b3c92210f478c2170ef9b5b79d4bbdec0b0862ce7130c81"
     },
-    "input_sha256": "2800f33eb56261ab1e71c03842964d6a237aadefb33016e757d0bf9867b9ebc9",
+    "input_sha256": "751691fa061a3871f3cd6ba2eb9f1ab117dce98875701e3008e1820ab0a3186c",
     "output_sha256": "6688189e249ab5808dcc36f528d01e8678a89e79873d34e53dfe330b1284dc54",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -1828,35 +2012,50 @@
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           }
         ],
         "weapons": [
@@ -2032,35 +2231,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           }
@@ -2163,28 +2377,29 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.0014336666790768504,
+      "gpu_seconds": 0.0013704999582841992,
       "input_bytes": 32772,
       "output_bytes": 81920,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "2ef58f969db7340a5ecc27bb2a39e76884af883fbb6b5ba14b4d7d8a0de7d3bb",
+      "gpu/event_runtime.slang": "58336e90b7d6758147bc7a03cefd59feea436fb0cdb2888b52779d2017498498",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "d0e4958da59ba86e466f9e3dd6953504d754d1f854aab5c1ccf92fe9ea6907b1",
-      "gpu/quantity_runtime.slang": "3ab8aaad15c453f7e49eae74758566e149a621a1286358649c52c52551e133b3",
-      "gpu/health_runtime.slang": "651317c6e4c4a7b7c389dbd5d774ff10e2778b32ab0741f50666b1841039237e",
+      "gpu/portable_schema.slang": "4ab794d55f8c72726d297b4bc410b37b509ddde866fe00a7176fa27200b2884d",
+      "gpu/quantity_runtime.slang": "58c63447e927fbeb69f30e072e32442dbfd20109f8752b4b25d88f5cf142b385",
+      "gpu/health_runtime.slang": "b7de067859187536dc27be2427ed5642d87c45abf8f558678b87dd003046a2eb",
       "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "10a92c58044738fe7bb84011604ea33b45304d41d427314d7516829b546db9e2",
+      "gpu/incoming_runtime.slang": "3e34f009d4b37fdeda27100f25ed62f44e287261b2b294821f16435f8d9ac998",
+      "gpu/combat_runtime.slang": "40300de06711a9ba47894912f0ce199e20cb71c97168d47c70ecb270590c7615",
       "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5a33a451259a4e690248ea8e5854109c3fd2ad5e2ea89548c516e93f56aa98cc",
-      "metal": "525b7cb2389151408b72ab7533c701f83ebab45d0880a7092f8222094c425cfc"
+      "cuda": "fd682ddd96b34877bca1b3d063fd686575204c44fa0340437f3723cf4d97648e",
+      "metal": "7c455b15318e00ff2b3c92210f478c2170ef9b5b79d4bbdec0b0862ce7130c81"
     },
-    "input_sha256": "7cd93cfca1e92892616491e8e11659b92e124e3ed4d81a3555ab9407f1672b6a",
+    "input_sha256": "2ed8aa7cb8c18aa3bc146b482dc49f418a70917db0592071724757d9555b6aac",
     "output_sha256": "87248e14fba5a6289a73e48c6f8de808b6b16bd44c0e396e0ec943ded9324a04",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -2202,35 +2417,50 @@
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           }
         ],
         "weapons": [
@@ -2406,35 +2636,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           },
@@ -2552,35 +2797,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           },
@@ -2698,35 +2958,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           }
@@ -2829,28 +3104,29 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.0019125000108033419,
+      "gpu_seconds": 0.0019382500322535634,
       "input_bytes": 32772,
       "output_bytes": 81920,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "2ef58f969db7340a5ecc27bb2a39e76884af883fbb6b5ba14b4d7d8a0de7d3bb",
+      "gpu/event_runtime.slang": "58336e90b7d6758147bc7a03cefd59feea436fb0cdb2888b52779d2017498498",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "d0e4958da59ba86e466f9e3dd6953504d754d1f854aab5c1ccf92fe9ea6907b1",
-      "gpu/quantity_runtime.slang": "3ab8aaad15c453f7e49eae74758566e149a621a1286358649c52c52551e133b3",
-      "gpu/health_runtime.slang": "651317c6e4c4a7b7c389dbd5d774ff10e2778b32ab0741f50666b1841039237e",
+      "gpu/portable_schema.slang": "4ab794d55f8c72726d297b4bc410b37b509ddde866fe00a7176fa27200b2884d",
+      "gpu/quantity_runtime.slang": "58c63447e927fbeb69f30e072e32442dbfd20109f8752b4b25d88f5cf142b385",
+      "gpu/health_runtime.slang": "b7de067859187536dc27be2427ed5642d87c45abf8f558678b87dd003046a2eb",
       "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "10a92c58044738fe7bb84011604ea33b45304d41d427314d7516829b546db9e2",
+      "gpu/incoming_runtime.slang": "3e34f009d4b37fdeda27100f25ed62f44e287261b2b294821f16435f8d9ac998",
+      "gpu/combat_runtime.slang": "40300de06711a9ba47894912f0ce199e20cb71c97168d47c70ecb270590c7615",
       "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5a33a451259a4e690248ea8e5854109c3fd2ad5e2ea89548c516e93f56aa98cc",
-      "metal": "525b7cb2389151408b72ab7533c701f83ebab45d0880a7092f8222094c425cfc"
+      "cuda": "fd682ddd96b34877bca1b3d063fd686575204c44fa0340437f3723cf4d97648e",
+      "metal": "7c455b15318e00ff2b3c92210f478c2170ef9b5b79d4bbdec0b0862ce7130c81"
     },
-    "input_sha256": "26959c8db4d1d618d0795c287a5630fb4f09bca2f44144c6ca3434c20cb6ba30",
+    "input_sha256": "97e51eb265243b7d4d91d1c38f5b05493262d78e851cffc7f6b8c78abcb6f6c7",
     "output_sha256": "eea11d94b7fac289a4fde74b3afd4c89f4aafbf6615b05e97063afd6d36fbd21",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -2868,35 +3144,50 @@
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           }
         ],
         "weapons": [
@@ -3072,35 +3363,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           },
@@ -3218,35 +3524,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           },
@@ -3364,35 +3685,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           },
@@ -3510,35 +3846,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           },
@@ -3656,35 +4007,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           },
@@ -3802,35 +4168,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           }
@@ -3933,28 +4314,29 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.0021960000158287585,
+      "gpu_seconds": 0.0021252500009723008,
       "input_bytes": 32772,
       "output_bytes": 81920,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "2ef58f969db7340a5ecc27bb2a39e76884af883fbb6b5ba14b4d7d8a0de7d3bb",
+      "gpu/event_runtime.slang": "58336e90b7d6758147bc7a03cefd59feea436fb0cdb2888b52779d2017498498",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "d0e4958da59ba86e466f9e3dd6953504d754d1f854aab5c1ccf92fe9ea6907b1",
-      "gpu/quantity_runtime.slang": "3ab8aaad15c453f7e49eae74758566e149a621a1286358649c52c52551e133b3",
-      "gpu/health_runtime.slang": "651317c6e4c4a7b7c389dbd5d774ff10e2778b32ab0741f50666b1841039237e",
+      "gpu/portable_schema.slang": "4ab794d55f8c72726d297b4bc410b37b509ddde866fe00a7176fa27200b2884d",
+      "gpu/quantity_runtime.slang": "58c63447e927fbeb69f30e072e32442dbfd20109f8752b4b25d88f5cf142b385",
+      "gpu/health_runtime.slang": "b7de067859187536dc27be2427ed5642d87c45abf8f558678b87dd003046a2eb",
       "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "10a92c58044738fe7bb84011604ea33b45304d41d427314d7516829b546db9e2",
+      "gpu/incoming_runtime.slang": "3e34f009d4b37fdeda27100f25ed62f44e287261b2b294821f16435f8d9ac998",
+      "gpu/combat_runtime.slang": "40300de06711a9ba47894912f0ce199e20cb71c97168d47c70ecb270590c7615",
       "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5a33a451259a4e690248ea8e5854109c3fd2ad5e2ea89548c516e93f56aa98cc",
-      "metal": "525b7cb2389151408b72ab7533c701f83ebab45d0880a7092f8222094c425cfc"
+      "cuda": "fd682ddd96b34877bca1b3d063fd686575204c44fa0340437f3723cf4d97648e",
+      "metal": "7c455b15318e00ff2b3c92210f478c2170ef9b5b79d4bbdec0b0862ce7130c81"
     },
-    "input_sha256": "325660a3ce1f840dc5e2daab1b778ac9e0a2dbe6d0de737b67112b36372e971a",
+    "input_sha256": "a837d9ae1de6a575bfea70db7cbe27d31b1b1f5b6bc8f94081da5362492e7f73",
     "output_sha256": "237cea3f510d36fa3f4866ce8e087fbbaba93a3d91ff87d644d080b15ccb0dd5",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -3973,35 +4355,50 @@
             "max_hp": 2000,
             "hp_pct": 80,
             "defense": 100,
-            "healing": 100
+            "healing": 100,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 600,
             "max_hp": 2000,
             "hp_pct": 30,
             "defense": 200,
-            "healing": 200
+            "healing": 200,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 3000,
             "max_hp": 3000,
             "hp_pct": 100,
             "defense": 300,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 2200,
             "max_hp": 4000,
             "hp_pct": 55.00000000000001,
             "defense": 400,
-            "healing": 200
+            "healing": 200,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 5000,
             "max_hp": 5000,
             "hp_pct": 100,
             "defense": 500,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           }
         ],
         "weapons": [],
@@ -4033,35 +4430,50 @@
                 "max_hp": 2000,
                 "hp_pct": 80,
                 "defense": 100,
-                "healing": 100
+                "healing": 100,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 600,
                 "max_hp": 2000,
                 "hp_pct": 30,
                 "defense": 200,
-                "healing": 200
+                "healing": 200,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 3000,
                 "max_hp": 3000,
                 "hp_pct": 100,
                 "defense": 300,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 2200,
                 "max_hp": 4000,
                 "hp_pct": 55.00000000000001,
                 "defense": 400,
-                "healing": 200
+                "healing": 200,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 5000,
                 "max_hp": 5000,
                 "hp_pct": 100,
                 "defense": 500,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           }
@@ -4130,28 +4542,29 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.0013708749902434647,
+      "gpu_seconds": 0.0013722500298172235,
       "input_bytes": 32772,
       "output_bytes": 81920,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "2ef58f969db7340a5ecc27bb2a39e76884af883fbb6b5ba14b4d7d8a0de7d3bb",
+      "gpu/event_runtime.slang": "58336e90b7d6758147bc7a03cefd59feea436fb0cdb2888b52779d2017498498",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "d0e4958da59ba86e466f9e3dd6953504d754d1f854aab5c1ccf92fe9ea6907b1",
-      "gpu/quantity_runtime.slang": "3ab8aaad15c453f7e49eae74758566e149a621a1286358649c52c52551e133b3",
-      "gpu/health_runtime.slang": "651317c6e4c4a7b7c389dbd5d774ff10e2778b32ab0741f50666b1841039237e",
+      "gpu/portable_schema.slang": "4ab794d55f8c72726d297b4bc410b37b509ddde866fe00a7176fa27200b2884d",
+      "gpu/quantity_runtime.slang": "58c63447e927fbeb69f30e072e32442dbfd20109f8752b4b25d88f5cf142b385",
+      "gpu/health_runtime.slang": "b7de067859187536dc27be2427ed5642d87c45abf8f558678b87dd003046a2eb",
       "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "10a92c58044738fe7bb84011604ea33b45304d41d427314d7516829b546db9e2",
+      "gpu/incoming_runtime.slang": "3e34f009d4b37fdeda27100f25ed62f44e287261b2b294821f16435f8d9ac998",
+      "gpu/combat_runtime.slang": "40300de06711a9ba47894912f0ce199e20cb71c97168d47c70ecb270590c7615",
       "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5a33a451259a4e690248ea8e5854109c3fd2ad5e2ea89548c516e93f56aa98cc",
-      "metal": "525b7cb2389151408b72ab7533c701f83ebab45d0880a7092f8222094c425cfc"
+      "cuda": "fd682ddd96b34877bca1b3d063fd686575204c44fa0340437f3723cf4d97648e",
+      "metal": "7c455b15318e00ff2b3c92210f478c2170ef9b5b79d4bbdec0b0862ce7130c81"
     },
-    "input_sha256": "b795e52cacd197b1595d62dc36cb089f27f0eeceae14a4574d62088f5a3d6984",
+    "input_sha256": "98d7cab05763f9ddcbf821f8aa26ac2896a5c9b40697084da3bb8809d7ae3647",
     "output_sha256": "a4112a414e48ab466ba01397045fb8c1b3d9df9c10415b0f4a795085a9858252",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -4170,35 +4583,50 @@
             "max_hp": 1000,
             "hp_pct": 100,
             "defense": 100,
-            "healing": 600
+            "healing": 600,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000,
             "max_hp": 1000,
             "hp_pct": 100,
             "defense": 100,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000,
             "max_hp": 1000,
             "hp_pct": 100,
             "defense": 100,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000,
             "max_hp": 1000,
             "hp_pct": 100,
             "defense": 100,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000,
             "max_hp": 1000,
             "hp_pct": 100,
             "defense": 100,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           }
         ],
         "weapons": [],
@@ -4230,35 +4658,50 @@
                 "max_hp": 1000,
                 "hp_pct": 100,
                 "defense": 100,
-                "healing": 600
+                "healing": 600,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000,
                 "max_hp": 1000,
                 "hp_pct": 100,
                 "defense": 100,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000,
                 "max_hp": 1000,
                 "hp_pct": 100,
                 "defense": 100,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000,
                 "max_hp": 1000,
                 "hp_pct": 100,
                 "defense": 100,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000,
                 "max_hp": 1000,
                 "hp_pct": 100,
                 "defense": 100,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           }
@@ -4375,28 +4818,29 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.0012085000053048134,
+      "gpu_seconds": 0.0013618749799206853,
       "input_bytes": 32772,
       "output_bytes": 81920,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "2ef58f969db7340a5ecc27bb2a39e76884af883fbb6b5ba14b4d7d8a0de7d3bb",
+      "gpu/event_runtime.slang": "58336e90b7d6758147bc7a03cefd59feea436fb0cdb2888b52779d2017498498",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "d0e4958da59ba86e466f9e3dd6953504d754d1f854aab5c1ccf92fe9ea6907b1",
-      "gpu/quantity_runtime.slang": "3ab8aaad15c453f7e49eae74758566e149a621a1286358649c52c52551e133b3",
-      "gpu/health_runtime.slang": "651317c6e4c4a7b7c389dbd5d774ff10e2778b32ab0741f50666b1841039237e",
+      "gpu/portable_schema.slang": "4ab794d55f8c72726d297b4bc410b37b509ddde866fe00a7176fa27200b2884d",
+      "gpu/quantity_runtime.slang": "58c63447e927fbeb69f30e072e32442dbfd20109f8752b4b25d88f5cf142b385",
+      "gpu/health_runtime.slang": "b7de067859187536dc27be2427ed5642d87c45abf8f558678b87dd003046a2eb",
       "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "10a92c58044738fe7bb84011604ea33b45304d41d427314d7516829b546db9e2",
+      "gpu/incoming_runtime.slang": "3e34f009d4b37fdeda27100f25ed62f44e287261b2b294821f16435f8d9ac998",
+      "gpu/combat_runtime.slang": "40300de06711a9ba47894912f0ce199e20cb71c97168d47c70ecb270590c7615",
       "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5a33a451259a4e690248ea8e5854109c3fd2ad5e2ea89548c516e93f56aa98cc",
-      "metal": "525b7cb2389151408b72ab7533c701f83ebab45d0880a7092f8222094c425cfc"
+      "cuda": "fd682ddd96b34877bca1b3d063fd686575204c44fa0340437f3723cf4d97648e",
+      "metal": "7c455b15318e00ff2b3c92210f478c2170ef9b5b79d4bbdec0b0862ce7130c81"
     },
-    "input_sha256": "300565090cadcfb2d97e8d0fa74368ff6d61e8942bfbe389747b1a4f6acd0e73",
+    "input_sha256": "2dab912f68cea48a51b88e1d4189afa763dfa44637a21c3a24f07bdbbd13dfc0",
     "output_sha256": "0b02c76e55e531ebd44542ea9eb379ab93d827f6deb8249a614738dbbe65b08c",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -4406,6 +4850,258 @@
     "gpu_timeline_connected": false
   },
   "hp_edge_unsupported_status": 400,
+  "incoming_execution": {
+    "results": [
+      {
+        "allies": [
+          {
+            "hp": 0,
+            "max_hp": 1000,
+            "hp_pct": 0,
+            "defense": 100,
+            "healing": 0,
+            "received_damage": 2900,
+            "received_hits": 1,
+            "down": true
+          },
+          {
+            "hp": 1000,
+            "max_hp": 1000,
+            "hp_pct": 100,
+            "defense": 100,
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
+          },
+          {
+            "hp": 1000,
+            "max_hp": 1000,
+            "hp_pct": 100,
+            "defense": 100,
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
+          },
+          {
+            "hp": 1000,
+            "max_hp": 1000,
+            "hp_pct": 100,
+            "defense": 100,
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
+          },
+          {
+            "hp": 1000,
+            "max_hp": 1000,
+            "hp_pct": 100,
+            "defense": 100,
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
+          }
+        ],
+        "weapons": [],
+        "status": 0,
+        "queries": [
+          {
+            "time": 0.5,
+            "damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active_timer_mask": 0,
+            "generation": 1,
+            "stack_depth": 0,
+            "timer_clock": 0,
+            "attack_buffs": [
+              0,
+              3,
+              2,
+              2,
+              2
+            ],
+            "allies": [
+              {
+                "hp": 0,
+                "max_hp": 1000,
+                "hp_pct": 0,
+                "defense": 100,
+                "healing": 0,
+                "received_damage": 2900,
+                "received_hits": 1,
+                "down": true
+              },
+              {
+                "hp": 1000,
+                "max_hp": 1000,
+                "hp_pct": 100,
+                "defense": 100,
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
+              },
+              {
+                "hp": 1000,
+                "max_hp": 1000,
+                "hp_pct": 100,
+                "defense": 100,
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
+              },
+              {
+                "hp": 1000,
+                "max_hp": 1000,
+                "hp_pct": 100,
+                "defense": 100,
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
+              },
+              {
+                "hp": 1000,
+                "max_hp": 1000,
+                "hp_pct": 100,
+                "defense": 100,
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
+              }
+            ]
+          }
+        ],
+        "trace": [],
+        "timers": [
+          {
+            "effect": "old self",
+            "due": 0,
+            "expiry": 0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 0,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0,
+            "every_interval": 0
+          },
+          {
+            "effect": "on self down",
+            "due": 0,
+            "expiry": 0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0,
+            "every_interval": 0
+          },
+          {
+            "effect": "ally down observer",
+            "due": 0,
+            "expiry": 0,
+            "epoch": 0,
+            "order": 0,
+            "active": false,
+            "stacks": 1,
+            "activations": 1,
+            "target_slot": 0,
+            "target_generation": 0,
+            "trigger_counts": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "every_due": 0,
+            "every_interval": 0
+          }
+        ],
+        "targets": [],
+        "burst_trace": [],
+        "trace_total": 0,
+        "burst_trace_total": 0,
+        "frames": 0,
+        "max_stack_depth": 7
+      }
+    ],
+    "transport": {
+      "backend": "metal",
+      "cases": 1,
+      "command_status": "completed",
+      "device": "Apple M5",
+      "gpu_seconds": 0.0005823333049193025,
+      "input_bytes": 32772,
+      "output_bytes": 81920,
+      "registry_id": "4294968313"
+    },
+    "source_sha256": {
+      "gpu/event_runtime.slang": "58336e90b7d6758147bc7a03cefd59feea436fb0cdb2888b52779d2017498498",
+      "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
+      "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+      "gpu/portable_schema.slang": "4ab794d55f8c72726d297b4bc410b37b509ddde866fe00a7176fa27200b2884d",
+      "gpu/quantity_runtime.slang": "58c63447e927fbeb69f30e072e32442dbfd20109f8752b4b25d88f5cf142b385",
+      "gpu/health_runtime.slang": "b7de067859187536dc27be2427ed5642d87c45abf8f558678b87dd003046a2eb",
+      "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
+      "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
+      "gpu/incoming_runtime.slang": "3e34f009d4b37fdeda27100f25ed62f44e287261b2b294821f16435f8d9ac998",
+      "gpu/combat_runtime.slang": "40300de06711a9ba47894912f0ce199e20cb71c97168d47c70ecb270590c7615",
+      "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
+    },
+    "generated_sha256": {
+      "cuda": "fd682ddd96b34877bca1b3d063fd686575204c44fa0340437f3723cf4d97648e",
+      "metal": "7c455b15318e00ff2b3c92210f478c2170ef9b5b79d4bbdec0b0862ce7130c81"
+    },
+    "input_sha256": "c84e4e099d09bc5031c6eb031bbbaafd8aaff62e777df717600e284b9e77a439",
+    "output_sha256": "33efa12eee4008f46adcf01742f449629e2f17844fc72e406ff6663eda23da34",
+    "gpu_execution_verified": true,
+    "backend": "metal",
+    "application_event_runtime_connected": true,
+    "autonomous_battle_connected": false,
+    "weapon_burst_target_connected": false,
+    "gpu_timeline_connected": false
+  },
+  "incoming_unsupported_status": 400,
   "quantity_unsupported_status": 400,
   "timeline_execution": {
     "results": [
@@ -4416,35 +5112,50 @@
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           }
         ],
         "weapons": [
@@ -4620,35 +5331,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           }
@@ -4703,28 +5429,29 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.1421449999907054,
+      "gpu_seconds": 0.13663625001208857,
       "input_bytes": 32772,
       "output_bytes": 81920,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "2ef58f969db7340a5ecc27bb2a39e76884af883fbb6b5ba14b4d7d8a0de7d3bb",
+      "gpu/event_runtime.slang": "58336e90b7d6758147bc7a03cefd59feea436fb0cdb2888b52779d2017498498",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "d0e4958da59ba86e466f9e3dd6953504d754d1f854aab5c1ccf92fe9ea6907b1",
-      "gpu/quantity_runtime.slang": "3ab8aaad15c453f7e49eae74758566e149a621a1286358649c52c52551e133b3",
-      "gpu/health_runtime.slang": "651317c6e4c4a7b7c389dbd5d774ff10e2778b32ab0741f50666b1841039237e",
+      "gpu/portable_schema.slang": "4ab794d55f8c72726d297b4bc410b37b509ddde866fe00a7176fa27200b2884d",
+      "gpu/quantity_runtime.slang": "58c63447e927fbeb69f30e072e32442dbfd20109f8752b4b25d88f5cf142b385",
+      "gpu/health_runtime.slang": "b7de067859187536dc27be2427ed5642d87c45abf8f558678b87dd003046a2eb",
       "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "10a92c58044738fe7bb84011604ea33b45304d41d427314d7516829b546db9e2",
+      "gpu/incoming_runtime.slang": "3e34f009d4b37fdeda27100f25ed62f44e287261b2b294821f16435f8d9ac998",
+      "gpu/combat_runtime.slang": "40300de06711a9ba47894912f0ce199e20cb71c97168d47c70ecb270590c7615",
       "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5a33a451259a4e690248ea8e5854109c3fd2ad5e2ea89548c516e93f56aa98cc",
-      "metal": "525b7cb2389151408b72ab7533c701f83ebab45d0880a7092f8222094c425cfc"
+      "cuda": "fd682ddd96b34877bca1b3d063fd686575204c44fa0340437f3723cf4d97648e",
+      "metal": "7c455b15318e00ff2b3c92210f478c2170ef9b5b79d4bbdec0b0862ce7130c81"
     },
-    "input_sha256": "cecc314eed336b151853aa3df4f1383b44c24c928b46545a868d6fcabb38eb06",
+    "input_sha256": "802fb8d8f578e1b1836394fea2c4896957f0496a9ae86d5c339f35b6a86f4e9e",
     "output_sha256": "16efb1b33e4b68863dc8fb90e104b09ec40705e518ac2afdea312fc6dcf40fa0",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -4742,35 +5469,50 @@
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           }
         ],
         "weapons": [
@@ -4946,35 +5688,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           },
@@ -5092,35 +5849,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           }
@@ -5223,28 +5995,29 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.0016573750181123614,
+      "gpu_seconds": 0.0016855833237059414,
       "input_bytes": 32772,
       "output_bytes": 81920,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "2ef58f969db7340a5ecc27bb2a39e76884af883fbb6b5ba14b4d7d8a0de7d3bb",
+      "gpu/event_runtime.slang": "58336e90b7d6758147bc7a03cefd59feea436fb0cdb2888b52779d2017498498",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "d0e4958da59ba86e466f9e3dd6953504d754d1f854aab5c1ccf92fe9ea6907b1",
-      "gpu/quantity_runtime.slang": "3ab8aaad15c453f7e49eae74758566e149a621a1286358649c52c52551e133b3",
-      "gpu/health_runtime.slang": "651317c6e4c4a7b7c389dbd5d774ff10e2778b32ab0741f50666b1841039237e",
+      "gpu/portable_schema.slang": "4ab794d55f8c72726d297b4bc410b37b509ddde866fe00a7176fa27200b2884d",
+      "gpu/quantity_runtime.slang": "58c63447e927fbeb69f30e072e32442dbfd20109f8752b4b25d88f5cf142b385",
+      "gpu/health_runtime.slang": "b7de067859187536dc27be2427ed5642d87c45abf8f558678b87dd003046a2eb",
       "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "10a92c58044738fe7bb84011604ea33b45304d41d427314d7516829b546db9e2",
+      "gpu/incoming_runtime.slang": "3e34f009d4b37fdeda27100f25ed62f44e287261b2b294821f16435f8d9ac998",
+      "gpu/combat_runtime.slang": "40300de06711a9ba47894912f0ce199e20cb71c97168d47c70ecb270590c7615",
       "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5a33a451259a4e690248ea8e5854109c3fd2ad5e2ea89548c516e93f56aa98cc",
-      "metal": "525b7cb2389151408b72ab7533c701f83ebab45d0880a7092f8222094c425cfc"
+      "cuda": "fd682ddd96b34877bca1b3d063fd686575204c44fa0340437f3723cf4d97648e",
+      "metal": "7c455b15318e00ff2b3c92210f478c2170ef9b5b79d4bbdec0b0862ce7130c81"
     },
-    "input_sha256": "89b66e56f50cea85a22d2b50f853f500331b33a2889757a428f1c5397a352e83",
+    "input_sha256": "0e84f04cc6168641aa43a66346354802539e08857592dd038855ec4e805119b6",
     "output_sha256": "e1d5e7e78ed76e211f48cd501738198e382ee77d8510d85f91ecbe061a32f1ad",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -5262,35 +6035,50 @@
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           },
           {
             "hp": 1000000,
             "max_hp": 1000000,
             "hp_pct": 100,
             "defense": 0,
-            "healing": 0
+            "healing": 0,
+            "received_damage": 0,
+            "received_hits": 0,
+            "down": false
           }
         ],
         "weapons": [
@@ -5466,35 +6254,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           },
@@ -5612,35 +6415,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           },
@@ -5758,35 +6576,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           },
@@ -5904,35 +6737,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           },
@@ -6050,35 +6898,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           },
@@ -6196,35 +7059,50 @@
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               },
               {
                 "hp": 1000000,
                 "max_hp": 1000000,
                 "hp_pct": 100,
                 "defense": 0,
-                "healing": 0
+                "healing": 0,
+                "received_damage": 0,
+                "received_hits": 0,
+                "down": false
               }
             ]
           }
@@ -6279,28 +7157,29 @@
       "cases": 1,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.0027592499973252416,
+      "gpu_seconds": 0.0028539582854136825,
       "input_bytes": 32772,
       "output_bytes": 81920,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "2ef58f969db7340a5ecc27bb2a39e76884af883fbb6b5ba14b4d7d8a0de7d3bb",
+      "gpu/event_runtime.slang": "58336e90b7d6758147bc7a03cefd59feea436fb0cdb2888b52779d2017498498",
       "gpu/binary64.slang": "b2147542b3c80e1698a46043c2c5f4648e43d47602f75689f665b54591c1713f",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "d0e4958da59ba86e466f9e3dd6953504d754d1f854aab5c1ccf92fe9ea6907b1",
-      "gpu/quantity_runtime.slang": "3ab8aaad15c453f7e49eae74758566e149a621a1286358649c52c52551e133b3",
-      "gpu/health_runtime.slang": "651317c6e4c4a7b7c389dbd5d774ff10e2778b32ab0741f50666b1841039237e",
+      "gpu/portable_schema.slang": "4ab794d55f8c72726d297b4bc410b37b509ddde866fe00a7176fa27200b2884d",
+      "gpu/quantity_runtime.slang": "58c63447e927fbeb69f30e072e32442dbfd20109f8752b4b25d88f5cf142b385",
+      "gpu/health_runtime.slang": "b7de067859187536dc27be2427ed5642d87c45abf8f558678b87dd003046a2eb",
       "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
-      "gpu/combat_runtime.slang": "10a92c58044738fe7bb84011604ea33b45304d41d427314d7516829b546db9e2",
+      "gpu/incoming_runtime.slang": "3e34f009d4b37fdeda27100f25ed62f44e287261b2b294821f16435f8d9ac998",
+      "gpu/combat_runtime.slang": "40300de06711a9ba47894912f0ce199e20cb71c97168d47c70ecb270590c7615",
       "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "5a33a451259a4e690248ea8e5854109c3fd2ad5e2ea89548c516e93f56aa98cc",
-      "metal": "525b7cb2389151408b72ab7533c701f83ebab45d0880a7092f8222094c425cfc"
+      "cuda": "fd682ddd96b34877bca1b3d063fd686575204c44fa0340437f3723cf4d97648e",
+      "metal": "7c455b15318e00ff2b3c92210f478c2170ef9b5b79d4bbdec0b0862ce7130c81"
     },
-    "input_sha256": "15fe8d22637cd697e8840f32c8edbed2ca7cd897aebc2d7c7a68d0087f9831e5",
+    "input_sha256": "852f228a6cc421a3d4b7e6b8bc3dfefe4483611ebfb2662a48d7fb505c9afe29",
     "output_sha256": "5a536e789c3688787b74ab1101edaa588a4aa30f67c08757e6b28596875170a9",
     "gpu_execution_verified": true,
     "backend": "metal",
@@ -6320,16 +7199,17 @@
   "adapter_sha256": {
     "server.mjs": "dccdd382743de8a091547489886f8ab6faa0f9f7326b06b147bc584b8af255a4",
     "app/engine_worker.py": "92d56095c83ac5eddab4d1d6066cadccafa272581237f3d4d93b96d9eda1edbd",
-    "app/portable_runtime.py": "c8aae4d7ee7a9a78a155a5cc93004e84647d039251d76751dffef23dab82a226",
-    "app/portable_trigger_specs.py": "e6d900cc9e6b6356a552451bee9528abdddaa6e86c7777019bbf170ea97ce801",
-    "app/portable_damage_specs.py": "5476b5318ed0d07731e0baed3a66d73a48cbd2922eb1921f905e40794ba4740a",
+    "app/portable_runtime.py": "0fa5a521498ce5f94dd9a4631df7f1d7d003732f99a5a54be5fef0b8d1ad5662",
+    "app/portable_trigger_specs.py": "61aaa3740ee6f6c6753d321a2848f3ed4e16474e63fc526f5fc14cee69ff01ad",
+    "app/portable_damage_specs.py": "7bd74a9067ca83f7e050667fe7970dfdb6b740c605b7deceb65ffac87d4d4021",
     "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
-    "scripts/verify-portable-api.py": "c6a6ccf4ac1e09994fc3c0888e006394e9340e14d2e0c1888088c4b904087845",
+    "scripts/verify-portable-api.py": "e96539bb08d6d2f0a476e17f17ffb93e6e36e780ae0ca28465ae09aacc734fe8",
     "tests/fixtures/portable-events.json": "7dd3eb1e11b8964dec596d639cd3e626138f73d3fab158eec4973265292d1ba8",
     "app/portable_combat.py": "e59690a2d46ace2902b4d3aee0270b559bd5a09f46c561a0b9bf036d8effb0d1",
-    "app/portable_specs.py": "3d61192a0a283e496c7f9bf523c08e041022cec0ae7ea2ab87d9aaf33e8004fc",
+    "app/portable_specs.py": "d7802e1847d003a3ddf55247d8fe0b80d3101baeb525e6a8972adaf37ed7b36a",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
+    "tests/fixtures/portable-incoming.json": "fbd69208aeeba331eb5e8b73c073f03c95a16b35cbae8a1d27349fa343da60de",
     "tests/fixtures/portable-hp-edges.json": "2342470a63a6a2a0505b81a0e6356a6254d9b4fc8c9d3db95bea334004a9d6f0",
     "tests/fixtures/portable-health.json": "614201f346546358376038785f3196032efd3b0aa51276474da723a41267c365",
     "tests/fixtures/portable-charge-control.json": "00b643a72ad7026de9cb122386cc3dce521ae13bc5813383886e637d635f4994",

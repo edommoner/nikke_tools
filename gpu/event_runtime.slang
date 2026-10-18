@@ -27,7 +27,7 @@ struct Definition
     uint damageFlags, group, exclusive, quantityFlags, fixedLiteral, polarity;
     int alias;
     uint64_t fixedValue;
-    uint healthScaling, defenseBuff;
+    uint healthScaling, alliedFlags;
 };
 struct Frame
 {
@@ -38,6 +38,8 @@ struct Frame
 struct Runtime
 {
     Definition defs[32];
+    uint incomingMask, downMask, activeRecipients[32], receivedHits[5];
+    uint64_t receivedDamage[5];
     uint hpWatchCount, hpWatchSlots[256], hpDirtyMask, hpPendingMask, hpEdgeGuard;
     uint64_t hpPrevious[5], hpNext[5];
     uint healthMask; int healSource;
@@ -83,7 +85,7 @@ void addSum(inout Sum sum, uint64_t term)
 bool stateMember(inout Runtime s, uint who, int name, uint flags)
 {
     for (uint j = 0; j < s.count; j++)
-        if (s.alive[j] != 0 && int(s.defs[j].name) == name && (s.defs[j].recipients & (1U << who)) != 0) return true;
+        if (s.alive[j] != 0 && int(s.defs[j].name) == name && (s.activeRecipients[j] & (1U << who)) != 0) return true;
     if (s.combat == 0) return flags == 2;
     int mode = s.modeIndex[who];
     if (flags == 1) return mode >= 0;
@@ -110,7 +112,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
         if (kind == C_SELF_STACK)
         {
             uint count = 0;
-            for (uint j = 0; j < s.count; j++) if (s.defs[j].owner == d.owner && int(s.defs[j].name) == name && s.alive[j] != 0 && (s.defs[j].recipients & (1U << d.owner)) != 0) { count = s.stacks[j]; break; }
+            for (uint j = 0; j < s.count; j++) if (s.defs[j].owner == d.owner && int(s.defs[j].name) == name && s.alive[j] != 0 && (s.activeRecipients[j] & (1U << d.owner)) != 0) { count = s.stacks[j]; break; }
             if (s.combat != 0 && s.modeIndex[d.owner] >= 0 && int(s.defs[s.modeIndex[d.owner]].name) == name) count = 1;
             if (f64Less(f64FromI64(count),arg)) return false;
         }
@@ -181,8 +183,8 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
     {
         uint selected = s.orderedRows[pass]; Definition d = s.defs[selected];
 #endif
-        if (d.defenseBuff != 0 || d.kind != 0 || d.stat >= 64 || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
-            (d.recipients & (1U << who)) == 0 || !basicConditions(s,selected,when,true,who)) continue;
+        if (d.alliedFlags != 0 || d.kind != 0 || d.stat >= 64 || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
+            (s.activeRecipients[selected] & (1U << who)) == 0 || !basicConditions(s,selected,when,true,who)) continue;
         uint64_t value = scalarValue(s,selected,who);
         if (d.stat == S_crit_rate || d.stat == S_normal_atk_crit_rate)
         {
@@ -299,10 +301,12 @@ void registerTimer(inout Runtime s, uint row, uint64_t when)
 }
 
 #include "damage_runtime.slang"
+#include "incoming_runtime.slang"
 
 [noinline]
 void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, uint64_t when, uint output)
 {
+    if (owner >= 5) { s.error = 64; return; }
     syncHealth(s,when);
     uint entryTarget = s.target;
     Frame frames[32]; int depth = -1;
@@ -326,6 +330,53 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             s.hpDirtyMask &= ~(1U << who); syncHealthActor(s,who,frames[depth].time); continue;
         }
         Frame f = frames[depth]; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; uint row = s.count, passive = 0;
+        if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
+            (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
+        { depth--; continue; }
+        if (f.mode == 8)
+        {
+            uint at = s.inputBase+P_COMMAND_BASE+uint(f.argument)*8;
+            if (f.event == 0)
+            {
+                uint who = frames[depth].cursor, mask = commands[at+5] & ~s.downMask;
+                while (who < 5 && (mask & (1U << who)) == 0) who++;
+                if (who == 5) { depth--; continue; }
+                frames[depth].cursor = who+1; frames[depth].owner = who;
+                uint input = s.inputBase+P_INCOMING_BASE+uint(f.argument)*P_INCOMING_WORDS;
+                frames[depth].healthValue = incomingBodyDamage(s,who,loadNumber(input),loadNumber(input+2),f.time);
+                frames[depth].event = 1; continue;
+            }
+            if (f.event == 1)
+            {
+                uint64_t amount = liveMarker(s,f.owner,S_invincible,f.time) ? 0 : f.healthValue;
+                if (!f64Zero(amount) && !f64Less(amount,s.hp[f.owner]) && liveMarker(s,f.owner,S_undying,f.time)) amount = larger(0,f64Add(s.hp[f.owner],ONE ^ F64_SIGN));
+                frames[depth].healthValue = amount; frames[depth].event = 2;
+                if (!f64Zero(amount) && !f64Less(amount,s.hp[f.owner])) pushFrame(s,frames,depth,0,37,f.owner,0,f.time);
+                continue;
+            }
+            if (f.event == 2)
+            {
+                uint64_t amount = f.healthValue;
+                if (!f64Zero(amount) && !f64Less(amount,s.hp[f.owner]) && liveMarker(s,f.owner,S_undying,f.time)) amount = larger(0,f64Add(s.hp[f.owner],ONE ^ F64_SIGN));
+                bool fell = !f64Zero(amount) && !f64Less(amount,s.hp[f.owner]);
+                s.receivedDamage[f.owner] = f64Add(s.receivedDamage[f.owner],amount);
+                if (!f64Finite(s.receivedDamage[f.owner])) { s.error = 16; break; }
+                if (s.receivedHits[f.owner] == 0x7fffffff) { s.error = 2; break; }
+                s.receivedHits[f.owner]++;
+                s.hp[f.owner] = larger(0,f64Add(s.hp[f.owner],amount ^ F64_SIGN));
+                if (!fell) syncHealthActor(s,f.owner,f.time);
+                frames[depth].value = uint(fell); frames[depth].event = 3;
+                pushFrame(s,frames,depth,0,32,f.owner,0,f.time); continue;
+            }
+            frames[depth].event = 0;
+            if (f.value != 0 && (s.downMask & (1U << f.owner)) == 0)
+            {
+                knockDown(s,f.owner,f.time);
+                for (int observer = 4; observer >= 0; observer--) if ((s.downMask & (1U << observer)) == 0) pushFrame(s,frames,depth,0,46,uint(observer),0,f.time);
+                pushFrame(s,frames,depth,0,38,f.owner,0,f.time);
+            }
+            continue;
+        }
         if (f.mode == 7) { depth--; continue; }
         if (f.mode == 4)
         {
@@ -354,7 +405,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         {
             Definition health = s.defs[uint(f.argument)];
             uint who = frames[depth].cursor;
-            while (who < 5 && (health.recipients & (1U << who)) == 0) who++;
+            while (who < 5 && ((health.recipients & ~s.downMask) & (1U << who)) == 0) who++;
             if (who == 5) { depth--; continue; }
             frames[depth].cursor = who+1;
             if (f.mode == 5) s.hp[who] = smaller(f64Add(s.hp[who],f.healthValue),effectiveMaxHP(s,who,f.time));
@@ -363,7 +414,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         }
         if (f.mode == 3)
         {
-            depth--; Definition heal = s.defs[uint(f.argument)];
+            depth--; if ((s.downMask & (1U << f.owner)) != 0) continue;
+            Definition heal = s.defs[uint(f.argument)];
             uint64_t base = heal.healthScaling != 0 ? effectiveMaxHP(s,heal.owner,f.time) : s.baseHP[f.owner];
             uint64_t amount = f64Mul(f64Div(f64Mul(base,heal.value),HUNDRED),healMultiplier(s,f.owner,heal.owner,f.time));
             if (!f64Finite(amount)) { s.error = 16; break; }
@@ -436,6 +488,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         {
             bool live = s.alive[row] != 0 && f64Less(f.time,s.end[row]);
             if (!live) { s.stacks[row] = 0; s.hpSnapshot[row] = 0; markEntry(s,row); }
+            s.activeRecipients[row] = d.recipients & ~s.downMask;
             s.stacks[row] = min(s.stacks[row]+1,d.maxStack); s.alive[row] = 1; s.activated[row] = f.time;
             s.end[row] = f64Less(d.duration,0) ? FOREVER : f64Add(f.time,d.duration);
             if (s.hpWatchCount != 0 && (d.stat >= S_max_hp_pct && d.stat <= S_max_hp_only_pct || d.stat == S_max_hp_from_max_hp_pct))
@@ -455,14 +508,14 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         {
             // Stack recipient deliveries in reverse so each child completes
             // synchronously before the next squad member's heal is evaluated.
-            for (int who = 4; who >= 0; who--) if ((d.recipients & (1U << who)) != 0) pushFrame(s,frames,depth,3,0,uint(who),int(row),f.time);
+            for (int who = 4; who >= 0; who--) if (((d.recipients & ~s.downMask) & (1U << who)) != 0) pushFrame(s,frames,depth,3,0,uint(who),int(row),f.time);
         }
         else if (d.kind == 8)
         {
             if (s.hpWatchCount != 0) pushFrame(s,frames,depth,6,0,d.owner,int(row),f.time);
             else
             {
-                for (uint who = 0; who < 5; who++) if ((d.recipients & (1U << who)) != 0)
+                for (uint who = 0; who < 5; who++) if (((d.recipients & ~s.downMask) & (1U << who)) != 0)
                     s.hp[who] = larger(0,f64Mul(s.hp[who],f64Add(ONE,f64Div(d.value,HUNDRED) ^ F64_SIGN)));
                 syncHealth(s,f.time);
             }
@@ -558,7 +611,7 @@ void tick(inout Runtime s, uint64_t when, uint output)
         if (s.modeIndex[who] >= 0 && !f64Less(when,s.modeEnd[who]))
         { uint name = s.defs[s.modeIndex[who]].name; clearMode(s,who,when); dispatch(s,0,29,who,int(name),when,output); }
     for (uint j = 0; j < s.count && s.error == 0; j++)
-        if ((s.defs[j].flags & 1) != 0 && activationConditions(s,j,when))
+        if ((s.downMask & (1U << s.defs[j].owner)) == 0 && (s.defs[j].flags & 1) != 0 && activationConditions(s,j,when))
         {
             if (s.alive[j] == 0) dispatch(s,1,28,s.defs[j].owner,int(j),when,output);
             else s.end[j] = larger(s.end[j],f64Add(when,s.defs[j].duration));
@@ -619,15 +672,18 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         d.target = commands[at+D_TARGET]; d.forceMask = commands[at+D_FORCE_MASK]; d.recipients = commands[at+D_RECIPIENTS];
         uint extra = input+P_DEFINITION_EXTRA_BASE+j*P_DEFINITION_EXTRA_WORDS;
         uint health = input+P_HEALTH_DEFINITION_BASE+j*P_HEALTH_DEFINITION_WORDS;
-        d.healthScaling = commands[health]; d.defenseBuff = commands[health+1];
+        d.healthScaling = commands[health]; d.alliedFlags = commands[health+1];
         if (d.kind == 0 && (d.stat >= S_max_hp_pct && d.stat <= S_max_hp_only_pct || d.stat == S_max_hp_from_max_hp_pct)) s.healthMask |= 1;
-        if (d.kind == 0 && (d.defenseBuff != 0 || d.stat == S_def_caster_based_pct)) s.healthMask |= 2;
+        if (d.kind == 0 && ((d.alliedFlags & 1) != 0 || d.stat == S_def_caster_based_pct)) s.healthMask |= 2;
         if (d.kind == 0 && d.stat == S_heal_received_pct) s.healthMask |= 4;
         if (d.kind == 0 && d.stat == S_outgoing_heal_pct) s.healthMask |= 8;
         if (d.kind == 6 || d.kind == 8) s.healthMask |= 16;
         d.group = commands[extra]; d.exclusive = commands[extra+1]; d.alias = int(commands[extra+2]); d.quantityFlags = commands[extra+3];
         d.fixedValue = loadNumber(extra+4); d.fixedLiteral = commands[extra+6]; d.polarity = commands[extra+7];
         if (d.group >= P_DEFINITIONS || d.alias >= int(j)) { s.error = 64; break; }
+        if (d.kind == 0 && d.stat == S_invincible) s.incomingMask |= 1;
+        if (d.kind == 0 && d.stat == S_undying) s.incomingMask |= 2;
+        if (d.kind == 0 && d.stat == S_received_dmg_pct) s.incomingMask |= 4;
         if (d.kind == 0 && d.stat == S_reload_speed_pct) s.quantityMask |= 64;
         if (d.kind == 0 && d.stat == S_max_ammo_flat) s.quantityMask |= 16;
         if (d.kind == 0 && d.stat == S_charge_time_flat) s.quantityMask |= 32;
@@ -655,6 +711,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             dispatch(s,0,event,commands[at+4],int(commands[at+5]),when,output);
         }
         else if (op == 4 && s.combat != 0) { squadFrame(s,when,output); s.frameCount++; }
+        else if (op == 25) dispatch(s,8,0,0,int(step),when,output);
         else if (op == 24 && s.combat != 0) advanceCombat(s,when,output);
         else if ((op == 20 || op == 21 || op == 22) && s.combat != 0)
         {
@@ -672,6 +729,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         {
             uint who = commands[at+4];
             if (who >= 5) { s.error = 64; break; }
+            if ((s.downMask & (1U << who)) != 0) continue;
             uint target = s.combat != 0 ? aimedTarget(s,who) : 0;
             if (target == 0xffffffff) continue;
             s.target = target;
@@ -686,6 +744,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             if (index >= P_COMMANDS) { s.error = 64; break; }
             if (s.hpWatchCount != 0) dispatch(s,7,0,0,0,when,output); else syncHealth(s,when);
             writeHealth(s,when,output+P_HEALTH_QUERY_BASE+index*P_HEALTH_QUERY_WORDS);
+            writeIncoming(s,output+P_INCOMING_QUERY_BASE+index*P_INCOMING_QUERY_WORDS);
             queries = max(queries,index+1); uint dst = output+P_QUERY_BASE+index*P_QUERY_WORDS;
             storeNumber(dst,when);
             for (uint who = 0; who < 5; who++) { storeNumber(dst+2+2*who,s.total[who]); storeNumber(dst+16+2*who,readStat(s,who,0,when)); }
@@ -695,6 +754,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         }
         else s.error = 64;
     }
+    writeIncoming(s,output+P_INCOMING_STATE_BASE);
     writeHealth(s,commands[input+2] > 0 ? loadNumber(input+P_COMMAND_BASE+(commands[input+2]-1)*8+1) : 0,output+P_HEALTH_STATE_BASE);
     for (uint j = 0; j < s.count; j++)
     {

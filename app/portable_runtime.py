@@ -131,7 +131,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         words[extra:extra+8]=[int(row[45]),int(row[55]),(-1 if int(row[2]) in (18,20,37) else int(row[43])) & 0xffffffff,int(row[213]),
                               *double_words(row[138]),int(row[139]),int(row[209])]
         health=L['HEALTH_DEFINITION_BASE']+index*L['HEALTH_DEFINITION_WORDS']
-        words[health:health+2]=[int(row[50]),int(effects[index][0].get('stat')=='def_pct')]
+        words[health:health+2]=[int(row[50]),int(effects[index][0].get('stat')=='def_pct') | (int(effects[index][0].get('stat')=='received_dmg_pct')<<1)]
         if row[1]==2:
             if row[7]<0 and row[14]>0:raise UnsupportedPortable('Infinite conditional weapon mode is not ported')
             from portable_combat import pack_mode
@@ -154,6 +154,14 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         double_words(t)
         if not 0<=t<=180 or t<previous:raise ValueError('Commands must have monotonic times in 0..180 seconds')
         previous=t
+        if op==25:
+            if any(type(v) is not int for v in (op,event,owner,arg,query)) or event or owner or query!=-1 or not 1<=arg<=31:
+                raise ValueError('Invalid incoming body-attack descriptor')
+            double_words(extra);double_words(extra2)
+            if not 0<=extra<=1e30 or not 0<=extra2<=1e6:raise ValueError('Invalid incoming attack/coefficient')
+            at=L['COMMAND_BASE']+i*8;words[at:at+8]=[op,*double_words(t),0,0,arg,0,0]
+            at=L['INCOMING_BASE']+i*L['INCOMING_WORDS'];words[at:at+4]=[*double_words(extra),*double_words(extra2)]
+            continue
         if op in (4,20,21,22,24):
             if combat is None:raise UnsupportedPortable('Combat command requires combat configuration')
             if any(type(v) is not int for v in (op,event,owner,arg,query,extra2)) or event or extra2 or not 0<=owner<5:
@@ -216,6 +224,9 @@ def decode(words,metadata):
     for index,q in enumerate(queries):
         at=L['HEALTH_QUERY_BASE']+index*L['HEALTH_QUERY_WORDS']
         q['allies']=[dict(hp=number(at+who*10),max_hp=number(at+who*10+2),hp_pct=number(at+who*10+4),defense=number(at+who*10+6),healing=number(at+who*10+8)) for who in range(5)]
+    for index,q in enumerate(queries):
+        at=L['INCOMING_QUERY_BASE']+index*L['INCOMING_QUERY_WORDS']
+        for who,ally in enumerate(q['allies']):ally.update(received_damage=number(at+who*4),received_hits=words[at+who*4+2],down=bool(words[at+who*4+3]))
     weapon_states=[]
     if metadata.get('combat') is not None:
         for who in range(5):
@@ -248,6 +259,8 @@ def decode(words,metadata):
             targets.append(dict(kind=t.get('kind',0),identity=t.get('identity',i),generation=words[at],active=bool(words[at+1]),hp=number(at+2),damage=number(at+4),hits=words[at+6]))
     at=L['HEALTH_STATE_BASE']
     health=[dict(hp=number(at+who*10),max_hp=number(at+who*10+2),hp_pct=number(at+who*10+4),defense=number(at+who*10+6),healing=number(at+who*10+8)) for who in range(5)]
+    at=L['INCOMING_STATE_BASE']
+    for who,ally in enumerate(health):ally.update(received_damage=number(at+who*4),received_hits=words[at+who*4+2],down=bool(words[at+who*4+3]))
     return dict(allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
 
 

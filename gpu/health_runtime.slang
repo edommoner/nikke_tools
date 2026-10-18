@@ -32,7 +32,7 @@ uint64_t effectiveDefense(inout Runtime s, uint who, uint64_t when)
         uint row = s.orderedRows[pass]; Definition d = s.defs[row];
         if (d.kind != 0 || !liveRecipient(s,row,who,when)) continue;
         uint64_t value = scalarValue(s,row,who);
-        if (d.defenseBuff != 0) percent = f64Add(percent,value);
+        if ((d.alliedFlags & 1) != 0) percent = f64Add(percent,value);
         else if (d.stat == S_def_caster_based_pct) flat = f64Add(flat,f64Mul(s.baseDefense[d.owner],f64Div(value,HUNDRED)));
     }
     uint64_t result = f64Add(f64Mul(s.baseDefense[who],f64Add(ONE,f64Div(percent,HUNDRED))),flat);
@@ -42,6 +42,7 @@ uint64_t effectiveDefense(inout Runtime s, uint who, uint64_t when)
 [noinline]
 void syncHealthActor(inout Runtime s, uint who, uint64_t when)
 {
+    if ((s.downMask & (1U << who)) != 0) { s.hp[who] = 0; s.hpPct[who] = 0; return; }
     uint64_t previous = s.hpPct[who], maximum = effectiveMaxHP(s,who,when);
     if (s.error != 0) return;
     s.hp[who] = larger(0,smaller(maximum,s.hp[who]));
@@ -86,7 +87,7 @@ void applyHealthBuff(inout Runtime s, uint row, uint64_t when)
 #endif
     uint64_t grant = prepareHealthGrant(s,row,when);
     if (s.error != 0) return;
-    if (!f64Zero(grant)) for (uint who = 0; who < 5; who++) if ((d.recipients & (1U << who)) != 0)
+    if (!f64Zero(grant)) for (uint who = 0; who < 5; who++) if ((s.activeRecipients[row] & (1U << who)) != 0)
         s.hp[who] = smaller(f64Add(s.hp[who],grant),effectiveMaxHP(s,who,when));
     syncHealth(s,when);
 }

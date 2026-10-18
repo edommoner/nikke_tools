@@ -9,9 +9,9 @@ CONDITIONS=dict(FULL=1,NOT_FULL=2,SELF_STATE=3,NOT_SELF_STATE=4,SELF_STACK=5,
                 BACK_ROW=7,STAT_ABOVE=8,HP_ABOVE=9,HP_BELOW=10,HP_MAX=11,NOT_SELF_HEAL=13,CAST=14,NOT_CAST=15,STATIC=25,CHARGING=29,
                 BURST1_ALLY=31,NO_BURST1_ALLY=32,ALLY_HP_BELOW=34,ENEMIES_ABOVE=ENEMY_COUNT_ABOVE,
                 ENEMIES_BELOW=ENEMY_COUNT_BELOW,TARGET_BOSS=TARGET_IS_BOSS,TARGET_ADD=TARGET_IS_ADD)
-EVENTS=frozenset((0,1,2,3,4,6,7,8,9,10,11,12,14,16,19,20,21,26,29,31,48,49))
+EVENTS=frozenset((0,1,2,3,4,6,7,8,9,10,11,12,14,16,19,20,21,26,29,31,32,37,38,46,48,49))
 COUNT=r'(?:[1-9][0-9]*|\{0\})'
-SIMPLE=r'event:heal_received|battle_start|passive|on_attack|hit_count|burst_cast|full_burst_start|full_burst_end|event:full_reload|last_bullet|last_bullet_fire|full_charge|full_charge_fire|full_charge_hit|squad_ammo_consume|pellet_hit'
+SIMPLE=r'received_hit|event:lethal_hit|event:self_down|event:ally_down|event:heal_received|battle_start|passive|on_attack|hit_count|burst_cast|full_burst_start|full_burst_end|event:full_reload|last_bullet|last_bullet_fire|full_charge|full_charge_fire|full_charge_hit|squad_ammo_consume|pellet_hit'
 COUNTERS=rf'(?:on_attack_count|hit_count|squad_ammo_consume|pellet_hit|pellet_hit_count|full_charge_fire_count|full_charge_count|full_charge_hit_count|burst_cast_count|full_burst_start_count|full_burst_end_count|full_burst_start_exact):{COUNT}'
 HP_NUMBER=r'[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
 HP_TIMING=rf'hp_below:{HP_NUMBER}|hp_below_count:{HP_NUMBER}:[1-9][0-9]*|event:(?:ally_hp_below|adjacent_hp_below):{HP_NUMBER}|event:adjacent_hp_max'

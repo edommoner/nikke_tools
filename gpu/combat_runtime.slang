@@ -132,7 +132,7 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
     {
         uint picked = 5; uint64_t earliest = FOREVER;
         if (s.reentrySlot != 0) enterStage(s,s.phase,when,output);
-        for (uint who = 0; who < 5; who++) if (stages[who] == s.phase || stages[who] == 4)
+        for (uint who = 0; who < 5; who++) if ((s.downMask & (1U << who)) == 0 && (stages[who] == s.phase || stages[who] == 4))
         {
             earliest = smaller(earliest,s.ready[who]);
             if (reached(when,s.ready[who])) { picked = who; break; }
@@ -165,7 +165,7 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
 [noinline]
 void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
 {
-    if (s.weaponEnabled[who] == 0) return;
+    if (s.weaponEnabled[who] == 0 || (s.downMask & (1U << who)) != 0) return;
     uint target = aimedTarget(s,who); if (target == 0xffffffff) return;
     s.target = target; Weapon w = selectWeapon(s,who,when);
     if (s.error != 0) return;

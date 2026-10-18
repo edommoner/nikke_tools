@@ -30,7 +30,7 @@ class PortableBoundaryTests(unittest.TestCase):
     def test_unported_semantics_fail_before_any_gpu_dispatch(self):
         variants=[dict(trigger=dict(timing=['passive'],condition=['has_burst1_ally'])),dict(stat='shield_from_max_hp_pct'),dict(target='allies_top_atk:1'),dict(scaling='stack_count'),
                   dict(trigger=dict(timing=['battle_start'],condition=['full_burst'])),
-                  dict(trigger=dict(timing=['received_hit'],condition=[])),
+                  dict(trigger=dict(timing=['event:cover_hit'],condition=[])),
                   dict(trigger=dict(timing=['battle_start'],condition=['during_shield']))]
         for change in variants:
             with self.subTest(change=change):
@@ -47,7 +47,7 @@ class PortableBoundaryTests(unittest.TestCase):
         for trigger in (dict(timing=['battle_start']*9),dict(timing=[]),
                         dict(timing=['battle_start'],condition=['during_full_burst']*4),
                         dict(timing=['every:0s']),dict(timing=['every:nan']),
-                        dict(timing=['every:inf']),dict(timing=['received_hit']),
+                        dict(timing=['every:inf']),dict(timing=['event:cover_hit']),
                         dict(timing=['battle_start'],condition=['during_shield'])):
             with self.subTest(trigger=trigger),self.assertRaises(ValueError):validate_input(dict(trigger=trigger))
 
@@ -98,8 +98,23 @@ class PortableHPEdgeInputTests(unittest.TestCase):
         import importlib.util
         spec=importlib.util.spec_from_file_location('hp_edge_verify',ROOT/'scripts/verify-portable-combat.py')
         v=importlib.util.module_from_spec(spec);spec.loader.exec_module(v)
-        for event in (31,48):
+        for event in (31,48,32,37,38,46):
             case=copy.deepcopy(v.fixtures()[0]);case['script']=[[0,0,event,0,0,-1,0,0]]
             with self.subTest(event=event),self.assertRaises(ValueError):v.compile_case(case)
+
+
+class PortableIncomingInputTests(unittest.TestCase):
+    def test_incoming_attack_fields_are_typed_raw_inputs(self):
+        import importlib.util
+        spec=importlib.util.spec_from_file_location('incoming_verify',ROOT/'scripts/verify-portable-combat.py')
+        v=importlib.util.module_from_spec(spec);spec.loader.exec_module(v)
+        base=copy.deepcopy(v.fixtures()[0])
+        for command in ([0,25,0,0,0,-1,300,100],[0,25,0,0,32,-1,300,100],
+                        [0,25,0,1,1,-1,300,100],[0,25,1,0,1,-1,300,100],
+                        [0,25,0,0,True,-1,300,100],[0,25,0,0,1,-1,True,100],
+                        [0,25,0,0,1,-1,300,float('inf')],[0,25,0,0,1,-1,-1,100],
+                        [0,25,0,0,1,-1,300,-1],[0,25,0,0,1,0,300,100]):
+            case=copy.deepcopy(base);case['script']=[command]
+            with self.subTest(command=command),self.assertRaises(ValueError):v.compile_case(case)
 
 if __name__=='__main__':unittest.main()

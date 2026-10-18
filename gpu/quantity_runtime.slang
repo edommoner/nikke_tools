@@ -1,7 +1,7 @@
 // Shared source-group quantities. Never collapse distinct rounding groups.
 bool liveRecipient(inout Runtime s, uint row, uint who, uint64_t when)
 {
-    return s.alive[row] != 0 && f64Less(when,s.end[row]) && (s.defs[row].recipients & (1U << who)) != 0 && basicConditions(s,row,when,true,who);
+    return s.alive[row] != 0 && f64Less(when,s.end[row]) && (s.activeRecipients[row] & (1U << who)) != 0 && basicConditions(s,row,when,true,who);
 }
 uint64_t scalarValue(inout Runtime s, uint row, uint who)
 {

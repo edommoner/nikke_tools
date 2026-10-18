@@ -27,7 +27,7 @@ def main():
     tracked=['server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_backend.py',
              'scripts/verify-portable-api.py','tests/fixtures/portable-events.json',
              'app/portable_combat.py','app/portable_specs.py','app/world_condition_specs.py','app/impact_specs.py',
-             'tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
+             'tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases'][0]
     payload=dict(chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES],
@@ -159,6 +159,22 @@ def main():
         assert error.code==400;assert 'Unported trigger timing' in json.load(error)['error']
     else:raise AssertionError('Invalid HP crossing count accepted')
     result['hp_edge_unsupported_status']=400
+    incoming_case=json.loads((ROOT/'tests/fixtures/portable-incoming.json').read_text(encoding='utf-8'))['cases']
+    incoming_case=next(c for c in incoming_case if c['name']=='down-notifications-run-after-recipient-cleanup')
+    incoming_body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(incoming_case['effects'],incoming_case['owners'])],
+                       script=incoming_case['script'],base_atk=[1000]*5,environment=incoming_case['environment'],backend=args.backend)
+    actual=request(incoming_body);assert actual['gpu_execution_verified']
+    query=actual['results'][0]['queries'][0]
+    assert query['attack_buffs']==[0,3,2,2,2]
+    assert query['allies'][0]['hp']==0 and query['allies'][0]['down'] is True
+    assert query['allies'][0]['received_damage']==2900 and query['allies'][0]['received_hits']==1
+    result['incoming_execution']=actual
+    malformed=copy.deepcopy(incoming_body);malformed['script'][1][4]=0
+    try:request(malformed)
+    except urllib.error.HTTPError as error:
+        assert error.code==400;assert 'Invalid incoming body-attack descriptor' in json.load(error)['error']
+    else:raise AssertionError('Empty incoming target mask accepted')
+    result['incoming_unsupported_status']=400
     result['quantity_unsupported_status']=400
     result['timeline_execution']=timeline_result
     result['extension_execution']=extension_result
