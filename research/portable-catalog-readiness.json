@@ -12,12 +12,11 @@
     "Unported instant or recipient selector": 37,
     "Unported effect fields: gauge_id": 30,
     "Unported effect fields: gauge_id, gauge_max": 23,
-    "Unported effect fields: scaling, scaling_ref": 22,
+    "Unported effect fields: scaling, scaling_ref": 19,
     "Unported trigger timing: event:part_destroy": 13,
     "Unported trigger timing: event:enemy_spawn": 10,
     "Unported effect fields: remove_scope": 10,
-    "Multi-target periodic damage requires per-recipient clocks": 9,
-    "Unported effect fields: scaling": 9,
+    "Unported effect fields: scaling": 8,
     "Unported enemy damage selector": 8,
     "Unported trigger timing: enemy_death": 7,
     "Unported predicate: target_code:전격": 7,
@@ -32,6 +31,7 @@
     "Unported trigger timing: charge_hold_count:1:3": 4,
     "Unported predicate: self_state:무대 파트 : 보컬": 4,
     "Unported effect fields: hits_parts": 3,
+    "Unported effect fields: scaling_ref": 3,
     "Unported predicate: target_state:사슬 감기": 3,
     "Unported predicate: prob:30": 3,
     "Unported predicate: prob:10": 3,
@@ -101,7 +101,7 @@
     "Unported trigger timing: part_hit_count:5": 1,
     "Unported predicate: self_stat_above:accuracy_pct:0": 1,
     "Unported trigger timing: multi_hit:2": 1,
-    "Unported effect fields: post_ramp_tick_delay, ramp_damage_stack, ramp_interval, scaling": 1,
+    "Unported effect fields: post_ramp_tick_delay, ramp_damage_stack, ramp_interval": 1,
     "Unported trigger timing: pellet_hit_in_shot:5": 1,
     "Unported predicate: target_state:고위험 대상": 1,
     "Unported trigger timing: crit_hit_count:2": 1,
@@ -138,12 +138,11 @@
     "Unported instant or recipient selector": 37,
     "Unported effect fields: gauge_id": 30,
     "Unported effect fields: gauge_id, gauge_max": 23,
-    "Unported effect fields: scaling, scaling_ref": 22,
+    "Unported effect fields: scaling, scaling_ref": 19,
     "Unported trigger timing: event:part_destroy": 13,
     "Unported trigger timing: event:enemy_spawn": 10,
     "Unported effect fields: remove_scope": 10,
-    "Multi-target periodic damage requires per-recipient clocks": 9,
-    "Unported effect fields: scaling": 9,
+    "Unported effect fields: scaling": 8,
     "Unported enemy damage selector": 8,
     "Unported trigger timing: enemy_death": 7,
     "Unported predicate: target_code:전격": 7,
@@ -158,6 +157,7 @@
     "Unported trigger timing: charge_hold_count:1:3": 4,
     "Unported predicate: self_state:무대 파트 : 보컬": 4,
     "Unported effect fields: hits_parts": 3,
+    "Unported effect fields: scaling_ref": 3,
     "Unported predicate: target_state:사슬 감기": 3,
     "Unported predicate: prob:30": 3,
     "Unported predicate: prob:10": 3,
@@ -227,7 +227,7 @@
     "Unported trigger timing: part_hit_count:5": 1,
     "Unported predicate: self_stat_above:accuracy_pct:0": 1,
     "Unported trigger timing: multi_hit:2": 1,
-    "Unported effect fields: post_ramp_tick_delay, ramp_damage_stack, ramp_interval, scaling": 1,
+    "Unported effect fields: post_ramp_tick_delay, ramp_damage_stack, ramp_interval": 1,
     "Unported trigger timing: pellet_hit_in_shot:5": 1,
     "Unported predicate: target_state:고위험 대상": 1,
     "Unported trigger timing: crit_hit_count:2": 1,
@@ -262,8 +262,8 @@
   "missing_families": {
     "damage_modifiers": 148,
     "effect_lifecycle": 94,
-    "damage": 75,
     "weapon": 70,
+    "damage": 65,
     "resource_accumulation": 56,
     "protection": 50,
     "control_survival": 45,
@@ -8370,11 +8370,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Multi-target periodic damage requires per-recipient clocks"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "라라라♬ 3",
@@ -9461,13 +9460,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Multi-target periodic damage requires per-recipient clocks"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "정당방위",
@@ -16636,13 +16632,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Multi-target periodic damage requires per-recipient clocks"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "구경났냐 짜식들아!!",
@@ -17752,10 +17745,10 @@
             "gauge_above:포획 사슬:1"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
+          "diagnostic_semantic_issue": "Unported effect fields: scaling_ref",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "issue": "Unported effect fields: scaling_ref"
         },
         {
           "name": "바디 컨텍 5",
@@ -17854,10 +17847,10 @@
             "target_state:사슬 감기"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
+          "diagnostic_semantic_issue": "Unported effect fields: scaling_ref",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "issue": "Unported effect fields: scaling_ref"
         },
         {
           "name": "사슬 당기기 2",
@@ -19591,12 +19584,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
+          "diagnostic_semantic_issue": "Unported effect fields: scaling_ref",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "issue": "Unported effect fields: scaling_ref"
         },
         {
           "name": "장비 옵션",
@@ -28371,11 +28364,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Multi-target periodic damage requires per-recipient clocks"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "번 아포칼립스 2",
@@ -30877,11 +30869,10 @@
             "every:30s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Multi-target periodic damage requires per-recipient clocks"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "온다 그란데",
@@ -31180,11 +31171,10 @@
             "every:30.0s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Multi-target periodic damage requires per-recipient clocks"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "화양연화",
@@ -31211,10 +31201,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: post_ramp_tick_delay, ramp_damage_stack, ramp_interval, scaling",
+          "diagnostic_semantic_issue": "Unported effect fields: post_ramp_tick_delay, ramp_damage_stack, ramp_interval",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: post_ramp_tick_delay, ramp_damage_stack, ramp_interval, scaling"
+          "issue": "Unported effect fields: post_ramp_tick_delay, ramp_damage_stack, ramp_interval"
         },
         {
           "name": "장비 옵션",
@@ -31583,11 +31573,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Multi-target periodic damage requires per-recipient clocks"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -51489,11 +51478,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Multi-target periodic damage requires per-recipient clocks"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "궁극! 아크 블랙 메테오!",
@@ -60627,11 +60615,10 @@
             "full_charge_fire"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "쇼크웨이브 2",
@@ -61872,13 +61859,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Multi-target periodic damage requires per-recipient clocks"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "페이로드 확산",
@@ -63224,10 +63208,10 @@
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
     "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
     "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
-    "app/portable_enemy_specs.py": "4191596c60b2a5957abcb55566d7cb2891797ec32a24fcda8971e0eda28cad18",
+    "app/portable_enemy_specs.py": "027f575ec84a2f872d01622281971f1f97919c82e705f8a484208cfa811b1804",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
-    "app/portable_runtime.py": "5956e0e540238c9ecdfefd46eb2f449097127fad6beb66fe1dbc8c044022fdba",
-    "app/portable_specs.py": "a83757882aa1931ac98dd3670195dc5576610154293e8396b735b9f3edd04670",
+    "app/portable_runtime.py": "e36f818f6eb3e310049d9b163e451f03ddc0bf4718ee703e3f816a23a7f12604",
+    "app/portable_specs.py": "63c1e8a8a8aafbc158e92c7488cb726b29d107fa47eba9d049412802fcc20549",
     "app/portable_trigger_specs.py": "70d19d08eb1bb29674ed2c8360e7748556f0674775e180169e6f957b39607fc6",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",

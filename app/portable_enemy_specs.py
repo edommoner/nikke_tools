@@ -23,7 +23,6 @@ def damage_plan(effect):
         match=re.fullmatch(r'enemies_(top_hp|highest_hp|lowest_hp|nearest|top_def|lowest_def|top_atk):([1-9][0-9]*)',target) if isinstance(target,str) else None
         if not match or not 1<=int(match[2])<=256:raise ValueError('Unported enemy damage selector')
         count=int(match[2]);route=ROUTES[dict(top_hp='MAX_HP',highest_hp='CURRENT_HP',lowest_hp='LOW_HP',nearest='NEAREST',top_def='TOP_DEF',lowest_def='LOW_DEF',top_atk='TOP_ATK')[match[1]]]
-    if effect.get('tick_interval') and route not in (ROUTES['INHERITED'],ROUTES['BODY']):raise ValueError('Multi-target periodic damage requires per-recipient clocks')
     return route,count,hits
 
 

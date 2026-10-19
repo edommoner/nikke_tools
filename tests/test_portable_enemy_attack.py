@@ -24,7 +24,9 @@ class EnemyAttackInputTests(unittest.TestCase):
         for count in (1,256):validate_effect({**effect,'target':f'enemies_top_atk:{count}'},combat={})
         for count in ('0','257','-1','1.5',''):
             with self.subTest(count=count),self.assertRaises(ValueError):validate_effect({**effect,'target':'enemies_top_atk:'+count},combat={})
-        with self.assertRaises(ValueError):validate_effect({**effect,'target':'enemies_top_atk:1','tick_interval':.1,'duration':1},combat={})
+        periodic={**effect,'target':'enemies_top_atk:1','tick_interval':.1,'duration':1};validate_effect(periodic,combat={})
+        from portable_periodic_specs import periodic_flags
+        self.assertEqual(periodic_flags(periodic,0)&1,1)
     def test_real_preparation_keeps_authored_enemy_attack(self):
         from detail_coverage import body_for
         import engine_worker

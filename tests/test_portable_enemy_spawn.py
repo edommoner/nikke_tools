@@ -11,7 +11,9 @@ class EnemySpawnAdmissionTests(unittest.TestCase):
         e=dict(name='near',type='damage',stat='damage',fixed_value=100,target='enemies_nearest_in_range',trigger=dict(timing=['on_attack'],condition=[]))
         validate_effect(e,combat={})
         with self.assertRaises(ValueError):validate_effect(e)
-        with self.assertRaises(ValueError):validate_effect({**e,'tick_interval':.2,'duration':1},combat={})
+        periodic={**e,'tick_interval':.2,'duration':1};validate_effect(periodic,combat={})
+        from portable_periodic_specs import periodic_flags
+        self.assertEqual(periodic_flags(periodic,0)&1,1)
     def test_enemy_buff_defense_ranks_share_the_damage_model_guard(self):
         for route in ('high','low'):
             template=next(c for c in v.fixtures() if c['name']=='enemy-spawn-buff-defense-'+route)

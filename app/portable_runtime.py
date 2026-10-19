@@ -36,13 +36,14 @@ def validate_effect(eff, *, combat=None):
     allowed = {'name','source','type','stat','fixed_value','values','duration','duration_values',
                'target','trigger','note','polarity','favorite','_source_tag','_quant_group','max_ammo_reduction_exclusive','trigger_values','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
     if eff.get('type')=='buff':allowed=allowed | {'duration_bullets','event_scope'}
-    effect_allowed=allowed | ({'scaling'} if eff.get('stat') in ('heal_hp_pct','cover_heal_pct','cover_hp_pct') else set()) | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','cover_during_delay','first_damage_coeff','max_ammo_buff_applies','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
+    effect_allowed=allowed | ({'scaling'} if eff.get('stat') in ('heal_hp_pct','cover_heal_pct','cover_hp_pct') or eff.get('type')=='damage' and eff.get('stat')=='dot_damage' else set()) | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','cover_during_delay','first_damage_coeff','max_ammo_buff_applies','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
     if set(eff)-effect_allowed:
         raise UnsupportedPortable('Unported effect fields: '+', '.join(sorted(set(eff)-effect_allowed)))
     from portable_trigger_specs import validate_input
     try:validate_input(eff)
     except ValueError as error:raise UnsupportedPortable(str(error)) from error
     kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
+    if kind=='damage' and 'scaling' in eff and (stat!='dot_damage' or eff['scaling']!='stack_count' or not eff.get('tick_interval')):raise UnsupportedPortable('Periodic damage scaling requires an own-stack DoT clock')
     if stat=='cover_hp_pct' and eff.get('scaling') not in (None,'max_hp'):raise UnsupportedPortable('Unported cover HP basis')
     if kind=='buff' and 'duration_bullets' in eff:
         bullets=eff['duration_bullets']
@@ -102,10 +103,13 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     program=legacy.compile_effects(chars,effects)
     if len(program['effects'])!=len(effects) or not 1<=len(effects)<=L['DEFINITIONS']:
         raise UnsupportedPortable('Portable definition capacity or expansion exceeded')
+    from portable_periodic_specs import periodic_groups, periodic_flags
+    periodic=periodic_groups(effects)
+    if periodic and combat is None:raise UnsupportedPortable('Named periodic target union requires combat-owned targets')
     seen_names={}
     for index,(eff,owner) in enumerate(effects):
         key=(owner,eff.get('name'));previous=seen_names.get(key,[])
-        if previous and (eff.get('type')!='buff' or any(effects[j][0].get('type')!='buff' for j in previous)):
+        if previous and not periodic.get(index) and (eff.get('type')!='buff' or any(effects[j][0].get('type')!='buff' for j in previous)):
             raise UnsupportedPortable('Multiple named non-buff carriers are not ported')
         seen_names.setdefault(key,[]).append(index)
     duration_groups={key:i+1 for i,key in enumerate(dict.fromkeys((owner,e.get('source'),e.get('name')) for e,owner in effects if e.get('stat')=='fullburst_duration'))}
@@ -175,6 +179,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         bullet=L['BULLET_DEFINITION_BASE']+index*2
         lifetime=int(row[62]) if effects[index][0].get('type')=='buff' else -1
         words[bullet:bullet+2]=[lifetime if lifetime>0 else 0,int(row[63]) if lifetime>0 else 0]
+        periodic_at=L['PERIODIC_DEFINITION_BASE']+index*2
+        words[periodic_at:periodic_at+2]=[periodic_flags(effects[index][0],periodic.get(index,0)),periodic.get(index,0)]
         compact=[0]*L['DEFINITION_WORDS']
         fields={'OWNER':int(row[0]),'KIND':int(row[1]),'STAT':int(row[2]),'NAME':int(row[3]),
                 'MAX_STACK':int(row[9]),'BUDGET':int(row[57]),'IMMEDIATE':int(row[60]),
@@ -371,7 +377,11 @@ def decode(words,metadata):
         at=pending+4+index*8;definition=words[at]
         if definition>=len(metadata['effects']):raise RuntimeError('Invalid pending definition')
         queue.append(dict(effect=metadata['effects'][definition],cast_time=number(at+1),coefficient=number(at+3),hits=words[at+5],amount=number(at+6)))
-    return dict(pending_burst=dict(count=count,enqueued=words[pending+1],fired=words[pending+2],entries=queue),covers=covers,body_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+20+2*k) for k in range(5)],add_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+30+2*k) for k in range(5)],scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+2*k) for k in range(5)],add_overkill=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+10+2*k) for k in range(5)],target_scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+40+2*k) for k in range(len((metadata.get('combat') or {}).get('targets',[])))],bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
+    periodic=[]
+    for i in range(len(metadata['effects'])):
+        at=L['PERIODIC_STATE_BASE']+i*12
+        periodic.append(dict(flags=words[at],group=words[at+1],target_order=[((words[at+2]>>(4*k))&15)-1 for k in range(8) if (words[at+2]>>(4*k))&15],target_generations=list(words[at+4:at+12])))
+    return dict(periodic_bindings=periodic,pending_burst=dict(count=count,enqueued=words[pending+1],fired=words[pending+2],entries=queue),covers=covers,body_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+20+2*k) for k in range(5)],add_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+30+2*k) for k in range(5)],scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+2*k) for k in range(5)],add_overkill=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+10+2*k) for k in range(5)],target_scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+40+2*k) for k in range(len((metadata.get('combat') or {}).get('targets',[])))],bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
 
 
 def run_programs(programs, *, backend='metal'):

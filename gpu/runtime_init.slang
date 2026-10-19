@@ -124,6 +124,8 @@ void initializeRuntime(inout Runtime s)
         s.cacheNewestTime[index] = 0;
         s.durationGroupFirst[index] = 0;
         s.timerTarget[index] = 0;
+        s.periodicOrder[index] = 0;
+        s.periodicOwner[index] = 0;
         s.activations[index] = 0;
         s.periodInitialized[index] = 0;
         s.timerActive[index] = 0;
@@ -255,5 +257,9 @@ void initializeRuntime(inout Runtime s)
         s.targetScoredDamage[index] = 0;
         s.targetDealt[index] = 0;
         s.enemyBirth[index] = 0;
+    }
+    [loop] for (uint index = 0; index < P_DEFINITIONS*8; index++)
+    {
+        s.periodicGeneration[index] = 0;
     }
 }
