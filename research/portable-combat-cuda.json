@@ -2,15 +2,15 @@
   "transport": {
     "backend": "cuda",
     "device": "NVIDIA GeForce RTX 3070 Ti",
-    "cases": 1625,
+    "cases": 1709,
     "command_status": "completed",
-    "host_dispatch_seconds": 6.757283600047231
+    "host_dispatch_seconds": 5.232886699959636
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "0405a9049ccb7b66a84b29fb10d22a3fffd505affdb1637332d47e2c2843b532",
+    "gpu/event_runtime.slang": "9ab47ebacb3a98476c47ce257e2fe2f3b42daded4fd3e1340981d291d2ac0fc2",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
-    "gpu/portable_schema.slang": "c852a63052391f1132dd4e61b1b58957872445f9f6b9a69691bb765f675d8d25",
+    "gpu/portable_schema.slang": "577a5fd91c614f2ea729272d76c30c5146cd4be9cb03f6aa3b42972bd13c5083",
     "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
     "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
     "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
@@ -44,19 +44,20 @@
     "gpu/status_runtime.slang": "6bc6d358cbaadb661c1f59a3613d4f14ce635195c256979fc96abc210ae01a53",
     "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
     "gpu/pending_burst_runtime.slang": "c4b0ee8ded3c5922ce8370b12ebec0dbb86ad0bae9d530d615e4f498029f1758",
+    "gpu/protection_runtime.slang": "2cf2bd68750edd4858fa30f8ad7035f9668ba3ef355296602879ce492dfb6750",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
     "gpu/combat_runtime.slang": "007857a4a49acddb59fd36935d5acd578d70af69815cf4f63647836837ee872b",
     "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
-    "gpu/admission_runtime.slang": "9f9674bf516696da4a73f15558e2b15d0f11af2490f5aeba0f3a1dd0ea942932"
+    "gpu/admission_runtime.slang": "a15d989087ff45e661ba146d3ec976d2aa69018b817cdb17561058044eb2a0bc"
   },
   "generated_sha256": {
-    "cuda": "03385ea79b5ece7f4734c6564f433499b1dbfc8014a0a553b41e82c38431e386",
-    "metal": "1245519257b2187b92b02e547a3381416b3a65f55b4c9e7bce659587e0757dc0"
+    "cuda": "8b0ea4224d0eea2df82324694419bcc8ad45387d1d758a1b17bba814863540e1",
+    "metal": "a614af07f7fca94cbeb2f093d00fc40cde061e3e7c2668161a4bd555d75e2ef3"
   },
-  "input_sha256": "3e953f7d2266ee9b981256df80e681bae30aa180b0cc53bf6227f61c662e89aa",
-  "output_sha256": "453bb8936d6f52ce20496a05a2ea8b5ff12bcf797e387dd68283dfc64651debc",
+  "input_sha256": "7467694ceab1565ed88e5869649fb290c4f64e131456348c0d6d760b6212aa65",
+  "output_sha256": "14c9a48c576a1a31495aceb29bf225b024d67fab152ba7cc407f04f525e1b24f",
   "gpu_execution_verified": true,
   "backend": "cuda",
   "application_event_runtime_connected": true,
@@ -1440,6 +1441,63 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     2,
     64,
     8,
@@ -1688,7 +1746,34 @@
     64,
     64,
     64,
-    64
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    16
   ],
   "passed": true,
   "stage": "verified",
@@ -1714,7 +1799,7 @@
     "app/periodic_source_runtime.py": "bd45e4244fd741ff053a756876253b62221f1d28cfb00e01d89d5cacb39af062",
     "tests/fixtures/portable-sources.json": "7c67eb17ad96eff5237e1a14de38ef5f30494cba272cf56da8acb0ce7c45ec86",
     "app/reference_count_runtime.py": "009b8bbee5523994861860c6101416bc1ff1e72b04a7da46e78f6ce9a5d571ef",
-    "app/reference_health_runtime.py": "3c61602618461266b8a35afdd4206d63243b3f52c027495104e67228f2ea53f6",
+    "app/reference_health_runtime.py": "fb028c974a10f80821336fb3f2bcf235ee6d300538a61afa829b536dc9ba1e44",
     "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
     "tests/fixtures/portable-reference-scales.json": "e0e26b2691affa2f30e1456c9bf49923c24f0a63667c16da45f73a31c7ad61bd",
     "app/portable_reference_specs.py": "e0ce11eef8ee6dff7726f1dfc58798daa42003a9889a414d26ecfdac6aa4fdde",
@@ -1728,12 +1813,12 @@
     "app/portable_roster_input.py": "0a6c8c37bcf4e93af644769125a09535c618c4d601039fec440d473d84999121",
     "app/portable_runtime_layout.py": "1a882b22eef68f04633c2a0fcdc542b188669e50f283dc88bf241af33c7ca0f1",
     "app/portable_enemy_specs.py": "34cfe5234f5ed216af3cf3cbdde5c6b777a48eed2a81676294f2ed96d1ab6e49",
-    "app/portable_runtime.py": "221e29a10f805c54c0f15da017e62756148afbd3177b133f916116fc5b101146",
+    "app/portable_runtime.py": "6da78362a82c07c9107e792c77727b381bc55e81428cd513b770a1f3a7c1e78b",
     "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
-    "app/portable_specs.py": "7b8135ebebcb4bfba825db6fb56d75a0a01a2136f22590e68e12b4751f753f80",
+    "app/portable_specs.py": "de215e2ceed85962b06042199b68bd27c4d4fab02cd93e610521f89ac1e6a703",
     "app/portable_periodic_specs.py": "830b7b7bd25586ae568b210dd3583c3e7349bb0ac29226d0748ba77b7da3d9bf",
-    "app/portable_backend.py": "65fa85746a0be27fce443e95f47a92885a4c822dc6630141b1baa972c4cfff53",
-    "app/portable_trigger_specs.py": "de8354e952352ce0e40bf3f8ddf97f36595500ea3e7436672ae4ba0934871040",
+    "app/portable_backend.py": "ff77334356c509d4b5bdd21602c97bbaf24706b7c5885ed5a9ec9ec7745bb338",
+    "app/portable_trigger_specs.py": "4e56419d8ca5a6454ecd00c9300c7a166b5bd695c1244155afa11eb59ddacd7b",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
     "app/portable_damage_specs.py": "62d322155e688a5e428b4cf56550216c6d050c0605487d39331d4306d47b14bb",
     "scripts/portable_pending_oracle.py": "ece6a9c87fc4bbfdbabf0dd57071c51ffaf6122688c8990e0293c224cc80de54",
@@ -1749,7 +1834,7 @@
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "88d861b406f0ab6b5552118d27c9b115ea21746f3671c38e64944375d3e5ec0b",
+    "scripts/verify-portable-combat.py": "90bc4e7196bc07df7b35729ac42bbf2dba1852b8d90eb3974d3f1ee584861189",
     "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
     "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
     "tests/fixtures/portable-enemy-spawn-order.json": "7c72c2ec3a76bba4bf0da1be6a8e1e32db6124ef37feb87cb72a5447c8010791",
@@ -1784,7 +1869,7 @@
     "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
     "tests/fixtures/portable-combat-extensions.json": "2277883e34b033505e715674ddd81006894ab8c6d9ad52076f89c4cebed4a96b",
     "tests/fixtures/portable-autonomous.json": "0d97f8e8a848cfaf25d08e52414f1055d6a8807625f28bce3608a1726db6a5e9",
-    "scripts/run-metal-probe.swift": "0f2b54212a600ae31a20930a3982e71d851b9951f63a2391d7bc1643c793a101",
+    "scripts/run-metal-probe.swift": "121cd69e4f03b5def7d09437296ca4a3b2fd065f46b813ff990cf4936fb7554f",
     "tests/fixtures/portable-lazy-cleanse-capacity-rejection.json": "780a9343f58142e36463cb4bcd0fbfcc0c32e7a6d040483c1d8b2916fd7ae5be",
     "app/portable_status_specs.py": "387618cb8e46f8db81be2b9f83e7a70c167abc877868aefa21d0ebccb5d2fc2a",
     "scripts/portable_status_oracle.py": "916860a08df128bd05096dc015e6240c0a04e2f2aee314a9704aecdfc4b753e8",
@@ -1795,68 +1880,16 @@
     "app/portable_stack_specs.py": "c2aae86773e268fbd375217028f140af335bb8d4704c8567881464e650c7bc32",
     "scripts/portable_stack_oracle.py": "0825fbe3f309bd011787f3b1dc59f39147bda59d42d95210c6bbcc1b220c88c2",
     "scripts/portable_stack_validation.py": "e26299ee1feeb50774647e7cb55564b9fc4ada4685945d30e37da3b459f2c150",
-    "tests/fixtures/portable-stacks.json": "a49be6396171f6b6e67b3b4345d102a5b1bf408aacc96de63b28af78cca4473c"
+    "tests/fixtures/portable-stacks.json": "a49be6396171f6b6e67b3b4345d102a5b1bf408aacc96de63b28af78cca4473c",
+    "app/portable_protection_specs.py": "7397d4d01e32f9603377f98c61b985aaa503081a8599970a4857f8509ea60d6a",
+    "app/protection_runtime.py": "1ddbb6134b1deea1e9fee295d0171b380098ca2211f109a20224f2d369a91f92",
+    "scripts/portable_protection_oracle.py": "41e31b7d146b822be3e9abb83610138ad37dd2c3ed7b25be1729f7348c9cb70e",
+    "scripts/portable_protection_validation.py": "508687394ab8b3c93885088568e6ec651cd20e9a6ff5cd107d384bb14604027b",
+    "tests/fixtures/portable-protection.json": "51e8b658f5ba027795cb88c8f1c524aacd6aec1e41a50fa2ac211362025d5ae0"
   },
   "batch_layout": {
-    "positive_count": 1376,
+    "positive_count": 1433,
     "rejection_indices": [
-      1376,
-      1377,
-      1378,
-      1379,
-      1380,
-      1381,
-      1382,
-      1383,
-      1384,
-      1385,
-      1386,
-      1387,
-      1388,
-      1389,
-      1390,
-      1391,
-      1392,
-      1393,
-      1394,
-      1395,
-      1396,
-      1397,
-      1398,
-      1399,
-      1400,
-      1401,
-      1402,
-      1403,
-      1404,
-      1405,
-      1406,
-      1407,
-      1408,
-      1409,
-      1410,
-      1411,
-      1412,
-      1413,
-      1414,
-      1415,
-      1416,
-      1417,
-      1418,
-      1419,
-      1420,
-      1421,
-      1422,
-      1423,
-      1424,
-      1425,
-      1426,
-      1427,
-      1428,
-      1429,
-      1430,
-      1431,
-      1432,
       1433,
       1434,
       1435,
@@ -2048,7 +2081,91 @@
       1621,
       1622,
       1623,
-      1624
+      1624,
+      1625,
+      1626,
+      1627,
+      1628,
+      1629,
+      1630,
+      1631,
+      1632,
+      1633,
+      1634,
+      1635,
+      1636,
+      1637,
+      1638,
+      1639,
+      1640,
+      1641,
+      1642,
+      1643,
+      1644,
+      1645,
+      1646,
+      1647,
+      1648,
+      1649,
+      1650,
+      1651,
+      1652,
+      1653,
+      1654,
+      1655,
+      1656,
+      1657,
+      1658,
+      1659,
+      1660,
+      1661,
+      1662,
+      1663,
+      1664,
+      1665,
+      1666,
+      1667,
+      1668,
+      1669,
+      1670,
+      1671,
+      1672,
+      1673,
+      1674,
+      1675,
+      1676,
+      1677,
+      1678,
+      1679,
+      1680,
+      1681,
+      1682,
+      1683,
+      1684,
+      1685,
+      1686,
+      1687,
+      1688,
+      1689,
+      1690,
+      1691,
+      1692,
+      1693,
+      1694,
+      1695,
+      1696,
+      1697,
+      1698,
+      1699,
+      1700,
+      1701,
+      1702,
+      1703,
+      1704,
+      1705,
+      1706,
+      1707,
+      1708
     ]
   },
   "expected_statuses": [
@@ -3428,6 +3545,63 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     2,
     64,
     8,
@@ -3676,7 +3850,93 @@
     64,
     64,
     64,
-    64
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    16
+  ],
+  "protection_cpu_regressions": [
+    "protection-shield_from_max_hp_pct-pierce-False-cover-0",
+    "protection-shield_from_max_hp_pct-pierce-False-cover-1",
+    "protection-shield_from_max_hp_pct-pierce-True-cover-0",
+    "protection-shield_from_max_hp_pct-pierce-True-cover-1",
+    "protection-shared_shield_from_max_hp_pct-pierce-False-cover-0",
+    "protection-shared_shield_from_max_hp_pct-pierce-False-cover-1",
+    "protection-shared_shield_from_max_hp_pct-pierce-True-cover-0",
+    "protection-shared_shield_from_max_hp_pct-pierce-True-cover-1",
+    "protection-decoy-pierce-False-cover-0",
+    "protection-decoy-pierce-False-cover-1",
+    "protection-decoy-pierce-True-cover-0",
+    "protection-decoy-pierce-True-cover-1",
+    "protection-shield_from_max_hp_pct-all-caster-snapshot",
+    "protection-shield_from_max_hp_pct-heal",
+    "protection-shield_from_max_hp_pct-heal-caster",
+    "protection-shield_from_max_hp_pct-two-layers",
+    "protection-shield_from_max_hp_pct-refresh-order",
+    "protection-shield_from_max_hp_pct-negative",
+    "protection-shield_from_max_hp_pct-missing-value",
+    "protection-shield_from_max_hp_pct-heal-no-resurrection",
+    "protection-shield_from_max_hp_pct-expired",
+    "protection-decoy-all-caster-snapshot",
+    "protection-decoy-heal",
+    "protection-decoy-heal-caster",
+    "protection-decoy-two-layers",
+    "protection-decoy-refresh-order",
+    "protection-decoy-negative",
+    "protection-decoy-missing-value",
+    "protection-decoy-heal-no-resurrection",
+    "protection-decoy-expired",
+    "protection-amp-multiple-and-partial",
+    "protection-shield-invincible-caster",
+    "protection-shield-invincible-recipient-is-not-caster",
+    "protection-layer-shield-decoy",
+    "protection-pierce-all-shields",
+    "protection-cover-disabled",
+    "protection-during-shield",
+    "protection-consumed-lifetime",
+    "protection-consumed-multiple-recipient",
+    "protection-applied-after-all-snapshots",
+    "protection-amp-silent-no-state-end",
+    "protection-consumed-refresh-still-ends",
+    "protection-consumed-child-replace-other-shield",
+    "protection-captured-object-survives-carrier-reuse",
+    "protection-nonzero-caster-invincible",
+    "protection-partial-removal-keeps-resource-maps",
+    "protection-amp-partial-maps",
+    "protection-shield_from_max_hp_pct-periodic-heal",
+    "protection-decoy-periodic-heal",
+    "protection-refresh-observes-old-shield-when-snapshotting",
+    "protection-refresh-observes-old-shield-for-amp",
+    "protection-all-256-shield-definitions",
+    "protection-alias-refresh-keeps-first-definition-1",
+    "protection-alias-refresh-keeps-first-definition-2",
+    "protection-canceled-before-resource-construction",
+    "protection-recreated-during-named-callback",
+    "protection-stack-initialization-has-no-resource-snapshot"
   ],
   "status_cpu_regressions": [
     "status-cleanse-limit-None-self",
@@ -11562,6 +11822,234 @@
     {
       "name": "lazy-cache-capacity",
       "passed": true
+    },
+    {
+      "name": "protection-shield_from_max_hp_pct-pierce-False-cover-0",
+      "passed": true
+    },
+    {
+      "name": "protection-shield_from_max_hp_pct-pierce-False-cover-1",
+      "passed": true
+    },
+    {
+      "name": "protection-shield_from_max_hp_pct-pierce-True-cover-0",
+      "passed": true
+    },
+    {
+      "name": "protection-shield_from_max_hp_pct-pierce-True-cover-1",
+      "passed": true
+    },
+    {
+      "name": "protection-shared_shield_from_max_hp_pct-pierce-False-cover-0",
+      "passed": true
+    },
+    {
+      "name": "protection-shared_shield_from_max_hp_pct-pierce-False-cover-1",
+      "passed": true
+    },
+    {
+      "name": "protection-shared_shield_from_max_hp_pct-pierce-True-cover-0",
+      "passed": true
+    },
+    {
+      "name": "protection-shared_shield_from_max_hp_pct-pierce-True-cover-1",
+      "passed": true
+    },
+    {
+      "name": "protection-decoy-pierce-False-cover-0",
+      "passed": true
+    },
+    {
+      "name": "protection-decoy-pierce-False-cover-1",
+      "passed": true
+    },
+    {
+      "name": "protection-decoy-pierce-True-cover-0",
+      "passed": true
+    },
+    {
+      "name": "protection-decoy-pierce-True-cover-1",
+      "passed": true
+    },
+    {
+      "name": "protection-shield_from_max_hp_pct-all-caster-snapshot",
+      "passed": true
+    },
+    {
+      "name": "protection-shield_from_max_hp_pct-heal",
+      "passed": true
+    },
+    {
+      "name": "protection-shield_from_max_hp_pct-heal-caster",
+      "passed": true
+    },
+    {
+      "name": "protection-shield_from_max_hp_pct-two-layers",
+      "passed": true
+    },
+    {
+      "name": "protection-shield_from_max_hp_pct-refresh-order",
+      "passed": true
+    },
+    {
+      "name": "protection-shield_from_max_hp_pct-negative",
+      "passed": true
+    },
+    {
+      "name": "protection-shield_from_max_hp_pct-missing-value",
+      "passed": true
+    },
+    {
+      "name": "protection-shield_from_max_hp_pct-heal-no-resurrection",
+      "passed": true
+    },
+    {
+      "name": "protection-shield_from_max_hp_pct-expired",
+      "passed": true
+    },
+    {
+      "name": "protection-decoy-all-caster-snapshot",
+      "passed": true
+    },
+    {
+      "name": "protection-decoy-heal",
+      "passed": true
+    },
+    {
+      "name": "protection-decoy-heal-caster",
+      "passed": true
+    },
+    {
+      "name": "protection-decoy-two-layers",
+      "passed": true
+    },
+    {
+      "name": "protection-decoy-refresh-order",
+      "passed": true
+    },
+    {
+      "name": "protection-decoy-negative",
+      "passed": true
+    },
+    {
+      "name": "protection-decoy-missing-value",
+      "passed": true
+    },
+    {
+      "name": "protection-decoy-heal-no-resurrection",
+      "passed": true
+    },
+    {
+      "name": "protection-decoy-expired",
+      "passed": true
+    },
+    {
+      "name": "protection-amp-multiple-and-partial",
+      "passed": true
+    },
+    {
+      "name": "protection-shield-invincible-caster",
+      "passed": true
+    },
+    {
+      "name": "protection-shield-invincible-recipient-is-not-caster",
+      "passed": true
+    },
+    {
+      "name": "protection-layer-shield-decoy",
+      "passed": true
+    },
+    {
+      "name": "protection-pierce-all-shields",
+      "passed": true
+    },
+    {
+      "name": "protection-cover-disabled",
+      "passed": true
+    },
+    {
+      "name": "protection-during-shield",
+      "passed": true
+    },
+    {
+      "name": "protection-consumed-lifetime",
+      "passed": true
+    },
+    {
+      "name": "protection-consumed-multiple-recipient",
+      "passed": true
+    },
+    {
+      "name": "protection-applied-after-all-snapshots",
+      "passed": true
+    },
+    {
+      "name": "protection-amp-silent-no-state-end",
+      "passed": true
+    },
+    {
+      "name": "protection-consumed-refresh-still-ends",
+      "passed": true
+    },
+    {
+      "name": "protection-consumed-child-replace-other-shield",
+      "passed": true
+    },
+    {
+      "name": "protection-captured-object-survives-carrier-reuse",
+      "passed": true
+    },
+    {
+      "name": "protection-nonzero-caster-invincible",
+      "passed": true
+    },
+    {
+      "name": "protection-partial-removal-keeps-resource-maps",
+      "passed": true
+    },
+    {
+      "name": "protection-amp-partial-maps",
+      "passed": true
+    },
+    {
+      "name": "protection-shield_from_max_hp_pct-periodic-heal",
+      "passed": true
+    },
+    {
+      "name": "protection-decoy-periodic-heal",
+      "passed": true
+    },
+    {
+      "name": "protection-refresh-observes-old-shield-when-snapshotting",
+      "passed": true
+    },
+    {
+      "name": "protection-refresh-observes-old-shield-for-amp",
+      "passed": true
+    },
+    {
+      "name": "protection-all-256-shield-definitions",
+      "passed": true
+    },
+    {
+      "name": "protection-alias-refresh-keeps-first-definition-1",
+      "passed": true
+    },
+    {
+      "name": "protection-alias-refresh-keeps-first-definition-2",
+      "passed": true
+    },
+    {
+      "name": "protection-canceled-before-resource-construction",
+      "passed": true
+    },
+    {
+      "name": "protection-recreated-during-named-callback",
+      "passed": true
+    },
+    {
+      "name": "protection-stack-initialization-has-no-resource-snapshot",
+      "passed": true
     }
   ],
   "cpu_trace_used_as_gpu_input": false,
@@ -11569,15 +12057,15 @@
     "transport": {
       "backend": "cuda",
       "device": "NVIDIA GeForce RTX 3070 Ti",
-      "cases": 1625,
+      "cases": 1709,
       "command_status": "completed",
-      "host_dispatch_seconds": 6.757283600047231
+      "host_dispatch_seconds": 5.232886699959636
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "0405a9049ccb7b66a84b29fb10d22a3fffd505affdb1637332d47e2c2843b532",
+      "gpu/event_runtime.slang": "9ab47ebacb3a98476c47ce257e2fe2f3b42daded4fd3e1340981d291d2ac0fc2",
       "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
       "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
-      "gpu/portable_schema.slang": "c852a63052391f1132dd4e61b1b58957872445f9f6b9a69691bb765f675d8d25",
+      "gpu/portable_schema.slang": "577a5fd91c614f2ea729272d76c30c5146cd4be9cb03f6aa3b42972bd13c5083",
       "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
       "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
       "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
@@ -11611,79 +12099,23 @@
       "gpu/status_runtime.slang": "6bc6d358cbaadb661c1f59a3613d4f14ce635195c256979fc96abc210ae01a53",
       "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
       "gpu/pending_burst_runtime.slang": "c4b0ee8ded3c5922ce8370b12ebec0dbb86ad0bae9d530d615e4f498029f1758",
+      "gpu/protection_runtime.slang": "2cf2bd68750edd4858fa30f8ad7035f9668ba3ef355296602879ce492dfb6750",
       "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
       "gpu/combat_runtime.slang": "007857a4a49acddb59fd36935d5acd578d70af69815cf4f63647836837ee872b",
       "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
       "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
       "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
-      "gpu/admission_runtime.slang": "9f9674bf516696da4a73f15558e2b15d0f11af2490f5aeba0f3a1dd0ea942932"
+      "gpu/admission_runtime.slang": "a15d989087ff45e661ba146d3ec976d2aa69018b817cdb17561058044eb2a0bc"
     },
     "generated_sha256": {
-      "cuda": "03385ea79b5ece7f4734c6564f433499b1dbfc8014a0a553b41e82c38431e386",
-      "metal": "1245519257b2187b92b02e547a3381416b3a65f55b4c9e7bce659587e0757dc0"
+      "cuda": "8b0ea4224d0eea2df82324694419bcc8ad45387d1d758a1b17bba814863540e1",
+      "metal": "a614af07f7fca94cbeb2f093d00fc40cde061e3e7c2668161a4bd555d75e2ef3"
     },
-    "input_sha256": "3e953f7d2266ee9b981256df80e681bae30aa180b0cc53bf6227f61c662e89aa",
-    "output_sha256": "453bb8936d6f52ce20496a05a2ea8b5ff12bcf797e387dd68283dfc64651debc",
+    "input_sha256": "7467694ceab1565ed88e5869649fb290c4f64e131456348c0d6d760b6212aa65",
+    "output_sha256": "14c9a48c576a1a31495aceb29bf225b024d67fab152ba7cc407f04f525e1b24f",
     "gpu_execution_verified": true,
     "backend": "cuda",
     "case_indices": [
-      1376,
-      1377,
-      1378,
-      1379,
-      1380,
-      1381,
-      1382,
-      1383,
-      1384,
-      1385,
-      1386,
-      1387,
-      1388,
-      1389,
-      1390,
-      1391,
-      1392,
-      1393,
-      1394,
-      1395,
-      1396,
-      1397,
-      1398,
-      1399,
-      1400,
-      1401,
-      1402,
-      1403,
-      1404,
-      1405,
-      1406,
-      1407,
-      1408,
-      1409,
-      1410,
-      1411,
-      1412,
-      1413,
-      1414,
-      1415,
-      1416,
-      1417,
-      1418,
-      1419,
-      1420,
-      1421,
-      1422,
-      1423,
-      1424,
-      1425,
-      1426,
-      1427,
-      1428,
-      1429,
-      1430,
-      1431,
-      1432,
       1433,
       1434,
       1435,
@@ -11875,7 +12307,91 @@
       1621,
       1622,
       1623,
-      1624
+      1624,
+      1625,
+      1626,
+      1627,
+      1628,
+      1629,
+      1630,
+      1631,
+      1632,
+      1633,
+      1634,
+      1635,
+      1636,
+      1637,
+      1638,
+      1639,
+      1640,
+      1641,
+      1642,
+      1643,
+      1644,
+      1645,
+      1646,
+      1647,
+      1648,
+      1649,
+      1650,
+      1651,
+      1652,
+      1653,
+      1654,
+      1655,
+      1656,
+      1657,
+      1658,
+      1659,
+      1660,
+      1661,
+      1662,
+      1663,
+      1664,
+      1665,
+      1666,
+      1667,
+      1668,
+      1669,
+      1670,
+      1671,
+      1672,
+      1673,
+      1674,
+      1675,
+      1676,
+      1677,
+      1678,
+      1679,
+      1680,
+      1681,
+      1682,
+      1683,
+      1684,
+      1685,
+      1686,
+      1687,
+      1688,
+      1689,
+      1690,
+      1691,
+      1692,
+      1693,
+      1694,
+      1695,
+      1696,
+      1697,
+      1698,
+      1699,
+      1700,
+      1701,
+      1702,
+      1703,
+      1704,
+      1705,
+      1706,
+      1707,
+      1708
     ]
   },
   "rejected_cases": [
@@ -12874,15 +13390,123 @@
     {
       "name": "wire-status-cleanse-enemy-payload-on-ally",
       "status": 64
+    },
+    {
+      "name": "wire-protection-missing-header",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-header-bits",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-reserved-header",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-missing-kind",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-unknown-kind",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-reserved-kind-bits",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-end-on-decoy",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-shield-wrong-scalar",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-shield-wrong-kind",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-nonfinite-capacity",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-nan-capacity",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-enemy-resource",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-recipient-selector",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-conflicting-quantity-flags",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-conflicting-marker-flags",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-hit-pierce",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-hit-cover-mask",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-hit-empty-targets",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-hit-target-mask",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-hit-reserved-payload",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-hit-nan-attack",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-hit-negative-attack",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-hit-inf-coefficient",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-hit-negative-coefficient",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-hit-attack-range",
+      "status": 64
+    },
+    {
+      "name": "wire-protection-hit-coefficient-range",
+      "status": 64
+    },
+    {
+      "name": "protection-capacity-arithmetic-overflow",
+      "status": 16
     }
   ],
   "scope": "Shared event/combat mechanics, enemy packets, allied cover state and pending B3 bonuses; independent components are not full battle or catalog certification",
   "execution": {
-    "command": "python research/verify-status-final.py --backend cuda",
-    "commit": "d2ba01a2553f7cff8b1003354a12d3d1af34a445",
+    "command": "python research/verify-protection-regression.py --backend cuda",
+    "commit": "c411ddc6c915be354aa0a646655f246033028a9b",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "34, 4248",
+    "gpu_before": "30, 4214",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -12900,8 +13524,8 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 115.90138579998165,
-    "stdout": "{\"passed\": true, \"cases\": 1376, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\nScratch threshold64/65 native and GPU passed cuda\n",
+    "elapsed_seconds": 72.66739130020142,
+    "stdout": "{\"passed\": true, \"cases\": 1433, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
     "stderr": ""
   },
   "postcheck": {
@@ -12913,4492 +13537,51 @@
   "generated_normalization": {
     "cuda": {
       "available": true,
-      "raw_sha256": "03385ea79b5ece7f4734c6564f433499b1dbfc8014a0a553b41e82c38431e386",
-      "lf_sha256": "763a750359dd6231940515256635d48d584f02a4b770967a3a18ed7d6253053a",
-      "no_line_directives_sha256": "ea7a7a3fe461ab1dfc515be43897eac5bf15ac853f7625381a6a645a5ec06865",
-      "no_line_directives_portable_prelude_sha256": "a4e1d94d4cf3200d759c3ea777c89143f92ddbe5e8bb21756ec7f876256f9621",
-      "lines": 57981,
-      "no_line_directive_lines": 42846,
-      "line_directives": 15135
+      "raw_sha256": "8b0ea4224d0eea2df82324694419bcc8ad45387d1d758a1b17bba814863540e1",
+      "lf_sha256": "edd648098fd10b7b0f17d1abe977d589a5f6bccae5142faad501cf380873e2bc",
+      "no_line_directives_sha256": "39f1c98f11c54935b2a7c2739c550800671b8348dab68b15b35f937e8bd7dc43",
+      "no_line_directives_portable_prelude_sha256": "e52bd250a453938cc4eb9326dd1c7ab2129892ad1c821f083539d67cb32f66e8",
+      "lines": 62312,
+      "no_line_directive_lines": 46031,
+      "line_directives": 16281
     },
     "metal": {
       "available": true,
-      "raw_sha256": "1245519257b2187b92b02e547a3381416b3a65f55b4c9e7bce659587e0757dc0",
-      "lf_sha256": "51c5655db19156394a8a67676ff7554d7b5abbffdd941e0daa3349eb9dd3d60d",
-      "no_line_directives_sha256": "5d21fe6061b4a8739edec79d5b6c3b3080584d0797173a393f4c12d0e3f407a8",
-      "no_line_directives_portable_prelude_sha256": "5d21fe6061b4a8739edec79d5b6c3b3080584d0797173a393f4c12d0e3f407a8",
-      "lines": 58259,
-      "no_line_directive_lines": 43088,
-      "line_directives": 15171
+      "raw_sha256": "a614af07f7fca94cbeb2f093d00fc40cde061e3e7c2668161a4bd555d75e2ef3",
+      "lf_sha256": "bfe02f16f000ae2859661b49fd202470f0bdd4b61360e41eacb50930aaa935ff",
+      "no_line_directives_sha256": "ea9f2060a4172204f8349f8a558c5db60864d508c2e52e6709d45594b3d9cc7b",
+      "no_line_directives_portable_prelude_sha256": "ea9f2060a4172204f8349f8a558c5db60864d508c2e52e6709d45594b3d9cc7b",
+      "lines": 62642,
+      "no_line_directive_lines": 46311,
+      "line_directives": 16331
     }
   },
-  "status_existing_parity": {
+  "protection_existing_parity": {
     "passed": true,
-    "backend": "cuda",
-    "prior_proof_commit": "3f661c8",
-    "prior_inputs": 1528,
-    "current_positive_inputs": 1376,
-    "current_inputs": 1625,
-    "prior_input_sha256": "906a58cd9abaa0353d6b0f457718da006b6a37a2987127a07a8c348185b3214e",
-    "prior_output_sha256": "103348153d8d6251f2adfb1baf864ce2ea55e2171f90a354ea51938786b4e72f",
-    "current_subset_input_sha256": "28acda78a10b72c28d5bd59357335fc2600fa8b257848e72816332c4a9fc5895",
-    "current_subset_output_sha256": "f7040579079c969abaf2da5b3bbfbc22ca7a147dc5297152ac88328252cdfc5a",
-    "input_normalization": "ABI 0x50455663 to 0x50455662 only; the former cache-rejection input is now in the positive portion, with identical bytes.",
+    "prior_proof_commit": "e96a546",
+    "prior_inputs": 1625,
+    "current_inputs": 1709,
+    "current_positive_inputs": 1433,
+    "prior_input_sha256": "3e953f7d2266ee9b981256df80e681bae30aa180b0cc53bf6227f61c662e89aa",
+    "prior_output_sha256": "453bb8936d6f52ce20496a05a2ea8b5ff12bcf797e387dd68283dfc64651debc",
+    "input_projection": "ABI65 to63 and remove4096 zero words only",
     "no_output_normalization": true,
-    "old_output_prefix_words": 94208,
-    "new_output_words": 102400,
-    "all_added_tail_words_zero": true,
-    "source_sha256": {
-      "gpu/event_runtime.slang": "0405a9049ccb7b66a84b29fb10d22a3fffd505affdb1637332d47e2c2843b532",
-      "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
-      "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
-      "gpu/portable_schema.slang": "c852a63052391f1132dd4e61b1b58957872445f9f6b9a69691bb765f675d8d25",
-      "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
-      "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
-      "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
-      "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
-      "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
-      "gpu/reference_runtime.slang": "3ea6e2b3d617728568a4455097ae2f139466127729026b3011dbb3d930b72a05",
-      "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
-      "gpu/bullet_runtime.slang": "1b0f0ffb2eaff6778e0fcab801cb7d644b83af2cb9bc8a230b9d33502bc1c324",
-      "gpu/rank_runtime.slang": "4d8cb1dcd4950bd278bcad169813484fba0087e2c67681799e141e5f44af7a44",
-      "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
-      "gpu/enemy_buff_runtime.slang": "a731007f062901024ef74bfc2a670de243c61d17890a21e7a2d2ec74c4a800bb",
-      "gpu/carrier_runtime.slang": "1d8852d19b683e93daceaeaaa5d70b261d5d034cd8633e8a3b7e58d29403671c",
-      "gpu/quantity_runtime.slang": "843dc4d8246dc2babe7a02db51eb365883551e6aa150cf4ea661b10eb3af5a5e",
-      "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
-      "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
-      "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
-      "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
-      "gpu/recipient_runtime.slang": "c29f87bdc65479778b72949a0876b42bc1bef9791bd3bb922a7dff6360c65215",
-      "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
-      "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
-      "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
-      "gpu/incoming_runtime.slang": "bde3b172675e137dea190196aeeb2b81e2608115756da932e2642d410c57cf68",
-      "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
-      "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
-      "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
-      "gpu/landing_runtime.slang": "763ee4080d8ec7191c6937c2c5a8e048ecc212cf2db07664ea26f6beb4aaff84",
-      "gpu/periodic_runtime.slang": "574670587e48ff1bfc0498e2ba7b71a86c1285b2281649e46bd9e5ef877f21b9",
-      "gpu/removal_runtime.slang": "172835be425438ac089febcde44eb469d303163dc0a14f77785f3bf82014d013",
-      "gpu/duration_extend_runtime.slang": "2a8810be4130e3d3beb86ded42a7017a138f0c26b97c26b0720ff8062a62c8ef",
-      "gpu/stack_runtime.slang": "58d87685f0e28428039550f432d46b3eec0ba3b87e653c2dcc9bfed92f0866ec",
-      "gpu/status_runtime.slang": "6bc6d358cbaadb661c1f59a3613d4f14ce635195c256979fc96abc210ae01a53",
-      "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
-      "gpu/pending_burst_runtime.slang": "c4b0ee8ded3c5922ce8370b12ebec0dbb86ad0bae9d530d615e4f498029f1758",
-      "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-      "gpu/combat_runtime.slang": "007857a4a49acddb59fd36935d5acd578d70af69815cf4f63647836837ee872b",
-      "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
-      "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
-      "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
-      "gpu/admission_runtime.slang": "9f9674bf516696da4a73f15558e2b15d0f11af2490f5aeba0f3a1dd0ea942932"
-    },
-    "input_sha256": "3e953f7d2266ee9b981256df80e681bae30aa180b0cc53bf6227f61c662e89aa",
-    "output_sha256": "453bb8936d6f52ce20496a05a2ea8b5ff12bcf797e387dd68283dfc64651debc"
-  },
-  "status_clear_boundaries": {
-    "passed": true,
-    "cases": [
-      {
-        "name": "status-clear-boundary-64",
-        "passed": true,
-        "cpu": {
-          "queries": [
-            {
-              "allies": [
-                {
-                  "hp": 1000000,
-                  "max_hp": 1000000.0,
-                  "hp_pct": 100.0
-                },
-                {
-                  "hp": 1000000,
-                  "max_hp": 1000000.0,
-                  "hp_pct": 100.0
-                },
-                {
-                  "hp": 1000000,
-                  "max_hp": 1000000.0,
-                  "hp_pct": 100.0
-                },
-                {
-                  "hp": 1000000,
-                  "max_hp": 1000000.0,
-                  "hp_pct": 100.0
-                },
-                {
-                  "hp": 1000000,
-                  "max_hp": 1000000.0,
-                  "hp_pct": 100.0
-                }
-              ],
-              "enemy_modifiers": {
-                "defense_pct": 0.0,
-                "defense_flat": 0.0,
-                "received_damage_pct": 0.0
-              },
-              "attack_buffs": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0
-              ]
-            }
-          ],
-          "carriers": [
-            {
-              "enemy_generation": null,
-              "definition": 0,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 1,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 2,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 3,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 4,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 5,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 6,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 7,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 8,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 9,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 10,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 11,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 12,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 13,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 14,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 15,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 16,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 17,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 18,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 19,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 20,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 21,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 22,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 23,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 24,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 25,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 26,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 27,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 28,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 29,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 30,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 31,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 32,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 33,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 34,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 35,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 36,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 37,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 38,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 39,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 40,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 41,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 42,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 43,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 44,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 45,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 46,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 47,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 48,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 49,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 50,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 51,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 52,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 53,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 54,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 55,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 56,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 57,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 58,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 59,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 60,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 61,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 62,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 63,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            }
-          ],
-          "timers": [],
-          "endings": [],
-          "packets": [],
-          "budgets": {},
-          "immunity_usage": [
-            {
-              "recipient": 0,
-              "name": "boundary-pool-0",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-0",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-0",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-0",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-0",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-1",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-1",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-1",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-1",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-1",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-2",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-2",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-2",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-2",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-2",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-3",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-3",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-3",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-3",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-3",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-4",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-4",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-4",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-4",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-4",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-5",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-5",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-5",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-5",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-5",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-6",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-6",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-6",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-6",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-6",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-7",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-7",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-7",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-7",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-7",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-8",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-8",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-8",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-8",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-8",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-9",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-9",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-9",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-9",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-9",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-10",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-10",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-10",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-10",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-10",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-11",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-11",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-11",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-11",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-11",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-12",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-12",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-12",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-12",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-12",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-13",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-13",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-13",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-13",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-13",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-14",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-14",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-14",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-14",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-14",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-15",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-15",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-15",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-15",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-15",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-16",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-16",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-16",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-16",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-16",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-17",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-17",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-17",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-17",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-17",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-18",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-18",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-18",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-18",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-18",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-19",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-19",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-19",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-19",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-19",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-20",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-20",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-20",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-20",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-20",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-21",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-21",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-21",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-21",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-21",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-22",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-22",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-22",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-22",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-22",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-23",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-23",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-23",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-23",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-23",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-24",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-24",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-24",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-24",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-24",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-25",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-25",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-25",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-25",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-25",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-26",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-26",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-26",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-26",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-26",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-27",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-27",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-27",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-27",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-27",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-28",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-28",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-28",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-28",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-28",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-29",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-29",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-29",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-29",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-29",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-30",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-30",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-30",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-30",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-30",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-31",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-31",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-31",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-31",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-31",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-32",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-32",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-32",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-32",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-32",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-33",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-33",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-33",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-33",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-33",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-34",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-34",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-34",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-34",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-34",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-35",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-35",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-35",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-35",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-35",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-36",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-36",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-36",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-36",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-36",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-37",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-37",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-37",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-37",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-37",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-38",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-38",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-38",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-38",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-38",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-39",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-39",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-39",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-39",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-39",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-40",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-40",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-40",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-40",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-40",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-41",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-41",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-41",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-41",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-41",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-42",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-42",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-42",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-42",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-42",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-43",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-43",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-43",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-43",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-43",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-44",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-44",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-44",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-44",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-44",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-45",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-45",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-45",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-45",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-45",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-46",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-46",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-46",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-46",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-46",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-47",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-47",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-47",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-47",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-47",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-48",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-48",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-48",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-48",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-48",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-49",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-49",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-49",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-49",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-49",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-50",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-50",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-50",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-50",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-50",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-51",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-51",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-51",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-51",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-51",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-52",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-52",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-52",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-52",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-52",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-53",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-53",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-53",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-53",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-53",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-54",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-54",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-54",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-54",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-54",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-55",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-55",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-55",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-55",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-55",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-56",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-56",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-56",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-56",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-56",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-57",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-57",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-57",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-57",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-57",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-58",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-58",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-58",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-58",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-58",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-59",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-59",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-59",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-59",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-59",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-60",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-60",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-60",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-60",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-60",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-61",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-61",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-61",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-61",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-61",
-              "used": 1.0
-            }
-          ]
-        }
-      },
-      {
-        "name": "status-clear-boundary-65",
-        "passed": true,
-        "cpu": {
-          "queries": [
-            {
-              "allies": [
-                {
-                  "hp": 1000000,
-                  "max_hp": 1000000.0,
-                  "hp_pct": 100.0
-                },
-                {
-                  "hp": 1000000,
-                  "max_hp": 1000000.0,
-                  "hp_pct": 100.0
-                },
-                {
-                  "hp": 1000000,
-                  "max_hp": 1000000.0,
-                  "hp_pct": 100.0
-                },
-                {
-                  "hp": 1000000,
-                  "max_hp": 1000000.0,
-                  "hp_pct": 100.0
-                },
-                {
-                  "hp": 1000000,
-                  "max_hp": 1000000.0,
-                  "hp_pct": 100.0
-                }
-              ],
-              "enemy_modifiers": {
-                "defense_pct": 0.0,
-                "defense_flat": 0.0,
-                "received_damage_pct": 0.0
-              },
-              "attack_buffs": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0
-              ]
-            }
-          ],
-          "carriers": [
-            {
-              "enemy_generation": null,
-              "definition": 0,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 1,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 2,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 3,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 4,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 5,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 6,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 7,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 8,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 9,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 10,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 11,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 12,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 13,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 14,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 15,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 16,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 17,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 18,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 19,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 20,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 21,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 22,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 23,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 24,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 25,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 26,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 27,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 28,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 29,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 30,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 31,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 32,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 33,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 34,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 35,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 36,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 37,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 38,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 39,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 40,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 41,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 42,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 43,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 44,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 45,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 46,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 47,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 48,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 49,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 50,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 51,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 52,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 53,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 54,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 55,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 56,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 57,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 58,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 59,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 60,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 61,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 62,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 63,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            },
-            {
-              "enemy_generation": null,
-              "definition": 64,
-              "recipients": 31,
-              "stacks": 1,
-              "lazy_pending": false,
-              "expiry": 1e+30,
-              "activated": 0
-            }
-          ],
-          "timers": [],
-          "endings": [],
-          "packets": [],
-          "budgets": {},
-          "immunity_usage": [
-            {
-              "recipient": 0,
-              "name": "boundary-pool-0",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-0",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-0",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-0",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-0",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-1",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-1",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-1",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-1",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-1",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-2",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-2",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-2",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-2",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-2",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-3",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-3",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-3",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-3",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-3",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-4",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-4",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-4",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-4",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-4",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-5",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-5",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-5",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-5",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-5",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-6",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-6",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-6",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-6",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-6",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-7",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-7",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-7",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-7",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-7",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-8",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-8",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-8",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-8",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-8",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-9",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-9",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-9",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-9",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-9",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-10",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-10",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-10",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-10",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-10",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-11",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-11",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-11",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-11",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-11",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-12",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-12",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-12",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-12",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-12",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-13",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-13",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-13",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-13",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-13",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-14",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-14",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-14",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-14",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-14",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-15",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-15",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-15",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-15",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-15",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-16",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-16",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-16",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-16",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-16",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-17",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-17",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-17",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-17",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-17",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-18",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-18",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-18",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-18",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-18",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-19",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-19",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-19",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-19",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-19",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-20",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-20",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-20",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-20",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-20",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-21",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-21",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-21",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-21",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-21",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-22",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-22",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-22",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-22",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-22",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-23",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-23",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-23",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-23",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-23",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-24",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-24",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-24",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-24",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-24",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-25",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-25",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-25",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-25",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-25",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-26",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-26",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-26",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-26",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-26",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-27",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-27",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-27",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-27",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-27",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-28",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-28",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-28",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-28",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-28",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-29",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-29",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-29",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-29",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-29",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-30",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-30",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-30",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-30",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-30",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-31",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-31",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-31",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-31",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-31",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-32",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-32",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-32",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-32",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-32",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-33",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-33",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-33",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-33",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-33",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-34",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-34",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-34",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-34",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-34",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-35",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-35",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-35",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-35",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-35",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-36",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-36",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-36",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-36",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-36",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-37",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-37",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-37",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-37",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-37",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-38",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-38",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-38",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-38",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-38",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-39",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-39",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-39",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-39",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-39",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-40",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-40",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-40",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-40",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-40",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-41",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-41",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-41",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-41",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-41",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-42",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-42",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-42",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-42",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-42",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-43",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-43",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-43",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-43",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-43",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-44",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-44",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-44",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-44",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-44",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-45",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-45",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-45",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-45",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-45",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-46",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-46",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-46",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-46",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-46",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-47",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-47",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-47",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-47",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-47",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-48",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-48",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-48",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-48",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-48",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-49",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-49",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-49",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-49",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-49",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-50",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-50",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-50",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-50",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-50",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-51",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-51",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-51",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-51",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-51",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-52",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-52",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-52",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-52",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-52",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-53",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-53",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-53",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-53",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-53",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-54",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-54",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-54",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-54",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-54",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-55",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-55",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-55",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-55",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-55",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-56",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-56",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-56",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-56",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-56",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-57",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-57",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-57",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-57",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-57",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-58",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-58",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-58",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-58",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-58",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-59",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-59",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-59",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-59",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-59",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-60",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-60",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-60",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-60",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-60",
-              "used": 1.0
-            },
-            {
-              "recipient": 0,
-              "name": "boundary-pool-61",
-              "used": 1.0
-            },
-            {
-              "recipient": 1,
-              "name": "boundary-pool-61",
-              "used": 1.0
-            },
-            {
-              "recipient": 2,
-              "name": "boundary-pool-61",
-              "used": 1.0
-            },
-            {
-              "recipient": 3,
-              "name": "boundary-pool-61",
-              "used": 1.0
-            },
-            {
-              "recipient": 4,
-              "name": "boundary-pool-61",
-              "used": 1.0
-            }
-          ]
-        }
-      }
-    ],
-    "actual_statuses": [
-      0,
-      0
-    ],
-    "expected_statuses": [
-      0,
-      0
-    ],
-    "input_from_native_trace": false,
-    "validation_sha256": {
-      "research/verify-status-clear-boundaries.py": "2662dcb4b9bb983cd02c596ca841bbd8b74c5e24a5049613944cda4bce757a3c"
-    },
+    "all_old_output_words_equal": true,
+    "all_added_old_output_tail_words_zero": true,
+    "current_input_words": 81920,
+    "current_output_words": 135168,
     "transport": {
       "backend": "cuda",
       "device": "NVIDIA GeForce RTX 3070 Ti",
-      "cases": 2,
+      "cases": 1709,
       "command_status": "completed",
-      "host_dispatch_seconds": 1.4974631001241505
+      "host_dispatch_seconds": 5.232886699959636
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "0405a9049ccb7b66a84b29fb10d22a3fffd505affdb1637332d47e2c2843b532",
+      "gpu/event_runtime.slang": "9ab47ebacb3a98476c47ce257e2fe2f3b42daded4fd3e1340981d291d2ac0fc2",
       "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
       "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
-      "gpu/portable_schema.slang": "c852a63052391f1132dd4e61b1b58957872445f9f6b9a69691bb765f675d8d25",
+      "gpu/portable_schema.slang": "577a5fd91c614f2ea729272d76c30c5146cd4be9cb03f6aa3b42972bd13c5083",
       "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
       "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
       "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
@@ -17432,32 +13615,29 @@
       "gpu/status_runtime.slang": "6bc6d358cbaadb661c1f59a3613d4f14ce635195c256979fc96abc210ae01a53",
       "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
       "gpu/pending_burst_runtime.slang": "c4b0ee8ded3c5922ce8370b12ebec0dbb86ad0bae9d530d615e4f498029f1758",
+      "gpu/protection_runtime.slang": "2cf2bd68750edd4858fa30f8ad7035f9668ba3ef355296602879ce492dfb6750",
       "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
       "gpu/combat_runtime.slang": "007857a4a49acddb59fd36935d5acd578d70af69815cf4f63647836837ee872b",
       "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
       "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
       "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
-      "gpu/admission_runtime.slang": "9f9674bf516696da4a73f15558e2b15d0f11af2490f5aeba0f3a1dd0ea942932"
+      "gpu/admission_runtime.slang": "a15d989087ff45e661ba146d3ec976d2aa69018b817cdb17561058044eb2a0bc"
     },
     "generated_sha256": {
-      "cuda": "03385ea79b5ece7f4734c6564f433499b1dbfc8014a0a553b41e82c38431e386",
-      "metal": "1245519257b2187b92b02e547a3381416b3a65f55b4c9e7bce659587e0757dc0"
+      "cuda": "8b0ea4224d0eea2df82324694419bcc8ad45387d1d758a1b17bba814863540e1",
+      "metal": "a614af07f7fca94cbeb2f093d00fc40cde061e3e7c2668161a4bd555d75e2ef3"
     },
-    "input_sha256": "711988d39e631efb7b55349424fdd064fbc318f6b3b4532aad06665a8f1919f6",
-    "output_sha256": "961de3a494c01300b040606fed2546ffc1aad7c7b0fd814f1a7277b0b6bc9104",
+    "input_sha256": "7467694ceab1565ed88e5869649fb290c4f64e131456348c0d6d760b6212aa65",
+    "output_sha256": "14c9a48c576a1a31495aceb29bf225b024d67fab152ba7cc407f04f525e1b24f",
     "gpu_execution_verified": true,
-    "backend": "cuda",
-    "application_event_runtime_connected": true,
-    "autonomous_battle_connected": false,
-    "weapon_burst_target_connected": true,
-    "gpu_timeline_connected": false
+    "backend": "cuda"
   },
   "current_full_cuda_batch_executed": true,
-  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-d2ba01a\\research\\portable-combat-cuda.json",
+  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-c411ddc\\research\\portable-combat-cuda.json",
   "additional_probes": {
     "executed": false,
-    "reason": "Only the requested full common dispatch and two threshold boundary programs were executed."
+    "reason": "Only the requested protection regression driver was executed."
   },
   "summary_only": true,
-  "summary_source": "windows-portable-combat-v56.json"
+  "summary_source": "windows-portable-combat-v58.json"
 }

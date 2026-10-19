@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "current_profiles": 74,
+  "old_profiles_preserved": 64,
+  "before_efficiency_profiles_preserved": 74,
+  "all_other_decoded_fields_and_cpu_reference_preserved": true,
+  "excluded_fields": [
+    "cpu_reference_wall_seconds"
+  ]
+}

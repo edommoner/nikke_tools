@@ -1,6 +1,6 @@
 {
   "validation_sha256": {
-    "app/portable_protection_specs.py": "bb2a800dd73c200fccf9c34f295c9dd1c867e1449ec877280d6244b9761ae8b6",
+    "app/portable_protection_specs.py": "7397d4d01e32f9603377f98c61b985aaa503081a8599970a4857f8509ea60d6a",
     "app/protection_runtime.py": "1ddbb6134b1deea1e9fee295d0171b380098ca2211f109a20224f2d369a91f92",
     "app/reference_health_runtime.py": "fb028c974a10f80821336fb3f2bcf235ee6d300538a61afa829b536dc9ba1e44",
     "app/portable_runtime.py": "6da78362a82c07c9107e792c77727b381bc55e81428cd513b770a1f3a7c1e78b",

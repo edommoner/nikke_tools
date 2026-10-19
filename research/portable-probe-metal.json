@@ -13,7 +13,7 @@
     "tests/fixtures/portable-probe.json": "79642227c2281b411116248c05436fbc18549665c28c7c374834315c92fe8511",
     "scripts/verify-portable-probe.py": "e2bd6b6f9148a178477a3a11c83a4ac4387bc865b4d18b2252e989387917ff13",
     "gpu/portable_probe.slang": "d0404c3aa7033da7e8871ad4a14af8d17a3598ea024f0808a162732f8ce40eab",
-    "scripts/run-metal-probe.swift": "0f2b54212a600ae31a20930a3982e71d851b9951f63a2391d7bc1643c793a101"
+    "scripts/run-metal-probe.swift": "121cd69e4f03b5def7d09437296ca4a3b2fd065f46b813ff990cf4936fb7554f"
   },
   "backend": "metal",
   "device": "Apple M5",
@@ -53,11 +53,11 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 1.5291618183255196e-05,
+    "gpu_seconds": 1.5125027857720852e-05,
     "input_bytes": 1556,
-    "library_compile_seconds": 0.0004010200500488281,
+    "library_compile_seconds": 0.00039398670196533203,
     "output_bytes": 112,
-    "pipeline_compile_seconds": 0.0004209280014038086,
+    "pipeline_compile_seconds": 0.0004240274429321289,
     "pipeline_lock_wait_seconds": 9.5367431640625e-07,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",

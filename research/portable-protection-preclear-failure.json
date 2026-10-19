@@ -2097,5 +2097,9 @@
         "native_landing_code_sha256": "d9fd63ab0b4be25df0209b224824de9b122491414a2ae27dbe7d9b025c569902"
       }
     }
-  ]
+  ],
+  "diagnosis_by_case": {
+    "protection-refresh-observes-old-shield-for-amp": "GPU reset old maps before conditional amplification; repaired by computing every target before replacement.",
+    "protection-refresh-observes-old-shield-when-snapshotting": "Native maximum HP ignored during_shield eligibility; diagnosed separately in portable-protection-health-predicate-failure.json. New first snapshot100 and later refresh200 are asserted independently."
+  }
 }
