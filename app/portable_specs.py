@@ -6,8 +6,8 @@ from portable_trigger_specs import CONDITIONS
 from portable_damage_specs import STATS, FLAGS
 from world_condition_specs import target_inheritance_events
 
-ABI = 0x50455657
-LIMITS = dict(LANDINGS=2048, LANDING_WORDS=12, SOURCES=64, SOURCE_SLOTS=32, SOURCE_DEFINITION_WORDS=72, SOURCE_STATE_WORDS=12, RESOURCE_KEYS=256, BATCH=2048, PENDING=512, TRIGGERS=8, CONDITIONS=3, DEFINITIONS=256, CARRIERS=512, LAZY_CACHE=1024, COMMANDS=64, DEPTH=32, TRACE=128, BURST_TRACE=128,
+ABI = 0x50455658
+LIMITS = dict(LANDINGS=2048, LANDING_WORDS=8, SOURCES=64, SOURCE_SLOTS=32, SOURCE_DEFINITION_WORDS=72, SOURCE_STATE_WORDS=12, RESOURCE_KEYS=256, BATCH=2048, PENDING=512, TRIGGERS=8, CONDITIONS=3, DEFINITIONS=256, CARRIERS=512, LAZY_CACHE=1024, COMMANDS=64, DEPTH=32, TRACE=128, BURST_TRACE=128,
               DEFINITION_WORDS=32, DAMAGE_DEFINITION_WORDS=8, CARRIER_WORDS=23, QUERY_WORDS=32, TRACE_WORDS=8,
               INCOMING_WORDS=4, INCOMING_QUERY_WORDS=20, HEALTH_WORDS=8,
               HEALTH_DEFINITION_WORDS=4, HEALTH_QUERY_WORDS=50,
@@ -52,7 +52,11 @@ def shader_schema():
     lines = ['// Generated from app/portable_specs.py; do not hand-edit.',
              f'static const uint PORTABLE_ABI = {ABI}U;']
     for prefix, mapping in [('P_', LIMITS), ('D_', FIELDS), ('C_', CONDITIONS), ('S_', STATS), ('H_', FLAGS)]:
-        lines += [f'static const uint {prefix}{name} = {value}U;' for name, value in mapping.items()]
+        for name,value in mapping.items():
+            if prefix=='P_' and name in ('LANDING_WORDS','OUTPUT_WORDS'):
+                wide=12 if name=='LANDING_WORDS' else 98304
+                lines += ['#ifdef PORTABLE_WIDE_LANDINGS',f'static const uint {prefix}{name} = {wide}U;','#else',f'static const uint {prefix}{name} = {value}U;','#endif']
+            else:lines.append(f'static const uint {prefix}{name} = {value}U;')
     events=set(target_inheritance_events())
     # Named hit_count uses compact event 49; shared policy calls it hit_count (8).
     if 8 in events:events.add(49)

@@ -1,7 +1,11 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721367U;
+static const uint PORTABLE_ABI = 1346721368U;
 static const uint P_LANDINGS = 2048U;
+#ifdef PORTABLE_WIDE_LANDINGS
 static const uint P_LANDING_WORDS = 12U;
+#else
+static const uint P_LANDING_WORDS = 8U;
+#endif
 static const uint P_SOURCES = 64U;
 static const uint P_SOURCE_SLOTS = 32U;
 static const uint P_SOURCE_DEFINITION_WORDS = 72U;
@@ -119,7 +123,11 @@ static const uint P_STAGED_HEADER_BASE = 68088U;
 static const uint P_STAGED_STATE_BASE = 68096U;
 static const uint P_LANDING_HEADER_BASE = 69632U;
 static const uint P_LANDING_STATE_BASE = 69640U;
+#ifdef PORTABLE_WIDE_LANDINGS
 static const uint P_OUTPUT_WORDS = 98304U;
+#else
+static const uint P_OUTPUT_WORDS = 90112U;
+#endif
 static const uint D_OWNER = 0U;
 static const uint D_KIND = 1U;
 static const uint D_STAT = 2U;

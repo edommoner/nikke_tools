@@ -1,8 +1,6 @@
 {
-  "stage": "native-landings-functionally-verified-full-goal-active",
-  "source_commit": "431d6998716d2d5d805948a3915df16156b3f3bb",
-  "validation_receipt": "portable-landings-validation.json",
-  "functional_gate_passed": true,
+  "stage": "compact-receipts-metal-gates-passed-global-verification-running",
+  "functional_gate_passed": false,
   "full_goal_complete": false,
   "full_character_verified": 0,
   "catalog_characters": 203,
@@ -13,11 +11,26 @@
   "windows_elapsed_seconds": 80.5815385999158,
   "windows_transfer_parts": 20,
   "windows_execution_and_transfer_turn": "01a1544d-51e9-7410-ad23-3ebf2151b61c",
-  "live_handles": {},
+  "live_handles": {
+    "metal_global_regression_session": 80623
+  },
   "efficiency_measurement_completed": false,
   "next_actions": [
-    "Compact shared landing receipt storage; compare every semantic field and measure after correctness gates",
-    "Connect remaining world/lifecycle/effect families",
-    "Certify all 203 characters and variants before normal UI Metal"
-  ]
+    "Finish all-word compact/wide Metal and native regression comparison",
+    "Run all real-profile/API/numeric gates at frozen sources",
+    "Run one necessary bounded fixed-source CUDA check",
+    "After every verification and transfer ends, measure sequential wide/compact workloads",
+    "Connect remaining world/lifecycle and effect families; certify all 203 characters and variants"
+  ],
+  "current_source_uncommitted": true,
+  "previous_verified_source_commit": "431d6998716d2d5d805948a3915df16156b3f3bb",
+  "previous_validation_receipt": "portable-landings-validation.json",
+  "current_windows_verified": false,
+  "compact_common_positive_cases": 1063,
+  "compact_rejections": 184,
+  "codec_valid_vectors": 259,
+  "codec_invalid_vectors": 11,
+  "wide_compact_all_words_equal": true,
+  "live_queue_decoder_verified": true,
+  "bytes_saved_per_program": 32768
 }
