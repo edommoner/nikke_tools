@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "gpu_rerun": false,
+  "source_commit": "5c4defea07776214e068b5e988922dbadc900fcf",
+  "metal": {
+    "cuda": {
+      "raw_sha256": "0241708ccb46a6c287b6691d9c40c00de0df1ef5ea870f528dacdc063501e484",
+      "lf_sha256": "0241708ccb46a6c287b6691d9c40c00de0df1ef5ea870f528dacdc063501e484",
+      "no_line_directives_sha256": "65148850c96bc0968ae30ddba225cdfb7545cb244c19d2943f29588f59024a2d",
+      "no_line_directives_portable_prelude_sha256": "412813df0394797bce2bfcb16066f620a31709aa42323439ee667a6eb03fd379",
+      "lines": 35504,
+      "no_line_directive_lines": 26376,
+      "line_directives": 9128
+    },
+    "metal": {
+      "raw_sha256": "a1d954426e14643c61cae826e1a8eed4b86869f8536157d940500748d28bc3af",
+      "lf_sha256": "a1d954426e14643c61cae826e1a8eed4b86869f8536157d940500748d28bc3af",
+      "no_line_directives_sha256": "4f409384a5f7e983a5a1dc7ea977d354908ece2de0194bc278e2458b2b31038f",
+      "no_line_directives_portable_prelude_sha256": "4f409384a5f7e983a5a1dc7ea977d354908ece2de0194bc278e2458b2b31038f",
+      "lines": 35818,
+      "no_line_directive_lines": 26624,
+      "line_directives": 9194
+    }
+  },
+  "windows": {
+    "cuda": {
+      "available": true,
+      "raw_sha256": "439c5ecc80592f871f1f34436ab8977f98f02ad6e5f1297bf0d4dce6d7ca484f",
+      "lf_sha256": "b2c7f0affc852739891b13249625bd428e3e26090a0190942f71290b501ffded",
+      "no_line_directives_sha256": "c21531e19080c6a2f9926f34a81abdbb1622af3dc182d9f3a1e7008e0a636fdb",
+      "no_line_directives_portable_prelude_sha256": "412813df0394797bce2bfcb16066f620a31709aa42323439ee667a6eb03fd379",
+      "lines": 35504,
+      "no_line_directive_lines": 26376,
+      "line_directives": 9128
+    },
+    "metal": {
+      "available": true,
+      "raw_sha256": "e3ca196310046fc15577ccff81e64e0e0410ae3fb643a50a4d8d9e1c3245909d",
+      "lf_sha256": "5db6f41883b1afe62af751019efc9607dee8aaf8152ecabc1e52580e9baa1c06",
+      "no_line_directives_sha256": "4f409384a5f7e983a5a1dc7ea977d354908ece2de0194bc278e2458b2b31038f",
+      "no_line_directives_portable_prelude_sha256": "4f409384a5f7e983a5a1dc7ea977d354908ece2de0194bc278e2458b2b31038f",
+      "lines": 35818,
+      "no_line_directive_lines": 26624,
+      "line_directives": 9194
+    }
+  },
+  "normalization": "decode UTF-8; CRLF to LF; remove lines matching ^\\s*#line\\b; join with LF and final LF; replace the absolute quoted slang-cuda-prelude.h include with its basename",
+  "scope": "Generated line directives, line endings and CUDA prelude include paths only; computation text unchanged"
+}

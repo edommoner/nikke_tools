@@ -6,20 +6,20 @@
   "transport": {
     "backend": "cuda",
     "device": "NVIDIA GeForce RTX 3070 Ti",
-    "cases": 910,
+    "cases": 938,
     "command_status": "completed",
-    "host_dispatch_seconds": 10.37458680011332
+    "host_dispatch_seconds": 7.313447700347751
   },
   "generated_sha256": {
-    "cuda": "e86125d216e15d1fbc3c7a569a1d379701abab2b9a6e91f75ddf89d8a47afce2",
-    "metal": "1a21449e7a3637197b389a65cda6c45f3867ad25bb19b8d11cac9bcd092cb666"
+    "cuda": "439c5ecc80592f871f1f34436ab8977f98f02ad6e5f1297bf0d4dce6d7ca484f",
+    "metal": "e3ca196310046fc15577ccff81e64e0e0410ae3fb643a50a4d8d9e1c3245909d"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "b7a40716d9b539bf5e11c30d5cb0887a902137871db284242abd459e491ef81e",
+    "gpu/event_runtime.slang": "9bca041805d23e6b458d4094f927477da5c29de7be59121a0337fd1f83e5dc68",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "e9332b02acb771f0f390c240799169c839f77b98f8d6fe982b937698014c7913",
-    "gpu/runtime_init.slang": "e88d615c09111792e620613dede626a6c303cd4115d28d72bb2e1d19aee48a45",
+    "gpu/portable_schema.slang": "44dbf118a5ed5a66c10cb47d0cb25bda80e86af422f9bc96d370b76a64c468b4",
+    "gpu/runtime_init.slang": "449948b29047788e7ed413f82083bc2e57f1c9813ae13c4aa46472b4371ab86f",
     "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
     "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
     "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
@@ -30,29 +30,30 @@
     "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
     "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
     "gpu/recipient_runtime.slang": "e3dca124f523e4a28ec42e3bc915df6163dfeb2b071e0b25248ad6b0a4e85e0d",
+    "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+    "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
     "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
     "gpu/incoming_runtime.slang": "322e92344f55def51fe181360ce35aba89daf341d423bed94b7da22923fa701b",
     "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
-    "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
     "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
-    "gpu/enemy_damage_runtime.slang": "15cd9ddb9aa149727e4ca051db26463ecd210b5c1df0d9a4f54167f82b3276fd",
+    "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
     "gpu/event_candidate_runtime.slang": "5b986d2d51b052186bedb820788460d009220a58e84d6a8803770b64287db356",
     "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-    "gpu/combat_runtime.slang": "be9e50e3cad5170ba71a83ff980a99eb4d0385cf9ba9466e73d1f61dc8df63da",
+    "gpu/combat_runtime.slang": "fbbbadce16ebca5b4dcc0c6f6a44f834ff785824ee031f745edfb1269ef9f465",
     "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
   },
-  "input_sha256": "8cdff091527f2ef6617b7f3792428ebed817e5b23d85ae1edd95a0e3c7c6f3a4",
-  "output_sha256": "457c51aa5a4cb61caca2e7486549e0901208f569bd5e9e6bc2ed21783fa64d5d",
+  "input_sha256": "a09a101498007682303065a82bc7e58f9dcda72651620dccef6f65c92921fb72",
+  "output_sha256": "a2b6a58e4ee49adf3319235332a64070a4e65a5d63f15fba1d92639a72b847d2",
   "validation_sha256": {
     "app/portable_roster_input.py": "7f65ee49d9688b59493ec958584ff157312e259eadf269b55fba6af813265593",
     "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
     "app/portable_enemy_specs.py": "4191596c60b2a5957abcb55566d7cb2891797ec32a24fcda8971e0eda28cad18",
-    "app/portable_runtime.py": "3e8f40b15ec2f87bc2c6487b36de5bbb90fa389ca4b113cf129a3a8bc99453b2",
-    "app/portable_combat.py": "bd31654f2d8530755c9ab9e78b8badba4ece201020fb7103e9672c955bebd988",
-    "app/portable_specs.py": "4eb3c3ba75a8e067cd0b6a5d4c3558e95ed2bdc93e37bbc73c275e684429ee87",
+    "app/portable_runtime.py": "5956e0e540238c9ecdfefd46eb2f449097127fad6beb66fe1dbc8c044022fdba",
+    "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
+    "app/portable_specs.py": "a83757882aa1931ac98dd3670195dc5576610154293e8396b735b9f3edd04670",
     "app/portable_backend.py": "ab722934db2e3b7ae228990c7f0555dcea079c624675fa735b7328fa62889ec0",
     "app/portable_trigger_specs.py": "70d19d08eb1bb29674ed2c8360e7748556f0674775e180169e6f957b39607fc6",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
@@ -61,7 +62,7 @@
     "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
     "scripts/portable_health_oracle.py": "3c8c66d0674675c3fbf884ed8ef53408a4ca74e2593ea3b1df3594b8176a5bfc",
-    "scripts/portable_enemy_oracle.py": "4b519d4f9edd0461851dc52f0deb3452c1a6ea6e93a03e2a495e26c285bf1ab4",
+    "scripts/portable_enemy_oracle.py": "ee7127ce633022940e4ddf2d1d0b4caf1677e0e7fc08ac161d28dd32e571ec5b",
     "scripts/portable_burst_oracle.py": "640bc66abb2df8b237383df3d626df30bc565de382b19671fbf11ba83d5ee94a",
     "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
     "scripts/portable_weapon_oracle.py": "f011a2e648b4a34eb4bc6db5053066fec4b236c472ca7cad2e92e5677ffcc1a1",
@@ -70,11 +71,12 @@
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "e91a42f2f5caed5aa41d4250d670e332db4830227b29d8330f14e1c00f9b6e03",
+    "scripts/verify-portable-combat.py": "b1a292389c312e14b9dd6bfb458dcfb75dc3803cdd23993473bb8a10af161719",
     "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
     "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
     "tests/fixtures/portable-enemy-spawn-order.json": "7c72c2ec3a76bba4bf0da1be6a8e1e32db6124ef37feb87cb72a5447c8010791",
-    "scripts/portable_enemy_buff_oracle.py": "4ea37a8bd5632e1e52f321fb9d49d9f97f965e6a3f9b416a4ba77cdf8d500346",
+    "tests/fixtures/portable-enemy-auto-aim.json": "494d24a29f565f4cbf2243ae94de40e3e42aa37a97aa119c4b1d32c1f7508ed3",
+    "scripts/portable_enemy_buff_oracle.py": "4811d1c4fb66c3bd8b49bfb2e170380e68bb77bab28d8d03d74b2c53ce437cee",
     "tests/fixtures/portable-enemy-buffs.json": "d1112e9bc6f236f1af7ec39453b7ca4e3d2ea8a548e57a38368965ff9b9cfd85",
     "research/portable-mode-session-contract.json": "8c31ba85469c0ba1374ba0682bbb34aa3bc03eef2840a6c052e7efe405b3f5aa",
     "tests/fixtures/portable-buff-notices.json": "234bd8ad051a89f7382b67069e0cfdf5e479cc0c9de42ba3528ae3d493265fd8",
@@ -920,6 +922,29 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     2,
     64,
     8,
@@ -1005,6 +1030,11 @@
     64,
     16,
     16,
+    64,
+    64,
+    64,
+    64,
+    64,
     64,
     64,
     64,
@@ -1832,6 +1862,29 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     2,
     64,
     8,
@@ -1917,6 +1970,11 @@
     64,
     16,
     16,
+    64,
+    64,
+    64,
+    64,
+    64,
     64,
     64,
     64,
@@ -1930,31 +1988,8 @@
     64
   ],
   "batch_layout": {
-    "positive_count": 814,
+    "positive_count": 837,
     "rejection_indices": [
-      814,
-      815,
-      816,
-      817,
-      818,
-      819,
-      820,
-      821,
-      822,
-      823,
-      824,
-      825,
-      826,
-      827,
-      828,
-      829,
-      830,
-      831,
-      832,
-      833,
-      834,
-      835,
-      836,
       837,
       838,
       839,
@@ -2027,7 +2062,35 @@
       906,
       907,
       908,
-      909
+      909,
+      910,
+      911,
+      912,
+      913,
+      914,
+      915,
+      916,
+      917,
+      918,
+      919,
+      920,
+      921,
+      922,
+      923,
+      924,
+      925,
+      926,
+      927,
+      928,
+      929,
+      930,
+      931,
+      932,
+      933,
+      934,
+      935,
+      936,
+      937
     ]
   },
   "rejected_cases": [
@@ -2413,6 +2476,26 @@
     },
     {
       "name": "wire-enemy-buff-add-defense-low",
+      "status": 64
+    },
+    {
+      "name": "wire-auto-aim-owner-mask",
+      "status": 64
+    },
+    {
+      "name": "wire-auto-aim-without-combat",
+      "status": 64
+    },
+    {
+      "name": "wire-auto-aim-command-policy",
+      "status": 64
+    },
+    {
+      "name": "wire-auto-aim-command-owner",
+      "status": 64
+    },
+    {
+      "name": "wire-auto-aim-command-negative-policy",
       "status": 64
     }
   ],
@@ -3923,7 +4006,10 @@
     "enemy-spawn-buff-lowest",
     "enemy-spawn-buff-nearest",
     "enemy-spawn-buff-defense-high",
-    "enemy-spawn-buff-defense-low"
+    "enemy-spawn-buff-defense-low",
+    "enemy-auto-aim-buff-reverse-birth",
+    "enemy-auto-aim-buff-dead-oldest",
+    "enemy-auto-aim-buff-body-fallback"
   ],
   "enemy_component_cpu_regressions": [
     "all-enemies-single-packet",
@@ -4023,7 +4109,25 @@
     "enemy-spawn-lowest-hp-filters-killed-add",
     "enemy-spawn-nearest-in-range-damage",
     "enemy-spawn-nearest-in-range-armor_break_damage",
-    "enemy-spawn-dead-explicit-aim-falls-back-by-birth"
+    "enemy-spawn-dead-explicit-aim-falls-back-by-birth",
+    "enemy-auto-aim-initial-policy",
+    "enemy-auto-aim-reverse-birth",
+    "enemy-auto-aim-reverse-birth-nearest-three",
+    "enemy-auto-aim-dead-oldest",
+    "enemy-auto-aim-body-fallback",
+    "enemy-auto-aim-command-enable",
+    "enemy-auto-aim-explicit-overrides-policy",
+    "enemy-auto-aim-explicit-respawn-then-enable",
+    "enemy-auto-aim-command-disable",
+    "enemy-auto-aim-multi-hit-kill-switch",
+    "enemy-auto-aim-weapon-initial",
+    "enemy-auto-aim-weapon-reverse-birth",
+    "enemy-auto-aim-weapon-dead-oldest",
+    "enemy-auto-aim-weapon-body-fallback",
+    "enemy-auto-aim-weapon-explicit-override",
+    "enemy-auto-aim-owner-four",
+    "enemy-auto-aim-weapon-owner-four",
+    "enemy-auto-aim-inactive-then-spawn"
   ],
   "health_cpu_regressions": [
     "initial-allied-hp-and-defense",
@@ -7639,11 +7743,103 @@
     {
       "name": "enemy-spawn-buff-defense-low",
       "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-initial-policy",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-reverse-birth",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-reverse-birth-nearest-three",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-dead-oldest",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-body-fallback",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-command-enable",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-explicit-overrides-policy",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-explicit-respawn-then-enable",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-command-disable",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-multi-hit-kill-switch",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-buff-reverse-birth",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-buff-dead-oldest",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-buff-body-fallback",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-weapon-initial",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-weapon-reverse-birth",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-weapon-dead-oldest",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-weapon-body-fallback",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-weapon-explicit-override",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-autonomous-two-shooters",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-owner-four",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-weapon-owner-four",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-inactive-then-spawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-auto-aim-no-live-actors",
+      "passed": true
     }
   ],
   "metal_generated_sha256": {
-    "cuda": "d0474fd441375d615c48d0e2b261060435dc3b6924cbe10937113c26af8f5b90",
-    "metal": "6738e93d90e4dfeb00a84c3a6b213391c835887663ce1d59ca8d7db7e55dfc01"
+    "cuda": "0241708ccb46a6c287b6691d9c40c00de0df1ef5ea870f528dacdc063501e484",
+    "metal": "a1d954426e14643c61cae826e1a8eed4b86869f8536157d940500748d28bc3af"
   },
   "metal_comparison": {
     "source_sha256": true,
@@ -7684,10 +7880,10 @@
   },
   "execution": {
     "command": "python scripts/verify-portable-combat.py --backend cuda",
-    "commit": "df09a686b85f128add7a2187d0b909d4b67d86af",
+    "commit": "5c4defea07776214e068b5e988922dbadc900fcf",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "39, 4640",
+    "gpu_before": "37, 4591",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -7705,8 +7901,8 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 49.39157790038735,
-    "stdout": "{\"passed\": true, \"cases\": 814, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
+    "elapsed_seconds": 51.27685270039365,
+    "stdout": "{\"passed\": true, \"cases\": 837, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
     "stderr": ""
   },
   "postcheck": {
@@ -7714,33 +7910,33 @@
     "original_head_after": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_after": []
   },
-  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-df09a68\\research\\portable-combat-cuda.json",
+  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-5c4defe\\research\\portable-combat-cuda.json",
   "available": true,
   "full_readback_available": true,
   "compiler_success_log_saved": false,
   "generated_normalization": {
     "cuda": {
       "available": true,
-      "raw_sha256": "e86125d216e15d1fbc3c7a569a1d379701abab2b9a6e91f75ddf89d8a47afce2",
-      "lf_sha256": "5b47780a58764d1197a55f05675fed404534da814d959364f532b1d46121b35d",
-      "no_line_directives_sha256": "44bffcc96a79a04b3e97559b51cab3ef190bcc285286c36cec7503fd46b95e25",
-      "no_line_directives_portable_prelude_sha256": "f486298f535a99cb86adc716a17b796d8d64fb64969af5eb283388f7e5a0c5da",
-      "lines": 35250,
-      "no_line_directive_lines": 26187,
-      "line_directives": 9063
+      "raw_sha256": "439c5ecc80592f871f1f34436ab8977f98f02ad6e5f1297bf0d4dce6d7ca484f",
+      "lf_sha256": "b2c7f0affc852739891b13249625bd428e3e26090a0190942f71290b501ffded",
+      "no_line_directives_sha256": "c21531e19080c6a2f9926f34a81abdbb1622af3dc182d9f3a1e7008e0a636fdb",
+      "no_line_directives_portable_prelude_sha256": "412813df0394797bce2bfcb16066f620a31709aa42323439ee667a6eb03fd379",
+      "lines": 35504,
+      "no_line_directive_lines": 26376,
+      "line_directives": 9128
     },
     "metal": {
       "available": true,
-      "raw_sha256": "1a21449e7a3637197b389a65cda6c45f3867ad25bb19b8d11cac9bcd092cb666",
-      "lf_sha256": "2fa502cdb5e45179e5eb5604bcfd643cec5897323c6e9dd4c7d1c7f2d8d00d5f",
-      "no_line_directives_sha256": "40076a47008151c32b9f9dd1e027bb1a57ff356d6a88de59863d002f820b9abf",
-      "no_line_directives_portable_prelude_sha256": "40076a47008151c32b9f9dd1e027bb1a57ff356d6a88de59863d002f820b9abf",
-      "lines": 35567,
-      "no_line_directive_lines": 26437,
-      "line_directives": 9130
+      "raw_sha256": "e3ca196310046fc15577ccff81e64e0e0410ae3fb643a50a4d8d9e1c3245909d",
+      "lf_sha256": "5db6f41883b1afe62af751019efc9607dee8aaf8152ecabc1e52580e9baa1c06",
+      "no_line_directives_sha256": "4f409384a5f7e983a5a1dc7ea977d354908ece2de0194bc278e2458b2b31038f",
+      "no_line_directives_portable_prelude_sha256": "4f409384a5f7e983a5a1dc7ea977d354908ece2de0194bc278e2458b2b31038f",
+      "lines": 35818,
+      "no_line_directive_lines": 26624,
+      "line_directives": 9194
     }
   },
   "summary_only": true,
-  "summary_source": "windows-portable-combat-v30.json",
+  "summary_source": "windows-portable-combat-v31.json",
   "scope": "Shared event/combat mechanics, enemy packets, allied cover state and pending B3 bonuses; independent components are not full battle or catalog certification"
 }
