@@ -56,11 +56,12 @@ void registerTimer(inout Runtime s, uint source, uint64_t when)
 {
     uint row = periodicClockOwner(s,source); Definition d = s.defs[row], grant = s.defs[source];
     bool was = s.timerActive[row] != 0;
-    bool resident = s.alive[row] != 0 && f64Less(when,s.end[row]);
+    bool staged=s.stagedEnabled!=0 && isStaged(s,row);
+    bool resident = s.alive[row] != 0 && (staged || f64Less(when,s.end[row]));
     uint target = d.target != 0 ? 0 : s.target;
     bool retained = (d.periodicFlags & 1) != 0;
     bool sameTarget = retained || s.combat == 0 || (s.timerTarget[row] == target && s.timerGeneration[row] == s.targetGeneration[target]);
-    bool preserve = d.kind == 3 && d.preserve != 0 && was && sameTarget;
+    bool preserve = d.kind == 3 && d.preserve != 0 && was && sameTarget && !staged;
     if (!preserve)
     {
         if (s.timerEpoch[row] == 0x7fffffff) { s.error = 2; return; }

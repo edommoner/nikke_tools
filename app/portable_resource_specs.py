@@ -25,7 +25,10 @@ def identities(effects,script,limit):
         if not isinstance(name,str) or not name or ':' in name:raise ValueError('Invalid resource identity')
         keys.setdefault(name,len(keys))
     from portable_reference_specs import hit_reference,scale_reference
-    for effect,_ in effects:
+    from staged_dot_specs import specification as staged_specification
+    for effect,owner in effects:
+        staged=staged_specification(effect,owner,effects)
+        if staged is not None and isinstance(staged.count,str):add(staged.count)
         mode,name=hit_reference(effect)
         if mode:add(name)
         scale,name=scale_reference(effect)

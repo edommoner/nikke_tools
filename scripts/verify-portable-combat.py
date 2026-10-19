@@ -14,7 +14,7 @@ from portable_runtime import compile_program,run_programs,PortableExecutionError
 
 
 def fixtures():
-    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json','portable-quantities.json','portable-charge-control.json','portable-health.json','portable-hp-edges.json','portable-incoming.json','portable-capacity.json','portable-recipients.json','portable-carriers.json','portable-lazy.json','portable-bullets.json','portable-burst-resources.json','portable-enemy-damage.json','portable-cover.json','portable-pending-burst.json','portable-burst-duration.json','portable-ammo-instants.json','portable-ammo-modes.json','portable-mode-sessions.json','portable-buff-notices.json','portable-enemy-buffs.json','portable-event-candidates.json','portable-enemy-attack-ranks.json','portable-enemy-spawn-order.json','portable-enemy-auto-aim.json','portable-periodic-targets.json','portable-resources.json','portable-hit-references.json','portable-reference-scales.json','portable-sources.json')),[])
+    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json','portable-quantities.json','portable-charge-control.json','portable-health.json','portable-hp-edges.json','portable-incoming.json','portable-capacity.json','portable-recipients.json','portable-carriers.json','portable-lazy.json','portable-bullets.json','portable-burst-resources.json','portable-enemy-damage.json','portable-cover.json','portable-pending-burst.json','portable-burst-duration.json','portable-ammo-instants.json','portable-ammo-modes.json','portable-mode-sessions.json','portable-buff-notices.json','portable-enemy-buffs.json','portable-event-candidates.json','portable-enemy-attack-ranks.json','portable-enemy-spawn-order.json','portable-enemy-auto-aim.json','portable-periodic-targets.json','portable-resources.json','portable-hit-references.json','portable-reference-scales.json','portable-sources.json','portable-staged.json')),[])
 
 
 def compile_case(case):
@@ -115,7 +115,7 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--backend',choices=('metal','cuda'),default='metal')
     args=parser.parse_args();path=ROOT/f'research/portable-combat-{args.backend}.json'
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n',encoding='utf-8')
-    tracked=['app/portable_source_specs.py','scripts/portable_source_oracle.py','app/periodic_source_specs.py','app/periodic_source_runtime.py','tests/fixtures/portable-sources.json','app/reference_count_runtime.py','app/reference_health_runtime.py','app/engine_compat.py','tests/fixtures/portable-reference-scales.json','app/portable_reference_specs.py','tests/fixtures/portable-hit-references.json','app/portable_resource_specs.py','app/portable_resource_decode.py','app/resource_specs.py','app/resource_runtime.py','scripts/portable_resource_oracle.py','tests/fixtures/portable-resources.json','app/portable_roster_input.py','app/portable_runtime_layout.py','app/portable_enemy_specs.py','app/portable_runtime.py','app/portable_combat.py','app/portable_specs.py','app/portable_periodic_specs.py','app/portable_backend.py',
+    tracked=['app/portable_staged_specs.py','app/staged_dot_specs.py','app/staged_dot_runtime.py','tests/fixtures/portable-staged.json','app/portable_source_specs.py','scripts/portable_source_oracle.py','app/periodic_source_specs.py','app/periodic_source_runtime.py','tests/fixtures/portable-sources.json','app/reference_count_runtime.py','app/reference_health_runtime.py','app/engine_compat.py','tests/fixtures/portable-reference-scales.json','app/portable_reference_specs.py','tests/fixtures/portable-hit-references.json','app/portable_resource_specs.py','app/portable_resource_decode.py','app/resource_specs.py','app/resource_runtime.py','scripts/portable_resource_oracle.py','tests/fixtures/portable-resources.json','app/portable_roster_input.py','app/portable_runtime_layout.py','app/portable_enemy_specs.py','app/portable_runtime.py','app/portable_combat.py','app/portable_specs.py','app/portable_periodic_specs.py','app/portable_backend.py',
              'app/portable_trigger_specs.py','app/portable_recipient_specs.py','app/portable_damage_specs.py','scripts/portable_pending_oracle.py','app/named_target_specs.py','scripts/portable_capacity_oracle.py','scripts/portable_health_oracle.py','scripts/portable_enemy_oracle.py','scripts/portable_burst_oracle.py','scripts/portable_bullet_oracle.py','scripts/portable_weapon_oracle.py','scripts/verify-detail.py','app/detail_gpu.py','app/effect_spec.py','app/impact_specs.py','app/world_condition_specs.py','scripts/verify-portable-combat.py',
              'tests/fixtures/portable-event-candidates.json','tests/fixtures/portable-enemy-attack-ranks.json','tests/fixtures/portable-enemy-spawn-order.json','tests/fixtures/portable-enemy-auto-aim.json','tests/fixtures/portable-periodic-targets.json','scripts/portable_enemy_buff_oracle.py','tests/fixtures/portable-enemy-buffs.json','research/portable-mode-session-contract.json','tests/fixtures/portable-buff-notices.json','tests/fixtures/portable-mode-sessions.json','tests/fixtures/portable-ammo-modes.json','tests/fixtures/portable-ammo-instants.json','tests/fixtures/portable-burst-duration.json','tests/fixtures/portable-pending-burst.json','tests/fixtures/portable-cover.json','tests/fixtures/portable-enemy-damage.json','tests/fixtures/portable-burst-resources.json','tests/fixtures/portable-bullets.json','tests/fixtures/portable-lazy.json','tests/fixtures/portable-lazy-capacity-rejection.json','tests/fixtures/portable-carriers.json','tests/fixtures/portable-recipients.json','tests/fixtures/portable-capacity.json','tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-triggers.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json','scripts/run-metal-probe.swift']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
@@ -155,7 +155,7 @@ def main():
     burst_overflow['effects'][0]['fixed_value']=-1e308;burst_overflow['effects'][0]['trigger']['timing']=['on_attack']
     burst_overflow['script']=[[0,0,7,0,0,-1,0,0],[0,0,7,0,0,-1,0,0]]
     enemy_bad=[];enemy_rejections=[]
-    for name,offset,value in [('route',0,10),('count-zero',1,0),('count-range',1,257),('hits-zero',2,0),('hits-range',2,257),('normal-kind',3,2)]:
+    for name,offset,value in [('route',0,10),('count-zero',1,0),('count-range',1,257),('hits-range',2,257),('normal-kind',3,2)]:
         words,meta=compile_case(next(c for c in cases if c['name']=='all-enemies-single-packet'))
         words[L['DAMAGE_DEFINITION_BASE']+L['DAMAGE_DEFINITION_WORDS']+offset]=value
         enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-enemy-'+name,status=64))
@@ -327,6 +327,13 @@ def main():
     words,meta=compile_case(next(c for c in cases if c['name']=='source-capacity-256-variants'))
     for row in range(65):words[source_at+row*L['SOURCE_DEFINITION_WORDS']]=row
     enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-source-65-unique-owner-names',status=64))
+    staged_fixture=next(c for c in cases if c['name']=='staged-triangular-and-post-period')
+    staged_at=L['STAGED_DEFINITION_BASE']+2*8
+    for name,field,payload in [('flag',0,[2]),('count',1,[65]),('unknown-resource',1,[512]),('zero-gap',2,double_words(0)),('nan-gap',2,[0,0x7ff80000]),('large-gap',2,double_words(61)),('negative-post',4,double_words(-1)),('large-post',4,double_words(3601)),('override',6,[66]),('parent-zero',7,[0]),('self-parent',7,[3]),('parent-overflow',7,[257])]:
+        words,meta=compile_case(staged_fixture);words[staged_at+field:staged_at+field+len(payload)]=payload
+        enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-staged-'+name,status=64))
+    words,meta=compile_case(staged_fixture);words[L['STAGED_DEFINITION_BASE']+1]=1
+    enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-staged-disabled-padding',status=64))
     rejections += enemy_rejections;negative_programs += enemy_bad
     indices=list(range(len(cases),len(cases)+len(rejections)))
     statuses=[0]*len(cases)+[c['status'] for c in rejections]
@@ -472,7 +479,7 @@ def main():
         contains(gpu['queries'],projected,case['name']+'.all-undeclared-cpu-fields')
         mode_reference.append(case['name'])
     from portable_enemy_oracle import observe as enemy_observe
-    enemy_reference=[]
+    enemy_reference=[];staged_reference=[]
     for case,gpu in zip(cases,result['results']):
         if not case.get('enemy_reference'):continue
         cpu=enemy_observe(case)
@@ -482,6 +489,10 @@ def main():
         if case['combat'].get('trace','full')=='full':
             assert len(gpu['trace'])==len(cpu['packets']),case['name']+'.component_packets'
             contains(gpu['trace'],cpu['packets'],case['name']+'.component_packets')
+        if case.get('staged_reference'):
+            actual=sorted((x for x in gpu['staged_applications'] if x['active']),key=lambda x:x['definition'])
+            assert actual==cpu['staged_state'],(case['name'],'staged state',actual,cpu['staged_state'])
+            staged_reference.append(case['name'])
         enemy_reference.append(case['name'])
     from portable_health_oracle import observe as cover_observe
     cover_reference=[]
@@ -530,7 +541,7 @@ def main():
             contains(gpu['queries'],cpu['queries'],case['name']+'.gpu_native_source')
             for key in ('source_queries','periodic_sources'):assert gpu[key]==cpu[key],(case['name'],key,gpu[key],cpu[key])
         source_reference.append(case['name'])
-    result.update(source_cpu_regressions=source_reference,scale_reference_cpu_regressions=scale_reference,hit_reference_cpu_regressions=[c['name'] for c in cases if c.get('hit_reference')],resource_cpu_regressions=resource_reference,periodic_target_cpu_regressions=[c['name'] for c in cases if c.get('periodic_reference')],enemy_buff_cpu_regressions=enemy_buff_reference,named_buff_cpu_regressions=named_buff_reference,mode_session_cpu_regressions=mode_reference,known_mode_cpu_differences=mode_differences,ammo_instant_cpu_regressions=ammo_reference,burst_duration_cpu_regressions=duration_reference,pending_controller_cpu_regressions=pending_reference,cover_cpu_regressions=cover_reference,enemy_component_cpu_regressions=enemy_reference,burst_cpu_regressions=burst_reference,bullet_cpu_regressions=bullet_reference,lazy_cpu_regressions=[c['name'] for c in cases if c.get('lazy_reference')],carrier_cpu_regressions=carrier_reference,capacity_cpu_regressions=capacity_reference,health_cpu_regressions=health_reference,known_health_cpu_differences=health_differences,known_cpu_differences=cpu_differences,weapon_cpu_regressions=weapon_reference,damage_cpu_regressions=damage_reference,trigger_cpu_regressions=reference,passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
+    result.update(staged_cpu_regressions=staged_reference,source_cpu_regressions=source_reference,scale_reference_cpu_regressions=scale_reference,hit_reference_cpu_regressions=[c['name'] for c in cases if c.get('hit_reference')],resource_cpu_regressions=resource_reference,periodic_target_cpu_regressions=[c['name'] for c in cases if c.get('periodic_reference')],enemy_buff_cpu_regressions=enemy_buff_reference,named_buff_cpu_regressions=named_buff_reference,mode_session_cpu_regressions=mode_reference,known_mode_cpu_differences=mode_differences,ammo_instant_cpu_regressions=ammo_reference,burst_duration_cpu_regressions=duration_reference,pending_controller_cpu_regressions=pending_reference,cover_cpu_regressions=cover_reference,enemy_component_cpu_regressions=enemy_reference,burst_cpu_regressions=burst_reference,bullet_cpu_regressions=bullet_reference,lazy_cpu_regressions=[c['name'] for c in cases if c.get('lazy_reference')],carrier_cpu_regressions=carrier_reference,capacity_cpu_regressions=capacity_reference,health_cpu_regressions=health_reference,known_health_cpu_differences=health_differences,known_cpu_differences=cpu_differences,weapon_cpu_regressions=weapon_reference,damage_cpu_regressions=damage_reference,trigger_cpu_regressions=reference,passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
                   rejection_execution=negative,rejected_cases=rejections,
                   scope='Shared event/combat mechanics, enemy packets, allied cover state and pending B3 bonuses; independent components are not full battle or catalog certification')
     path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

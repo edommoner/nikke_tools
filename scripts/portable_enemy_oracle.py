@@ -38,7 +38,9 @@ def observe(case):
         coefficient=effect.get('fixed_value',effect.get('values',{}).get('10',0));target=effect['target']
         if effect.get('scaling')=='stack_count' and kind=='dot_damage':
             entry=next((a for a in bm._active if a.caster==caster and a.effect.get('name')==effect.get('name')),None)
-            coefficient*=entry.stack if entry is not None else 0
+            if effect.get('ramp_interval') is not None:
+                scale=bm.staged_damage_stack(effect,caster);coefficient*=scale if scale is not None else 0
+            else:coefficient*=entry.stack if entry is not None else 0
         if coefficient==0:return
         # Same precedence as the original timeline's hit_count block; live
         # quantities come from original BuffManager.ref_count, never GPU state.
@@ -113,4 +115,9 @@ def observe(case):
             if case.get('normal_aim_reference'):
                 queries[-1]['combat'].update(target=normal_target,targets=[dict(damage=amount,hits=hits) for amount,hits in zip(target_damage,native_hits)])
         else:raise ValueError('Enemy component oracle supports notifications, aim, add life changes, authored frames and queries')
-    return dict(queries=queries,packets=packets,target_scored_damage=target_scored,periodic_snapshots=periodic_snapshots)
+    from effect_runtime import pool
+    staged_state=[]
+    for record in pool(bm,'staged_dot').values():
+        row=next(i for i,(e,_) in enumerate(raw) if e is record.effect)
+        staged_state.append(dict(definition=row,generation=record.generation,sequence=record.sequence,total=record.total,index=record.index,start=record.start,active=True))
+    return dict(queries=queries,packets=packets,target_scored_damage=target_scored,periodic_snapshots=periodic_snapshots,staged_state=sorted(staged_state,key=lambda r:r['definition']))

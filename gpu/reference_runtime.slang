@@ -88,6 +88,7 @@ bool registerDotReference(inout Runtime s, uint row, bool resident)
 uint64_t activationDamageCoefficient(inout Runtime s, uint row)
 {
     Definition d=s.defs[row]; uint64_t scale=referenceScaleMode(s,row)==3 ? carrierStackValue(s,row) : f64FromI64((d.periodicFlags&2)!=0 ? s.stacks[row] : 1);
+    if(s.stagedScopeRow==row+1 && s.alive[row]!=0 && s.stagedScopeEntry==s.entryOrder[row] && s.stagedScopeGeneration==stagedGeneration(s,row)) scale=f64FromI64(s.stagedScopeStack);
     return f64Mul(d.value,scale);
 }
 [noinline]

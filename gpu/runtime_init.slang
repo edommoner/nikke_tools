@@ -5,6 +5,11 @@ void initializeRuntime(inout Runtime s)
 {
     s.sourceEnabled = 0;
     s.sourceTime = 0;
+    s.stagedEnabled = 0;
+    s.stagedScopeRow = 0;
+    s.stagedScopeGeneration = 0;
+    s.stagedScopeEntry = 0;
+    s.stagedScopeStack = 0;
     s.resourceCount = 0;
     s.resourceAmmoObserved = 0;
     s.resourceTraceCount = 0;

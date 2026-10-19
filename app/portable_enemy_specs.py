@@ -14,11 +14,11 @@ def damage_plan(effect):
     if len(parts)==2:
         if not parts[1]:raise ValueError('Empty hit count reference')
         if parts[1].lstrip('-').isdigit():
-            if not re.fullmatch(r'[1-9][0-9]*',parts[1]) or not 1<=int(parts[1])<=256:raise ValueError('Damage hit count must be an integer in 1..256')
+            if not re.fullmatch(r'(?:0|[1-9][0-9]*)',parts[1]) or not 0<=int(parts[1])<=256:raise ValueError('Damage hit count must be an integer in 0..256')
             hits=int(parts[1])
     target=effect.get('target','target');count=1
     if target=='target':route=ROUTES['INHERITED']
-    elif target in ('enemy','target_body','same_target','enemies_nearest_in_range') or isinstance(target,str) and re.fullmatch(r'same_target:[^:]+',target):route=ROUTES['NEAREST']
+    elif target in ('enemy','target_body','same_target','enemies_nearest_in_range') or isinstance(target,str) and target.startswith('same_target:') and bool(target.split(':',1)[1]):route=ROUTES['NEAREST']
     elif target=='boss':route=ROUTES['BODY']
     elif target in ('all_enemies','enemies_in_range'):route=ROUTES['ALL'];count=8
     else:

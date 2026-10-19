@@ -17,3 +17,16 @@ def install():
         return original(self,caster,ref)
     live_reference._nikke_live_reference_lookup=True
     BuffManager.ref_count=live_reference
+
+    original_register=BuffManager.register_damage_handler
+    @wraps(original_register)
+    def register_damage(self,handler):
+        if handler is None:return original_register(self,None)
+        @wraps(handler)
+        def scoped(effect,caster,t,*args,**kwargs):
+            previous=self._cur_t;self._cur_t=t
+            try:return handler(effect,caster,t,*args,**kwargs)
+            finally:self._cur_t=previous
+        return original_register(self,scoped)
+    register_damage._nikke_reference_damage_time=True
+    BuffManager.register_damage_handler=register_damage

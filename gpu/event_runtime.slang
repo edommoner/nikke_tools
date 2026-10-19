@@ -43,6 +43,7 @@ struct Runtime
 {
     Definition defs[P_DEFINITIONS];
     uint sourceEnabled; uint64_t sourceTime;
+    uint stagedEnabled,stagedScopeRow,stagedScopeGeneration,stagedScopeEntry,stagedScopeStack;
     uint resourceCount, resourceAmmoObserved, resourceTraceCount, resourceTraceTotal, resourceOutput;
     uint bulletHead, bulletTail, bulletCount, bulletLinked[P_CARRIERS], bulletPrev[P_CARRIERS], bulletNext[P_CARRIERS], bulletInitialized[P_CARRIERS];
     int bulletLeft[P_CARRIERS]; uint recipientBullets[P_CARRIERS*5], recipientStacks[P_CARRIERS*5];
@@ -111,6 +112,7 @@ void addSum(inout Sum sum, uint64_t term)
 #include "resource_runtime.slang"
 #include "source_runtime.slang"
 #include "reference_runtime.slang"
+#include "staged_runtime.slang"
 
 // Definition predicates use compiled IDs and exact binary64 operands.
 // Runtime tests are deliberately distinct from activation-time gates.
@@ -779,13 +781,27 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             bool lazy = selector == 5 || selector == 6 || selector == 7 || selector == 15 || selector == 16;
             if (d.budget >= 0 && recipientMask == 0 && !lazy) continue;
         }
-        if (f.event != 28 || (d.flags & 1) != 0)
+        uint stagedTotal=0;
+        bool stageRegister=s.stagedEnabled!=0 && isStaged(s,row) && (f.event!=28 || (d.flags&1)!=0 && s.alive[row]==0);
+        if(stageRegister) { stagedTotal=stagedCount(s,row);if(s.error!=0) break;if(stagedTotal==0) continue; }
+        if (f.event != 28 || (d.flags & 1) != 0 && ((s.stagedEnabled==0 || !isStaged(s,row)) || stageRegister))
         {
             if (d.budget >= 0 && s.activations[row] >= uint(d.budget)) continue;
             if (s.activations[row] == 0x7fffffff) { s.error = 2; break; }
             s.activations[row]++;
         }
-        if (!f64Zero(d.interval) && f.event != 28) { registerTimer(s,row,f.time); continue; }
+        bool staged=s.stagedEnabled!=0 && isStaged(s,row);
+        bool registering=f.event!=28 || staged && (d.flags&1)!=0 && s.alive[row]==0;
+        if (!f64Zero(d.interval) && registering)
+        {
+            uint count=staged ? stagedTotal : 1;
+            if (s.error!=0) break;
+            if (staged && count==0) continue;
+            bool previousCarrier=s.alive[row]!=0;
+            registerTimer(s,row,f.time);
+            if(staged && s.error==0) prepareStaged(s,row,count,f.time,previousCarrier);
+            continue;
+        }
         if (d.kind==35) { registerSource(s,row,f.time); continue; }
         if (d.kind == 0 || d.kind == 4)
         {
@@ -988,6 +1004,34 @@ void timerPass(inout Runtime s, uint64_t when, bool damagePass, uint output)
         if (damagePass || d.immediate != 2 || basicConditions(s,j,observed,true)) dispatch(s,1,28,d.owner,int(j),observed,output); s.target = parentTarget;
     }
 }
+// Native staged heap ordering: deadline then unique registration sequence.
+[noinline]
+void stagedPass(inout Runtime s,uint64_t when,uint output)
+{
+    if(s.stagedEnabled==0) return;
+    uint work=0;
+    while(s.error==0)
+    {
+        uint selected=s.count,sequence=0;uint64_t due=0;
+        for(uint row=0;row<s.count;row++)
+        {
+            uint at=stagedAddress(s,row);
+            if(results[at]==0 || s.alive[row]==0 || results[at+3]>=results[at+2]) continue;
+            uint64_t next=stagedNext(s,row);
+            if(f64Less(when,next)) continue;
+            if(selected==s.count || f64Less(next,due) || f64Equal(next,due) && results[at+1]<sequence)
+            { selected=row;due=next;sequence=results[at+1]; }
+        }
+        if(selected==s.count) break;
+        if(++work>4096) { s.error=4;break; }
+        uint at=stagedAddress(s,selected),index=++results[at+3];s.stacks[selected]=min(index,s.defs[selected].maxStack);
+        uint previousRow=s.stagedScopeRow,previousGen=s.stagedScopeGeneration,previousEntry=s.stagedScopeEntry,previousStack=s.stagedScopeStack;
+        uint override=commands[stagedDefinition(s,selected)+6];
+        s.stagedScopeRow=selected+1;s.stagedScopeGeneration=results[at];s.stagedScopeEntry=s.entryOrder[selected];s.stagedScopeStack=override==0 ? s.stacks[selected] : override-1;
+        dispatch(s,1,28,s.defs[selected].owner,int(selected),when,output);
+        s.stagedScopeRow=previousRow;s.stagedScopeGeneration=previousGen;s.stagedScopeEntry=previousEntry;s.stagedScopeStack=previousStack;
+    }
+}
 // Snapshot keys/owners, not epochs: a later existing key observes a child's
 // replacement. New keys wait until the next phase. Only the current record's
 // post-notify advance is guarded against replacement.
@@ -1014,6 +1058,7 @@ void tick(inout Runtime s, uint64_t when, uint output)
 {
     s.sourceTime=when;
     if (s.hpWatchCount != 0) dispatch(s,7,0,0,0,when,output);
+    stagedPass(s,when,output);
     timerPass(s,when,true,output);
     sourcePass(s,when,output);
     uint begin = s.removalCount;
@@ -1141,7 +1186,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             !(d.stat == S_enemy_def_down_pct || d.stat == S_def_caster_based_pct || d.stat == S_received_dmg_pct) ||
             d.damageRoute > 9 || d.damageCount == 0 || d.damageCount > 256 || d.damageHits != 0 || d.damageNormal != 0 || !f64Zero(d.damageGauge) || d.damagePending != 0 || d.pendingHits != 0 ||
             commands[input+P_RECIPIENT_BASE+j*8] != 4)) { s.error = 64; break; }
-        if (d.kind == 3 && (d.damageRoute > 9 || d.damageCount == 0 || d.damageCount > 256 || d.damageHits == 0 || d.damageHits > 256 ||
+        if (d.kind == 3 && (d.damageRoute > 9 || d.damageCount == 0 || d.damageCount > 256 || d.damageHits > 256 ||
             d.damageRoute >= 2 && s.combat == 0 || !f64Finite(d.damageGauge) || f64Less(d.damageGauge,0) && !f64Equal(d.damageGauge,F64_SIGN | ONE) || f64Less(f64FromI64(1000000),d.damageGauge) ||
             d.damageNormal > 1 || d.damagePending > 1 || d.damagePending == 0 && d.pendingHits != 0 || d.damagePending != 0 && (s.combat == 0 || d.damageHits != 1 || d.damageFlags != 0 || d.damageNormal != 0 || d.pendingHits == 0 || d.pendingHits > 256))) { s.error = 64; break; }
         if ((d.kind == 3 || d.enemyBuff != 0) && (d.damageRoute == 7 || d.damageRoute == 8))
@@ -1199,6 +1244,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if (!validatePeriodicDefinitions(s)) { results[output] = 64; return; }
     if (!initializeResources(s) || !validateReferences(s)) { results[output] = 64; return; }
     if (!initializeSources(s)) { results[output]=64; return; }
+    if(!initializeStaged(s)) { results[output]=64;return; }
     initializeHPWatches(s);
     uint queries = 0;
     for (uint step = 0; step < commands[input+2] && s.error == 0; step++)

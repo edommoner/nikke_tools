@@ -73,6 +73,7 @@ def install():
         return result
     @wraps(original_damage)
     def register_damage(self,handler):
+        if handler is None:return original_damage(self,None)
         @wraps(handler)
         def damage(effect,caster,t,*args,**kwargs):
             return execute(self,t,lambda:handler(effect,caster,t,*args,**kwargs))

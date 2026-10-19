@@ -175,7 +175,7 @@ class PortableEnemyAdmissionTests(unittest.TestCase):
         e=dict(name='test',type='damage',stat='damage',fixed_value=100,target='all_enemies',trigger=dict(timing=['on_attack'],condition=[]))
         for stat in ('damage:1','damage:256','split_damage:3','damage:state'):
             validate_effect({**e,'stat':stat},combat={})
-        for patch in (dict(stat='damage:0'),dict(stat='damage:-1'),dict(stat='damage:257'),dict(stat=None),dict(target='enemies_random:1'),dict(target='enemies_top_atk:0')):
+        for patch in (dict(stat='damage:-1'),dict(stat='damage:257'),dict(stat=None),dict(target='enemies_random:1'),dict(target='enemies_top_atk:0')):
             with self.subTest(patch=patch),self.assertRaises(ValueError):validate_effect({**e,**patch},combat={})
         with self.assertRaises(ValueError):validate_effect(e)
 

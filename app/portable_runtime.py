@@ -40,6 +40,7 @@ def validate_effect(eff, *, combat=None):
     if eff.get('type')=='damage' and not isinstance(eff.get('stat',''),str):raise UnsupportedPortable('Damage family must be a string')
     allowed = {'name','source','type','stat','fixed_value','values','duration','duration_values',
                'target','trigger','note','polarity','favorite','_source_tag','_quant_group','max_ammo_reduction_exclusive','trigger_values','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
+    if eff.get('type')=='damage' and eff.get('stat')=='dot_damage':allowed |= {'ramp_interval','ramp_damage_stack','post_ramp_tick_delay'}
     if source_spec:allowed |= {'periodic_source','feather_id','feather_slots','feather_interval_base','feather_interval_step_pct'}
     if resource_op:allowed |= {'gauge_id','gauge_max'}
     if eff.get('type')=='damage':
@@ -121,6 +122,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     for eff, owner in effects:validate_effect(eff,combat=combat)
     from portable_source_specs import validate_sources,pack as pack_source
     validate_sources(effects)
+    from portable_staged_specs import descriptors as staged_descriptors,pack as pack_staged
+    staged=staged_descriptors(effects)
     program=legacy.compile_effects(chars,effects)
     source_query_indices={}
     for command in script:
@@ -199,7 +202,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             pending=eff.get('stat')=='bonus_damage' and 'burst_cast' in eff.get('trigger',{}).get('timing',[]) and str(caster['_weapon'].get('burst_stage',''))=='3'
             if pending and combat is None:raise UnsupportedPortable('Pending B3 bonus damage requires the combat controller')
             from named_target_specs import resolve_named_attack
-            named=resolve_named_attack(eff,owner,effects)
+            named=None if staged[index] is not None else resolve_named_attack(eff,owner,effects)
             pending_hits=named.deferred_bonus_hits if pending and named is not None else 1
             if pending_hits>256:raise UnsupportedPortable('Pending named attack count exceeds 256')
             words[at:at+8]=[route,count,hits,int(eff['stat'].split(':')[0]=='auto_damage'),*double_words(override),int(pending),pending_hits if pending else 0]
@@ -248,6 +251,9 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         from portable_reference_specs import pack as pack_reference
         pack_reference(words,index,L,effects[index][0],resource_keys,program['states'],F)
         pack_source(words,index,row,L,effects[index][0],double_words)
+        spec=staged[index]
+        parent=next((i for i,(e,n) in enumerate(effects) if n==owner and spec is not None and e.get('name')==spec.reference),-1)
+        pack_staged(words,index,spec,L,resource_keys,double_words,parent)
         if row[1]==2:
             if row[7]<0 and row[14]>0:raise UnsupportedPortable('Infinite conditional weapon mode is not ported')
             from portable_combat import pack_mode
@@ -294,7 +300,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             at=L['INCOMING_BASE']+i*L['INCOMING_WORDS'];words[at:at+4]=[*double_words(extra),*double_words(extra2)]
             continue
         if op==29:
-            if event or type(owner) is not int or not 0<=owner<5 or type(query) is not int or not 0<=query<L['COMMANDS'] or query in source_query_indices or extra or extra2:
+            if any(type(v) is not int for v in (op,event,owner,query,extra,extra2)) or event or not 0<=owner<5 or not 0<=query<L['COMMANDS'] or query in source_query_indices or extra or extra2:
                 raise ValueError('Invalid periodic source query')
             source_query_indices[query]=dict(time=t,owner=owner,name=arg)
             at=L['COMMAND_BASE']+i*8;words[at:at+8]=[op,*double_words(t),0,owner,program['states'][arg],query,0]
@@ -454,7 +460,11 @@ def decode(words,metadata):
     for index,query in sorted(metadata['source_query_indices'].items(),key=lambda p:int(p[0])):
         at=L['SOURCE_QUERY_BASE']+int(index)*8
         source_queries.append(dict(**query,present=bool(words[at]),count=words[at+1],epoch=words[at+2],scheduled=bool(words[at+3]),next_at=number(at+4) if words[at+3] else None))
-    return dict(periodic_sources=sources,source_queries=source_queries,reference_captures=captures,**resource_state,periodic_bindings=periodic,pending_burst=dict(count=count,enqueued=words[pending+1],fired=words[pending+2],entries=queue),covers=covers,body_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+20+2*k) for k in range(5)],add_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+30+2*k) for k in range(5)],scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+2*k) for k in range(5)],add_overkill=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+10+2*k) for k in range(5)],target_scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+40+2*k) for k in range(len((metadata.get('combat') or {}).get('targets',[])))],bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
+    staged_rows=[]
+    for row in range(len(metadata['effects'])):
+        at=L['STAGED_STATE_BASE']+row*6
+        if words[at]:staged_rows.append(dict(definition=row,active=row in active_slots,generation=words[at],sequence=words[at+1],total=words[at+2],index=words[at+3],start=number(at+4)))
+    return dict(staged_applications=staged_rows,periodic_sources=sources,source_queries=source_queries,reference_captures=captures,**resource_state,periodic_bindings=periodic,pending_burst=dict(count=count,enqueued=words[pending+1],fired=words[pending+2],entries=queue),covers=covers,body_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+20+2*k) for k in range(5)],add_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+30+2*k) for k in range(5)],scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+2*k) for k in range(5)],add_overkill=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+10+2*k) for k in range(5)],target_scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+40+2*k) for k in range(len((metadata.get('combat') or {}).get('targets',[])))],bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
 
 
 def run_programs(programs, *, backend='metal'):
@@ -478,7 +488,9 @@ def evaluate(body):
     compiled=compile_program(body['chars'],[(item['effect'],item['owner']) for item in body['effects']],
                              body['script'],body['base_atk'],combat=body.get('combat'),**body.get('environment',{}))
     result=run_programs([compiled],backend=body.get('backend','metal'))
+    from staged_dot_specs import RAMP_FIELDS,MODEL_WARNING
+    if any(RAMP_FIELDS.intersection(item['effect']) for item in body['effects']):result.setdefault('app_warnings',[]).append(MODEL_WARNING)
     if any(spec and spec['legacy'] for spec in compiled[1]['source_definitions']):
         from periodic_source_specs import LEGACY_WARNING
-        result['app_warnings']=[LEGACY_WARNING]
+        result.setdefault('app_warnings',[]).append(LEGACY_WARNING)
     return result

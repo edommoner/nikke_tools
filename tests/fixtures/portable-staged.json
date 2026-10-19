@@ -1,0 +1,4325 @@
+{
+  "cases": [
+    {
+      "name": "staged-triangular-and-post-period",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:3",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.6,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.6,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          1.35,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.35,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ],
+        [
+          1.9,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.9,
+          2,
+          0,
+          0,
+          -1,
+          4,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            9000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            9000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-fixed-one-damage-stack",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:3",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "ramp_damage_stack": 1
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.6,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.6,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          1.35,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.35,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-zero-damage-override",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:3",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "ramp_damage_stack": 0
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.6,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.6,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          1.35,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.35,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-stack-cap-two",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:3",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 2,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.6,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.6,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          1.35,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.35,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            5000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            7000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-literal-zero-skips-attachment",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:0",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.6,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.6,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-post-zero-shares-final-frame",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:3",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            9000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-late-observation-drains-stages-once",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:3",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "ramp_damage_stack": 1
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.5,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-unbounded-cap",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:3",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-minimum-gap",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:3",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 0,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.10001,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.10001,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            9000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-refresh-replaces-stale-stages",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:3",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.6,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.6,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.75,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          1,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ],
+        [
+          1.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.25,
+          2,
+          0,
+          0,
+          -1,
+          4,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            7000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-expired-periodic-source-time",
+      "effects": [
+        {
+          "name": "source",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "periodic_source_refresh",
+          "target": "self",
+          "periodic_source": {
+            "name": "bird",
+            "slots": [
+              2
+            ],
+            "base_interval": 3600,
+            "population_reduction_pct": 0
+          },
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "live source multiplier",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "target": "self",
+          "fixed_value": 100,
+          "duration": -1,
+          "scaling": "stack_count",
+          "scaling_ref": "bird",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:3",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          3,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          3,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            12000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-count-64-minimum-gap",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:64",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 0,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2144000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-missing-count-default-one",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:absent",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.85,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-resource-count-0",
+      "effects": [
+        {
+          "name": "fuel",
+          "type": "instant",
+          "source": "스킬1",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:fuel",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-resource-count--0.9",
+      "effects": [
+        {
+          "name": "fuel",
+          "type": "instant",
+          "source": "스킬1",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": -0.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:fuel",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-resource-count-3.9",
+      "effects": [
+        {
+          "name": "fuel",
+          "type": "instant",
+          "source": "스킬1",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 3.9,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:fuel",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-parent-count-gauge-latched-before-spend",
+      "effects": [
+        {
+          "name": "fuel",
+          "type": "instant",
+          "source": "스킬1",
+          "stat": "gauge_charge",
+          "gauge_id": "fuel",
+          "fixed_value": 3,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:fuel",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "spend",
+          "type": "instant",
+          "source": "스킬1",
+          "stat": "gauge_consume",
+          "gauge_id": "fuel",
+          "fixed_value": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:full_reload"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          19,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-callback-refresh-invalidates-old-generation",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:3",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack",
+              "hit_count:dot:1"
+            ],
+            "condition": []
+          },
+          "max_trigger": 2
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.6,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.6,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ],
+        [
+          1.1,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.1,
+          2,
+          0,
+          0,
+          -1,
+          3,
+          0,
+          0
+        ],
+        [
+          1.35,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.35,
+          2,
+          0,
+          0,
+          -1,
+          4,
+          0,
+          0
+        ],
+        [
+          1.6,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.6,
+          2,
+          0,
+          0,
+          -1,
+          5,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            7000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            7000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            10000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-remove-and-reregister-new-carrier",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:3",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "remove",
+          "type": "instant",
+          "source": "스킬1",
+          "stat": "remove_named_buff",
+          "target": "self",
+          "target_effect": "dot",
+          "trigger": {
+            "timing": [
+              "event:full_reload"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.35,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.4,
+          0,
+          19,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.6,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.6,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.75,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2,
+          0,
+          0,
+          -1,
+          2,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-two-schedules-deadline-order",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:3",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "second",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.1,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "ramp_damage_stack": 1
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            9000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-duration-expired-before-late-observation",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:3",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          3,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          3,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            9000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-post-delay-beyond-lifetime",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:3",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 2,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "staged-source-population-count",
+      "effects": [
+        {
+          "name": "refresh source",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "periodic_source_refresh",
+          "target": "self",
+          "periodic_source": {
+            "name": "bird",
+            "slots": [
+              -1,
+              -1,
+              -1
+            ],
+            "base_interval": 3600,
+            "population_reduction_pct": 0
+          },
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:bird",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 0.25,
+          "post_ramp_tick_delay": 0.5,
+          "max_stack": 5,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.85,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            6000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

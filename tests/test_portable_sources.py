@@ -32,7 +32,7 @@ class SourceTests(unittest.TestCase):
         words,_=v.compile_case(self.case(effects));at=L['SOURCE_DEFINITION_BASE']+255*72
         self.assertEqual(words[at+1],32);self.assertEqual(struct.unpack('<d',struct.pack('<2I',*words[at+70:at+72]))[0],255)
     def test_query_rejects_duplicate_indices_and_invalid_payload(self):
-        for query in ([0,29,0,True,'bird',0,0,0],[0,29,0,5,'bird',0,0,0],[0,29,0,0,'',0,0,0],[0,29,0,0,'bird',64,0,0],[0,29,0,0,'bird',0,1,0]):
+        for query in ([0,29.0,0,0,'bird',0,0,0],[0,29,False,0,'bird',0,0,0],[0,29,0,0,'bird',0,False,0],[0,29,0,True,'bird',0,0,0],[0,29,0,5,'bird',0,0,0],[0,29,0,0,'',0,0,0],[0,29,0,0,'bird',64,0,0],[0,29,0,0,'bird',0,1,0]):
             c=self.case([self.source()]);c['script'].append(query)
             with self.subTest(query=query),self.assertRaises(ValueError):v.compile_case(c)
         c=self.case([self.source()]);c['script'] += [[0,29,0,0,'bird',0,0,0]]*2
