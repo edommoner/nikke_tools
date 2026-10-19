@@ -8,7 +8,7 @@
   "cpu_simulation_executed": false,
   "gpu_execution_performed": false,
   "issues": {
-    "Unported buff or recipient selector": 303,
+    "Unported buff or recipient selector": 300,
     "Unported instant or recipient selector": 37,
     "Unported effect fields: gauge_id": 30,
     "Unported enemy damage selector": 26,
@@ -137,7 +137,7 @@
     "Unported predicate: target_code:수냉": 1
   },
   "diagnostic_semantic_issues": {
-    "Unported buff or recipient selector": 303,
+    "Unported buff or recipient selector": 300,
     "Unported instant or recipient selector": 37,
     "Unported effect fields: gauge_id": 30,
     "Unported enemy damage selector": 26,
@@ -274,8 +274,8 @@
     "protection": 50,
     "control_survival": 46,
     "healing": 33,
-    "ammo_reload": 24,
     "charge": 21,
+    "ammo_reload": 21,
     "burst_cooldown": 13,
     "hp": 12,
     "healing_buffers": 9,
@@ -24643,11 +24643,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -24930,11 +24929,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -48996,11 +48994,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "미래 예지 2",
@@ -63358,10 +63355,10 @@
     "app/periodic_source_runtime.py": "0af7083789aae3e9982a1cfb504295ef60edd2200808176127e84ac9c67782aa",
     "app/periodic_target_runtime.py": "b2475507525e8f06b9139142fb662d831f73a72cbb8e99b087dd0c6a1ae3d188",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
-    "app/portable_combat.py": "cacb209947f7d401a8190dcb31b76d601e9714bd6fc3421a03eeb6dee75f3585",
-    "app/portable_damage_specs.py": "6f1d483ec68944f538ae9c887217325405796fc0e0a51013733853e76ecfc1d4",
+    "app/portable_combat.py": "c68f952bd72a151b2ab429af20859436234e1de068cbd803fd15b8bcedbee49f",
+    "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
     "app/portable_runtime.py": "e15d76755b33b938a52fcc2598be2b1a55ee52d1241d9d547c23379effd738bc",
-    "app/portable_specs.py": "1ebb98e733dace2aa424e0f3dce6e59b923a7855be25d2789ce2ec77a7980096",
+    "app/portable_specs.py": "7ac4430553216f10b1ed46c63738343c21644a0f73f1f203751f3391110dd227",
     "app/portable_trigger_specs.py": "529d4befa7a245503994d4a8cbd47c0f748e070c0e4745556fe3e9010770995d",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",
