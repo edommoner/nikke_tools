@@ -24,7 +24,7 @@ def main():
         parser.error('Use a loopback HTTP origin')
     path=ROOT/f'research/portable-api-{args.backend}.json'
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n', encoding='utf-8')
-    tracked=['app/portable_reference_specs.py','tests/fixtures/portable-hit-references.json','app/portable_resource_specs.py','app/portable_resource_decode.py','app/resource_specs.py','tests/fixtures/portable-resources.json','server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_backend.py',
+    tracked=['app/reference_count_runtime.py','app/reference_health_runtime.py','tests/fixtures/portable-reference-scales.json','app/portable_reference_specs.py','tests/fixtures/portable-hit-references.json','app/portable_resource_specs.py','app/portable_resource_decode.py','app/resource_specs.py','tests/fixtures/portable-resources.json','server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_backend.py',
              'scripts/verify-portable-api.py','tests/fixtures/portable-events.json',
              'tests/fixtures/portable-event-candidates.json','tests/fixtures/portable-enemy-attack-ranks.json','tests/fixtures/portable-enemy-spawn-order.json','tests/fixtures/portable-enemy-auto-aim.json','tests/fixtures/portable-periodic-targets.json','tests/fixtures/portable-enemy-buffs.json','tests/fixtures/portable-buff-notices.json','tests/fixtures/portable-mode-sessions.json','tests/fixtures/portable-ammo-modes.json','tests/fixtures/portable-ammo-instants.json','tests/fixtures/portable-burst-duration.json','tests/fixtures/portable-pending-burst.json','tests/fixtures/portable-cover.json','tests/fixtures/portable-enemy-damage.json','tests/fixtures/portable-burst-resources.json','tests/fixtures/portable-bullets.json','tests/fixtures/portable-lazy.json','tests/fixtures/portable-carriers.json','app/portable_recipient_specs.py','tests/fixtures/portable-recipients.json','app/portable_combat.py','app/portable_specs.py','app/portable_periodic_specs.py','app/world_condition_specs.py','app/impact_specs.py',
              'tests/fixtures/portable-capacity.json','tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
@@ -283,10 +283,10 @@ def main():
         verifier.contains(actual['results'][0]['trace'],c['expected_packets'],name)
         enemy_evidence.append(dict(name=name,execution=actual))
     result['enemy_execution']=enemy_evidence
-    malformed=copy.deepcopy(body);malformed['effects'][1]['effect'].update(stat='dot_damage',tick_interval=.25,duration=1,scaling='stack_count',scaling_ref='unsupported external clock basis')
+    malformed=copy.deepcopy(body);malformed['effects'][1]['effect'].update(stat='dot_damage',tick_interval=.25,duration=1,scaling='stack_count',scaling_ref='unsupported:external:clock:basis')
     try:request(malformed)
     except urllib.error.HTTPError as error:
-        assert error.code==400;assert 'scaling_ref' in json.load(error)['error']
+        assert error.code==400;assert 'reference' in json.load(error)['error']
     else:raise AssertionError('Unsupported periodic external scaling reference silently accepted')
     result['enemy_unsupported_status']=400
     result['quantity_unsupported_status']=400
@@ -423,6 +423,15 @@ def main():
         body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(c['effects'],c['owners'])],script=c['script'],base_atk=c.get('base_atk',[1000]*5),combat=c['combat'],backend=args.backend)
         actual=request(body);assert actual['gpu_execution_verified'];verifier.contains(actual['results'][0]['queries'],c['expected_queries'],name)
         result['hit_reference_execution'].append(dict(name=name,execution=actual))
+    scale_cases=json.loads((ROOT/'tests/fixtures/portable-reference-scales.json').read_text(encoding='utf-8'))['cases']
+    result['scale_reference_execution']=[]
+    for name in ('scale-first-capture-before-notice-refresh-after-notices','scale-self-reference-first-none-then-refresh','scale-dot-capture-refresh-5','scale-health-root-resource-change-crosses-once'):
+        c=next(c for c in scale_cases if c['name']==name)
+        body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(c['effects'],c['owners'])],script=c['script'],base_atk=c.get('base_atk',[1000]*5),backend=args.backend)
+        if 'combat' in c:body['combat']=c['combat']
+        if 'environment' in c:body['environment']=c['environment']
+        actual=request(body);assert actual['gpu_execution_verified'];verifier.contains(actual['results'][0]['queries'],c['expected_queries'],name)
+        result['scale_reference_execution'].append(dict(name=name,execution=actual))
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in hashes}
     result.update(passed=True,api_status=200,unsupported_status=400,unsupported_error=detail['error'],adapter_sha256=hashes)
     path.write_text(json.dumps(result,indent=2)+'\n', encoding='utf-8')

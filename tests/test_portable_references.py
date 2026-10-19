@@ -27,9 +27,12 @@ class ReferenceInputTests(unittest.TestCase):
         self.assertEqual(words[at],1);self.assertEqual(words[at+3],0)
         self.assertEqual(words[L['RESOURCE_NAME_BASE']+words[at+1]-1],words[at+2])
         self.assertEqual((L['INPUT_WORDS'],L['OUTPUT_WORDS']),(57344,65536))
-    def test_reference_does_not_enable_external_dot_multiplier(self):
+    def test_external_dot_uses_separate_coefficient_reference(self):
         c=copy.deepcopy(CS[0]);c['effects'][2].update(stat='dot_damage',tick_interval=.25,duration=1,scaling='stack_count',scaling_ref='fuel')
-        with self.assertRaises(ValueError):v.compile_case(c)
+        words,_=v.compile_case(c);at=L['REFERENCE_DEFINITION_BASE']+2*4
+        self.assertEqual(words[at]&3,0);self.assertEqual(words[at]>>2,3)
+        self.assertEqual(words[L['DEFINITION_BASE']+2*L['DEFINITION_WORDS']+28]&4,4)
+        self.assertLessEqual(L['REFERENCE_CAPTURE_BASE']+L['CARRIERS']*3,L['OUTPUT_WORDS'])
     def test_existing_source_and_query_only_resource_names_fit(self):
         cs=json.loads((ROOT/'tests/fixtures/portable-resources.json').read_text())['cases']
         c=next(c for c in cs if c['name']=='resource-present-zero-is-distinct-from-absent')

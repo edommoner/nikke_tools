@@ -1,0 +1,1166 @@
+{
+  "effects": [
+    {
+      "name": "factor",
+      "type": "instant",
+      "source": "스킬1",
+      "stat": "gauge_charge",
+      "gauge_id": "factor",
+      "fixed_value": 2,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "no critical",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "crit_rate",
+      "fixed_value": -15,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 0",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0.5,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "scaling": "stack_count",
+      "scaling_ref": "factor"
+    },
+    {
+      "name": "percent 1",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 2",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 3",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 4",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 5",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 6",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 7",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 8",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 9",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 10",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 11",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 12",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 13",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 14",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 15",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 16",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 17",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 18",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 19",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 20",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 21",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 22",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 23",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 24",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 25",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 26",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 27",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 28",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 29",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "percent 30",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 1,
+      "duration": -1,
+      "target": "self",
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    }
+  ],
+  "script": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      0.0,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.016666666666666666,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.03333333333333333,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.05,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.06666666666666667,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.08333333333333333,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.1,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.11666666666666667,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.13333333333333333,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.15,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.16666666666666666,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.18333333333333332,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.2,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.21666666666666667,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.23333333333333334,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.25,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.26666666666666666,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.2833333333333333,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.3,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.31666666666666665,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.3333333333333333,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.35,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.36666666666666664,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.38333333333333336,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.4,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.4166666666666667,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.43333333333333335,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.45,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.4666666666666667,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.48333333333333334,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.5,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.5166666666666667,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.5333333333333333,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.55,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.5666666666666667,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.5833333333333334,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.6,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.6166666666666667,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.6333333333333333,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.65,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.6666666666666666,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.6833333333333333,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.7,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.7166666666666667,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.7333333333333333,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.75,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.7666666666666667,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.7833333333333333,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.8,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.8166666666666667,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.8333333333333334,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.85,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.8666666666666667,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.8833333333333333,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.9,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.9166666666666666,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.9333333333333333,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.95,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.9666666666666667,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      0.9833333333333333,
+      18,
+      0,
+      0,
+      -1,
+      -1,
+      100,
+      0
+    ],
+    [
+      1,
+      2,
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0
+    ]
+  ],
+  "expected_damage": [
+    78600,
+    0,
+    0,
+    0,
+    0
+  ],
+  "name": "reference-scale-presence-fixed-load",
+  "owners": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

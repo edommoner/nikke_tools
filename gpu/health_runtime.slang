@@ -68,7 +68,11 @@ uint64_t prepareHealthGrant(inout Runtime s, uint row, uint64_t when)
 {
     Definition d = residentDefinition(s,row); uint64_t grant = 0;
     if (d.stat == S_max_hp_pct || d.stat == S_hp_caster_based_pct)
-        grant = f64Div(f64Mul(s.baseHP[d.owner],d.value),HUNDRED);
+        {
+            uint64_t unit=d.value;
+            if (referenceScaleMode(s,s.carrierDefinition[row])!=0) unit=s.stacks[row]!=0 ? f64Div(scalarValue(s,row,d.owner),f64FromI64(s.stacks[row])) : 0;
+            grant = f64Div(f64Mul(s.baseHP[d.owner],unit),HUNDRED);
+        }
     if (d.stat == S_max_hp_from_max_hp_pct)
     {
         uint64_t previous = s.hpSnapshot[row]; s.hpSnapshot[row] = 0;

@@ -1,5 +1,5 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721362U;
+static const uint PORTABLE_ABI = 1346721363U;
 static const uint P_RESOURCE_KEYS = 256U;
 static const uint P_BATCH = 2048U;
 static const uint P_PENDING = 512U;
@@ -100,6 +100,7 @@ static const uint P_RESOURCE_HEADER_BASE = 59624U;
 static const uint P_RESOURCE_TRACE_BASE = 59632U;
 static const uint P_RESOURCE_STEP_HEAD_BASE = 60656U;
 static const uint P_RESOURCE_STEP_NEXT_BASE = 61936U;
+static const uint P_REFERENCE_CAPTURE_BASE = 63984U;
 static const uint P_OUTPUT_WORDS = 65536U;
 static const uint D_OWNER = 0U;
 static const uint D_KIND = 1U;

@@ -19,10 +19,11 @@ class PeriodicTargetTests(unittest.TestCase):
         c=self.case('named-alias-unions-in-insertion-order');c.pop('combat');c['script']=[[0,0,0,0,0,-1,0,0]]
         for e in c['effects'][1:]:e['target']='target'
         with self.assertRaisesRegex(ValueError,'combat-owned targets'):v.compile_case(c)
-    def test_own_stack_scaling_does_not_admit_external_resource_reference(self):
+    def test_own_and_external_stack_scaling_are_distinct(self):
         c=self.case('own-stack-scaling');v.compile_case(c)
         c['effects'][1]['scaling_ref']='unported resource'
-        with self.assertRaisesRegex(ValueError,'scaling_ref'):v.compile_case(c)
+        words,_=v.compile_case(c)
+        self.assertEqual((words[L['REFERENCE_DEFINITION_BASE']+4]>>2)&3,3)
         c['effects'][1].pop('scaling_ref');c['effects'][1]['scaling']='max_hp'
         with self.assertRaisesRegex(ValueError,'own-stack DoT'):v.compile_case(c)
     def test_native_alias_preserves_clock_and_first_coefficient(self):

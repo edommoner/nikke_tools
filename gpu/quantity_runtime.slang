@@ -12,7 +12,11 @@ uint64_t stackedValue(inout Runtime s, uint row, uint who, uint stack)
         if (f64Zero(caster) || f64Zero(target)) return 0;
         value = f64Mul(f64Div(f64Div(f64Mul(caster,value),HUNDRED),target),HUNDRED);
     }
-    return f64Mul(value,f64FromI64(stack));
+#ifndef PORTABLE_REFERENCE_SCALE_ALWAYS_LOOKUP
+    if ((d.flags&4)==0) return f64Mul(value,f64FromI64(stack));
+#endif
+    bool referenced; uint64_t count=scalarReferenceCount(s,row,referenced);
+    return f64Mul(value,referenced ? count : f64FromI64(stack));
 }
 uint64_t scalarValue(inout Runtime s, uint row, uint who) { return stackedValue(s,row,who,s.stacks[row]); }
 uint64_t recipientValue(inout Runtime s, uint row, uint who)

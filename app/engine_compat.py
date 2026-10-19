@@ -24,8 +24,12 @@ def install():
     from calculator.buff_manager import BuffManager as RuntimeManager
     if not getattr(RuntimeManager,'_nikke_lifecycle_runtime',False):install_protection()
     install_reference_layers()
+    from reference_count_runtime import install as install_reference_count
+    install_reference_count()
     from effect_runtime import install_adapter
     install_adapter()
+    from reference_health_runtime import install as install_reference_health
+    install_reference_health()
     from calculator.buff_manager import BuffManager
     if getattr(BuffManager.__init__, '_nikke_list_logging_compat', False):
         return

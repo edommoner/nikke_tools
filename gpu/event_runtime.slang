@@ -142,14 +142,19 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
         }
         if (kind == C_SELF_STACK)
         {
-            uint count = 0;
+            uint64_t count = 0;
             for (uint pass = 0; pass < s.orderedCount; pass++)
             {
                 uint j = s.orderedRows[pass]; Definition carrier = residentDefinition(s,j);
-                if (carrier.owner == d.owner && int(carrier.name) == name && s.alive[j] != 0 && (s.activeRecipients[j] & (1U << d.owner)) != 0) { count = s.stacks[j]; break; }
+                bool member=(s.activeRecipients[j]&(1U<<d.owner))!=0;
+                if (carrier.enemyBuff!=0) for (uint enemy=0; enemy<s.targetCount; enemy++)
+                    if ((s.activeRecipients[j]&(1U<<(enemy+5)))!=0 && s.targetAlive[enemy]!=0 && s.enemyBirth[enemy]<=s.enemyCaptureEpoch[j]) member=true;
+                if (carrier.kind==3)
+                { uint packed; member=(carrier.periodicFlags&1)!=0 ? periodicDamageMask(s,s.carrierDefinition[j],packed)!=0 : targetLive(s,s.timerTarget[s.carrierDefinition[j]],s.timerGeneration[s.carrierDefinition[j]]); }
+                if (carrier.owner == d.owner && int(carrier.name) == name && s.alive[j] != 0 && member) { count = carrierStackValue(s,j); break; }
             }
-            if (s.combat != 0 && s.modeIndex[d.owner] >= 0 && int(s.defs[s.modeIndex[d.owner]].name) == name) count = 1;
-            if (f64Less(f64FromI64(count),arg)) return false;
+            if (s.combat != 0 && s.modeIndex[d.owner] >= 0 && int(s.defs[s.modeIndex[d.owner]].name) == name) count = ONE;
+            if (f64Less(count,arg)) return false;
         }
         if (kind == C_HP_ABOVE && f64Less(s.hpPct[d.owner],arg) || kind == C_HP_BELOW && f64Less(arg,s.hpPct[d.owner]) || kind == C_HP_MAX && f64Less(s.hpPct[d.owner],HUNDRED)) return false;
         if (kind == C_COVER_ALIVE && f64Zero(s.coverHP[d.owner]) || kind == C_COVER_BROKEN && !f64Zero(s.coverHP[d.owner])) return false;
@@ -451,6 +456,7 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
                 }
                 return;
             }
+            if (f.repeatLeft!=0 && s.entryOrder[slot]==f.repeatPassive && s.carrierDefinition[slot]==f.repeatRow) captureBuffReference(s,slot,f.cursor-1);
             depth--;
             // CPU health postprocessing finds the still-active effect after all
             // notifications; cancellation can remove it or reinstall a carrier.
@@ -479,6 +485,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
     syncHealth(s,when);
     uint entryTarget = s.target;
     Frame frames[32]; int depth = -1;
+    if ((s.healthMask&32)!=0) pushFrame(s,frames,depth,16,0,0,0,when);
     pushFrame(s,frames,depth,mode,event,owner,argument,when);
     uint work = 0;
     while (depth >= 0 && s.error == 0)
@@ -502,6 +509,13 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
             (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
         { depth--; continue; }
+        if (f.mode==16)
+        {
+            if (f.cursor==0) { frames[depth].cursor=1; syncHealth(s,f.time); continue; }
+            uint guard=s.hpEdgeGuard; s.hpEdgeGuard=1;
+            for (uint who=0; who<5 && s.error==0; who++) syncHealthActor(s,who,f.time);
+            s.hpEdgeGuard=guard; depth--; continue;
+        }
         if (f.mode == 14)
         {
             uint64_t boundary;
@@ -534,7 +548,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (f.mode == 10)
         {
             Definition damage = s.defs[uint(f.argument)]; damage.damageHits=f.repeatLeft;
-            if (f.cursor >= damage.damageHits || f64Zero(damage.value))
+            if (f.cursor >= damage.damageHits || f64Zero(f.healthValue))
             {
                 depth--;
                 if (s.combat != 0 && f.value != 0)
@@ -548,7 +562,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (mask == 0 && (damage.periodicFlags & 1) == 0) { frames[depth].cursor = damage.damageHits; continue; }
             uint basis = damage.damageRoute >= 2 || damage.damageRoute == 1 ? 0 : f.target;
             s.target = basis;
-            uint64_t coefficient = f64Mul(damage.value,f64FromI64((damage.periodicFlags & 2) != 0 ? s.stacks[uint(f.argument)] : 1)), amount;
+            uint64_t coefficient = f.healthValue, amount;
             if (damage.damageNormal != 0)
                 amount = damageValue(s,damage.owner,coefficient,f.time,true,s.combat != 0 ? s.coreDamageBonus[damage.owner] : s.coreBonus,damage.damageFlags,ONE,(s.attackContext[damage.owner] & 1) != 0);
             else amount = damageValue(s,damage.owner,coefficient,f.time,false,s.coreBonus,damage.damageFlags);
@@ -772,11 +786,12 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (!f64Zero(d.interval) && f.event != 28) { registerTimer(s,row,f.time); continue; }
         if (d.kind == 0 || d.kind == 4)
         {
-            uint64_t duration = d.duration; bool activationLazy = d.lazyGroup != 0;
+            uint sourceRow=row; uint64_t duration = d.duration; bool activationLazy = d.lazyGroup != 0;
             row = findCarrier(s,row,recipientMask,f.time);
             if (s.error != 0) break;
             d = residentDefinition(s,row);
             bool live = s.alive[row] != 0 && f64Less(f.time,s.end[row]);
+            if (!live) captureBuffReference(s,row,sourceRow);
             if (!live) { resetBulletCarrier(s,row); discardLazy(s,row); s.stacks[row] = 0; s.hpSnapshot[row] = 0; markEntry(s,row); }
             uint previousStack = s.stacks[row];
             if (activationLazy)
@@ -797,6 +812,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
 #endif
             bool namedNotice = namedCandidate && (s.namedEventOwners & packedRecipientMask(audienceOrder)) != 0;
             bool stackNotice = (d.buffEvent & 1) != 0 && previousStack != s.stacks[row] && (s.stackEventOwners & (1U << d.owner)) != 0;
+            if (live && !namedNotice && !stackNotice) captureBuffReference(s,row,sourceRow);
             if (namedNotice || stackNotice)
             {
                 pushFrame(s,frames,depth,13,0,d.owner,int(row),f.time,recipientOrder);
@@ -804,7 +820,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 {
                     frames[depth].healthValue = audienceOrder; frames[depth].healthPrevious = previousStack;
                     frames[depth].healthNext = s.stacks[row]; frames[depth].repeatLeft = uint(live);
-                    frames[depth].repeatRow = s.carrierDefinition[row]; frames[depth].repeatPassive = s.entryOrder[row];
+                    frames[depth].repeatRow = s.carrierDefinition[row]; frames[depth].repeatPassive = s.entryOrder[row]; frames[depth].cursor=sourceRow+1;
                 }
             }
             else if (activationLazy) { }
@@ -927,9 +943,10 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (d.damagePending != 0) enqueuePendingBurst(s,row,f.time);
             else
             {
-                uint hits=activationHitCount(s,row);
+                uint64_t coefficient=activationDamageCoefficient(s,row);
+                uint hits=f64Zero(coefficient) ? 0 : activationHitCount(s,row);
                 if (s.error==0) pushFrame(s,frames,depth,10,0,d.owner,int(row),f.time);
-                if (s.error==0) frames[depth].repeatLeft=hits;
+                if (s.error==0) { frames[depth].repeatLeft=hits; frames[depth].healthValue=coefficient; }
             }
         }
         else s.error = 32;
