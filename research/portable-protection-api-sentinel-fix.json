@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "changed_paths": [
+    "scripts/verify-portable-api.py"
+  ],
+  "runtime_unchanged": true,
+  "change": "Only the unsupported API rejection sentinel changes from newly supported shield to unported taunt.",
+  "before_sha256": "6d46bb5599ecb03b81a93a1bf657dee916c7beba5e3dbec35be44ac8f3fc7297",
+  "after_sha256": "d5fc0cb0f2de5b79112ae475e00cd30ca74d2d625222e63e972314460784ca4d",
+  "production_source_commit": "dd1050cefa0f1b3c1c1a170f459638d130eaaac2",
+  "completed_gates_reused": [
+    "protection-native",
+    "status-native",
+    "stack-foundation",
+    "staged-native",
+    "source-native",
+    "native-mode-spec",
+    "native-mode-input",
+    "reference-rewrite",
+    "duration-native",
+    "definition-input",
+    "definition-scalar",
+    "definition-out",
+    "removal-queue",
+    "numeric",
+    "probe",
+    "events",
+    "roster",
+    "catalog-weapons",
+    "equipment",
+    "real-battle"
+  ],
+  "pending_gates": [
+    "api",
+    "pipeline-lock",
+    "catalog-audit",
+    "unit"
+  ],
+  "cuda_repeat_required": false
+}
