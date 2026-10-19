@@ -1,0 +1,11 @@
+{
+  "passed": false,
+  "gpu_execution_verified": false,
+  "stage": "execution-failed",
+  "error": "Metal timeout: portable_stage=library_compile\nportable_stage=pipeline_compile",
+  "scope": "Initial enemy-damage integration; no completed GPU readback",
+  "source_sha256": {
+    "gpu/event_runtime.slang": "d18f4646f81ddfa03359050052dfcb3922c80b0712f64c081bbf4a14cfc6b82e",
+    "gpu/enemy_damage_runtime.slang": "272c5089deb02f3accf058d9afc05a1a70490e5670ddfd710fb3fb5ec66855a7"
+  }
+}

@@ -28,10 +28,14 @@ func run() throws {
     let options = MTLCompileOptions()
     options.mathMode = .safe
     FileHandle.standardError.write(Data("portable_stage=library_compile\n".utf8))
+    let libraryStart = Date().timeIntervalSinceReferenceDate
     let library = try device.makeLibrary(source: source, options: options)
+    let librarySeconds = Date().timeIntervalSinceReferenceDate - libraryStart
     guard let function = library.makeFunction(name: entry) else { throw ProbeError("Missing \(entry) entry") }
     FileHandle.standardError.write(Data("portable_stage=pipeline_compile\n".utf8))
+    let pipelineStart = Date().timeIntervalSinceReferenceDate
     let pipeline = try device.makeComputePipelineState(function: function)
+    let pipelineSeconds = Date().timeIntervalSinceReferenceDate - pipelineStart
     guard let command = queue.makeCommandBuffer(), let encoder = command.makeComputeCommandEncoder() else { throw ProbeError("Metal command creation failed") }
     encoder.setComputePipelineState(pipeline)
     encoder.setBuffer(input, offset: 0, index: 0)
@@ -46,6 +50,7 @@ func run() throws {
     let status: [String: Any] = ["backend": "metal", "device": device.name, "cases": count,
         "command_status": "completed", "registry_id": String(device.registryID),
         "gpu_seconds": command.gpuEndTime - command.gpuStartTime,
+        "library_compile_seconds": librarySeconds, "pipeline_compile_seconds": pipelineSeconds,
         "input_bytes": inputData.count, "output_bytes": outputSize]
     print(String(data: try JSONSerialization.data(withJSONObject: status, options: [.sortedKeys]), encoding: .utf8)!)
 }

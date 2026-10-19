@@ -8,6 +8,7 @@ import re
 import struct
 
 from portable_backend import execute
+from portable_enemy_specs import damage_plan
 from portable_recipient_specs import admitted as recipient_admitted, pack as pack_recipients
 from portable_damage_specs import BUFFS,DAMAGE_FAMILIES
 from portable_specs import ABI, LIMITS as L, FIELDS as F, check_schema
@@ -56,8 +57,10 @@ def validate_effect(eff, *, combat=None):
         if (stat not in BUFFS and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat))) or not recipient_admitted(target):
             raise UnsupportedPortable('Unported buff or recipient selector')
     elif kind=='damage':
-        if stat not in DAMAGE_FAMILIES or target not in ('target','boss'):
-            raise UnsupportedPortable('Unported damage family or geometry')
+        try:
+            route,_,_=damage_plan(eff)
+            if route>=2 and combat is None:raise ValueError('Enemy selection requires combat-owned targets')
+        except ValueError as error:raise UnsupportedPortable(str(error)) from error
     elif kind=='instant':
         if stat in ('heal_hp_pct','current_hp_reduce','burst_cooldown_reduce','burst_charge_pct'):
             if not recipient_admitted(target,instant=True):raise UnsupportedPortable('Unported health recipient selector')
@@ -90,6 +93,10 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     effects = list(effects)
     if not 1<=len(effects)<=L['DEFINITIONS']:raise UnsupportedPortable('Portable definition capacity exceeded')
     for eff, owner in effects:validate_effect(eff,combat=combat)
+    for eff,owner in effects:
+        if eff.get('type')=='damage' and eff.get('stat')=='bonus_damage' and 'burst_cast' in eff.get('trigger',{}).get('timing',[]):
+            caster=next(c for c in chars if c['name']==owner)
+            if str(caster['_weapon'].get('burst_stage',''))=='3':raise UnsupportedPortable('Burst-3 bonus damage requires pending full-burst landing')
     program=legacy.compile_effects(chars,effects)
     if len(program['effects'])!=len(effects) or not 1<=len(effects)<=L['DEFINITIONS']:
         raise UnsupportedPortable('Portable definition capacity or expansion exceeded')
@@ -133,6 +140,13 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         if key is not None:merge_groups[key]=merge_groups.get(key,0)+1
     for index,row in enumerate(program['effects']):
         if row[1] in (0,4,5,6,8,24):pack_recipients(words,index,row,L,effects[index][0],stat_keys[(effects[index][0].get('type'),effects[index][0].get('stat',''))],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],effects[index][0].get('target')),0) if effects[index][0].get('type')=='buff' else 0)
+        if effects[index][0].get('type')=='damage':
+            route,count,hits=damage_plan(effects[index][0])
+            if int(row[61])!=hits:raise UnsupportedPortable('Unported compiled hit count')
+            from calculator.timeline import BURST_GAUGE_EXCEPTIONS
+            override=BURST_GAUGE_EXCEPTIONS.get(effects[index][1],{}).get(effects[index][0].get('name'),{}).get('burst_energy',-1)
+            at=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS']
+            words[at:at+8]=[route,count,hits,int(effects[index][0]['stat'].split(':')[0]=='auto_damage'),*double_words(override),0,0]
         bullet=L['BULLET_DEFINITION_BASE']+index*2
         lifetime=int(row[62]) if effects[index][0].get('type')=='buff' else -1
         words[bullet:bullet+2]=[lifetime if lifetime>0 else 0,int(row[63]) if lifetime>0 else 0]
@@ -168,6 +182,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         from portable_combat import pack_combat
         combat_meta=pack_combat(words,combat,double_words)
         for eff,owner in effects:
+            if eff.get('type')=='damage' and damage_plan(eff)[0] in (7,8) and any(t.get('defense',0)!=0 for t in combat['targets'][1:]):raise UnsupportedPortable('Enemy defense ranking requires zero add defenses in the current boss model')
             if eff.get('stat')=='accuracy_pct':
                 # Static filters may select any ally. Require geometry for all
                 # candidates rather than silently compiling an unmodelled hit rate.
@@ -225,6 +240,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         if combat is not None and op==0 and event in (0,1,2,3,4):raise UnsupportedPortable('Combat emits its own startup and burst notifications')
         at=L['COMMAND_BASE']+i*8
         words[at:at+8]=[op,*double_words(t),event,owner,*(double_words(extra) if op==18 else [arg & 0xffffffff,query & 0xffffffff]),0]
+    if words[6] and frame_mode!=24:raise UnsupportedPortable('Accumulated clock requires GPU-generated frames')
     return words,dict(states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
 
 
@@ -235,7 +251,8 @@ def decode(words,metadata):
     queries=[]
     for i in range(words[1]):
         at=L['QUERY_BASE']+i*L['QUERY_WORDS']
-        queries.append(dict(time=number(at),damage=[number(at+2+2*k) for k in range(5)],
+        accounting=L['DAMAGE_ACCOUNTING_QUERY_BASE']+i*40
+        queries.append(dict(body_damage=[number(accounting+20+2*k) for k in range(5)],add_damage=[number(accounting+30+2*k) for k in range(5)],scored_damage=[number(accounting+2*k) for k in range(5)],add_overkill=[number(accounting+10+2*k) for k in range(5)],time=number(at),damage=[number(at+2+2*k) for k in range(5)],
                             active_timer_mask=words[at+12],active_timer_mask_words=list(words[L['TIMER_MASK_BASE']+i*L['MASK_WORDS']:L['TIMER_MASK_BASE']+(i+1)*L['MASK_WORDS']]),generation=words[at+13],
                             stack_depth=words[at+14],timer_clock=words[at+15],
                             attack_buffs=[number(at+16+2*k) for k in range(5)]))
@@ -243,7 +260,7 @@ def decode(words,metadata):
         for i,q in enumerate(queries):
             at=L['COMBAT_QUERY_BASE']+i*L['COMBAT_QUERY_WORDS']
             q['combat']=dict(weapons=[dict(ammo=words[at+6*k],shots=words[at+6*k+1],next=number(at+6*k+2),reload_until=number(at+6*k+4)) for k in range(5)],
-                             phase=words[at+30],cast_mask=words[at+31],gauge=number(at+32),action=number(at+34),full_end=number(at+36),target=words[at+38])
+                             phase=words[at+30],cast_mask=words[at+31],gauge=number(at+32),action=number(at+34),full_end=number(at+36),target=words[at+38],clock='accumulated' if words[at+39] else 'grid')
             states=L['COMBAT_STATE_QUERY_BASE']+i*L['COMBAT_STATE_QUERY_WORDS']
             q['combat']['targets']=[dict(generation=words[states+8*j],active=bool(words[states+8*j+1]),hp=number(states+8*j+2),damage=number(states+8*j+4),hits=words[states+8*j+6]) for j in range(len(metadata['combat']['targets']))]
             for who,w in enumerate(q['combat']['weapons']):
@@ -266,7 +283,8 @@ def decode(words,metadata):
     for i in range(words[2]):
         at=L['TRACE_BASE']+i*L['TRACE_WORDS'];row=words[at]
         if row>=len(metadata['effects']):raise RuntimeError('Invalid trace definition')
-        trace.append(dict(effect=metadata['effects'][row],time=number(at+1),epoch=words[at+3],
+        packet=L['DAMAGE_TRACE_BASE']+i*10
+        trace.append(dict(weighted_amount=number(packet+8),target_order=[((words[packet+6]>>(4*k))&15)-1 for k in range(words[packet+7])],target_mask=words[packet],basis=words[packet+1],hit_index=words[packet+2],hit_count=words[packet+3],delivered_amount=number(packet+4),effect=metadata['effects'][row],time=number(at+1),epoch=words[at+3],
                           generation=words[at+4],depth=words[at+5],next_due=number(at+6)))
     timers=[]
     for i,name in enumerate(metadata['effects']):
@@ -276,7 +294,7 @@ def decode(words,metadata):
                            target_slot=words[L['TIMER_TARGET_BASE']+2*i],target_generation=words[L['TIMER_TARGET_BASE']+2*i+1],
                            trigger_counts=list(words[L['COUNTER_STATE_BASE']+8*i:L['COUNTER_STATE_BASE']+8*i+8]),
                            every_due=number(L['PERIOD_STATE_BASE']+i*4),every_interval=number(L['PERIOD_STATE_BASE']+i*4+2)))
-    if words[4]>64:raise RuntimeError('Invalid burst trace count')
+    if words[4]>L['BURST_TRACE']:raise RuntimeError('Invalid burst trace count')
     burst_trace=[]
     for i in range(words[4]):
         at=L['BURST_TRACE_BASE']+i*8
@@ -299,7 +317,7 @@ def decode(words,metadata):
                              stacks=words[at+3],active=bool(words[at+4]&1),lazy_pending=bool(words[at+4]&2),end=number(at+5),activated=number(at+7),order=words[at+9],hp_snapshot=number(at+10)))
         if metadata.get('bullet_lifetimes',[0]*len(metadata['effects']))[definition]:
             left=words[at+12];carriers[-1].update(bullet_left=left-2**32 if left>=2**31 else left,recipient_bullets=list(words[at+13:at+18]),recipient_stack_overrides=list(words[at+18:at+23]))
-    return dict(bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
+    return dict(body_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+20+2*k) for k in range(5)],add_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+30+2*k) for k in range(5)],scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+2*k) for k in range(5)],add_overkill=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+10+2*k) for k in range(5)],target_scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+40+2*k) for k in range(len((metadata.get('combat') or {}).get('targets',[])))],bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
 
 
 def run_programs(programs, *, backend='metal'):

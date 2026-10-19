@@ -121,6 +121,7 @@ void f64Unpack(uint64_t bits, out int exponent, out uint64_t significand)
     }
 }
 
+[noinline]
 uint64_t f64Add(uint64_t a, uint64_t b)
 {
     if (f64Nan(a) || f64Nan(b)) return F64_NAN;
@@ -154,6 +155,7 @@ void mulWide(uint64_t a, uint64_t b, out uint64_t hi, out uint64_t lo)
     lo = (middle << 32) | uint(p);
 }
 
+[noinline]
 uint64_t f64Mul(uint64_t a, uint64_t b)
 {
     uint64_t sign = (a ^ b) & F64_SIGN;
@@ -170,6 +172,7 @@ uint64_t f64Mul(uint64_t a, uint64_t b)
     return f64Pack(sign, ea + eb - 1023, sig);
 }
 
+[noinline]
 uint64_t f64Div(uint64_t a, uint64_t b)
 {
     uint64_t sign = (a ^ b) & F64_SIGN;

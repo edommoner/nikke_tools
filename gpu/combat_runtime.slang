@@ -7,7 +7,8 @@ static const uint64_t TEN = uint64_t(0x40240000) << 32;
 
 void initializeCombat(inout Runtime s, uint input)
 {
-    s.gaugeCharging = 1;
+    s.gaugeCharging = 1; s.clockMode = commands[input+6];
+    if (s.clockMode > 1) { s.error = 64; return; }
     s.targetCount = commands[input+4]; s.gauge = loadNumber(input+28); s.reentryDelay = loadNumber(input+30);
     if (s.combat != 1 || s.targetCount == 0 || s.targetCount > 8) { s.error = 64; return; }
     for (uint who = 0; who < 5; who++)
@@ -38,7 +39,7 @@ void initializeCombat(inout Runtime s, uint input)
     {
         uint at = input+P_TARGET_BASE+j*P_TARGET_WORDS;
         s.targetGeneration[j] = commands[at+2]; s.targetAlive[j] = commands[at+3];
-        s.targetHP[j] = loadNumber(at+4); s.targetDefense[j] = loadNumber(at+6);
+        s.targetHP[j] = loadNumber(at+4); s.targetMaxHP[j] = s.targetHP[j]; s.targetDefense[j] = loadNumber(at+6);
     }
 }
 bool reached(uint64_t time, uint64_t due) { return !f64Less(time,f64Add(due,BURST_EPS ^ F64_SIGN)); }
@@ -102,7 +103,7 @@ void logBurst(inout Runtime s, uint event, uint who, uint64_t when, uint output)
 {
     s.burstTraceTotal++;
     if (s.traceMode == 0) return;
-    if (s.burstTraceCount == 64) { s.error = 8; return; }
+    if (s.burstTraceCount == P_BURST_TRACE) { s.error = 8; return; }
     uint at = output+P_BURST_TRACE_BASE+s.burstTraceCount++*8;
     storeNumber(at,when); results[at+2] = event; results[at+3] = who+1;
 }
@@ -281,11 +282,12 @@ void advanceCombat(inout Runtime s, uint64_t through, uint output)
     for (uint work = 0; work <= 10800 && s.error == 0; work++)
     {
         if (s.nextFrame > 10800) return;
-        uint64_t when = f64Div(f64FromI64(s.nextFrame),uint64_t(0x404e0000) << 32); // 60
+        uint64_t when = s.clockMode != 0 ? s.frameTime : f64Div(f64FromI64(s.nextFrame),uint64_t(0x404e0000) << 32); // 60
         if (f64Less(through,when)) return;
         s.nextFrame++; s.frameCount++; beginLazyRoot(s,when); sampleWorld(s);
         tick(s,when,output);
         if (s.error == 0) squadFrame(s,when,output);
+        if (s.clockMode != 0) s.frameTime = f64Add(when,uint64_t(0x3f911111) << 32 | 0x11111111);
     }
 }
 
@@ -298,7 +300,7 @@ void writeCombatQuery(inout Runtime s, uint output, uint states)
     }
     results[output+30] = s.phase; results[output+31] = s.castMask;
     storeNumber(output+32,s.gauge); storeNumber(output+34,s.action); storeNumber(output+36,s.fullEnd);
-    results[output+38] = s.target;
+    results[output+38] = s.target; results[output+39] = s.clockMode;
     for (uint j = 0; j < s.targetCount; j++)
     {
         uint at = states+j*8; results[at] = s.targetGeneration[j]; results[at+1] = s.targetAlive[j];

@@ -169,4 +169,33 @@ class PortableBurstAdmissionTests(unittest.TestCase):
                 with self.assertRaises(ValueError):validate_effect({**effect,'target':'boss'},combat={})
 
 
+class PortableEnemyAdmissionTests(unittest.TestCase):
+    def test_damage_counts_and_target_semantics_are_not_discarded(self):
+        from portable_runtime import validate_effect
+        e=dict(name='test',type='damage',stat='damage',fixed_value=100,target='all_enemies',trigger=dict(timing=['on_attack'],condition=[]))
+        for stat in ('damage:1','damage:256','split_damage:3'):
+            validate_effect({**e,'stat':stat},combat={})
+        for patch in (dict(stat='damage:0'),dict(stat='damage:-1'),dict(stat='damage:257'),dict(stat='damage:state'),dict(stat=None),dict(target='enemies_random:1'),dict(target='enemies_top_atk:2'),dict(tick_interval=.25,duration=1)):
+            with self.subTest(patch=patch),self.assertRaises(ValueError):validate_effect({**e,**patch},combat={})
+        with self.assertRaises(ValueError):validate_effect(e)
+
+
+class PortableRealInputTests(unittest.TestCase):
+    def test_complete_real_preparation_is_preserved_and_policies_fail_closed(self):
+        from detail_coverage import body_for
+        from portable_roster_input import compile_static_battle
+        body={**body_for(['미란다','도라','드레이크','N102','메어리']),'burst_gauge_mode':'accumulate','_portable_static_inputs':True}
+        prepared=engine_worker.evaluate(body);before=copy.deepcopy(prepared)
+        words,metadata=compile_static_battle(prepared)
+        self.assertEqual(words[1],len(prepared['effects']));self.assertEqual(words[6],1)
+        self.assertEqual(metadata['effects'],[x['effect']['name'] for x in prepared['effects']])
+        self.assertEqual(prepared,before)
+        for patch in ('fixed','controls','world'):
+            bad=copy.deepcopy(prepared)
+            if patch=='fixed':bad['policies']['config']['burst_gauge_mode']='fixed'
+            elif patch=='controls':bad['policies']['controls']['미란다']={'tap_fire':True}
+            else:bad['enemy']['has_parts']=True
+            with self.subTest(patch=patch),self.assertRaises(UnsupportedPortable):compile_static_battle(bad)
+
+
 if __name__=='__main__':unittest.main()

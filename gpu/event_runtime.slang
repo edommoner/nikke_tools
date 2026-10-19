@@ -27,6 +27,7 @@ struct Definition
     uint damageFlags, group, exclusive, quantityFlags, fixedLiteral, polarity;
     int alias;
     uint64_t fixedValue;
+    uint damageRoute, damageCount, damageHits, damageNormal; uint64_t damageGauge;
     uint bulletDuration, bulletBound;
     uint healthScaling, alliedFlags, mergeEligible, statKey, lazyGroup, queryResolve;
 };
@@ -68,10 +69,11 @@ struct Runtime
     uint pellets[5], muzzles[5], inputBase;
     uint64_t modeEnd[5], reentryDelay;
     uint combatStarted, combat, targetCount, target, aim[5], targetAlive[8], targetGeneration[8], targetHits[8];
-    uint64_t targetHP[8], targetDamage[8], targetDefense[8];
+    uint64_t targetHP[8], targetMaxHP[8], targetDamage[8], targetDefense[8];
+    uint64_t scoredDamage[5], addScoredDamage[5], addOverkill[5], targetScoredDamage[8], targetDealt[8];
     uint timerTarget[P_DEFINITIONS];
     uint weaponEnabled[5], weaponMode[5], capacity[5], ammo[5], shots[5], stage[5], charging[5];
-    uint phase, castMask, traceMode, traceTotal, burstTraceTotal, nextFrame, frameCount;
+    uint phase, castMask, traceMode, traceTotal, burstTraceTotal, nextFrame, frameCount, clockMode; uint64_t frameTime;
     uint burstModifierMask, cooldownWaitMask, gaugeCharging; uint64_t cooldownApplied[5];
     uint64_t coefficient[5], interval[5], reloadTime[5], chargeTime[5], gain[5], cooldown[5];
     uint64_t nextShot[5], reloadUntil[5], ready[5], chargeUntil[5], gauge, action, fullEnd;
@@ -83,6 +85,8 @@ struct Runtime
     uint64_t due[P_DEFINITIONS], expiry[P_DEFINITIONS], end[P_CARRIERS], total[5], baseAttack[5];
     uint64_t defense, probability, coreBonus, baseCrit, baseCritDamage;
 };
+#include "runtime_init.slang"
+
 Definition residentDefinition(inout Runtime s, uint slot) { return s.defs[s.carrierDefinition[slot]]; }
 
 struct Sum { uint64_t total; uint64_t correction; };
@@ -268,15 +272,54 @@ uint aimedTarget(inout Runtime s, uint who)
     for (uint j = 0; j < s.targetCount; j++) if (s.targetAlive[j] != 0) return j;
     return 0xffffffff;
 }
+[noinline]
 void land(inout Runtime s, uint who, uint target, uint64_t amount)
 {
     if (s.combat != 0 && s.targetHits[target] == 0x7fffffff) { s.error = 2; return; }
+#ifdef PORTABLE_ACCOUNTING_REFERENCE
+    bool separate = true;
+#else
+    bool separate = s.combat != 0 && s.targetCount > 1;
+#endif
+    if (separate)
+    {
+        bool add = s.combat != 0 && target != 0;
+        uint64_t remaining = add ? larger(0,f64Add(s.targetMaxHP[target],s.targetDealt[target] ^ F64_SIGN)) : amount;
+        uint64_t scored = smaller(amount,remaining);
+        if (add)
+        {
+            s.addScoredDamage[who] = f64Add(s.addScoredDamage[who],scored);
+            s.targetDealt[target] = f64Add(s.targetDealt[target],scored);
+        }
+        else s.scoredDamage[who] = f64Add(s.scoredDamage[who],scored);
+        s.addOverkill[who] = f64Add(s.addOverkill[who],f64Add(amount,scored ^ F64_SIGN));
+        if (s.combat != 0) s.targetScoredDamage[target] = f64Add(s.targetScoredDamage[target],scored);
+    }
     s.total[who] = f64Add(s.total[who],amount);
     if (s.combat == 0) return;
     s.targetDamage[target] = f64Add(s.targetDamage[target],amount);
-    s.targetHP[target] = larger(0,f64Add(s.targetHP[target],amount ^ F64_SIGN));
+    s.targetHP[target] = target != 0 ? larger(0,f64Add(s.targetMaxHP[target],s.targetDealt[target] ^ F64_SIGN)) : larger(0,f64Add(s.targetHP[target],amount ^ F64_SIGN));
     s.targetHits[target]++;
     if (f64Zero(s.targetHP[target])) s.targetAlive[target] = 0;
+}
+
+[noinline]
+void writeDamageAccounting(inout Runtime s, uint output, bool targets = false)
+{
+#ifdef PORTABLE_ACCOUNTING_REFERENCE
+    bool separate = true;
+#else
+    bool separate = s.combat != 0 && s.targetCount > 1;
+#endif
+    for (uint who = 0; who < 5; who++)
+    {
+        storeNumber(output+who*2,separate ? f64Add(s.scoredDamage[who],s.addScoredDamage[who]) : s.total[who]);
+        storeNumber(output+10+who*2,s.addOverkill[who]);
+        storeNumber(output+20+who*2,separate ? s.scoredDamage[who] : s.total[who]);
+        storeNumber(output+30+who*2,s.addScoredDamage[who]);
+    }
+    if (targets && s.combat != 0) for (uint target = 0; target < s.targetCount; target++)
+        storeNumber(output+40+target*2,separate ? s.targetScoredDamage[target] : s.targetDamage[target]);
 }
 
 // End the old session before callbacks. A child may install a new session.
@@ -332,6 +375,7 @@ void registerTimer(inout Runtime s, uint row, uint64_t when)
 #include "damage_runtime.slang"
 #include "incoming_runtime.slang"
 #include "burst_runtime.slang"
+#include "enemy_damage_runtime.slang"
 
 [noinline]
 void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, uint64_t when, uint output)
@@ -363,6 +407,43 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
             (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
         { depth--; continue; }
+        if (f.mode == 10)
+        {
+            Definition damage = s.defs[uint(f.argument)];
+            if (f.cursor >= damage.damageHits || f64Zero(damage.value))
+            {
+                depth--;
+                if (s.combat != 0 && f.value != 0)
+                {
+                    uint64_t gain = f64Less(damage.damageGauge,0) ? s.gain[damage.owner] : damage.damageGauge;
+                    addBurstGauge(s,f64Mul(gain,f64FromI64(f.value)));
+                }
+                continue;
+            }
+            uint packedOrder; uint mask = enemyDamageMask(s,damage,f.target,packedOrder);
+            if (mask == 0) { frames[depth].cursor = damage.damageHits; continue; }
+            uint basis = damage.damageRoute >= 2 || damage.damageRoute == 1 ? 0 : f.target;
+            s.target = basis;
+            uint64_t coefficient = f64Mul(damage.value,f64FromI64(s.stacks[uint(f.argument)])), amount;
+            if (damage.damageNormal != 0)
+                amount = damageValue(s,damage.owner,coefficient,f.time,true,s.combat != 0 ? s.coreDamageBonus[damage.owner] : s.coreBonus,damage.damageFlags,ONE,(s.attackContext[damage.owner] & 1) != 0);
+            else amount = damageValue(s,damage.owner,coefficient,f.time,false,s.coreBonus,damage.damageFlags);
+            if (s.error != 0) break;
+            uint64_t weighted = (damage.damageFlags & H_SPLIT) != 0 && damage.damageRoute >= 2 ? f64Mul(amount,f64Div(ONE,f64FromI64(enemyMaskCount(mask)))) : amount;
+            uint64_t share = weighted;
+            if ((damage.damageFlags & H_SPLIT) != 0 && enemyMaskCount(mask) > 1)
+            {
+                uint status; uint64_t rounded = f64ToI64(weighted,0,status);
+                if (status != 0) { s.error = 16; break; }
+                share = f64FromI64(rounded);
+            }
+            for (uint pass = 0; pass < 8; pass++)
+            { uint encoded = (packedOrder >> (pass*4)) & 15; if (encoded == 0) break; land(s,damage.owner,encoded-1,share); }
+            frames[depth].cursor++; frames[depth].value++;
+            logDamagePacket(s,damage,uint(f.argument),mask,basis,f.cursor+1,share,weighted,packedOrder,f.time,uint(depth+1),output);
+            if (s.error == 0) pushFrame(s,frames,depth,0,49,damage.owner,int(damage.name),f.time);
+            continue;
+        }
         if (f.mode == 9)
         {
             if (f.cursor == f.repeatLeft) { s.removalCount = f.value; depth--; continue; }
@@ -617,22 +698,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         else if (d.kind == 33) pushFrame(s,frames,depth,2,0,d.owner,int(row),f.time);
         else if (d.kind == 3)
         {
-            uint target = d.target != 0 ? 0 : f.target;
-            uint generation = s.combat != 0 ? s.targetGeneration[target] : s.generation;
-            if (!targetLive(s,target,generation)) continue;
-            s.target = target;
             if (f.event != 28) s.stacks[row] = 1;
-            uint64_t amount = damageValue(s,d.owner,f64Mul(d.value,f64FromI64(s.stacks[row])),f.time,false,s.coreBonus,d.damageFlags);
-            if (s.error != 0) break;
-            land(s,d.owner,target,amount);
-            if (s.traceTotal == 0x7fffffff) { s.error = 2; break; }
-            s.traceTotal++;
-            if (s.traceMode == 0) { pushFrame(s,frames,depth,0,49,d.owner,int(d.name),f.time); continue; }
-            if (s.traceCount == P_TRACE) { s.error = 8; break; }
-            uint at = output + P_TRACE_BASE + s.traceCount++*P_TRACE_WORDS;
-            results[at] = row; storeNumber(at+1,f.time); results[at+3] = s.timerEpoch[row];
-            results[at+4] = generation; results[at+5] = uint(depth+1); storeNumber(at+6,s.due[row]);
-            pushFrame(s,frames,depth,0,49,d.owner,int(d.name),f.time);
+            pushFrame(s,frames,depth,10,0,d.owner,int(row),f.time);
         }
         else s.error = 32;
 #ifdef PORTABLE_HEALTH_SCAN_REFERENCE
@@ -719,7 +786,12 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
 {
     if (id.x >= commands[0]) return;
     uint input = 1 + id.x*P_INPUT_WORDS, output = id.x*P_OUTPUT_WORDS;
-    Runtime s = {}; s.generation = 1; s.count = commands[input+1]; s.combat = commands[input+3]; s.inputBase = input; s.traceMode = commands[input+5];
+    #ifdef PORTABLE_AGGREGATE_INIT_REFERENCE
+    Runtime s = {};
+#else
+    Runtime s; initializeRuntime(s);
+#endif
+    s.generation = 1; s.count = commands[input+1]; s.combat = commands[input+3]; s.inputBase = input; s.traceMode = commands[input+5];
     if (commands[input] != PORTABLE_ABI || s.count == 0 || s.count > P_DEFINITIONS || commands[input+2] > P_COMMANDS || s.traceMode > 1)
     { results[output] = 64; return; }
     s.carrierCount = s.count;
@@ -769,6 +841,13 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             }
             else s.lazyGroupDefinition[d.lazyGroup-1] = j+1;
         }
+        uint packet = input+P_DAMAGE_DEFINITION_BASE+j*P_DAMAGE_DEFINITION_WORDS;
+        d.damageRoute = commands[packet]; d.damageCount = commands[packet+1]; d.damageHits = commands[packet+2]; d.damageNormal = commands[packet+3]; d.damageGauge = loadNumber(packet+4);
+        if (d.kind == 3 && (d.damageRoute > 8 || d.damageCount == 0 || d.damageCount > 256 || d.damageHits == 0 || d.damageHits > 256 ||
+            d.damageRoute >= 2 && (s.combat == 0 || !f64Zero(d.interval)) || !f64Finite(d.damageGauge) || f64Less(d.damageGauge,0) && !f64Equal(d.damageGauge,F64_SIGN | ONE) || f64Less(f64FromI64(1000000),d.damageGauge) ||
+            d.damageNormal > 1 || commands[packet+6] != 0 || commands[packet+7] != 0)) { s.error = 64; break; }
+        if (d.kind == 3 && (d.damageRoute == 7 || d.damageRoute == 8))
+            for (uint target = 1; target < s.targetCount; target++) if (!f64Zero(s.targetDefense[target])) { s.error = 64; break; }
         uint bullet = input+P_BULLET_DEFINITION_BASE+j*2;
         d.bulletDuration = commands[bullet]; d.bulletBound = commands[bullet+1];
         if (d.bulletDuration > 0x7fffffff || d.bulletBound > 1 || d.bulletDuration == 0 && d.bulletBound != 0 || d.bulletDuration != 0 && (s.combat == 0 || d.kind != 0 && d.kind != 4)) { s.error = 64; break; }
@@ -797,6 +876,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         if (d.kind == 0 && d.stat == S_charge_time_fixed) s.quantityMask |= 8;
         if (d.owner >= 5 || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; } s.defs[j] = d;
     }
+    if (s.error != 0) { results[output] = s.error; return; }
     initializeHPWatches(s);
     uint queries = 0;
     for (uint step = 0; step < commands[input+2] && s.error == 0; step++)
@@ -814,7 +894,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             if (s.combat == 0 && event == 2) s.phase = 0;
             dispatch(s,0,event,commands[at+4],int(commands[at+5]),when,output);
         }
-        else if (op == 4 && s.combat != 0) { squadFrame(s,when,output); s.frameCount++; }
+        else if (op == 4 && s.combat != 0) { if (s.clockMode != 0) { s.error = 64; break; } squadFrame(s,when,output); s.frameCount++; }
         else if (op == 25) dispatch(s,8,0,0,int(step),when,output);
         else if (op == 24 && s.combat != 0) advanceCombat(s,when,output);
         else if ((op == 20 || op == 21 || op == 22) && s.combat != 0)
@@ -826,7 +906,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             else
             {
                 if (s.targetGeneration[target] == 0x7fffffff) { s.error = 2; break; }
-                s.targetGeneration[target]++; s.targetAlive[target] = 1; s.targetHP[target] = loadNumber(at+6);
+                s.targetGeneration[target]++; s.targetAlive[target] = 1; s.targetHP[target] = loadNumber(at+6); s.targetMaxHP[target] = s.targetHP[target]; s.targetDealt[target] = 0;
             }
         }
         else if (op == 18)
@@ -849,6 +929,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             if (s.hpWatchCount != 0) dispatch(s,7,0,0,0,when,output); else syncHealth(s,when);
             writeHealth(s,when,output+P_HEALTH_QUERY_BASE+index*P_HEALTH_QUERY_WORDS);
             writeIncoming(s,output+P_INCOMING_QUERY_BASE+index*P_INCOMING_QUERY_WORDS);
+            writeDamageAccounting(s,output+P_DAMAGE_ACCOUNTING_QUERY_BASE+index*40);
             queries = max(queries,index+1); uint dst = output+P_QUERY_BASE+index*P_QUERY_WORDS;
             storeNumber(dst,when);
             for (uint who = 0; who < 5; who++) { storeNumber(dst+2+2*who,s.total[who]); storeNumber(dst+16+2*who,readStat(s,who,0,when)); }
@@ -860,6 +941,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         }
         else s.error = 64;
     }
+    writeDamageAccounting(s,output+P_DAMAGE_ACCOUNTING_STATE_BASE,true);
     writeIncoming(s,output+P_INCOMING_STATE_BASE);
     writeHealth(s,commands[input+2] > 0 ? loadNumber(input+P_COMMAND_BASE+(commands[input+2]-1)*8+1) : 0,output+P_HEALTH_STATE_BASE);
     for (uint j = 0; j < s.count; j++)

@@ -3,14 +3,14 @@
   "audited_characters": 203,
   "full_character_verified": 0,
   "weapon_input_preflight_passed": 203,
-  "own_effect_preflight_passed": 7,
+  "own_effect_preflight_passed": 11,
   "assumptions": "favorite stage 0, no cube, fixed five-member real roster; definition preflight only; not battle compatibility",
   "cpu_simulation_executed": false,
   "gpu_execution_performed": false,
   "issues": {
     "Unported buff or recipient selector": 305,
-    "Unported damage family or geometry": 140,
     "Unported instant or recipient selector": 57,
+    "Unported enemy damage selector": 38,
     "Unported effect fields: gauge_id": 30,
     "Unported effect fields: gauge_id, gauge_max": 23,
     "Unported effect fields: scaling, scaling_ref": 22,
@@ -20,6 +20,7 @@
     "Unported effect fields: event_scope": 11,
     "Unported effect fields: remove_scope": 10,
     "Unported trigger timing: event:enemy_spawn": 9,
+    "Multi-target periodic damage requires per-recipient clocks": 8,
     "Unported trigger timing: received_hit_count:20": 7,
     "Unported trigger timing: enemy_death": 7,
     "Unported trigger timing: event:기억 흡수": 7,
@@ -55,6 +56,7 @@
     "Unported predicate: gauge_eq:MP:0": 2,
     "Unported trigger timing: event:급조 탄환": 2,
     "Unported trigger timing: charge_hold:1": 2,
+    "Unported damage family": 2,
     "Unported predicate: core_hit": 2,
     "Unported predicate: optimal_range": 2,
     "Unported effect fields: feather_id, feather_interval_base, feather_interval_step_pct, feather_slots": 2,
@@ -150,8 +152,8 @@
   },
   "diagnostic_semantic_issues": {
     "Unported buff or recipient selector": 305,
-    "Unported damage family or geometry": 140,
     "Unported instant or recipient selector": 57,
+    "Unported enemy damage selector": 38,
     "Unported effect fields: gauge_id": 30,
     "Unported effect fields: gauge_id, gauge_max": 23,
     "Unported effect fields: scaling, scaling_ref": 22,
@@ -161,6 +163,7 @@
     "Unported effect fields: event_scope": 11,
     "Unported effect fields: remove_scope": 10,
     "Unported trigger timing: event:enemy_spawn": 9,
+    "Multi-target periodic damage requires per-recipient clocks": 8,
     "Unported trigger timing: received_hit_count:20": 7,
     "Unported trigger timing: enemy_death": 7,
     "Unported trigger timing: event:기억 흡수": 7,
@@ -196,6 +199,7 @@
     "Unported predicate: gauge_eq:MP:0": 2,
     "Unported trigger timing: event:급조 탄환": 2,
     "Unported trigger timing: charge_hold:1": 2,
+    "Unported damage family": 2,
     "Unported predicate: core_hit": 2,
     "Unported predicate: optimal_range": 2,
     "Unported effect fields: feather_id, feather_interval_base, feather_interval_step_pct, feather_slots": 2,
@@ -291,7 +295,7 @@
   },
   "missing_families": {
     "damage_modifiers": 209,
-    "damage": 199,
+    "damage": 107,
     "effect_lifecycle": 102,
     "weapon": 70,
     "protection": 59,
@@ -338,12 +342,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "미사일 2",
@@ -372,10 +376,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "다탄두 미사일 2",
@@ -613,11 +617,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "오직 화력! 2",
@@ -875,11 +878,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "핀 포인트 미사일 2",
@@ -1419,10 +1421,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "스파클링 미사일 2",
@@ -1948,11 +1950,10 @@
           "conditions": [
             "not_self_state:전투 보조"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "계승되는 힘 5",
@@ -3398,11 +3399,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "이머전시 시그널 2",
@@ -3820,11 +3820,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "비기 : 닌자 오버드라이브 4",
@@ -4918,11 +4917,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "처단 2",
@@ -5557,11 +5555,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "타겟 섬멸",
@@ -5858,11 +5855,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "트릭키 봄버 2",
@@ -6114,11 +6110,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "반짝반짝 별님 2",
@@ -6926,13 +6921,10 @@
             "every:10.0s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "AZX",
@@ -6943,11 +6935,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "AZX 2",
@@ -6961,10 +6952,10 @@
             "self_hp_max"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "장비 옵션",
@@ -7205,11 +7196,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "나도 한다면 해! 2",
@@ -7223,10 +7213,10 @@
             "self_hp_max"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "장비 옵션",
@@ -7500,10 +7490,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "스트로베리 쇼크 3",
@@ -7732,11 +7722,10 @@
             "full_burst_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "전도",
@@ -7764,11 +7753,10 @@
             "on_attack_count:5"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "풀 마스콘",
@@ -8431,10 +8419,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Multi-target periodic damage requires per-recipient clocks"
         },
         {
           "name": "라라라♬ 3",
@@ -8706,11 +8694,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "착공시작 2",
@@ -9521,12 +9508,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported damage family or geometry"
+          "issue": "Multi-target periodic damage requires per-recipient clocks"
         },
         {
           "name": "정당방위",
@@ -9539,11 +9526,10 @@
           "conditions": [
             "self_state:생존본능 1"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "정당방위 2",
@@ -9556,11 +9542,10 @@
           "conditions": [
             "self_state:생존본능 2"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "정당방위 3",
@@ -9573,11 +9558,10 @@
           "conditions": [
             "self_state:생존본능 3"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "정당방위 4",
@@ -9833,10 +9817,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "전세 역전 2",
@@ -11319,12 +11303,12 @@
             "self_stack_above:히어로 비전:5"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "라플라스 버스터 5",
@@ -11566,11 +11550,10 @@
             "on_attack_count:10"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "드레이크 스페셜",
@@ -11581,11 +11564,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "드레이크 스페셜 2",
@@ -11775,7 +11757,7 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 84,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -12321,11 +12303,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "회생전력활용무장 : 묠니르 3",
@@ -12646,11 +12627,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -13297,10 +13277,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "장비 옵션",
@@ -15228,12 +15208,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "비타민파워 2",
@@ -15260,10 +15240,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "페퍼 테라피 2",
@@ -16091,11 +16071,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "투 더 빅토리 2",
@@ -16334,11 +16313,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "…귀찮아 2",
@@ -16722,12 +16700,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported damage family or geometry"
+          "issue": "Multi-target periodic damage requires per-recipient clocks"
         },
         {
           "name": "구경났냐 짜식들아!!",
@@ -17023,11 +17001,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "클라이맥스 2",
@@ -17041,10 +17018,10 @@
             "self_stack_above:크레센도:5"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "장비 옵션",
@@ -17296,11 +17273,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "BDG 2",
@@ -17569,11 +17545,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "센스 쉐어링 3",
@@ -17586,11 +17561,10 @@
           "conditions": [
             "self_state:페인 로드 2"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -18233,11 +18207,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "AK 미사일 3",
@@ -18495,11 +18468,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "히스테릭 워커 2",
@@ -18513,12 +18485,12 @@
             "self_state:평정심"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "장비 옵션",
@@ -19018,10 +18990,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "마계흑룡파 2",
@@ -19035,12 +19007,12 @@
             "self_hp_below:50"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "장비 옵션",
@@ -19281,11 +19253,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "언령 : 힘있는 말 2",
@@ -19299,10 +19270,10 @@
             "self_state:복수"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "장비 옵션",
@@ -20038,11 +20009,10 @@
             "full_charge_fire_count:1"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -20299,10 +20269,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "눈의 여왕 2",
@@ -21082,13 +21052,10 @@
             "every:10.0s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "북극곰의 겨울잠",
@@ -21990,11 +21957,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "싱글 페이먼트 2",
@@ -22247,11 +22213,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "일확천금 2",
@@ -22559,11 +22524,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -22739,7 +22703,7 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 84,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -23101,11 +23065,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "원사이드 프로토콜 2",
@@ -23134,10 +23097,10 @@
             "self_stack_above:해킹 코드 수집:5"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "장비 옵션",
@@ -23332,13 +23295,10 @@
             "every:10.0s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "수상한 것입니다! 2",
@@ -23379,10 +23339,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "사건 해결인 것입니다! 2",
@@ -23624,11 +23584,10 @@
             "every:15.0s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "세븐스 드워프 : V&VI 2",
@@ -24219,11 +24178,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -24494,11 +24452,10 @@
           "conditions": [
             "self_state:기억 연소"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "위선 6",
@@ -24621,11 +24578,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "기억 연소",
@@ -24892,11 +24848,10 @@
             "hit_count:30"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "세븐스 드워프 IV",
@@ -24907,13 +24862,10 @@
             "hit_count:50"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "세븐스 드워프 IV 2",
@@ -25886,11 +25838,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -26127,11 +26078,10 @@
             "every:15.0s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "소닉 체이서",
@@ -26142,11 +26092,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "소닉 체이서 2",
@@ -26176,11 +26125,10 @@
           "conditions": [
             "self_state:타겟 마킹 2"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "소닉 체이서 4",
@@ -26193,11 +26141,10 @@
           "conditions": [
             "self_state:타겟 마킹 3"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "소닉 체이서 5",
@@ -26713,13 +26660,10 @@
             "every:20.0s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "발현",
@@ -26780,12 +26724,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported damage family",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported damage family"
         },
         {
           "name": "장비 옵션",
@@ -27645,11 +27589,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "SAFE 50-50 2",
@@ -27663,10 +27606,10 @@
             "self_stack_above:슈퍼 루키:5"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "장비 옵션",
@@ -28474,13 +28417,10 @@
             "every:10.0s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "번 아포칼립스",
@@ -28491,11 +28431,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "화상",
@@ -28507,10 +28446,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Multi-target periodic damage requires per-recipient clocks"
         },
         {
           "name": "번 아포칼립스 2",
@@ -28750,11 +28689,10 @@
             "full_charge_hit"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "차분한 수심 4",
@@ -28885,11 +28823,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -29415,11 +29352,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "피날레 2",
@@ -30134,10 +30070,10 @@
             "self_state:은신"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "장비 옵션",
@@ -31017,10 +30953,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Multi-target periodic damage requires per-recipient clocks"
         },
         {
           "name": "온다 그란데",
@@ -31320,10 +31256,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "화양연화",
@@ -31335,10 +31271,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "화양연화 2",
@@ -31722,10 +31658,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Multi-target periodic damage requires per-recipient clocks"
         },
         {
           "name": "장비 옵션",
@@ -31934,13 +31870,10 @@
             "every:13.0s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "예후 반응 실험 2",
@@ -32200,11 +32133,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -32874,13 +32806,10 @@
             "every:10.0s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "행동 : 정밀 타격",
@@ -32891,11 +32820,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -33071,7 +32999,7 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 82,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -33123,10 +33051,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "플라워 퍼퓸 2",
@@ -34840,10 +34768,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "대청소 메이드 2",
@@ -35068,11 +34996,10 @@
             "pellet_hit_count:30"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "사랑 가득 메이드",
@@ -35161,13 +35088,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -35449,11 +35373,10 @@
             "during_full_burst",
             "self_state:시간 연장 I"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "비기너즈 베네핏 II",
@@ -35467,11 +35390,10 @@
             "during_full_burst",
             "self_state:시간 연장 II"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "고 어헤드, 소다!",
@@ -35482,11 +35404,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "고 어헤드, 소다! 2",
@@ -36688,13 +36609,10 @@
           "conditions": [
             "burst_casted"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "경계 대상",
@@ -36833,13 +36751,10 @@
           "conditions": [
             "enemy_count_above:6"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "휘슬 소모",
@@ -38052,11 +37967,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -38294,10 +38208,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "이지스 캐논 2",
@@ -38564,10 +38478,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "이지스 캐논 견제 사격 2",
@@ -38595,11 +38509,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "이지스 캐논 오버로드 2",
@@ -39883,11 +39796,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "주목",
@@ -41068,11 +40980,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -41593,11 +41504,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "잡았다아…. 2",
@@ -41630,10 +41540,10 @@
             "self_stack_above:빌려 갈게에….:5"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "장비 옵션",
@@ -41939,11 +41849,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -42549,11 +42458,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -42729,7 +42637,7 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 91,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -43578,11 +43486,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "스위프트 피어싱 3",
@@ -46709,11 +46616,10 @@
             "full_charge_fire"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "오토 파이어 2",
@@ -46962,10 +46868,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "장비 옵션",
@@ -47242,11 +47148,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "붐 인스톨",
@@ -48222,10 +48127,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "유리 구두 풀 컨텍트 2",
@@ -48565,10 +48470,10 @@
             "during_full_burst"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "거품 난사",
@@ -48580,10 +48485,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "세이렌 송",
@@ -49460,11 +49365,10 @@
             "every:5s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "뷰티-풀 3",
@@ -49649,10 +49553,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "장비 옵션",
@@ -49976,11 +49880,10 @@
           "conditions": [
             "self_state:나누고 싶은 맛"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "뉴 플레이버",
@@ -51647,10 +51550,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Multi-target periodic damage requires per-recipient clocks"
         },
         {
           "name": "궁극! 아크 블랙 메테오!",
@@ -52029,11 +51932,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "괴도의 시선 8",
@@ -52370,11 +52272,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "심판 카드",
@@ -53251,11 +53152,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -55277,10 +55177,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "피의 해머 2",
@@ -55294,12 +55194,12 @@
             "self_stack_above:피의 마인:5"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "장비 옵션",
@@ -55791,13 +55691,10 @@
             "on_attack_count:300"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "클러스터 봄 2",
@@ -55825,11 +55722,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "연속 공격 2",
@@ -55840,13 +55736,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -56905,12 +56798,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported damage family",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported damage family"
         },
         {
           "name": "대정령의 철퇴 2",
@@ -57739,10 +57632,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "공격 지원",
@@ -57811,11 +57704,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -58089,11 +57981,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "좌표 유도식 미사일 2",
@@ -58713,11 +58604,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -58928,11 +58818,10 @@
           "conditions": [
             "self_state:섬멸 태세"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "안티 AT 필드",
@@ -59593,10 +59482,10 @@
             "during_full_burst"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "섬광 수류탄 투척 발동 시간 조건",
@@ -60569,10 +60458,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "엑소스파인 Mk2",
@@ -62044,12 +61933,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
+          "diagnostic_semantic_issue": "Multi-target periodic damage requires per-recipient clocks",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported damage family or geometry"
+          "issue": "Multi-target periodic damage requires per-recipient clocks"
         },
         {
           "name": "페이로드 확산",
@@ -62473,11 +62362,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "1more",
@@ -62768,11 +62656,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "화염 부스터",
@@ -63193,11 +63080,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported damage family or geometry",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported damage family or geometry"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -63400,8 +63286,8 @@
     "app/portable_catalog.py": "01aa57c7dafbe14720a5817c2b2592cb8a47ec94163e2dbc9b0490b6779cfb59",
     "app/portable_combat.py": "e59690a2d46ace2902b4d3aee0270b559bd5a09f46c561a0b9bf036d8effb0d1",
     "app/portable_damage_specs.py": "4fdac883c2307f9b7850d829914caf4249adfbc8efc7b5abf06a172e10ea1b02",
-    "app/portable_runtime.py": "a42867f2ed373aa6fdc54e668d217f6128046aef850f44c6af53009d5545642e",
-    "app/portable_specs.py": "ce63d501f1d8a9e73553cb6ffe996e601b99971bb1b90857dec868cc28cd8fcc",
+    "app/portable_runtime.py": "6cdb80989e5f91d5d4ae6f9fc0882d5fbf4d9a85ae923aeb131fd6c387d0c82f",
+    "app/portable_specs.py": "f26d54ac753952658acba97551d971c8da4d50d72f3c409a722d3bcb4f87a051",
     "app/portable_trigger_specs.py": "61aaa3740ee6f6c6753d321a2848f3ed4e16474e63fc526f5fc14cee69ff01ad",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",

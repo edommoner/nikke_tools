@@ -50,11 +50,12 @@ def _observe(case):
     bm=BM(chars,state=dict(base_stats=bs,enemy=enemy,full_burst=False,rng_acc={},rng_expected=True,camera=set()))
     st=authored_weapon_state(chars[0],w)
     total=0;shots=0;gauge=0;queries=[];started=False
-    commands=[];next_frame=0
+    commands=[];next_frame=0;clock=0.0;accumulated=case['combat'].get('clock')=='accumulated'
     for command in case['script']:
         if command[1]==24:
-            while next_frame<=10800 and next_frame/60<=command[0]:
-                commands.append([next_frame/60,4,0,0,0,-1,0,0]);next_frame+=1
+            while next_frame<=10800 and (clock if accumulated else next_frame/60)<=command[0]:
+                commands.append([clock if accumulated else next_frame/60,4,0,0,0,-1,0,0]);next_frame+=1
+                if accumulated:clock+=1/60
         else:commands.append(command)
     for t,op,event,owner,arg,index,extra,extra2 in commands:
         if op==4:
@@ -65,7 +66,7 @@ def _observe(case):
             hits=st.tick(t,bm,enemy,{'rng_mode':'expected'})
             total+=sum(h.damage for h in hits);shots+=int(bool(hits))
             if hits:gauge=min(100,gauge+st._burst_gain(bm.get_buffs(names[0],'__enemy__',t),len(hits),full_charge=st.fire_mode=='charge' and case.get('weapon_reference_context',{}).get('camera',False)))
-        elif op==2:queries.append(dict(damage=[total,0,0,0,0],combat={'gauge':gauge,'weapons':[dict(ammo=st.ammo,shots=shots,next=st.next_fire_time,reload_until=st.reloading_until)]}))
+        elif op==2:queries.append(dict(damage=[total,0,0,0,0],combat={'gauge':gauge,'clock':'accumulated' if accumulated else 'grid','weapons':[dict(ammo=st.ammo,shots=shots,next=st.next_fire_time,reload_until=st.reloading_until)]}))
         else:raise ValueError('Oracle accepts frame/query fixtures only')
     return queries,dict(warm=st.warmup_shots,last_interval=st._last_inter)
 

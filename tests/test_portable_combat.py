@@ -12,6 +12,8 @@ from portable_specs import LIMITS as L,check_schema
 class CombatBoundaryTests(unittest.TestCase):
     def test_shared_authored_cases_pack_without_mutation(self):
         check_schema()
+        from portable_runtime_layout import runtime_initializer
+        self.assertEqual((ROOT/'gpu/runtime_init.slang').read_text(),runtime_initializer())
         for case in v.fixtures():
             before=copy.deepcopy(case);words,meta=v.compile_case(case)
             self.assertEqual(len(words),L['INPUT_WORDS']);self.assertEqual(meta['combat'] is not None,'combat' in case)
@@ -19,7 +21,7 @@ class CombatBoundaryTests(unittest.TestCase):
 
     def test_unported_mechanics_and_invalid_target_identity_fail_closed(self):
         base=v.fixtures()[0]
-        changes=[('weapon',dict(mode='manual')),('weapon',dict(pellets=65)),('weapon',dict(toggle=True)),
+        changes=[('combat',dict(clock='bad')),('combat',dict(clock=True)),('weapon',dict(mode='manual')),('weapon',dict(pellets=65)),('weapon',dict(toggle=True)),
                  ('weapon',dict(stage=5)),('weapon',dict(cover_during_delay=1)),('weapon',dict(rate=3)),('weapon',dict(rate_max=3)),
                  ('weapon',dict(warmup=0)),('weapon',dict(clip_count=0)),('weapon',dict(clip_count=1.5)),
                  ('weapon',dict(core_diameter=1)),('weapon',dict(min_cycle=float('nan'))),
@@ -29,7 +31,9 @@ class CombatBoundaryTests(unittest.TestCase):
                  ('target',dict(kind=1)),('target',dict(kind=5)),('target',dict(generation=0)),
                  ('target',dict(identity=True)),('target',dict(hp=0)),('target',dict(shield=1))]
         for kind,patch in changes:
-            c=copy.deepcopy(base);c['combat']['weapons' if kind=='weapon' else 'targets'][0].update(patch)
+            c=copy.deepcopy(base)
+            if kind=='combat':c['combat'].update(patch)
+            else:c['combat']['weapons' if kind=='weapon' else 'targets'][0].update(patch)
             with self.subTest(patch=patch),self.assertRaises(ValueError):v.compile_case(c)
         c=copy.deepcopy(base);c['combat']['weapons'].pop()
         with self.assertRaises(ValueError):v.compile_case(c)
@@ -45,7 +49,7 @@ class CombatBoundaryTests(unittest.TestCase):
             with self.subTest(patch=patch),self.assertRaises(ValueError):v.compile_case(c)
 
     def test_wire_regions_do_not_overlap_or_exceed_transport_capacity(self):
-        inputs=[(L['BULLET_DEFINITION_BASE'],L['DEFINITIONS']*2),(L['RECIPIENT_BASE'],L['DEFINITIONS']*8),(L['FORCE_BASE'],L['DEFINITIONS']*L['MASK_WORDS']),(0,32),(L['DEFINITION_BASE'],L['DEFINITIONS']*L['DEFINITION_WORDS']),
+        inputs=[(L['DAMAGE_DEFINITION_BASE'],L['DEFINITIONS']*L['DAMAGE_DEFINITION_WORDS']),(L['BULLET_DEFINITION_BASE'],L['DEFINITIONS']*2),(L['RECIPIENT_BASE'],L['DEFINITIONS']*8),(L['FORCE_BASE'],L['DEFINITIONS']*L['MASK_WORDS']),(0,32),(L['DEFINITION_BASE'],L['DEFINITIONS']*L['DEFINITION_WORDS']),
                 (L['COMMAND_BASE'],L['COMMANDS']*8),(L['WEAPON_BASE'],5*L['WEAPON_WORDS']),
                 (L['TARGET_BASE'],8*L['TARGET_WORDS']),
                 (L['WEAPON_EXTRA_BASE'],5*4),(L['MODE_BASE'],L['DEFINITIONS']*L['MODE_WORDS']),
@@ -56,9 +60,9 @@ class CombatBoundaryTests(unittest.TestCase):
                 (L['DEFINITION_EXTRA_BASE'],L['DEFINITIONS']*L['DEFINITION_EXTRA_WORDS']),
                 (L['WEAPON_QUANTITY_BASE'],5*L['WEAPON_QUANTITY_WORDS']),
                 (L['INCOMING_BASE'],L['COMMANDS']*L['INCOMING_WORDS']),(L['HEALTH_BASE'],5*L['HEALTH_WORDS']),(L['HEALTH_DEFINITION_BASE'],L['DEFINITIONS']*L['HEALTH_DEFINITION_WORDS'])]
-        outputs=[(L['CARRIER_STATE_BASE'],L['CARRIERS']*L['CARRIER_WORDS']),(L['TIMER_MASK_BASE'],L['COMMANDS']*L['MASK_WORDS']),(0,16),(L['QUERY_BASE'],L['COMMANDS']*L['QUERY_WORDS']),
+        outputs=[(L['DAMAGE_TRACE_BASE'],L['TRACE']*10),(L['DAMAGE_ACCOUNTING_QUERY_BASE'],L['COMMANDS']*40),(L['DAMAGE_ACCOUNTING_STATE_BASE'],56),(L['CARRIER_STATE_BASE'],L['CARRIERS']*L['CARRIER_WORDS']),(L['TIMER_MASK_BASE'],L['COMMANDS']*L['MASK_WORDS']),(0,16),(L['QUERY_BASE'],L['COMMANDS']*L['QUERY_WORDS']),
                  (L['TRACE_BASE'],L['TRACE']*L['TRACE_WORDS']),(L['STATE_BASE'],L['DEFINITIONS']*10),
-                 (L['TIMER_TARGET_BASE'],L['DEFINITIONS']*2),(L['BURST_TRACE_BASE'],64*8),
+                 (L['TIMER_TARGET_BASE'],L['DEFINITIONS']*2),(L['BURST_TRACE_BASE'],L['BURST_TRACE']*8),
                  (L['COMBAT_QUERY_BASE'],L['COMMANDS']*L['COMBAT_QUERY_WORDS']),
                  (L['TARGET_STATE_BASE'],8*10),
                  (L['COMBAT_STATE_QUERY_BASE'],L['COMMANDS']*L['COMBAT_STATE_QUERY_WORDS']),

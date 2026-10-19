@@ -1441,6 +1441,302 @@
         ]
       },
       "equivalent_final_to": "autonomous-dot-summary"
+    },
+    {
+      "name": "accumulated-clock-180-seconds",
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 10000,
+            "interval": 1
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "summary",
+        "clock": "accumulated"
+      },
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          180,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          180,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            180000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "clock": "accumulated"
+          }
+        }
+      ],
+      "expected_final": {
+        "frames": 10800,
+        "trace_total": 0,
+        "targets": [
+          {
+            "hits": 180,
+            "hp": 999820000
+          }
+        ]
+      },
+      "weapon_reference": true
+    },
+    {
+      "name": "accumulated-clock-one-pass-three-seconds",
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 10000,
+            "interval": 1
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "summary",
+        "clock": "accumulated"
+      },
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          3,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          3,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "clock": "accumulated"
+          }
+        }
+      ],
+      "expected_final": {
+        "frames": 181,
+        "trace_total": 0,
+        "targets": [
+          {
+            "hits": 3,
+            "hp": 999997000
+          }
+        ]
+      },
+      "weapon_reference": true
+    },
+    {
+      "name": "accumulated-clock-chunk-preserves-native-time",
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 10000,
+            "interval": 1
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "summary",
+        "clock": "accumulated"
+      },
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0.5,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          3,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          3,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "clock": "accumulated"
+          }
+        }
+      ],
+      "expected_final": {
+        "frames": 181,
+        "trace_total": 0,
+        "targets": [
+          {
+            "hits": 3,
+            "hp": 999997000
+          }
+        ]
+      },
+      "weapon_reference": true,
+      "equivalent_final_to": "accumulated-clock-one-pass-three-seconds"
     }
   ]
 }

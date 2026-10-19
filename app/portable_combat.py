@@ -8,7 +8,7 @@ from portable_specs import LIMITS as L
 
 
 def pack_combat(words, config, double_words):
-    if not isinstance(config,dict) or set(config)-{'weapons','targets','initial_gauge','reentry_delay','trace'}:
+    if not isinstance(config,dict) or set(config)-{'weapons','targets','initial_gauge','reentry_delay','trace','clock'}:
         raise ValueError('Unsupported combat configuration')
     weapons=config.get('weapons',[]);targets=config.get('targets',[])
     if len(weapons)!=5 or not 1<=len(targets)<=8:raise ValueError('Expected five weapons and 1..8 targets')
@@ -18,6 +18,9 @@ def pack_combat(words, config, double_words):
         return value
     trace=config.get('trace','full')
     if trace not in ('full','summary'):raise ValueError('Invalid trace policy')
+    clock=config.get('clock','grid')
+    if clock not in ('grid','accumulated'):raise ValueError('Invalid combat clock')
+    words[6]=int(clock=='accumulated')
     words[5]=int(trace=='full')
     words[3]=1;words[4]=len(targets)
     words[28:30]=double_words(number(config.get('initial_gauge',0),0,100))
