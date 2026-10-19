@@ -6,7 +6,7 @@ import copy
 import engine_worker
 from calculator.buff_manager import BuffManager
 from calculator.damage import calc_damage,default_hit_type
-from calculator.boss_pattern import BossScript,Pattern,SummonSpec,_Add,ENEMY,AIM_ADDS
+from calculator.boss_pattern import BossScript,Pattern,SummonSpec,DEFAULT_BOSS_ATK,_Add,ENEMY,AIM_ADDS
 from calculator.sim_result import HitEvent
 from timer_registry_cases import NAMES
 
@@ -18,12 +18,12 @@ def observe(case):
     class BM(BuffManager):
         def _register_all(self):self._effects=raw;self._build_notify_index()
         def char_effects(self,name):return [e for e,n in raw if n==name]
-    enemy=dict(**{'def':targets[0].get('defense',0)},core_px=0,code=None,optimal_range_weapons=[])
+    enemy=dict(**{'def':targets[0].get('defense',0)},core_px=0,code=None,optimal_range_weapons=[],atk=targets[0].get('attack',DEFAULT_BOSS_ATK))
     bm=BM(chars,state=dict(base_stats={n:dict(atk=a,hp=1000000,**{'def':case.get('environment',{}).get('allies',[{} for _ in NAMES])[NAMES.index(n)].get('base_defense',0)}) for n,a in zip(NAMES,attacks)},enemy=enemy,
                          full_burst=False,rng_acc={},rng_expected=True))
     pattern=Pattern(idx=0,id='authored-adds',kind='summon',after=())
     boss=BossScript([pattern],enemy,lambda *_:False);run=boss._runs[0];run.active=True
-    run.adds=[_Add(id=f'__enemy__:{i}',name=f'__enemy__:{i}',spec=SummonSpec(name=f'__enemy__:{i}',hp=t['hp']),order=i,gone='' if t.get('active',True) else '퇴장') for i,t in enumerate(targets) if i]
+    run.adds=[_Add(id=f'__enemy__:{i}',name=f'__enemy__:{i}',spec=SummonSpec(name=f'__enemy__:{i}',hp=t['hp'],atk=t.get('attack',0)),order=i,gone='' if t.get('active',True) else '퇴장') for i,t in enumerate(targets) if i]
     boss.aim_of={n:'body' for n in NAMES};bm.enemy_resolver=lambda target,caster:boss.resolve_enemies(target,caster=caster)
     raw_damage=[0]*5;body_damage=[0]*5;overkill=[0]*5;target_damage=[0]*len(targets);target_scored=[0]*len(targets);packets=[];gauge=config.get('initial_gauge',0)
     def damage(effect,caster,t):

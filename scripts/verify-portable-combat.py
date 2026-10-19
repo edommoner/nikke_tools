@@ -14,7 +14,7 @@ from portable_runtime import compile_program,run_programs,PortableExecutionError
 
 
 def fixtures():
-    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json','portable-quantities.json','portable-charge-control.json','portable-health.json','portable-hp-edges.json','portable-incoming.json','portable-capacity.json','portable-recipients.json','portable-carriers.json','portable-lazy.json','portable-bullets.json','portable-burst-resources.json','portable-enemy-damage.json','portable-cover.json','portable-pending-burst.json','portable-burst-duration.json','portable-ammo-instants.json','portable-ammo-modes.json','portable-mode-sessions.json','portable-buff-notices.json','portable-enemy-buffs.json','portable-event-candidates.json')),[])
+    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json','portable-quantities.json','portable-charge-control.json','portable-health.json','portable-hp-edges.json','portable-incoming.json','portable-capacity.json','portable-recipients.json','portable-carriers.json','portable-lazy.json','portable-bullets.json','portable-burst-resources.json','portable-enemy-damage.json','portable-cover.json','portable-pending-burst.json','portable-burst-duration.json','portable-ammo-instants.json','portable-ammo-modes.json','portable-mode-sessions.json','portable-buff-notices.json','portable-enemy-buffs.json','portable-event-candidates.json','portable-enemy-attack-ranks.json')),[])
 
 
 def compile_case(case):
@@ -117,7 +117,7 @@ def main():
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n',encoding='utf-8')
     tracked=['app/portable_roster_input.py','app/portable_runtime_layout.py','app/portable_enemy_specs.py','app/portable_runtime.py','app/portable_combat.py','app/portable_specs.py','app/portable_backend.py',
              'app/portable_trigger_specs.py','app/portable_recipient_specs.py','app/portable_damage_specs.py','scripts/portable_pending_oracle.py','app/named_target_specs.py','scripts/portable_capacity_oracle.py','scripts/portable_health_oracle.py','scripts/portable_enemy_oracle.py','scripts/portable_burst_oracle.py','scripts/portable_bullet_oracle.py','scripts/portable_weapon_oracle.py','scripts/verify-detail.py','app/detail_gpu.py','app/effect_spec.py','app/impact_specs.py','app/world_condition_specs.py','scripts/verify-portable-combat.py',
-             'tests/fixtures/portable-event-candidates.json','scripts/portable_enemy_buff_oracle.py','tests/fixtures/portable-enemy-buffs.json','research/portable-mode-session-contract.json','tests/fixtures/portable-buff-notices.json','tests/fixtures/portable-mode-sessions.json','tests/fixtures/portable-ammo-modes.json','tests/fixtures/portable-ammo-instants.json','tests/fixtures/portable-burst-duration.json','tests/fixtures/portable-pending-burst.json','tests/fixtures/portable-cover.json','tests/fixtures/portable-enemy-damage.json','tests/fixtures/portable-burst-resources.json','tests/fixtures/portable-bullets.json','tests/fixtures/portable-lazy.json','tests/fixtures/portable-lazy-capacity-rejection.json','tests/fixtures/portable-carriers.json','tests/fixtures/portable-recipients.json','tests/fixtures/portable-capacity.json','tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-triggers.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json','scripts/run-metal-probe.swift']
+             'tests/fixtures/portable-event-candidates.json','tests/fixtures/portable-enemy-attack-ranks.json','scripts/portable_enemy_buff_oracle.py','tests/fixtures/portable-enemy-buffs.json','research/portable-mode-session-contract.json','tests/fixtures/portable-buff-notices.json','tests/fixtures/portable-mode-sessions.json','tests/fixtures/portable-ammo-modes.json','tests/fixtures/portable-ammo-instants.json','tests/fixtures/portable-burst-duration.json','tests/fixtures/portable-pending-burst.json','tests/fixtures/portable-cover.json','tests/fixtures/portable-enemy-damage.json','tests/fixtures/portable-burst-resources.json','tests/fixtures/portable-bullets.json','tests/fixtures/portable-lazy.json','tests/fixtures/portable-lazy-capacity-rejection.json','tests/fixtures/portable-carriers.json','tests/fixtures/portable-recipients.json','tests/fixtures/portable-capacity.json','tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-triggers.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json','scripts/run-metal-probe.swift']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     cases=fixtures();programs=[compile_case(c) for c in cases]
     # The same identity may be re-used only with a new bounded generation.
@@ -155,7 +155,7 @@ def main():
     burst_overflow['effects'][0]['fixed_value']=-1e308;burst_overflow['effects'][0]['trigger']['timing']=['on_attack']
     burst_overflow['script']=[[0,0,7,0,0,-1,0,0],[0,0,7,0,0,-1,0,0]]
     enemy_bad=[];enemy_rejections=[]
-    for name,offset,value in [('route',0,9),('count-zero',1,0),('count-range',1,257),('hits-zero',2,0),('hits-range',2,257),('normal-kind',3,2)]:
+    for name,offset,value in [('route',0,10),('count-zero',1,0),('count-range',1,257),('hits-zero',2,0),('hits-range',2,257),('normal-kind',3,2)]:
         words,meta=compile_case(next(c for c in cases if c['name']=='all-enemies-single-packet'))
         words[L['DAMAGE_DEFINITION_BASE']+L['DAMAGE_DEFINITION_WORDS']+offset]=value
         enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-enemy-'+name,status=64))
@@ -263,6 +263,12 @@ def main():
     for name,offset,value in [('missing',32*L['MASK_WORDS'],0),('spurious-event',7*L['MASK_WORDS'],1),('padding',32*L['MASK_WORDS']+L['MASK_WORDS']-1,0x80000000)]:
         words,meta=compile_case(candidate_fixture);words[L['EVENT_CANDIDATE_BASE']+offset]=value
         enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-event-candidate-'+name,status=64))
+    attack_fixture=next(c for c in cases if c['name']=='enemy-attack-add-above-body')
+    for name,payload,target in [('nan',[0,0x7ff80000],0),('infinity',[0,0x7ff00000],1),('negative',double_words(-1),2),('range',double_words(1e31),0),('padding',double_words(1),7)]:
+        words,meta=compile_case(attack_fixture);at=L['TARGET_ATTACK_BASE']+target*2;words[at:at+2]=payload
+        enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-enemy-attack-'+name,status=64))
+    words,meta=compile_case(next(c for c in cases if 'combat' not in c));words[L['TARGET_ATTACK_BASE']]=1
+    enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-enemy-attack-no-combat',status=64))
     rejections += enemy_rejections;negative_programs += enemy_bad
     indices=list(range(len(cases),len(cases)+len(rejections)))
     statuses=[0]*len(cases)+[c['status'] for c in rejections]

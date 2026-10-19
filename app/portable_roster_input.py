@@ -4,6 +4,7 @@ This stage exposes every real definition and policy. It does not silently
 filter unsupported character effects or enable normal-UI GPU acceptance.
 """
 import copy
+from calculator.boss_pattern import DEFAULT_BOSS_ATK
 from calculator.buff_manager import BuffManager
 from calculator.timeline import DEFAULT_ENEMY, _NIKKE
 from portable_weapon_input import normalize_static_weapon
@@ -55,7 +56,7 @@ def compile_static_battle(prepared, *, trace='summary'):
     duration=cfg['duration']
     program,metadata=compile_program(chars,[(x['effect'],x['owner']) for x in prepared['effects']],
         [[duration,24,0,0,0,-1,0,0],[duration,2,0,0,-1,0,0,0]],prepared['base_atk'],allies=prepared['allies'],cover_sync=False,
-        combat=dict(weapons=weapons,targets=[dict(hp=1e30,defense=enemy['def'])],trace=trace,clock='accumulated'))
+        combat=dict(weapons=weapons,targets=[dict(hp=1e30,defense=enemy['def'],attack=enemy.get('atk',DEFAULT_BOSS_ATK))],trace=trace,clock='accumulated'))
     metadata['real_prepared_input']=dict(all_character_effects_included=True,prepared_effects=len(prepared['effects']),
         camera=sorted(cameras),policies=copy.deepcopy(policies),cpu_battle_executed=False,full_catalog_certified=False)
     return program,metadata

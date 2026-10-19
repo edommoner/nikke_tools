@@ -75,7 +75,7 @@ def pack_combat(words, config, double_words):
 
     identities=set()
     for i,t in enumerate(targets):
-        if not isinstance(t,dict) or set(t)-{'kind','identity','generation','hp','defense','active'}:raise ValueError('Unsupported target fields')
+        if not isinstance(t,dict) or set(t)-{'kind','identity','generation','hp','defense','attack','active'}:raise ValueError('Unsupported target fields')
         handle=ActorHandle(t.get('kind',0),t.get('identity',i),t.get('generation',1))
         if handle.kind not in (ActorKind.BODY,ActorKind.ADD) or (i==0)!=(handle.kind==ActorKind.BODY):raise ValueError('Slot zero must be the unique body; other targets must be adds')
         if (handle.kind,handle.identity) in identities:raise ValueError('Duplicate target identity')
@@ -86,6 +86,12 @@ def pack_combat(words, config, double_words):
         words[at:at+4]=[int(handle.kind),handle.identity,handle.generation,int(active)]
         words[at+4:at+6]=double_words(number(t.get('hp',1e12),1,1e30))
         words[at+6:at+8]=double_words(number(t.get('defense',0),0,1e12))
+        from calculator.boss_pattern import DEFAULT_BOSS_ATK
+        at=L['TARGET_ATTACK_BASE']+i*2
+        attack=t.get('attack',DEFAULT_BOSS_ATK if i==0 else 0)
+        if type(attack) is int and (attack<0 or attack>1e30 or int(float(attack))!=attack):
+            raise ValueError('Enemy attack integer must be in range and exactly representable as binary64')
+        words[at:at+2]=double_words(number(attack,0,1e30))
     return dict(targets=targets,weapons=weapons)
 
 

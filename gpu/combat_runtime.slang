@@ -47,6 +47,7 @@ void initializeCombat(inout Runtime s, uint input)
         s.targetGeneration[j] = commands[at+2]; s.targetAlive[j] = commands[at+3];
         s.targetHP[j] = loadNumber(at+4); s.targetMaxHP[j] = s.targetHP[j]; s.targetDefense[j] = loadNumber(at+6);
     }
+    if (!initializeEnemyAttackOrder(s)) { s.error = 64; return; }
 }
 bool reached(uint64_t time, uint64_t due) { return !f64Less(time,f64Add(due,BURST_EPS ^ F64_SIGN)); }
 void teamNotify(inout Runtime s, uint event, uint64_t when, uint output)

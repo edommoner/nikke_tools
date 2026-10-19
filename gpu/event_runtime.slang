@@ -73,7 +73,7 @@ struct Runtime
     uint modeEpoch[5], appliedEpoch[5], modeShots[5], pendingReentry[5], reentrySlot, reentryDone, casts[5], burstTraceCount;
     uint pellets[5], muzzles[5], inputBase;
     uint64_t modeEnd[5], reentryDelay;
-    uint combatStarted, combat, targetCount, target, aim[5], targetAlive[8], targetGeneration[8], targetHits[8];
+    uint enemyAttackOrder, combatStarted, combat, targetCount, target, aim[5], targetAlive[8], targetGeneration[8], targetHits[8];
     uint64_t targetHP[8], targetMaxHP[8], targetDamage[8], targetDefense[8];
     uint64_t scoredDamage[5], addScoredDamage[5], addOverkill[5], targetScoredDamage[8], targetDealt[8];
     uint timerTarget[P_DEFINITIONS];
@@ -410,6 +410,7 @@ void registerTimer(inout Runtime s, uint row, uint64_t when)
 #include "damage_runtime.slang"
 #include "incoming_runtime.slang"
 #include "burst_runtime.slang"
+#include "enemy_attack_rank_runtime.slang"
 #include "enemy_damage_runtime.slang"
 #include "event_candidate_runtime.slang"
 #include "pending_burst_runtime.slang"
@@ -999,6 +1000,8 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     }
     s.defense = loadNumber(input+18); s.coreBonus = loadNumber(input+22);
     s.baseCrit = loadNumber(input+24); s.baseCritDamage = loadNumber(input+26);
+    if (s.combat == 0) for (uint word = 0; word < 16; word++)
+        if (commands[input+P_TARGET_ATTACK_BASE+word] != 0) { results[output] = 64; return; }
     if (s.combat != 0) initializeCombat(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
     uint numericStatus; s.probability = coreProbability(loadNumber(input+20),numericStatus);
@@ -1047,9 +1050,9 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         d.damageRoute = commands[packet]; d.damageCount = commands[packet+1]; d.damageHits = commands[packet+2]; d.damageNormal = commands[packet+3]; d.damageGauge = loadNumber(packet+4); d.damagePending = commands[packet+6]; d.pendingHits = commands[packet+7];
         if (d.enemyBuff != 0 && (d.enemyBuff != 1 || d.kind != 0 || s.combat == 0 || d.lazyGroup != 0 ||
             !(d.stat == S_enemy_def_down_pct || d.stat == S_def_caster_based_pct || d.stat == S_received_dmg_pct) ||
-            d.damageRoute > 8 || d.damageCount == 0 || d.damageCount > 256 || d.damageHits != 0 || d.damageNormal != 0 || !f64Zero(d.damageGauge) || d.damagePending != 0 || d.pendingHits != 0 ||
+            d.damageRoute > 9 || d.damageCount == 0 || d.damageCount > 256 || d.damageHits != 0 || d.damageNormal != 0 || !f64Zero(d.damageGauge) || d.damagePending != 0 || d.pendingHits != 0 ||
             commands[input+P_RECIPIENT_BASE+j*8] != 4)) { s.error = 64; break; }
-        if (d.kind == 3 && (d.damageRoute > 8 || d.damageCount == 0 || d.damageCount > 256 || d.damageHits == 0 || d.damageHits > 256 ||
+        if (d.kind == 3 && (d.damageRoute > 9 || d.damageCount == 0 || d.damageCount > 256 || d.damageHits == 0 || d.damageHits > 256 ||
             d.damageRoute >= 2 && (s.combat == 0 || !f64Zero(d.interval)) || !f64Finite(d.damageGauge) || f64Less(d.damageGauge,0) && !f64Equal(d.damageGauge,F64_SIGN | ONE) || f64Less(f64FromI64(1000000),d.damageGauge) ||
             d.damageNormal > 1 || d.damagePending > 1 || d.damagePending == 0 && d.pendingHits != 0 || d.damagePending != 0 && (s.combat == 0 || d.damageHits != 1 || d.damageFlags != 0 || d.damageNormal != 0 || d.pendingHits == 0 || d.pendingHits > 256))) { s.error = 64; break; }
         if (d.kind == 3 && (d.damageRoute == 7 || d.damageRoute == 8))
@@ -1147,6 +1150,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
                 if (s.targetGeneration[target] == 0x7fffffff) { s.error = 2; break; }
                 if (s.enemyEpoch == 0x7fffffff) { s.error = 2; break; }
                 s.enemyBirth[target] = ++s.enemyEpoch;
+                s.enemyAttackOrder = 0; // Equal attacks follow the new spawn order.
                 s.targetGeneration[target]++; s.targetAlive[target] = 1; s.targetHP[target] = loadNumber(at+6); s.targetMaxHP[target] = s.targetHP[target]; s.targetDealt[target] = 0;
             }
         }

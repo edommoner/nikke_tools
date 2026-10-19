@@ -6,7 +6,7 @@ import copy
 import engine_worker
 from calculator import timeline
 from calculator.buff_manager import BuffManager
-from calculator.boss_pattern import BossScript,Pattern,SummonSpec,_Add,AIM_ADDS
+from calculator.boss_pattern import BossScript,Pattern,SummonSpec,DEFAULT_BOSS_ATK,_Add,AIM_ADDS
 from effect_runtime import state
 from impact_specs import ActorKind
 from world_actor_runtime import ActorRegistry
@@ -21,13 +21,13 @@ def observe(case):
         def char_effects(self,name):return [e for e,n in raw if n==name]
     chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES]
     allies=case.get('environment',{}).get('allies',[{} for _ in NAMES]);attacks=case.get('base_atk',[1000]*5)
-    enemy={'def':targets[0].get('defense',0),'core_px':0,'code':None}
+    enemy={'def':targets[0].get('defense',0),'core_px':0,'code':None,'atk':targets[0].get('attack',DEFAULT_BOSS_ATK)}
     bm=BM(chars,state=dict(base_stats={n:dict(atk=attacks[i],hp=a.get('base_hp',1000000),**{'def':a.get('base_defense',0)}) for i,(n,a) in enumerate(zip(NAMES,allies))},enemy=enemy,full_burst=False,rng_acc={},rng_expected=True))
     bm.state['hp']={n:a.get('hp',a.get('base_hp',1000000)) for n,a in zip(NAMES,allies)}
     bm.state['hp_pct']={n:bm.state['hp'][n]/a.get('base_hp',1000000)*100 for n,a in zip(NAMES,allies)}
     timeline._register_instant_handlers(bm,{n:object() for n in NAMES},None)
     boss=BossScript([Pattern(idx=0,id='authored',kind='summon',after=())],enemy,lambda *_:False);run=boss._runs[0];run.active=True
-    run.adds=[_Add(id=f'__enemy__:add:{i}',name=f'__enemy__:add:{i}',spec=SummonSpec(name=f'__enemy__:add:{i}',hp=t['hp']),order=i,gone='' if t.get('active',True) else 'retired') for i,t in enumerate(targets) if i]
+    run.adds=[_Add(id=f'__enemy__:add:{i}',name=f'__enemy__:add:{i}',spec=SummonSpec(name=f'__enemy__:add:{i}',hp=t['hp'],atk=t.get('attack',0)),order=i,gone='' if t.get('active',True) else 'retired') for i,t in enumerate(targets) if i]
     generations=[t.get('generation',1) for t in targets];active=[t.get('active',True) for t in targets]
     registry=ActorRegistry();registry.bind(ActorKind.BODY,'__enemy__',lambda:(generations[0],active[0],None),identity=0)
     for i in range(1,len(targets)):
@@ -35,7 +35,7 @@ def observe(case):
     state(bm).world_actor_registry=(boss,registry)
     bm.enemy_resolver=lambda target,caster:boss.resolve_enemies(target,caster=caster)
     events={7:'on_attack',8:'hit_count',17:'event:cover_healed',19:'event:full_reload'}
-    current=0;started=False;queries=[]
+    current=0;started=False;queries=[];spawn_order=len(targets)
     for t,op,event,who,arg,index,extra,extra2 in case['script']:
         bm.tick(t)
         if op==4:
@@ -50,7 +50,9 @@ def observe(case):
             bm._invalidate_buffs_cache()
         elif op==21:
             generations[arg]+=1;active[arg]=True
-            if arg:run.adds[arg-1]=_Add(id=f'__enemy__:add:{arg}',name=f'__enemy__:add:{arg}',spec=SummonSpec(name=f'__enemy__:add:{arg}',hp=extra),order=arg)
+            if arg:
+                run.adds[arg-1]=_Add(id=f'__enemy__:add:{arg}',name=f'__enemy__:add:{arg}',spec=SummonSpec(name=f'__enemy__:add:{arg}',hp=extra,atk=targets[arg].get('attack',0)),order=spawn_order)
+                spawn_order+=1
             bm._invalidate_buffs_cache()
         elif op==0:
             target=current if event in target_inheritance_events() else 0

@@ -10,6 +10,7 @@ uint enemyDamageMask(inout Runtime s, Definition d, uint inherited, out uint pac
         if (target < s.targetCount && s.targetAlive[target] != 0) { packedOrder = target+1; return 1U << target; }
         return 0;
     }
+    if (d.damageRoute == 9) return enemyAttackMask(s,d.damageCount,packedOrder);
     uint order[8], count = 0;
     // Canonical ranked HP rules keep the body first for descending ranks and
     // last for lowest HP. Adds tie by stable input/spawn order.
