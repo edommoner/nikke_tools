@@ -6,58 +6,59 @@
   "transport": {
     "backend": "cuda",
     "device": "NVIDIA GeForce RTX 3070 Ti",
-    "cases": 760,
+    "cases": 810,
     "command_status": "completed",
-    "host_dispatch_seconds": 7.372551299631596
+    "host_dispatch_seconds": 10.980164099950343
   },
   "generated_sha256": {
-    "cuda": "6d19cd0c25f55ed944197b7afe7911267517c7447956aba98eba47d4a03be3c3",
-    "metal": "0f016d093a8cd3632c31a57c25c7f46933c9ad48e505d2e582cb1b45d1743ebd"
+    "cuda": "386e57a15b94adaa5003bf66cfceeaa7341e24cdd5840f330ccc559b7d7f7a7d",
+    "metal": "7ea8f13e46eef6eee841258e74ad2a9822bc2ad9533e42520c41fefb8d747355"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "e060c7373364dc630bc283d45e0551df972ff83815a84e640ed79808f6441fe0",
+    "gpu/event_runtime.slang": "920b78a59d8251b0492543a28e3cdd58f553615934412af38c0805427ab990c1",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "e1fa2424feaf3c09ef61e4d6bb4f54274fce35b96d9e74fcc83294de5b04ad66",
-    "gpu/runtime_init.slang": "bf9e4ab1bc9b975fde7f2566918d8e4fdd62b134507c04fcd0bce74e30a5f3aa",
+    "gpu/portable_schema.slang": "db6787240e4ed97d4ab992dfa59458a1333266e56e050c8680c88362fcce9023",
+    "gpu/runtime_init.slang": "a01c53fe2f677d1ff2dec1d58c6cfbb54db249aff9cc8bf062f476de6fc021e8",
     "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
     "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
     "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
-    "gpu/carrier_runtime.slang": "ee5785eb4a314831e271644f7341e5642549ffd3d19008e11fd877f3368a369f",
+    "gpu/enemy_buff_runtime.slang": "33a1a116cea23eb0f5e4223a1f1b7c59e811e994db6f871c0a65c56d8be067a9",
+    "gpu/carrier_runtime.slang": "dcbc75f3d88edda0227c68975087fc56c73ed938e6b3b72cd5d6246eace7a43c",
     "gpu/quantity_runtime.slang": "5d0a7ee77ad299b161f59ecccccc16a5a082ccc57fcf226c04873464264c2abf",
     "gpu/health_runtime.slang": "071e46cf983d294241247cfef5a3de6105829bd9e85fed05dc9d6050f8cc90fb",
     "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
     "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
-    "gpu/recipient_runtime.slang": "ea89a5a0656f93ac7f412c941fc6e37dd534680bdab7ea808cca648bf7a0866a",
-    "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
+    "gpu/recipient_runtime.slang": "e3dca124f523e4a28ec42e3bc915df6163dfeb2b071e0b25248ad6b0a4e85e0d",
+    "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
     "gpu/incoming_runtime.slang": "322e92344f55def51fe181360ce35aba89daf341d423bed94b7da22923fa701b",
     "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
     "gpu/enemy_damage_runtime.slang": "499f560b14bdf8521d3157a5af56cac405f7e1507e5665a21d223cecf96806ba",
     "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-    "gpu/combat_runtime.slang": "2308b86207cb779fd51e713069637de51dec9cb9551b0156b8c4a067b11ad2eb",
+    "gpu/combat_runtime.slang": "e0ae735642a5baa35a2e9964f38526b9cf2df4464480320e357d98de5756f671",
     "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
   },
-  "input_sha256": "b6be31f32e263f652abb538e19e9aa18e5e58f38b4ad4dca5443767137d5d884",
-  "output_sha256": "32c4f8e375d90f691d5b7bf96da85ee03878eaef46b7e0c6c30b0124854002e9",
+  "input_sha256": "85a9f4e495beffeba31cd3a814839d33a3aad71b7a3ec0b7ced8bf339f3bf5dd",
+  "output_sha256": "fc8fc56f744c14f3314e64ddb76005b32ecaa2ca79e759d045ad5ce4fad70100",
   "validation_sha256": {
     "app/portable_roster_input.py": "239f8f32affdde4d8284feb1ce249cd7bfdfdc82a43c24f5d7d2faaf51eb8ed7",
     "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
-    "app/portable_enemy_specs.py": "af19e9a5245d4171f45848254fe3fbfdfcbdcc39ca6ef0d6193b8a5e0bd5cf9a",
-    "app/portable_runtime.py": "76100832e7b1c16753befe31131a5de02f80f8839e267a9c126289727af7776b",
+    "app/portable_enemy_specs.py": "1c94c632641ef75261250c2a0a7e526688d0070fc9918221d92c69ac0dd68ea9",
+    "app/portable_runtime.py": "6ea29ff038b4212c78e0533e7b4176c3386d8a082189755458d3e09cc0087cb8",
     "app/portable_combat.py": "c68f952bd72a151b2ab429af20859436234e1de068cbd803fd15b8bcedbee49f",
-    "app/portable_specs.py": "bd715e19ab01e6c51f87ea5acee7ed56b738d090d40ef921e7cf6dd7606c8087",
-    "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
+    "app/portable_specs.py": "a508078a05fb3dc06577b053e1fa8112e83e772330b4a21322dab1b7bacce1aa",
+    "app/portable_backend.py": "ab722934db2e3b7ae228990c7f0555dcea079c624675fa735b7328fa62889ec0",
     "app/portable_trigger_specs.py": "529d4befa7a245503994d4a8cbd47c0f748e070c0e4745556fe3e9010770995d",
-    "app/portable_recipient_specs.py": "19afc8e22bbc2593627174ef8b336b1e76483e7896f7bb3c729c7069efa21e7f",
+    "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
     "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
     "scripts/portable_pending_oracle.py": "5919e9b30ef2b97cfeee24d19eb080c522df2fb6b98c1555be2efdf5c68e3359",
     "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
     "scripts/portable_health_oracle.py": "3c8c66d0674675c3fbf884ed8ef53408a4ca74e2593ea3b1df3594b8176a5bfc",
-    "scripts/portable_enemy_oracle.py": "eb74ebc919498057743a1d98c243e71bf6f348721efd202002f9b03fc38ab5d4",
+    "scripts/portable_enemy_oracle.py": "527cf7b9556cd4bb2184af981c62bfb29bd9b713fd410a2b2ee4cd2bef95082a",
     "scripts/portable_burst_oracle.py": "640bc66abb2df8b237383df3d626df30bc565de382b19671fbf11ba83d5ee94a",
     "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
     "scripts/portable_weapon_oracle.py": "f011a2e648b4a34eb4bc6db5053066fec4b236c472ca7cad2e92e5677ffcc1a1",
@@ -66,7 +67,9 @@
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "e52751143d62a85214f7b5cfc2e649ca4edd69a740215e895ba2a0e36b00af19",
+    "scripts/verify-portable-combat.py": "575a22ddd435adec41a13ab9fe79b62a0e5ab25edfca7936eb8ace597d9a66ba",
+    "scripts/portable_enemy_buff_oracle.py": "77cdccc2a572775264abb9949f8964d4edfb0363309cd56be1360d08661ea1eb",
+    "tests/fixtures/portable-enemy-buffs.json": "d1112e9bc6f236f1af7ec39453b7ca4e3d2ea8a548e57a38368965ff9b9cfd85",
     "research/portable-mode-session-contract.json": "8c31ba85469c0ba1374ba0682bbb34aa3bc03eef2840a6c052e7efe405b3f5aa",
     "tests/fixtures/portable-buff-notices.json": "234bd8ad051a89f7382b67069e0cfdf5e479cc0c9de42ba3528ae3d493265fd8",
     "tests/fixtures/portable-mode-sessions.json": "027dbc7c09af926d554359128a7aa6662d287123eb3534f3f911c5181fc11593",
@@ -94,7 +97,7 @@
     "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
     "tests/fixtures/portable-combat-extensions.json": "286843374e7fa5e8735bc2501856ba6f8b3c01f42055cb2d138ee1e284e106d9",
     "tests/fixtures/portable-autonomous.json": "0d97f8e8a848cfaf25d08e52414f1055d6a8807625f28bce3608a1726db6a5e9",
-    "scripts/run-metal-probe.swift": "7662a5fcd7c20f6b93becc30dd6189c5413c7f25d52ed1e792033cee68cc540a"
+    "scripts/run-metal-probe.swift": "af88fbd4fd947d8beb00d065e976e317bd8046d909ae6f681dd3c2138b933e08"
   },
   "actual_statuses": [
     0,
@@ -783,6 +786,45 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     2,
     64,
     8,
@@ -856,7 +898,18 @@
     1,
     64,
     64,
-    1
+    1,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    16,
+    16
   ],
   "expected_statuses": [
     0,
@@ -1545,6 +1598,45 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     2,
     64,
     8,
@@ -1618,50 +1710,22 @@
     1,
     64,
     64,
-    1
+    1,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    16,
+    16
   ],
   "batch_layout": {
-    "positive_count": 686,
+    "positive_count": 725,
     "rejection_indices": [
-      686,
-      687,
-      688,
-      689,
-      690,
-      691,
-      692,
-      693,
-      694,
-      695,
-      696,
-      697,
-      698,
-      699,
-      700,
-      701,
-      702,
-      703,
-      704,
-      705,
-      706,
-      707,
-      708,
-      709,
-      710,
-      711,
-      712,
-      713,
-      714,
-      715,
-      716,
-      717,
-      718,
-      719,
-      720,
-      721,
-      722,
-      723,
-      724,
       725,
       726,
       727,
@@ -1696,7 +1760,57 @@
       756,
       757,
       758,
-      759
+      759,
+      760,
+      761,
+      762,
+      763,
+      764,
+      765,
+      766,
+      767,
+      768,
+      769,
+      770,
+      771,
+      772,
+      773,
+      774,
+      775,
+      776,
+      777,
+      778,
+      779,
+      780,
+      781,
+      782,
+      783,
+      784,
+      785,
+      786,
+      787,
+      788,
+      789,
+      790,
+      791,
+      792,
+      793,
+      794,
+      795,
+      796,
+      797,
+      798,
+      799,
+      800,
+      801,
+      802,
+      803,
+      804,
+      805,
+      806,
+      807,
+      808,
+      809
     ]
   },
   "rejected_cases": [
@@ -1995,6 +2109,50 @@
     {
       "name": "buff-notice-recursive-depth-limit",
       "status": 1
+    },
+    {
+      "name": "wire-enemy-buff-flag",
+      "status": 64
+    },
+    {
+      "name": "wire-enemy-buff-no-combat",
+      "status": 64
+    },
+    {
+      "name": "wire-enemy-buff-unsupported-stat",
+      "status": 64
+    },
+    {
+      "name": "wire-enemy-buff-zero-count",
+      "status": 64
+    },
+    {
+      "name": "wire-enemy-buff-count-overflow",
+      "status": 64
+    },
+    {
+      "name": "wire-enemy-buff-ally-selector",
+      "status": 64
+    },
+    {
+      "name": "wire-enemy-buff-missing-flag",
+      "status": 64
+    },
+    {
+      "name": "wire-enemy-buff-query-negative",
+      "status": 64
+    },
+    {
+      "name": "wire-enemy-buff-query-outside-world",
+      "status": 64
+    },
+    {
+      "name": "enemy-buff-flat-overflow",
+      "status": 16
+    },
+    {
+      "name": "enemy-buff-sum-overflow",
+      "status": 16
     }
   ],
   "known_cpu_differences": [
@@ -3451,6 +3609,44 @@
     "full-charge-callback-affects-same-hit-factor",
     "external-full-burst-state-affects-skill-factor"
   ],
+  "enemy_buff_cpu_regressions": [
+    "enemy-buff-def_pct-boss",
+    "enemy-buff-def_pct-target",
+    "enemy-buff-def_pct-all_enemies",
+    "enemy-buff-def_pct-enemies_top_hp:1",
+    "enemy-buff-def_pct-enemies_lowest_hp:1",
+    "enemy-buff-def_pct-enemies_nearest:1",
+    "enemy-buff-def_pct-enemies_top_def:2",
+    "enemy-buff-def_pct-enemies_lowest_def:2",
+    "enemy-buff-def_caster_based_pct-boss",
+    "enemy-buff-def_caster_based_pct-target",
+    "enemy-buff-def_caster_based_pct-all_enemies",
+    "enemy-buff-def_caster_based_pct-enemies_top_hp:1",
+    "enemy-buff-def_caster_based_pct-enemies_lowest_hp:1",
+    "enemy-buff-def_caster_based_pct-enemies_nearest:1",
+    "enemy-buff-def_caster_based_pct-enemies_top_def:2",
+    "enemy-buff-def_caster_based_pct-enemies_lowest_def:2",
+    "enemy-buff-received_dmg_pct-boss",
+    "enemy-buff-received_dmg_pct-target",
+    "enemy-buff-received_dmg_pct-all_enemies",
+    "enemy-buff-received_dmg_pct-enemies_top_hp:1",
+    "enemy-buff-received_dmg_pct-enemies_lowest_hp:1",
+    "enemy-buff-received_dmg_pct-enemies_nearest:1",
+    "enemy-buff-received_dmg_pct-enemies_top_def:2",
+    "enemy-buff-received_dmg_pct-enemies_lowest_def:2",
+    "enemy-buff-new-generation-does-not-refresh-old-def_pct",
+    "enemy-buff-new-generation-does-not-refresh-old-received_dmg_pct",
+    "enemy-buff-notice-scope-squad",
+    "enemy-buff-notice-scope-recipients",
+    "enemy-and-ally-same-name-do-not-merge",
+    "enemy-buff-runtime-versus-finite-gate--1",
+    "enemy-buff-runtime-versus-finite-gate-10",
+    "enemy-buff-ordered-binary64-sums",
+    "enemy-buff-runtime-recipient-hp-is-not-an-ally--1",
+    "enemy-buff-runtime-recipient-hp-is-not-an-ally-10",
+    "enemy-buff-mixed-generations-retain-unreplaced-recipients",
+    "enemy-buff-name-aliases-respect-generation-membership"
+  ],
   "enemy_component_cpu_regressions": [
     "all-enemies-single-packet",
     "noncoordinate-in-range-covers-logical-enemies",
@@ -3489,7 +3685,10 @@
     "eight-logical-targets-and-high-membership-bit",
     "split-half-even-1001",
     "split-half-even-1003",
-    "rounded-zero-shares-still-notify-and-charge"
+    "rounded-zero-shares-still-notify-and-charge",
+    "enemy-buff-damage-factor-def_pct",
+    "enemy-buff-damage-factor-def_caster_based_pct",
+    "enemy-buff-damage-factor-received_dmg_pct"
   ],
   "health_cpu_regressions": [
     "initial-allied-hp-and-defense",
@@ -6580,11 +6779,167 @@
     {
       "name": "buff-lazy-ranked-recipient-order-is-preserved",
       "passed": true
+    },
+    {
+      "name": "enemy-buff-def_pct-boss",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-def_pct-target",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-def_pct-all_enemies",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-def_pct-enemies_top_hp:1",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-def_pct-enemies_lowest_hp:1",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-def_pct-enemies_nearest:1",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-def_pct-enemies_top_def:2",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-def_pct-enemies_lowest_def:2",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-def_caster_based_pct-boss",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-def_caster_based_pct-target",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-def_caster_based_pct-all_enemies",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-def_caster_based_pct-enemies_top_hp:1",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-def_caster_based_pct-enemies_lowest_hp:1",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-def_caster_based_pct-enemies_nearest:1",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-def_caster_based_pct-enemies_top_def:2",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-def_caster_based_pct-enemies_lowest_def:2",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-received_dmg_pct-boss",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-received_dmg_pct-target",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-received_dmg_pct-all_enemies",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-received_dmg_pct-enemies_top_hp:1",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-received_dmg_pct-enemies_lowest_hp:1",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-received_dmg_pct-enemies_nearest:1",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-received_dmg_pct-enemies_top_def:2",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-received_dmg_pct-enemies_lowest_def:2",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-new-generation-does-not-refresh-old-def_pct",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-new-generation-does-not-refresh-old-received_dmg_pct",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-notice-scope-squad",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-notice-scope-recipients",
+      "passed": true
+    },
+    {
+      "name": "enemy-and-ally-same-name-do-not-merge",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-runtime-versus-finite-gate--1",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-runtime-versus-finite-gate-10",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-ordered-binary64-sums",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-damage-factor-def_pct",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-damage-factor-def_caster_based_pct",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-damage-factor-received_dmg_pct",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-runtime-recipient-hp-is-not-an-ally--1",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-runtime-recipient-hp-is-not-an-ally-10",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-mixed-generations-retain-unreplaced-recipients",
+      "passed": true
+    },
+    {
+      "name": "enemy-buff-name-aliases-respect-generation-membership",
+      "passed": true
     }
   ],
   "metal_generated_sha256": {
-    "cuda": "f5af1abe1d98178f8d1c1854232d94a5f5b1008fdf3cc7dfe29c7843df14b677",
-    "metal": "66ab1595d6d76eb6b6b0d43ba03aae2ff4010b0e3fc30eaed3724eb56970733f"
+    "cuda": "a35317f88fd2f92e67d9d587bec903112606094a13a3d1cd35f26c52f565071a",
+    "metal": "1dad64f4d702e3ec6879161bfbc128fb9916e2f3834422c99ce23d2d0047e1eb"
   },
   "metal_comparison": {
     "source_sha256": true,
@@ -6606,6 +6961,7 @@
     "carrier_cpu_regressions": true,
     "cover_cpu_regressions": true,
     "damage_cpu_regressions": true,
+    "enemy_buff_cpu_regressions": true,
     "enemy_component_cpu_regressions": true,
     "health_cpu_regressions": true,
     "lazy_cpu_regressions": true,
@@ -6624,10 +6980,10 @@
   },
   "execution": {
     "command": "python scripts/verify-portable-combat.py --backend cuda",
-    "commit": "7977cc649b70ec626ce8e85fcce623e7cbbc30ca",
+    "commit": "33e129bf635e746fbd78654806e3d60187ac978b",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "31, 4783",
+    "gpu_before": "32, 4800",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -6645,8 +7001,8 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 44.736367800273,
-    "stdout": "{\"passed\": true, \"cases\": 686, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
+    "elapsed_seconds": 48.796073500066996,
+    "stdout": "{\"passed\": true, \"cases\": 725, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
     "stderr": ""
   },
   "postcheck": {
@@ -6654,33 +7010,33 @@
     "original_head_after": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_after": []
   },
-  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-7977cc6\\research\\portable-combat-cuda.json",
+  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-33e129b\\research\\portable-combat-cuda.json",
   "available": true,
   "full_readback_available": true,
   "compiler_success_log_saved": false,
   "generated_normalization": {
     "cuda": {
       "available": true,
-      "raw_sha256": "6d19cd0c25f55ed944197b7afe7911267517c7447956aba98eba47d4a03be3c3",
-      "lf_sha256": "e07e7420e8e62b1081c8834746a21cb04c57ace3541f8a080f2c8d0865bbfeeb",
-      "no_line_directives_sha256": "c63dca920e8b96fecaac91f7257f354e6725f3d2a62981a2583f15f945644edd",
-      "no_line_directives_portable_prelude_sha256": "3c311dc9780fcda78d38d7a8ea8b8ebb9d7b76b021d03a552dc4c8582842416b",
-      "lines": 33019,
-      "no_line_directive_lines": 24526,
-      "line_directives": 8493
+      "raw_sha256": "386e57a15b94adaa5003bf66cfceeaa7341e24cdd5840f330ccc559b7d7f7a7d",
+      "lf_sha256": "a1fc82c06fd0eebb4a488a18774910d062ee3480a74d940cc9389a64941f38cd",
+      "no_line_directives_sha256": "8c3eb3106c554a7ddeea85423cafc4661a81cade7588e1e88abc2ea091db86af",
+      "no_line_directives_portable_prelude_sha256": "01d97dddb0f43669c2d8b1aaace128a8afbaf683280f3f324f24158042f1f689",
+      "lines": 34322,
+      "no_line_directive_lines": 25483,
+      "line_directives": 8839
     },
     "metal": {
       "available": true,
-      "raw_sha256": "0f016d093a8cd3632c31a57c25c7f46933c9ad48e505d2e582cb1b45d1743ebd",
-      "lf_sha256": "25c53ff0bb2c9ef7c4fdb5c58db2055428e163726c1b1eab7858802c56cc8355",
-      "no_line_directives_sha256": "5b2600c1ccbc887990d9d20feccd9b4ddd5b1af095ea146344073351647f29e4",
-      "no_line_directives_portable_prelude_sha256": "5b2600c1ccbc887990d9d20feccd9b4ddd5b1af095ea146344073351647f29e4",
-      "lines": 33323,
-      "no_line_directive_lines": 24764,
-      "line_directives": 8559
+      "raw_sha256": "7ea8f13e46eef6eee841258e74ad2a9822bc2ad9533e42520c41fefb8d747355",
+      "lf_sha256": "9d6dc0feb4ca09389a405ab718b870118601b8f67c97d636b6edd8afb20c6d1e",
+      "no_line_directives_sha256": "846cfb4ccfd6d88ffdcecbfa7b7773d1c3edea302124b7129e709c41535c25f2",
+      "no_line_directives_portable_prelude_sha256": "846cfb4ccfd6d88ffdcecbfa7b7773d1c3edea302124b7129e709c41535c25f2",
+      "lines": 34602,
+      "no_line_directive_lines": 25707,
+      "line_directives": 8895
     }
   },
   "summary_only": true,
-  "summary_source": "windows-portable-combat-v26.json",
+  "summary_source": "windows-portable-combat-v27.json",
   "scope": "Shared event/combat mechanics, enemy packets, allied cover state and pending B3 bonuses; independent components are not full battle or catalog certification"
 }

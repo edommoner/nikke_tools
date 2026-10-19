@@ -779,6 +779,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -2907,6 +2912,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -5035,6 +5045,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -7163,6 +7178,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -9291,6 +9311,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -11419,6 +11444,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -13547,6 +13577,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -15675,6 +15710,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -17803,6 +17843,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -19931,6 +19976,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -22059,6 +22109,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -24187,6 +24242,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -26315,6 +26375,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -28443,6 +28508,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -30571,6 +30641,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -32699,6 +32774,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -34827,6 +34907,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -36955,6 +37040,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -39083,6 +39173,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -41211,6 +41306,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -43339,6 +43439,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -45467,6 +45572,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -47595,6 +47705,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -49723,6 +49838,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -51851,6 +51971,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -53979,6 +54104,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -56107,6 +56237,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -58235,6 +58370,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -60363,6 +60503,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -62491,6 +62636,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -64619,6 +64769,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -66747,6 +66902,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -68875,6 +69035,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -71003,6 +71168,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -73131,6 +73301,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -75259,6 +75434,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -77387,6 +77567,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -79515,6 +79700,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -81643,6 +81833,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -83771,6 +83966,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -85899,6 +86099,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -88027,6 +88232,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -90155,6 +90365,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -92283,6 +92498,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -94411,6 +94631,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -96539,6 +96764,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -98667,6 +98897,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -100795,6 +101030,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -102923,6 +103163,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -105051,6 +105296,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -107179,6 +107429,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -109307,6 +109562,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -111435,6 +111695,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -113563,6 +113828,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -115691,6 +115961,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -117819,6 +118094,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -119947,6 +120227,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -122075,6 +122360,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -124203,6 +124493,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -126331,6 +126626,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -128459,6 +128759,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -130587,6 +130892,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -132715,6 +133025,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -134843,6 +135158,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -136971,6 +137291,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -139099,6 +139424,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -141227,6 +141557,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -143355,6 +143690,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -145483,6 +145823,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -147611,6 +147956,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -149739,6 +150089,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -151867,6 +152222,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -153995,6 +154355,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -156123,6 +156488,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -158251,6 +158621,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -160379,6 +160754,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -162507,6 +162887,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -164635,6 +165020,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -166763,6 +167153,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -168891,6 +169286,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -171019,6 +171419,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -173147,6 +173552,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -175275,6 +175685,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -177403,6 +177818,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -179531,6 +179951,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -181659,6 +182084,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -183787,6 +184217,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -185915,6 +186350,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -188043,6 +188483,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -190171,6 +190616,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -192299,6 +192749,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -194427,6 +194882,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -196555,6 +197015,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -198683,6 +199148,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -200811,6 +201281,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -202939,6 +203414,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -205067,6 +205547,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -207195,6 +207680,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -209323,6 +209813,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -211451,6 +211946,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -213579,6 +214079,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -215707,6 +216212,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -217835,6 +218345,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -219963,6 +220478,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -222091,6 +222611,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -224219,6 +224744,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -226347,6 +226877,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -228475,6 +229010,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -230603,6 +231143,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -232731,6 +233276,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -234859,6 +235409,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -236987,6 +237542,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -239115,6 +239675,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -241243,6 +241808,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -243371,6 +243941,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -245499,6 +246074,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -247627,6 +248207,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -249755,6 +250340,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -251883,6 +252473,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -254011,6 +254606,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -256139,6 +256739,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -258267,6 +258872,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -260395,6 +261005,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -262523,6 +263138,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -264651,6 +265271,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -266779,6 +267404,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -268907,6 +269537,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -271035,6 +271670,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -273163,6 +273803,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -275291,6 +275936,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -277419,6 +278069,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -279547,6 +280202,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -281675,6 +282335,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -283803,6 +284468,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -285931,6 +286601,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -288059,6 +288734,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -290187,6 +290867,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -292315,6 +293000,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -294443,6 +295133,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -296571,6 +297266,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -298699,6 +299399,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -300827,6 +301532,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -302955,6 +303665,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -305083,6 +305798,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -307211,6 +307931,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -309339,6 +310064,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -311467,6 +312197,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -313595,6 +314330,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -315723,6 +316463,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -317851,6 +318596,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -319979,6 +320729,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -322107,6 +322862,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -324235,6 +324995,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -326363,6 +327128,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -328491,6 +329261,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -330619,6 +331394,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -332747,6 +333527,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -334875,6 +335660,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -337003,6 +337793,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -339131,6 +339926,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -341259,6 +342059,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -343387,6 +344192,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -345515,6 +346325,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -347643,6 +348458,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -349771,6 +350591,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -351899,6 +352724,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -354027,6 +354857,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -356155,6 +356990,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -358283,6 +359123,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -360411,6 +361256,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -362539,6 +363389,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -364667,6 +365522,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -366795,6 +367655,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -368923,6 +369788,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -371051,6 +371921,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -373179,6 +374054,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -375307,6 +376187,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -377435,6 +378320,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -379563,6 +380453,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -381691,6 +382586,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -383819,6 +384719,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -385947,6 +386852,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -388075,6 +388985,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -390203,6 +391118,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -392331,6 +393251,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -394459,6 +395384,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -396587,6 +397517,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -398715,6 +399650,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -400843,6 +401783,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -402971,6 +403916,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -405099,6 +406049,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -407227,6 +408182,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -409355,6 +410315,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -411483,6 +412448,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -413611,6 +414581,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -415739,6 +416714,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -417867,6 +418847,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -419995,6 +420980,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -422123,6 +423113,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -424251,6 +425246,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -426379,6 +427379,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -428507,6 +429512,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -430635,6 +431645,11 @@
       "status": 0,
       "queries": [
         {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
           "pending_burst": {
             "count": 0,
             "enqueued": 0,
@@ -431989,46 +433004,52 @@
     "backend": "metal",
     "cases": 203,
     "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.009225416695699096,
+    "gpu_seconds": 0.02121058333432302,
     "input_bytes": 43237380,
-    "library_compile_seconds": 0.0007500648498535156,
+    "library_compile_seconds": 0.0008370876312255859,
     "output_bytes": 43237376,
-    "pipeline_compile_seconds": 0.0016369819641113281,
-    "pipeline_lock_wait_seconds": 1.9073486328125e-06,
-    "registry_id": "4294968313"
+    "pipeline_compile_seconds": 0.002399921417236328,
+    "pipeline_lock_wait_seconds": 2.9802322387695312e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "registry_id": "4294968313",
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "e060c7373364dc630bc283d45e0551df972ff83815a84e640ed79808f6441fe0",
+    "gpu/event_runtime.slang": "920b78a59d8251b0492543a28e3cdd58f553615934412af38c0805427ab990c1",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "e1fa2424feaf3c09ef61e4d6bb4f54274fce35b96d9e74fcc83294de5b04ad66",
-    "gpu/runtime_init.slang": "bf9e4ab1bc9b975fde7f2566918d8e4fdd62b134507c04fcd0bce74e30a5f3aa",
+    "gpu/portable_schema.slang": "db6787240e4ed97d4ab992dfa59458a1333266e56e050c8680c88362fcce9023",
+    "gpu/runtime_init.slang": "a01c53fe2f677d1ff2dec1d58c6cfbb54db249aff9cc8bf062f476de6fc021e8",
     "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
     "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
     "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
-    "gpu/carrier_runtime.slang": "ee5785eb4a314831e271644f7341e5642549ffd3d19008e11fd877f3368a369f",
+    "gpu/enemy_buff_runtime.slang": "33a1a116cea23eb0f5e4223a1f1b7c59e811e994db6f871c0a65c56d8be067a9",
+    "gpu/carrier_runtime.slang": "dcbc75f3d88edda0227c68975087fc56c73ed938e6b3b72cd5d6246eace7a43c",
     "gpu/quantity_runtime.slang": "5d0a7ee77ad299b161f59ecccccc16a5a082ccc57fcf226c04873464264c2abf",
     "gpu/health_runtime.slang": "071e46cf983d294241247cfef5a3de6105829bd9e85fed05dc9d6050f8cc90fb",
     "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
     "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
-    "gpu/recipient_runtime.slang": "ea89a5a0656f93ac7f412c941fc6e37dd534680bdab7ea808cca648bf7a0866a",
-    "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
+    "gpu/recipient_runtime.slang": "e3dca124f523e4a28ec42e3bc915df6163dfeb2b071e0b25248ad6b0a4e85e0d",
+    "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
     "gpu/incoming_runtime.slang": "322e92344f55def51fe181360ce35aba89daf341d423bed94b7da22923fa701b",
     "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
     "gpu/enemy_damage_runtime.slang": "499f560b14bdf8521d3157a5af56cac405f7e1507e5665a21d223cecf96806ba",
     "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-    "gpu/combat_runtime.slang": "2308b86207cb779fd51e713069637de51dec9cb9551b0156b8c4a067b11ad2eb",
+    "gpu/combat_runtime.slang": "e0ae735642a5baa35a2e9964f38526b9cf2df4464480320e357d98de5756f671",
     "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
   },
   "generated_sha256": {
-    "cuda": "f5af1abe1d98178f8d1c1854232d94a5f5b1008fdf3cc7dfe29c7843df14b677",
-    "metal": "66ab1595d6d76eb6b6b0d43ba03aae2ff4010b0e3fc30eaed3724eb56970733f"
+    "cuda": "a35317f88fd2f92e67d9d587bec903112606094a13a3d1cd35f26c52f565071a",
+    "metal": "1dad64f4d702e3ec6879161bfbc128fb9916e2f3834422c99ce23d2d0047e1eb"
   },
-  "input_sha256": "bf70db31a55fd4ef3829d6c308f65e736aa07f71182cd918581b8349ff8a853e",
+  "input_sha256": "6671a18b667e698a97f0f5d7330aaf354b4f341bf8d66f3585ae99c5543d960b",
   "output_sha256": "857a690fe3639c615366f3ccda25aede07d3a68d2302043437b275f178bce25f",
   "gpu_execution_verified": true,
   "backend": "metal",
@@ -432074,16 +433095,16 @@
     "app/periodic_source_specs.py": "4c96a26ce0d0ca987c1e057d95d9a88055e706c7bf2cadde70df6b58ec9f2444",
     "app/periodic_target_runtime.py": "b2475507525e8f06b9139142fb662d831f73a72cbb8e99b087dd0c6a1ae3d188",
     "app/periodic_target_specs.py": "862326be4fa971aa0837180f8b184a80dac4706472cb7e8af7a9c5cb3c4d1540",
-    "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
+    "app/portable_backend.py": "ab722934db2e3b7ae228990c7f0555dcea079c624675fa735b7328fa62889ec0",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
     "app/portable_combat.py": "c68f952bd72a151b2ab429af20859436234e1de068cbd803fd15b8bcedbee49f",
     "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
-    "app/portable_enemy_specs.py": "af19e9a5245d4171f45848254fe3fbfdfcbdcc39ca6ef0d6193b8a5e0bd5cf9a",
-    "app/portable_recipient_specs.py": "19afc8e22bbc2593627174ef8b336b1e76483e7896f7bb3c729c7069efa21e7f",
+    "app/portable_enemy_specs.py": "1c94c632641ef75261250c2a0a7e526688d0070fc9918221d92c69ac0dd68ea9",
+    "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
     "app/portable_roster_input.py": "239f8f32affdde4d8284feb1ce249cd7bfdfdc82a43c24f5d7d2faaf51eb8ed7",
-    "app/portable_runtime.py": "76100832e7b1c16753befe31131a5de02f80f8839e267a9c126289727af7776b",
+    "app/portable_runtime.py": "6ea29ff038b4212c78e0533e7b4176c3386d8a082189755458d3e09cc0087cb8",
     "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
-    "app/portable_specs.py": "bd715e19ab01e6c51f87ea5acee7ed56b738d090d40ef921e7cf6dd7606c8087",
+    "app/portable_specs.py": "a508078a05fb3dc06577b053e1fa8112e83e772330b4a21322dab1b7bacce1aa",
     "app/portable_trigger_specs.py": "529d4befa7a245503994d4a8cbd47c0f748e070c0e4745556fe3e9010770995d",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/protection_runtime.py": "a6909bbdd73ef24ebdd3136cc67932c7ab433f23ae9ecabfc2a5069a5db37c81",
@@ -432179,6 +433200,7 @@
     "scripts/benchmark-portable-cover.py": "952bd87680189c3b1efc1b09fe8af0e92affa11442a2cb046e131e17fdbc9340",
     "scripts/benchmark-portable-duration.py": "1d2fe09d296e4298dae076eb1f0cd66e89433fee2e657768805120cc7b97b44a",
     "scripts/benchmark-portable-enemy-accounting.py": "3c9c327c0e2f6d573e0e4fd991d8922b7efb16462032725ded0ce7ad3c177f5f",
+    "scripts/benchmark-portable-enemy-buffs.py": "30001b62a2c36b0ab855a0752f49e2966bf42f347466615dffa9212ca3c51cee",
     "scripts/benchmark-portable-health.py": "86c9de952ef4842faae5f30adb309d11e7ba4b4548be8722e957cfb537fe696b",
     "scripts/benchmark-portable-hp-edges.py": "58dcaa028a777de2083ac5224dfcf496cc2421381822b7cbfaeced7e38d453a3",
     "scripts/benchmark-portable-incoming.py": "14ba52be5ac58b57d1f1441928f55f1d5cd0573541bd8398c3f289579c99e23e",
@@ -432233,7 +433255,8 @@
     "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
     "scripts/portable_burst_oracle.py": "640bc66abb2df8b237383df3d626df30bc565de382b19671fbf11ba83d5ee94a",
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
-    "scripts/portable_enemy_oracle.py": "eb74ebc919498057743a1d98c243e71bf6f348721efd202002f9b03fc38ab5d4",
+    "scripts/portable_enemy_buff_oracle.py": "77cdccc2a572775264abb9949f8964d4edfb0363309cd56be1360d08661ea1eb",
+    "scripts/portable_enemy_oracle.py": "527cf7b9556cd4bb2184af981c62bfb29bd9b713fd410a2b2ee4cd2bef95082a",
     "scripts/portable_health_oracle.py": "3c8c66d0674675c3fbf884ed8ef53408a4ca74e2593ea3b1df3594b8176a5bfc",
     "scripts/portable_pending_oracle.py": "5919e9b30ef2b97cfeee24d19eb080c522df2fb6b98c1555be2efdf5c68e3359",
     "scripts/portable_weapon_oracle.py": "f011a2e648b4a34eb4bc6db5053066fec4b236c472ca7cad2e92e5677ffcc1a1",
@@ -432347,9 +433370,9 @@
     "scripts/verify-periodic-detail.py": "592431aefb6cbba77fc8b0ac925dbcbe342fa87e488d423cedfa270df0261e05",
     "scripts/verify-periodic-sources-detail.py": "bece3113347f76c55022591fb7308cc2bcd181ff56497cb17de691f791450dda",
     "scripts/verify-periodic-targets-detail.py": "e159b1a38c095cfedb489105ae2c90051f6cf34cdbc8a35acb351b1e9b835159",
-    "scripts/verify-portable-api.py": "98371ed4b21801d1cac5fc6d6874afb5614a97683c01bc6437cdbab01042d569",
+    "scripts/verify-portable-api.py": "78a0d1256bb5b15cdfb8c678c46c0d9f603db8fb906bbd6507646df35a927535",
     "scripts/verify-portable-catalog-weapons.py": "4986f71dc931d68ffad1bcdea2bf9be5e1dcb586e8d0c1a6001b5ca75799e3e6",
-    "scripts/verify-portable-combat.py": "e52751143d62a85214f7b5cfc2e649ca4edd69a740215e895ba2a0e36b00af19",
+    "scripts/verify-portable-combat.py": "575a22ddd435adec41a13ab9fe79b62a0e5ab25edfca7936eb8ace597d9a66ba",
     "scripts/verify-portable-events.py": "a0c19364ccfbb0436268ca56a79457abbb588235c71a8e6d1565d8fe757cd6a7",
     "scripts/verify-portable-metal-lock.py": "1b61cb71e824881b0979abab06cfa614018222454b6f357013ba88be7f4646de",
     "scripts/verify-portable-numeric.py": "6f69e28e3de824899cc5e25320eb9ebfc2a5a4f44c5a3e5dc393a0ce7b664d9e",
