@@ -1,0 +1,22 @@
+{
+  "passed": false,
+  "baseline_source": "70f90181245ff1ca5d0930bc2e332762d99ebde1",
+  "native_timers": [
+    {
+      "definition": 255,
+      "due": 0.5,
+      "expiry": 2.0
+    }
+  ],
+  "previous_gpu_active_timer_mask_words": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "discovery": "Previous GPU canceled a pure instant clock without an ActiveBuff; previous capacity CPU observer did not compare clocks"
+}

@@ -9,23 +9,24 @@
   "gpu_execution_performed": false,
   "issues": {
     "Unported buff or recipient selector": 245,
-    "Unported instant or recipient selector": 37,
+    "Unported instant or recipient selector": 30,
     "Unported trigger timing: event:part_destroy": 16,
     "Unported enemy damage selector": 12,
     "Unported trigger timing: event:enemy_spawn": 10,
-    "Unported effect fields: remove_scope": 10,
+    "Unported trigger timing: charge_hold:1": 10,
     "Unported trigger timing: enemy_death": 9,
     "Unported effect fields: scaling": 8,
     "Unported predicate: target_code:전격": 7,
     "Unported effect fields: end_on_shield_consumed": 7,
     "Unported trigger timing: charge_hold:0.5": 6,
-    "Unported trigger timing: charge_hold:1": 6,
     "Unported predicate: self_state:바니 모드 : 인게이지": 6,
     "Unported predicate: self_state:바니 모드 : 스탠스": 6,
     "Unported predicate: target_code:풍압": 5,
     "Unported trigger timing: event:projectile_destroy": 4,
     "Unported predicate: prob:20": 4,
     "Unported predicate: target_state:사슬 감기": 4,
+    "Unported trigger timing: event:바니 모드 : 인게이지": 4,
+    "Unported trigger timing: event:바니 모드 : 스탠스": 4,
     "Unported trigger timing: non_full_charge_fire_count:3": 4,
     "Unported trigger timing: charge_hold_count:1:3": 4,
     "Unported predicate: self_state:무대 파트 : 보컬": 4,
@@ -48,8 +49,6 @@
     "Unported damage family": 2,
     "Unported predicate: core_hit": 2,
     "Unported predicate: optimal_range": 2,
-    "Unported trigger timing: event:바니 모드 : 인게이지": 2,
-    "Unported trigger timing: event:바니 모드 : 스탠스": 2,
     "Unported predicate: during_shield": 2,
     "Unported trigger timing: squad_burst_cast:1": 2,
     "Unported predicate: target_state:붐 인스톨": 2,
@@ -98,23 +97,24 @@
   },
   "diagnostic_semantic_issues": {
     "Unported buff or recipient selector": 245,
-    "Unported instant or recipient selector": 37,
+    "Unported instant or recipient selector": 30,
     "Unported trigger timing: event:part_destroy": 16,
     "Unported enemy damage selector": 12,
     "Unported trigger timing: event:enemy_spawn": 10,
-    "Unported effect fields: remove_scope": 10,
+    "Unported trigger timing: charge_hold:1": 10,
     "Unported trigger timing: enemy_death": 9,
     "Unported effect fields: scaling": 8,
     "Unported predicate: target_code:전격": 7,
     "Unported effect fields: end_on_shield_consumed": 7,
     "Unported trigger timing: charge_hold:0.5": 6,
-    "Unported trigger timing: charge_hold:1": 6,
     "Unported predicate: self_state:바니 모드 : 인게이지": 6,
     "Unported predicate: self_state:바니 모드 : 스탠스": 6,
     "Unported predicate: target_code:풍압": 5,
     "Unported trigger timing: event:projectile_destroy": 4,
     "Unported predicate: prob:20": 4,
     "Unported predicate: target_state:사슬 감기": 4,
+    "Unported trigger timing: event:바니 모드 : 인게이지": 4,
+    "Unported trigger timing: event:바니 모드 : 스탠스": 4,
     "Unported trigger timing: non_full_charge_fire_count:3": 4,
     "Unported trigger timing: charge_hold_count:1:3": 4,
     "Unported predicate: self_state:무대 파트 : 보컬": 4,
@@ -137,8 +137,6 @@
     "Unported damage family": 2,
     "Unported predicate: core_hit": 2,
     "Unported predicate: optimal_range": 2,
-    "Unported trigger timing: event:바니 모드 : 인게이지": 2,
-    "Unported trigger timing: event:바니 모드 : 스탠스": 2,
     "Unported predicate: during_shield": 2,
     "Unported trigger timing: squad_burst_cast:1": 2,
     "Unported predicate: target_state:붐 인스톨": 2,
@@ -187,7 +185,7 @@
   },
   "missing_families": {
     "damage_modifiers": 127,
-    "effect_lifecycle": 93,
+    "effect_lifecycle": 84,
     "weapon": 69,
     "damage": 56,
     "protection": 50,
@@ -1755,11 +1753,10 @@
             "full_burst_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "유탄 즉발 폭발",
@@ -5110,11 +5107,10 @@
             "full_burst_end"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "정의 집행 2",
@@ -5125,13 +5121,10 @@
             "full_burst_end"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "정의로운 수단",
@@ -7874,11 +7867,10 @@
             "full_burst_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "열차 탑승 도와줄게!",
@@ -42407,12 +42399,12 @@
             "not_self_state:바니 모드 : 스탠스"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: remove_scope",
+          "diagnostic_semantic_issue": "Unported trigger timing: charge_hold:1",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: remove_scope"
+          "issue": "Unported trigger timing: charge_hold:1"
         },
         {
           "name": "바니 모드 : 인게이지",
@@ -42470,10 +42462,10 @@
             "self_state:바니 모드 : 인게이지"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: remove_scope",
+          "diagnostic_semantic_issue": "Unported trigger timing: charge_hold:1",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: remove_scope"
+          "issue": "Unported trigger timing: charge_hold:1"
         },
         {
           "name": "어떻게 하는 게 좋아…? (동기화 스탠스 해제)",
@@ -42485,12 +42477,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: remove_scope",
+          "diagnostic_semantic_issue": "Unported trigger timing: event:바니 모드 : 인게이지",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: remove_scope"
+          "issue": "Unported trigger timing: event:바니 모드 : 인게이지"
         },
         {
           "name": "바니 모드 : 인게이지",
@@ -42519,10 +42511,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: remove_scope",
+          "diagnostic_semantic_issue": "Unported trigger timing: event:바니 모드 : 스탠스",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: remove_scope"
+          "issue": "Unported trigger timing: event:바니 모드 : 스탠스"
         },
         {
           "name": "바니 모드 : 스탠스",
@@ -42951,12 +42943,12 @@
             "not_self_state:바니 모드 : 스탠스"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: remove_scope",
+          "diagnostic_semantic_issue": "Unported trigger timing: charge_hold:1",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: remove_scope"
+          "issue": "Unported trigger timing: charge_hold:1"
         },
         {
           "name": "바니 모드 : 인게이지",
@@ -43011,10 +43003,10 @@
             "self_state:바니 모드 : 인게이지"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: remove_scope",
+          "diagnostic_semantic_issue": "Unported trigger timing: charge_hold:1",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: remove_scope"
+          "issue": "Unported trigger timing: charge_hold:1"
         },
         {
           "name": "바니 시프트 (동기화 스탠스 해제)",
@@ -43026,12 +43018,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: remove_scope",
+          "diagnostic_semantic_issue": "Unported trigger timing: event:바니 모드 : 인게이지",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: remove_scope"
+          "issue": "Unported trigger timing: event:바니 모드 : 인게이지"
         },
         {
           "name": "바니 모드 : 인게이지",
@@ -43060,10 +43052,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: remove_scope",
+          "diagnostic_semantic_issue": "Unported trigger timing: event:바니 모드 : 스탠스",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: remove_scope"
+          "issue": "Unported trigger timing: event:바니 모드 : 스탠스"
         },
         {
           "name": "바니 모드 : 스탠스",
@@ -46249,11 +46241,10 @@
             "on_attack"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "록 온 해제 (엄폐)",
@@ -46264,11 +46255,10 @@
             "event:cover"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "오토 파이어 레디1",
@@ -53884,13 +53874,10 @@
           "conditions": [
             "self_state:퍼포먼스"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: remove_scope",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: remove_scope"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "무대 파트 : 보컬",
@@ -58677,11 +58664,10 @@
             "event:state_end:섬멸 태세"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -61982,13 +61968,10 @@
             "full_burst_end"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: remove_scope",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: remove_scope"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "철・권・제・재! 2",
@@ -62961,11 +62944,12 @@
     "app/portable_lifesteal_reference.py": "eeb7dd998fce96afbc032e95b5f9b7454cb0f408d4472bfd6dae9f23a64a1104",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
     "app/portable_reference_specs.py": "de22b095242d7fd64ac1cdd362011fda0f48ea2f33e84be58dd348bc7400ff1a",
+    "app/portable_removal_specs.py": "65eeea6e89b54a4215ec93c6658d26231f4c8a656d3ac8b2ddd52ef5bcec0fcf",
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
     "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
-    "app/portable_runtime.py": "7c3d5a11651d7d800977867b1626dd256487a6c5bc2b716704c03e0caf63214e",
+    "app/portable_runtime.py": "095e5e1d9162d8a59375cabc5b32a2ef90166fadfbdac3bc623b5ad1a606df39",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "5dc1cb546563566749034a92c1002fa549d553e0e4b29e3928bb5a7cea0bb793",
+    "app/portable_specs.py": "e18705f0502d4c57dde0ffa852da7260b74c5d1ce613037834f1bd8b17dfc624",
     "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
     "app/portable_trigger_specs.py": "de8354e952352ce0e40bf3f8ddf97f36595500ea3e7436672ae4ba0934871040",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
@@ -63014,14 +62998,16 @@
     "research/upstream/nikke-calc-master/runner/snapshot.py": "fb86552304db9789ed36b7e5bfb2ab18374f581fc61a32b05cf04e973e555dbd",
     "research/upstream/nikke-calc-master/runner/spec.py": "609ec07a8db4a88e0a2912193b4bfb0b1433e8f11d2ec32f43d4c5f014b0e730",
     "research/upstream/nikke-calc-master/runner/squads.py": "22247095ff5737c98173b5ac92dbd268bbc74828a2fcaa28018f8eb23db93e7a",
-    "scripts/audit-portable-catalog.py": "9ea2bf81cc21495edb750816203c21cf5173fe75f0ab0eb4cfd6e677b97cde23",
+    "scripts/audit-portable-catalog.py": "91c45a36e0df14bd969aef355e913f1cb1d819f7c002d4129ce1f5ddb22ababe",
     "scripts/detail_coverage.py": "eef94f7675f270e8a4870323cb1e55e8506f2e5fe47e6fa4b1645d9aaf71dc40",
     "scripts/portable_landing_oracle.py": "318d4436c3636724112025866cd8e21f692772b96a83450e7bf3fae020484b45",
     "scripts/portable_lifesteal_oracle.py": "082a9149627a837f0efd0ff966af6de8868be3a7b776bdc7b8b21dc13ae0d531",
+    "scripts/portable_removal_oracle.py": "6f54afe8946bd4e9c43744ade97c971d0716e9f69971806d81a2ec1817baad77",
     "scripts/portable_source_oracle.py": "97475bdc1a97ddb67281c08bbfb7ee95978826e3f834f271155933fc4e631970",
     "tests/fixtures/portable-landings.json": "351c697e09cc503a03c91910b2b902e84c20acb6ad110d8532409f4036100a1b",
     "tests/fixtures/portable-lifesteal-prototype.json": "7cb6cc69c90263f1aacaa86d777ef52e519e1d169386eba3093bb0d38b294ac0",
     "tests/fixtures/portable-reference-scales.json": "e0e26b2691affa2f30e1456c9bf49923c24f0a63667c16da45f73a31c7ad61bd",
+    "tests/fixtures/portable-removal.json": "281ff16740dc9b7331784990a38f5cdb7f486c59a8d37b41d1602f94c0434b39",
     "tests/fixtures/portable-resources.json": "d3e83f6c000d3f98cf94c42facabb4db6eb9d6eb341600866b52979eb16c52d4",
     "tests/fixtures/portable-sources.json": "7c67eb17ad96eff5237e1a14de38ef5f30494cba272cf56da8acb0ce7c45ec86",
     "tests/fixtures/portable-staged.json": "d3da4ed61ef8be36f8d3e43a6c9a413f2f8547911eea3a913b4554dc4cf2f245"

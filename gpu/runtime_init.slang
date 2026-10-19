@@ -106,7 +106,6 @@ void initializeRuntime(inout Runtime s)
         s.bulletInitialized[index] = 0;
         s.bulletLeft[index] = 0;
         s.carrierDefinition[index] = 0;
-        s.removalQueue[index] = 0;
         s.lazyPending[index] = 0;
         s.lazyLink[index] = 0;
         s.queryAllowed[index] = 0;

@@ -37,7 +37,9 @@ def canonicalize(raw,count):
   for j in range(L['LANDINGS']):
    at=a+start+j*12;dst=b+start+j*8;r=wide[at:at+12];mask=256 if r[2]==0xffffffff else r[2]
    compact[dst:dst+8]=array.array('I',[r[0]|r[1]<<8|mask<<11,r[3],*r[4:8],r[8]|r[9]<<9|r[10]<<18,r[11]])
-  assert not any(wide[a+start+L['LANDINGS']*12:a+98304])
+  wide_queue=a+start+L['LANDINGS']*12;dst=b+L['REMOVAL_QUEUE_BASE'];size=L['REMOVALS']//2
+  compact[dst:dst+size]=wide[wide_queue:wide_queue+size]
+  assert not any(wide[wide_queue+size:a+98304])
  if sys.byteorder!='little':compact.byteswap()
  return compact.tobytes()
 

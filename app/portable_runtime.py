@@ -4,6 +4,8 @@ This is an external-stimulus evaluator, not the autonomous weapon/burst loop.
 No CPU simulation or CPU-produced state is supplied to the GPU.
 """
 import math
+import array
+import sys
 import re
 import struct
 
@@ -37,10 +39,13 @@ def validate_effect(eff, *, combat=None):
     resource_op=resource_operation(eff);validate_resource(eff)
     from periodic_source_specs import specification as source_specification
     source_spec=source_specification(eff)
+    from portable_removal_specs import plan as removal_plan
+    removal=removal_plan(eff,combat=combat)
     if eff.get('type')=='damage' and not isinstance(eff.get('stat',''),str):raise UnsupportedPortable('Damage family must be a string')
     allowed = {'name','source','type','stat','fixed_value','values','duration','duration_values',
                'target','trigger','note','polarity','favorite','_source_tag','_quant_group','max_ammo_reduction_exclusive','trigger_values','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
     if eff.get('type')=='damage' and eff.get('stat')=='dot_damage':allowed |= {'ramp_interval','ramp_damage_stack','post_ramp_tick_delay'}
+    if removal is not None:allowed |= {'remove_scope'}
     if source_spec:allowed |= {'periodic_source','feather_id','feather_slots','feather_interval_base','feather_interval_step_pct'}
     if resource_op:allowed |= {'gauge_id','gauge_max'}
     if eff.get('type')=='damage':
@@ -88,7 +93,7 @@ def validate_effect(eff, *, combat=None):
             if route>=2 and combat is None:raise ValueError('Enemy selection requires combat-owned targets')
         except ValueError as error:raise UnsupportedPortable(str(error)) from error
     elif kind=='instant':
-        if source_spec or resource_op in (1,2,3):pass
+        if removal is not None or source_spec or resource_op in (1,2,3):pass
         elif stat in ('ammo_charge_pct','ammo_charge_flat','heal_hp_pct','cover_heal_pct','cover_revive','current_hp_reduce','burst_cooldown_reduce','burst_charge_pct'):
             if not recipient_admitted(target,instant=True):raise UnsupportedPortable('Unported health recipient selector')
             if eff.get('scaling') not in (None,'max_hp') or stat not in ('heal_hp_pct','cover_heal_pct','current_hp_reduce') and eff.get('scaling') is not None:raise UnsupportedPortable('Unported healing basis')
@@ -192,7 +197,12 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     for index,row in enumerate(program['effects']):
         key=merge_key(index,row)
         if key is not None:merge_groups[key]=merge_groups.get(key,0)+1
+    from portable_removal_specs import plan as removal_plan
     for index,row in enumerate(program['effects']):
+        removal=removal_plan(effects[index][0],combat=combat)
+        if removal is not None and removal[0]==1:pack_recipients(words,index,row,L,effects[index][0],stat_keys[(effects[index][0].get('type'),effects[index][0].get('stat',''))],False,0)
+        if removal is not None and removal[0]==2:
+            packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS'];words[packet:packet+8]=[*removal[1],0,0,0,0,0,0]
         if row[1] in (0,4,5,6,7,8,12,13,14,24,30):pack_recipients(words,index,row,L,effects[index][0],stat_keys[(effects[index][0].get('type'),effects[index][0].get('stat',''))],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],effects[index][0].get('target')),0) if effects[index][0].get('type')=='buff' else 0)
         if effects[index][0].get('type')=='damage':
             route,count,hits=damage_plan(effects[index][0])
@@ -230,7 +240,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
                 'EVENT':int(row[145]),'THRESHOLD':int(row[146]),'COUNT_MODE':int(row[147]),
                 'EVENT_NAME':int(row[148]),'TARGET_NAME':int(row[36]),
                 'FORCE_MASK':int(row[legacy.B3_MASK]),'RECIPIENTS':31 if row[4]==1 else 1<<int(row[0]),
-                'TARGET':int(bool(effects[index][0].get('name'))) if row[1] in (2,13) else int(effects[index][0].get('target')=='boss'), 'STAGE_ARG':int(row[151]),
+                'TARGET':removal[0] if removal is not None else int(bool(effects[index][0].get('name'))) if row[1] in (2,13) else int(effects[index][0].get('target')=='boss'), 'STAGE_ARG':int(row[151]),
                 'STAGE_OVERRIDE':int(row[252]),'REENTRY':int(row[253]),'TOGGLE':int(bool(int(row[213]) & 128)), 'DAMAGE_FLAGS':int(row[39])}
         for key,value in fields.items():compact[F[key]]=value & 0xffffffff
         for key,offset in [('VALUE',6),('DURATION',7),('INTERVAL',59)]:compact[F[key]:F[key]+2]=double_words(row[offset])
@@ -482,15 +492,23 @@ def decode(words,metadata):
     return dict(landing_queue=dict(native=bool(metadata.get('native_landing')),enqueued=words[landing+2],landed=words[landing+3],drains=words[landing+4],peak=words[landing+5],entries=pending_landings),staged_applications=staged_rows,periodic_sources=sources,source_queries=source_queries,reference_captures=captures,**resource_state,periodic_bindings=periodic,pending_burst=dict(count=count,enqueued=words[pending+1],fired=words[pending+2],entries=queue),covers=covers,body_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+20+2*k) for k in range(5)],add_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+30+2*k) for k in range(5)],scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+2*k) for k in range(5)],add_overkill=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+10+2*k) for k in range(5)],target_scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+40+2*k) for k in range(len((metadata.get('combat') or {}).get('targets',[])))],bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
 
 
-def run_programs(programs, *, backend='metal'):
+def pack_programs(programs):
     if not programs or len(programs)>L['BATCH']:raise ValueError('Portable batch capacity exceeded')
-    words=[len(programs)]
+    words=array.array('I',[len(programs)])
+    if words.itemsize!=4:raise RuntimeError('Portable wire requires 32-bit unsigned words')
     for program,metadata in programs:
         if len(program)!=L['INPUT_WORDS']:raise ValueError('Invalid program stride')
         words.extend(program)
-    packed=struct.pack('<'+'I'*len(words),*words)
+    if sys.byteorder!='little':words.byteswap()
+    return words.tobytes()
+
+
+def run_programs(programs, *, backend='metal'):
+    packed=pack_programs(programs)
     raw,evidence=execute('gpu/event_runtime.slang','portableEvents',packed,L['INPUT_WORDS'],L['OUTPUT_WORDS'],backend)
-    output=struct.unpack('<'+'I'*(len(programs)*L['OUTPUT_WORDS']),raw)
+    output=array.array('I');output.frombytes(raw)
+    if len(output)!=len(programs)*L['OUTPUT_WORDS']:raise RuntimeError('Invalid GPU output stride')
+    if sys.byteorder!='little':output.byteswap()
     results=[decode(output[i*L['OUTPUT_WORDS']:(i+1)*L['OUTPUT_WORDS']],metadata) for i,(_,metadata) in enumerate(programs)]
     if any(r['status'] for r in results):
         raise PortableExecutionError(results,evidence)

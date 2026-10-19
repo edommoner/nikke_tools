@@ -1408,7 +1408,7 @@
       ]
     },
     {
-      "name": "named-removal-restores-weapon",
+      "name": "named-removal-keeps-independent-weapon-mode",
       "combat": {
         "weapons": [
           {
@@ -1548,18 +1548,67 @@
             0,
             0,
             0
-          ]
+          ],
+          "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
+            "weapons": [
+              {
+                "ammo": 1,
+                "shots": 1,
+                "next": 0.25,
+                "reload_until": -1.0
+              }
+            ]
+          }
         },
         {
           "damage": [
-            3000,
+            4000,
             0,
             0,
             0,
             0
-          ]
+          ],
+          "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
+            "weapons": [
+              {
+                "ammo": 0,
+                "shots": 2,
+                "next": 0.5,
+                "reload_until": -1.0
+              }
+            ]
+          }
         }
-      ]
+      ],
+      "corrected_legacy_expectation": {
+        "name": "named-removal-restores-weapon",
+        "queries": [
+          {
+            "damage": [
+              2000,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "damage": [
+              3000,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "reason": "Pinned native named buff removal does not end weapon_change state"
+      },
+      "weapon_reference": true
     },
     {
       "name": "pellet-packets-counters-resource-separation",
@@ -4051,7 +4100,7 @@
       ]
     },
     {
-      "name": "last-bullet-child-cannot-consume-restored-magazine",
+      "name": "named-removal-last-bullet-keeps-mode-magazine",
       "combat": {
         "weapons": [
           {
@@ -4193,35 +4242,84 @@
             0
           ],
           "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
             "weapons": [
               {
-                "ammo": 10,
-                "mode_index": -1
+                "ammo": 0,
+                "shots": 1,
+                "next": 0.25,
+                "reload_until": -1.0
               }
             ]
           }
         },
         {
           "damage": [
-            3000,
+            2000,
             0,
             0,
             0,
             0
           ],
           "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
             "weapons": [
               {
-                "ammo": 9,
-                "mode_index": -1
+                "ammo": 0,
+                "shots": 1,
+                "next": 0.25,
+                "reload_until": 1.25
               }
             ]
           }
         }
-      ]
+      ],
+      "corrected_legacy_expectation": {
+        "name": "last-bullet-child-cannot-consume-restored-magazine",
+        "queries": [
+          {
+            "damage": [
+              2000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 10,
+                  "mode_index": -1
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 9,
+                  "mode_index": -1
+                }
+              ]
+            }
+          }
+        ],
+        "reason": "Pinned native named buff removal does not end weapon_change state"
+      },
+      "weapon_reference": true
     },
     {
-      "name": "charge-pellet-child-preserves-new-magazine",
+      "name": "named-removal-charge-pellet-keeps-mode-magazine",
       "combat": {
         "weapons": [
           {
@@ -4383,7 +4481,19 @@
             0,
             0,
             0
-          ]
+          ],
+          "combat": {
+            "gauge": 0,
+            "clock": "grid",
+            "weapons": [
+              {
+                "ammo": 1,
+                "shots": 0,
+                "next": 0.0,
+                "reload_until": -1.0
+              }
+            ]
+          }
         },
         {
           "damage": [
@@ -4394,32 +4504,90 @@
             0
           ],
           "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
             "weapons": [
               {
-                "ammo": 10,
-                "mode_index": -1
+                "ammo": 0,
+                "shots": 1,
+                "next": 0.0,
+                "reload_until": -1.0
               }
             ]
           }
         },
         {
           "damage": [
-            4000,
+            3000,
             0,
             0,
             0,
             0
           ],
           "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
             "weapons": [
               {
-                "ammo": 9,
-                "mode_index": -1
+                "ammo": 0,
+                "shots": 1,
+                "next": 0.0,
+                "reload_until": 1.75
               }
             ]
           }
         }
-      ]
+      ],
+      "corrected_legacy_expectation": {
+        "name": "charge-pellet-child-preserves-new-magazine",
+        "queries": [
+          {
+            "damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "damage": [
+              3000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 10,
+                  "mode_index": -1
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              4000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "weapons": [
+                {
+                  "ammo": 9,
+                  "mode_index": -1
+                }
+              ]
+            }
+          }
+        ],
+        "reason": "Pinned native named buff removal does not end weapon_change state"
+      },
+      "weapon_reference": true
     }
   ]
 }

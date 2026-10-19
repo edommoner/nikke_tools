@@ -1,0 +1,4697 @@
+{
+  "cases": [
+    {
+      "name": "removal-default-global",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State"
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-global-ignores-audience",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "all_allies_excl_self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "global"
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-target-self",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            10,
+            10,
+            10,
+            10
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-target-right",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "allies_right:1",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            10,
+            0,
+            10,
+            10,
+            10
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-target-empty",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "allies:0",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            10,
+            10,
+            10,
+            10,
+            10
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-target-all",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-instant-rank-at-activation",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "boost",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 600,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:full_reload"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "allies_top_atk:1",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.05,
+          0,
+          19,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            600,
+            10,
+            10,
+            10,
+            10
+          ]
+        }
+      ],
+      "removal_reference": true,
+      "base_atk": [
+        1000,
+        2000,
+        3000,
+        4000,
+        5000
+      ]
+    },
+    {
+      "name": "removal-with-buff-recipient",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Marker",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_dmg",
+          "fixed_value": 1,
+          "target": "allies_right:1",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "allies_with_buff:Marker",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            10,
+            0,
+            10,
+            10,
+            10
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-exact-name-not-prefix",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "State child",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 20,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "global"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            20,
+            20,
+            20,
+            20,
+            20
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-partial-does-not-end-instance",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Ended",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:state_end:State"
+            ],
+            "condition": []
+          },
+          "max_stack": 99
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            10,
+            10,
+            10,
+            10
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-last-recipient-emits-once",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Ended",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:state_end:State"
+            ],
+            "condition": []
+          },
+          "max_stack": 99
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-multi-caster-batch-before-children",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 20,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Ended",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:state_end:State"
+            ],
+            "condition": []
+          },
+          "max_stack": 99
+        },
+        {
+          "name": "Ended",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:state_end:State"
+            ],
+            "condition": []
+          },
+          "max_stack": 99
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            1,
+            1,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-children-recreate-retired-slots",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start",
+              "event:state_end:State"
+            ],
+            "condition": []
+          },
+          "max_trigger": 2
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            10,
+            10,
+            10,
+            10,
+            10
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-unresolved-lazy-target",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "invincible",
+          "fixed_value": 1,
+          "target": "allies_top_atk:1",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        },
+        {
+          "name": "Ended",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:state_end:State"
+            ],
+            "condition": []
+          },
+          "max_stack": 99
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-unresolved-lazy-global",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "invincible",
+          "fixed_value": 1,
+          "target": "allies_top_atk:1",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "global"
+        },
+        {
+          "name": "Ended",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:state_end:State"
+            ],
+            "condition": []
+          },
+          "max_stack": 99
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-resolved-lazy-selected-only",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "allies_top_atk:1",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            10,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-pure-instant-clock-survives-global",
+      "effects": [
+        {
+          "name": "Clock",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "heal_hp_pct",
+          "fixed_value": 10,
+          "target": "self",
+          "duration": 2,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "tick_interval": 0.25
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "Clock",
+          "remove_scope": "global"
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 600
+            }
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-pure-instant-clock-survives-target",
+      "effects": [
+        {
+          "name": "Clock",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "heal_hp_pct",
+          "fixed_value": 10,
+          "target": "self",
+          "duration": 2,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "tick_interval": 0.25
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "Clock",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 600
+            }
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-enemy-boss",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "def_pct",
+          "fixed_value": -20,
+          "target": "all_enemies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "boss",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        },
+        {
+          "name": "Ended",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 99,
+          "trigger": {
+            "timing": [
+              "event:state_end:State"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          },
+          "attack_buffs": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -20
+          },
+          "attack_buffs": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -20
+          },
+          "attack_buffs": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-enemy-all_enemies",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "def_pct",
+          "fixed_value": -20,
+          "target": "all_enemies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "all_enemies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        },
+        {
+          "name": "Ended",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 99,
+          "trigger": {
+            "timing": [
+              "event:state_end:State"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          },
+          "attack_buffs": [
+            3,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          },
+          "attack_buffs": [
+            3,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          },
+          "attack_buffs": [
+            3,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-enemy-enemies_lowest_hp:1",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "def_pct",
+          "fixed_value": -20,
+          "target": "all_enemies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "enemies_lowest_hp:1",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        },
+        {
+          "name": "Ended",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 99,
+          "trigger": {
+            "timing": [
+              "event:state_end:State"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": -20
+          },
+          "attack_buffs": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          },
+          "attack_buffs": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -20
+          },
+          "attack_buffs": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-retained-dot-boss",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "duration": 2,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "tick_interval": 0.25
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "boss",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-retained-dot-all_enemies",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "all_enemies",
+          "duration": 2,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "tick_interval": 0.25
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "all_enemies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-partial-preserves-bullet-maps",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration_bullets": 2
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 20,
+            "interval": 0.25,
+            "coefficient": 100,
+            "gauge": 0
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            10,
+            10,
+            10,
+            10
+          ]
+        }
+      ],
+      "removal_reference": false,
+      "bullet_reference": true
+    },
+    {
+      "name": "removal-in-activation-keeps-native-health-postprocessing",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_hp_pct",
+          "fixed_value": 10,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:State"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "allies": [
+            {
+              "hp": 600,
+              "max_hp": 1000
+            },
+            {
+              "hp": 600,
+              "max_hp": 1100
+            }
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-literal-catalog-ally",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "크라운",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            10,
+            0,
+            10,
+            10,
+            10
+          ]
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-eight-enemy-end-notices",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "def_pct",
+          "fixed_value": -20,
+          "target": "all_enemies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "all_enemies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        },
+        {
+          "name": "Ended",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 99,
+          "trigger": {
+            "timing": [
+              "event:state_end:State"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 2
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 3
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 4
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 5
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 6
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            8,
+            0,
+            0,
+            0,
+            0
+          ],
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-eight-enemy-natural-expiry",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "def_pct",
+          "fixed_value": -20,
+          "target": "all_enemies",
+          "duration": 0.2,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "all_enemies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        },
+        {
+          "name": "Ended",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 99,
+          "trigger": {
+            "timing": [
+              "event:state_end:State"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 2
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 3
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 4
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 5
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 6
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            8,
+            0,
+            0,
+            0,
+            0
+          ],
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ],
+      "removal_reference": true
+    },
+    {
+      "name": "removal-three-enemy-natural-expiry",
+      "effects": [
+        {
+          "name": "State",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "def_pct",
+          "fixed_value": -20,
+          "target": "all_enemies",
+          "duration": 0.2,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Removal",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 0,
+          "target": "all_enemies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "target_effect": "State",
+          "remove_scope": "target"
+        },
+        {
+          "name": "Ended",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 99,
+          "trigger": {
+            "timing": [
+              "event:state_end:State"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 1000000000000.0,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          },
+          {
+            "base_hp": 1000,
+            "hp": 500
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ],
+      "removal_reference": true
+    }
+  ]
+}

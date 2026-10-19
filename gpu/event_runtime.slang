@@ -47,7 +47,7 @@ struct Runtime
     uint resourceCount, resourceAmmoObserved, resourceTraceCount, resourceTraceTotal, resourceOutput;
     uint bulletHead, bulletTail, bulletCount, bulletLinked[P_CARRIERS], bulletPrev[P_CARRIERS], bulletNext[P_CARRIERS], bulletInitialized[P_CARRIERS];
     int bulletLeft[P_CARRIERS]; uint recipientBullets[P_CARRIERS*5], recipientStacks[P_CARRIERS*5];
-    uint carrierCount, carrierDefinition[P_CARRIERS], multiCarrier[P_DEFINITIONS], removalCount, removalQueue[P_CARRIERS];
+    uint carrierCount, carrierDefinition[P_CARRIERS], multiCarrier[P_DEFINITIONS], removalCount;
     uint lazyPending[P_CARRIERS], lazyLink[P_CARRIERS], lazyPendingCount, lazyMappedPendingCount, lazyEnabled;
     uint cacheCount, cacheCursor, cacheEvaluations, cacheReuses;
     uint cacheGroup[P_LAZY_CACHE], cacheMask[P_LAZY_CACHE], cacheOrder[P_LAZY_CACHE], cacheRefs[P_LAZY_CACHE];
@@ -405,6 +405,7 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
 #include "enemy_damage_runtime.slang"
 #include "landing_runtime.slang"
 #include "periodic_runtime.slang"
+#include "removal_runtime.slang"
 #include "event_candidate_runtime.slang"
 #include "pending_burst_runtime.slang"
 
@@ -629,8 +630,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (f.mode == 9)
         {
             if (f.cursor == f.repeatLeft) { s.removalCount = f.value; depth--; continue; }
-            uint payload = s.removalQueue[f.value+f.cursor]; frames[depth].cursor++;
-            pushFrame(s,frames,depth,0,29,payload & 7,int(payload >> 3),f.time); continue;
+            uint payload=loadRemovalNotice(s,f.value+f.cursor);frames[depth].cursor++;
+            pushFrame(s,frames,depth,0,29,payload&7,int(payload>>3),f.time);continue;
         }
         if (f.mode == 8)
         {
@@ -969,16 +970,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         }
         else if (d.kind == 1)
         {
-            int mode = s.modeIndex[d.owner];
-            if (s.combat != 0 && mode >= 0 && s.defs[mode].name == uint(d.targetName))
-            { uint name = s.defs[mode].name; clearMode(s,d.owner,f.time); pushFrame(s,frames,depth,0,29,d.owner,int(name),f.time); }
             uint begin = s.removalCount;
-            for (uint pass = 0; pass < s.orderedCount && s.error == 0; pass++)
-            {
-                uint slot = s.orderedRows[pass];
-                if (s.alive[slot] != 0 && residentDefinition(s,slot).name == uint(d.targetName)) queueCarrierEnd(s,slot);
-            }
-            for (uint j = 0; j < s.count; j++) if (s.defs[j].name == uint(d.targetName)) s.timerActive[j] = 0;
+            removeNamedResidents(s,row,f.target,f.time);
             if (s.removalCount > begin) pushFrame(s,frames,depth,9,0,0,int(begin),f.time);
         }
         else if (d.kind == 33) pushFrame(s,frames,depth,2,0,d.owner,int(row),f.time);
@@ -1224,8 +1217,9 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         if (d.kind == 3 && (d.damageRoute > 9 || d.damageCount == 0 || d.damageCount > 256 || d.damageHits > 256 ||
             d.damageRoute >= 2 && s.combat == 0 || !f64Finite(d.damageGauge) || f64Less(d.damageGauge,0) && !f64Equal(d.damageGauge,F64_SIGN | ONE) || f64Less(f64FromI64(1000000),d.damageGauge) ||
             d.damageNormal > 1 || d.damagePending > 1 || d.damagePending == 0 && d.pendingHits != 0 || d.damagePending != 0 && (s.combat == 0 || d.damageHits != 1 || d.damageFlags != 0 || d.damageNormal != 0 || d.pendingHits == 0 || d.pendingHits > 256))) { s.error = 64; break; }
-        if ((d.kind == 3 || d.enemyBuff != 0) && (d.damageRoute == 7 || d.damageRoute == 8))
+        if ((d.kind == 3 || d.enemyBuff != 0 || d.kind == 1 && d.target == 2) && (d.damageRoute == 7 || d.damageRoute == 8))
             for (uint target = 1; target < s.targetCount; target++) if (!f64Zero(s.targetDefense[target])) { s.error = 64; break; }
+        if(!validRemovalDefinition(input,s.combat,j)) { s.error=64;break; }
         uint bullet = input+P_BULLET_DEFINITION_BASE+j*2;
         d.bulletDuration = commands[bullet]; d.bulletBound = commands[bullet+1];
         if (d.bulletDuration > 0x7fffffff || d.bulletBound > 1 || d.bulletDuration == 0 && d.bulletBound != 0 || d.bulletDuration != 0 && (s.combat == 0 || d.kind != 0 && d.kind != 4)) { s.error = 64; break; }

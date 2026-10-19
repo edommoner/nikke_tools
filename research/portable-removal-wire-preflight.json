@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "gpu_execution_verified": false,
+  "scope": "Typed full positive/rejection input construction only; GPU execution deliberately not performed",
+  "positive_inputs": 1092,
+  "rejection_inputs": 195,
+  "batched_inputs": 1287,
+  "input_sha256": "c3ea4f89b66fd878f781a2cd4c2d3a5d54eb8affb3cd016056abc468720d7e8d",
+  "input_words": 77824,
+  "output_words": 90112,
+  "legacy_input_bytes_equal": true,
+  "source": "gpu/event_runtime.slang",
+  "entry": "portableEvents"
+}

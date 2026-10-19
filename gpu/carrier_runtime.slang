@@ -35,11 +35,27 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
     uint slot = s.carrierCount++; s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot;
 }
 
-void queueCarrierEnd(inout Runtime s, uint slot)
+// GPU-owned 16-bit payloads use existing output alignment padding. No
+// private queue array or extra dispatch-frame branch is needed for repeats.
+uint loadRemovalNotice(inout Runtime s,uint index)
 {
-    Definition d = residentDefinition(s,slot);
-    unlinkBulletCarrier(s,slot); discardLazy(s,slot); s.alive[slot] = 0; s.stacks[slot] = 0;
-    if (s.removalCount == P_CARRIERS) { s.error = 64; return; }
-    // Capture the notification payload before callbacks can recycle this slot.
-    s.removalQueue[s.removalCount++] = d.owner | (d.name << 3);
+    uint at=s.resourceOutput+P_REMOVAL_QUEUE_BASE+index/2;
+    return (results[at]>>((index&1)*16))&65535;
+}
+void queueRemovalNotice(inout Runtime s,uint owner,uint name,uint repeats=1)
+{
+    if(name>=P_DEFINITIONS || repeats==0) return;
+    if(repeats>8 || s.removalCount>P_REMOVALS-repeats) { s.error=64;return; }
+    for(uint i=0;i<repeats;i++)
+    {
+        uint index=s.removalCount++,at=s.resourceOutput+P_REMOVAL_QUEUE_BASE+index/2,shift=(index&1)*16;
+        results[at]=(results[at]&~(65535U<<shift))|((owner|(name<<3))<<shift);
+    }
+}
+void queueCarrierEnd(inout Runtime s,uint slot,uint repeats=0)
+{
+    uint definition=s.carrierDefinition[slot];
+    if(repeats==0) repeats=s.defs[definition].enemyBuff!=0 ? countbits(s.activeRecipients[slot]>>5) : 1;
+    unlinkBulletCarrier(s,slot);discardLazy(s,slot);s.alive[slot]=0;s.stacks[slot]=0;
+    queueRemovalNotice(s,s.defs[definition].owner,s.defs[definition].name,repeats);
 }

@@ -27603,7 +27603,7 @@
       "capacity_reference": true
     },
     {
-      "name": "named-removal-stops-high-definition-timer",
+      "name": "named-removal-keeps-high-definition-instant-clock",
       "effects": [
         {
           "name": "remove high clock",
@@ -31511,11 +31511,41 @@
             0,
             0,
             0,
-            0
+            2147483648
           ]
         }
       ],
-      "capacity_reference": true
+      "capacity_reference": true,
+      "corrected_legacy_expectation": {
+        "name": "named-removal-stops-high-definition-timer",
+        "queries": [
+          {
+            "active_timer_mask_words": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2147483648
+            ]
+          },
+          {
+            "active_timer_mask_words": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "reason": "Native removal only retires timers of removed ActiveBuff instances; pure instant has no ActiveBuff"
+      }
     },
     {
       "name": "named-stack-at-high-definition-preserves-authored-order",
