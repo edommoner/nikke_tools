@@ -212,6 +212,7 @@ static const uint S_hp_caster_based_pct = 39U;
 static const uint S_hp_only_caster_based_pct = 40U;
 static const uint S_max_hp_only_pct = 41U;
 static const uint S_heal_received_pct = 42U;
+static const uint S_lifesteal_pct = 44U;
 static const uint S_def_caster_based_pct = 46U;
 static const uint S_reload_ratio_pct = 49U;
 static const uint S_dot_dmg_pct = 50U;

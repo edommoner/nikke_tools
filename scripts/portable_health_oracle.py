@@ -6,6 +6,24 @@ from calculator import timeline
 from timer_registry_cases import NAMES
 
 
+def apply_incoming(bm,name,attack,coefficient,t,received,hits):
+    if bm.is_down(name):return
+    amount=max(max(attack-bm._effective_def(name),0.0)*coefficient/100.0*max(0.0,1.0+bm.incoming_dmg_pct(name,t)/100.0),1.0)
+    if bm.has_live_stat(name,'invincible',t):amount=0.0
+    if amount and bm.state['hp'][name]-amount<=0 and bm.has_live_stat(name,'undying',t):amount=max(bm.state['hp'][name]-1.0,0.0)
+    if amount and bm.state['hp'][name]-amount<=0:
+        bm.notify('event:lethal_hit',t,name)
+        if bm.has_live_stat(name,'undying',t):amount=max(bm.state['hp'][name]-1.0,0.0)
+    fell=bool(amount) and bm.state['hp'][name]-amount<=0
+    received[name]+=amount;hits[name]+=1
+    if amount:
+        bm.state['hp'][name]=max(0.0,bm.state['hp'][name]-amount)
+        if not fell:bm.sync_hp(name)
+    bm.notify('received_hit',t,name)
+    if fell and not bm.is_down(name):
+        bm.state['hp'][name]=0.0;bm.knock_down(name,t);bm.notify_down(name,t)
+
+
 def observe(case, *, with_carriers=False, with_cover=False):
     chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES]
     raw=[(copy.deepcopy(e),NAMES[o]) for e,o in zip(case['effects'],case.get('owners',[0]*len(case['effects'])))]
@@ -22,22 +40,7 @@ def observe(case, *, with_carriers=False, with_cover=False):
     timeline._register_instant_handlers(bm,{n:object() for n in NAMES},None)
     events={0:'battle_start',7:'on_attack',17:'event:cover_healed',19:'event:full_reload',36:'event:cover_hit'}
     received={n:0.0 for n in NAMES};hits={n:0 for n in NAMES}
-    def land(name,attack,coefficient,t):
-        if bm.is_down(name):return
-        amount=max(max(attack-bm._effective_def(name),0.0)*coefficient/100.0*max(0.0,1.0+bm.incoming_dmg_pct(name,t)/100.0),1.0)
-        if bm.has_live_stat(name,'invincible',t):amount=0.0
-        if amount and bm.state['hp'][name]-amount<=0 and bm.has_live_stat(name,'undying',t):amount=max(bm.state['hp'][name]-1.0,0.0)
-        if amount and bm.state['hp'][name]-amount<=0:
-            bm.notify('event:lethal_hit',t,name)
-            if bm.has_live_stat(name,'undying',t):amount=max(bm.state['hp'][name]-1.0,0.0)
-        fell=bool(amount) and bm.state['hp'][name]-amount<=0
-        received[name]+=amount;hits[name]+=1
-        if amount:
-            bm.state['hp'][name]=max(0.0,bm.state['hp'][name]-amount)
-            if not fell:bm.sync_hp(name)
-        bm.notify('received_hit',t,name)
-        if fell and not bm.is_down(name):
-            bm.state['hp'][name]=0.0;bm.knock_down(name,t);bm.notify_down(name,t)
+    def land(name,attack,coefficient,t):return apply_incoming(bm,name,attack,coefficient,t,received,hits)
     queries=[]
     for t,op,event,who,arg,index,extra,extra2 in case['script']:
         bm.tick(t)

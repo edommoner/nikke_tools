@@ -1,0 +1,61 @@
+{
+  "stage": "working-normal-lifesteal-prototype-skill-landing-incomplete",
+  "passed": false,
+  "gpu_execution_verified": true,
+  "backend": "metal",
+  "device": "Apple M5",
+  "normal_path_cases": 15,
+  "normal_path_passed": true,
+  "existing_positive_cases": 1028,
+  "existing_rejections": 176,
+  "existing_input_output_bytes_retained": true,
+  "unit_tests": 101,
+  "production_lifesteal_admitted": false,
+  "cuda_current_candidate_verified": false,
+  "windows_gpu_runs_this_phase": 0,
+  "stable_cross_gpu_checkpoint": "portable-combat-checkpoint.json",
+  "stable_shared_source_commit": "21e03a0fdd974c7e4a485746d1ddc087e9809666",
+  "known_failure": {
+    "report": "portable-lifesteal-landing-phase-study.json",
+    "native_hp": 250,
+    "gpu_hp": 150,
+    "total_damage_both": 3000,
+    "missing": "Deferred skill landing recovery after named notifications at the native next-frame collection phase"
+  },
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "normal_ui_backend": "cpu",
+  "live_handles": {},
+  "next_actions": [
+    "Implement a shared GPU landing receipt queue with native frame phases and captured packet quantities",
+    "Drain dynamically appended skill landings in native order; preserve newly queued B3 packets after current pending batch",
+    "Connect lifesteal for direct skills, periodic/staged DoT, B3 pending and routed targets before opening production admission",
+    "Run all common/native/full-profile gates, then one necessary bounded fixed-source CUDA verification",
+    "Measure new shared lifesteal/landing work only after correctness and all verification/transfer handles are terminal",
+    "Continue remaining world/lifecycle families and all 203 characters"
+  ],
+  "validation_sha256": {
+    "app/portable_lifesteal_reference.py": "eeb7dd998fce96afbc032e95b5f9b7454cb0f408d4472bfd6dae9f23a64a1104",
+    "app/portable_damage_specs.py": "36c697c5b70d727707a122dc6cd172d53f9269abf4dfc8535081e797cd9b84a5",
+    "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
+    "gpu/event_runtime.slang": "d61ed5beec5f5b6c8546559d1f3c6527588cd11919525aed0855557dd597f64e",
+    "gpu/combat_runtime.slang": "a591883a48576e73de54f96542f47c742be388a0098021d2e8b4751b3194c7e3",
+    "gpu/portable_schema.slang": "085b0d7089cb745673902ce012ef79d24cb63364f96c15ce7ab7170185d5c4ef",
+    "scripts/portable_lifesteal_oracle.py": "628558b3abb3c58effa20c87190c9d1007e3de4043dec338a60e55a1846fe4ed",
+    "scripts/portable_health_oracle.py": "0a10670fdba64a4e5de217869efc4f763ecf1dd67713cc67d7a8a2c25a62ed4f",
+    "tests/test_portable_lifesteal.py": "2fb65d5b453f92f2314e62652f075f3273369dd772a21650996a3a467a1094b1",
+    "tests/fixtures/portable-lifesteal-prototype.json": "1fb42f58ec3a8e9aff6dd5ce82b29e6bbee7f714fe70826a8f45c8d2c30fed8b",
+    "research/verify-portable-lifesteal-prototype.py": "b063fcd5ea6b43d86adfc43d9b1df1d9aef6ec4f7fbf335bd278443f01c41026",
+    "research/study-portable-lifesteal-landing.py": "48c407e20d018ceeb21561508748ad923bc9b77dd1acc1de961b3bb582752d00"
+  },
+  "artifact_sha256": {
+    "research/portable-lifesteal-existing-regression-metal.json": "3b6c685ac39058156a4f8f93d4e0cc704e3c90fbd73c34d71353ccd4870206db",
+    "research/portable-lifesteal-focused-metal.json": "d4ac3d8afbc4e93b75fc7f2961f750fbf87feca83799f1ea85c9898c8a27d3de",
+    "research/portable-lifesteal-landing-phase-study.json": "b6f62496e240731ea559d172ebc3ece1b4dd5e3cb067683862ec5777c612793e",
+    "research/portable-lifesteal-unit-tests.json": "f469a985abcc14bad8661515081b476cb4e0ca9ba4d52cfc5f9bb98568690827"
+  },
+  "prototype_verifier_backend_choices": [
+    "metal",
+    "cuda"
+  ]
+}

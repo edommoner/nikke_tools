@@ -1,0 +1,2866 @@
+{
+  "scope": "Working numeric/normal-packet prototype. Production host admission remains closed; queued skill landing not connected.",
+  "cases": [
+    {
+      "name": "life-authored-single-packet",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "life",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "lifesteal_pct",
+          "fixed_value": 5,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "received",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "heal_received_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "outgoing",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "outgoing_heal_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:heal_received"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base_atk": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "allies": [
+            {
+              "hp": 150
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "life-full-hp-still-notifies",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "life",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "lifesteal_pct",
+          "fixed_value": 5,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "received",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "heal_received_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "outgoing",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "outgoing_heal_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:heal_received"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base_atk": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "allies": [
+            {
+              "hp": 1000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "life-zero-rate-no-notice",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "life",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "lifesteal_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "received",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "heal_received_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "outgoing",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "outgoing_heal_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:heal_received"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base_atk": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "allies": [
+            {
+              "hp": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "life-negative-rate-no-notice",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "life",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "lifesteal_pct",
+          "fixed_value": -5,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "received",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "heal_received_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "outgoing",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "outgoing_heal_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:heal_received"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base_atk": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "allies": [
+            {
+              "hp": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "life-negative-received-clamps-potency",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "life",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "lifesteal_pct",
+          "fixed_value": 5,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "received",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "heal_received_pct",
+          "fixed_value": -200,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "outgoing",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "outgoing_heal_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:heal_received"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base_atk": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "allies": [
+            {
+              "hp": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "life-outgoing-received-order",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "life",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "lifesteal_pct",
+          "fixed_value": 5,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "received",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "heal_received_pct",
+          "fixed_value": 20,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "outgoing",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "outgoing_heal_pct",
+          "fixed_value": 50,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:heal_received"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base_atk": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "allies": [
+            {
+              "hp": 190
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "life-rate-underflows-but-notifies",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "life",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "lifesteal_pct",
+          "fixed_value": 1e-320,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "received",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "heal_received_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "outgoing",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "outgoing_heal_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:heal_received"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base_atk": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "allies": [
+            {
+              "hp": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "life-fractional-quantity",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "life",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "lifesteal_pct",
+          "fixed_value": 0.3,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "received",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "heal_received_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "outgoing",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "outgoing_heal_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:heal_received"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base_atk": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          33.3,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "allies": [
+            {
+              "hp": 100.999
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "life-initial-zero-hp-is-live",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "life",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "lifesteal_pct",
+          "fixed_value": 5,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "received",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "heal_received_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "outgoing",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "outgoing_heal_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:heal_received"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base_atk": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 0
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "allies": [
+            {
+              "hp": 50,
+              "down": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "life-hit-notice-grants-before-recovery",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "life",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "lifesteal_pct",
+          "fixed_value": 5,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "received",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "heal_received_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "outgoing",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "outgoing_heal_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:heal_received"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base_atk": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "allies": [
+            {
+              "hp": 150
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "life-auto-attack-notice-grants-this-shot",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "life",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "lifesteal_pct",
+          "fixed_value": 5,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "received",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "heal_received_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "outgoing",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "outgoing_heal_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:heal_received"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base_atk": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "stage": 0,
+            "mode": "auto",
+            "capacity": 20,
+            "coefficient": 100,
+            "interval": 1,
+            "reload": 1,
+            "pellets": 2,
+            "muzzles": 2
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "allies": [
+            {
+              "hp": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "life-pellet-notice-grants-before-landing",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "life",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "lifesteal_pct",
+          "fixed_value": 5,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "pellet_hit"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "received",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "heal_received_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "outgoing",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "outgoing_heal_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:heal_received"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base_atk": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "stage": 0,
+            "mode": "auto",
+            "capacity": 20,
+            "coefficient": 100,
+            "interval": 1,
+            "reload": 1,
+            "pellets": 2,
+            "muzzles": 1
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "allies": [
+            {
+              "hp": 150
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "life-saturates-at-maximum",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "life",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "lifesteal_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "received",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "heal_received_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "outgoing",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "outgoing_heal_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:heal_received"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base_atk": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "allies": [
+            {
+              "hp": 1000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "life-notice-modifier-applies-to-later-pellet",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "life",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "lifesteal_pct",
+          "fixed_value": 5,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "received",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "heal_received_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "outgoing",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "outgoing_heal_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:heal_received"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "more healing",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "heal_received_pct",
+          "fixed_value": 100,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:heal_received"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base_atk": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "stage": 0,
+            "mode": "auto",
+            "capacity": 20,
+            "coefficient": 100,
+            "interval": 1,
+            "reload": 1,
+            "pellets": 2,
+            "muzzles": 2
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "allies": [
+            {
+              "hp": 275
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "life-down-attacker-no-revival",
+      "effects": [
+        {
+          "name": "no crit",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "life",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "lifesteal_pct",
+          "fixed_value": 5,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "received",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "heal_received_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "outgoing",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "outgoing_heal_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "event:heal_received"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "base_atk": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "hp": 100
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          },
+          {
+            "base_hp": 1000,
+            "hp": 1000
+          }
+        ]
+      },
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000000.0
+          }
+        ],
+        "trace": "full"
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.05,
+          25,
+          0,
+          0,
+          1,
+          -1,
+          200,
+          100
+        ],
+        [
+          0.1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "allies": [
+            {
+              "hp": 0,
+              "down": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -229,6 +229,7 @@ bool excludedDamageBuff(inout Runtime s, uint resident, uint who)
 #include "carrier_runtime.slang"
 #include "quantity_runtime.slang"
 #include "health_runtime.slang"
+#include "lifesteal_runtime.slang"
 #include "cover_runtime.slang"
 #include "hp_edge_runtime.slang"
 
@@ -483,7 +484,7 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
 }
 
 [noinline]
-void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, uint64_t when, uint output)
+void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, uint64_t when, uint output, uint64_t landingAmount = 0)
 {
     if (owner >= 5) { s.error = 64; return; }
     s.sourceTime=when; syncHealth(s,when);
@@ -491,6 +492,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
     Frame frames[32]; int depth = -1;
     if ((s.healthMask&32)!=0) pushFrame(s,frames,depth,16,0,0,0,when);
     pushFrame(s,frames,depth,mode,event,owner,argument,when);
+    if (mode == 17 && s.error == 0) frames[depth].healthValue=landingAmount;
     uint work = 0;
     while (depth >= 0 && s.error == 0)
     {
@@ -692,6 +694,13 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (f.mode == 5) s.hp[who] = smaller(f64Add(s.hp[who],f.healthValue),effectiveMaxHP(s,who,f.time));
             else s.hp[who] = larger(0,f64Mul(s.hp[who],f64Add(ONE,f64Div(health.value,HUNDRED) ^ F64_SIGN)));
             syncHealthActor(s,who,f.time); continue;
+        }
+        if (f.mode == 17)
+        {
+            depth--;
+            if (applyLifestealState(s,f.owner,f.healthValue,f.time) && s.error == 0)
+                pushFrame(s,frames,depth,0,16,f.owner,int(f.owner),f.time);
+            continue;
         }
         if (f.mode == 3)
         {
@@ -1228,6 +1237,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         if (d.kind == 0 && d.enemyBuff == 0 && ((d.alliedFlags & 1) != 0 || d.stat == S_def_caster_based_pct)) s.healthMask |= 2;
         if (d.kind == 0 && d.stat == S_heal_received_pct) s.healthMask |= 4;
         if (d.kind == 0 && d.stat == S_outgoing_heal_pct) s.healthMask |= 8;
+        if (d.kind == 0 && d.stat == S_lifesteal_pct) s.healthMask |= 64;
         if (d.kind == 6 || d.kind == 8) s.healthMask |= 16;
         d.group = commands[extra]; d.exclusive = commands[extra+1]; d.alias = int(commands[extra+2]); d.quantityFlags = commands[extra+3];
         d.fixedValue = loadNumber(extra+4); d.fixedLiteral = commands[extra+6]; d.polarity = commands[extra+7];
@@ -1324,6 +1334,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             if (s.error != 0) break;
             land(s,who,target,amount);
             dispatch(s,0,8,who,0,when,output);
+            if ((s.healthMask & 64) != 0 && s.error == 0) dispatch(s,17,0,who,0,when,output,amount);
         }
         else if (op == 28)
         {
