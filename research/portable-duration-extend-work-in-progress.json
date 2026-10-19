@@ -1,6 +1,6 @@
 {
-  "passed": false,
-  "stage": "single-receiver-optimization-promoted-metal-core-reverified-global-cuda-pending",
+  "passed": true,
+  "stage": "duration-extension-independent-enemy-cells-and-guarded-fast-path-verified",
   "full_goal_complete": false,
   "full_character_verified": 0,
   "normal_ui_backend": "cpu",
@@ -13,7 +13,7 @@
   "unit_tests": 127,
   "full_metal_core_verified": true,
   "windows_current_source_verified": true,
-  "windows_runs_this_phase": 1,
+  "windows_runs_this_phase": 2,
   "efficiency_measurement_completed": true,
   "previous_source_commit": "9047790eea544c91df2124a05a4a7f65d066aca9",
   "previous_proof_commit": "dcae794ceebe0043529c5289eb430ee374d43f12",
@@ -22,7 +22,7 @@
     "portable-combat-v43-checkpoint.json"
   ],
   "source_sha256": {
-    "gpu/event_runtime.slang": "c110d96227a758419dc602348860dd098d34c45af32ff4d9d445306ed5f0e995",
+    "gpu/event_runtime.slang": "5a07fa53a058640d8207ee014ab1eef5f97b5a4807a2bc5f8f72c29071d6224d",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/portable_schema.slang": "ff3234260d75365b8a7907ce3a3d1055de454e21315cf7e02ebfe57854ad98c3",
@@ -65,17 +65,21 @@
   },
   "live_handles": {},
   "next_actions": [
-    "Finish all global Metal correctness gates",
-    "Run one short bounded CUDA check of the fixed current source and transfer results",
-    "Optimize and measure new common processing after all validation and transfers are terminal",
-    "Connect remaining lifecycle/world/effect families and certify every character variant"
+    "Connect remaining lifecycle/recipient/world and effect families across all 203 characters",
+    "Certify every character variant with actual CPU/GPU evidence before normal UI Metal"
   ],
-  "source_commit": "43f43a54535992d6992e0b3042c99c2e6c809bd4",
+  "source_commit": "b0f1cf335e61e3b61c820823b0c5578b176ebdcd",
   "windows_transfer_complete": true,
   "global_gates_completed": true,
   "efficiency_parity": "portable-enemy-fanout-parity.json",
   "optimized_metal_core_verified": true,
-  "optimized_windows_verified": false,
+  "optimized_windows_verified": true,
   "optimization_parity_inputs": 1131,
-  "optimization": "One-receiver direct execution only with no pending/dirty HP notifications; multiple receivers retain queued snapshots"
+  "optimization": "One-receiver direct execution only with no pending/dirty HP notifications; multiple receivers retain queued snapshots",
+  "baseline_source_commit": "43f43a54535992d6992e0b3042c99c2e6c809bd4",
+  "baseline_windows_report": "windows-portable-combat-v44.json",
+  "optimized_windows_runs": 1,
+  "optimized_transfer_complete": true,
+  "optimized_global_gates_completed": true,
+  "validation_receipt": "portable-duration-extend-validation.json"
 }

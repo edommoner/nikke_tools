@@ -1,41 +1,42 @@
 {
-  "wire_abi": "0x50455659",
-  "verified_commit": "9047790eea544c91df2124a05a4a7f65d066aca9",
+  "wire_abi": "0x50455660",
+  "verified_commit": "b0f1cf335e61e3b61c820823b0c5578b176ebdcd",
   "source_provenance": {
-    "fixed_shared_source_commit": "9047790eea544c91df2124a05a4a7f65d066aca9",
-    "metal_core_report_source_commit": "9047790eea544c91df2124a05a4a7f65d066aca9",
-    "windows_source_commit": "9047790eea544c91df2124a05a4a7f65d066aca9"
+    "fixed_shared_source_commit": "b0f1cf335e61e3b61c820823b0c5578b176ebdcd",
+    "metal_core_report_source_commit": "b0f1cf335e61e3b61c820823b0c5578b176ebdcd",
+    "windows_source_commit": "b0f1cf335e61e3b61c820823b0c5578b176ebdcd",
+    "pre_optimization_source_commit": "43f43a54535992d6992e0b3042c99c2e6c809bd4"
   },
   "previous_checkpoint": {
-    "report": "portable-combat-v41-checkpoint.json",
-    "proof_commit": "272ed619c7504a603edd1f8e9d53ad51ad34a999"
+    "report": "portable-combat-v43-checkpoint.json",
+    "proof_commit": "dcae794ceebe0043529c5289eb430ee374d43f12"
   },
   "prototype_source_commit": "27c7438066be03ae3cdd29ce76273ceddcd64d5b",
-  "positive_cases": 1092,
-  "rejections": 195,
-  "batched_inputs": 1287,
+  "positive_cases": 1131,
+  "rejections": 206,
+  "batched_inputs": 1337,
   "gpu_dispatches": 1,
   "metal_verified": true,
   "cuda_verified": true,
   "metal_report": "portable-combat-metal.json",
   "cuda_report": "portable-combat-cuda.json",
-  "windows_report": "windows-portable-combat-v43.json",
+  "windows_report": "windows-portable-combat-v45.json",
   "source_sha256": {
-    "gpu/event_runtime.slang": "3b71cefb7a57ea686e595d15bc98ac2098524462b35e67fefa08ad66e05fb2d3",
+    "gpu/event_runtime.slang": "5a07fa53a058640d8207ee014ab1eef5f97b5a4807a2bc5f8f72c29071d6224d",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
-    "gpu/portable_schema.slang": "3621b3fbab2d2ce437a2e01358baa7cfc8481140e12a1f899ae87303d2141ffe",
-    "gpu/runtime_init.slang": "7860993263fe271e67e307f97d1e3d742d741d13cf0ffe15ff6e8afcf3aeada5",
+    "gpu/portable_schema.slang": "ff3234260d75365b8a7907ce3a3d1055de454e21315cf7e02ebfe57854ad98c3",
+    "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
     "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
     "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
     "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
     "gpu/reference_runtime.slang": "133be7a63ebd51120783cd1c51172092cf258db1b8998d156e914eb5c507d3e7",
-    "gpu/staged_runtime.slang": "8afd851e368fa16ee12ab5c95e645d1918f007679f6c6afee1740a5b6fa39088",
+    "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
     "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
     "gpu/rank_runtime.slang": "81cbe580f8ff5e80c4d4a88e26822747f25dec1bcb40c958ddded1f5bdaca863",
     "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
-    "gpu/enemy_buff_runtime.slang": "33a1a116cea23eb0f5e4223a1f1b7c59e811e994db6f871c0a65c56d8be067a9",
-    "gpu/carrier_runtime.slang": "ef354730d90fdf9108fcb8cc12be3b8460d38ab7a8d830bb557c0e42fc352866",
+    "gpu/enemy_buff_runtime.slang": "d27ebbbaec782eb6ae855bf3dfa3dc6cd2857eb1e251a48c03c693622425904b",
+    "gpu/carrier_runtime.slang": "a403b892b876c1038307d1c9d96dcf0702c8fd277421c8500adf6180adf1e879",
     "gpu/quantity_runtime.slang": "44d9e37a3c81f77dcea96406db0cafc797401e211d5f9b41903b27254f72587e",
     "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
     "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
@@ -50,8 +51,9 @@
     "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
     "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
     "gpu/landing_runtime.slang": "763ee4080d8ec7191c6937c2c5a8e048ecc212cf2db07664ea26f6beb4aaff84",
-    "gpu/periodic_runtime.slang": "b6511c44f4207642eda10e82d07ba04457b997087e973a3ec26c95165a55859d",
-    "gpu/removal_runtime.slang": "f054dbec3546a6ddb2ac0aa2f7dcb60f63300df695278a7ad30e77dc611e2da4",
+    "gpu/periodic_runtime.slang": "d294fe3855156acf4fb0d9d89d084ea54693e7bd2080c706d31de9cd27316883",
+    "gpu/removal_runtime.slang": "52a1642db17ad0a03ad92785d2a5ef50db12f1a2c289ec4b853b4f765b2968b6",
+    "gpu/duration_extend_runtime.slang": "2a8810be4130e3d3beb86ded42a7017a138f0c26b97c26b0720ff8062a62c8ef",
     "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
     "gpu/pending_burst_runtime.slang": "c4b0ee8ded3c5922ce8370b12ebec0dbb86ad0bae9d530d615e4f498029f1758",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
@@ -59,13 +61,16 @@
     "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
-    "gpu/admission_runtime.slang": "e62ad1263bd418cfcb63b09a54aa9c2bc7e81c5d3b38dbe44cd69996891a475c"
+    "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
   },
-  "input_sha256": "39005f462a6a9bfcd2bf8b99ed26c41fb9be9d3049102f12ae40d36ec8d5d40a",
-  "output_sha256": "23145b096c5aa77946ca2e7efd3a175b01316c65209bc2505f988aefe5da22df",
+  "input_sha256": "15ecd5c155b5d57e500e8b2ab533c01d445df423c4ac590c0dbd2072768f92ae",
+  "output_sha256": "9c7d28e936972facc16b592d4e343d9bcc0beb5f33e7318f19130e6e9dc79dc2",
   "validation_sha256": {
+    "app/portable_duration_extend_specs.py": "f3909d1ce0a448090fd853a8fbb44f64bf6acdbb1803742812a2fb84bd42f9a8",
+    "scripts/portable_duration_extend_oracle.py": "6d68ed922e60c67690b613de36d74753d4ac660e35e9132519b58aff3fff2d77",
+    "tests/fixtures/portable-duration-extend.json": "32f301f32116ebf38f9ccd198240cd4efedc0afa37aaba82a0888c5e3c83d4fc",
     "app/portable_removal_specs.py": "65eeea6e89b54a4215ec93c6658d26231f4c8a656d3ac8b2ddd52ef5bcec0fcf",
-    "scripts/portable_removal_oracle.py": "6f54afe8946bd4e9c43744ade97c971d0716e9f69971806d81a2ec1817baad77",
+    "scripts/portable_removal_oracle.py": "bb47fb4399e67ca42e94fbc578f547b67b390e46ef82d4dc6fb2f0438f39763f",
     "tests/fixtures/portable-removal.json": "ac1eea32bed09887687c397f70348dcf9fdb08d5946e2f3d147c65af4ca81d54",
     "app/portable_lifesteal_reference.py": "eeb7dd998fce96afbc032e95b5f9b7454cb0f408d4472bfd6dae9f23a64a1104",
     "scripts/portable_lifesteal_oracle.py": "082a9149627a837f0efd0ff966af6de8868be3a7b776bdc7b8b21dc13ae0d531",
@@ -96,9 +101,9 @@
     "app/portable_roster_input.py": "0a6c8c37bcf4e93af644769125a09535c618c4d601039fec440d473d84999121",
     "app/portable_runtime_layout.py": "1a882b22eef68f04633c2a0fcdc542b188669e50f283dc88bf241af33c7ca0f1",
     "app/portable_enemy_specs.py": "52ef96d79d4791ebe5a7da2ad6cee0a8550a50edccb1a3f5aaa5b7f4204e8686",
-    "app/portable_runtime.py": "095e5e1d9162d8a59375cabc5b32a2ef90166fadfbdac3bc623b5ad1a606df39",
+    "app/portable_runtime.py": "578bcda5e4214721170d122b9bc1e0906d422ddd846a3fd6725f688b013ea450",
     "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
-    "app/portable_specs.py": "e18705f0502d4c57dde0ffa852da7260b74c5d1ce613037834f1bd8b17dfc624",
+    "app/portable_specs.py": "90bf3d3afff7392ccc406dfb60ef0d7a8223d0aeacee000b342ed742d6e56d12",
     "app/portable_periodic_specs.py": "830b7b7bd25586ae568b210dd3583c3e7349bb0ac29226d0748ba77b7da3d9bf",
     "app/portable_backend.py": "65fa85746a0be27fce443e95f47a92885a4c822dc6630141b1baa972c4cfff53",
     "app/portable_trigger_specs.py": "de8354e952352ce0e40bf3f8ddf97f36595500ea3e7436672ae4ba0934871040",
@@ -117,7 +122,7 @@
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "ebb67e3763b1b3d3abf24c9144ed6bcd00c077f5596d4fef17be95ca8f79f71b",
+    "scripts/verify-portable-combat.py": "41058f7bbf7a5e9917f8b4fde96ef0312dab49f62425323e4713fcf86c68c186",
     "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
     "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
     "tests/fixtures/portable-enemy-spawn-order.json": "7c72c2ec3a76bba4bf0da1be6a8e1e32db6124ef37feb87cb72a5447c8010791",
@@ -168,7 +173,7 @@
   "real_equipment_initialization_squads": 203,
   "real_roster_profiles": 58,
   "real_fixed_squad": 8,
-  "unit_tests": 118,
+  "unit_tests": 127,
   "native_runtime_tests": 15,
   "lifesteal_cases": 15,
   "landing_cases": 20,
@@ -195,13 +200,13 @@
   "lifesteal_production_admitted_with_native_phases": true,
   "lifesteal_model_warning_retained": true,
   "cpu_trace_used_as_gpu_input": false,
-  "windows_checks_this_stage": 1,
+  "windows_checks_this_stage": 2,
   "windows_execution": {
-    "command": "python research/windows-v43-sequence.py",
-    "commit": "9047790eea544c91df2124a05a4a7f65d066aca9",
+    "command": "python scripts/verify-portable-combat.py --backend cuda",
+    "commit": "b0f1cf335e61e3b61c820823b0c5578b176ebdcd",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "31, 4925",
+    "gpu_before": "36, 4867",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -219,13 +224,9 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 65.47827760037035,
-    "stdout": "Definition input GPU codec passed cuda 55 1024\n{\"passed\": true, \"cases\": 1092, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
-    "stderr": "",
-    "sequence_commands": [
-      "python research/verify-definition-input.py --backend cuda --scalar-accessor-control",
-      "python scripts/verify-portable-combat.py --backend cuda"
-    ]
+    "elapsed_seconds": 65.98549829982221,
+    "stdout": "{\"passed\": true, \"cases\": 1131, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
+    "stderr": ""
   },
   "windows_postcheck": {
     "remaining_verification_processes": 0,
@@ -244,6 +245,7 @@
     "known_cpu_differences": true,
     "known_health_cpu_differences": true,
     "known_mode_cpu_differences": true,
+    "duration_extend_cpu_regressions": true,
     "removal_cpu_regressions": true,
     "landing_cpu_regressions": true,
     "lifesteal_cpu_regressions": true,
@@ -271,10 +273,51 @@
     "damage_cpu_regressions": true,
     "trigger_cpu_regressions": true
   },
-  "generated_source_comparison": "portable-generated-v43-comparison.json",
-  "validation_receipt": "portable-removal-validation.json",
-  "existing_parity": "portable-removal-existing-parity.json",
+  "generated_source_comparison": "portable-generated-v45-comparison.json",
+  "validation_receipt": "portable-duration-extend-validation.json",
+  "existing_parity": "portable-duration-extend-existing-parity.json",
   "regressions": {
+    "duration_extend_cpu_regressions": [
+      "duration-extend-exact-space-prefix",
+      "duration-extend-shared-instance-whole-expiry",
+      "duration-extend-cross-caster",
+      "duration-extend-empty-prefix",
+      "duration-extend-missing-name",
+      "duration-extend-empty-target",
+      "duration-extend-rank-at-activation",
+      "duration-extend-with-buff-selector",
+      "duration-extend-lazy-unresolved",
+      "duration-extend-lazy-resolved",
+      "duration-extend-infinite-unchanged",
+      "duration-extend-finite-one-e30-is-not-infinity",
+      "duration-extend-zero-does-not-refresh",
+      "duration-extend-negative-retires-on-next-frame",
+      "duration-extend-expired-unretired-can-revive",
+      "duration-extend-instant-clock-has-no-resident",
+      "duration-extend-enemy-independent-boss",
+      "duration-extend-enemy-independent-all_enemies",
+      "duration-extend-enemy-independent-enemies_lowest_hp-1",
+      "duration-extend-enemy-reapply-after-partial-expiry",
+      "duration-extend-retained-dot-whole-clock",
+      "duration-extend-enemy-new-life-does-not-extend-old-carrier",
+      "duration-extend-enemy-notice-once-per-cell",
+      "duration-extend-enemy-child-removes-before-next-receiver",
+      "duration-extend-shared-max-hp-expiry",
+      "duration-extend-fractional-repeated",
+      "duration-extend-periodic-does-not-reset-state-phase",
+      "duration-extend-activation-budget-once",
+      "duration-extend-empty-target-preserves-budget",
+      "duration-extend-staged-before-ramp-end",
+      "duration-extend-staged-after-ramp-end",
+      "duration-extend-infinite-definition-refreshed-finite",
+      "duration-extend-finite-definition-refreshed-infinite",
+      "duration-extend-positive-overflow-is-infinite",
+      "duration-extend-negative-overflow-expires",
+      "duration-extend-periodic-one-registration-budget",
+      "duration-extend-overflow-infinity-is-not-a-large-finite-number",
+      "duration-extend-inherited-enemy-target",
+      "duration-extend-definition-255-mask-boundary"
+    ],
     "removal_cpu_regressions": [
       "removal-default-global",
       "removal-global-ignores-audience",
@@ -368,7 +411,9 @@
       "staged-duration-expired-before-late-observation",
       "staged-post-delay-beyond-lifetime",
       "staged-source-population-count",
-      "staged-index-all-254-carriers"
+      "staged-index-all-254-carriers",
+      "duration-extend-staged-before-ramp-end",
+      "duration-extend-staged-after-ramp-end"
     ],
     "source_cpu_regressions": [
       "source-population-expiry-and-phase",
@@ -1065,7 +1110,9 @@
       "staged-duration-expired-before-late-observation",
       "staged-post-delay-beyond-lifetime",
       "staged-source-population-count",
-      "staged-index-all-254-carriers"
+      "staged-index-all-254-carriers",
+      "duration-extend-staged-before-ramp-end",
+      "duration-extend-staged-after-ramp-end"
     ],
     "burst_cpu_regressions": [
       "cooldown-passive-applied-at-cast-not-twice",
@@ -1537,7 +1584,7 @@
   },
   "missing_families": {
     "damage_modifiers": 127,
-    "effect_lifecycle": 84,
+    "effect_lifecycle": 81,
     "weapon": 69,
     "damage": 56,
     "protection": 50,
@@ -1553,7 +1600,7 @@
   },
   "next_work": [
     "Connect remaining lifecycle/recipient/world and effect families across all 203 characters",
-    "Keep unchanged CPU reference differences explicit; certify every character variant before normal UI Metal"
+    "Certify every character variant with actual CPU/GPU evidence before normal UI Metal"
   ],
   "landing_bytes_saved_per_program": 32768,
   "landing_pool_bytes_before": 98304,
@@ -1588,5 +1635,57 @@
   "definition_codec_records": 1024,
   "definition_codec_fields": 55,
   "definition_scalar_to_full_record_timing_ratio": 0.9682182804507105,
-  "definition_efficiency_scope": "Bounded sequential isolated 256-definition exact-name removal, 32 programs per sample; one warmup and three measured samples each; not a general speed or peak-memory claim"
+  "definition_efficiency_scope": "Bounded sequential isolated 256-definition exact-name removal, 32 programs per sample; one warmup and three measured samples each; not a general speed or peak-memory claim",
+  "windows_baseline_execution": {
+    "command": "python scripts/verify-portable-combat.py --backend cuda",
+    "commit": "43f43a54535992d6992e0b3042c99c2e6c809bd4",
+    "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
+    "original_status_before": [],
+    "gpu_before": "32, 4949",
+    "below_normal_priority": true,
+    "python_utf8": true,
+    "python_dontwritebytecode": true,
+    "trace_preflight": {
+      "trace_is_none": true,
+      "profile_is_none": true,
+      "sitecustomize_loaded": false,
+      "pythonpath_removed": true,
+      "exit_code": 0
+    },
+    "pythonpath_removed": true,
+    "diagnostic_hook_enabled": false,
+    "timeout_seconds": 120,
+    "existing_gpu_service_preserved": true,
+    "busy_skip_disabled_by_explicit_instruction": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 67.48257240001112,
+    "stdout": "{\"passed\": true, \"cases\": 1131, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
+    "stderr": ""
+  },
+  "duration_extend_cases": 39,
+  "duration_extend_api_cases": 4,
+  "enemy_resident_per_recipient": true,
+  "enemy_generation_capture": true,
+  "lifetime_true_software_binary64_infinity": true,
+  "public_lifetime_projection": "signed infinity to signed 1e30; finite values unchanged",
+  "single_receiver_fast_path": true,
+  "single_receiver_fast_path_requires_no_pending_hp": true,
+  "enemy_fanout_timing_scope": "Sequential isolated 256-program batches, 60 activations each; warmup then three samples; high-water depth is a diagnostic representation difference, every other output word identical; desktop GPU activity not excluded",
+  "enemy_fanout_timing": {
+    "one-receiver": {
+      "median_gpu_seconds": {
+        "queued": 0.026642458396963775,
+        "single": 0.02435116656124592
+      },
+      "ratio": 0.9139984831137439
+    },
+    "three-receivers": {
+      "median_gpu_seconds": {
+        "queued": 0.034562208340503275,
+        "single": 0.03481162490788847
+      },
+      "ratio": 1.0072164534432513
+    }
+  }
 }
