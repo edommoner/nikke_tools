@@ -8,10 +8,9 @@
   "cpu_simulation_executed": false,
   "gpu_execution_performed": false,
   "issues": {
-    "Unported buff or recipient selector": 267,
+    "Unported buff or recipient selector": 268,
     "Unported instant or recipient selector": 37,
     "Unported trigger timing: event:part_destroy": 16,
-    "Unported effect fields: scaling, scaling_ref": 12,
     "Unported enemy damage selector": 11,
     "Unported trigger timing: event:enemy_spawn": 10,
     "Unported effect fields: remove_scope": 10,
@@ -26,12 +25,11 @@
     "Unported predicate: target_code:풍압": 5,
     "Unported trigger timing: event:projectile_destroy": 4,
     "Unported predicate: prob:20": 4,
+    "Unported predicate: target_state:사슬 감기": 4,
     "Unported trigger timing: non_full_charge_fire_count:3": 4,
     "Unported trigger timing: charge_hold_count:1:3": 4,
     "Unported predicate: self_state:무대 파트 : 보컬": 4,
     "Unported effect fields: hits_parts": 3,
-    "Unported effect fields: scaling_ref": 3,
-    "Unported predicate: target_state:사슬 감기": 3,
     "Unported predicate: prob:30": 3,
     "Unported predicate: prob:10": 3,
     "Unported health recipient selector": 3,
@@ -102,10 +100,9 @@
     "Unported predicate: target_code:수냉": 1
   },
   "diagnostic_semantic_issues": {
-    "Unported buff or recipient selector": 267,
+    "Unported buff or recipient selector": 268,
     "Unported instant or recipient selector": 37,
     "Unported trigger timing: event:part_destroy": 16,
-    "Unported effect fields: scaling, scaling_ref": 12,
     "Unported enemy damage selector": 11,
     "Unported trigger timing: event:enemy_spawn": 10,
     "Unported effect fields: remove_scope": 10,
@@ -120,12 +117,11 @@
     "Unported predicate: target_code:풍압": 5,
     "Unported trigger timing: event:projectile_destroy": 4,
     "Unported predicate: prob:20": 4,
+    "Unported predicate: target_state:사슬 감기": 4,
     "Unported trigger timing: non_full_charge_fire_count:3": 4,
     "Unported trigger timing: charge_hold_count:1:3": 4,
     "Unported predicate: self_state:무대 파트 : 보컬": 4,
     "Unported effect fields: hits_parts": 3,
-    "Unported effect fields: scaling_ref": 3,
-    "Unported predicate: target_state:사슬 감기": 3,
     "Unported predicate: prob:30": 3,
     "Unported predicate: prob:10": 3,
     "Unported health recipient selector": 3,
@@ -196,19 +192,19 @@
     "Unported predicate: target_code:수냉": 1
   },
   "missing_families": {
-    "damage_modifiers": 136,
+    "damage_modifiers": 127,
     "effect_lifecycle": 93,
     "weapon": 69,
-    "damage": 59,
+    "damage": 57,
     "protection": 50,
     "control_survival": 44,
     "healing": 29,
     "resource_accumulation": 16,
     "charge": 15,
-    "ammo_reload": 15,
+    "ammo_reload": 14,
     "burst_cooldown": 13,
     "healing_buffers": 9,
-    "hp": 8,
+    "hp": 7,
     "character_state": 5
   },
   "weapon_gaps": {
@@ -2678,10 +2674,10 @@
             "gauge_above:화력 게이지:1"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "화력 전개 1",
@@ -7862,11 +7858,10 @@
           "conditions": [
             "gauge_above:티켓:1"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "버스트 스킬 재사용 시간 감소",
@@ -13960,13 +13955,10 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "홈메이드 매거진 2",
@@ -17630,11 +17622,10 @@
           "conditions": [
             "gauge_above:포획 사슬:1"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling_ref",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling_ref"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "바디 컨텍 5",
@@ -17732,10 +17723,10 @@
             "target_state:사슬 감기"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling_ref",
+          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling_ref"
+          "issue": "Unported predicate: target_state:사슬 감기"
         },
         {
           "name": "사슬 당기기 2",
@@ -19330,13 +19321,10 @@
             "every_stack:경험치:10"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "용사의 숙명 2",
@@ -19347,11 +19335,10 @@
             "every_stack:경험치:10"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "경험치",
@@ -19362,13 +19349,10 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "경험치 2",
@@ -19457,13 +19441,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling_ref",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: scaling_ref"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -20627,11 +20608,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "급조품의 기적 2",
@@ -20642,11 +20622,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -38560,11 +38539,10 @@
           "conditions": [
             "self_state:취기"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "파이레츠 스피릿 2",
@@ -38577,11 +38555,10 @@
           "conditions": [
             "self_state:취기"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "숙취",
@@ -38655,11 +38632,10 @@
           "conditions": [
             "self_state:취기"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -52664,11 +52640,10 @@
             "full_burst_end"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "쌓여가는 사진첩 2",
@@ -63010,7 +62985,7 @@
     "app/damage_query_runtime.py": "fcb22427f84941e5d6a331d02054341e8f5859b274d139a799f3bc8ef202ddd0",
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/enemy_recipient_runtime.py": "7ab242283f8de0b746e10af22178a074ee4368c8a7160c0be084ca0b0ac65d4d",
-    "app/engine_compat.py": "ca841c7fe18f68682699ee71b52194c079d1a861e7f7e385b7d322e5b4d101d5",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
     "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
     "app/heal_charge_compat.py": "018e94d88ea36eda21b1b34e2c196f7aaa742f4dc4808c84c05835620b25197e",
     "app/heal_sharing_compat.py": "45578674e4697405037ebb556cb5e4e7698edd33312b2242e85bf55b908f3919",
@@ -63025,13 +63000,15 @@
     "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
     "app/portable_enemy_specs.py": "c7d1343e9519bf438b9b569394633856937a14d80653235df6f3267ce586b722",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
-    "app/portable_reference_specs.py": "670173546ff3487804c84a93307b09447bb87267c32c63569a30112f00c559cb",
+    "app/portable_reference_specs.py": "de22b095242d7fd64ac1cdd362011fda0f48ea2f33e84be58dd348bc7400ff1a",
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
-    "app/portable_resource_specs.py": "1b515c2fe0105e6f4aadc6e95fdb713784e1b6edbf71645cda3cfd49f33fea4a",
-    "app/portable_runtime.py": "c61d9a93ae83a202403d1f07f95b13cbb4669099eb81498387e3b3ee16a06d4c",
-    "app/portable_specs.py": "7fb7723806d586eb6d724ecdfe68e2c5303ed0458fe6cb234154ffb4ac287e6e",
+    "app/portable_resource_specs.py": "fe3be541e6e9960cfa18e9079e4f642dd14a6deb0a40c228d1e411cc678ab63d",
+    "app/portable_runtime.py": "66ddf73138af1ba861a677bf03aa4e890c51e24cf2f9232514f31657fba6b541",
+    "app/portable_specs.py": "c7ddb661f2cc4f32473cd2151d0d40e1972b737e9009f2de78be556a2ab673ae",
     "app/portable_trigger_specs.py": "a20f8d96a514fb6217c3eba47bf4a569fc1c861bc8837519b56694580e55dda4",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
+    "app/reference_count_runtime.py": "b08ddcb353844bf1ce481592ad8a0eabfa796602da4205156fede0ad1d9854e7",
+    "app/reference_health_runtime.py": "aa581221b2b204aa8857b0d35cd1a255f08b804a837205e6a8aa2177415a6c0a",
     "app/resource_specs.py": "de67874a373c94834d3fbe43d9be9d18ccc45e1e22f563f9e5d892b66ea07b85",
     "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",
     "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
@@ -63074,8 +63051,9 @@
     "research/upstream/nikke-calc-master/runner/snapshot.py": "fb86552304db9789ed36b7e5bfb2ab18374f581fc61a32b05cf04e973e555dbd",
     "research/upstream/nikke-calc-master/runner/spec.py": "609ec07a8db4a88e0a2912193b4bfb0b1433e8f11d2ec32f43d4c5f014b0e730",
     "research/upstream/nikke-calc-master/runner/squads.py": "22247095ff5737c98173b5ac92dbd268bbc74828a2fcaa28018f8eb23db93e7a",
-    "scripts/audit-portable-catalog.py": "847c0897d74d6b0b74d7e25f96a648b81bf03384e0de151df0977a51483762fd",
+    "scripts/audit-portable-catalog.py": "20298b3a0579089621e11ec8b5a2ce9891aaef54753804e94a58d1fc80d4f50b",
     "scripts/detail_coverage.py": "eef94f7675f270e8a4870323cb1e55e8506f2e5fe47e6fa4b1645d9aaf71dc40",
+    "tests/fixtures/portable-reference-scales.json": "e0e26b2691affa2f30e1456c9bf49923c24f0a63667c16da45f73a31c7ad61bd",
     "tests/fixtures/portable-resources.json": "d3e83f6c000d3f98cf94c42facabb4db6eb9d6eb341600866b52979eb16c52d4"
   }
 }

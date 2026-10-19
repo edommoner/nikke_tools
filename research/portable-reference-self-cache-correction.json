@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "before": {
+    "queries": [
+      {
+        "attack_buffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "attack_buffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "attack_buffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "resource_queries": [],
+    "resource_trace": [],
+    "resource_trace_total": 0
+  },
+  "after": {
+    "queries": [
+      {
+        "attack_buffs": [
+          10.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "attack_buffs": [
+          20.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "attack_buffs": [
+          30.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "resource_queries": [],
+    "resource_trace": [],
+    "resource_trace_total": 0
+  },
+  "reason": "Pre-append capture can populate an empty native name cache. A structural stamp (active-list identity, length and cache version) invalidates it after append/replacement/removal while retaining the cached native lookup, gauge/feather precedence and first-carrier order.",
+  "scope": "CPU cache correction; GPU canonical values already 10/20/30; no CPU state used as GPU input",
+  "source_sha256": {
+    "app/engine_compat.py": "cc3014eaf9d4de6f12e2558564873d4c4c966c4f1eb60bbd9be4e2f37109ac37",
+    "app/reference_count_runtime.py": "b08ddcb353844bf1ce481592ad8a0eabfa796602da4205156fede0ad1d9854e7",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}
