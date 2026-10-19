@@ -54,6 +54,7 @@ struct Runtime
     uint hpWatchCount, hpWatchSlots[P_DEFINITIONS*P_TRIGGERS], hpDirtyMask, hpPendingMask, hpEdgeGuard;
     uint64_t hpPrevious[5], hpNext[5];
     uint healthMask; int healSource;
+    uint coverMask, coverSync; uint64_t baseCoverHP[5], coverHP[5], coverMaxHP[5], coverDamage[5];
     uint64_t baseHP[5], hp[5], hpPct[5], baseDefense[5], hpSnapshot[P_CARRIERS], healing[5];
     uint quantityMask, weaponInitialized[5], modeMagazine[5], delayCover[5], pendingAutoReload[5];
     uint64_t rawCharge[5], activated[P_CARRIERS];
@@ -118,7 +119,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
     {
         uint at = s.inputBase+P_CONDITION_BASE+definition*P_CONDITION_WORDS+i*4;
         uint kind = commands[at]; int name = int(commands[at+1]); uint64_t arg = loadNumber(at+2);
-        if (runtime && kind != C_FULL && kind != C_NOT_FULL && kind != C_SELF_STATE && kind != C_NOT_SELF_STATE && kind != C_SELF_STACK && kind != C_CAST && kind != C_NOT_CAST && kind != C_CHARGING && kind != C_ENEMIES_ABOVE && kind != C_ENEMIES_BELOW && kind != C_HP_ABOVE && kind != C_HP_BELOW && kind != C_HP_MAX && kind != C_ALLY_HP_BELOW) continue;
+        if (runtime && kind != C_FULL && kind != C_NOT_FULL && kind != C_SELF_STATE && kind != C_NOT_SELF_STATE && kind != C_SELF_STACK && kind != C_CAST && kind != C_NOT_CAST && kind != C_CHARGING && kind != C_ENEMIES_ABOVE && kind != C_ENEMIES_BELOW && kind != C_HP_ABOVE && kind != C_HP_BELOW && kind != C_HP_MAX && kind != C_ALLY_HP_BELOW && kind != C_COVER_ALIVE && kind != C_COVER_BROKEN) continue;
         if (kind == C_FULL && s.phase != 5 || kind == C_NOT_FULL && s.phase == 5) return false;
         if (kind == C_SELF_STATE || kind == C_NOT_SELF_STATE)
         {
@@ -138,6 +139,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
             if (f64Less(f64FromI64(count),arg)) return false;
         }
         if (kind == C_HP_ABOVE && f64Less(s.hpPct[d.owner],arg) || kind == C_HP_BELOW && f64Less(arg,s.hpPct[d.owner]) || kind == C_HP_MAX && f64Less(s.hpPct[d.owner],HUNDRED)) return false;
+        if (kind == C_COVER_ALIVE && f64Zero(s.coverHP[d.owner]) || kind == C_COVER_BROKEN && !f64Zero(s.coverHP[d.owner])) return false;
         if (kind == C_NOT_SELF_HEAL && (s.healSource < 0 || uint(s.healSource) == d.owner)) return false;
         if (kind == C_ALLY_HP_BELOW)
         {
@@ -183,6 +185,7 @@ void markEntry(inout Runtime s, uint row)
 #include "carrier_runtime.slang"
 #include "quantity_runtime.slang"
 #include "health_runtime.slang"
+#include "cover_runtime.slang"
 #include "hp_edge_runtime.slang"
 
 // Collect in resident order once per query/hit. Four critical sums use the
@@ -444,6 +447,27 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (s.error == 0) pushFrame(s,frames,depth,0,49,damage.owner,int(damage.name),f.time);
             continue;
         }
+        if (f.mode == 11)
+        {
+            Definition cover = s.defs[uint(f.argument)];
+            uint encoded = f.cursor < 5 ? (f.value >> (3*f.cursor)) & 7 : 0;
+            if (encoded == 0) { depth--; continue; }
+            frames[depth].cursor++; uint who = encoded-1;
+            if ((s.downMask & (1U << who)) != 0) continue;
+            if (cover.kind == 30)
+            {
+                if (f64Zero(cover.value)) { s.error = 64; break; }
+                if (f64Zero(s.coverHP[who])) s.coverHP[who] = larger(0,f64Div(f64Mul(s.coverMaxHP[who],cover.value),HUNDRED));
+            }
+            else if (!f64Zero(s.coverHP[who]) && !f64Zero(cover.value))
+            {
+                uint64_t base = cover.healthScaling != 0 ? effectiveMaxHP(s,cover.owner,f.time) : s.coverMaxHP[who];
+                s.coverHP[who] = smaller(s.coverMaxHP[who],f64Add(s.coverHP[who],f64Div(f64Mul(base,cover.value),HUNDRED)));
+                if (!f64Finite(s.coverHP[who])) { s.error = 16; break; }
+                pushFrame(s,frames,depth,0,17,who,0,f.time);
+            }
+            continue;
+        }
         if (f.mode == 9)
         {
             if (f.cursor == f.repeatLeft) { s.removalCount = f.value; depth--; continue; }
@@ -595,7 +619,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         { pushFrame(s,frames,depth,1,47,d.owner,int(row),f.time); continue; }
         if (f.mode == 0 && !activationConditions(s,row,f.time) && !(f.event == 0 && f64Less(d.duration,0) && passive != 0)) continue;
         uint recipientOrder = 0, recipientMask = d.recipients;
-        if (d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 8 || d.kind == 24)
+        if (d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 24 || d.kind == 30)
         {
             if (d.lazyGroup == 0) recipientMask = selectRecipients(s,row,f.time,recipientOrder);
             else recipientMask = 0;
@@ -644,6 +668,11 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 applyHealthBuff(s,row,f.time);
                 if (previousStack != s.stacks[row]) pushFrame(s,frames,depth,0,9,d.owner,int(d.name),f.time,s.stacks[row]);
             }
+        }
+        else if (d.kind == 7 || d.kind == 30)
+        {
+            pushFrame(s,frames,depth,11,0,d.owner,int(row),f.time);
+            if (s.error == 0) frames[depth].value = recipientOrder;
         }
         else if (d.kind == 6)
         {
@@ -773,7 +802,7 @@ void tick(inout Runtime s, uint64_t when, uint output)
             if (!f64Less(when,next))
             { dispatch(s,0,6,s.defs[j].owner,int(j),when,output); s.periodDue[j] = f64Add(next,interval); }
         }
-    timerPass(s,when,false,output); syncHealth(s,when);
+    timerPass(s,when,false,output); syncHealth(s,when); syncCovers(s,when);
     if (s.hpWatchCount != 0) dispatch(s,7,0,0,0,when,output);
 }
 
@@ -794,6 +823,8 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     s.generation = 1; s.count = commands[input+1]; s.combat = commands[input+3]; s.inputBase = input; s.traceMode = commands[input+5];
     if (commands[input] != PORTABLE_ABI || s.count == 0 || s.count > P_DEFINITIONS || commands[input+2] > P_COMMANDS || s.traceMode > 1)
     { results[output] = 64; return; }
+    s.coverSync = commands[input+7];
+    if (s.coverSync > 1) { results[output] = 64; return; }
     s.carrierCount = s.count;
     for (uint row = 0; row < s.count; row++) s.carrierDefinition[row] = row;
     for (uint i = 0; i < 5; i++)
@@ -801,6 +832,9 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         s.baseAttack[i] = loadNumber(input+8+2*i);
         uint health = input+P_HEALTH_BASE+i*P_HEALTH_WORDS;
         s.baseHP[i] = loadNumber(health); s.hp[i] = loadNumber(health+2); s.baseDefense[i] = loadNumber(health+4);
+        uint cover = input+P_COVER_BASE+i*4;
+        s.baseCoverHP[i] = loadNumber(cover); s.coverHP[i] = loadNumber(cover+2); s.coverMaxHP[i] = s.baseCoverHP[i];
+        if (!f64Finite(s.baseCoverHP[i]) || !f64Less(0,s.baseCoverHP[i]) || !f64Finite(s.coverHP[i]) || f64Less(s.coverHP[i],0) || f64Less(s.baseCoverHP[i],s.coverHP[i])) { results[output] = 64; return; }
         s.hpPct[i] = f64Mul(f64Div(s.hp[i],s.baseHP[i]),HUNDRED);
     }
     s.defense = loadNumber(input+18); s.coreBonus = loadNumber(input+22);
@@ -826,7 +860,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         d.mergeEligible = commands[input+P_RECIPIENT_BASE+j*8+7] & 3;
         d.queryResolve = (commands[input+P_RECIPIENT_BASE+j*8+7] >> 2) & 1;
         d.lazyGroup = commands[input+P_RECIPIENT_BASE+j*8+7] >> 4; s.lazyEnabled |= uint(d.lazyGroup != 0); d.statKey = commands[input+P_RECIPIENT_BASE+j*8+6];
-        if ((d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 8 || d.kind == 24) && !validRecipientPlan(input+P_RECIPIENT_BASE+j*8)) { s.error = 64; break; }
+        if ((d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 24 || d.kind == 30) && !validRecipientPlan(input+P_RECIPIENT_BASE+j*8)) { s.error = 64; break; }
         if (d.lazyGroup != 0)
         {
             uint plan = input+P_RECIPIENT_BASE+j*8, selector = commands[plan];
@@ -853,7 +887,11 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         if (d.bulletDuration > 0x7fffffff || d.bulletBound > 1 || d.bulletDuration == 0 && d.bulletBound != 0 || d.bulletDuration != 0 && (s.combat == 0 || d.kind != 0 && d.kind != 4)) { s.error = 64; break; }
         uint extra = input+P_DEFINITION_EXTRA_BASE+j*P_DEFINITION_EXTRA_WORDS;
         uint health = input+P_HEALTH_DEFINITION_BASE+j*P_HEALTH_DEFINITION_WORDS;
-        d.healthScaling = commands[health]; d.alliedFlags = commands[health+1];
+        d.healthScaling = commands[health];
+        if (d.healthScaling > 1) { s.error = 64; break; }
+        if (d.kind == 0 && d.stat == S_cover_hp_pct) s.coverMask |= 1;
+        if ((d.kind == 7 || d.kind == 30) && (f64Less(d.value,0) || d.kind == 30 && f64Zero(d.value))) { s.error = 64; break; }
+        if (d.kind == 7 || d.kind == 30) s.coverMask |= 2; d.alliedFlags = commands[health+1];
         if (d.kind == 0 && (d.stat >= S_max_hp_pct && d.stat <= S_max_hp_only_pct || d.stat == S_max_hp_from_max_hp_pct)) s.healthMask |= 1;
         if (d.kind == 0 && ((d.alliedFlags & 1) != 0 || d.stat == S_def_caster_based_pct)) s.healthMask |= 2;
         if (d.kind == 0 && d.stat == S_heal_received_pct) s.healthMask |= 4;
@@ -895,6 +933,18 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             dispatch(s,0,event,commands[at+4],int(commands[at+5]),when,output);
         }
         else if (op == 4 && s.combat != 0) { if (s.clockMode != 0) { s.error = 64; break; } squadFrame(s,when,output); s.frameCount++; }
+        else if (op == 26)
+        {
+            uint mask = commands[at+5]; uint64_t amount = loadNumber(at+6);
+            if (commands[at+3] != 0 || commands[at+4] != 0 || mask == 0 || mask > 31 || !f64Finite(amount) || f64Less(amount,0)) { s.error = 64; break; }
+            for (uint who = 0; who < 5 && s.error == 0; who++) if ((mask & ~s.downMask & (1U << who)) != 0 && !f64Zero(s.coverHP[who]) && !f64Zero(amount))
+            {
+                uint64_t taken = smaller(s.coverHP[who],amount);
+                s.coverHP[who] = f64Add(s.coverHP[who],taken ^ F64_SIGN);
+                s.coverDamage[who] = f64Add(s.coverDamage[who],taken);
+                dispatch(s,0,36,who,0,when,output);
+            }
+        }
         else if (op == 25) dispatch(s,8,0,0,int(step),when,output);
         else if (op == 24 && s.combat != 0) advanceCombat(s,when,output);
         else if ((op == 20 || op == 21 || op == 22) && s.combat != 0)
@@ -928,6 +978,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             if (index >= P_COMMANDS) { s.error = 64; break; }
             if (s.hpWatchCount != 0) dispatch(s,7,0,0,0,when,output); else syncHealth(s,when);
             writeHealth(s,when,output+P_HEALTH_QUERY_BASE+index*P_HEALTH_QUERY_WORDS);
+            writeCovers(s,when,output+P_COVER_QUERY_BASE+index*40);
             writeIncoming(s,output+P_INCOMING_QUERY_BASE+index*P_INCOMING_QUERY_WORDS);
             writeDamageAccounting(s,output+P_DAMAGE_ACCOUNTING_QUERY_BASE+index*40);
             queries = max(queries,index+1); uint dst = output+P_QUERY_BASE+index*P_QUERY_WORDS;
@@ -942,6 +993,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         else s.error = 64;
     }
     writeDamageAccounting(s,output+P_DAMAGE_ACCOUNTING_STATE_BASE,true);
+    writeCovers(s,commands[input+2] > 0 ? loadNumber(input+P_COMMAND_BASE+(commands[input+2]-1)*8+1) : 0,output+P_COVER_STATE_BASE);
     writeIncoming(s,output+P_INCOMING_STATE_BASE);
     writeHealth(s,commands[input+2] > 0 ? loadNumber(input+P_COMMAND_BASE+(commands[input+2]-1)*8+1) : 0,output+P_HEALTH_STATE_BASE);
     for (uint j = 0; j < s.count; j++)

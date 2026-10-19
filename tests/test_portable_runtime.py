@@ -30,7 +30,7 @@ class PortableBoundaryTests(unittest.TestCase):
     def test_unported_semantics_fail_before_any_gpu_dispatch(self):
         variants=[dict(trigger=dict(timing=['passive'],condition=['has_burst1_ally'])),dict(stat='shield_from_max_hp_pct'),dict(target='allies_random:1'),dict(scaling='stack_count'),
                   dict(trigger=dict(timing=['battle_start'],condition=['full_burst'])),
-                  dict(trigger=dict(timing=['event:cover_hit'],condition=[])),
+                  dict(trigger=dict(timing=['event:shield_applied'],condition=[])),
                   dict(trigger=dict(timing=['battle_start'],condition=['during_shield']))]
         for change in variants:
             with self.subTest(change=change):
@@ -49,7 +49,7 @@ class PortableBoundaryTests(unittest.TestCase):
         for trigger in (dict(timing=['battle_start']*9),dict(timing=[]),
                         dict(timing=['battle_start'],condition=['during_full_burst']*4),
                         dict(timing=['every:0s']),dict(timing=['every:nan']),
-                        dict(timing=['every:inf']),dict(timing=['event:cover_hit']),
+                        dict(timing=['every:inf']),dict(timing=['event:shield_applied']),
                         dict(timing=['battle_start'],condition=['during_shield'])):
             with self.subTest(trigger=trigger),self.assertRaises(ValueError):validate_input(dict(trigger=trigger))
 
@@ -196,6 +196,30 @@ class PortableRealInputTests(unittest.TestCase):
             elif patch=='controls':bad['policies']['controls']['미란다']={'tap_fire':True}
             else:bad['enemy']['has_parts']=True
             with self.subTest(patch=patch),self.assertRaises(UnsupportedPortable):compile_static_battle(bad)
+
+
+class PortableCoverInputTests(unittest.TestCase):
+    def test_unported_cover_basis_and_random_targets_remain_rejected(self):
+        from portable_runtime import validate_effect
+        effect=dict(name='cover',type='buff',stat='cover_hp_pct',fixed_value=10,target='self',trigger=dict(timing=['battle_start'],condition=[]))
+        validate_effect({**effect,'scaling':'max_hp'})
+        for patch in (dict(scaling='lost_hp_pct'),dict(target='allies_broken_cover_random:2')):
+            with self.subTest(patch=patch),self.assertRaises(UnsupportedPortable):validate_effect({**effect,**patch})
+
+    def test_cover_health_and_damage_are_typed_layer_inputs(self):
+        import importlib.util
+        spec=importlib.util.spec_from_file_location('cover_verify',ROOT/'scripts/verify-portable-combat.py')
+        v=importlib.util.module_from_spec(spec);spec.loader.exec_module(v)
+        base=copy.deepcopy(next(c for c in v.fixtures() if c.get('cover_reference')))
+        for patch in (dict(base_cover_hp=0),dict(base_cover_hp=True),dict(cover_hp=-1),dict(cover_hp=1001),dict(cover_hp=float('nan'))):
+            c=copy.deepcopy(base);c['environment']['allies'][0].update(patch)
+            with self.subTest(patch=patch),self.assertRaises(ValueError):v.compile_case(c)
+        for patch in (dict(cover_sync=1),dict(cover_sync='auto')):
+            c=copy.deepcopy(base);c['environment'].update(patch)
+            with self.subTest(patch=patch),self.assertRaises(ValueError):v.compile_case(c)
+        for command in ([0,26,0,0,0,-1,100,0],[0,26,0,0,32,-1,100,0],[0,26,0,1,1,-1,100,0],[0,26,0,0,1,-1,-1,0],[0,26,0,0,1,-1,True,0],[0,26,0,0,1,-1,100,1]):
+            c=copy.deepcopy(base);c['script']=[command]
+            with self.subTest(command=command),self.assertRaises(ValueError):v.compile_case(c)
 
 
 if __name__=='__main__':unittest.main()

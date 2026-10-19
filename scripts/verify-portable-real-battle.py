@@ -32,7 +32,7 @@ def native_reference(body):
             match=re.fullmatch(r'(stage|reenter):([123]) 사용',event.event)
             code=int(match[2])+(6 if match[1]=='reenter' else 0) if match else 4 if event.event=='full_burst 시작' else 5 if event.event=='full_burst 종료' else 6 if event.event.startswith('게이지 만충') else None
             if code is not None:trace.append(dict(time=event.t,event=code,owner=names.index(event.caster) if event.caster else -1))
-        final=dict(body_damage=[next(x['damage'] for x in payload['members'] if x['name']==n) for n in names],
+        final=dict(covers=[dict(hp=bm.state['cover_hp'][n],max_hp=bm.state['cover_max_hp'][n],effective_max_hp=bm.cover_max_hp(n,capture['time'])) for n in names],body_damage=[next(x['damage'] for x in payload['members'] if x['name']==n) for n in names],
             combat=dict(phase=phase_id,cast_mask=sum(1<<i for i,n in enumerate(names) if state['burst_casted'].get(n)),gauge=state['burst_gauge'],
                 full_end=max(0,ctrl._full_burst_end_t),gauge_charging=state['burst_gauge_charging'],cooldown_applied=[ctrl._cd_applied_at_cast[n] for n in names],
                 weapons=[dict(ammo=observed[n].ammo,shots=counts[n],charge_until=observed[n]._charge_end_t,reload_until=observed[n].reloading_until,

@@ -28,6 +28,8 @@ void initializeRuntime(inout Runtime s)
     s.hpEdgeGuard = 0;
     s.healthMask = 0;
     s.healSource = 0;
+    s.coverMask = 0;
+    s.coverSync = 0;
     s.quantityMask = 0;
     s.enemySnapshot = 0;
     s.reentrySlot = 0;
@@ -126,6 +128,10 @@ void initializeRuntime(inout Runtime s)
         s.receivedDamage[index] = 0;
         s.hpPrevious[index] = 0;
         s.hpNext[index] = 0;
+        s.baseCoverHP[index] = 0;
+        s.coverHP[index] = 0;
+        s.coverMaxHP[index] = 0;
+        s.coverDamage[index] = 0;
         s.baseHP[index] = 0;
         s.hp[index] = 0;
         s.hpPct[index] = 0;

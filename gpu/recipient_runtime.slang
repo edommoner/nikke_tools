@@ -1,8 +1,8 @@
 bool validRecipientPlan(uint at)
 {
     uint kind = commands[at], count = commands[at+1], mask = commands[at+2];
-    if (kind > 16 || kind == 4 || kind == 14 || count > 5 || mask > 31 || commands[at+3] > (kind == 12 || kind == 13 ? 2 : 1)) return false;
-    if ((kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16) && count == 0) return false;
+    if (kind > 21 || kind >= 17 && kind <= 20 || kind == 4 || kind == 14 || count > 5 || mask > 31 || commands[at+3] > (kind == 12 || kind == 13 ? 2 : 1)) return false;
+    if ((kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16 || kind == 21) && count == 0) return false;
     uint order = commands[at+4], seen = 0; bool ended = false;
     if (order >> 15 != 0 || commands[at+6] >= P_DEFINITIONS || (commands[at+7] & 8) != 0 || (commands[at+7] >> 4) > P_DEFINITIONS) return false;
     for (uint i = 0; i < 5; i++)
@@ -24,6 +24,7 @@ uint selectRecipients(inout Runtime s, uint row, uint64_t when, out uint order)
     uint kind = commands[at], count = commands[at+1], candidates = commands[at+2];
     uint exclude = commands[at+3], authoredOrder = commands[at+4];
     if (kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16) return rankedRecipients(s,row,when,order);
+    if (kind == 21) return coverRecipients(s,count,order);
     if (kind == 0)
     {
         uint mask = (1U << d.owner) & ~s.downMask;

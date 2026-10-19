@@ -1,6 +1,38 @@
 {
   "results": [
     {
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
       "body_damage": [
         4000.0,
         0.0,
@@ -232,6 +264,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -342,6 +406,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -454,6 +550,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -564,6 +692,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -676,6 +836,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -786,6 +978,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         }
@@ -918,6 +1142,38 @@
       "max_stack_depth": 3
     },
     {
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
       "body_damage": [
         4000.0,
         0.0,
@@ -1149,6 +1405,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -1259,6 +1547,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -1371,6 +1691,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -1481,6 +1833,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -1593,6 +1977,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -1703,6 +2119,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         }
@@ -1835,6 +2283,38 @@
       "max_stack_depth": 3
     },
     {
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
       "body_damage": [
         5000.0,
         0.0,
@@ -2066,6 +2546,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -2176,6 +2688,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -2288,6 +2832,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -2398,6 +2974,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -2510,6 +3118,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -2620,6 +3260,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         }
@@ -2793,6 +3465,38 @@
       "max_stack_depth": 5
     },
     {
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
       "body_damage": [
         14000.0,
         0.0,
@@ -3037,6 +3741,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -3147,6 +3883,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -3259,6 +4027,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -3369,6 +4169,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -3481,6 +4313,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -3591,6 +4455,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         }
@@ -3856,6 +4752,38 @@
       "max_stack_depth": 5
     },
     {
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
       "body_damage": [
         4000.0,
         0.0,
@@ -4100,6 +5028,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -4210,6 +5170,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -4322,6 +5314,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -4432,6 +5456,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -4544,6 +5600,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -4654,6 +5742,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         }
@@ -4834,6 +5954,38 @@
       "max_stack_depth": 5
     },
     {
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
       "body_damage": [
         12000.0,
         0.0,
@@ -5078,6 +6230,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -5188,6 +6372,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -5300,6 +6516,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -5410,6 +6658,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -5522,6 +6802,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -5632,6 +6944,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         }
@@ -5880,6 +7224,38 @@
       "max_stack_depth": 5
     },
     {
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
       "body_damage": [
         12000.0,
         0.0,
@@ -6124,6 +7500,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -6234,6 +7642,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -6346,6 +7786,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -6456,6 +7928,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -6568,6 +8072,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -6678,6 +8214,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         }
@@ -6950,6 +8518,38 @@
       "max_stack_depth": 5
     },
     {
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
       "body_damage": [
         14000.0,
         0.0,
@@ -7207,6 +8807,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -7317,6 +8949,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -7429,6 +9093,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -7539,6 +9235,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -7651,6 +9379,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -7761,6 +9521,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         }
@@ -7975,6 +9767,38 @@
       "max_stack_depth": 4
     },
     {
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
       "body_damage": [
         3513.0,
         0.0,
@@ -8206,6 +10030,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -8316,6 +10172,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -8428,6 +10316,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         }
       ],
@@ -8490,6 +10410,38 @@
       "max_stack_depth": 2
     },
     {
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
       "body_damage": [
         4.0,
         0.0,
@@ -8708,6 +10660,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -8819,6 +10803,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         }
       ],
@@ -8857,6 +10873,38 @@
       "max_stack_depth": 2
     },
     {
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
       "body_damage": [
         1000.0,
         0.0,
@@ -9088,6 +11136,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         }
       ],
@@ -9150,6 +11230,38 @@
       "max_stack_depth": 2
     },
     {
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
       "body_damage": [
         1000.0,
         0.0,
@@ -9368,6 +11480,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         }
       ],
@@ -9406,6 +11550,38 @@
       "max_stack_depth": 2
     },
     {
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
       "body_damage": [
         1000.0,
         0.0,
@@ -9624,6 +11800,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         }
       ],
@@ -9662,6 +11870,38 @@
       "max_stack_depth": 2
     },
     {
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
       "body_damage": [
         1001.0,
         0.0,
@@ -9880,6 +12120,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         }
       ],
@@ -9918,6 +12190,38 @@
       "max_stack_depth": 2
     },
     {
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
       "body_damage": [
         2000.0,
         2000.0,
@@ -10149,6 +12453,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         }
       ],
@@ -10211,6 +12547,38 @@
       "max_stack_depth": 2
     },
     {
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
       "body_damage": [
         3500.0,
         0.0,
@@ -10442,6 +12810,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         },
         {
@@ -10552,6 +12952,38 @@
               "received_damage": 0.0,
               "received_hits": 0,
               "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
             }
           ]
         },
@@ -10664,6 +13096,38 @@
               "received_hits": 0,
               "down": false
             }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
           ]
         }
       ],
@@ -10731,27 +13195,28 @@
     "cases": 16,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.008605083334259689,
+    "gpu_seconds": 0.00877837504958734,
     "input_bytes": 3145732,
-    "library_compile_seconds": 0.3268439769744873,
+    "library_compile_seconds": 0.0010930299758911133,
     "output_bytes": 2883584,
-    "pipeline_compile_seconds": 30.75167202949524,
+    "pipeline_compile_seconds": 0.0016870498657226562,
     "registry_id": "4294968313"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "95aeec3ee59de5216c904c80c9e1876eb6165eae692482a403c2fd40f0e8d547",
+    "gpu/event_runtime.slang": "5ed647ebaa0fb95a530179dde864d79482f310cba714d620f42e95c7b830af6e",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "a6bd57c921fb1c663d6710c7b395cd535734938421dced2cc04bd7453ae82209",
-    "gpu/runtime_init.slang": "21efb39e219b1fadbe5fc135d1618571f981444f1954596d18ffc994ffef65b3",
+    "gpu/portable_schema.slang": "8cc433e6e5705161b712c0736e92802f4702f272d0b2073064819a9e50dc7b58",
+    "gpu/runtime_init.slang": "9ce0fe43765afa3a0f55b93776b725473fc4dade45906dbb750fdf60a9d2ed82",
     "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
     "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
     "gpu/lazy_runtime.slang": "ab04468b7d16b0213406d327384323005501b1c3b44351e16caf3f4db7bf16a3",
     "gpu/carrier_runtime.slang": "ee5785eb4a314831e271644f7341e5642549ffd3d19008e11fd877f3368a369f",
     "gpu/quantity_runtime.slang": "5d0a7ee77ad299b161f59ecccccc16a5a082ccc57fcf226c04873464264c2abf",
     "gpu/health_runtime.slang": "071e46cf983d294241247cfef5a3de6105829bd9e85fed05dc9d6050f8cc90fb",
+    "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
     "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
-    "gpu/recipient_runtime.slang": "72de3353734ab82dcd989e39c40f016a557d3114f6e1404239b061e1cebbdb0b",
+    "gpu/recipient_runtime.slang": "ea89a5a0656f93ac7f412c941fc6e37dd534680bdab7ea808cca648bf7a0866a",
     "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
     "gpu/incoming_runtime.slang": "322e92344f55def51fe181360ce35aba89daf341d423bed94b7da22923fa701b",
     "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
@@ -10761,11 +13226,11 @@
     "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
   },
   "generated_sha256": {
-    "cuda": "4149195cce506ca50240c70f492bd6273b5a0efeb480f93a3a481680a7ebedb6",
-    "metal": "75f0f6a8decbf2bb4b247426116b0c0a6100b01fa06825addc722f278dd0a0af"
+    "cuda": "51572f32558fea559a2eec70e6a73354c2ca9c3e963ecb216c7d868773fa2664",
+    "metal": "5cc8f468cb89529a81f6eed7a2d6011e49a78ade031d2abec990036635a2e9af"
   },
-  "input_sha256": "2f733c8b0d7a6551eb5a6cd3a57a9088f16b66eb13334c08d8d67202b2f56cb2",
-  "output_sha256": "f476c30f683137d0c65d80d04a980b1a2d76826a462e498460989e0f56a41507",
+  "input_sha256": "acf532c72efab178dcdc6ac6ffd8738aa5c15acb64ad7dbc8c350055307a4ad8",
+  "output_sha256": "1d210d1407f23d4f77c99316834cd5e4aca83bf78cd16e9c08cb9231f3998c6d",
   "gpu_execution_verified": true,
   "backend": "metal",
   "application_event_runtime_connected": true,
@@ -10786,6 +13251,38 @@
         4000
       ],
       "actual": {
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
         "body_damage": [
           4000.0,
           0.0,
@@ -11017,6 +13514,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -11127,6 +13656,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -11239,6 +13800,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -11349,6 +13942,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -11461,6 +14086,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -11571,6 +14228,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           }
@@ -11715,6 +14404,38 @@
         4000
       ],
       "actual": {
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
         "body_damage": [
           4000.0,
           0.0,
@@ -11946,6 +14667,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -12056,6 +14809,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -12168,6 +14953,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -12278,6 +15095,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -12390,6 +15239,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -12500,6 +15381,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           }
@@ -12644,6 +15557,38 @@
         5000
       ],
       "actual": {
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
         "body_damage": [
           5000.0,
           0.0,
@@ -12875,6 +15820,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -12985,6 +15962,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -13097,6 +16106,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -13207,6 +16248,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -13319,6 +16392,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -13429,6 +16534,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           }
@@ -13614,6 +16751,38 @@
         14000
       ],
       "actual": {
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
         "body_damage": [
           14000.0,
           0.0,
@@ -13858,6 +17027,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -13968,6 +17169,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -14080,6 +17313,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -14190,6 +17455,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -14302,6 +17599,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -14412,6 +17741,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           }
@@ -14689,6 +18050,38 @@
         4000
       ],
       "actual": {
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
         "body_damage": [
           4000.0,
           0.0,
@@ -14933,6 +18326,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -15043,6 +18468,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -15155,6 +18612,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -15265,6 +18754,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -15377,6 +18898,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -15487,6 +19040,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           }
@@ -15679,6 +19264,38 @@
         12000
       ],
       "actual": {
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
         "body_damage": [
           12000.0,
           0.0,
@@ -15923,6 +19540,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -16033,6 +19682,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -16145,6 +19826,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -16255,6 +19968,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -16367,6 +20112,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -16477,6 +20254,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           }
@@ -16737,6 +20546,38 @@
         12000
       ],
       "actual": {
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
         "body_damage": [
           12000.0,
           0.0,
@@ -16981,6 +20822,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -17091,6 +20964,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -17203,6 +21108,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -17313,6 +21250,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -17425,6 +21394,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -17535,6 +21536,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           }
@@ -17819,6 +21852,38 @@
         14000
       ],
       "actual": {
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
         "body_damage": [
           14000.0,
           0.0,
@@ -18076,6 +22141,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -18186,6 +22283,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -18298,6 +22427,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -18408,6 +22569,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -18520,6 +22713,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -18630,6 +22855,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           }
@@ -18853,6 +23110,38 @@
         3513
       ],
       "actual": {
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
         "body_damage": [
           3513.0,
           0.0,
@@ -19084,6 +23373,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -19194,6 +23515,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -19306,6 +23659,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           }
         ],
@@ -19376,6 +23761,38 @@
         4
       ],
       "actual": {
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
         "body_damage": [
           4.0,
           0.0,
@@ -19594,6 +24011,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -19705,6 +24154,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           }
         ],
@@ -19750,6 +24231,38 @@
         1000
       ],
       "actual": {
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
         "body_damage": [
           1000.0,
           0.0,
@@ -19981,6 +24494,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           }
         ],
@@ -20050,6 +24595,38 @@
         1000
       ],
       "actual": {
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
         "body_damage": [
           1000.0,
           0.0,
@@ -20267,6 +24844,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           }
@@ -20313,6 +24922,38 @@
         1000
       ],
       "actual": {
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
         "body_damage": [
           1000.0,
           0.0,
@@ -20530,6 +25171,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           }
@@ -20576,6 +25249,38 @@
         1001
       ],
       "actual": {
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
         "body_damage": [
           1001.0,
           0.0,
@@ -20794,6 +25499,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           }
         ],
@@ -20839,6 +25576,38 @@
         6000
       ],
       "actual": {
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
         "body_damage": [
           2000.0,
           2000.0,
@@ -21070,6 +25839,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           }
         ],
@@ -21141,6 +25942,38 @@
         3500
       ],
       "actual": {
+        "covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0,
+            "damage": 0.0
+          }
+        ],
         "body_damage": [
           3500.0,
           0.0,
@@ -21372,6 +26205,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           },
           {
@@ -21482,6 +26347,38 @@
                 "received_damage": 0.0,
                 "received_hits": 0,
                 "down": false
+              }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
               }
             ]
           },
@@ -21594,6 +26491,38 @@
                 "received_hits": 0,
                 "down": false
               }
+            ],
+            "covers": [
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              },
+              {
+                "hp": 2000000.0,
+                "max_hp": 2000000.0,
+                "effective_max_hp": 2000000.0,
+                "damage": 0.0
+              }
             ]
           }
         ],
@@ -21674,27 +26603,28 @@
       "cases": 2,
       "command_status": "completed",
       "device": "Apple M5",
-      "gpu_seconds": 0.00104674999602139,
+      "gpu_seconds": 0.0002547082840465009,
       "input_bytes": 393220,
-      "library_compile_seconds": 0.0006510019302368164,
+      "library_compile_seconds": 0.0007219314575195312,
       "output_bytes": 360448,
-      "pipeline_compile_seconds": 0.001013040542602539,
+      "pipeline_compile_seconds": 0.0011199712753295898,
       "registry_id": "4294968313"
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "95aeec3ee59de5216c904c80c9e1876eb6165eae692482a403c2fd40f0e8d547",
+      "gpu/event_runtime.slang": "5ed647ebaa0fb95a530179dde864d79482f310cba714d620f42e95c7b830af6e",
       "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "a6bd57c921fb1c663d6710c7b395cd535734938421dced2cc04bd7453ae82209",
-      "gpu/runtime_init.slang": "21efb39e219b1fadbe5fc135d1618571f981444f1954596d18ffc994ffef65b3",
+      "gpu/portable_schema.slang": "8cc433e6e5705161b712c0736e92802f4702f272d0b2073064819a9e50dc7b58",
+      "gpu/runtime_init.slang": "9ce0fe43765afa3a0f55b93776b725473fc4dade45906dbb750fdf60a9d2ed82",
       "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
       "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
       "gpu/lazy_runtime.slang": "ab04468b7d16b0213406d327384323005501b1c3b44351e16caf3f4db7bf16a3",
       "gpu/carrier_runtime.slang": "ee5785eb4a314831e271644f7341e5642549ffd3d19008e11fd877f3368a369f",
       "gpu/quantity_runtime.slang": "5d0a7ee77ad299b161f59ecccccc16a5a082ccc57fcf226c04873464264c2abf",
       "gpu/health_runtime.slang": "071e46cf983d294241247cfef5a3de6105829bd9e85fed05dc9d6050f8cc90fb",
+      "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
       "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
-      "gpu/recipient_runtime.slang": "72de3353734ab82dcd989e39c40f016a557d3114f6e1404239b061e1cebbdb0b",
+      "gpu/recipient_runtime.slang": "ea89a5a0656f93ac7f412c941fc6e37dd534680bdab7ea808cca648bf7a0866a",
       "gpu/damage_runtime.slang": "723829b53af54235c4d947a84820477e1bb12f2cdcf0f559d175d1f8c6987333",
       "gpu/incoming_runtime.slang": "322e92344f55def51fe181360ce35aba89daf341d423bed94b7da22923fa701b",
       "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
@@ -21704,19 +26634,19 @@
       "gpu/weapon_runtime.slang": "79f5f8d3d267a5d7927b5285d13683a777752319b6aad699e64dfeb33a06ed53"
     },
     "generated_sha256": {
-      "cuda": "4149195cce506ca50240c70f492bd6273b5a0efeb480f93a3a481680a7ebedb6",
-      "metal": "75f0f6a8decbf2bb4b247426116b0c0a6100b01fa06825addc722f278dd0a0af"
+      "cuda": "51572f32558fea559a2eec70e6a73354c2ca9c3e963ecb216c7d868773fa2664",
+      "metal": "5cc8f468cb89529a81f6eed7a2d6011e49a78ade031d2abec990036635a2e9af"
     },
-    "input_sha256": "4b88cbf6398e772c2eff1f8aff9cae09f8563b09e9dc2e7aeedd961aeb709baa",
+    "input_sha256": "706ec8277507a008c0c86c497eacb928dfaa7dd7168c7dd9dc44268e0d437189",
     "output_sha256": "d40bd96537f85e0e6e76f0e811bee7975168e825f3b9ca78983d446d98112c44",
     "gpu_execution_verified": true,
     "backend": "metal"
   },
   "adapter_sha256": {
-    "app/portable_runtime.py": "d58b98932386ed6ffd1417767df076e3ed3bba1c75f888c00a2a9c722266c4a8",
-    "app/portable_trigger_specs.py": "61aaa3740ee6f6c6753d321a2848f3ed4e16474e63fc526f5fc14cee69ff01ad",
-    "app/portable_damage_specs.py": "4fdac883c2307f9b7850d829914caf4249adfbc8efc7b5abf06a172e10ea1b02",
-    "app/portable_specs.py": "b2f3ebea5d09fa93dad48ff13256be95947f848346b811b6125692a2239d47ee",
+    "app/portable_runtime.py": "424673b0fe4e0b05470f48f64eac9a87db987e695a0b8a0e43a9302c3ba491f7",
+    "app/portable_trigger_specs.py": "e7e9b04e7e3ea10938e91c24ed6c93536411c937ab08eaabcf87b930d536f2b2",
+    "app/portable_damage_specs.py": "3e17c2e67397dae64c69bb69ce8fc38635d42b26e1237fdce79df1a23e32ce96",
+    "app/portable_specs.py": "2595fc71ed81275a183230abd1175cf48b6c888b5442e7b0af3877027eafbcf5",
     "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff",
     "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",

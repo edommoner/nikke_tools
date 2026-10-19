@@ -9,6 +9,7 @@ import re
 def admitted(target, *, instant=False):
     if not isinstance(target, str):
         return False
+    if re.fullmatch(r'allies_lowest_cover_hp:[1-5]',target):return True
     if target in ('self', 'all_allies', 'all_allies_excl_self', 'allies_squad', 'allies_burst3'):
         return True
     static = (r'allies_(?:right|adjacent):[1-5]', r'allies:[0-5]',
@@ -28,7 +29,7 @@ def admitted(target, *, instant=False):
 
 def pack(words, index, row, limits, effect, stat_key, merge_search, lazy_group):
     kind = int(row[4])
-    if kind not in (0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16):
+    if kind not in (0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 21):
         raise ValueError('Unported compiled recipient selector')
     at = limits['RECIPIENT_BASE'] + index * 8
     independent_quantity=effect.get('_source_tag')=='equipment' and int(row[2]) in (18,20,37)

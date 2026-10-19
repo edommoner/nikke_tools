@@ -3,23 +3,23 @@
   "audited_characters": 203,
   "full_character_verified": 0,
   "weapon_input_preflight_passed": 203,
-  "own_effect_preflight_passed": 11,
+  "own_effect_preflight_passed": 12,
   "assumptions": "favorite stage 0, no cube, fixed five-member real roster; definition preflight only; not battle compatibility",
   "cpu_simulation_executed": false,
   "gpu_execution_performed": false,
   "issues": {
     "Unported buff or recipient selector": 305,
-    "Unported instant or recipient selector": 57,
+    "Unported instant or recipient selector": 50,
     "Unported enemy damage selector": 38,
     "Unported effect fields: gauge_id": 30,
     "Unported effect fields: gauge_id, gauge_max": 23,
     "Unported effect fields: scaling, scaling_ref": 22,
     "Unported trigger timing: received_hit_count:1": 18,
     "Unported trigger timing: event:part_destroy": 13,
-    "Unported effect fields: scaling": 13,
     "Unported effect fields: event_scope": 11,
     "Unported effect fields: remove_scope": 10,
     "Unported trigger timing: event:enemy_spawn": 9,
+    "Unported effect fields: scaling": 9,
     "Multi-target periodic damage requires per-recipient clocks": 8,
     "Unported trigger timing: received_hit_count:20": 7,
     "Unported trigger timing: enemy_death": 7,
@@ -35,6 +35,7 @@
     "Unported trigger timing: event:떼창": 4,
     "Unported predicate: target_code:풍압": 3,
     "Unported effect fields: hits_parts": 3,
+    "Unported predicate: prob:20": 3,
     "Unported predicate: target_state:사슬 감기": 3,
     "Unported effect fields: copy_from": 3,
     "Unported trigger timing: squad_burst_cast:2": 3,
@@ -49,7 +50,6 @@
     "Unported trigger timing: multi_hit:4": 2,
     "Unported effect fields: persist_on_revive": 2,
     "Unported trigger timing: received_hit_count:10": 2,
-    "Unported trigger timing: event:cover_hit": 2,
     "Unported trigger timing: every_stack:경험치:10": 2,
     "Unported effect fields: scaling, scaling_hp_pct": 2,
     "Unported predicate: gauge_above:MP:1": 2,
@@ -59,9 +59,9 @@
     "Unported damage family": 2,
     "Unported predicate: core_hit": 2,
     "Unported predicate: optimal_range": 2,
+    "Unported health recipient selector": 2,
     "Unported effect fields: feather_id, feather_interval_base, feather_interval_step_pct, feather_slots": 2,
     "Unported predicate: during_shield": 2,
-    "Unported trigger timing: event:cover_healed": 2,
     "Unported trigger timing: squad_burst_cast:1": 2,
     "Unported predicate: target_state:붐 인스톨": 2,
     "Unported predicate: not_target_state:누적 폭발 스킬": 2,
@@ -110,7 +110,6 @@
     "Unported trigger timing: multi_hit:2": 1,
     "Unported effect fields: post_ramp_tick_delay, ramp_damage_stack, ramp_interval, scaling": 1,
     "Unported predicate: prob:5": 1,
-    "Unported predicate: prob:20": 1,
     "Unported predicate: prob:10": 1,
     "Unported trigger timing: pellet_hit_in_shot:5": 1,
     "Unported predicate: target_state:고위험 대상": 1,
@@ -152,17 +151,17 @@
   },
   "diagnostic_semantic_issues": {
     "Unported buff or recipient selector": 305,
-    "Unported instant or recipient selector": 57,
+    "Unported instant or recipient selector": 50,
     "Unported enemy damage selector": 38,
     "Unported effect fields: gauge_id": 30,
     "Unported effect fields: gauge_id, gauge_max": 23,
     "Unported effect fields: scaling, scaling_ref": 22,
     "Unported trigger timing: received_hit_count:1": 18,
     "Unported trigger timing: event:part_destroy": 13,
-    "Unported effect fields: scaling": 13,
     "Unported effect fields: event_scope": 11,
     "Unported effect fields: remove_scope": 10,
     "Unported trigger timing: event:enemy_spawn": 9,
+    "Unported effect fields: scaling": 9,
     "Multi-target periodic damage requires per-recipient clocks": 8,
     "Unported trigger timing: received_hit_count:20": 7,
     "Unported trigger timing: enemy_death": 7,
@@ -178,6 +177,7 @@
     "Unported trigger timing: event:떼창": 4,
     "Unported predicate: target_code:풍압": 3,
     "Unported effect fields: hits_parts": 3,
+    "Unported predicate: prob:20": 3,
     "Unported predicate: target_state:사슬 감기": 3,
     "Unported effect fields: copy_from": 3,
     "Unported trigger timing: squad_burst_cast:2": 3,
@@ -192,7 +192,6 @@
     "Unported trigger timing: multi_hit:4": 2,
     "Unported effect fields: persist_on_revive": 2,
     "Unported trigger timing: received_hit_count:10": 2,
-    "Unported trigger timing: event:cover_hit": 2,
     "Unported trigger timing: every_stack:경험치:10": 2,
     "Unported effect fields: scaling, scaling_hp_pct": 2,
     "Unported predicate: gauge_above:MP:1": 2,
@@ -202,9 +201,9 @@
     "Unported damage family": 2,
     "Unported predicate: core_hit": 2,
     "Unported predicate: optimal_range": 2,
+    "Unported health recipient selector": 2,
     "Unported effect fields: feather_id, feather_interval_base, feather_interval_step_pct, feather_slots": 2,
     "Unported predicate: during_shield": 2,
-    "Unported trigger timing: event:cover_healed": 2,
     "Unported trigger timing: squad_burst_cast:1": 2,
     "Unported predicate: target_state:붐 인스톨": 2,
     "Unported predicate: not_target_state:누적 폭발 스킬": 2,
@@ -253,7 +252,6 @@
     "Unported trigger timing: multi_hit:2": 1,
     "Unported effect fields: post_ramp_tick_delay, ramp_damage_stack, ramp_interval, scaling": 1,
     "Unported predicate: prob:5": 1,
-    "Unported predicate: prob:20": 1,
     "Unported predicate: prob:10": 1,
     "Unported trigger timing: pellet_hit_in_shot:5": 1,
     "Unported predicate: target_state:고위험 대상": 1,
@@ -294,17 +292,17 @@
     "Unported predicate: target_code:수냉": 1
   },
   "missing_families": {
-    "damage_modifiers": 209,
+    "damage_modifiers": 208,
     "damage": 107,
     "effect_lifecycle": 102,
     "weapon": 70,
-    "protection": 59,
     "resource_accumulation": 56,
+    "protection": 50,
     "control_survival": 46,
     "ammo_reload": 40,
     "healing": 34,
     "charge": 21,
-    "burst_cooldown": 21,
+    "burst_cooldown": 20,
     "hp": 12,
     "healing_buffers": 9,
     "character_state": 5
@@ -8991,11 +8989,10 @@
             "every:15.0s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "더블 부스트",
@@ -9185,7 +9182,7 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 87,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -15768,12 +15765,12 @@
             "prob:20"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:cover_hit",
+          "diagnostic_semantic_issue": "Unported predicate: prob:20",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported trigger timing: event:cover_hit"
+          "issue": "Unported predicate: prob:20"
         },
         {
           "name": "블랙 타이푼 2",
@@ -15787,10 +15784,10 @@
             "prob:20"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:cover_hit",
+          "diagnostic_semantic_issue": "Unported predicate: prob:20",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: event:cover_hit"
+          "issue": "Unported predicate: prob:20"
         },
         {
           "name": "느와르 센서",
@@ -34459,13 +34456,10 @@
             "every:15s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "프로 종이접기 2",
@@ -40088,12 +40082,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
+          "diagnostic_semantic_issue": "Unported health recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported instant or recipient selector"
+          "issue": "Unported health recipient selector"
         },
         {
           "name": "산책 훈련 2",
@@ -40617,11 +40611,10 @@
             "on_attack_count:5"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "골조 해석 2",
@@ -45498,11 +45491,10 @@
             "on_attack_count:12"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "우정의 가드 2",
@@ -45786,13 +45778,10 @@
             "event:cover_healed"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:cover_healed",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported trigger timing: event:cover_healed"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "파충류 애호가 2",
@@ -45803,11 +45792,10 @@
             "event:cover_healed"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:cover_healed",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: event:cover_healed"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "카멜레온 은신술",
@@ -45818,13 +45806,10 @@
             "hit_count:5"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: scaling"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "주목",
@@ -45850,13 +45835,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: scaling"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "카멜레온 은신술 3",
@@ -50847,11 +50829,10 @@
             "full_burst_end"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "퍼스트 위너 2",
@@ -50862,11 +50843,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "퍼스트 위너 3",
@@ -61023,13 +61003,10 @@
             "every:15.0s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "최고의 엔지니어! 3",
@@ -61077,10 +61054,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
+          "diagnostic_semantic_issue": "Unported health recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "issue": "Unported health recipient selector"
         },
         {
           "name": "장비 옵션",
@@ -63284,11 +63261,11 @@
     "app/periodic_source_runtime.py": "0af7083789aae3e9982a1cfb504295ef60edd2200808176127e84ac9c67782aa",
     "app/periodic_target_runtime.py": "b2475507525e8f06b9139142fb662d831f73a72cbb8e99b087dd0c6a1ae3d188",
     "app/portable_catalog.py": "01aa57c7dafbe14720a5817c2b2592cb8a47ec94163e2dbc9b0490b6779cfb59",
-    "app/portable_combat.py": "e59690a2d46ace2902b4d3aee0270b559bd5a09f46c561a0b9bf036d8effb0d1",
-    "app/portable_damage_specs.py": "4fdac883c2307f9b7850d829914caf4249adfbc8efc7b5abf06a172e10ea1b02",
-    "app/portable_runtime.py": "6cdb80989e5f91d5d4ae6f9fc0882d5fbf4d9a85ae923aeb131fd6c387d0c82f",
-    "app/portable_specs.py": "f26d54ac753952658acba97551d971c8da4d50d72f3c409a722d3bcb4f87a051",
-    "app/portable_trigger_specs.py": "61aaa3740ee6f6c6753d321a2848f3ed4e16474e63fc526f5fc14cee69ff01ad",
+    "app/portable_combat.py": "ed823647c7a79d07c490ea9dde3304c54526b156bc1a1309ede53bf0be76b223",
+    "app/portable_damage_specs.py": "3e17c2e67397dae64c69bb69ce8fc38635d42b26e1237fdce79df1a23e32ce96",
+    "app/portable_runtime.py": "424673b0fe4e0b05470f48f64eac9a87db987e695a0b8a0e43a9302c3ba491f7",
+    "app/portable_specs.py": "2595fc71ed81275a183230abd1175cf48b6c888b5442e7b0af3877027eafbcf5",
+    "app/portable_trigger_specs.py": "e7e9b04e7e3ea10938e91c24ed6c93536411c937ab08eaabcf87b930d536f2b2",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",
     "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
