@@ -12,7 +12,7 @@ ABI `0x50455644`。CUDAとMetalは同じSlang・状態・効果定義・期待�
 
 CPU本体は敵パターンがある場合だけフレームごとに遮蔽物最大HPを同期します。`cover_sync` はこの方針を明示し、単純な敵だけの実編成入力ではfalseです。その場合、育成効果から計算する最大HPは増えても、同期済み最大HPと現在HPは基本値のままです。未対応の敵パターンをCPUで動かしてGPU入力へ変換しません。
 
-検証は `tests/fixtures/portable-cover.json` の独立期待値と、既存BuffManagerおよびtimelineの実instant handlerから得た32件のCPU参照を使います。実編成はミランダ・ドラー・ドレイク・N102・メアリーの3・30・180秒とSR15育成180秒を保持し、通常の71定義とSR15育成の91定義を全て含め、各人ダメージ・全バースト時刻・有効な武器待ち・HP・遮蔽物状態がCPU本体と4条件とも一致しました。最新の結果・両GPUの固定版・効率化は `research/portable-combat-checkpoint.json` を参照してください。
+検証は `tests/fixtures/portable-cover.json` の独立期待値と、既存BuffManagerおよびtimelineの実instant handlerから得た32件のCPU参照を使います。実編成はミランダ・ドラー・ドレイク・N102・メアリーの3・30・180秒とSR15育成180秒を保持し、通常の71定義とSR15育成の91定義を全て含め、各人ダメージ・全バースト時刻・有効な武器待ち・HP・遮蔽物状態がCPU本体と4条件とも一致しました。固定版 `78a59ee` はWindowsのRTX 3070 Tiでも低優先度・1回、27.698秒で495正例・41拒否が成功しました。共通ソース・入力・全出力・検証コード・全status・全CPU参照リストがMetalと一致し、生成CUDA/MSLも改行・位置情報・標準includeパスだけの正規化で一致しました。追加GPU実行はなく、元のWindows作業状態を維持し残存プロセス0です。 最新の結果・両GPUの固定版・効率化は `research/portable-combat-checkpoint.json` を参照してください。
 
 この固定編成の成功を全キャラ・全変種へ加算しません。全効果を含む全変種認証は0/203体、通常画面への接続も未完了です。[全体の完了条件](portable-roadmap.md)を維持し、残る周期対象・B3予約着弾・敵世界・保護層・操作・実編成を続けます。
 
