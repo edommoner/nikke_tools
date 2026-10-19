@@ -6,22 +6,23 @@
   "transport": {
     "backend": "cuda",
     "device": "NVIDIA GeForce RTX 3070 Ti",
-    "cases": 1117,
+    "cases": 1163,
     "command_status": "completed",
-    "host_dispatch_seconds": 12.540477899834514
+    "host_dispatch_seconds": 13.83041279995814
   },
   "generated_sha256": {
-    "cuda": "3f1839a76a166a146de5a65642afe4ae6e453eede10b6ae2927dbc08ad03bb20",
-    "metal": "15ec272b4675db7cd3a0f81d07d95dc6c0d2be419a08ab46875c05b76b4d6142"
+    "cuda": "7f4868dc7a5f6f1758eac72a9cf6904f3ba9f3416fe72e9727f3858fde28fb53",
+    "metal": "dc6f440c53737f2954bc183b27d8bee528bfce88d58d8148d048748f54a0ad17"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "8d90b8d0747693e29c7101f023d557c2fb895ddf1a7a15d1ecfa975ebc73b37d",
+    "gpu/event_runtime.slang": "fb5937cfcc489efa8a3995e4c70bcdb857b32c6ce272aa1e82bd70ad061e4481",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "8eee3b7a6863eb27afdbc48015cbc166b9bcbd0b53be33a21deaa13e32f7eac7",
-    "gpu/runtime_init.slang": "9b9136c3ca08b798d009b9ab5c850bbbd215df601837b67c0ecbf71b191e0b75",
+    "gpu/portable_schema.slang": "c44b446bc2ff7be8d73caa7530e1aa1cbc2c56f93a0e3d9e56dd563e9b1d9950",
+    "gpu/runtime_init.slang": "807dd22c174671171a6b6690d5d7530961935773c80104bcd9d0abac5edf252e",
     "gpu/resource_runtime.slang": "5663120967beaf269c3928a7c581d4a9d009da7e1b36cf05b129f36df84ff2ab",
-    "gpu/reference_runtime.slang": "24683ed5ce2a7b47f21d59025e19a38d2e663f99a3b4a99122750d1fb6057cbc",
+    "gpu/source_runtime.slang": "53c5f6285f4e2bbc43f90ae0c0c436269456c1a88e70aea676dc5fd9a905c71c",
+    "gpu/reference_runtime.slang": "d2ed4c3e291d4de57007194643c63efad83ef209525efe6b49f4b7de3b896143",
     "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
     "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
     "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
@@ -48,9 +49,14 @@
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
   },
-  "input_sha256": "dfcb517754381325971545e4f5977335c7356ddafb6aefdcd0e34894e1d27377",
-  "output_sha256": "bc73b2e834b18def22d86312323350191ab47378fd9c5e9821b5497a1909b927",
+  "input_sha256": "0b6d51812ecf6016f7bf1d1a0d12319c5439ea84ac28082ef06e64fd8ba14d3b",
+  "output_sha256": "8ca3f912c56847f031a9d296e8feb98cf7b340a5b562d2fcf576e41d9a53ceb7",
   "validation_sha256": {
+    "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
+    "scripts/portable_source_oracle.py": "97475bdc1a97ddb67281c08bbfb7ee95978826e3f834f271155933fc4e631970",
+    "app/periodic_source_specs.py": "4c96a26ce0d0ca987c1e057d95d9a88055e706c7bf2cadde70df6b58ec9f2444",
+    "app/periodic_source_runtime.py": "bd45e4244fd741ff053a756876253b62221f1d28cfb00e01d89d5cacb39af062",
+    "tests/fixtures/portable-sources.json": "7c67eb17ad96eff5237e1a14de38ef5f30494cba272cf56da8acb0ce7c45ec86",
     "app/reference_count_runtime.py": "b08ddcb353844bf1ce481592ad8a0eabfa796602da4205156fede0ad1d9854e7",
     "app/reference_health_runtime.py": "aa581221b2b204aa8857b0d35cd1a255f08b804a837205e6a8aa2177415a6c0a",
     "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
@@ -66,19 +72,19 @@
     "app/portable_roster_input.py": "7f65ee49d9688b59493ec958584ff157312e259eadf269b55fba6af813265593",
     "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
     "app/portable_enemy_specs.py": "c7d1343e9519bf438b9b569394633856937a14d80653235df6f3267ce586b722",
-    "app/portable_runtime.py": "66ddf73138af1ba861a677bf03aa4e890c51e24cf2f9232514f31657fba6b541",
+    "app/portable_runtime.py": "139885a812f9469421b9b151248faa3fa66b74cb8739721227b0601485a0646d",
     "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
-    "app/portable_specs.py": "c7ddb661f2cc4f32473cd2151d0d40e1972b737e9009f2de78be556a2ab673ae",
+    "app/portable_specs.py": "4a8bc5a3f2c460be98e6ef0e8111d57a4704263cd36ffe8662700c5a49cd7826",
     "app/portable_periodic_specs.py": "830b7b7bd25586ae568b210dd3583c3e7349bb0ac29226d0748ba77b7da3d9bf",
-    "app/portable_backend.py": "ab722934db2e3b7ae228990c7f0555dcea079c624675fa735b7328fa62889ec0",
-    "app/portable_trigger_specs.py": "a20f8d96a514fb6217c3eba47bf4a569fc1c861bc8837519b56694580e55dda4",
+    "app/portable_backend.py": "65fa85746a0be27fce443e95f47a92885a4c822dc6630141b1baa972c4cfff53",
+    "app/portable_trigger_specs.py": "de8354e952352ce0e40bf3f8ddf97f36595500ea3e7436672ae4ba0934871040",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
     "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
     "scripts/portable_pending_oracle.py": "5919e9b30ef2b97cfeee24d19eb080c522df2fb6b98c1555be2efdf5c68e3359",
     "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
     "scripts/portable_health_oracle.py": "3c8c66d0674675c3fbf884ed8ef53408a4ca74e2593ea3b1df3594b8176a5bfc",
-    "scripts/portable_enemy_oracle.py": "81d85ed463f5989df245f2479114adc69373cf8984f0706e2acb38ef41267971",
+    "scripts/portable_enemy_oracle.py": "b0c6852e26cec1cc4823ce2ba24ab8f14353f1eb3f86c314bf984eb92ef5fed8",
     "scripts/portable_burst_oracle.py": "640bc66abb2df8b237383df3d626df30bc565de382b19671fbf11ba83d5ee94a",
     "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
     "scripts/portable_weapon_oracle.py": "f011a2e648b4a34eb4bc6db5053066fec4b236c472ca7cad2e92e5677ffcc1a1",
@@ -87,7 +93,7 @@
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "788f2681bc46657bd745b902671dd5885ced42da63c413cdf5704e9a0b0a6a2f",
+    "scripts/verify-portable-combat.py": "34b1f2c15a00b599eb38bf38376ce4692e79a05b81679efe1b6332f3efe1787c",
     "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
     "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
     "tests/fixtures/portable-enemy-spawn-order.json": "7c72c2ec3a76bba4bf0da1be6a8e1e32db6124ef37feb87cb72a5447c8010791",
@@ -122,7 +128,7 @@
     "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
     "tests/fixtures/portable-combat-extensions.json": "286843374e7fa5e8735bc2501856ba6f8b3c01f42055cb2d138ee1e284e106d9",
     "tests/fixtures/portable-autonomous.json": "0d97f8e8a848cfaf25d08e52414f1055d6a8807625f28bce3608a1726db6a5e9",
-    "scripts/run-metal-probe.swift": "af88fbd4fd947d8beb00d065e976e317bd8046d909ae6f681dd3c2138b933e08"
+    "scripts/run-metal-probe.swift": "0f2b54212a600ae31a20930a3982e71d851b9951f63a2391d7bc1643c793a101"
   },
   "actual_statuses": [
     0,
@@ -1100,6 +1106,35 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     2,
     64,
     8,
@@ -1235,6 +1270,23 @@
     2,
     2,
     8,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
     64,
     64,
     64,
@@ -2219,6 +2271,35 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     2,
     64,
     8,
@@ -2354,6 +2435,23 @@
     2,
     2,
     8,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
     64,
     64,
     64,
@@ -2363,37 +2461,8 @@
     64
   ],
   "batch_layout": {
-    "positive_count": 975,
+    "positive_count": 1004,
     "rejection_indices": [
-      975,
-      976,
-      977,
-      978,
-      979,
-      980,
-      981,
-      982,
-      983,
-      984,
-      985,
-      986,
-      987,
-      988,
-      989,
-      990,
-      991,
-      992,
-      993,
-      994,
-      995,
-      996,
-      997,
-      998,
-      999,
-      1000,
-      1001,
-      1002,
-      1003,
       1004,
       1005,
       1006,
@@ -2506,7 +2575,53 @@
       1113,
       1114,
       1115,
-      1116
+      1116,
+      1117,
+      1118,
+      1119,
+      1120,
+      1121,
+      1122,
+      1123,
+      1124,
+      1125,
+      1126,
+      1127,
+      1128,
+      1129,
+      1130,
+      1131,
+      1132,
+      1133,
+      1134,
+      1135,
+      1136,
+      1137,
+      1138,
+      1139,
+      1140,
+      1141,
+      1142,
+      1143,
+      1144,
+      1145,
+      1146,
+      1147,
+      1148,
+      1149,
+      1150,
+      1151,
+      1152,
+      1153,
+      1154,
+      1155,
+      1156,
+      1157,
+      1158,
+      1159,
+      1160,
+      1161,
+      1162
     ]
   },
   "rejected_cases": [
@@ -3076,6 +3191,74 @@
     },
     {
       "name": "wire-scale-reference-missing-marker",
+      "status": 64
+    },
+    {
+      "name": "wire-source-name",
+      "status": 64
+    },
+    {
+      "name": "wire-source-zero-slots",
+      "status": 64
+    },
+    {
+      "name": "wire-source-too-many-slots",
+      "status": 64
+    },
+    {
+      "name": "wire-source-legacy",
+      "status": 64
+    },
+    {
+      "name": "wire-source-reserved",
+      "status": 64
+    },
+    {
+      "name": "wire-source-zero-base",
+      "status": 64
+    },
+    {
+      "name": "wire-source-nan-base",
+      "status": 64
+    },
+    {
+      "name": "wire-source-reduction",
+      "status": 64
+    },
+    {
+      "name": "wire-source-nonpositive-factor",
+      "status": 64
+    },
+    {
+      "name": "wire-source-negative-life",
+      "status": 64
+    },
+    {
+      "name": "wire-source-large-life",
+      "status": 64
+    },
+    {
+      "name": "wire-source-nonzero-padding",
+      "status": 64
+    },
+    {
+      "name": "wire-source-metadata-on-buff",
+      "status": 64
+    },
+    {
+      "name": "wire-source-forbidden-scalar",
+      "status": 64
+    },
+    {
+      "name": "wire-source-forbidden-duration",
+      "status": 64
+    },
+    {
+      "name": "wire-source-forbidden-interval",
+      "status": 64
+    },
+    {
+      "name": "wire-source-65-unique-owner-names",
       "status": 64
     }
   ],
@@ -4786,7 +4969,12 @@
     "scale-dot-alias-keeps-first-capture",
     "scale-dot-stack-predicate-positive",
     "scale-dot-stack-predicate-negative",
-    "scale-dot-stack-predicate-large"
+    "scale-dot-stack-predicate-large",
+    "source-damage-named",
+    "source-damage-legacy",
+    "source-damage-gauge-one",
+    "source-damage-gauge-only-missing",
+    "source-damage-source-zero"
   ],
   "health_cpu_regressions": [
     "initial-allied-hp-and-defense",
@@ -4952,6 +5140,8 @@
     "scale-health-named-child-before-grant-no-transient-edge",
     "scale-health-shrink-clamps-and-crosses-max",
     "scale-integration-body-heal-received-and-outgoing-multiply",
+    "source-health-max_hp_only_pct",
+    "source-health-max_hp_pct",
     "bullet-expiry-clamps-current-hp-to-new-maximum"
   ],
   "hit_reference_cpu_regressions": [
@@ -5200,6 +5390,37 @@
     "scale-dot-stack-predicate-positive",
     "scale-dot-stack-predicate-negative",
     "scale-dot-stack-predicate-large"
+  ],
+  "source_cpu_regressions": [
+    "source-population-expiry-and-phase",
+    "source-all-expired-zero-overrides-named-stack",
+    "source-same-tick-self-refresh-keeps-new-clock",
+    "source-new-key-waits-for-next-phase",
+    "source-legacy-shared-owner-notification",
+    "source-owner-first-registration-order",
+    "source-colon-name-is-not-truncated",
+    "source-missing-query",
+    "source-zero-life-starts-empty",
+    "source-one-notification-per-observed-tick",
+    "source-named-ticks-do-not-cross-names",
+    "source-gauge-zero-precedes-source",
+    "source-finite-reference-captures-population",
+    "source-live-reference-count-at-endpoint",
+    "source-full-32-slot-population",
+    "source-group-owners-before-interleaved-keys",
+    "source-later-existing-key-observes-new-generation",
+    "source-expired-reregister-retains-key-and-epoch",
+    "source-damage-named",
+    "source-damage-legacy",
+    "source-damage-gauge-one",
+    "source-damage-gauge-only-missing",
+    "source-damage-source-zero",
+    "source-capacity-64-live-keys",
+    "source-capacity-256-variants",
+    "source-health-max_hp_only_pct",
+    "source-health-max_hp_pct",
+    "source-same-time-population-refresh",
+    "source-first-frame-underflowed-interval"
   ],
   "trigger_cpu_regressions": [
     "same-event-cpu-indexed-activation-multiplicity",
@@ -9204,11 +9425,127 @@
     {
       "name": "scale-dot-stack-predicate-large",
       "passed": true
+    },
+    {
+      "name": "source-population-expiry-and-phase",
+      "passed": true
+    },
+    {
+      "name": "source-all-expired-zero-overrides-named-stack",
+      "passed": true
+    },
+    {
+      "name": "source-same-tick-self-refresh-keeps-new-clock",
+      "passed": true
+    },
+    {
+      "name": "source-new-key-waits-for-next-phase",
+      "passed": true
+    },
+    {
+      "name": "source-legacy-shared-owner-notification",
+      "passed": true
+    },
+    {
+      "name": "source-owner-first-registration-order",
+      "passed": true
+    },
+    {
+      "name": "source-colon-name-is-not-truncated",
+      "passed": true
+    },
+    {
+      "name": "source-missing-query",
+      "passed": true
+    },
+    {
+      "name": "source-zero-life-starts-empty",
+      "passed": true
+    },
+    {
+      "name": "source-one-notification-per-observed-tick",
+      "passed": true
+    },
+    {
+      "name": "source-named-ticks-do-not-cross-names",
+      "passed": true
+    },
+    {
+      "name": "source-gauge-zero-precedes-source",
+      "passed": true
+    },
+    {
+      "name": "source-finite-reference-captures-population",
+      "passed": true
+    },
+    {
+      "name": "source-live-reference-count-at-endpoint",
+      "passed": true
+    },
+    {
+      "name": "source-full-32-slot-population",
+      "passed": true
+    },
+    {
+      "name": "source-group-owners-before-interleaved-keys",
+      "passed": true
+    },
+    {
+      "name": "source-later-existing-key-observes-new-generation",
+      "passed": true
+    },
+    {
+      "name": "source-expired-reregister-retains-key-and-epoch",
+      "passed": true
+    },
+    {
+      "name": "source-damage-named",
+      "passed": true
+    },
+    {
+      "name": "source-damage-legacy",
+      "passed": true
+    },
+    {
+      "name": "source-damage-gauge-one",
+      "passed": true
+    },
+    {
+      "name": "source-damage-gauge-only-missing",
+      "passed": true
+    },
+    {
+      "name": "source-damage-source-zero",
+      "passed": true
+    },
+    {
+      "name": "source-capacity-64-live-keys",
+      "passed": true
+    },
+    {
+      "name": "source-capacity-256-variants",
+      "passed": true
+    },
+    {
+      "name": "source-health-max_hp_only_pct",
+      "passed": true
+    },
+    {
+      "name": "source-health-max_hp_pct",
+      "passed": true
+    },
+    {
+      "name": "source-same-time-population-refresh",
+      "passed": true
+    },
+    {
+      "name": "source-first-frame-underflowed-interval",
+      "passed": true
     }
   ],
   "metal_generated_sha256": {
-    "cuda": "5ad38aa6cabdd47df8f2bc578666b10a41c89d17bb695f97b56d48fd5e818b0d",
-    "metal": "b4228f2e53500ca721f174448e2ba1d78097d6bdd80e968b1cb80b6218cf75dc"
+    "cuda": "b0f8d91449778fa365cf7e2db64a5918fae73da68c1cf5bb82657c2542398b59",
+    "metal": "dde2c6d0dc59ec5f3f1fde8a9b0176bc14ca2ca557be525a5b07099ba71439c5"
   },
   "metal_comparison": {
     "source_sha256": true,
@@ -9241,6 +9578,7 @@
     "periodic_target_cpu_regressions": true,
     "resource_cpu_regressions": true,
     "scale_reference_cpu_regressions": true,
+    "source_cpu_regressions": true,
     "trigger_cpu_regressions": true,
     "weapon_cpu_regressions": true,
     "generated_sha256": false,
@@ -9253,10 +9591,10 @@
   },
   "execution": {
     "command": "python scripts/verify-portable-combat.py --backend cuda",
-    "commit": "1f060434ecbca1b92a8ef8febe3c490a61294dd8",
+    "commit": "924279ee5715e6aca05efe783419ec072ad9bdf3",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "26, 4774",
+    "gpu_before": "33, 4702",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -9274,8 +9612,8 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 64.4081911998801,
-    "stdout": "{\"passed\": true, \"cases\": 975, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
+    "elapsed_seconds": 71.18859789986163,
+    "stdout": "{\"passed\": true, \"cases\": 1004, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
     "stderr": ""
   },
   "postcheck": {
@@ -9283,33 +9621,33 @@
     "original_head_after": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_after": []
   },
-  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-1f06043\\research\\portable-combat-cuda.json",
+  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-924279e\\research\\portable-combat-cuda.json",
   "available": true,
   "full_readback_available": true,
   "compiler_success_log_saved": false,
   "generated_normalization": {
     "cuda": {
       "available": true,
-      "raw_sha256": "3f1839a76a166a146de5a65642afe4ae6e453eede10b6ae2927dbc08ad03bb20",
-      "lf_sha256": "eed1c8d624d5e4d51374c8b646b43fd4410e4b5c0a8e1cd420661f4c73d9fea0",
-      "no_line_directives_sha256": "31078de8b97128ee0283bc8e19f8df72dbe9d4c216f1d03e26825b1007d89a83",
-      "no_line_directives_portable_prelude_sha256": "5cdb1b84fa28bfd963ef0cb13e73d3e3c6839bdab7383344bbf96b949540f998",
-      "lines": 40902,
-      "no_line_directive_lines": 30362,
-      "line_directives": 10540
+      "raw_sha256": "7f4868dc7a5f6f1758eac72a9cf6904f3ba9f3416fe72e9727f3858fde28fb53",
+      "lf_sha256": "e855296b2025029dbe7cdde673689dd7d1d500014b133a322925693ef04d9edb",
+      "no_line_directives_sha256": "ac2a501bf6ba9a9b04b8284029bdc643c339651491fa13910da1f971d8f70258",
+      "no_line_directives_portable_prelude_sha256": "707a920c009e136f8a8d7090ae1063291f8b38c3a37d4ae2c3cdb4c5d5fd137c",
+      "lines": 42553,
+      "no_line_directive_lines": 31578,
+      "line_directives": 10975
     },
     "metal": {
       "available": true,
-      "raw_sha256": "15ec272b4675db7cd3a0f81d07d95dc6c0d2be419a08ab46875c05b76b4d6142",
-      "lf_sha256": "0a76268ed09556aac73c544fe063c944d9e262609c9bf83a7b0464474bfc9be5",
-      "no_line_directives_sha256": "f620d4d35d717507a8534cbe3c1858ce6ec1ebc6e3038474c1c24a81402eb72d",
-      "no_line_directives_portable_prelude_sha256": "f620d4d35d717507a8534cbe3c1858ce6ec1ebc6e3038474c1c24a81402eb72d",
-      "lines": 41396,
-      "no_line_directive_lines": 30746,
-      "line_directives": 10650
+      "raw_sha256": "dc6f440c53737f2954bc183b27d8bee528bfce88d58d8148d048748f54a0ad17",
+      "lf_sha256": "dca00e5c07bdc4e7dac1d70e67070f1baf30afbbea64a8b184f67c31b53a90a5",
+      "no_line_directives_sha256": "1c20243e7e4429774427d77cfce788e5de47a8b9dd6e6c855108b0a0977c7606",
+      "no_line_directives_portable_prelude_sha256": "1c20243e7e4429774427d77cfce788e5de47a8b9dd6e6c855108b0a0977c7606",
+      "lines": 43036,
+      "no_line_directive_lines": 31957,
+      "line_directives": 11079
     }
   },
   "summary_only": true,
-  "summary_source": "windows-portable-combat-v35.json",
+  "summary_source": "windows-portable-combat-v36.json",
   "scope": "Shared event/combat mechanics, enemy packets, allied cover state and pending B3 bonuses; independent components are not full battle or catalog certification"
 }

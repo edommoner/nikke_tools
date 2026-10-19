@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "gpu_rerun": false,
+  "source_commit": "924279ee5715e6aca05efe783419ec072ad9bdf3",
+  "metal": {
+    "cuda": {
+      "raw_sha256": "b0f8d91449778fa365cf7e2db64a5918fae73da68c1cf5bb82657c2542398b59",
+      "normalized_sha256": "707a920c009e136f8a8d7090ae1063291f8b38c3a37d4ae2c3cdb4c5d5fd137c"
+    },
+    "metal": {
+      "raw_sha256": "dde2c6d0dc59ec5f3f1fde8a9b0176bc14ca2ca557be525a5b07099ba71439c5",
+      "normalized_sha256": "1c20243e7e4429774427d77cfce788e5de47a8b9dd6e6c855108b0a0977c7606"
+    }
+  },
+  "windows": {
+    "cuda": {
+      "available": true,
+      "raw_sha256": "7f4868dc7a5f6f1758eac72a9cf6904f3ba9f3416fe72e9727f3858fde28fb53",
+      "lf_sha256": "e855296b2025029dbe7cdde673689dd7d1d500014b133a322925693ef04d9edb",
+      "no_line_directives_sha256": "ac2a501bf6ba9a9b04b8284029bdc643c339651491fa13910da1f971d8f70258",
+      "no_line_directives_portable_prelude_sha256": "707a920c009e136f8a8d7090ae1063291f8b38c3a37d4ae2c3cdb4c5d5fd137c",
+      "lines": 42553,
+      "no_line_directive_lines": 31578,
+      "line_directives": 10975
+    },
+    "metal": {
+      "available": true,
+      "raw_sha256": "dc6f440c53737f2954bc183b27d8bee528bfce88d58d8148d048748f54a0ad17",
+      "lf_sha256": "dca00e5c07bdc4e7dac1d70e67070f1baf30afbbea64a8b184f67c31b53a90a5",
+      "no_line_directives_sha256": "1c20243e7e4429774427d77cfce788e5de47a8b9dd6e6c855108b0a0977c7606",
+      "no_line_directives_portable_prelude_sha256": "1c20243e7e4429774427d77cfce788e5de47a8b9dd6e6c855108b0a0977c7606",
+      "lines": 43036,
+      "no_line_directive_lines": 31957,
+      "line_directives": 11079
+    }
+  },
+  "normalization": "UTF-8; LF; remove #line lines; basename the absolute quoted Slang CUDA prelude include; computation unchanged"
+}

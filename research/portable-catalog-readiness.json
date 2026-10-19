@@ -11,7 +11,7 @@
     "Unported buff or recipient selector": 268,
     "Unported instant or recipient selector": 37,
     "Unported trigger timing: event:part_destroy": 16,
-    "Unported enemy damage selector": 11,
+    "Unported enemy damage selector": 12,
     "Unported trigger timing: event:enemy_spawn": 10,
     "Unported effect fields: remove_scope": 10,
     "Unported trigger timing: enemy_death": 9,
@@ -48,7 +48,6 @@
     "Unported damage family": 2,
     "Unported predicate: core_hit": 2,
     "Unported predicate: optimal_range": 2,
-    "Unported effect fields: feather_id, feather_interval_base, feather_interval_step_pct, feather_slots": 2,
     "Unported trigger timing: event:바니 모드 : 인게이지": 2,
     "Unported trigger timing: event:바니 모드 : 스탠스": 2,
     "Unported predicate: during_shield": 2,
@@ -87,7 +86,6 @@
     "Unported predicate: target_state:고위험 대상": 1,
     "Unported trigger timing: crit_hit_count:2": 1,
     "Unported predicate: target_state:해풍": 1,
-    "Unported trigger timing: feather_tick": 1,
     "Unported trigger timing: event:shield_applied": 1,
     "Unported effect fields: target_counter": 1,
     "Unported predicate: focusing": 1,
@@ -103,7 +101,7 @@
     "Unported buff or recipient selector": 268,
     "Unported instant or recipient selector": 37,
     "Unported trigger timing: event:part_destroy": 16,
-    "Unported enemy damage selector": 11,
+    "Unported enemy damage selector": 12,
     "Unported trigger timing: event:enemy_spawn": 10,
     "Unported effect fields: remove_scope": 10,
     "Unported trigger timing: enemy_death": 9,
@@ -140,7 +138,6 @@
     "Unported damage family": 2,
     "Unported predicate: core_hit": 2,
     "Unported predicate: optimal_range": 2,
-    "Unported effect fields: feather_id, feather_interval_base, feather_interval_step_pct, feather_slots": 2,
     "Unported trigger timing: event:바니 모드 : 인게이지": 2,
     "Unported trigger timing: event:바니 모드 : 스탠스": 2,
     "Unported predicate: during_shield": 2,
@@ -179,7 +176,6 @@
     "Unported predicate: target_state:고위험 대상": 1,
     "Unported trigger timing: crit_hit_count:2": 1,
     "Unported predicate: target_state:해풍": 1,
-    "Unported trigger timing: feather_tick": 1,
     "Unported trigger timing: event:shield_applied": 1,
     "Unported effect fields: target_counter": 1,
     "Unported predicate: focusing": 1,
@@ -205,7 +201,7 @@
     "burst_cooldown": 13,
     "healing_buffers": 9,
     "hp": 7,
-    "character_state": 5
+    "character_state": 3
   },
   "weapon_gaps": {
     "normal_ui_full_battle_adapter_not_connected": 203
@@ -40643,13 +40639,10 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: feather_id, feather_interval_base, feather_interval_step_pct, feather_slots",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: feather_id, feather_interval_base, feather_interval_step_pct, feather_slots"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "페더 스탠바이 2",
@@ -40675,12 +40668,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: feather_tick",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported trigger timing: feather_tick"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "페더 샷",
@@ -40705,13 +40698,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: feather_id, feather_interval_base, feather_interval_step_pct, feather_slots",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: feather_id, feather_interval_base, feather_interval_step_pct, feather_slots"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "페더 올레인지 2",
@@ -62993,7 +62983,8 @@
     "app/impact_runtime.py": "230ef43042356f5220a3e17d898f947dfc9e30187606f83dc5399a09a4da27d9",
     "app/max_hp_snapshot_runtime.py": "4cf4f91b4ceb4232a4b960d1b30e60c665ee6bfcd410c1d1be3fa28df63c6b5c",
     "app/outgoing_healing_compat.py": "8eb8a8fe2ecd2a9c7d7fbccb087473b0817073da1ee2093b5b36f161df5f8af3",
-    "app/periodic_source_runtime.py": "0af7083789aae3e9982a1cfb504295ef60edd2200808176127e84ac9c67782aa",
+    "app/periodic_source_runtime.py": "bd45e4244fd741ff053a756876253b62221f1d28cfb00e01d89d5cacb39af062",
+    "app/periodic_source_specs.py": "4c96a26ce0d0ca987c1e057d95d9a88055e706c7bf2cadde70df6b58ec9f2444",
     "app/periodic_target_runtime.py": "b2475507525e8f06b9139142fb662d831f73a72cbb8e99b087dd0c6a1ae3d188",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
     "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
@@ -63003,9 +62994,10 @@
     "app/portable_reference_specs.py": "de22b095242d7fd64ac1cdd362011fda0f48ea2f33e84be58dd348bc7400ff1a",
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
     "app/portable_resource_specs.py": "fe3be541e6e9960cfa18e9079e4f642dd14a6deb0a40c228d1e411cc678ab63d",
-    "app/portable_runtime.py": "66ddf73138af1ba861a677bf03aa4e890c51e24cf2f9232514f31657fba6b541",
-    "app/portable_specs.py": "c7ddb661f2cc4f32473cd2151d0d40e1972b737e9009f2de78be556a2ab673ae",
-    "app/portable_trigger_specs.py": "a20f8d96a514fb6217c3eba47bf4a569fc1c861bc8837519b56694580e55dda4",
+    "app/portable_runtime.py": "139885a812f9469421b9b151248faa3fa66b74cb8739721227b0601485a0646d",
+    "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
+    "app/portable_specs.py": "4a8bc5a3f2c460be98e6ef0e8111d57a4704263cd36ffe8662700c5a49cd7826",
+    "app/portable_trigger_specs.py": "de8354e952352ce0e40bf3f8ddf97f36595500ea3e7436672ae4ba0934871040",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/reference_count_runtime.py": "b08ddcb353844bf1ce481592ad8a0eabfa796602da4205156fede0ad1d9854e7",
     "app/reference_health_runtime.py": "aa581221b2b204aa8857b0d35cd1a255f08b804a837205e6a8aa2177415a6c0a",
@@ -63051,9 +63043,11 @@
     "research/upstream/nikke-calc-master/runner/snapshot.py": "fb86552304db9789ed36b7e5bfb2ab18374f581fc61a32b05cf04e973e555dbd",
     "research/upstream/nikke-calc-master/runner/spec.py": "609ec07a8db4a88e0a2912193b4bfb0b1433e8f11d2ec32f43d4c5f014b0e730",
     "research/upstream/nikke-calc-master/runner/squads.py": "22247095ff5737c98173b5ac92dbd268bbc74828a2fcaa28018f8eb23db93e7a",
-    "scripts/audit-portable-catalog.py": "20298b3a0579089621e11ec8b5a2ce9891aaef54753804e94a58d1fc80d4f50b",
+    "scripts/audit-portable-catalog.py": "2c5d6b87f5ea688a8c34aa3230a6e863d3713f3c508362931a2678cd5156ff1a",
     "scripts/detail_coverage.py": "eef94f7675f270e8a4870323cb1e55e8506f2e5fe47e6fa4b1645d9aaf71dc40",
+    "scripts/portable_source_oracle.py": "97475bdc1a97ddb67281c08bbfb7ee95978826e3f834f271155933fc4e631970",
     "tests/fixtures/portable-reference-scales.json": "e0e26b2691affa2f30e1456c9bf49923c24f0a63667c16da45f73a31c7ad61bd",
-    "tests/fixtures/portable-resources.json": "d3e83f6c000d3f98cf94c42facabb4db6eb9d6eb341600866b52979eb16c52d4"
+    "tests/fixtures/portable-resources.json": "d3e83f6c000d3f98cf94c42facabb4db6eb9d6eb341600866b52979eb16c52d4",
+    "tests/fixtures/portable-sources.json": "7c67eb17ad96eff5237e1a14de38ef5f30494cba272cf56da8acb0ce7c45ec86"
   }
 }

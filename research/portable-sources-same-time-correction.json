@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "native_source_modified": false,
+  "adapter": "app/periodic_source_runtime.py",
+  "observed_before": {
+    "scalar_attack": [
+      30,
+      30
+    ],
+    "population": 1
+  },
+  "observed_after": {
+    "scalar_attack": [
+      30,
+      10
+    ],
+    "population": 1
+  },
+  "case": "source-same-time-population-refresh",
+  "structural_plan_retained": true,
+  "numeric_aggregation_version_bumped_on_refresh": true
+}

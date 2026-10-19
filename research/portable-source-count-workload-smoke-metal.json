@@ -1,0 +1,2303 @@
+{
+  "results": [
+    {
+      "periodic_sources": [
+        {
+          "name": "bird",
+          "owner": 0,
+          "legacy": false,
+          "definition": 0,
+          "epoch": 1,
+          "scheduled": true,
+          "count": 32,
+          "refreshed": 0.0,
+          "next_at": 3600.0
+        }
+      ],
+      "source_queries": [
+        {
+          "time": 3,
+          "owner": 0,
+          "name": "bird",
+          "present": true,
+          "count": 32,
+          "epoch": 1,
+          "scheduled": true,
+          "next_at": 3600.0
+        }
+      ],
+      "reference_captures": [],
+      "resources": [
+        {
+          "bird": {
+            "present": false,
+            "value": 0.0,
+            "cap_present": false,
+            "base_cap": null
+          }
+        },
+        {
+          "bird": {
+            "present": false,
+            "value": 0.0,
+            "cap_present": false,
+            "base_cap": null
+          }
+        },
+        {
+          "bird": {
+            "present": false,
+            "value": 0.0,
+            "cap_present": false,
+            "base_cap": null
+          }
+        },
+        {
+          "bird": {
+            "present": false,
+            "value": 0.0,
+            "cap_present": false,
+            "base_cap": null
+          }
+        },
+        {
+          "bird": {
+            "present": false,
+            "value": 0.0,
+            "cap_present": false,
+            "base_cap": null
+          }
+        }
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "pending_burst": {
+        "count": 0,
+        "enqueued": 0,
+        "fired": 0,
+        "entries": []
+      },
+      "covers": [
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        },
+        {
+          "hp": 2000000.0,
+          "max_hp": 2000000.0,
+          "effective_max_hp": 2000000.0,
+          "damage": 0.0
+        }
+      ],
+      "body_damage": [
+        1920.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "add_damage": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scored_damage": [
+        1920.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "add_overkill": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "target_scored_damage": [
+        1920.0
+      ],
+      "bullet_lifetimes": {
+        "active_carriers": 0
+      },
+      "lazy_cache": {
+        "entries": 0,
+        "evaluations": 0,
+        "reuses": 0,
+        "pending": 0,
+        "mapped_pending": 0
+      },
+      "carriers": [
+        {
+          "slot": 1,
+          "definition": 1,
+          "effect": "no crit",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 1,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 2,
+          "definition": 2,
+          "effect": "population",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 2,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 4,
+          "definition": 4,
+          "effect": "other0",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 3,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 5,
+          "definition": 5,
+          "effect": "other1",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 4,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 6,
+          "definition": 6,
+          "effect": "other2",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 5,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 7,
+          "definition": 7,
+          "effect": "other3",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 6,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 8,
+          "definition": 8,
+          "effect": "other4",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 7,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 9,
+          "definition": 9,
+          "effect": "other5",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 8,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 10,
+          "definition": 10,
+          "effect": "other6",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 9,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 11,
+          "definition": 11,
+          "effect": "other7",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 10,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 12,
+          "definition": 12,
+          "effect": "other8",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 11,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 13,
+          "definition": 13,
+          "effect": "other9",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 12,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 14,
+          "definition": 14,
+          "effect": "other10",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 13,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 15,
+          "definition": 15,
+          "effect": "other11",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 14,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 16,
+          "definition": 16,
+          "effect": "other12",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 15,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 17,
+          "definition": 17,
+          "effect": "other13",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 16,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 18,
+          "definition": 18,
+          "effect": "other14",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 17,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 19,
+          "definition": 19,
+          "effect": "other15",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 18,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 20,
+          "definition": 20,
+          "effect": "other16",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 19,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 21,
+          "definition": 21,
+          "effect": "other17",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 20,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 22,
+          "definition": 22,
+          "effect": "other18",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 21,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 23,
+          "definition": 23,
+          "effect": "other19",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 22,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 24,
+          "definition": 24,
+          "effect": "other20",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 23,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 25,
+          "definition": 25,
+          "effect": "other21",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 24,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 26,
+          "definition": 26,
+          "effect": "other22",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 25,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 27,
+          "definition": 27,
+          "effect": "other23",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 26,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 28,
+          "definition": 28,
+          "effect": "other24",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 27,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 29,
+          "definition": 29,
+          "effect": "other25",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 28,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 30,
+          "definition": 30,
+          "effect": "other26",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 29,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 31,
+          "definition": 31,
+          "effect": "other27",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 30,
+          "hp_snapshot": 0.0
+        },
+        {
+          "slot": 32,
+          "definition": 32,
+          "effect": "other28",
+          "recipients": 1,
+          "stacks": 1,
+          "active": true,
+          "lazy_pending": false,
+          "end": 1e+30,
+          "activated": 0.0,
+          "order": 31,
+          "hp_snapshot": 0.0
+        }
+      ],
+      "allies": [
+        {
+          "hp": 1000000.0,
+          "max_hp": 1000000.0,
+          "hp_pct": 100.0,
+          "defense": 0.0,
+          "healing": 0.0,
+          "received_damage": 0.0,
+          "received_hits": 0,
+          "down": false
+        },
+        {
+          "hp": 1000000.0,
+          "max_hp": 1000000.0,
+          "hp_pct": 100.0,
+          "defense": 0.0,
+          "healing": 0.0,
+          "received_damage": 0.0,
+          "received_hits": 0,
+          "down": false
+        },
+        {
+          "hp": 1000000.0,
+          "max_hp": 1000000.0,
+          "hp_pct": 100.0,
+          "defense": 0.0,
+          "healing": 0.0,
+          "received_damage": 0.0,
+          "received_hits": 0,
+          "down": false
+        },
+        {
+          "hp": 1000000.0,
+          "max_hp": 1000000.0,
+          "hp_pct": 100.0,
+          "defense": 0.0,
+          "healing": 0.0,
+          "received_damage": 0.0,
+          "received_hits": 0,
+          "down": false
+        },
+        {
+          "hp": 1000000.0,
+          "max_hp": 1000000.0,
+          "hp_pct": 100.0,
+          "defense": 0.0,
+          "healing": 0.0,
+          "received_damage": 0.0,
+          "received_hits": 0,
+          "down": false
+        }
+      ],
+      "weapons": [
+        {
+          "warm": 0.0,
+          "last_fire": -999.0,
+          "last_interval": 0.0,
+          "post_reload_until": -1.0,
+          "spread": 0.0,
+          "probability": 0.0,
+          "probability_evaluations": 0,
+          "pending_auto_reload": false,
+          "charge_started_at": 0.0
+        },
+        {
+          "warm": 0.0,
+          "last_fire": -999.0,
+          "last_interval": 0.0,
+          "post_reload_until": -1.0,
+          "spread": 0.0,
+          "probability": 0.0,
+          "probability_evaluations": 0,
+          "pending_auto_reload": false,
+          "charge_started_at": 0.0
+        },
+        {
+          "warm": 0.0,
+          "last_fire": -999.0,
+          "last_interval": 0.0,
+          "post_reload_until": -1.0,
+          "spread": 0.0,
+          "probability": 0.0,
+          "probability_evaluations": 0,
+          "pending_auto_reload": false,
+          "charge_started_at": 0.0
+        },
+        {
+          "warm": 0.0,
+          "last_fire": -999.0,
+          "last_interval": 0.0,
+          "post_reload_until": -1.0,
+          "spread": 0.0,
+          "probability": 0.0,
+          "probability_evaluations": 0,
+          "pending_auto_reload": false,
+          "charge_started_at": 0.0
+        },
+        {
+          "warm": 0.0,
+          "last_fire": -999.0,
+          "last_interval": 0.0,
+          "post_reload_until": -1.0,
+          "spread": 0.0,
+          "probability": 0.0,
+          "probability_evaluations": 0,
+          "pending_auto_reload": false,
+          "charge_started_at": 0.0
+        }
+      ],
+      "status": 0,
+      "queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0.0,
+            "defense_flat": 0.0,
+            "received_damage_pct": 0.0
+          },
+          "pending_burst": {
+            "count": 0,
+            "enqueued": 0,
+            "fired": 0
+          },
+          "body_damage": [
+            1920.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "add_damage": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scored_damage": [
+            1920.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "add_overkill": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "time": 3.0,
+          "damage": [
+            1920.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "active_timer_mask": 0,
+          "active_timer_mask_words": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "generation": 1,
+          "stack_depth": 0,
+          "timer_clock": 0,
+          "attack_buffs": [
+            32.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 1,
+                "shots": 0,
+                "next": 0.0,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charge_until": 0.0,
+                "charging": false,
+                "aim": 0,
+                "mode_index": -1,
+                "mode_shots": 0
+              },
+              {
+                "ammo": 1,
+                "shots": 0,
+                "next": 0.0,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charge_until": 0.0,
+                "charging": false,
+                "aim": 0,
+                "mode_index": -1,
+                "mode_shots": 0
+              },
+              {
+                "ammo": 1,
+                "shots": 0,
+                "next": 0.0,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charge_until": 0.0,
+                "charging": false,
+                "aim": 0,
+                "mode_index": -1,
+                "mode_shots": 0
+              },
+              {
+                "ammo": 1,
+                "shots": 0,
+                "next": 0.0,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charge_until": 0.0,
+                "charging": false,
+                "aim": 0,
+                "mode_index": -1,
+                "mode_shots": 0
+              },
+              {
+                "ammo": 1,
+                "shots": 0,
+                "next": 0.0,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charge_until": 0.0,
+                "charging": false,
+                "aim": 0,
+                "mode_index": -1,
+                "mode_shots": 0
+              }
+            ],
+            "phase": 0,
+            "cast_mask": 0,
+            "gauge": 0.0,
+            "action": 0.0,
+            "full_end": 0.0,
+            "target": 0,
+            "clock": "grid",
+            "targets": [
+              {
+                "generation": 1,
+                "active": true,
+                "hp": 999998080.0,
+                "damage": 1920.0,
+                "hits": 1920
+              }
+            ],
+            "last_b3_caster": -1,
+            "last_b3_cast_time": -1.0,
+            "last_full_start": -1.0,
+            "cooldown_applied": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "cooldown_wait_mask": 0,
+            "gauge_charging": true,
+            "reentry_slot": false,
+            "reentry_done": 0,
+            "casts": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "allies": [
+            {
+              "hp": 1000000.0,
+              "max_hp": 1000000.0,
+              "hp_pct": 100.0,
+              "defense": 0.0,
+              "healing": 0.0,
+              "received_damage": 0.0,
+              "received_hits": 0,
+              "down": false
+            },
+            {
+              "hp": 1000000.0,
+              "max_hp": 1000000.0,
+              "hp_pct": 100.0,
+              "defense": 0.0,
+              "healing": 0.0,
+              "received_damage": 0.0,
+              "received_hits": 0,
+              "down": false
+            },
+            {
+              "hp": 1000000.0,
+              "max_hp": 1000000.0,
+              "hp_pct": 100.0,
+              "defense": 0.0,
+              "healing": 0.0,
+              "received_damage": 0.0,
+              "received_hits": 0,
+              "down": false
+            },
+            {
+              "hp": 1000000.0,
+              "max_hp": 1000000.0,
+              "hp_pct": 100.0,
+              "defense": 0.0,
+              "healing": 0.0,
+              "received_damage": 0.0,
+              "received_hits": 0,
+              "down": false
+            },
+            {
+              "hp": 1000000.0,
+              "max_hp": 1000000.0,
+              "hp_pct": 100.0,
+              "defense": 0.0,
+              "healing": 0.0,
+              "received_damage": 0.0,
+              "received_hits": 0,
+              "down": false
+            }
+          ],
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0,
+              "damage": 0.0
+            }
+          ]
+        }
+      ],
+      "trace": [],
+      "timers": [
+        {
+          "effect": "refresh",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 0,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "no crit",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "population",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "projectile",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 60,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 3.049999999999997,
+          "every_interval": 0.05
+        },
+        {
+          "effect": "other0",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other1",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other2",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other3",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other4",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other5",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other6",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other7",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other8",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other9",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other10",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other11",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other12",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other13",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other14",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other15",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other16",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other17",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other18",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other19",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other20",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other21",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other22",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other23",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other24",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other25",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other26",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other27",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        },
+        {
+          "effect": "other28",
+          "due": 0.0,
+          "expiry": 0.0,
+          "epoch": 0,
+          "order": 0,
+          "active": false,
+          "stacks": 1,
+          "activations": 1,
+          "target_slot": 0,
+          "target_generation": 0,
+          "trigger_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "every_due": 0.0,
+          "every_interval": 0.0
+        }
+      ],
+      "targets": [
+        {
+          "kind": 0,
+          "identity": 0,
+          "generation": 1,
+          "active": true,
+          "hp": 999998080.0,
+          "damage": 1920.0,
+          "hits": 1920
+        }
+      ],
+      "burst_trace": [],
+      "trace_total": 1920,
+      "burst_trace_total": 0,
+      "frames": 181,
+      "max_stack_depth": 3
+    }
+  ],
+  "transport": {
+    "backend": "metal",
+    "cases": 1,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "gpu_seconds": 0.2998119166586548,
+    "input_bytes": 311300,
+    "library_compile_seconds": 0.0007940530776977539,
+    "output_bytes": 278528,
+    "pipeline_compile_seconds": 0.0017930269241333008,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "registry_id": "4294968313",
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "source_sha256": {
+    "gpu/event_runtime.slang": "fb5937cfcc489efa8a3995e4c70bcdb857b32c6ce272aa1e82bd70ad061e4481",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+    "gpu/portable_schema.slang": "c44b446bc2ff7be8d73caa7530e1aa1cbc2c56f93a0e3d9e56dd563e9b1d9950",
+    "gpu/runtime_init.slang": "807dd22c174671171a6b6690d5d7530961935773c80104bcd9d0abac5edf252e",
+    "gpu/resource_runtime.slang": "5663120967beaf269c3928a7c581d4a9d009da7e1b36cf05b129f36df84ff2ab",
+    "gpu/source_runtime.slang": "53c5f6285f4e2bbc43f90ae0c0c436269456c1a88e70aea676dc5fd9a905c71c",
+    "gpu/reference_runtime.slang": "d2ed4c3e291d4de57007194643c63efad83ef209525efe6b49f4b7de3b896143",
+    "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
+    "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
+    "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
+    "gpu/enemy_buff_runtime.slang": "33a1a116cea23eb0f5e4223a1f1b7c59e811e994db6f871c0a65c56d8be067a9",
+    "gpu/carrier_runtime.slang": "dcbc75f3d88edda0227c68975087fc56c73ed938e6b3b72cd5d6246eace7a43c",
+    "gpu/quantity_runtime.slang": "44d9e37a3c81f77dcea96406db0cafc797401e211d5f9b41903b27254f72587e",
+    "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
+    "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
+    "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
+    "gpu/recipient_runtime.slang": "e3dca124f523e4a28ec42e3bc915df6163dfeb2b071e0b25248ad6b0a4e85e0d",
+    "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+    "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+    "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
+    "gpu/incoming_runtime.slang": "72c36925c579e417300e8a0f30daa3f68c03a0778eae308e56e5c079432a91e1",
+    "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
+    "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+    "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
+    "gpu/periodic_runtime.slang": "32ce219c06db4749a284b12011a8510ff7704ab65d164ba85d31cdcacbcb9a53",
+    "gpu/event_candidate_runtime.slang": "5b986d2d51b052186bedb820788460d009220a58e84d6a8803770b64287db356",
+    "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
+    "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+    "gpu/combat_runtime.slang": "fbbbadce16ebca5b4dcc0c6f6a44f834ff785824ee031f745edfb1269ef9f465",
+    "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+    "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
+    "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
+  },
+  "generated_sha256": {
+    "cuda": "b0f8d91449778fa365cf7e2db64a5918fae73da68c1cf5bb82657c2542398b59",
+    "metal": "dde2c6d0dc59ec5f3f1fde8a9b0176bc14ca2ca557be525a5b07099ba71439c5"
+  },
+  "input_sha256": "d9609868c1b72b93bae8de2ad4817f13f8e70187850ac7040b3b51e2a5784ad3",
+  "output_sha256": "bdba5e0d52ba1224382f0f0ca4234d340774044f674a2421b87fc55f90caf5a1",
+  "gpu_execution_verified": true,
+  "backend": "metal",
+  "application_event_runtime_connected": true,
+  "autonomous_battle_connected": false,
+  "weapon_burst_target_connected": true,
+  "gpu_timeline_connected": true,
+  "passed": true,
+  "scope": "One 32-slot source workload smoke; not a timing sample",
+  "fixture_sha256": "d1944d3303b7b14c576fcbf97343c5e0d6df64ad24795443efe4f6dcb1b8a6c3"
+}
