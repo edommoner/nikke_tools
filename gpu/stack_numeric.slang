@@ -32,7 +32,8 @@ uint checkedStackChange(uint64_t current,uint64_t value,uint cap,uint floor,uint
 [noinline]
 uint checkedStackIncrement(uint current,uint cap,out uint status)
 {
-#ifdef PORTABLE_STACK_INCREMENT_INTEGER_CANDIDATE
+// +1 has an exact uint64 implementation; retain the general path for controls.
+#ifndef PORTABLE_STACK_INCREMENT_GENERAL_CONTROL
     status=0;
     if(cap==0 || cap!=0xffffffff && cap>0x7fffffff) { status=64;return 0; }
     uint64_t next=uint64_t(current)+1;
