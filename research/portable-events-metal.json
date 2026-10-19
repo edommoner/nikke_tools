@@ -1,6 +1,16 @@
 {
   "results": [
     {
+      "resources": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
       "periodic_bindings": [
         {
           "flags": 0,
@@ -1248,6 +1258,16 @@
       "max_stack_depth": 3
     },
     {
+      "resources": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
       "periodic_bindings": [
         {
           "flags": 0,
@@ -2495,6 +2515,16 @@
       "max_stack_depth": 3
     },
     {
+      "resources": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
       "periodic_bindings": [
         {
           "flags": 0,
@@ -3800,6 +3830,16 @@
       "max_stack_depth": 5
     },
     {
+      "resources": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
       "periodic_bindings": [
         {
           "flags": 0,
@@ -5233,6 +5273,16 @@
       "max_stack_depth": 5
     },
     {
+      "resources": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
       "periodic_bindings": [
         {
           "flags": 0,
@@ -6571,6 +6621,16 @@
       "max_stack_depth": 5
     },
     {
+      "resources": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
       "periodic_bindings": [
         {
           "flags": 0,
@@ -7985,6 +8045,16 @@
       "max_stack_depth": 5
     },
     {
+      "resources": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
       "periodic_bindings": [
         {
           "flags": 0,
@@ -9438,6 +9508,16 @@
       "max_stack_depth": 5
     },
     {
+      "resources": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
       "periodic_bindings": [
         {
           "flags": 0,
@@ -10827,6 +10907,16 @@
       "max_stack_depth": 3
     },
     {
+      "resources": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
       "periodic_bindings": [
         {
           "flags": 0,
@@ -11538,6 +11628,16 @@
       "max_stack_depth": 1
     },
     {
+      "resources": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
       "periodic_bindings": [
         {
           "flags": 0,
@@ -12044,6 +12144,16 @@
       "max_stack_depth": 1
     },
     {
+      "resources": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
       "periodic_bindings": [
         {
           "flags": 0,
@@ -12449,6 +12559,16 @@
       "max_stack_depth": 2
     },
     {
+      "resources": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
       "periodic_bindings": [
         {
           "flags": 0,
@@ -12802,6 +12922,16 @@
       "max_stack_depth": 1
     },
     {
+      "resources": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
       "periodic_bindings": [
         {
           "flags": 0,
@@ -13155,6 +13285,16 @@
       "max_stack_depth": 1
     },
     {
+      "resources": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
       "periodic_bindings": [
         {
           "flags": 0,
@@ -13508,6 +13648,16 @@
       "max_stack_depth": 1
     },
     {
+      "resources": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
       "periodic_bindings": [
         {
           "flags": 0,
@@ -13913,6 +14063,16 @@
       "max_stack_depth": 1
     },
     {
+      "resources": [
+        {},
+        {},
+        {},
+        {},
+        {}
+      ],
+      "resource_queries": [],
+      "resource_trace": [],
+      "resource_trace_total": 0,
       "periodic_bindings": [
         {
           "flags": 0,
@@ -14630,12 +14790,12 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.005137625033967197,
-    "input_bytes": 3407876,
-    "library_compile_seconds": 0.0007259845733642578,
-    "output_bytes": 3407872,
-    "pipeline_compile_seconds": 0.0016989707946777344,
-    "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
+    "gpu_seconds": 0.005736124992836267,
+    "input_bytes": 3670020,
+    "library_compile_seconds": 0.0007649660110473633,
+    "output_bytes": 4194304,
+    "pipeline_compile_seconds": 0.0017060041427612305,
+    "pipeline_lock_wait_seconds": 9.5367431640625e-07,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
     "threads_per_threadgroup": 1,
@@ -14643,11 +14803,12 @@
     "gpu_timeout_seconds": 120
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "1b9489d8c1d28d8879261fa92c6a26da61af7729c236c5516384d02131322b0b",
+    "gpu/event_runtime.slang": "9564873fa749933f50126d476fc4eb3df513c493beac3eb0ec4382d6304772ef",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "74977cefb12aa9f672b5d70f8e87cfeb4a34bcd3463fed4189ce6c3d3239ca64",
-    "gpu/runtime_init.slang": "8b73cebdce8f9ce7cf8332ef4c89d274bd7b817469162d007c203598a45967fc",
+    "gpu/portable_schema.slang": "b3c0a913b8de0703750a5ff056bbe61461de31bc1e2e1987be550148bcc18169",
+    "gpu/runtime_init.slang": "9b9136c3ca08b798d009b9ab5c850bbbd215df601837b67c0ecbf71b191e0b75",
+    "gpu/resource_runtime.slang": "5663120967beaf269c3928a7c581d4a9d009da7e1b36cf05b129f36df84ff2ab",
     "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
     "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
     "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
@@ -14661,7 +14822,7 @@
     "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
     "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
     "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
-    "gpu/incoming_runtime.slang": "322e92344f55def51fe181360ce35aba89daf341d423bed94b7da22923fa701b",
+    "gpu/incoming_runtime.slang": "72c36925c579e417300e8a0f30daa3f68c03a0778eae308e56e5c079432a91e1",
     "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
     "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
     "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
@@ -14675,11 +14836,11 @@
     "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
   },
   "generated_sha256": {
-    "cuda": "9e119f4cfbf66472cbbb3a43ea557cc0b3cbaa381445d9d770855948c195b5e2",
-    "metal": "141425f496d4017a4030854206c5a7155d39c9d67b3d8aecc8ec9c2c7ab352fc"
+    "cuda": "db441bc4a2be7fba5a3146aa4efe1f1cb4ddf5a5d7a36ea07a56343edbb3f694",
+    "metal": "130c43195ac12ad9f2ef1f4761b9c7928c95ab545b328b1c2a342ef66d744d03"
   },
-  "input_sha256": "a1a737851db2809e9a54ddd32d37aec8ed3664bd6060778903e7e59f285886d2",
-  "output_sha256": "21b716457b137ec023945765ab24b103f837cc690e414c131758081c6d4f3646",
+  "input_sha256": "2ab4838b384a3791e0dbc715ed49f3e3b8288a76bc1439c612f1937b5d0abee3",
+  "output_sha256": "b820ce4c5754109418c35abcbf0f600bd8e41c788fb2f21b8240fd201d20400c",
   "gpu_execution_verified": true,
   "backend": "metal",
   "application_event_runtime_connected": true,
@@ -14700,6 +14861,16 @@
         4000
       ],
       "actual": {
+        "resources": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0,
         "periodic_bindings": [
           {
             "flags": 0,
@@ -15959,6 +16130,16 @@
         4000
       ],
       "actual": {
+        "resources": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0,
         "periodic_bindings": [
           {
             "flags": 0,
@@ -17218,6 +17399,16 @@
         5000
       ],
       "actual": {
+        "resources": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0,
         "periodic_bindings": [
           {
             "flags": 0,
@@ -18535,6 +18726,16 @@
         14000
       ],
       "actual": {
+        "resources": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0,
         "periodic_bindings": [
           {
             "flags": 0,
@@ -19980,6 +20181,16 @@
         4000
       ],
       "actual": {
+        "resources": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0,
         "periodic_bindings": [
           {
             "flags": 0,
@@ -21330,6 +21541,16 @@
         12000
       ],
       "actual": {
+        "resources": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0,
         "periodic_bindings": [
           {
             "flags": 0,
@@ -22756,6 +22977,16 @@
         12000
       ],
       "actual": {
+        "resources": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0,
         "periodic_bindings": [
           {
             "flags": 0,
@@ -24221,6 +24452,16 @@
         14000
       ],
       "actual": {
+        "resources": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0,
         "periodic_bindings": [
           {
             "flags": 0,
@@ -25619,6 +25860,16 @@
         3513
       ],
       "actual": {
+        "resources": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0,
         "periodic_bindings": [
           {
             "flags": 0,
@@ -26338,6 +26589,16 @@
         4
       ],
       "actual": {
+        "resources": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0,
         "periodic_bindings": [
           {
             "flags": 0,
@@ -26851,6 +27112,16 @@
         1000
       ],
       "actual": {
+        "resources": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0,
         "periodic_bindings": [
           {
             "flags": 0,
@@ -27263,6 +27534,16 @@
         1000
       ],
       "actual": {
+        "resources": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0,
         "periodic_bindings": [
           {
             "flags": 0,
@@ -27623,6 +27904,16 @@
         1000
       ],
       "actual": {
+        "resources": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0,
         "periodic_bindings": [
           {
             "flags": 0,
@@ -27983,6 +28274,16 @@
         1001
       ],
       "actual": {
+        "resources": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0,
         "periodic_bindings": [
           {
             "flags": 0,
@@ -28343,6 +28644,16 @@
         6000
       ],
       "actual": {
+        "resources": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0,
         "periodic_bindings": [
           {
             "flags": 0,
@@ -28757,6 +29068,16 @@
         3500
       ],
       "actual": {
+        "resources": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0,
         "periodic_bindings": [
           {
             "flags": 0,
@@ -29487,12 +29808,12 @@
       "command_status": "completed",
       "configured_max_threads_per_threadgroup": 1,
       "device": "Apple M5",
-      "gpu_seconds": 0.0013279999839141965,
-      "input_bytes": 425988,
-      "library_compile_seconds": 0.0007289648056030273,
-      "output_bytes": 425984,
-      "pipeline_compile_seconds": 0.0016700029373168945,
-      "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+      "gpu_seconds": 0.0014863333199173212,
+      "input_bytes": 458756,
+      "library_compile_seconds": 0.0008289813995361328,
+      "output_bytes": 524288,
+      "pipeline_compile_seconds": 0.0018420219421386719,
+      "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
       "pipeline_max_threads_per_threadgroup": 1,
       "registry_id": "4294968313",
       "threads_per_threadgroup": 1,
@@ -29500,11 +29821,12 @@
       "gpu_timeout_seconds": 120
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "1b9489d8c1d28d8879261fa92c6a26da61af7729c236c5516384d02131322b0b",
+      "gpu/event_runtime.slang": "9564873fa749933f50126d476fc4eb3df513c493beac3eb0ec4382d6304772ef",
       "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "74977cefb12aa9f672b5d70f8e87cfeb4a34bcd3463fed4189ce6c3d3239ca64",
-      "gpu/runtime_init.slang": "8b73cebdce8f9ce7cf8332ef4c89d274bd7b817469162d007c203598a45967fc",
+      "gpu/portable_schema.slang": "b3c0a913b8de0703750a5ff056bbe61461de31bc1e2e1987be550148bcc18169",
+      "gpu/runtime_init.slang": "9b9136c3ca08b798d009b9ab5c850bbbd215df601837b67c0ecbf71b191e0b75",
+      "gpu/resource_runtime.slang": "5663120967beaf269c3928a7c581d4a9d009da7e1b36cf05b129f36df84ff2ab",
       "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
       "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
       "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
@@ -29518,7 +29840,7 @@
       "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
       "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
       "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
-      "gpu/incoming_runtime.slang": "322e92344f55def51fe181360ce35aba89daf341d423bed94b7da22923fa701b",
+      "gpu/incoming_runtime.slang": "72c36925c579e417300e8a0f30daa3f68c03a0778eae308e56e5c079432a91e1",
       "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
       "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
       "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
@@ -29532,19 +29854,19 @@
       "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
     },
     "generated_sha256": {
-      "cuda": "9e119f4cfbf66472cbbb3a43ea557cc0b3cbaa381445d9d770855948c195b5e2",
-      "metal": "141425f496d4017a4030854206c5a7155d39c9d67b3d8aecc8ec9c2c7ab352fc"
+      "cuda": "db441bc4a2be7fba5a3146aa4efe1f1cb4ddf5a5d7a36ea07a56343edbb3f694",
+      "metal": "130c43195ac12ad9f2ef1f4761b9c7928c95ab545b328b1c2a342ef66d744d03"
     },
-    "input_sha256": "a4e60b87e29c1ae96e755edd9946d8183ff9d50c7cafed4503ee012fda31b9d8",
-    "output_sha256": "349c0dc790d26512d6e29950b452849dd175a1f2124614bd5237bb7726b61ab2",
+    "input_sha256": "08b21a8142aa73918b30b7c2e62a13cd31861eac6fcaad00d0c9eab284dac9a4",
+    "output_sha256": "68d451c2ca84c8f2864a67fb054b1a1694320d9cf90f80b84f1d94d1af77be87",
     "gpu_execution_verified": true,
     "backend": "metal"
   },
   "adapter_sha256": {
-    "app/portable_runtime.py": "e36f818f6eb3e310049d9b163e451f03ddc0bf4718ee703e3f816a23a7f12604",
-    "app/portable_trigger_specs.py": "70d19d08eb1bb29674ed2c8360e7748556f0674775e180169e6f957b39607fc6",
+    "app/portable_runtime.py": "694aad00624e4b843230dcb0ed637b04d1d9b611158a2368f85c5ab049026712",
+    "app/portable_trigger_specs.py": "a20f8d96a514fb6217c3eba47bf4a569fc1c861bc8837519b56694580e55dda4",
     "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
-    "app/portable_specs.py": "63c1e8a8a8aafbc158e92c7488cb726b29d107fa47eba9d049412802fcc20549",
+    "app/portable_specs.py": "b60b4b707b4015d71b68e214d248e3010addc7643934bbfec387b1342aa77ade",
     "app/portable_backend.py": "ab722934db2e3b7ae228990c7f0555dcea079c624675fa735b7328fa62889ec0",
     "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
