@@ -16,6 +16,7 @@ def damage_plan(effect):
         hits=int(parts[1])
     target=effect.get('target','target');count=1
     if target=='target':route=ROUTES['INHERITED']
+    elif target in ('enemy','target_body','same_target') or isinstance(target,str) and re.fullmatch(r'same_target:[^:]+',target):route=ROUTES['NEAREST']
     elif target=='boss':route=ROUTES['BODY']
     elif target in ('all_enemies','enemies_in_range'):route=ROUTES['ALL'];count=8
     else:

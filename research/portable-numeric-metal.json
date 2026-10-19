@@ -15,7 +15,7 @@
     "gpu/numeric_probe.slang": "d71250e44525fb367912fe9cfbe445d1c5a6cafb0563b5d1db3bce76ad237b98",
     "tests/fixtures/portable-numeric.json": "dfa3cc2c750b2a06eead99d05e3e785afd174a56fdb8337ae424de0ec7509c30",
     "scripts/verify-portable-numeric.py": "6f69e28e3de824899cc5e25320eb9ebfc2a5a4f44c5a3e5dc393a0ce7b664d9e",
-    "scripts/run-metal-probe.swift": "7fcb08acf1813806f9c55d2d03187c0637d862784c7b9f77d19bec55780c89f3",
+    "scripts/run-metal-probe.swift": "7662a5fcd7c20f6b93becc30dd6189c5413c7f25d52ed1e792033cee68cc540a",
     "app/portable_backend.py": "22b181067062471f8eb5e356bc3594f481926895b88ad747ff79fe9c298ff6ff"
   },
   "cases": 34874,
@@ -61,11 +61,12 @@
     "cases": 34874,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.007718541659414768,
+    "gpu_seconds": 0.0011549583286978304,
     "input_bytes": 697484,
-    "library_compile_seconds": 0.0719228982925415,
+    "library_compile_seconds": 0.0027849674224853516,
     "output_bytes": 418488,
-    "pipeline_compile_seconds": 0.20785903930664062,
+    "pipeline_compile_seconds": 0.0008330345153808594,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
     "registry_id": "4294968313"
   },
   "generated_sha256": {

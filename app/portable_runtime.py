@@ -94,10 +94,6 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     effects = list(effects)
     if not 1<=len(effects)<=L['DEFINITIONS']:raise UnsupportedPortable('Portable definition capacity exceeded')
     for eff, owner in effects:validate_effect(eff,combat=combat)
-    for eff,owner in effects:
-        if eff.get('type')=='damage' and eff.get('stat')=='bonus_damage' and 'burst_cast' in eff.get('trigger',{}).get('timing',[]):
-            caster=next(c for c in chars if c['name']==owner)
-            if str(caster['_weapon'].get('burst_stage',''))=='3':raise UnsupportedPortable('Burst-3 bonus damage requires pending full-burst landing')
     program=legacy.compile_effects(chars,effects)
     if len(program['effects'])!=len(effects) or not 1<=len(effects)<=L['DEFINITIONS']:
         raise UnsupportedPortable('Portable definition capacity or expansion exceeded')
@@ -153,7 +149,19 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             from calculator.timeline import BURST_GAUGE_EXCEPTIONS
             override=BURST_GAUGE_EXCEPTIONS.get(effects[index][1],{}).get(effects[index][0].get('name'),{}).get('burst_energy',-1)
             at=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS']
-            words[at:at+8]=[route,count,hits,int(effects[index][0]['stat'].split(':')[0]=='auto_damage'),*double_words(override),0,0]
+            eff,owner=effects[index];caster=next(c for c in chars if c['name']==owner)
+            pending=eff.get('stat')=='bonus_damage' and 'burst_cast' in eff.get('trigger',{}).get('timing',[]) and str(caster['_weapon'].get('burst_stage',''))=='3'
+            if pending and combat is None:raise UnsupportedPortable('Pending B3 bonus damage requires the combat controller')
+            from named_target_specs import resolve_named_attack
+            named=resolve_named_attack(eff,owner,effects)
+            pending_hits=named.deferred_bonus_hits if pending and named is not None else 1
+            if pending_hits>256:raise UnsupportedPortable('Pending named attack count exceeds 256')
+            words[at:at+8]=[route,count,hits,int(eff['stat'].split(':')[0]=='auto_damage'),*double_words(override),int(pending),pending_hits if pending else 0]
+            if pending:
+                later_names={e.get('name') for e,n in effects[index+1:] if n==owner and e.get('type')=='buff' and 'burst_cast' in e.get('trigger',{}).get('timing',[]) and e.get('name')}
+                mask=L['PENDING_EXCLUDE_BASE']+index*L['MASK_WORDS']
+                for other,(e,n) in enumerate(effects):
+                    if n==owner and e.get('name') in later_names:words[mask+other//32] |= 1<<(other%32)
         if int(row[1]) in (7,30) and (row[6]<0 or int(row[1])==30 and row[6]==0):raise UnsupportedPortable('Cover heal/revival requires nonnegative healing or positive revival')
         bullet=L['BULLET_DEFINITION_BASE']+index*2
         lifetime=int(row[62]) if effects[index][0].get('type')=='buff' else -1
@@ -266,7 +274,8 @@ def decode(words,metadata):
     for i in range(words[1]):
         at=L['QUERY_BASE']+i*L['QUERY_WORDS']
         accounting=L['DAMAGE_ACCOUNTING_QUERY_BASE']+i*40
-        queries.append(dict(body_damage=[number(accounting+20+2*k) for k in range(5)],add_damage=[number(accounting+30+2*k) for k in range(5)],scored_damage=[number(accounting+2*k) for k in range(5)],add_overkill=[number(accounting+10+2*k) for k in range(5)],time=number(at),damage=[number(at+2+2*k) for k in range(5)],
+        pending=L['PENDING_QUERY_BASE']+i*4
+        queries.append(dict(pending_burst=dict(count=words[pending],enqueued=words[pending+1],fired=words[pending+2]),body_damage=[number(accounting+20+2*k) for k in range(5)],add_damage=[number(accounting+30+2*k) for k in range(5)],scored_damage=[number(accounting+2*k) for k in range(5)],add_overkill=[number(accounting+10+2*k) for k in range(5)],time=number(at),damage=[number(at+2+2*k) for k in range(5)],
                             active_timer_mask=words[at+12],active_timer_mask_words=list(words[L['TIMER_MASK_BASE']+i*L['MASK_WORDS']:L['TIMER_MASK_BASE']+(i+1)*L['MASK_WORDS']]),generation=words[at+13],
                             stack_depth=words[at+14],timer_clock=words[at+15],
                             attack_buffs=[number(at+16+2*k) for k in range(5)]))
@@ -301,7 +310,8 @@ def decode(words,metadata):
         at=L['TRACE_BASE']+i*L['TRACE_WORDS'];row=words[at]
         if row>=len(metadata['effects']):raise RuntimeError('Invalid trace definition')
         packet=L['DAMAGE_TRACE_BASE']+i*10
-        trace.append(dict(weighted_amount=number(packet+8),target_order=[((words[packet+6]>>(4*k))&15)-1 for k in range(words[packet+7])],target_mask=words[packet],basis=words[packet+1],hit_index=words[packet+2],hit_count=words[packet+3],delivered_amount=number(packet+4),effect=metadata['effects'][row],time=number(at+1),epoch=words[at+3],
+        pending=L['PENDING_TRACE_BASE']+i*4
+        trace.append(dict(pending_burst=bool(words[pending]),cast_time=number(pending+1) if words[pending] else None,weighted_amount=number(packet+8),target_order=[((words[packet+6]>>(4*k))&15)-1 for k in range(words[packet+7])],target_mask=words[packet],basis=words[packet+1],hit_index=words[packet+2],hit_count=words[packet+3],delivered_amount=number(packet+4),effect=metadata['effects'][row],time=number(at+1),epoch=words[at+3],
                           generation=words[at+4],depth=words[at+5],next_due=number(at+6)))
     timers=[]
     for i,name in enumerate(metadata['effects']):
@@ -336,7 +346,14 @@ def decode(words,metadata):
             left=words[at+12];carriers[-1].update(bullet_left=left-2**32 if left>=2**31 else left,recipient_bullets=list(words[at+13:at+18]),recipient_stack_overrides=list(words[at+18:at+23]))
     at=L['COVER_STATE_BASE']
     covers=[dict(hp=number(at+who*8),max_hp=number(at+who*8+2),effective_max_hp=number(at+who*8+4),damage=number(at+who*8+6)) for who in range(5)]
-    return dict(covers=covers,body_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+20+2*k) for k in range(5)],add_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+30+2*k) for k in range(5)],scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+2*k) for k in range(5)],add_overkill=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+10+2*k) for k in range(5)],target_scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+40+2*k) for k in range(len((metadata.get('combat') or {}).get('targets',[])))],bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
+    pending=L['PENDING_STATE_BASE'];count=words[pending]
+    if count>L['PENDING']:raise RuntimeError('Invalid pending queue dimensions')
+    queue=[]
+    for index in range(count):
+        at=pending+4+index*8;definition=words[at]
+        if definition>=len(metadata['effects']):raise RuntimeError('Invalid pending definition')
+        queue.append(dict(effect=metadata['effects'][definition],cast_time=number(at+1),coefficient=number(at+3),hits=words[at+5],amount=number(at+6)))
+    return dict(pending_burst=dict(count=count,enqueued=words[pending+1],fired=words[pending+2],entries=queue),covers=covers,body_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+20+2*k) for k in range(5)],add_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+30+2*k) for k in range(5)],scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+2*k) for k in range(5)],add_overkill=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+10+2*k) for k in range(5)],target_scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+40+2*k) for k in range(len((metadata.get('combat') or {}).get('targets',[])))],bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
 
 
 def run_programs(programs, *, backend='metal'):

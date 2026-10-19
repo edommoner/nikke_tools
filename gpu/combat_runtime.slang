@@ -170,7 +170,7 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
         }
     }
     if (s.phase == 4 && reached(when,s.action))
-    { s.phase = 5; s.fullEnd = f64Add(when,TEN); teamNotify(s,1,when,output); reconcileBurstCooldowns(s,when); logBurst(s,4,0xffffffff,when,output); }
+    { s.phase = 5; s.fullEnd = f64Add(when,TEN); teamNotify(s,1,when,output); reconcileBurstCooldowns(s,when); firePendingBursts(s,when,output); logBurst(s,4,0xffffffff,when,output); }
     s.gaugeCharging = uint(s.phase == 0);
 }
 [noinline]

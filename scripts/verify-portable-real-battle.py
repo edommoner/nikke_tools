@@ -71,6 +71,7 @@ def main():
     tracked += [ROOT/'data/engine-effect-overrides.json',ROOT/'scripts/run-metal-probe.swift']
     hashes={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(set(tracked))}
     bodies=[{**body_for(['미란다','도라','드레이크','N102','메어리'],duration=t,grown=g),'burst_gauge_mode':'accumulate'} for t,g in [(3,False),(30,False),(180,False),(180,True)]]
+    bodies += [{**body_for(['미란다','도라','브리드','N102','메어리'],duration=t,grown=g),'burst_gauge_mode':'accumulate'} for t,g in [(3,False),(30,False),(180,False),(180,True)]]
     prepared=[adapter.evaluate({**body,'_portable_static_inputs':True}) for body in bodies]
     programs=[];indices=[];gaps={}
     for index,p in enumerate(prepared):
@@ -79,7 +80,7 @@ def main():
         else:programs.append(program);indices.append(index)
     result=run_programs(programs,backend=args.backend);result.update(passed=False,stage='readback-before-original-CPU',validation_sha256=hashes,
         real_prepared_input_connected=True,normal_ui_connected=False,full_character_verified=0,all_character_effects_included=True,cpu_trace_used_as_gpu_input=False,
-        scope='Four fixed real all-effect squad/profile cases; static simple boss, no manual controls, expected accumulate mode; not all variants or catalog')
+        scope='Eight fixed real all-effect squad/profile cases; static simple boss, no manual controls, expected accumulate mode; not all variants or catalog')
     path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
     cases=[]
     for index,gpu in zip(indices,result['results']):
@@ -97,11 +98,11 @@ def main():
         for i,c in enumerate(p['chars']):
             expected=dict(atk=p['base_atk'][i],hp=p['allies'][i]['base_hp'],**{'def':p['allies'][i]['base_defense']})
             assert cpu['base_stats'][c['name']]==expected
-        cases.append(dict(duration=body['duration'],grown=body['profile']['chars'][body['squad'][0]]['collection_stage']=='SR15',passed=not diff,
+        cases.append(dict(squad=body['squad'],duration=body['duration'],grown=body['profile']['chars'][body['squad'][0]]['collection_stage']=='SR15',passed=not diff,
                           prepared_effects=len(p['effects']),cpu_battle_executed_for_gpu_input=p['cpu_battle_executed'],native_reference=cpu,differences=diff))
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in hashes}
     for index,error in gaps.items():
-        body=bodies[index];cases.append(dict(duration=body['duration'],grown=body['profile']['chars'][body['squad'][0]]['collection_stage']=='SR15',passed=False,compile_error=error,prepared_effects=len(prepared[index]['effects']),differences=[]))
+        body=bodies[index];cases.append(dict(squad=body['squad'],duration=body['duration'],grown=body['profile']['chars'][body['squad'][0]]['collection_stage']=='SR15',passed=False,compile_error=error,prepared_effects=len(prepared[index]['effects']),differences=[]))
     passed=not gaps and all(c['passed'] for c in cases)
     result.update(cases=cases,passed=passed,stage='verified' if passed else 'real-input-gaps' if gaps else 'native-CPU-differences')
     path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')

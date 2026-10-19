@@ -222,4 +222,32 @@ class PortableCoverInputTests(unittest.TestCase):
             with self.subTest(command=command),self.assertRaises(ValueError):v.compile_case(c)
 
 
+class PortablePendingInputTests(unittest.TestCase):
+    def test_pending_and_ordinary_bonus_are_distinguished(self):
+        import importlib.util
+        from portable_specs import LIMITS as L
+        spec=importlib.util.spec_from_file_location('pending_verify',ROOT/'scripts/verify-portable-combat.py')
+        v=importlib.util.module_from_spec(spec);spec.loader.exec_module(v)
+        case=copy.deepcopy(next(c for c in v.fixtures() if c['name']=='pending-later-burst-buff-excluded'))
+        words,_=v.compile_case(case);at=L['DAMAGE_DEFINITION_BASE']+L['DAMAGE_DEFINITION_WORDS']
+        self.assertEqual(words[at+6:at+8],[1,1]);self.assertEqual(words[L['PENDING_EXCLUDE_BASE']+L['MASK_WORDS']],1<<2)
+        case['effects'][1]['stat']='bonus_damage:3';words,_=v.compile_case(case)
+        self.assertEqual(words[at+6:at+8],[0,0])
+        case['effects'][1]['stat']='bonus_damage';case.pop('combat')
+        with self.assertRaises(UnsupportedPortable):v.compile_case(case)
+
+    def test_named_parent_must_resolve_for_the_same_caster(self):
+        import importlib.util
+        spec=importlib.util.spec_from_file_location('named_verify',ROOT/'scripts/verify-portable-combat.py')
+        v=importlib.util.module_from_spec(spec);spec.loader.exec_module(v)
+        case=next(c for c in v.fixtures() if c['name']=='pending-named-parent-static-repeat')
+        for patch in ('missing','foreign','duplicate','dynamic'):
+            bad=copy.deepcopy(case)
+            if patch=='missing':bad['effects'][2]['target']='same_target:missing'
+            elif patch=='foreign':bad['owners'][1]=1
+            elif patch=='duplicate':bad['effects'].append(copy.deepcopy(bad['effects'][1]));bad['owners'].append(2)
+            else:bad['effects'][1]['stat']='sequential_damage:state'
+            with self.subTest(patch=patch),self.assertRaises(ValueError):v.compile_case(bad)
+
+
 if __name__=='__main__':unittest.main()

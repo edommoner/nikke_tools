@@ -3,15 +3,15 @@
   "audited_characters": 203,
   "full_character_verified": 0,
   "weapon_input_preflight_passed": 203,
-  "own_effect_preflight_passed": 12,
+  "own_effect_preflight_passed": 15,
   "assumptions": "favorite stage 0, no cube, fixed five-member real roster; definition preflight only; not battle compatibility",
   "cpu_simulation_executed": false,
   "gpu_execution_performed": false,
   "issues": {
     "Unported buff or recipient selector": 305,
     "Unported instant or recipient selector": 50,
-    "Unported enemy damage selector": 38,
     "Unported effect fields: gauge_id": 30,
+    "Unported enemy damage selector": 26,
     "Unported effect fields: gauge_id, gauge_max": 23,
     "Unported effect fields: scaling, scaling_ref": 22,
     "Unported trigger timing: received_hit_count:1": 18,
@@ -152,8 +152,8 @@
   "diagnostic_semantic_issues": {
     "Unported buff or recipient selector": 305,
     "Unported instant or recipient selector": 50,
-    "Unported enemy damage selector": 38,
     "Unported effect fields: gauge_id": 30,
+    "Unported enemy damage selector": 26,
     "Unported effect fields: gauge_id, gauge_max": 23,
     "Unported effect fields: scaling, scaling_ref": 22,
     "Unported trigger timing: received_hit_count:1": 18,
@@ -293,8 +293,8 @@
   },
   "missing_families": {
     "damage_modifiers": 208,
-    "damage": 107,
     "effect_lifecycle": 102,
+    "damage": 95,
     "weapon": 70,
     "resource_accumulation": 56,
     "protection": 50,
@@ -308,7 +308,7 @@
     "character_state": 5
   },
   "weapon_gaps": {
-    "real_battle_input_adapter_not_connected": 203
+    "normal_ui_full_battle_adapter_not_connected": 203
   },
   "characters": [
     {
@@ -531,7 +531,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -568,6 +568,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -772,7 +773,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -809,6 +810,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -1034,7 +1036,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -1071,6 +1073,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -1335,7 +1338,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -1372,6 +1375,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -1618,7 +1622,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -1655,6 +1659,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -2141,7 +2146,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -2178,6 +2183,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 100,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -2592,7 +2598,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -2629,6 +2635,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 96,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -3053,7 +3060,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -3090,6 +3097,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 96,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -3297,7 +3305,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -3334,6 +3342,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -3555,7 +3564,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -3592,6 +3601,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -3995,7 +4005,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -4032,6 +4042,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 95,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -4256,7 +4267,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -4293,6 +4304,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -4510,7 +4522,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -4547,6 +4559,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": true,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -4767,7 +4780,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -4804,6 +4817,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -5089,7 +5103,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -5126,6 +5140,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 88,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -5441,7 +5456,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -5478,6 +5493,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 90,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -5751,7 +5767,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -5788,6 +5804,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -6010,7 +6027,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -6047,6 +6064,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -6266,7 +6284,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -6303,6 +6321,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -6543,7 +6562,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -6580,6 +6599,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -6850,7 +6870,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -6887,6 +6907,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -6949,11 +6970,10 @@
           "conditions": [
             "self_hp_max"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported enemy damage selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported enemy damage selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -7093,7 +7113,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -7129,7 +7149,8 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 83,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -7210,11 +7231,10 @@
           "conditions": [
             "self_hp_max"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported enemy damage selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported enemy damage selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -7354,7 +7374,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -7390,7 +7410,8 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 84,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -7648,7 +7669,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -7685,6 +7706,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -7908,7 +7930,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -7945,6 +7967,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -8222,7 +8245,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -8259,6 +8282,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -8607,7 +8631,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -8644,6 +8668,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 92,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -8850,7 +8875,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -8887,6 +8912,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -9146,7 +9172,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -9183,6 +9209,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": true,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -9392,7 +9419,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -9429,6 +9456,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -9715,7 +9743,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -9752,6 +9780,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 88,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -9986,7 +10015,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -10023,6 +10052,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -10425,7 +10455,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -10462,6 +10492,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 94,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -10750,7 +10781,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -10787,6 +10818,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 88,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -11160,7 +11192,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -11197,6 +11229,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 93,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -11299,13 +11332,10 @@
             "self_state:라플라스 버스터",
             "self_stack_above:히어로 비전:5"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported enemy damage selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported enemy damage selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "라플라스 버스터 5",
@@ -11464,7 +11494,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -11501,6 +11531,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -11718,7 +11749,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -11755,6 +11786,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": true,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -11991,7 +12023,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -12028,6 +12060,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -12462,7 +12495,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -12499,6 +12532,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 96,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -12767,7 +12801,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -12804,6 +12838,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -13175,7 +13210,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -13212,6 +13247,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 93,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -13417,7 +13453,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -13454,6 +13490,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -13695,7 +13732,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -13732,6 +13769,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -14006,7 +14044,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -14043,6 +14081,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -14360,7 +14399,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -14397,6 +14436,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 89,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -14600,7 +14640,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -14637,6 +14677,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": true,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -14879,7 +14920,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -14916,6 +14957,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -15121,7 +15163,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -15158,6 +15200,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": true,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -15411,7 +15454,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -15448,6 +15491,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -15707,7 +15751,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -15744,6 +15788,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": true,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -15983,7 +16028,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -16020,6 +16065,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -16226,7 +16272,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -16263,6 +16309,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -16482,7 +16529,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -16519,6 +16566,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -16915,7 +16963,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -16952,6 +17000,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 94,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -17014,11 +17063,10 @@
           "conditions": [
             "self_stack_above:크레센도:5"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported enemy damage selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported enemy damage selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -17158,7 +17206,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -17194,7 +17242,8 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 83,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -17428,7 +17477,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -17465,6 +17514,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -17701,7 +17751,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -17738,6 +17788,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -18074,7 +18125,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -18111,6 +18162,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 90,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -18362,7 +18414,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -18399,6 +18451,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -18481,13 +18534,10 @@
           "conditions": [
             "self_state:평정심"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported enemy damage selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported enemy damage selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -18627,7 +18677,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -18664,6 +18714,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -18870,7 +18921,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -18907,6 +18958,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -19003,13 +19055,10 @@
           "conditions": [
             "self_hp_below:50"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported enemy damage selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported enemy damage selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -19149,7 +19198,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -19186,6 +19235,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -19266,11 +19316,10 @@
           "conditions": [
             "self_state:복수"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported enemy damage selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported enemy damage selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -19410,7 +19459,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -19447,6 +19496,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -19805,7 +19855,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -19842,6 +19892,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 92,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -20149,7 +20200,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -20186,6 +20237,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 89,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -20425,7 +20477,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -20462,6 +20514,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -20699,7 +20752,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -20736,6 +20789,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -20994,7 +21048,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -21031,6 +21085,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -21249,7 +21304,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -21286,6 +21341,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -21534,7 +21590,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -21571,6 +21627,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -21856,7 +21913,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -21893,6 +21950,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 88,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -22113,7 +22171,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -22150,6 +22208,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -22368,7 +22427,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -22405,6 +22464,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -22664,7 +22724,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -22701,6 +22761,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": true,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -22959,7 +23020,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -22996,6 +23057,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -23093,11 +23155,10 @@
           "conditions": [
             "self_stack_above:해킹 코드 수집:5"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported enemy damage selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported enemy damage selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -23237,7 +23298,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -23274,6 +23335,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -23498,7 +23560,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -23535,6 +23597,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -23769,7 +23832,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -23806,6 +23869,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -24043,7 +24107,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -24080,6 +24144,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -24318,7 +24383,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -24355,6 +24420,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -24776,7 +24842,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -24813,6 +24879,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 97,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -25062,7 +25129,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -25099,6 +25166,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -25401,7 +25469,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -25438,6 +25506,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 89,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -25696,7 +25765,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -25733,6 +25802,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -25978,7 +26048,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -26015,6 +26085,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -26298,7 +26369,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -26335,6 +26406,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 88,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -26572,7 +26644,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -26609,6 +26681,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -26866,7 +26939,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -26903,6 +26976,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -27212,7 +27286,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -27249,6 +27323,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 90,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -27488,7 +27563,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -27525,6 +27600,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -27602,11 +27678,10 @@
           "conditions": [
             "self_stack_above:슈퍼 루키:5"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported enemy damage selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported enemy damage selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -27746,7 +27821,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -27783,6 +27858,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -28022,7 +28098,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -28059,6 +28135,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -28308,7 +28385,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -28345,6 +28422,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -28600,7 +28678,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -28637,6 +28715,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -28963,7 +29042,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -29000,6 +29079,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 91,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -29249,7 +29329,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -29286,6 +29366,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -29552,7 +29633,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -29589,6 +29670,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -29874,7 +29956,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -29911,6 +29993,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": true,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -30066,11 +30149,10 @@
           "conditions": [
             "self_state:은신"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported enemy damage selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported enemy damage selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -30210,7 +30292,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -30247,6 +30329,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 89,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -30573,7 +30656,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -30610,6 +30693,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 91,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -30851,7 +30935,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -30888,6 +30972,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -31122,7 +31207,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -31159,6 +31244,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -31426,7 +31512,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -31463,6 +31549,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -31798,7 +31885,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -31835,6 +31922,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 91,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -32044,7 +32132,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -32081,6 +32169,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -32273,7 +32362,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -32310,6 +32399,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 82,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -32505,7 +32595,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -32542,6 +32632,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 82,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -32734,7 +32825,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -32771,6 +32862,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 82,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -32960,7 +33052,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -32997,6 +33089,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 82,
       "all_effects_preflight_passed": true,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -33208,7 +33301,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -33245,6 +33338,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -33434,7 +33528,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -33471,6 +33565,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 82,
       "all_effects_preflight_passed": true,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -33666,7 +33761,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -33703,6 +33798,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 82,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -33896,7 +33992,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -33933,6 +34029,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 82,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -34125,7 +34222,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -34162,6 +34259,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 82,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -34401,7 +34499,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -34438,6 +34536,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -34662,7 +34761,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -34699,6 +34798,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -34935,7 +35035,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -34972,6 +35072,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -35225,7 +35326,7 @@
         "spread_shots": 9.722222222222221
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -35262,6 +35363,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -35588,7 +35690,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -35625,6 +35727,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 90,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -35897,7 +36000,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -35934,6 +36037,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -36290,7 +36394,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -36327,6 +36431,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 92,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -36546,7 +36651,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -36583,6 +36688,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -36974,7 +37080,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -37011,6 +37117,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 93,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -37314,7 +37421,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -37351,6 +37458,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 90,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -37574,7 +37682,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -37611,6 +37719,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -37858,7 +37967,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -37895,6 +38004,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -38104,7 +38214,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -38141,6 +38251,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -38360,7 +38471,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -38397,6 +38508,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -38663,7 +38775,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -38700,6 +38812,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -39005,7 +39118,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -39042,6 +39155,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -39333,7 +39447,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -39370,6 +39484,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 89,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -39656,7 +39771,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -39693,6 +39808,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -39966,7 +40082,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -40003,6 +40119,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -40256,7 +40373,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -40293,6 +40410,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -40528,7 +40646,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -40565,6 +40683,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -40811,7 +40930,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -40848,6 +40967,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -41116,7 +41236,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -41153,6 +41273,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -41394,7 +41515,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -41431,6 +41552,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -41532,11 +41654,10 @@
           "conditions": [
             "self_stack_above:빌려 갈게에….:5"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported enemy damage selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported enemy damage selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -41676,7 +41797,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -41713,6 +41834,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -41985,7 +42107,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -42022,6 +42144,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -42228,7 +42351,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -42265,6 +42388,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -42594,7 +42718,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -42631,6 +42755,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 91,
       "all_effects_preflight_passed": true,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -43106,7 +43231,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -43143,6 +43268,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 98,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -43658,7 +43784,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -43695,6 +43821,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 101,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -43942,7 +44069,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -43979,6 +44106,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -44319,7 +44447,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -44356,6 +44484,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 92,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -44575,7 +44704,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -44612,6 +44741,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -44872,7 +45002,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -44909,6 +45039,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -45113,7 +45244,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -45150,6 +45281,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -45436,7 +45568,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -45473,6 +45605,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 88,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -45723,7 +45856,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -45760,6 +45893,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -46040,7 +46174,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -46077,6 +46211,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 88,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -46432,7 +46567,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -46469,6 +46604,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 93,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -46993,7 +47129,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -47030,6 +47166,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 104,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -47290,7 +47427,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -47327,6 +47464,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -47608,7 +47746,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -47645,6 +47783,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -47964,7 +48103,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -48001,6 +48140,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 89,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -48269,7 +48409,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -48306,6 +48446,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -48653,7 +48794,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -48690,6 +48831,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 92,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -49151,7 +49293,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -49188,6 +49330,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 99,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -49678,7 +49821,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -49715,6 +49858,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 101,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -50052,7 +50196,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -50089,6 +50233,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 91,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -50467,7 +50612,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -50504,6 +50649,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 93,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -50726,7 +50872,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -50763,6 +50909,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -51000,7 +51147,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -51037,6 +51184,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -51283,7 +51431,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -51320,6 +51468,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 85,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -51706,7 +51855,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -51743,6 +51892,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 93,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -52069,7 +52219,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -52106,6 +52256,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 90,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -52410,7 +52561,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -52447,6 +52598,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 89,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -52834,7 +52986,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -52871,6 +53023,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 93,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -53275,7 +53428,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -53312,6 +53465,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 96,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -53611,7 +53765,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -53648,6 +53802,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 88,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -54031,7 +54186,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -54068,6 +54223,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 94,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -54434,7 +54590,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -54471,6 +54627,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 93,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -54739,7 +54896,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -54776,6 +54933,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -55049,7 +55207,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -55086,6 +55244,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -55173,13 +55332,10 @@
           "conditions": [
             "self_stack_above:피의 마인:5"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported enemy damage selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported enemy damage selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -55319,7 +55475,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -55356,6 +55512,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -55574,7 +55731,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -55611,6 +55768,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -55859,7 +56017,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -55896,6 +56054,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -56178,7 +56337,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -56215,6 +56374,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 88,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -56404,7 +56564,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -56441,6 +56601,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 82,
       "all_effects_preflight_passed": true,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -56691,7 +56852,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -56728,6 +56889,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -56982,7 +57144,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -57019,6 +57181,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -57240,7 +57403,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -57277,6 +57440,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -57542,7 +57706,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -57579,6 +57743,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -57827,7 +57992,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -57864,6 +58029,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -58118,7 +58284,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -58155,6 +58321,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 86,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -58379,7 +58546,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -58416,6 +58583,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -58727,7 +58895,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -58764,6 +58932,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 90,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -59118,7 +59287,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -59155,6 +59324,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 93,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -59359,7 +59529,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -59396,6 +59566,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -59676,7 +59847,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -59713,6 +59884,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 88,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -60047,7 +60219,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -60084,6 +60256,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 91,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -60291,7 +60464,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -60328,6 +60501,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -60611,7 +60785,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -60648,6 +60822,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 88,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -60931,7 +61106,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -60968,6 +61143,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 88,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -61197,7 +61373,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -61234,6 +61410,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 84,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -61537,7 +61714,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -61574,6 +61751,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 89,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -61840,7 +62018,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -61877,6 +62055,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -62088,7 +62267,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -62125,6 +62304,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 83,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -62501,7 +62681,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -62538,6 +62718,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 94,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -62901,7 +63082,7 @@
         "spread_shots": 34.285714285714285
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -62938,6 +63119,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 93,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -63200,7 +63382,7 @@
         "spread_shots": 0.0
       },
       "weapon_gaps": [
-        "real_battle_input_adapter_not_connected"
+        "normal_ui_full_battle_adapter_not_connected"
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
@@ -63237,6 +63419,7 @@
       "weapon_adapter_issue": null,
       "squad_effects": 87,
       "all_effects_preflight_passed": false,
+      "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
       "cpu_simulation_executed": false,
@@ -63260,11 +63443,11 @@
     "app/outgoing_healing_compat.py": "8eb8a8fe2ecd2a9c7d7fbccb087473b0817073da1ee2093b5b36f161df5f8af3",
     "app/periodic_source_runtime.py": "0af7083789aae3e9982a1cfb504295ef60edd2200808176127e84ac9c67782aa",
     "app/periodic_target_runtime.py": "b2475507525e8f06b9139142fb662d831f73a72cbb8e99b087dd0c6a1ae3d188",
-    "app/portable_catalog.py": "01aa57c7dafbe14720a5817c2b2592cb8a47ec94163e2dbc9b0490b6779cfb59",
+    "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
     "app/portable_combat.py": "ed823647c7a79d07c490ea9dde3304c54526b156bc1a1309ede53bf0be76b223",
     "app/portable_damage_specs.py": "3e17c2e67397dae64c69bb69ce8fc38635d42b26e1237fdce79df1a23e32ce96",
-    "app/portable_runtime.py": "424673b0fe4e0b05470f48f64eac9a87db987e695a0b8a0e43a9302c3ba491f7",
-    "app/portable_specs.py": "2595fc71ed81275a183230abd1175cf48b6c888b5442e7b0af3877027eafbcf5",
+    "app/portable_runtime.py": "3232600dd314596912f80982217f33f43b5f988ba215a9a3e20839415f9df61a",
+    "app/portable_specs.py": "93e5f57dbd107bc0bd261f6e7a52316ba7481ed4b63b0dcf127c0d95622daad5",
     "app/portable_trigger_specs.py": "e7e9b04e7e3ea10938e91c24ed6c93536411c937ab08eaabcf87b930d536f2b2",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",

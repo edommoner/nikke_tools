@@ -52,6 +52,8 @@ class PortableTimelineBoundaryTests(unittest.TestCase):
         self.assertEqual(result['character'],names[0]);self.assertGreater(result['own_effects'],0)
         self.assertFalse(result['cpu_simulation_executed']);self.assertFalse(result['full_character_verified'])
         self.assertFalse(result['actual_battle_adapter_connected'])
+        self.assertTrue(result['experimental_static_battle_input_adapter_available'])
+        self.assertIn('normal_ui_full_battle_adapter_not_connected',result['weapon_gaps'])
 
 
 

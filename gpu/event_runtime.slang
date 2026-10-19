@@ -27,7 +27,7 @@ struct Definition
     uint damageFlags, group, exclusive, quantityFlags, fixedLiteral, polarity;
     int alias;
     uint64_t fixedValue;
-    uint damageRoute, damageCount, damageHits, damageNormal; uint64_t damageGauge;
+    uint damageRoute, damageCount, damageHits, damageNormal, damagePending, pendingHits; uint64_t damageGauge;
     uint bulletDuration, bulletBound;
     uint healthScaling, alliedFlags, mergeEligible, statKey, lazyGroup, queryResolve;
 };
@@ -54,6 +54,8 @@ struct Runtime
     uint hpWatchCount, hpWatchSlots[P_DEFINITIONS*P_TRIGGERS], hpDirtyMask, hpPendingMask, hpEdgeGuard;
     uint64_t hpPrevious[5], hpNext[5];
     uint healthMask; int healSource;
+    uint pendingCount, pendingEnqueued, pendingFired, damageExclusion;
+    uint pendingRow[P_PENDING], pendingHits[P_PENDING]; uint64_t pendingCoefficient[P_PENDING], pendingCastTime[P_PENDING], pendingAmount[P_PENDING];
     uint coverMask, coverSync; uint64_t baseCoverHP[5], coverHP[5], coverMaxHP[5], coverDamage[5];
     uint64_t baseHP[5], hp[5], hpPct[5], baseDefense[5], hpSnapshot[P_CARRIERS], healing[5];
     uint quantityMask, weaponInitialized[5], modeMagazine[5], delayCover[5], pendingAutoReload[5];
@@ -179,6 +181,13 @@ void markEntry(inout Runtime s, uint row)
     s.entryOrder[row] = ++s.entryClock;
 }
 
+bool excludedDamageBuff(inout Runtime s, uint resident, uint who)
+{
+    if (s.damageExclusion == 0 || s.defs[s.damageExclusion-1].owner != who) return false;
+    uint definition = s.carrierDefinition[resident];
+    uint at = s.inputBase+P_PENDING_EXCLUDE_BASE+(s.damageExclusion-1)*P_MASK_WORDS;
+    return (commands[at+definition/32] & (1U << (definition%32))) != 0;
+}
 #include "bullet_runtime.slang"
 #include "rank_runtime.slang"
 #include "lazy_runtime.slang"
@@ -379,6 +388,7 @@ void registerTimer(inout Runtime s, uint row, uint64_t when)
 #include "incoming_runtime.slang"
 #include "burst_runtime.slang"
 #include "enemy_damage_runtime.slang"
+#include "pending_burst_runtime.slang"
 
 [noinline]
 void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, uint64_t when, uint output)
@@ -728,7 +738,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         else if (d.kind == 3)
         {
             if (f.event != 28) s.stacks[row] = 1;
-            pushFrame(s,frames,depth,10,0,d.owner,int(row),f.time);
+            if (d.damagePending != 0) enqueuePendingBurst(s,row,f.time);
+            else pushFrame(s,frames,depth,10,0,d.owner,int(row),f.time);
         }
         else s.error = 32;
 #ifdef PORTABLE_HEALTH_SCAN_REFERENCE
@@ -876,10 +887,10 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             else s.lazyGroupDefinition[d.lazyGroup-1] = j+1;
         }
         uint packet = input+P_DAMAGE_DEFINITION_BASE+j*P_DAMAGE_DEFINITION_WORDS;
-        d.damageRoute = commands[packet]; d.damageCount = commands[packet+1]; d.damageHits = commands[packet+2]; d.damageNormal = commands[packet+3]; d.damageGauge = loadNumber(packet+4);
+        d.damageRoute = commands[packet]; d.damageCount = commands[packet+1]; d.damageHits = commands[packet+2]; d.damageNormal = commands[packet+3]; d.damageGauge = loadNumber(packet+4); d.damagePending = commands[packet+6]; d.pendingHits = commands[packet+7];
         if (d.kind == 3 && (d.damageRoute > 8 || d.damageCount == 0 || d.damageCount > 256 || d.damageHits == 0 || d.damageHits > 256 ||
             d.damageRoute >= 2 && (s.combat == 0 || !f64Zero(d.interval)) || !f64Finite(d.damageGauge) || f64Less(d.damageGauge,0) && !f64Equal(d.damageGauge,F64_SIGN | ONE) || f64Less(f64FromI64(1000000),d.damageGauge) ||
-            d.damageNormal > 1 || commands[packet+6] != 0 || commands[packet+7] != 0)) { s.error = 64; break; }
+            d.damageNormal > 1 || d.damagePending > 1 || d.damagePending == 0 && d.pendingHits != 0 || d.damagePending != 0 && (s.combat == 0 || d.damageHits != 1 || d.damageFlags != 0 || d.damageNormal != 0 || d.pendingHits == 0 || d.pendingHits > 256))) { s.error = 64; break; }
         if (d.kind == 3 && (d.damageRoute == 7 || d.damageRoute == 8))
             for (uint target = 1; target < s.targetCount; target++) if (!f64Zero(s.targetDefense[target])) { s.error = 64; break; }
         uint bullet = input+P_BULLET_DEFINITION_BASE+j*2;
@@ -915,6 +926,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         if (d.owner >= 5 || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; } s.defs[j] = d;
     }
     if (s.error != 0) { results[output] = s.error; return; }
+    for (uint row = 0; row < s.count; row++) if (!validPendingDefinition(s,row)) { results[output] = 64; return; }
     initializeHPWatches(s);
     uint queries = 0;
     for (uint step = 0; step < commands[input+2] && s.error == 0; step++)
@@ -979,6 +991,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             if (s.hpWatchCount != 0) dispatch(s,7,0,0,0,when,output); else syncHealth(s,when);
             writeHealth(s,when,output+P_HEALTH_QUERY_BASE+index*P_HEALTH_QUERY_WORDS);
             writeCovers(s,when,output+P_COVER_QUERY_BASE+index*40);
+            writePendingBurst(s,output+P_PENDING_QUERY_BASE+index*4,false);
             writeIncoming(s,output+P_INCOMING_QUERY_BASE+index*P_INCOMING_QUERY_WORDS);
             writeDamageAccounting(s,output+P_DAMAGE_ACCOUNTING_QUERY_BASE+index*40);
             queries = max(queries,index+1); uint dst = output+P_QUERY_BASE+index*P_QUERY_WORDS;
@@ -993,6 +1006,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         else s.error = 64;
     }
     writeDamageAccounting(s,output+P_DAMAGE_ACCOUNTING_STATE_BASE,true);
+    writePendingBurst(s,output+P_PENDING_STATE_BASE,true);
     writeCovers(s,commands[input+2] > 0 ? loadNumber(input+P_COMMAND_BASE+(commands[input+2]-1)*8+1) : 0,output+P_COVER_STATE_BASE);
     writeIncoming(s,output+P_INCOMING_STATE_BASE);
     writeHealth(s,commands[input+2] > 0 ? loadNumber(input+P_COMMAND_BASE+(commands[input+2]-1)*8+1) : 0,output+P_HEALTH_STATE_BASE);

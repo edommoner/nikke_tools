@@ -1,10 +1,40 @@
 // Metal transport only. Numeric/state/event logic lives in shared Slang sources.
 import Foundation
 import Metal
+import Darwin
 
 struct ProbeError: Error, CustomStringConvertible {
     let description: String
     init(_ message: String) { description = message }
+}
+
+// Serialize pipeline creation across worker processes. A concurrent cold
+// compile of the same large kernel can stall in the Metal compiler service.
+// Release before buffer encoding/dispatch; GPU work is not held by this lock.
+func compilePipeline(device: MTLDevice, source: String, entry: String, lockURL: URL) throws
+    -> (pipeline: MTLComputePipelineState, librarySeconds: Double, pipelineSeconds: Double, lockWaitSeconds: Double) {
+    let descriptor = open(lockURL.path, O_CREAT | O_RDWR, 0o600)
+    guard descriptor >= 0 else { throw ProbeError("Cannot open Metal pipeline lock") }
+    defer { close(descriptor) }
+    FileHandle.standardError.write(Data("portable_stage=pipeline_lock\n".utf8))
+    let lockStart = Date().timeIntervalSinceReferenceDate
+    while flock(descriptor, LOCK_EX) != 0 {
+        if errno != EINTR { throw ProbeError("Cannot acquire Metal pipeline lock") }
+    }
+    let lockWaitSeconds = Date().timeIntervalSinceReferenceDate - lockStart
+    defer { flock(descriptor, LOCK_UN) }
+    let options = MTLCompileOptions()
+    options.mathMode = .safe
+    FileHandle.standardError.write(Data("portable_stage=library_compile\n".utf8))
+    let libraryStart = Date().timeIntervalSinceReferenceDate
+    let library = try device.makeLibrary(source: source, options: options)
+    let librarySeconds = Date().timeIntervalSinceReferenceDate - libraryStart
+    guard let function = library.makeFunction(name: entry) else { throw ProbeError("Missing \(entry) entry") }
+    FileHandle.standardError.write(Data("portable_stage=pipeline_compile\n".utf8))
+    let pipelineStart = Date().timeIntervalSinceReferenceDate
+    let pipeline = try device.makeComputePipelineState(function: function)
+    let pipelineSeconds = Date().timeIntervalSinceReferenceDate - pipelineStart
+    return (pipeline, librarySeconds, pipelineSeconds, lockWaitSeconds)
 }
 
 func run() throws {
@@ -25,17 +55,10 @@ func run() throws {
     inputData.withUnsafeBytes { bytes in input.contents().copyMemory(from: bytes.baseAddress!, byteCount: bytes.count) }
     output.contents().initializeMemory(as: UInt8.self, repeating: 0, count: outputSize)
     let source = try String(contentsOfFile: CommandLine.arguments[1], encoding: .utf8)
-    let options = MTLCompileOptions()
-    options.mathMode = .safe
-    FileHandle.standardError.write(Data("portable_stage=library_compile\n".utf8))
-    let libraryStart = Date().timeIntervalSinceReferenceDate
-    let library = try device.makeLibrary(source: source, options: options)
-    let librarySeconds = Date().timeIntervalSinceReferenceDate - libraryStart
-    guard let function = library.makeFunction(name: entry) else { throw ProbeError("Missing \(entry) entry") }
-    FileHandle.standardError.write(Data("portable_stage=pipeline_compile\n".utf8))
-    let pipelineStart = Date().timeIntervalSinceReferenceDate
-    let pipeline = try device.makeComputePipelineState(function: function)
-    let pipelineSeconds = Date().timeIntervalSinceReferenceDate - pipelineStart
+    let shaderURL = URL(fileURLWithPath: CommandLine.arguments[1])
+    let lockURL = shaderURL.deletingLastPathComponent().appendingPathComponent("metal-pipeline.lock")
+    let compiled = try compilePipeline(device: device, source: source, entry: entry, lockURL: lockURL)
+    let pipeline = compiled.pipeline
     guard let command = queue.makeCommandBuffer(), let encoder = command.makeComputeCommandEncoder() else { throw ProbeError("Metal command creation failed") }
     encoder.setComputePipelineState(pipeline)
     encoder.setBuffer(input, offset: 0, index: 0)
@@ -50,7 +73,8 @@ func run() throws {
     let status: [String: Any] = ["backend": "metal", "device": device.name, "cases": count,
         "command_status": "completed", "registry_id": String(device.registryID),
         "gpu_seconds": command.gpuEndTime - command.gpuStartTime,
-        "library_compile_seconds": librarySeconds, "pipeline_compile_seconds": pipelineSeconds,
+        "library_compile_seconds": compiled.librarySeconds, "pipeline_compile_seconds": compiled.pipelineSeconds,
+        "pipeline_lock_wait_seconds": compiled.lockWaitSeconds,
         "input_bytes": inputData.count, "output_bytes": outputSize]
     print(String(data: try JSONSerialization.data(withJSONObject: status, options: [.sortedKeys]), encoding: .utf8)!)
 }

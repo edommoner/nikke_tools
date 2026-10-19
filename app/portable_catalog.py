@@ -43,10 +43,11 @@ def audit_prepared(prepared, stats, body):
         pack_combat([0]*L['INPUT_WORDS'],dict(weapons=[normalized]+[dict(enabled=False) for _ in range(4)],
                     targets=[dict(hp=1e12)]),double_words)
     except (ValueError,TypeError,ZeroDivisionError) as e:issue=str(e)
-    gaps=['real_battle_input_adapter_not_connected']
+    gaps=['normal_ui_full_battle_adapter_not_connected']
     if issue:gaps.append(issue)
     return dict(character=name,own_effects=len(effects),effects=effects,weapon=weapon,weapon_gaps=gaps,scalar_charge_multiplier_input_available=True,
                 normalized_weapon=normalized,weapon_input_preflight_passed=issue is None,weapon_adapter_issue=issue,
                 squad_effects=len(bm._effects),all_effects_preflight_passed=all(e['preflight_passed'] for e in effects),
+                experimental_static_battle_input_adapter_available=True,
                 actual_battle_adapter_connected=False,normal_ui_metal_connected=False,
                 cpu_simulation_executed=False,full_character_verified=False)

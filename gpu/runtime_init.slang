@@ -28,6 +28,10 @@ void initializeRuntime(inout Runtime s)
     s.hpEdgeGuard = 0;
     s.healthMask = 0;
     s.healSource = 0;
+    s.pendingCount = 0;
+    s.pendingEnqueued = 0;
+    s.pendingFired = 0;
+    s.damageExclusion = 0;
     s.coverMask = 0;
     s.coverSync = 0;
     s.quantityMask = 0;
@@ -208,6 +212,14 @@ void initializeRuntime(inout Runtime s)
     {
         s.hpWatchSlots[index] = 0;
         s.counters[index] = 0;
+    }
+    [loop] for (uint index = 0; index < P_PENDING; index++)
+    {
+        s.pendingRow[index] = 0;
+        s.pendingHits[index] = 0;
+        s.pendingCoefficient[index] = 0;
+        s.pendingCastTime[index] = 0;
+        s.pendingAmount[index] = 0;
     }
     [loop] for (uint index = 0; index < 8; index++)
     {
