@@ -84,7 +84,7 @@ struct Runtime
     uint weaponEnabled[5], weaponMode[5], capacity[5], shots[5], stage[5], charging[5];
     int ammo[5]; uint reloadCancelOnFull[5], modeCapacityEpoch[5];
     uint frameAmmoActive[5], frameAmmoBase[5], infiniteRowCount, infiniteRows[P_CARRIERS];
-    uint enemyBuffCount, enemyBuffRows[P_CARRIERS], enemyCaptureEpoch[P_CARRIERS], enemyEpoch, enemyBirth[8];
+    uint enemyBuffCount, enemyBuffRows[P_CARRIERS], enemyCaptureGeneration[P_CARRIERS], enemyEpoch, enemyBirth[8];
     uint namedEventOwners, stackEventOwners; uint phase, castMask, traceMode, traceTotal, burstTraceTotal, nextFrame, frameCount, clockMode; uint64_t frameTime;
     uint burstModifierMask, cooldownWaitMask, gaugeCharging; uint64_t cooldownApplied[5];
     uint64_t coefficient[5], interval[5], reloadTime[5], chargeTime[5], gain[5], cooldown[5];
@@ -154,7 +154,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
                 uint j = s.orderedRows[pass]; Definition carrier = residentDefinition(s,j);
                 bool member=(s.activeRecipients[j]&(1U<<d.owner))!=0;
                 if (carrier.enemyBuff!=0) for (uint enemy=0; enemy<s.targetCount; enemy++)
-                    if ((s.activeRecipients[j]&(1U<<(enemy+5)))!=0 && s.targetAlive[enemy]!=0 && s.enemyBirth[enemy]<=s.enemyCaptureEpoch[j]) member=true;
+                    if ((s.activeRecipients[j]&(1U<<(enemy+5)))!=0 && s.targetAlive[enemy]!=0 && s.targetGeneration[enemy]==s.enemyCaptureGeneration[j]) member=true;
                 if (carrier.kind==3)
                 { uint packed; member=(carrier.periodicFlags&1)!=0 ? periodicDamageMask(s,s.carrierDefinition[j],packed)!=0 : targetLive(s,s.timerTarget[s.carrierDefinition[j]],s.timerGeneration[s.carrierDefinition[j]]); }
                 if (carrier.owner == d.owner && int(carrier.name) == name && s.alive[j] != 0 && member) { count = carrierStackValue(s,j); break; }
@@ -407,6 +407,7 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
 #include "landing_runtime.slang"
 #include "periodic_runtime.slang"
 #include "removal_runtime.slang"
+#include "duration_extend_runtime.slang"
 #include "event_candidate_runtime.slang"
 #include "pending_burst_runtime.slang"
 
@@ -519,6 +520,16 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
             (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
         { depth--; continue; }
+        if (f.mode==18)
+        {
+            uint encoded=f.cursor<8 ? (f.value>>(f.cursor*4))&15 : 0;
+            if(encoded==0) { depth--;continue; }
+            uint target=encoded-1;frames[depth].cursor++;
+            uint generation=target<2 ? uint(f.healthValue>>(32*target)) : target<4 ? uint(f.healthPrevious>>(32*(target-2))) : target<6 ? uint(f.healthNext>>(32*(target-4))) : target==6 ? f.repeatLeft : f.repeatPassive;
+            pushFrame(s,frames,depth,19,f.event,f.owner,f.argument,f.time,1U<<(target+5));
+            if(s.error==0) frames[depth].repeatPassive=generation;
+            continue;
+        }
         if (f.mode==16)
         {
             if (f.cursor==0) { frames[depth].cursor=1; syncHealth(s,f.time); continue; }
@@ -734,7 +745,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             syncHealthActor(s,f.owner,f.time);
             pushFrame(s,frames,depth,0,16,f.owner,int(heal.owner),f.time); continue;
         }
-        if (f.mode == 1)
+        if (f.mode == 1 || f.mode == 19)
         {
             if (f.cursor == 0 && f.argument >= 0 && uint(f.argument) < s.count) row = uint(f.argument);
             frames[depth].cursor++;
@@ -798,21 +809,23 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (f.mode == 2)
         { pushFrame(s,frames,depth,1,47,d.owner,int(row),f.time); continue; }
         if (f.mode == 0 && !activationConditions(s,row,f.time) && !(f.event == 0 && f64Less(d.duration,0) && passive != 0)) continue;
-        uint recipientOrder = 0, recipientMask = d.recipients;
-        if (d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 30)
+        if(d.kind==15 && f.event!=28 && d.budget>=0 && s.activations[row]>=uint(d.budget)) continue;
+        uint recipientOrder = 0, recipientMask = f.mode==19 ? f.value : d.recipients, enemyOrder=0;
+        if (f.mode!=19 && (d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 30 || d.kind==15))
         {
-            if (d.enemyBuff != 0)
-            { uint enemyOrder; recipientMask = enemyDamageMask(s,d,f.target,enemyOrder) << 5; recipientOrder = 0; }
+            if(d.kind==15 && d.budget<0 && !hasDurationExtensionMembers(s,row)) recipientMask=0;
+            else if (d.enemyBuff != 0 || d.kind==15 && d.target==2)
+            { recipientMask = enemyDamageMask(s,d,f.target,enemyOrder) << 5; recipientOrder = 0; }
             else if (d.lazyGroup == 0) recipientMask = selectRecipients(s,row,f.time,recipientOrder);
             else recipientMask = 0;
             uint selector = commands[s.inputBase+P_RECIPIENT_BASE+row*8];
             bool lazy = selector == 5 || selector == 6 || selector == 7 || selector == 15 || selector == 16;
-            if (d.budget >= 0 && recipientMask == 0 && !lazy) continue;
+            if (d.budget >= 0 && recipientMask == 0 && (!lazy || d.kind==15)) continue;
         }
         uint stagedTotal=0;
         bool stageRegister=s.stagedEnabled!=0 && isStaged(s,row) && (f.event!=28 || (d.flags&1)!=0 && s.alive[row]==0);
         if(stageRegister) { stagedTotal=stagedCount(s,row);if(s.error!=0) break;if(stagedTotal==0) continue; }
-        if (f.event != 28 || (d.flags & 1) != 0 && ((s.stagedEnabled==0 || !isStaged(s,row)) || stageRegister))
+        if (f.mode!=19 && (f.event != 28 || (d.flags & 1) != 0 && ((s.stagedEnabled==0 || !isStaged(s,row)) || stageRegister)))
         {
             if (d.budget >= 0 && s.activations[row] >= uint(d.budget)) continue;
             if (s.activations[row] == 0x7fffffff) { s.error = 2; break; }
@@ -830,11 +843,23 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if(staged && s.error==0) prepareStaged(s,row,count,f.time,previousCarrier);
             continue;
         }
+        if(d.kind==0 && d.enemyBuff!=0 && recipientMask!=0 && f.mode!=19)
+        {
+            pushFrame(s,frames,depth,18,f.event,d.owner,int(row),f.time,enemyOrder);
+            if(s.error==0)
+            {
+                frames[depth].healthValue=uint64_t(s.targetGeneration[0])|(uint64_t(s.targetGeneration[1])<<32);
+                frames[depth].healthPrevious=uint64_t(s.targetGeneration[2])|(uint64_t(s.targetGeneration[3])<<32);
+                frames[depth].healthNext=uint64_t(s.targetGeneration[4])|(uint64_t(s.targetGeneration[5])<<32);
+                frames[depth].repeatLeft=s.targetGeneration[6];frames[depth].repeatPassive=s.targetGeneration[7];
+            }
+            continue;
+        }
         if (d.kind==35) { registerSource(s,row,f.time); continue; }
         if (d.kind == 0 || d.kind == 4)
         {
             uint sourceRow=row; uint64_t duration = d.duration; bool activationLazy = d.lazyGroup != 0;
-            row = findCarrier(s,row,recipientMask,f.time);
+            row = findCarrier(s,row,recipientMask,f.time,f.mode==19 ? f.repeatPassive : 0);
             if (s.error != 0) break;
             d = residentDefinition(s,row);
             bool live = s.alive[row] != 0 && f64Less(f.time,s.end[row]);
@@ -848,8 +873,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             }
             else { s.activeRecipients[row] = recipientMask; s.carrierRecipientOrder[row] = recipientOrder; }
             s.stacks[row] = min(s.stacks[row]+1,d.maxStack); s.alive[row] = 1; s.activated[row] = f.time;
-            s.end[row] = f64Less(duration,0) ? FOREVER : f64Add(f.time,duration);
-            if (d.enemyBuff != 0) s.enemyCaptureEpoch[row] = s.enemyEpoch;
+            s.end[row] = f64Less(duration,0) ? F64_INF : f64Add(f.time,duration);
+            if (d.enemyBuff != 0) s.enemyCaptureGeneration[row] = f.repeatPassive;
             if (d.bulletDuration != 0) prepareBulletActivation(s,row,recipientMask,live,activationLazy,previousStack);
             bool namedCandidate = (d.buffEvent & 1) != 0 && (!live || d.maxStack != 1) && s.namedEventOwners != 0;
 #ifdef PORTABLE_BUFF_AUDIENCE_SCAN_REFERENCE
@@ -969,6 +994,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 if (d.target != 0) pushFrame(s,frames,depth,12,31,d.owner,int(d.name),f.time);
             }
         }
+        else if (d.kind == 15) extendNamedResidents(s,row,recipientMask,f.time);
         else if (d.kind == 1)
         {
             uint begin = s.removalCount;
@@ -1332,7 +1358,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         results[at] = slot; results[at+1] = s.carrierDefinition[slot]; results[at+2] = s.activeRecipients[slot];
         results[at+3] = s.stacks[slot]; results[at+4] = s.alive[slot] | (s.lazyPending[slot] << 1);
         storeNumber(at+5,s.end[slot]); storeNumber(at+7,s.activated[slot]); results[at+9] = s.entryOrder[slot]; storeNumber(at+10,s.hpSnapshot[slot]);
-        results[at+12] = uint(s.bulletLeft[slot]);
+        results[at+12] = definition_enemyBuff(s.inputBase,s.carrierDefinition[slot])!=0 ? s.enemyCaptureGeneration[slot] : uint(s.bulletLeft[slot]);
         for (uint who = 0; who < 5; who++) { results[at+13+who] = s.recipientBullets[slot*5+who]; results[at+18+who] = s.recipientStacks[slot*5+who]; }
     }
     if (s.error==0 && s.sourceEnabled!=0 && commands[input+2]!=0) finishSourceCounts(s,loadNumber(input+P_COMMAND_BASE+(commands[input+2]-1)*8+1));

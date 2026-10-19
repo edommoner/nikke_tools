@@ -14,6 +14,13 @@ uint filterRemovalOrder(uint order,uint mask,uint width,uint count)
 uint removalMembers(inout Runtime s,uint slot)
 {
     uint definition=s.carrierDefinition[slot];
+    if(definition_enemyBuff(s.inputBase,definition)!=0)
+    {
+        uint mask=0;
+        for(uint target=0;target<s.targetCount;target++)
+            if((s.activeRecipients[slot]&(1U<<(target+5)))!=0 && s.targetAlive[target]!=0 && s.targetGeneration[target]==s.enemyCaptureGeneration[slot]) mask|=1U<<(target+5);
+        return mask;
+    }
     if(definition_kind(s.inputBase,definition)!=3 || f64Zero(definition_interval(s.inputBase,definition))) return s.lazyPending[slot]!=0 ? 0 : s.activeRecipients[slot];
     if((definition_periodicFlags(s.inputBase,definition)&1)==0) return 1U<<(s.timerTarget[definition]+5);
     uint mask=0,order=s.periodicOrder[definition];

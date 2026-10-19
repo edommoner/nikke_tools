@@ -1,7 +1,7 @@
 // Definition counters/timers keep their immutable row. Resident slots own only
 // target membership, stack, activation time, expiry and captured HP quantities.
 [noinline]
-uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t when)
+uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t when,uint incomingGeneration=0)
 {
     Definition incoming = readDefinition(s.inputBase,definition);
 #ifndef PORTABLE_CARRIER_SCAN_REFERENCE
@@ -20,7 +20,7 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
         uint slot = s.orderedRows[pass]; Definition prior = residentDefinition(s,slot);
         if (s.alive[slot] == 0 || !f64Less(when,s.end[slot])) continue;
         bool same = incoming.bulletDuration != 0 && s.carrierDefinition[slot] == definition ? true : incoming.lazyGroup != 0 ? prior.lazyGroup == incoming.lazyGroup : s.lazyPending[slot] == 0 && s.activeRecipients[slot] == recipients;
-        if (incoming.enemyBuff != prior.enemyBuff || incoming.enemyBuff != 0 && !enemyCarrierSameLife(s,slot,recipients)) same = false;
+        if (incoming.enemyBuff != prior.enemyBuff || incoming.enemyBuff != 0 && !enemyCarrierSameLife(s,slot,recipients,incomingGeneration)) same = false;
         if (!same) continue;
         if (s.carrierDefinition[slot] == definition) return slot;
         if (merged == P_CARRIERS && (incoming.mergeEligible & 1) != 0 && (prior.mergeEligible & 1) != 0 && incoming.name == prior.name &&

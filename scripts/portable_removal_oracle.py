@@ -2,7 +2,7 @@
 The command table drives an independent native ActorRegistry and BuffManager;
 no GPU targets, modifier sums or intermediate state are fed to this observer.
 """
-import copy
+import copy,math
 import engine_worker
 from calculator import timeline
 from calculator.buff_manager import BuffManager
@@ -51,7 +51,7 @@ def observe(case):
     events={0:'battle_start',14:'last_bullet',7:'on_attack',8:'hit_count',17:'event:cover_healed',19:'event:full_reload'}
     current=0;started=False;queries=[];spawn_order=len(targets)
     for t,op,event,who,arg,index,extra,extra2 in case['script']:
-        bm.tick(t)
+        if not case.get('duration_extend_reference') or op==4:bm.tick(t)
         if op==4:
             if not started:
                 for n in NAMES:bm.notify('battle_start',t,n)
@@ -88,10 +88,12 @@ def observe(case):
     carriers=[]
     for ab in bm._active:
         definition=next(i for i,(e,_) in enumerate(raw) if e is ab.effect)
-        carriers.append(dict(definition=definition,recipients=sum(member(n) for n in (ab.target_chars or [])),stacks=ab.stack,lazy_pending=ab.target_chars is None))
+        binding=getattr(ab,'enemy_recipient_key',None)
+        enemy_generation=binding.bindings[0].actor.generation if binding is not None and len(binding.bindings)==1 else None
+        carriers.append(dict(enemy_generation=enemy_generation,definition=definition,recipients=sum(member(n) for n in (ab.target_chars or [])),stacks=ab.stack,lazy_pending=ab.target_chars is None,expiry=math.copysign(1e30,ab.expires_at) if math.isinf(ab.expires_at) else ab.expires_at))
     clocks=[]
     for timers in (bm._instant_timers,bm._dot_timers):
         for key,(_,due,expiry) in timers.items():
             definition=next(i for i,(e,_) in enumerate(raw) if id(e)==key)
-            clocks.append(dict(definition=definition,due=due,expiry=1e30 if expiry==float('inf') else expiry))
+            clocks.append(dict(definition=definition,due=due,expiry=math.copysign(1e30,expiry) if math.isinf(expiry) else expiry))
     return dict(queries=queries,carriers=carriers,timers=sorted(clocks,key=lambda c:c['definition']),endings=endings,packets=packets)

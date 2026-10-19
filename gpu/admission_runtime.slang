@@ -37,8 +37,9 @@ void admitDefinitions(inout Runtime s,uint input)
         if (d.kind == 3 && (d.damageRoute > 9 || d.damageCount == 0 || d.damageCount > 256 || d.damageHits > 256 ||
             d.damageRoute >= 2 && s.combat == 0 || !f64Finite(d.damageGauge) || f64Less(d.damageGauge,0) && !f64Equal(d.damageGauge,F64_SIGN | ONE) || f64Less(f64FromI64(1000000),d.damageGauge) ||
             d.damageNormal > 1 || d.damagePending > 1 || d.damagePending == 0 && d.pendingHits != 0 || d.damagePending != 0 && (s.combat == 0 || d.damageHits != 1 || d.damageFlags != 0 || d.damageNormal != 0 || d.pendingHits == 0 || d.pendingHits > 256))) { s.error = 64; break; }
-        if ((d.kind == 3 || d.enemyBuff != 0 || d.kind == 1 && d.target == 2) && (d.damageRoute == 7 || d.damageRoute == 8))
+        if ((d.kind == 3 || d.enemyBuff != 0 || (d.kind == 1 || d.kind == 15) && d.target == 2) && (d.damageRoute == 7 || d.damageRoute == 8))
             for (uint target = 1; target < s.targetCount; target++) if (!f64Zero(s.targetDefense[target])) { s.error = 64; break; }
+        if(!validDurationExtension(input,s.count,s.combat,j)) { s.error=64;break; }
         if(!validRemovalDefinition(input,s.combat,j)) { s.error=64;break; }
         uint bullet = input+P_BULLET_DEFINITION_BASE+j*2;
         if (d.bulletDuration > 0x7fffffff || d.bulletBound > 1 || d.bulletDuration == 0 && d.bulletBound != 0 || d.bulletDuration != 0 && (s.combat == 0 || d.kind != 0 && d.kind != 4)) { s.error = 64; break; }

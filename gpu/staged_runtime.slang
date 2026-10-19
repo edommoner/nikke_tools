@@ -29,7 +29,7 @@ void prepareStaged(inout Runtime s, uint row, uint count, uint64_t when, bool pr
     if (generation==0x7fffffff || results[global]==0x7fffffff) { s.error=2; return; }
     results[at]=generation+1;results[at+1]=++results[global];results[at+2]=count;results[at+3]=0;storeNumber(at+4,when);
     uint64_t last=f64Add(when,f64Mul(f64FromI64(count),loadNumber(stagedDefinition(s,row)+2)));
-    s.stacks[row]=0;s.end[row]=f64Less(definition_duration(s.inputBase,row),0) ? FOREVER : f64Add(last,definition_duration(s.inputBase,row));
+    s.stacks[row]=0;s.end[row]=f64Less(definition_duration(s.inputBase,row),0) ? F64_INF : f64Add(last,definition_duration(s.inputBase,row));
     s.expiry[row]=s.end[row];s.due[row]=f64Add(last,loadNumber(stagedDefinition(s,row)+4));
 }
 [noinline]

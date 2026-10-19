@@ -115,7 +115,7 @@ void initializeRuntime(inout Runtime s)
         s.activated[index] = 0;
         s.infiniteRows[index] = 0;
         s.enemyBuffRows[index] = 0;
-        s.enemyCaptureEpoch[index] = 0;
+        s.enemyCaptureGeneration[index] = 0;
         s.orderedRows[index] = 0;
         s.stacks[index] = 0;
         s.alive[index] = 0;

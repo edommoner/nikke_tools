@@ -77,7 +77,7 @@ void registerTimer(inout Runtime s, uint source, uint64_t when)
     }
     if (retained && (!resident || source != row)) capturePeriodicTargets(s,row,source,resident);
     s.timerActive[row] = 1;
-    s.expiry[row] = f64Less(grant.duration,0) ? FOREVER : f64Add(when,grant.duration);
+    s.expiry[row] = f64Less(grant.duration,0) ? F64_INF : f64Add(when,grant.duration);
     if (d.kind == 3)
     {
         if (s.alive[row] == 0) markEntry(s,row);
