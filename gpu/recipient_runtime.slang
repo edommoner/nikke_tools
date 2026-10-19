@@ -1,4 +1,4 @@
-bool validRecipientPlan(uint at, bool enemy = false)
+bool validRecipientLeaf(uint at, bool enemy = false)
 {
     uint kind = commands[at], count = commands[at+1], mask = commands[at+2];
     if (enemy) return kind == 4 && count == 0 && mask == 0 && commands[at+3] == 0 && commands[at+4] == 0 && commands[at+5] == 0 && commands[at+6] < P_DEFINITIONS && (commands[at+7] & ~7U) == 0;
@@ -15,16 +15,24 @@ bool validRecipientPlan(uint at, bool enemy = false)
     }
     return order == 0 || kind == 8 && seen == mask;
 }
+bool validRecipientPlan(uint at,bool enemy,uint input)
+{
+    if(commands[at]!=17) return validRecipientLeaf(at,enemy);
+    uint total=commands[input+P_RECIPIENT_META_BASE],count=commands[at+1],first=commands[at+2];
+    if(enemy || total>P_RECIPIENT_NODES || count==0 || count>21 || first>total || count>total-first || commands[at+3]!=0 || commands[at+4]!=0 || commands[at+5]!=0 || commands[at+6]>=P_DEFINITIONS || (commands[at+7]&~7U)!=0) return false;
+    for(uint word=1;word<8;word++) if(commands[input+P_RECIPIENT_META_BASE+word]!=0) return false;
+    for(uint node=0;node<count;node++) if(!validRecipientLeaf(input+P_RECIPIENT_NODE_BASE+(first+node)*8)) return false;
+    return true;
+}
 // Shared ordered selection. Static metadata is compiled once; ranks and burst
 // membership are resolved from this invocation's GPU state, never CPU traces.
 [noinline]
-uint selectRecipients(inout Runtime s, uint row, uint64_t when, out uint order)
+uint selectRecipientLeaf(inout Runtime s, uint row, uint at, uint64_t when, out uint64_t order)
 {
     Definition d = readDefinition(s.inputBase,row);
-    uint at = s.inputBase+P_RECIPIENT_BASE+row*8;
     uint kind = commands[at], count = commands[at+1], candidates = commands[at+2];
     uint exclude = commands[at+3], authoredOrder = commands[at+4];
-    if (kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16) return rankedRecipients(s,row,when,order);
+    if (kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16) return rankedRecipientsAt(s,row,at,when,order);
     if (kind == 21) return coverRecipients(s,count,order);
     if (kind == 0)
     {
@@ -65,6 +73,25 @@ uint selectRecipients(inout Runtime s, uint row, uint64_t when, out uint order)
     }
     uint mask = 0, written = 0; order = 0;
     for (uint i = 0; i < size; i++) if ((s.downMask & (1U << slots[i])) == 0)
-    { mask |= 1U << slots[i]; order |= (slots[i]+1) << (3*written++); }
+    { mask |= 1U << slots[i]; order |= uint64_t(slots[i]+1) << (3*written++); }
     return mask;
+}
+
+[noinline]
+uint selectRecipients(inout Runtime s,uint row,uint64_t when,out uint64_t order)
+{
+    uint at=s.inputBase+P_RECIPIENT_BASE+row*8;
+    if(commands[at]!=17) return selectRecipientLeaf(s,row,at,when,order);
+    uint count=commands[at+1],first=commands[at+2],seen=0,written=0;order=0;
+    for(uint node=0;node<count;node++)
+    {
+        uint64_t leafOrder;selectRecipientLeaf(s,row,s.inputBase+P_RECIPIENT_NODE_BASE+(first+node)*8,when,leafOrder);
+        for(uint i=0;i<5;i++)
+        {
+            uint encoded=(leafOrder>>(i*3))&7;if(encoded==0) break;uint bit=1U<<(encoded-1);
+            if(written==21) { s.error=64;return 0; }
+            seen|=bit;order|=uint64_t(encoded)<<(3*written++);
+        }
+    }
+    return seen;
 }

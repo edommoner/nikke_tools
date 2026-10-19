@@ -3,6 +3,8 @@
 [noinline]
 void admitDefinitions(inout Runtime s,uint input)
 {
+    if(commands[input+P_RECIPIENT_META_BASE]>P_RECIPIENT_NODES) { s.error=64;return; }
+    for(uint word=1;word<8;word++) if(commands[input+P_RECIPIENT_META_BASE+word]!=0) { s.error=64;return; }
     for (uint j = 0; j < s.count; j++)
     {
         Definition d=readDefinition(input,j);
@@ -13,7 +15,7 @@ void admitDefinitions(inout Runtime s,uint input)
             if (commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8] == 9) s.stackEventOwners |= 1U << d.owner;
         if ((d.kind == 2 || d.kind == 13 || d.kind == 14) && (d.target > 1 || !f64Finite(d.value))) { s.error = 64; break; }
          s.lazyEnabled |= uint(d.lazyGroup != 0);
-        if ((d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 27 || d.kind == 31 || d.kind == 30) && !validRecipientPlan(input+P_RECIPIENT_BASE+j*8,d.enemyBuff != 0)) { s.error = 64; break; }
+        if ((d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 27 || d.kind == 31 || d.kind == 30) && !validRecipientPlan(input+P_RECIPIENT_BASE+j*8,d.enemyBuff != 0,input)) { s.error = 64; break; }
         if (d.lazyGroup != 0)
         {
             uint plan = input+P_RECIPIENT_BASE+j*8, selector = commands[plan];

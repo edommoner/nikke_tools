@@ -120,11 +120,11 @@ class PortableIncomingInputTests(unittest.TestCase):
             with self.subTest(command=command),self.assertRaises(ValueError):v.compile_case(case)
 
 class PortableRecipientInputTests(unittest.TestCase):
-    def test_unported_random_and_list_recipients_remain_fail_closed(self):
+    def test_unported_random_recipient_leaves_remain_fail_closed(self):
         from portable_runtime import validate_effect
         effect=dict(name='recipient',type='buff',stat='atk_pct',fixed_value=10,
                     target='self',trigger=dict(timing=['battle_start'],condition=[]))
-        for target in ('allies_random:2',['self','all_allies']):
+        for target in ('allies_random:2',['self','allies_random:2']):
             with self.subTest(target=target),self.assertRaises(UnsupportedPortable):
                 validate_effect({**effect,'target':target},combat={})
 

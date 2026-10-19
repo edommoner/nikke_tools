@@ -1,5 +1,5 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721381U;
+static const uint PORTABLE_ABI = 1346721382U;
 static const uint P_PROTECTION_OBJECTS = 1024U;
 static const uint P_PROTECTION_OBJECT_WORDS = 24U;
 static const uint P_REMOVALS = 4096U;
@@ -48,6 +48,7 @@ static const uint P_TARGET_WORDS = 8U;
 static const uint P_COMBAT_QUERY_WORDS = 40U;
 static const uint P_COMBAT_STATE_QUERY_WORDS = 128U;
 static const uint P_MASK_WORDS = 8U;
+static const uint P_RECIPIENT_NODES = 256U;
 static const uint P_COVER_BASE = 32U;
 static const uint P_DEFINITION_BASE = 56U;
 static const uint P_COMMAND_BASE = 8248U;
@@ -87,7 +88,9 @@ static const uint P_LANDING_META_BASE = 77792U;
 static const uint P_STATUS_META_BASE = 77800U;
 static const uint P_PROTECTION_META_BASE = 77808U;
 static const uint P_PROTECTION_DEFINITION_BASE = 77816U;
-static const uint P_INPUT_WORDS = 81920U;
+static const uint P_INPUT_WORDS = 86016U;
+static const uint P_RECIPIENT_META_BASE = 81920U;
+static const uint P_RECIPIENT_NODE_BASE = 81928U;
 static const uint P_QUERY_BASE = 16U;
 static const uint P_TRACE_BASE = 2064U;
 static const uint P_STATE_BASE = 3088U;
@@ -149,10 +152,12 @@ static const uint P_PROTECTION_SELECTION_BASE = 108736U;
 static const uint P_PROTECTION_OBJECT_BASE = 109248U;
 static const uint P_PROTECTION_BUILD_BASE = 133824U;
 #ifdef PORTABLE_WIDE_LANDINGS
-static const uint P_OUTPUT_WORDS = 143360U;
+static const uint P_OUTPUT_WORDS = 167936U;
 #else
-static const uint P_OUTPUT_WORDS = 135168U;
+static const uint P_OUTPUT_WORDS = 159744U;
 #endif
+static const uint P_SPLIT_HIT_BASE = 135168U;
+static const uint P_RECIPIENT_ORDER_BASE = 155648U;
 static const uint D_OWNER = 0U;
 static const uint D_KIND = 1U;
 static const uint D_STAT = 2U;

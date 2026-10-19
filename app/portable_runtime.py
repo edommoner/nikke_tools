@@ -35,6 +35,9 @@ def double_words(value):
 
 
 def validate_effect(eff, *, combat=None):
+    if isinstance(eff.get('target'),list):
+        for target in eff['target']:
+            if target!=[]:validate_effect(dict(eff,target=target),combat=combat)
     from portable_resource_specs import operation as resource_operation,validate as validate_resource
     resource_op=resource_operation(eff);validate_resource(eff)
     from portable_protection_specs import policy as protection_policy
@@ -153,6 +156,10 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     resource_keys=identities(effects,script,L['RESOURCE_KEYS']);resource_query_indices={}
     for name in resource_keys:program['states'].setdefault(name,len(program['states']))
     if len(program['states'])>L['DEFINITIONS']:raise UnsupportedPortable('Reference name capacity exceeded')
+    nodes=program['effects'][len(effects):]
+    if any(int(row[1])!=-1 or int(row[4])==17 for row in nodes) or len(nodes)>L['RECIPIENT_NODES']:raise UnsupportedPortable('Invalid ordered recipient nodes')
+    program['effects']=program['effects'][:len(effects)]
+    program['mode_weapons']=program['mode_weapons'][:len(effects)]
     if len(program['effects'])!=len(effects) or not 1<=len(effects)<=L['DEFINITIONS']:
         raise UnsupportedPortable('Portable definition capacity or expansion exceeded')
     from portable_periodic_specs import periodic_groups, periodic_flags
@@ -199,10 +206,17 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         if not 0<cover_base<=1e30 or not 0<=cover_current<=cover_base:raise ValueError('Invalid initial cover HP')
         at=L['COVER_BASE']+who*4;words[at:at+4]=[*double_words(cover_base),*double_words(cover_current)]
     words[24:26]=double_words(.15);words[26:28]=double_words(.5)
+    from portable_recipient_specs import pack as pack_node
+    for index,node in enumerate(nodes):
+        scratch=[0]*8;pack_node(scratch,0,node,dict(L,RECIPIENT_BASE=0),{'type':'buff','target':'self'},0,False,0)
+        at=L['RECIPIENT_NODE_BASE']+index*8;words[at:at+8]=scratch
+    words[L['RECIPIENT_META_BASE']]=len(nodes)
+    def target_key(target):return tuple(target_key(x) for x in target) if isinstance(target,list) else target
+    recipient_limits=dict(L,_AUTHORED_DEFINITIONS=len(effects))
     lazy_groups={}
     for (eff,owner),row in zip(effects,program['effects']):
         if eff.get('type')=='buff' and not stack_operation(eff) and int(row[4]) in (5,6,7,15,16):
-            lazy_groups.setdefault((owner,eff.get('target')),len(lazy_groups)+1)
+            lazy_groups.setdefault((owner,target_key(eff.get('target'))),len(lazy_groups)+1)
     merge_groups={}
     def merge_key(index,row):
         eff,owner=effects[index]
@@ -220,23 +234,23 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         removal=removal_plan(effects[index][0],combat=combat)
         cleansing=cleanse_plan(effects[index][0],combat=combat)
         if cleansing is not None:
-            if cleansing[0]==1:pack_recipients(words,index,row,L,effects[index][0],stat_keys[stat_identity(effects[index][0])],False,0)
+            if cleansing[0]==1:pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],False,0)
             else:
                 packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS'];words[packet:packet+8]=[*cleansing[1],0,0,0,0,0,0]
             words[L['RECIPIENT_BASE']+index*8+7]=0
         if stack is not None:
-            if stack[1]==1 or enemy_buff_plan(effects[index][0]) is not None:pack_recipients(words,index,row,L,effects[index][0],stat_keys[stat_identity(effects[index][0])],False,0)
+            if stack[1]==1 or enemy_buff_plan(effects[index][0]) is not None:pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],False,0)
             else:
                 packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS'];words[packet:packet+8]=[*stack[2],0,0,0,0,0,0]
         if stack is not None:words[L['RECIPIENT_BASE']+index*8+7]=0
-        if extension is not None and extension[0]==1:pack_recipients(words,index,row,L,effects[index][0],stat_keys[stat_identity(effects[index][0])],False,0)
+        if extension is not None and extension[0]==1:pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],False,0)
         if extension is not None and extension[0]==2:
             if extension[1][0] in (7,8) and any(t.get('defense',0)!=0 for t in combat['targets'][1:]):raise UnsupportedPortable('Enemy defense ranking requires zero add defenses in the current boss model')
             packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS'];words[packet:packet+8]=[*extension[1],0,0,0,0,0,0]
-        if removal is not None and removal[0]==1:pack_recipients(words,index,row,L,effects[index][0],stat_keys[stat_identity(effects[index][0])],False,0)
+        if removal is not None and removal[0]==1:pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],False,0)
         if removal is not None and removal[0]==2:
             packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS'];words[packet:packet+8]=[*removal[1],0,0,0,0,0,0]
-        if row[1] in (0,4,5,6,7,8,12,13,14,24,27,30,31):pack_recipients(words,index,row,L,effects[index][0],stat_keys[stat_identity(effects[index][0])],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],effects[index][0].get('target')),0) if effects[index][0].get('type')=='buff' else 0)
+        if row[1] in (0,4,5,6,7,8,12,13,14,24,27,30,31):pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],target_key(effects[index][0].get('target'))),0) if effects[index][0].get('type')=='buff' else 0)
         if effects[index][0].get('type')=='damage':
             route,count,hits=damage_plan(effects[index][0])
             from portable_reference_specs import hit_reference
@@ -421,7 +435,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     if words[6] and frame_mode!=24:raise UnsupportedPortable('Accumulated clock requires GPU-generated frames')
     from portable_trigger_specs import pack_event_candidates
     pack_event_candidates(words,L)
-    return words,dict(protection_enabled=bool(words[L['PROTECTION_META_BASE']] or any(c[1]==31 for c in script)),status_policy=words[L['STATUS_META_BASE']],status_names=program['states'],stack_operators=any(stack_operation(e) for e,_ in effects),enemy_buff_definitions=[enemy_buff_plan(e) is not None for e,_ in effects],native_landing=native_landing,source_definitions=[dict(name=next((k for k,v in program['states'].items() if v==int(row[304])),None),owner=int(row[0]),legacy=bool(row[137])) if int(row[1])==35 else None for row in program['effects']],source_query_indices=source_query_indices,resource_names=list(resource_keys),resource_query_indices=sorted(resource_query_indices),states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
+    return words,dict(ordered_recipients=bool(nodes),protection_enabled=bool(words[L['PROTECTION_META_BASE']] or any(c[1]==31 for c in script)),status_policy=words[L['STATUS_META_BASE']],status_names=program['states'],stack_operators=any(stack_operation(e) for e,_ in effects),enemy_buff_definitions=[enemy_buff_plan(e) is not None for e,_ in effects],native_landing=native_landing,source_definitions=[dict(name=next((k for k,v in program['states'].items() if v==int(row[304])),None),owner=int(row[0]),legacy=bool(row[137])) if int(row[1])==35 else None for row in program['effects']],source_query_indices=source_query_indices,resource_names=list(resource_keys),resource_query_indices=sorted(resource_query_indices),states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
 
 
 def decode(words,metadata):
@@ -507,6 +521,9 @@ def decode(words,metadata):
         if definition>=len(metadata['effects']) or words[at]>=L['CARRIERS']:raise RuntimeError('Invalid resident identity')
         carriers.append(dict(slot=words[at],definition=definition,effect=metadata['effects'][definition],recipients=words[at+2],
                              stacks=words[at+3],active=bool(words[at+4]&1),lazy_pending=bool(words[at+4]&2),end=lifetime(at+5),activated=number(at+7),order=words[at+9],hp_snapshot=number(at+10)))
+        if metadata.get('ordered_recipients'):
+            pos=L['RECIPIENT_ORDER_BASE']+words[at]*2;encoded=words[pos]|(words[pos+1]<<32)
+            carriers[-1]['recipient_order']=[((encoded>>(i*3))&7)-1 for i in range(21) if (encoded>>(i*3))&7 and words[at+2]&(1<<(((encoded>>(i*3))&7)-1))]
         if metadata.get('enemy_buff_definitions',[False]*len(metadata['effects']))[definition]:
             carriers[-1]['enemy_generation']=words[at+12] or None
             if metadata.get('stack_operators') or metadata.get('status_policy',0):
@@ -579,8 +596,10 @@ def decode(words,metadata):
     protection_hits=[]
     if metadata.get('protection_enabled'):
         for index in range(L['COMMANDS']*5):
-            at=L['PROTECTION_HIT_BASE']+index*16
-            if words[at+2]:protection_hits.append(dict(time=number(at),owner=index%5,pierce=bool(words[at+3]&1),down=bool(words[at+3]&4),damage=number(at+4),shield=number(at+6),cover=number(at+8),decoy=number(at+10),hp=number(at+12),hp_after=number(at+14)))
+            records=[(L['PROTECTION_HIT_BASE']+index*16,index%5)]
+            records += [(L['SPLIT_HIT_BASE']+(index*4+k)*16,None) for k in range(4)]
+            for at,owner in records:
+                if words[at+2]:protection_hits.append(dict(time=number(at),owner=(words[at+3]>>3)&7 if owner is None else owner,pierce=bool(words[at+3]&1),down=bool(words[at+3]&4),damage=number(at+4),shield=number(at+6),cover=number(at+8),decoy=number(at+10),hp=number(at+12),hp_after=number(at+14)))
     return dict(**(dict(protection=protection_summary(L['PROTECTION_STATE_BASE']),protection_hits=protection_hits) if metadata.get('protection_enabled') else {}),**(dict(immunity_usage=immunity_usage) if metadata.get('status_policy',0) else {}),landing_queue=dict(native=bool(metadata.get('native_landing')),enqueued=words[landing+2],landed=words[landing+3],drains=words[landing+4],peak=words[landing+5],entries=pending_landings),staged_applications=staged_rows,periodic_sources=sources,source_queries=source_queries,reference_captures=captures,**resource_state,periodic_bindings=periodic,pending_burst=dict(count=count,enqueued=words[pending+1],fired=words[pending+2],entries=queue),covers=covers,body_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+20+2*k) for k in range(5)],add_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+30+2*k) for k in range(5)],scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+2*k) for k in range(5)],add_overkill=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+10+2*k) for k in range(5)],target_scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+40+2*k) for k in range(len((metadata.get('combat') or {}).get('targets',[])))],bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
 
 

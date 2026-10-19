@@ -1,16 +1,17 @@
 // Definition counters/timers keep their immutable row. Resident slots own only
 // target membership, stack, activation time, expiry and captured HP quantities.
 [noinline]
-uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t when,uint incomingGeneration=0)
+uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t when,uint incomingGeneration,uint64_t incomingOrder)
 {
     Definition incoming = readDefinition(s.inputBase,definition);
+    bool ordered=commands[s.inputBase+P_RECIPIENT_META_BASE]!=0 && incoming.enemyBuff==0 && incoming.lazyGroup==0 && incoming.bulletDuration==0;
 #ifndef PORTABLE_CARRIER_SCAN_REFERENCE
     // Most real definitions have one carrier and no compatible name aliases.
     // Avoid a growing resident scan on first activation and ordinary refresh.
     if (incoming.enemyBuff == 0 && s.multiCarrier[definition] == 0)
     {
         bool primaryLive = s.alive[definition] != 0;
-        if (primaryLive && (incoming.bulletDuration != 0 || incoming.lazyGroup != 0 || s.lazyPending[definition] == 0 && s.activeRecipients[definition] == recipients)) return definition;
+        if (primaryLive && (incoming.bulletDuration != 0 || incoming.lazyGroup != 0 || s.lazyPending[definition] == 0 && s.activeRecipients[definition] == recipients && (!ordered || visibleCarrierOrder(s,definition)==incomingOrder))) return definition;
         if (!primaryLive && (incoming.mergeEligible & 2) == 0) return definition;
     }
 #endif
@@ -21,6 +22,7 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
         if (s.alive[slot] == 0) continue;
         bool same = incoming.bulletDuration != 0 && s.carrierDefinition[slot] == definition ? true : incoming.lazyGroup != 0 ? prior.lazyGroup == incoming.lazyGroup : s.lazyPending[slot] == 0 && s.activeRecipients[slot] == recipients;
         if (incoming.enemyBuff != prior.enemyBuff || incoming.enemyBuff != 0 && !enemyCarrierSameLife(s,slot,recipients,incomingGeneration)) same = false;
+        if(ordered && visibleCarrierOrder(s,slot)!=incomingOrder) same=false;
         if (!same) continue;
         if (s.carrierDefinition[slot] == definition) return slot;
         if (!f64Less(when,s.end[slot])) continue;

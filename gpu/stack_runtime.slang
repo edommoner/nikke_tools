@@ -6,12 +6,12 @@ uint64_t stackLiteralDuration(inout Runtime s,uint row) { return loadNumber(stac
 bool stackLazySelector(inout Runtime s,uint row)
 { uint kind=commands[s.inputBase+P_RECIPIENT_BASE+row*8];return kind==5 || kind==6 || kind==7 || kind==15 || kind==16; }
 [noinline]
-uint stackSelectedRecipients(inout Runtime s,uint row,uint target,uint64_t when,bool budget,out uint order)
+uint stackSelectedRecipients(inout Runtime s,uint row,uint target,uint64_t when,bool budget,out uint64_t order)
 {
     Definition d=readDefinition(s.inputBase,row);
     if(d.target==1) return selectRecipients(s,row,when,order);
     if(budget && d.kind!=19 && d.damageRoute==0) d.damageRoute=6;
-    return enemyDamageMask(s,d,target,order)<<5;
+    uint enemyOrder;uint mask=enemyDamageMask(s,d,target,enemyOrder)<<5;order=enemyOrder;return mask;
 }
 [noinline]
 uint stackImmunity(inout Runtime s)
@@ -69,7 +69,7 @@ void mutateStacks(inout Runtime s,uint row,uint scope,uint64_t when)
         else if(maximum)
         {
             if(commands[stackMeta(s,definition)+1]!=1 || carrier.polarity!=1 || carrier.maxStack==1) continue;
-            if(s.lazyPending[slot]!=0) { uint order;members=selectRecipients(s,definition,when,order); }
+            if(s.lazyPending[slot]!=0) { uint64_t order;members=selectRecipients(s,definition,when,order); }
             if((members&scope)==0 || (members&~scope)!=0) continue;
         }
         else
@@ -118,7 +118,7 @@ uint initializeStack(inout Runtime s,uint row,uint target,uint64_t when)
         s.multiCarrier[definition]=1;
     }
     resetBulletCarrier(s,slot);discardLazy(s,slot);s.carrierDefinition[slot]=definition;
-    s.activeRecipients[slot]=0;s.carrierRecipientOrder[slot]=0;s.hpSnapshot[slot]=0;
+    s.activeRecipients[slot]=0;storeCarrierOrder(s,slot,0);s.hpSnapshot[slot]=0;
     s.activated[slot]=when;uint64_t duration=stackLiteralDuration(s,definition);
     s.end[slot]=duration==F64_INF ? F64_INF : f64Add(when,duration);
     s.stacks[slot]=stack;s.bulletLeft[slot]=-1;
@@ -135,7 +135,7 @@ uint initializeStack(inout Runtime s,uint row,uint target,uint64_t when)
             else s.recipientStacks[slot*5+enemy-5]=((s.activeRecipients[slot]&(1U<<(enemy+5)))!=0 ? s.targetGeneration[enemy] : 0);
     }
     else
-    { uint order;s.activeRecipients[slot]=selectRecipients(s,definition,when,order);s.carrierRecipientOrder[slot]=order; }
+    { uint64_t order;s.activeRecipients[slot]=selectRecipients(s,definition,when,order);storeCarrierOrder(s,slot,order); }
     storeReferenceCapture(s,slot,0,0);captureBuffReference(s,slot,definition);
     if(commands[stackMeta(s,definition)+5]!=0) storeReferenceCapture(s,slot,referenceCaptureFlags(s,slot)|4,referenceCaptureValue(s,slot));
     s.alive[slot]=1;markEntry(s,slot);
@@ -169,8 +169,8 @@ bool validStackDefinitions(inout Runtime s)
         if(!stackOperation(d.kind)) continue;
         if(d.target<1 || d.target>2 || d.targetName< -1 || d.targetName>=int(P_DEFINITIONS) || !f64Finite(d.value)) return false;
         uint recipients=s.inputBase+P_RECIPIENT_BASE+row*8;
-        if(d.target==1) { if(!validRecipientPlan(recipients) || commands[recipients+7]!=0) return false; }
-        else if(d.enemyBuff!=0) { if(!validRecipientPlan(recipients,true)) return false; }
+        if(d.target==1) { if(!validRecipientPlan(recipients,false,s.inputBase) || commands[recipients+7]!=0) return false; }
+        else if(d.enemyBuff!=0) { if(!validRecipientPlan(recipients,true,s.inputBase)) return false; }
         else for(uint field=0;field<8;field++) if(commands[recipients+field]!=0) return false;
         uint packet=s.inputBase+P_DAMAGE_DEFINITION_BASE+row*P_DAMAGE_DEFINITION_WORDS;
         if(d.target==2)

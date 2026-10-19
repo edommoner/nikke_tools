@@ -34,7 +34,7 @@ bool validDurationExtension(uint input,uint count,uint combat,uint row)
     uint policy=commands[at+D_TARGET];
     if(policy<1 || policy>2 || !f64Finite(loadNumber(at+D_VALUE))) return false;
     uint recipients=input+P_RECIPIENT_BASE+row*8;
-    if(policy==1) { if(!validRecipientPlan(recipients) || commands[recipients+7]!=0) return false; }
+    if(policy==1) { if(!validRecipientPlan(recipients,false,input) || commands[recipients+7]!=0) return false; }
     else for(uint i=0;i<8;i++) if(commands[recipients+i]!=0) return false;
     uint packet=input+P_DAMAGE_DEFINITION_BASE+row*P_DAMAGE_DEFINITION_WORDS;
     if(policy==2)

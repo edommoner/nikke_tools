@@ -1,0 +1,4577 @@
+{
+  "cases": [
+    {
+      "split_reference": true,
+      "name": "split-all-1-1",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          1,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-all-1-150",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-all-1-999.999999",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          999.999999,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-all-2-1",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          2,
+          -1,
+          1,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-all-2-150",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          2,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-all-2-999.999999",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          2,
+          -1,
+          999.999999,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-all-4-1",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          4,
+          -1,
+          1,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-all-4-150",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          4,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-all-4-999.999999",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          4,
+          -1,
+          999.999999,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-all-31-1",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          31,
+          -1,
+          1,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-all-31-150",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          31,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-all-31-999.999999",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          31,
+          -1,
+          999.999999,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-target-self",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          31,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-target-all_allies_excl_self",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies_excl_self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          31,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-target-['self', 'allies_lowest_hp_excl:2']",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": [
+            "self",
+            "allies_lowest_hp_excl:2"
+          ],
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          31,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-target-['allies_lowest_hp_excl:2', 'self']",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": [
+            "allies_lowest_hp_excl:2",
+            "self"
+          ],
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          31,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-original-defense-only",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          2,
+          -1,
+          300,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_defense": 0
+          },
+          {
+            "base_hp": 1000,
+            "base_defense": 50
+          },
+          {
+            "base_hp": 1000,
+            "base_defense": 100
+          },
+          {
+            "base_hp": 1000,
+            "base_defense": 150
+          },
+          {
+            "base_hp": 1000,
+            "base_defense": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-original-incoming-modifier-only",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "resist",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_pct",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "fixed_value": -50
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          500,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-layer-shield_from_max_hp_pct-False",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "guard",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "shield_from_max_hp_pct",
+          "target": "all_allies_excl_self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          4,
+          1,
+          -1,
+          1000,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-layer-shield_from_max_hp_pct-True",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "guard",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "shield_from_max_hp_pct",
+          "target": "all_allies_excl_self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          1,
+          4,
+          1,
+          -1,
+          1000,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-layer-shared_shield_from_max_hp_pct-False",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "guard",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "shared_shield_from_max_hp_pct",
+          "target": "all_allies_excl_self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          4,
+          1,
+          -1,
+          1000,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-layer-shared_shield_from_max_hp_pct-True",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "guard",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "shared_shield_from_max_hp_pct",
+          "target": "all_allies_excl_self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          1,
+          4,
+          1,
+          -1,
+          1000,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-layer-decoy-False",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "guard",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "decoy",
+          "target": "all_allies_excl_self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          4,
+          1,
+          -1,
+          1000,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-layer-decoy-True",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "guard",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "decoy",
+          "target": "all_allies_excl_self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          1,
+          4,
+          1,
+          -1,
+          1000,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-layer-invincible-False",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "guard",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "invincible",
+          "target": "all_allies_excl_self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          4,
+          1,
+          -1,
+          1000,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-layer-invincible-True",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "guard",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "invincible",
+          "target": "all_allies_excl_self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          1,
+          4,
+          1,
+          -1,
+          1000,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-layer-undying-False",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "guard",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "undying",
+          "target": "all_allies_excl_self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          4,
+          1,
+          -1,
+          1000,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-layer-undying-True",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "guard",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "undying",
+          "target": "all_allies_excl_self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          1,
+          4,
+          1,
+          -1,
+          1000,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-direct-only-hit-notify",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "received_hit"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          2,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          4,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          8,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          16,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-follower-cover-notify",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "observed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:cover_hit"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          2,
+          1,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      },
+      "owners": [
+        0,
+        1
+      ]
+    },
+    {
+      "split_reference": true,
+      "name": "split-overlap-union-not-transitive",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": [
+            "self",
+            "allies_lowest_hp_excl:2"
+          ],
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "other",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies_excl_self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:full_reload"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.01,
+          0,
+          19,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-expiry-boundary",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": 0.1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-runtime-condition",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": [
+              "during_shield"
+            ]
+          }
+        },
+        {
+          "name": "guard",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "shield_from_max_hp_pct",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          1,
+          0,
+          1,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-member-downed-before-capture",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          10000,
+          100
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.1
+        },
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-group-frozen-after-removal",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "remove",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "received_hit"
+            ],
+            "condition": []
+          },
+          "target_effect": "group"
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-member-lethal-callback",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "save",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "undying",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:lethal_hit"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          10000,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      },
+      "owners": [
+        0,
+        1
+      ]
+    },
+    {
+      "split_reference": true,
+      "name": "split-one-member-already-down",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0.01,
+          31,
+          0,
+          0,
+          16,
+          -1,
+          2000,
+          100
+        ],
+        [
+          0.02,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-groups-recomputed-for-next-primary",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "remove",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "received_hit"
+            ],
+            "condition": []
+          },
+          "target_effect": "group"
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          31,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-duplicate-overlapping-lists",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": [
+            "all_allies",
+            [
+              "self",
+              "all_allies"
+            ]
+          ],
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          31,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-nested-target-order",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": [
+            [
+              "allies_lowest_hp_excl:2"
+            ],
+            [
+              "self",
+              "allies_lowest_hp_excl:2"
+            ]
+          ],
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          31,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-runtime-member-filter",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": [
+              "during_shield"
+            ]
+          }
+        },
+        {
+          "name": "guard",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "shield_from_max_hp_pct",
+          "target": "allies_right:1",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          1,
+          0,
+          1,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-duplicate-audience-10",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": [
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self"
+          ],
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "event_scope": "recipients"
+        },
+        {
+          "name": "observed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 100,
+          "trigger": {
+            "timing": [
+              "event:group"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-duplicate-audience-11",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": [
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self"
+          ],
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "event_scope": "recipients"
+        },
+        {
+          "name": "observed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 100,
+          "trigger": {
+            "timing": [
+              "event:group"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-duplicate-audience-21",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": [
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self",
+            "self"
+          ],
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "event_scope": "recipients"
+        },
+        {
+          "name": "observed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 100,
+          "trigger": {
+            "timing": [
+              "event:group"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-alias-different-order-stays-separate",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": [
+            "self",
+            "allies_right:1"
+          ],
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": [
+            "allies_right:1",
+            "self"
+          ],
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:full_reload"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.01,
+          0,
+          19,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    },
+    {
+      "split_reference": true,
+      "name": "split-alias-identical-order-refreshes",
+      "effects": [
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": [
+            "self",
+            "allies_right:1"
+          ],
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "group",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_split_even",
+          "target": [
+            [
+              "self"
+            ],
+            "allies_right:1"
+          ],
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:full_reload"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.01,
+          0,
+          19,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          31,
+          0,
+          0,
+          1,
+          -1,
+          150,
+          100
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0.2
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          },
+          {
+            "base_hp": 1000,
+            "base_cover_hp": 200,
+            "cover_hp": 200
+          }
+        ]
+      }
+    }
+  ]
+}

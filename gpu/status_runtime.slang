@@ -50,14 +50,14 @@ bool harmfulBlocked(inout Runtime s,uint who,Definition incoming)
     clearImmunityScratch(s,count);return blocked;
 }
 [noinline]
-uint filterHarmful(inout Runtime s,Definition d,uint mask,inout uint order)
+uint filterHarmful(inout Runtime s,Definition d,uint mask,inout uint64_t order)
 {
     if(d.polarity!=2 || (commands[s.inputBase+P_STATUS_META_BASE]&1)==0) return mask;
-    uint kept=0,packed=0,count=0;
-    for(uint i=0;i<5;i++)
+    uint kept=0,count=0;uint64_t packed=0;
+    for(uint i=0;i<21;i++)
     {
         uint encoded=(order>>(i*3))&7;if(encoded==0) break;uint who=encoded-1;
-        if(!harmfulBlocked(s,who,d)) { kept|=1U<<who;packed|=encoded<<(count++*3); }
+        if(!harmfulBlocked(s,who,d)) { kept|=1U<<who;packed|=uint64_t(encoded)<<(count++*3); }
     }
     for(uint who=5;who<13;who++) if((mask&(1U<<who))!=0 && !harmfulBlocked(s,who,d)) kept|=1U<<who;
     order=packed;return kept;
@@ -86,7 +86,7 @@ void cleanseResidents(inout Runtime s,uint row,uint scope)
             taken++;
             // Dispel is silent, retaining timer clocks and independent maps.
             s.activeRecipients[slot]&=~bit;
-            s.carrierRecipientOrder[slot]=filterRemovalOrder(s.carrierRecipientOrder[slot],s.activeRecipients[slot]&31,3,5);
+            storeCarrierOrder(s,slot,filterRemovalOrder(carrierOrder(s,slot),s.activeRecipients[slot]&31,3,21));
             if(s.activeRecipients[slot]==0) { unlinkBulletCarrier(s,slot);discardLazy(s,slot);s.alive[slot]=0;s.stacks[slot]=0; }
         }
     }
@@ -110,7 +110,7 @@ bool validStatusDefinitions(inout Runtime s)
         expected|=4;
         if(d.target<1 || d.target>2 || !f64Finite(d.value) || d.enemyBuff!=0 || d.buffEvent!=0) return false;
         uint recipient=s.inputBase+P_RECIPIENT_BASE+row*8;
-        if(d.target==1) { if(!validRecipientPlan(recipient) || commands[recipient+7]!=0) return false; }
+        if(d.target==1) { if(!validRecipientPlan(recipient,false,s.inputBase) || commands[recipient+7]!=0) return false; }
         else for(uint word=0;word<8;word++) if(commands[recipient+word]!=0) return false;
         uint packet=s.inputBase+P_DAMAGE_DEFINITION_BASE+row*P_DAMAGE_DEFINITION_WORDS;
         if(d.target==2)

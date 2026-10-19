@@ -56,7 +56,7 @@ void ensureLazyRecipients(inout Runtime s, uint row, uint64_t when)
             }
             if (entry == P_LAZY_CACHE) { s.error = 64; return; }
             s.cacheGroup[entry] = group; s.cacheTime[entry] = key;
-            uint order; s.cacheMask[entry] = rankedRecipients(s,s.carrierDefinition[row],when,order); s.cacheOrder[entry] = order;
+            uint64_t order; s.cacheMask[entry] = rankedRecipients(s,s.carrierDefinition[row],when,order); s.cacheOrder[entry] = uint(order);
             s.cacheEvaluations++;
             if (s.cacheSeen[group-1] == 0 || !f64Less(key,s.cacheNewestTime[group-1]))
             { s.cacheSeen[group-1] = 1; s.cacheNewest[group-1] = entry; s.cacheNewestTime[group-1] = key; }
@@ -69,7 +69,7 @@ void ensureLazyRecipients(inout Runtime s, uint row, uint64_t when)
                 residentDefinition(s,i).lazyGroup == group && f64Equal(s.activated[i],key))
             { s.lazyLink[i] = entry+1; s.cacheRefs[entry]++; }
     }
-    s.activeRecipients[row] = s.cacheMask[entry] & ~s.downMask; s.carrierRecipientOrder[row] = s.cacheOrder[entry];
+    s.activeRecipients[row] = s.cacheMask[entry] & ~s.downMask; storeCarrierOrder(s,row,s.cacheOrder[entry]);
     resolveBulletTargets(s,row);
     unlinkLazyCache(s,row); s.lazyPending[row] = 0; s.lazyPendingCount--; s.lazyMappedPendingCount -= d.queryResolve;
 }

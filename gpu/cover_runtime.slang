@@ -36,7 +36,7 @@ void syncCovers(inout Runtime s, uint64_t when)
     }
 }
 [noinline]
-uint coverRecipients(inout Runtime s, uint count, out uint order)
+uint coverRecipients(inout Runtime s, uint count, out uint64_t order)
 {
     uint pool[5], size = 0;
     uint64_t ratios[5];
@@ -47,7 +47,7 @@ uint coverRecipients(inout Runtime s, uint count, out uint order)
         pool[at] = who; ratios[at] = ratio;
     }
     uint mask = 0; order = 0;
-    for (uint i = 0; i < min(size,count); i++) { mask |= 1U << pool[i]; order |= (pool[i]+1) << (3*i); }
+    for (uint i = 0; i < min(size,count); i++) { mask |= 1U << pool[i]; order |= uint64_t(pool[i]+1) << (3*i); }
     return mask;
 }
 [noinline]

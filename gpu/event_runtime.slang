@@ -36,9 +36,9 @@ struct Definition
 };
 struct Frame
 {
-    uint mode, event, owner, cursor, target, value, repeatRow, repeatLeft, repeatPassive;
+    uint mode, event, owner, cursor, target, repeatRow, repeatLeft, repeatPassive;
     int argument;
-    uint64_t time, healthValue, healthPrevious, healthNext;
+    uint64_t value, time, healthValue, healthPrevious, healthNext;
 };
 struct Runtime
 {
@@ -106,6 +106,23 @@ bool hasProtection(inout Runtime s,uint who,uint kind);
 [ForceInline]
 Definition residentDefinition(inout Runtime s, uint slot) { return readDefinition(s.inputBase,s.carrierDefinition[slot]); }
 
+uint64_t carrierOrder(inout Runtime s,uint slot)
+{
+    if(commands[s.inputBase+P_RECIPIENT_META_BASE]==0) return s.carrierRecipientOrder[slot];
+    uint at=s.resourceOutput+P_RECIPIENT_ORDER_BASE+slot*2;
+    return uint64_t(results[at])|(uint64_t(results[at+1])<<32);
+}
+uint64_t visibleCarrierOrder(inout Runtime s,uint slot)
+{
+    uint64_t order=carrierOrder(s,slot),outOrder=0;uint count=0,mask=s.activeRecipients[slot];
+    for(uint i=0;i<21;i++) { uint encoded=(order>>(3*i))&7;if(encoded==0) break;if((mask&(1U<<(encoded-1)))!=0) outOrder|=uint64_t(encoded)<<(3*count++); }
+    return outOrder;
+}
+void storeCarrierOrder(inout Runtime s,uint slot,uint64_t order)
+{
+    s.carrierRecipientOrder[slot]=uint(order);
+    if(commands[s.inputBase+P_RECIPIENT_META_BASE]!=0) storeNumber(s.resourceOutput+P_RECIPIENT_ORDER_BASE+slot*2,order);
+}
 struct Sum { uint64_t total; uint64_t correction; };
 void addSum(inout Sum sum, uint64_t term)
 {
@@ -396,7 +413,7 @@ void clearMode(inout Runtime s, uint who, uint64_t when)
     s.charging[who] = 0; s.nextShot[who] = when; s.modeShots[who] = 0; s.postReloadUntil[who] = F64_SIGN | ONE;
 }
 
-void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mode, uint event, uint owner, int argument, uint64_t when, uint value = 0)
+void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mode, uint event, uint owner, int argument, uint64_t when, uint64_t value = 0)
 {
     if (depth == 31) { s.error = 1; return; }
     depth++;
@@ -424,24 +441,24 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
 #include "protection_runtime.slang"
 
 [noinline]
-uint packedRecipientMask(uint order)
+uint packedRecipientMask(uint64_t order)
 {
     uint mask = 0;
-    for (uint i = 0; i < 5; i++) { uint who = (order >> (3*i)) & 7; if (who != 0) mask |= 1U << (who-1); }
+    for (uint i = 0; i < 21; i++) { uint who = (order >> (3*i)) & 7; if (who != 0) mask |= 1U << (who-1); }
     return mask;
 }
 [noinline]
-uint buffAudienceOrder(inout Runtime s, uint row)
+uint64_t buffAudienceOrder(inout Runtime s, uint row)
 {
     Definition d = residentDefinition(s,row);
     if (d.enemyBuff != 0 && (d.buffEvent & 2) != 0) return 0;
     if ((d.buffEvent & 2) == 0) return 1U | (2U<<3) | (3U<<6) | (4U<<9) | (5U<<12);
     if (s.lazyPending[row] != 0) return d.owner+1;
-    uint result = 0, count = 0, order = s.carrierRecipientOrder[row];
-    for (uint i = 0; i < 5; i++)
+    uint count=0;uint64_t result=0,order=carrierOrder(s,row);
+    for (uint i = 0; i < 21; i++)
     {
         uint who = (order >> (3*i)) & 7;
-        if (who != 0 && (s.activeRecipients[row] & (1U << (who-1))) != 0) { result |= who << (3*count); count++; }
+        if (who != 0 && (s.activeRecipients[row] & (1U << (who-1))) != 0) { result |= uint64_t(who) << (3*count); count++; }
     }
     return result;
 }
@@ -456,7 +473,7 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
                 frames[depth].event = 1;
                 if (f.repeatLeft == 0)
                 {
-                    if ((buff.buffEvent&1)!=0 && uint(f.healthValue) != 0) pushFrame(s,frames,depth,12,31,buff.owner,int(buff.name),f.time,uint(f.healthValue));
+                    if ((buff.buffEvent&1)!=0 && f.healthValue != 0) pushFrame(s,frames,depth,12,31,buff.owner,int(buff.name),f.time,f.healthValue);
                 }
                 else if (f.healthPrevious != f.healthNext && (s.stackEventOwners & (1U << buff.owner)) != 0)
                     pushFrame(s,frames,depth,0,9,buff.owner,int(buff.name),f.time,uint(f.healthNext));
@@ -472,20 +489,20 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
                 else if ((buff.buffEvent&1)!=0 && buff.maxStack != 1)
                 {
                     // Refresh computes its audience after synchronous stack children.
-                    uint order = s.entryOrder[slot] == f.repeatPassive ? buffAudienceOrder(s,slot) : uint(f.healthValue);
+                    uint64_t order = s.entryOrder[slot] == f.repeatPassive ? buffAudienceOrder(s,slot) : f.healthValue;
                     if (order != 0 && (s.namedEventOwners & packedRecipientMask(order)) != 0)
                         pushFrame(s,frames,depth,12,31,buff.owner,int(buff.name),f.time,order);
                 }
                 return;
             }
             if (f.repeatLeft!=0 && s.entryOrder[slot]==f.repeatPassive && s.carrierDefinition[slot]==f.repeatRow) captureBuffReference(s,slot,f.cursor-1);
-            rechargeImmunity(s,f.cursor-1,packedRecipientMask(f.value)|(f.value>>16));
+            rechargeImmunity(s,f.cursor-1,packedRecipientMask(buff.enemyBuff!=0 ? 0 : f.value)|(buff.enemyBuff!=0 ? uint(f.value>>16) : 0));
             depth--;
             uint protection=protectionPolicy(s,f.repeatRow)&255;
             if((protection==1 || protection==2) && buff.lazyGroup==0 && f.value!=0 && s.alive[slot]!=0 && s.entryOrder[slot]==f.repeatPassive && s.carrierDefinition[slot]==f.repeatRow)
             {
                 if(f.repeatLeft!=0) captureBuffReference(s,slot,f.repeatRow);
-                uint order=buildProtection(s,slot,f.time);
+                uint64_t order=buildProtection(s,slot,f.time);
                 if(order!=0 && s.error==0) pushFrame(s,frames,depth,21,0,buff.owner,0,f.time,order);
                 return;
             }
@@ -587,7 +604,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         {
             // A resumable squad broadcast keeps depth bounded and the original
             // name/order intact even when one recipient changes the mode.
-            if (f.cursor == 5) { depth--; continue; }
+            if (f.cursor == (f.value==0 ? 5 : 21)) { depth--; continue; }
             uint index = frames[depth].cursor++;
             uint encoded = f.value == 0 ? index+1 : (f.value >> (3*index)) & 7;
             if (encoded == 0) { depth--; continue; }
@@ -649,7 +666,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (f.mode == 11)
         {
             Definition cover = readDefinition(s.inputBase,uint(f.argument));
-            uint encoded = f.cursor < 5 ? (f.value >> (3*f.cursor)) & 7 : 0;
+            uint encoded = f.cursor < 21 ? (f.value >> (3*f.cursor)) & 7 : 0;
             if (encoded == 0) { depth--; continue; }
             frames[depth].cursor++; uint who = encoded-1;
             if ((s.downMask & (1U << who)) != 0) continue;
@@ -674,9 +691,32 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             uint index=f.value+f.cursor,stack=loadStackNoticeValue(s,index);
             pushFrame(s,frames,depth,0,(payload&32768)!=0 ? 9 : 29,payload&7,int((payload>>3)&255),f.time,stack);continue;
         }
-        if (f.mode == 8)
+        if(f.mode==22)
+        {
+            uint encoded=f.cursor<5 ? (f.value>>(3*f.cursor))&7 : 0;
+            if(encoded==0) { depth--;continue; }
+            frames[depth].cursor++;uint member=encoded-1;
+            if((s.downMask&(1U<<member))!=0) continue;
+            pushFrame(s,frames,depth,23,0,member,f.argument,f.time);
+            if(s.error==0)
+            {
+                frames[depth].healthValue=f.healthValue;frames[depth].repeatPassive=uint(member==f.owner);
+                frames[depth].repeatRow=f.cursor==0 ? P_PROTECTION_HIT_BASE+(uint(f.argument)*5+f.owner)*16 : P_SPLIT_HIT_BASE+(uint(f.argument)*20+f.owner*4+f.cursor-1)*16;
+            }
+            continue;
+        }
+        if (f.mode == 8 || f.mode == 23)
         {
             uint at = s.inputBase+P_COMMAND_BASE+uint(f.argument)*8;
+            if(f.event==5) { depth--;continue; }
+            if(f.event==6) { frames[depth].event=0;continue; }
+            if(f.mode==23 && f.event==0)
+            {
+                frames[depth].event=1;
+                pushFrame(s,frames,depth,20,0,f.owner,f.argument,f.time);
+                if(s.error==0) { frames[depth].healthValue=f.healthValue;frames[depth].repeatPassive=f.repeatRow; }
+                continue;
+            }
             if (f.event == 0)
             {
                 uint who = frames[depth].cursor, mask = commands[at+5] & ~s.downMask;
@@ -689,8 +729,17 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 if(commands[at]==31)
                 {
                     uint64_t amount=frames[depth].healthValue;
+                    uint group=incomingSplitGroup(s,who,f.time);
+                    if(group!=0)
+                    {
+                        uint count=0;for(uint order=group;order!=0;order>>=3) count++;
+                        frames[depth].event=6;pushFrame(s,frames,depth,22,0,who,f.argument,f.time,group);
+                        if(s.error==0) frames[depth].healthValue=f64Div(amount,f64FromI64(count));
+                        continue;
+                    }
+                    uint record=P_PROTECTION_HIT_BASE+(uint(f.argument)*5+who)*16;frames[depth].repeatRow=record;
                     pushFrame(s,frames,depth,20,0,who,f.argument,f.time);
-                    if(s.error==0) frames[depth].healthValue=amount;
+                    if(s.error==0) { frames[depth].healthValue=amount;frames[depth].repeatPassive=record; }
                 }
                 continue;
             }
@@ -707,6 +756,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 uint64_t amount = f.healthValue;
                 if (!f64Zero(amount) && !f64Less(amount,s.hp[f.owner]) && liveMarker(s,f.owner,S_undying,f.time)) amount = larger(0,f64Add(s.hp[f.owner],ONE ^ F64_SIGN));
                 bool fell = !f64Zero(amount) && !f64Less(amount,s.hp[f.owner]);
+                if(commands[at]==31) frames[depth].healthValue=amount;
                 s.receivedDamage[f.owner] = f64Add(s.receivedDamage[f.owner],amount);
                 if (!f64Finite(s.receivedDamage[f.owner])) { s.error = 16; break; }
                 if (s.receivedHits[f.owner] == 0x7fffffff) { s.error = 2; break; }
@@ -714,17 +764,17 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 s.hp[f.owner] = larger(0,f64Add(s.hp[f.owner],amount ^ F64_SIGN));
                 if (!fell) syncHealthActor(s,f.owner,f.time);
                 frames[depth].value = uint(fell); frames[depth].event = 3;
-                pushFrame(s,frames,depth,0,32,f.owner,0,f.time); continue;
+                if(f.mode==8 || f.repeatPassive!=0) pushFrame(s,frames,depth,0,32,f.owner,0,f.time); continue;
             }
             if(f.event==3 && f64Less(0,f.healthPrevious))
             { frames[depth].event=4;pushFrame(s,frames,depth,0,36,f.owner,0,f.time);continue; }
             if(commands[at]==31)
             {
-                uint hit=output+P_PROTECTION_HIT_BASE+(uint(f.argument)*5+f.owner)*16;
+                uint hit=output+f.repeatRow;
                 storeNumber(hit+12,f.healthValue);storeNumber(hit+14,f.value!=0 && (s.downMask&(1U<<f.owner))==0 ? 0 : s.hp[f.owner]);
                 if(f.value!=0 && (s.downMask&(1U<<f.owner))==0) results[hit+3]|=4;
             }
-            frames[depth].event = 0;
+            frames[depth].event = f.mode==23 ? 5 : 0;
             if (f.value != 0 && (s.downMask & (1U << f.owner)) == 0)
             {
                 knockDown(s,f.owner,f.time);
@@ -761,7 +811,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         {
             Definition health = residentDefinition(s,uint(f.argument));
             uint index = frames[depth].cursor;
-            uint encoded = index < 5 ? (f.value >> (3*index)) & 7 : 0;
+            uint encoded = index < 21 ? (f.value >> (3*index)) & 7 : 0;
             if (encoded == 0) { depth--; continue; }
             frames[depth].cursor = index+1; uint who = encoded-1;
             if ((s.downMask & (1U << who)) != 0) continue;
@@ -854,10 +904,10 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         { pushFrame(s,frames,depth,1,47,d.owner,int(row),f.time); continue; }
         if (f.mode == 0 && !activationConditions(s,row,f.time) && !(f.event == 0 && f64Less(d.duration,0) && passive != 0)) continue;
         if(d.kind==15 && f.event!=28 && d.budget>=0 && s.activations[row]>=uint(d.budget)) continue;
-        uint recipientOrder = 0, recipientMask = f.mode==19 ? f.value : d.recipients, enemyOrder=0;
+        uint64_t recipientOrder=0;uint recipientMask=f.mode==19 ? uint(f.value) : d.recipients,enemyOrder=0;
         if(stackOperation(d.kind))
         {
-            uint order;
+            uint64_t order;
             if((f.event!=28 || (d.flags&1)!=0 && s.alive[row]==0) && d.budget>=0 && !stackLazySelector(s,row) && stackSelectedRecipients(s,row,f.target,f.time,true,order)==0) continue;
             recipientMask=d.kind>=19 ? stackSelectedRecipients(s,row,f.target,f.time,false,order) : 0;
         }
@@ -911,7 +961,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             uint sourceRow=row; uint64_t duration = d.duration; bool activationLazy = d.lazyGroup != 0;
             if(!activationLazy) { recipientMask=filterHarmful(s,d,recipientMask,recipientOrder);if(d.polarity==2 && recipientMask==0) continue; }
             uint capturedGeneration=d.enemyBuff!=0 && recipientMask!=0 ? (f.mode==19 ? f.repeatPassive : s.targetGeneration[firstbithigh(recipientMask>>5)]) : 0;
-            row = findCarrier(s,row,recipientMask,f.time,capturedGeneration);
+            row = findCarrier(s,row,recipientMask,f.time,capturedGeneration,recipientOrder);
             if (s.error != 0) break;
             d = residentDefinition(s,row);
             bool live = s.alive[row] != 0;
@@ -923,7 +973,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 if (!live) { s.lazyPending[row] = 1; s.lazyPendingCount++; s.lazyMappedPendingCount += d.queryResolve; s.activeRecipients[row] = 0; }
                 else if (s.lazyPending[row] != 0) unlinkLazyCache(s,row);
             }
-            else { s.activeRecipients[row] = recipientMask; s.carrierRecipientOrder[row] = recipientOrder; }
+            else { s.activeRecipients[row] = recipientMask; storeCarrierOrder(s,row,recipientOrder); }
             if(!live || d.maxStack!=1) s.stacks[row] = checkedStackIncrement(s.stacks[row],d.maxStack,s.error);
             if (s.error!=0) break;
             s.alive[row] = 1; s.activated[row] = f.time;
@@ -932,16 +982,16 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (d.bulletDuration != 0) prepareBulletActivation(s,row,recipientMask,live,activationLazy,previousStack);
             bool namedCandidate = (d.buffEvent & 1) != 0 && (!live || d.maxStack != 1) && s.namedEventOwners != 0;
 #ifdef PORTABLE_BUFF_AUDIENCE_SCAN_REFERENCE
-            uint audienceOrder = buffAudienceOrder(s,row);
+            uint64_t audienceOrder = buffAudienceOrder(s,row);
 #else
-            uint audienceOrder = namedCandidate ? buffAudienceOrder(s,row) : 0;
+            uint64_t audienceOrder = namedCandidate ? buffAudienceOrder(s,row) : 0;
 #endif
             bool namedNotice = namedCandidate && (s.namedEventOwners & packedRecipientMask(audienceOrder)) != 0;
             bool stackNotice = (d.buffEvent & 1) != 0 && previousStack != s.stacks[row] && (s.stackEventOwners & (1U << d.owner)) != 0;
             if (live && !namedNotice && !stackNotice) captureBuffReference(s,row,sourceRow);
             if (namedNotice || stackNotice || immunityPolicy(s.inputBase,sourceRow)==3 || (protectionPolicy(s,sourceRow)&255)==1 || (protectionPolicy(s,sourceRow)&255)==2)
             {
-                pushFrame(s,frames,depth,13,0,d.owner,int(row),f.time,recipientOrder | ((recipientMask&~31U)<<16));
+                pushFrame(s,frames,depth,13,0,d.owner,int(row),f.time,d.enemyBuff!=0 ? uint64_t(recipientMask&~31U)<<16 : recipientOrder);
                 if (s.error == 0)
                 {
                     frames[depth].healthValue = audienceOrder; frames[depth].healthPrevious = previousStack;

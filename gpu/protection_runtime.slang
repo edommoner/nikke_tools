@@ -64,21 +64,21 @@ uint64_t nextShieldAmplification(inout Runtime s,uint who,uint64_t when)
         uint slot=s.orderedRows[pass];
         if((protectionPolicy(s,s.carrierDefinition[slot])&255)!=3 || !queryRecipient(s,slot,who,when)) continue;
         sum=f64Add(sum,scalarValue(s,slot,who));s.activeRecipients[slot]&=~bit;
-        s.carrierRecipientOrder[slot]=filterRemovalOrder(s.carrierRecipientOrder[slot],s.activeRecipients[slot]&31,3,5);
+        storeCarrierOrder(s,slot,filterRemovalOrder(carrierOrder(s,slot),s.activeRecipients[slot]&31,3,21));
         if(s.activeRecipients[slot]==0) { unlinkBulletCarrier(s,slot);discardLazy(s,slot);s.alive[slot]=0;s.stacks[slot]=0; }
     }
     return sum;
 }
 [noinline]
-uint buildProtection(inout Runtime s,uint slot,uint64_t when)
+uint64_t buildProtection(inout Runtime s,uint slot,uint64_t when)
 {
     Definition d=residentDefinition(s,slot);uint policy=protectionPolicy(s,s.carrierDefinition[slot]),kind=policy&255;
     uint mask=s.activeRecipients[slot]&31,scratch=s.resourceOutput+P_PROTECTION_BUILD_BASE;
     for(uint word=0;word<10;word++) results[scratch+word]=0;
     uint64_t amount=f64Div(f64Mul(effectiveMaxHP(s,d.owner,when),scalarValue(s,slot,d.owner)),HUNDRED);
     // Build every target snapshot before the first shield_applied callback.
-    uint order=s.carrierRecipientOrder[slot];
-    for(uint i=0;i<5;i++)
+    uint64_t order=carrierOrder(s,slot);
+    for(uint i=0;i<21;i++)
     {
         uint encoded=(order>>(i*3))&7;if(encoded==0) break;uint who=encoded-1;
         uint64_t value=amount;
@@ -91,7 +91,9 @@ uint buildProtection(inout Runtime s,uint slot,uint64_t when)
     uint at=protectionAddress(s,object);
     for(uint who=0;who<5;who++)
     { uint64_t value=protectionNumber(scratch+who*2);storeNumber(at+who*4,value);storeNumber(at+who*4+2,value);results[scratch+who*2]=0;results[scratch+who*2+1]=0; }
-    results[at+23]=mask;return kind==1 ? order : 0;
+    results[at+23]=mask;uint seen=0,written=0;uint64_t unique=0;
+    for(uint i=0;i<21;i++) { uint encoded=(order>>(3*i))&7;if(encoded==0) break;uint bit=1U<<(encoded-1);if((seen&bit)==0) { seen|=bit;unique|=uint64_t(encoded)<<(3*written++); } }
+    return kind==1 ? unique : 0;
 }
 [noinline]
 uint64_t protectionCapacity(inout Runtime s,uint who,uint kind)
@@ -168,10 +170,10 @@ void advanceProtectionHit(inout Runtime s,inout Frame frames[32],inout int depth
     Frame f=frames[depth];uint command=s.inputBase+P_COMMAND_BASE+uint(f.argument)*8;
     if(f.event==0)
     {
-        uint hit=s.resourceOutput+P_PROTECTION_HIT_BASE+(uint(f.argument)*5+f.owner)*16;
+        uint hit=s.resourceOutput+f.repeatPassive;
         storeNumber(hit,f.time);results[hit+2]=1;storeNumber(hit+4,f.healthValue);
         bool covered=(commands[command+4]&(1U<<f.owner))!=0 && f64Less(0,s.coverHP[f.owner]) && !protectionMarker(s,f.owner,7,f.time);
-        frames[depth].value=commands[command+3]|(uint(covered)<<1);results[hit+3]=frames[depth].value;
+        frames[depth].value=commands[command+3]|(uint(covered)<<1);results[hit+3]=frames[depth].value|(f.repeatPassive>=P_SPLIT_HIT_BASE ? f.owner<<3 : 0);
         frames[depth].repeatLeft=captureShields(s,f.owner,f.time,commands[command+3]!=0);frames[depth].event=1;return;
     }
     if(f.event==1)
@@ -230,7 +232,7 @@ void advanceProtectionHit(inout Runtime s,inout Frame frames[32],inout int depth
             if(selected!=PROTECTION_NONE)
             {
                 uint at=protectionAddress(s,selected)+f.owner*4;uint64_t current=protectionNumber(at),taken=smaller(current,amount);
-                storeNumber(at,larger(0,f64Add(current,taken^F64_SIGN)));storeNumber(s.resourceOutput+P_PROTECTION_HIT_BASE+(uint(f.argument)*5+f.owner)*16+10,taken);amount=0;frames[depth].healthValue=0;frames[depth].event=4;
+                storeNumber(at,larger(0,f64Add(current,taken^F64_SIGN)));storeNumber(s.resourceOutput+f.repeatPassive+10,taken);amount=0;frames[depth].healthValue=0;frames[depth].event=4;
                 if(protectionEmpty(s,selected)) { uint begin=s.removalCount;endProtectionObject(s,selected);syncHealth(s,f.time);if(s.removalCount>begin) pushFrame(s,frames,depth,9,0,0,int(begin),f.time); }
                 return;
             }
@@ -238,7 +240,7 @@ void advanceProtectionHit(inout Runtime s,inout Frame frames[32],inout int depth
         frames[depth].healthValue=amount;frames[depth].event=4;return;
     }
     if(depth<1) { s.error=64;return; }
-    uint hit=s.resourceOutput+P_PROTECTION_HIT_BASE+(uint(f.argument)*5+f.owner)*16;
+    uint hit=s.resourceOutput+f.repeatPassive;
     storeNumber(hit+6,f.healthPrevious);storeNumber(hit+8,f.healthNext);
     frames[depth-1].healthValue=f.healthValue;frames[depth-1].healthPrevious=f.healthNext;depth--;
 }
@@ -267,12 +269,12 @@ bool validProtection(inout Runtime s)
     for(uint row=0;row<s.count;row++)
     {
         uint policy=protectionPolicy(s,row),kind=policy&255;Definition d=readDefinition(s.inputBase,row);
-        if(kind==0) { if(policy!=0 || d.kind==27 || d.kind==31 || d.kind==0 && (d.stat==45 || d.stat==72 || d.stat==71)) return false;continue; }
-        enabled|=1U|(kind==4 ? 2U : 0U)|(kind==7 ? 4U : 0U)|(kind==3 ? 8U : 0U);
+        if(kind==0) { if(policy!=0 || d.kind==27 || d.kind==31 || d.kind==0 && (d.stat==45 || d.stat==72 || d.stat==71 || d.stat==69)) return false;continue; }
+        enabled|=1U|(kind==4 ? 2U : 0U)|(kind==7 ? 4U : 0U)|(kind==3 ? 8U : 0U)|(kind==8 ? 16U : 0U);
         if(d.quantityFlags!=(kind==4 ? 4U : 0U) || (d.flags&120U)!=0) return false;
-        if(kind>7 || (policy&~511U)!=0 || (policy&256)!=0 && kind!=1 || !f64Finite(d.value) || d.enemyBuff!=0) return false;
-        if(kind==1 && (d.kind!=0 || d.stat!=45) || kind==2 && (d.kind!=0 || d.stat!=72) || (kind==3 || kind==4) && (d.kind!=4 || d.stat!=0) || kind==7 && (d.kind!=0 || d.stat!=71) || kind==5 && d.kind!=27 || kind==6 && d.kind!=31) return false;
-        if(!validRecipientPlan(s.inputBase+P_RECIPIENT_BASE+row*8)) return false;
+        if(kind>8 || (policy&~511U)!=0 || (policy&256)!=0 && kind!=1 || !f64Finite(d.value) || d.enemyBuff!=0) return false;
+        if(kind==8 && (d.kind!=0 || d.stat!=69) || kind==1 && (d.kind!=0 || d.stat!=45) || kind==2 && (d.kind!=0 || d.stat!=72) || (kind==3 || kind==4) && (d.kind!=4 || d.stat!=0) || kind==7 && (d.kind!=0 || d.stat!=71) || kind==5 && d.kind!=27 || kind==6 && d.kind!=31) return false;
+        if(!validRecipientPlan(s.inputBase+P_RECIPIENT_BASE+row*8,false,s.inputBase)) return false;
     }
     if(enabled!=0)
     for(uint row=0;row<s.count;row++)
@@ -283,4 +285,26 @@ bool validProtection(inout Runtime s)
     }
     for(uint word=1;word<8;word++) if(commands[s.inputBase+P_PROTECTION_META_BASE+word]!=0) return false;
     return commands[s.inputBase+P_PROTECTION_META_BASE]==enabled;
+}
+
+// The attacked member is first; union order follows native carrier/recipient order.
+// Freeze the ordered group and divisor before any landing callback changes state.
+[noinline]
+uint incomingSplitGroup(inout Runtime s,uint who,uint64_t when)
+{
+    if((commands[s.inputBase+P_PROTECTION_META_BASE]&16U)==0) return 0;
+    uint seen=1U<<who,order=who+1,count=1;
+    for(uint pass=0;pass<s.orderedCount;pass++)
+    {
+        uint slot=s.orderedRows[pass];
+        if((protectionPolicy(s,s.carrierDefinition[slot])&255)!=8 || !queryRecipient(s,slot,who,when)) continue;
+        uint64_t members=carrierOrder(s,slot);
+        for(uint i=0;i<21;i++)
+        {
+            uint encoded=(members>>(i*3))&7;if(encoded==0) break;uint member=encoded-1,bit=1U<<member;
+            if((seen&bit)!=0 || (s.downMask&bit)!=0 || !queryRecipient(s,slot,member,when)) continue;
+            seen|=bit;order|=encoded<<(3*count++);
+        }
+    }
+    return count>1 ? order : 0;
 }

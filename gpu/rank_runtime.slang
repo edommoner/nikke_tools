@@ -21,9 +21,8 @@ uint64_t recipientAttack(inout Runtime s, uint who, uint64_t when)
 }
 
 [noinline]
-uint rankedRecipients(inout Runtime s, uint definition, uint64_t when, out uint order)
+uint rankedRecipientsAt(inout Runtime s, uint definition, uint at, uint64_t when, out uint64_t order)
 {
-    uint at = s.inputBase+P_RECIPIENT_BASE+definition*8;
     uint kind = commands[at], count = commands[at+1], owner = definition_owner(s.inputBase,definition);
     uint pool = kind == 15 || kind == 16 ? commands[at+2] : 31;
     if (commands[at+3] != 0) pool &= ~(1U << owner);
@@ -40,6 +39,9 @@ uint rankedRecipients(inout Runtime s, uint definition, uint64_t when, out uint 
     }
     uint mask = 0; order = 0;
     for (uint i = 0; i < min(size,count); i++)
-    { mask |= 1U << slots[i]; order |= (slots[i]+1) << (3*i); }
+    { mask |= 1U << slots[i]; order |= uint64_t(slots[i]+1) << (3*i); }
     return mask;
 }
+
+uint rankedRecipients(inout Runtime s,uint definition,uint64_t when,out uint64_t order)
+{ return rankedRecipientsAt(s,definition,s.inputBase+P_RECIPIENT_BASE+definition*8,when,order); }

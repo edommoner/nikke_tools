@@ -62,11 +62,14 @@ def observe(case):
   definition=next(i for i,(e,_) in enumerate(raw) if e is ab.effect);kind=1 if ab.effect.get('stat') in ('shield_from_max_hp_pct','shared_shield_from_max_hp_pct') else 2 if ab.effect.get('stat')=='decoy' else 0
   current=ab.shield_per_target if kind==1 else ab.decoy_per_target if kind==2 else {};capacity=ab.shield_max_per_target if kind==1 else ab.decoy_max_per_target if kind==2 else {}
   protection=dict(kind=kind,current={str(NAMES.index(n)):v for n,v in current.items()},capacity={str(NAMES.index(n)):v for n,v in capacity.items()}) if current or capacity else {}
-  carriers.append(dict(definition=definition,effect=ab.effect['name'],recipients=sum(1<<NAMES.index(n) for n in ab.target_chars or []),stacks=ab.stack,lazy_pending=ab.target_chars is None,activated=ab.activated_at,end=1e30 if ab.expires_at==float('inf') else ab.expires_at,protection=protection))
+  carriers.append(dict(definition=definition,effect=ab.effect['name'],recipients=sum(1<<NAMES.index(n) for n in set(ab.target_chars or [])),stacks=ab.stack,lazy_pending=ab.target_chars is None,activated=ab.activated_at,end=1e30 if ab.expires_at==float('inf') else ab.expires_at,protection=protection))
+  if any(isinstance(e.get('target'),list) for e in case['effects']):carriers[-1]['recipient_order']=[NAMES.index(n) for n in ab.target_chars or []]
  return dict(queries=queries,carriers=carriers,protection=summary(),events=events,hits=[dict(time=h.t,owner=NAMES.index(h.target),damage=h.damage,shield=h.shield,cover=h.cover,decoy=h.decoy,hp=h.hp,hp_after=h.hp_after,down=h.down,pierce=h.pierce) for h in result.squad_hits],native_landing_code_sha256=__import__('hashlib').sha256(land_code.co_code).hexdigest())
 
 def compare(case,gpu,contains):
  cpu=observe(case);contains(gpu['queries'],cpu['queries'],case['name']+'.native');contains(gpu['protection'],cpu['protection'],case['name']+'.final')
- active=[c for c in gpu['carriers'] if c['active']];contains(active,cpu['carriers'],case['name']+'.carriers')
- if 'protection_hits' in gpu:contains(gpu['protection_hits'],cpu['hits'],case['name']+'.hits')
+ active=[c for c in gpu['carriers'] if c['active']];assert len(active)==len(cpu['carriers']),(case['name'],'carrier count',len(active),len(cpu['carriers']));contains(active,cpu['carriers'],case['name']+'.carriers')
+ if 'protection_hits' in gpu:
+  assert len(gpu['protection_hits'])==len(cpu['hits']),(case['name'],'hit count')
+  contains(gpu['protection_hits'],cpu['hits'],case['name']+'.hits')
  return cpu

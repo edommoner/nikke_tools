@@ -11,7 +11,7 @@ CASES=json.loads((ROOT/'tests/fixtures/portable-removal.json').read_text())['cas
 def case(name):return copy.deepcopy(next(c for c in CASES if c['name']==name))
 class RemovalTests(unittest.TestCase):
  def test_scope_and_recipient_metadata_without_layout_growth(self):
-  self.assertEqual(ABI,0x50455665);self.assertEqual((L['INPUT_WORDS'],L['OUTPUT_WORDS']),(81920,135168))
+  self.assertEqual(ABI,0x50455666);self.assertEqual((L['INPUT_WORDS'],L['OUTPUT_WORDS']),(86016,159744))
   for name,scope in [('removal-default-global',0),('removal-target-self',1),('removal-enemy-boss',2)]:
    c=case(name);before=copy.deepcopy(c);words,_=v.compile_case(c);at=L['DEFINITION_BASE']+L['DEFINITION_WORDS']
    self.assertEqual(words[at+F['TARGET']],scope);self.assertEqual(c,before)

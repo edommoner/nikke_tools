@@ -1,12 +1,12 @@
 // Native removal changes resident membership, not unrelated mode/instant clocks.
 [noinline]
-uint filterRemovalOrder(uint order,uint mask,uint width,uint count)
+uint64_t filterRemovalOrder(uint64_t order,uint mask,uint width,uint count)
 {
-    uint filtered=0,size=0,field=(1U<<width)-1;
+    uint64_t filtered=0;uint size=0,field=(1U<<width)-1;
     for(uint i=0;i<count;i++)
     {
         uint value=(order>>(i*width))&field;if(value==0) break;
-        if((mask&(1U<<(value-1)))!=0) filtered|=value<<(width*size++);
+        if((mask&(1U<<(value-1)))!=0) filtered|=uint64_t(value)<<(width*size++);
     }
     return filtered;
 }
@@ -34,7 +34,7 @@ uint removalMembers(inout Runtime s,uint slot)
 void removeNamedResidents(inout Runtime s,uint row,uint target,uint64_t when)
 {
     uint policy=definition_target(s.inputBase,row),name=uint(definition_targetName(s.inputBase,row)),scope=0xffffffff;
-    if(policy==1) { uint order;scope=selectRecipients(s,row,when,order); }
+    if(policy==1) { uint64_t order;scope=selectRecipients(s,row,when,order); }
     else if(policy==2) { uint order;scope=enemyDamageMask(s,readDefinition(s.inputBase,row),target,order)<<5; }
     if(scope==0) return;
     for(uint pass=0;pass<s.orderedCount && s.error==0;pass++)
@@ -57,7 +57,7 @@ void removeNamedResidents(inout Runtime s,uint row,uint target,uint64_t when)
             else
             {
                 s.activeRecipients[slot]=remaining;
-                s.carrierRecipientOrder[slot]=filterRemovalOrder(s.carrierRecipientOrder[slot],remaining&31,3,5);
+                storeCarrierOrder(s,slot,filterRemovalOrder(carrierOrder(s,slot),remaining&31,3,21));
             }
             if(definition_enemyBuff(s.inputBase,definition)!=0)
             {
@@ -80,7 +80,7 @@ bool validRemovalDefinition(uint input,uint combat,uint row)
     uint policy=commands[at+D_TARGET];int name=int(commands[at+D_TARGET_NAME]);
     if(policy>2 || name< -1 || name>=int(P_DEFINITIONS)) return false;
     uint recipient=input+P_RECIPIENT_BASE+row*8;
-    if(policy==1) { if(!validRecipientPlan(recipient) || commands[recipient+7]!=0) return false; }
+    if(policy==1) { if(!validRecipientPlan(recipient,false,input) || commands[recipient+7]!=0) return false; }
     else for(uint i=0;i<8;i++) if(commands[recipient+i]!=0) return false;
     uint packet=input+P_DAMAGE_DEFINITION_BASE+row*P_DAMAGE_DEFINITION_WORDS;
     if(policy==2)
