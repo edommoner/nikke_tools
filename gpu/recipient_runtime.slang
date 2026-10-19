@@ -1,6 +1,7 @@
-bool validRecipientPlan(uint at)
+bool validRecipientPlan(uint at, bool enemy = false)
 {
     uint kind = commands[at], count = commands[at+1], mask = commands[at+2];
+    if (enemy) return kind == 4 && count == 0 && mask == 0 && commands[at+3] == 0 && commands[at+4] == 0 && commands[at+5] == 0 && commands[at+6] < P_DEFINITIONS && (commands[at+7] & ~7U) == 0;
     if (kind > 21 || kind >= 17 && kind <= 20 || kind == 4 || kind == 14 || count > 5 || mask > 31 || commands[at+3] > (kind == 12 || kind == 13 ? 2 : 1)) return false;
     if ((kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16 || kind == 21) && count == 0) return false;
     uint order = commands[at+4], seen = 0; bool ended = false;

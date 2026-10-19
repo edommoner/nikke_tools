@@ -29,13 +29,16 @@ def admitted(target, *, instant=False):
 
 def pack(words, index, row, limits, effect, stat_key, merge_search, lazy_group):
     kind = int(row[4])
-    if kind not in (0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 21):
+    from portable_enemy_specs import enemy_buff_plan
+    enemy = enemy_buff_plan(effect) is not None
+    if enemy:kind=4
+    if kind not in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 21):
         raise ValueError('Unported compiled recipient selector')
     at = limits['RECIPIENT_BASE'] + index * 8
     independent_quantity=effect.get('_source_tag')=='equipment' and int(row[2]) in (18,20,37)
     from calculator.buff_manager import _STAT_TO_BUFF
     query_resolve=effect.get('type')=='buff' and bool(_STAT_TO_BUFF.get(effect.get('stat')))
-    words[at:at+8] = [kind, 0 if kind in (12,13) else int(row[5]), int(row[48]),
+    words[at:at+8] = [kind, 0 if kind in (4,12,13) else int(row[5]), 0 if kind==4 else int(row[48]),
                       int(row[223]) if kind in (12,13) else int(row[49]),
                       int(row[140]) if row[141] else 0,
                       int(row[5]) if kind in (12,13) else 0, stat_key,

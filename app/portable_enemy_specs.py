@@ -25,3 +25,17 @@ def damage_plan(effect):
         count=int(match[2]);route=ROUTES[dict(top_hp='MAX_HP',highest_hp='CURRENT_HP',lowest_hp='LOW_HP',nearest='NEAREST',top_def='TOP_DEF',lowest_def='LOW_DEF')[match[1]]]
     if effect.get('tick_interval') and route not in (ROUTES['INHERITED'],ROUTES['BODY']):raise ValueError('Multi-target periodic damage requires per-recipient clocks')
     return route,count,hits
+
+
+ENEMY_BUFF_STATS=frozenset(('def_pct','def_caster_based_pct','received_dmg_pct'))
+
+def enemy_buff_plan(effect):
+    """Same enemy selectors as damaging packets; current-target keeps context."""
+    if effect.get('type')!='buff' or effect.get('stat') not in ENEMY_BUFF_STATS:return None
+    target=effect.get('target','self')
+    if not isinstance(target,str) or target.startswith('all') and target!='all_enemies' or target.startswith('self') or target.startswith('allies'):return None
+    from enemy_recipient_specs import CURRENT_TARGETS
+    if target in CURRENT_TARGETS:return ROUTES['INHERITED'],1
+    try:route,count,_=damage_plan(dict(stat='damage',target=target))
+    except ValueError:return None
+    return route,count

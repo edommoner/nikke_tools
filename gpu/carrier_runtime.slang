@@ -7,7 +7,7 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
 #ifndef PORTABLE_CARRIER_SCAN_REFERENCE
     // Most real definitions have one carrier and no compatible name aliases.
     // Avoid a growing resident scan on first activation and ordinary refresh.
-    if (s.multiCarrier[definition] == 0)
+    if (incoming.enemyBuff == 0 && s.multiCarrier[definition] == 0)
     {
         bool primaryLive = s.alive[definition] != 0 && f64Less(when,s.end[definition]);
         if (primaryLive && (incoming.bulletDuration != 0 || incoming.lazyGroup != 0 || s.lazyPending[definition] == 0 && s.activeRecipients[definition] == recipients)) return definition;
@@ -20,6 +20,7 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
         uint slot = s.orderedRows[pass]; Definition prior = residentDefinition(s,slot);
         if (s.alive[slot] == 0 || !f64Less(when,s.end[slot])) continue;
         bool same = incoming.bulletDuration != 0 && s.carrierDefinition[slot] == definition ? true : incoming.lazyGroup != 0 ? prior.lazyGroup == incoming.lazyGroup : s.lazyPending[slot] == 0 && s.activeRecipients[slot] == recipients;
+        if (incoming.enemyBuff != prior.enemyBuff || incoming.enemyBuff != 0 && !enemyCarrierSameLife(s,slot,recipients)) same = false;
         if (!same) continue;
         if (s.carrierDefinition[slot] == definition) return slot;
         if (merged == P_CARRIERS && (incoming.mergeEligible & 1) != 0 && (prior.mergeEligible & 1) != 0 && incoming.name == prior.name &&

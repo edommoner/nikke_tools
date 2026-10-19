@@ -11,6 +11,7 @@ import re
 import struct
 import subprocess
 import tempfile
+import selectors
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -54,6 +55,39 @@ def build(source, entry):
     return outputs, hashes
 
 
+def run_metal_command(command, *, compile_timeout=300, gpu_timeout=120):
+    """Bound cold compilation separately from GPU execution; consume both pipes.
+
+    The Swift adapter emits the dispatch marker just before command.commit().
+    A compile/lock wait can never consume the subsequent GPU deadline.
+    """
+    stage='compile';deadline=time.monotonic()+compile_timeout
+    chunks={'stdout':bytearray(),'stderr':bytearray()}
+    with subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.PIPE) as process:
+        with selectors.DefaultSelector() as selector:
+            for name in chunks:
+                stream=getattr(process,name);os.set_blocking(stream.fileno(),False)
+                selector.register(stream,selectors.EVENT_READ,name)
+            try:
+                while selector.get_map():
+                    remaining=deadline-time.monotonic()
+                    if remaining<=0:
+                        raise RuntimeError('Metal timeout ('+stage+' phase): '+chunks['stderr'].decode('utf-8','replace').strip())
+                    for key,_ in selector.select(min(remaining,.25)):
+                        data=os.read(key.fd,65536)
+                        if not data:selector.unregister(key.fileobj);continue
+                        chunks[key.data].extend(data)
+                        if stage=='compile' and b'portable_stage=gpu_dispatch\n' in chunks['stderr']:
+                            stage='gpu';deadline=time.monotonic()+gpu_timeout
+                code=process.wait(timeout=max(.001,deadline-time.monotonic()))
+            except subprocess.TimeoutExpired as error:
+                process.kill();process.wait()
+                raise RuntimeError('Metal timeout ('+stage+' phase): '+chunks['stderr'].decode('utf-8','replace').strip()) from error
+            except BaseException:
+                process.kill();process.wait();raise
+    return subprocess.CompletedProcess(command,code,chunks['stdout'].decode('utf-8','replace'),chunks['stderr'].decode('utf-8','replace'))
+
+
 def execute(source, entry, packed, input_words, output_words, backend='metal'):
     if backend not in ('metal', 'cuda'):
         raise ValueError('Explicit metal or cuda backend required; no CPU fallback')
@@ -68,17 +102,13 @@ def execute(source, entry, packed, input_words, output_words, backend='metal'):
         if backend == 'metal':
             if platform.system() != 'Darwin':
                 raise RuntimeError('Metal requires macOS')
-            try:
-                process = subprocess.run(['swift', str(ROOT/'scripts/run-metal-probe.swift'),
-                                          str(outputs['metal']), str(input_path), str(output_path),
-                                          entry, str(input_words), str(output_words)], capture_output=True, text=True, timeout=120)
-            except subprocess.TimeoutExpired as error:
-                diagnostic=error.stderr or b''
-                if isinstance(diagnostic,bytes):diagnostic=diagnostic.decode('utf-8','replace')
-                raise RuntimeError('Metal timeout: '+diagnostic.strip()) from error
+            process = run_metal_command(['swift', str(ROOT/'scripts/run-metal-probe.swift'),
+                                         str(outputs['metal']), str(input_path), str(output_path),
+                                         entry, str(input_words), str(output_words)])
             if process.returncode:
                 raise RuntimeError(process.stderr or process.stdout)
             raw, transport = output_path.read_bytes(), json.loads(process.stdout)
+            transport.update(compile_timeout_seconds=300,gpu_timeout_seconds=120)
         else:
             raw, transport = execute_cuda(outputs['cuda'], entry, packed, count*output_words*4, count)
     if len(raw) != count*output_words*4 or hashes != source_hashes(source):

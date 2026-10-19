@@ -50,6 +50,8 @@ void initializeRuntime(inout Runtime s)
     s.targetCount = 0;
     s.target = 0;
     s.infiniteRowCount = 0;
+    s.enemyBuffCount = 0;
+    s.enemyEpoch = 0;
     s.namedEventOwners = 0;
     s.stackEventOwners = 0;
     s.phase = 0;
@@ -97,6 +99,8 @@ void initializeRuntime(inout Runtime s)
         s.hpSnapshot[index] = 0;
         s.activated[index] = 0;
         s.infiniteRows[index] = 0;
+        s.enemyBuffRows[index] = 0;
+        s.enemyCaptureEpoch[index] = 0;
         s.orderedRows[index] = 0;
         s.stacks[index] = 0;
         s.alive[index] = 0;
@@ -247,5 +251,6 @@ void initializeRuntime(inout Runtime s)
         s.targetDefense[index] = 0;
         s.targetScoredDamage[index] = 0;
         s.targetDealt[index] = 0;
+        s.enemyBirth[index] = 0;
     }
 }

@@ -30,7 +30,7 @@ struct Definition
     uint damageRoute, damageCount, damageHits, damageNormal, damagePending, pendingHits; uint64_t damageGauge;
     uint bulletDuration, bulletBound;
     uint durationGroup, durationCast;
-    uint healthScaling, alliedFlags, buffEvent, mergeEligible, statKey, lazyGroup, queryResolve;
+    uint healthScaling, alliedFlags, buffEvent, enemyBuff, mergeEligible, statKey, lazyGroup, queryResolve;
 };
 struct Frame
 {
@@ -80,6 +80,7 @@ struct Runtime
     uint weaponEnabled[5], weaponMode[5], capacity[5], shots[5], stage[5], charging[5];
     int ammo[5]; uint reloadCancelOnFull[5], modeCapacityEpoch[5];
     uint frameAmmoActive[5], frameAmmoBase[5], infiniteRowCount, infiniteRows[P_CARRIERS];
+    uint enemyBuffCount, enemyBuffRows[P_CARRIERS], enemyCaptureEpoch[P_CARRIERS], enemyEpoch, enemyBirth[8];
     uint namedEventOwners, stackEventOwners; uint phase, castMask, traceMode, traceTotal, burstTraceTotal, nextFrame, frameCount, clockMode; uint64_t frameTime;
     uint burstModifierMask, cooldownWaitMask, gaugeCharging; uint64_t cooldownApplied[5];
     uint64_t coefficient[5], interval[5], reloadTime[5], chargeTime[5], gain[5], cooldown[5];
@@ -150,7 +151,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
         if (kind == C_ALLY_HP_BELOW)
         {
             bool present = false;
-            if (runtime && recipient < 5) present = !f64Less(arg,s.hpPct[recipient]);
+            if (runtime) present = recipient < 5 ? !f64Less(arg,s.hpPct[recipient]) : !f64Less(arg,HUNDRED);
             else for (uint who = 0; who < 5; who++) if (!f64Less(arg,s.hpPct[who])) present = true;
             if (!present) return false;
         }
@@ -170,6 +171,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
 
 // Ordered resident slots are independent of immutable definition identities.
 // New or recycled carriers enter at the end; refresh keeps insertion order.
+[noinline]
 void markEntry(inout Runtime s, uint row)
 {
     uint at = 0;
@@ -183,6 +185,10 @@ void markEntry(inout Runtime s, uint row)
     s.orderedRows[s.orderedCount-1] = row;
     if (s.entryClock == 0x7fffffff) { s.error = 2; return; }
     s.entryOrder[row] = ++s.entryClock;
+    uint enemyPosition = 0; while (enemyPosition < s.enemyBuffCount && s.enemyBuffRows[enemyPosition] != row) enemyPosition++;
+    if (enemyPosition < s.enemyBuffCount)
+    { for (uint i = enemyPosition; i+1 < s.enemyBuffCount; i++) s.enemyBuffRows[i] = s.enemyBuffRows[i+1]; s.enemyBuffCount--; }
+    if (residentDefinition(s,row).enemyBuff != 0) s.enemyBuffRows[s.enemyBuffCount++] = row;
     // Keep the boolean-stat index in precisely the same activation order.
     uint position = 0; while (position < s.infiniteRowCount && s.infiniteRows[position] != row) position++;
     if (position < s.infiniteRowCount)
@@ -204,6 +210,7 @@ bool excludedDamageBuff(inout Runtime s, uint resident, uint who)
 #include "bullet_runtime.slang"
 #include "rank_runtime.slang"
 #include "lazy_runtime.slang"
+#include "enemy_buff_runtime.slang"
 #include "carrier_runtime.slang"
 #include "quantity_runtime.slang"
 #include "health_runtime.slang"
@@ -417,6 +424,7 @@ uint packedRecipientMask(uint order)
 uint buffAudienceOrder(inout Runtime s, uint row)
 {
     Definition d = residentDefinition(s,row);
+    if (d.enemyBuff != 0 && (d.buffEvent & 2) != 0) return 0;
     if ((d.buffEvent & 2) == 0) return 1U | (2U<<3) | (3U<<6) | (4U<<9) | (5U<<12);
     if (s.lazyPending[row] != 0) return d.owner+1;
     uint result = 0, count = 0, order = s.carrierRecipientOrder[row];
@@ -740,7 +748,9 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         uint recipientOrder = 0, recipientMask = d.recipients;
         if (d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 30)
         {
-            if (d.lazyGroup == 0) recipientMask = selectRecipients(s,row,f.time,recipientOrder);
+            if (d.enemyBuff != 0)
+            { uint enemyOrder; recipientMask = enemyDamageMask(s,d,f.target,enemyOrder) << 5; recipientOrder = 0; }
+            else if (d.lazyGroup == 0) recipientMask = selectRecipients(s,row,f.time,recipientOrder);
             else recipientMask = 0;
             uint selector = commands[s.inputBase+P_RECIPIENT_BASE+row*8];
             bool lazy = selector == 5 || selector == 6 || selector == 7 || selector == 15 || selector == 16;
@@ -770,6 +780,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             else { s.activeRecipients[row] = recipientMask; s.carrierRecipientOrder[row] = recipientOrder; }
             s.stacks[row] = min(s.stacks[row]+1,d.maxStack); s.alive[row] = 1; s.activated[row] = f.time;
             s.end[row] = f64Less(duration,0) ? FOREVER : f64Add(f.time,duration);
+            if (d.enemyBuff != 0) s.enemyCaptureEpoch[row] = s.enemyEpoch;
             if (d.bulletDuration != 0) prepareBulletActivation(s,row,recipientMask,live,activationLazy,previousStack);
             bool namedCandidate = (d.buffEvent & 1) != 0 && (!live || d.maxStack != 1) && s.namedEventOwners != 0;
 #ifdef PORTABLE_BUFF_AUDIENCE_SCAN_REFERENCE
@@ -1007,8 +1018,9 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         d.recipients = commands[at+D_RECIPIENTS];
         d.mergeEligible = commands[input+P_RECIPIENT_BASE+j*8+7] & 3;
         d.queryResolve = (commands[input+P_RECIPIENT_BASE+j*8+7] >> 2) & 1;
+        d.enemyBuff = commands[input+P_HEALTH_DEFINITION_BASE+j*P_HEALTH_DEFINITION_WORDS+3];
         d.lazyGroup = commands[input+P_RECIPIENT_BASE+j*8+7] >> 4; s.lazyEnabled |= uint(d.lazyGroup != 0); d.statKey = commands[input+P_RECIPIENT_BASE+j*8+6];
-        if ((d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 30) && !validRecipientPlan(input+P_RECIPIENT_BASE+j*8)) { s.error = 64; break; }
+        if ((d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 30) && !validRecipientPlan(input+P_RECIPIENT_BASE+j*8,d.enemyBuff != 0)) { s.error = 64; break; }
         if (d.lazyGroup != 0)
         {
             uint plan = input+P_RECIPIENT_BASE+j*8, selector = commands[plan];
@@ -1025,6 +1037,10 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         }
         uint packet = input+P_DAMAGE_DEFINITION_BASE+j*P_DAMAGE_DEFINITION_WORDS;
         d.damageRoute = commands[packet]; d.damageCount = commands[packet+1]; d.damageHits = commands[packet+2]; d.damageNormal = commands[packet+3]; d.damageGauge = loadNumber(packet+4); d.damagePending = commands[packet+6]; d.pendingHits = commands[packet+7];
+        if (d.enemyBuff != 0 && (d.enemyBuff != 1 || d.kind != 0 || s.combat == 0 || d.lazyGroup != 0 ||
+            !(d.stat == S_enemy_def_down_pct || d.stat == S_def_caster_based_pct || d.stat == S_received_dmg_pct) ||
+            d.damageRoute > 8 || d.damageCount == 0 || d.damageCount > 256 || d.damageHits != 0 || d.damageNormal != 0 || !f64Zero(d.damageGauge) || d.damagePending != 0 || d.pendingHits != 0 ||
+            commands[input+P_RECIPIENT_BASE+j*8] != 4)) { s.error = 64; break; }
         if (d.kind == 3 && (d.damageRoute > 8 || d.damageCount == 0 || d.damageCount > 256 || d.damageHits == 0 || d.damageHits > 256 ||
             d.damageRoute >= 2 && (s.combat == 0 || !f64Zero(d.interval)) || !f64Finite(d.damageGauge) || f64Less(d.damageGauge,0) && !f64Equal(d.damageGauge,F64_SIGN | ONE) || f64Less(f64FromI64(1000000),d.damageGauge) ||
             d.damageNormal > 1 || d.damagePending > 1 || d.damagePending == 0 && d.pendingHits != 0 || d.damagePending != 0 && (s.combat == 0 || d.damageHits != 1 || d.damageFlags != 0 || d.damageNormal != 0 || d.pendingHits == 0 || d.pendingHits > 256))) { s.error = 64; break; }
@@ -1047,14 +1063,15 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         }
         else if (d.durationGroup != 0 || d.durationCast != 0) { s.error = 64; break; }
         d.buffEvent = commands[health+2];
-        if (d.buffEvent > 3 || commands[health+3] != 0 || d.kind != 0 && d.kind != 4 && d.buffEvent != 0) { s.error = 64; break; }
+        d.enemyBuff = commands[health+3];
+        if (d.enemyBuff > 1 || d.buffEvent > 3 || d.kind != 0 && d.kind != 4 && d.buffEvent != 0) { s.error = 64; break; }
         d.healthScaling = commands[health];
         if (d.healthScaling > 1) { s.error = 64; break; }
         if (d.kind == 0 && d.stat == S_cover_hp_pct) s.coverMask |= 1;
         if ((d.kind == 7 || d.kind == 30) && (f64Less(d.value,0) || d.kind == 30 && f64Zero(d.value))) { s.error = 64; break; }
         if (d.kind == 7 || d.kind == 30) s.coverMask |= 2; d.alliedFlags = commands[health+1];
         if (d.kind == 0 && (d.stat >= S_max_hp_pct && d.stat <= S_max_hp_only_pct || d.stat == S_max_hp_from_max_hp_pct)) s.healthMask |= 1;
-        if (d.kind == 0 && ((d.alliedFlags & 1) != 0 || d.stat == S_def_caster_based_pct)) s.healthMask |= 2;
+        if (d.kind == 0 && d.enemyBuff == 0 && ((d.alliedFlags & 1) != 0 || d.stat == S_def_caster_based_pct)) s.healthMask |= 2;
         if (d.kind == 0 && d.stat == S_heal_received_pct) s.healthMask |= 4;
         if (d.kind == 0 && d.stat == S_outgoing_heal_pct) s.healthMask |= 8;
         if (d.kind == 6 || d.kind == 8) s.healthMask |= 16;
@@ -1119,6 +1136,8 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             else
             {
                 if (s.targetGeneration[target] == 0x7fffffff) { s.error = 2; break; }
+                if (s.enemyEpoch == 0x7fffffff) { s.error = 2; break; }
+                s.enemyBirth[target] = ++s.enemyEpoch;
                 s.targetGeneration[target]++; s.targetAlive[target] = 1; s.targetHP[target] = loadNumber(at+6); s.targetMaxHP[target] = s.targetHP[target]; s.targetDealt[target] = 0;
             }
         }
@@ -1152,6 +1171,11 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             for (uint j = 0; j < s.count; j++) if (s.timerActive[j] != 0) masks[j/32] |= 1U << (j%32);
             for (uint word = 0; word < P_MASK_WORDS; word++) results[output+P_TIMER_MASK_BASE+index*P_MASK_WORDS+word] = masks[word];
             if (s.combat != 0) writeCombatQuery(s,output+P_COMBAT_QUERY_BASE+index*P_COMBAT_QUERY_WORDS,output+P_COMBAT_STATE_QUERY_BASE+index*P_COMBAT_STATE_QUERY_WORDS);
+            if (int(commands[at+5]) < -1) { s.error = 64; break; }
+            uint selectedEnemy = int(commands[at+5]) < 0 ? 0 : commands[at+5];
+            if (s.combat != 0 && selectedEnemy >= s.targetCount) { s.error = 64; break; }
+            uint64_t enemyModifiers[3]; collectEnemyModifiers(s,commands[at+4],selectedEnemy,when,enemyModifiers);
+            for (uint key = 0; key < 3; key++) storeNumber(dst+26+2*key,enemyModifiers[key]);
             results[dst+12] = masks[0]; results[dst+13] = s.combat != 0 ? s.targetGeneration[s.target] : s.generation; results[dst+14] = 0; results[dst+15] = s.timerClock;
         }
         else s.error = 64;

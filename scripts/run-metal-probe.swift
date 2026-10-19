@@ -3,6 +3,9 @@ import Foundation
 import Metal
 import Darwin
 
+// The encoder dispatches exactly one independent program per threadgroup.
+let portableThreadsPerThreadgroup = 1
+
 struct ProbeError: Error, CustomStringConvertible {
     let description: String
     init(_ message: String) { description = message }
@@ -32,7 +35,10 @@ func compilePipeline(device: MTLDevice, source: String, entry: String, lockURL: 
     guard let function = library.makeFunction(name: entry) else { throw ProbeError("Missing \(entry) entry") }
     FileHandle.standardError.write(Data("portable_stage=pipeline_compile\n".utf8))
     let pipelineStart = Date().timeIntervalSinceReferenceDate
-    let pipeline = try device.makeComputePipelineState(function: function)
+    let pipelineDescriptor = MTLComputePipelineDescriptor()
+    pipelineDescriptor.computeFunction = function
+    pipelineDescriptor.maxTotalThreadsPerThreadgroup = portableThreadsPerThreadgroup
+    let pipeline = try device.makeComputePipelineState(descriptor: pipelineDescriptor, options: [], reflection: nil)
     let pipelineSeconds = Date().timeIntervalSinceReferenceDate - pipelineStart
     return (pipeline, librarySeconds, pipelineSeconds, lockWaitSeconds)
 }
@@ -63,7 +69,7 @@ func run() throws {
     encoder.setComputePipelineState(pipeline)
     encoder.setBuffer(input, offset: 0, index: 0)
     encoder.setBuffer(output, offset: 0, index: 1)
-    encoder.dispatchThreadgroups(MTLSize(width: Int(count), height: 1, depth: 1), threadsPerThreadgroup: MTLSize(width: 1, height: 1, depth: 1))
+    encoder.dispatchThreadgroups(MTLSize(width: Int(count), height: 1, depth: 1), threadsPerThreadgroup: MTLSize(width: portableThreadsPerThreadgroup, height: 1, depth: 1))
     encoder.endEncoding()
     FileHandle.standardError.write(Data("portable_stage=gpu_dispatch\n".utf8))
     command.commit()
@@ -73,6 +79,9 @@ func run() throws {
     let status: [String: Any] = ["backend": "metal", "device": device.name, "cases": count,
         "command_status": "completed", "registry_id": String(device.registryID),
         "gpu_seconds": command.gpuEndTime - command.gpuStartTime,
+        "configured_max_threads_per_threadgroup": portableThreadsPerThreadgroup,
+        "threads_per_threadgroup": portableThreadsPerThreadgroup,
+        "pipeline_max_threads_per_threadgroup": pipeline.maxTotalThreadsPerThreadgroup,
         "library_compile_seconds": compiled.librarySeconds, "pipeline_compile_seconds": compiled.pipelineSeconds,
         "pipeline_lock_wait_seconds": compiled.lockWaitSeconds,
         "input_bytes": inputData.count, "output_bytes": outputSize]

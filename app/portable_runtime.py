@@ -8,7 +8,7 @@ import re
 import struct
 
 from portable_backend import execute
-from portable_enemy_specs import damage_plan
+from portable_enemy_specs import damage_plan,enemy_buff_plan
 from portable_recipient_specs import admitted as recipient_admitted, pack as pack_recipients
 from portable_damage_specs import BUFFS,DAMAGE_FAMILIES
 from portable_specs import ABI, LIMITS as L, FIELDS as F, check_schema
@@ -57,8 +57,11 @@ def validate_effect(eff, *, combat=None):
     if 'event_scope' in eff and eff['event_scope'] not in ('squad','recipients'):
         raise UnsupportedPortable('Invalid named event audience')
     if kind=='buff':
-        if (stat not in BUFFS and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat))) or not recipient_admitted(target):
+        if (stat not in BUFFS and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat))) or not (recipient_admitted(target) or enemy_buff_plan(eff) is not None):
             raise UnsupportedPortable('Unported buff or recipient selector')
+        if enemy_buff_plan(eff) is not None:
+            if combat is None:raise UnsupportedPortable('Enemy buff requires combat-owned targets')
+            if eff.get('duration_bullets',-1)!=-1:raise UnsupportedPortable('Enemy buff finite bullet recipient clocks are not ported')
     elif kind=='damage':
         try:
             route,_,_=damage_plan(eff)
@@ -195,7 +198,10 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         words[force:force+L['MASK_WORDS']]=[int(row[legacy.B3_MASK+k]) for k in range(L['MASK_WORDS'])]
         health=L['HEALTH_DEFINITION_BASE']+index*L['HEALTH_DEFINITION_WORDS']
         words[health:health+4]=[int(row[50]),int(effects[index][0].get('stat')=='def_pct') | (int(effects[index][0].get('stat')=='received_dmg_pct')<<1),
-                              (int(bool(eff.get('name'))) | (int(eff.get('event_scope')=='recipients')<<1)) if eff.get('type')=='buff' else 0,0]
+                              (int(bool(eff.get('name'))) | (int(eff.get('event_scope')=='recipients')<<1)) if eff.get('type')=='buff' else 0,int(enemy_buff_plan(eff) is not None)]
+        if enemy_buff_plan(eff) is not None:
+            route,count=enemy_buff_plan(eff);packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS']
+            words[packet:packet+8]=[route,count,0,0,0,0,0,0]
         if row[1]==2:
             if row[7]<0 and row[14]>0:raise UnsupportedPortable('Infinite conditional weapon mode is not ported')
             from portable_combat import pack_mode
@@ -265,6 +271,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             if event or not 0<extra<=1e6:raise UnsupportedPortable('Invalid normal-impact coefficient')
         if not 0<=owner<5 or extra2 or (op==0 and (event not in (0,1,2,3,4,7,8,10,11,12,14,17,19,20,21,26,29,36,49) or event==49 and not 0<=arg<len(program['states']))):
             raise UnsupportedPortable('Unsupported stimulus event, owner, or payload')
+        if op==2 and (arg < -1 or arg >= (len(combat['targets']) if combat else 1)):raise ValueError('Invalid enemy modifier query target')
         if op==2 and (event!=0 or query<0 or query>=L['COMMANDS']):raise ValueError('Invalid query index')
         if combat is not None and op==0 and event in (0,1,2,3,4):raise UnsupportedPortable('Combat emits its own startup and burst notifications')
         at=L['COMMAND_BASE']+i*8
@@ -282,7 +289,7 @@ def decode(words,metadata):
         at=L['QUERY_BASE']+i*L['QUERY_WORDS']
         accounting=L['DAMAGE_ACCOUNTING_QUERY_BASE']+i*40
         pending=L['PENDING_QUERY_BASE']+i*4
-        queries.append(dict(pending_burst=dict(count=words[pending],enqueued=words[pending+1],fired=words[pending+2]),body_damage=[number(accounting+20+2*k) for k in range(5)],add_damage=[number(accounting+30+2*k) for k in range(5)],scored_damage=[number(accounting+2*k) for k in range(5)],add_overkill=[number(accounting+10+2*k) for k in range(5)],time=number(at),damage=[number(at+2+2*k) for k in range(5)],
+        queries.append(dict(enemy_modifiers=dict(defense_pct=number(at+26),defense_flat=number(at+28),received_damage_pct=number(at+30)),pending_burst=dict(count=words[pending],enqueued=words[pending+1],fired=words[pending+2]),body_damage=[number(accounting+20+2*k) for k in range(5)],add_damage=[number(accounting+30+2*k) for k in range(5)],scored_damage=[number(accounting+2*k) for k in range(5)],add_overkill=[number(accounting+10+2*k) for k in range(5)],time=number(at),damage=[number(at+2+2*k) for k in range(5)],
                             active_timer_mask=words[at+12],active_timer_mask_words=list(words[L['TIMER_MASK_BASE']+i*L['MASK_WORDS']:L['TIMER_MASK_BASE']+(i+1)*L['MASK_WORDS']]),generation=words[at+13],
                             stack_depth=words[at+14],timer_clock=words[at+15],
                             attack_buffs=[number(at+16+2*k) for k in range(5)]))

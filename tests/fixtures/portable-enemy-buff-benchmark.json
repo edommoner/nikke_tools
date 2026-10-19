@@ -1,0 +1,4153 @@
+{
+  "name": "enemy-buff-index-fixed-workload",
+  "effects": [
+    {
+      "name": "ally 0",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 1",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 2",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 3",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 4",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 5",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 6",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 7",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 8",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 9",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 10",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 11",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 12",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 13",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 14",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 15",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 16",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 17",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 18",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 19",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 20",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 21",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 22",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 23",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 24",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 25",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 26",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 27",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 28",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 29",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 30",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 31",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 32",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 33",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 34",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 35",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 36",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 37",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 38",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 39",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 40",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 41",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 42",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 43",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 44",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 45",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 46",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 47",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 48",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 49",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 50",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 51",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 52",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 53",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 54",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 55",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 56",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 57",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 58",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 59",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 60",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 61",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 62",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 63",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 64",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 65",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 66",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 67",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 68",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 69",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 70",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 71",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 72",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 73",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 74",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 75",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 76",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 77",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 78",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 79",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 80",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 81",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 82",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 83",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 84",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 85",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 86",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 87",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 88",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 89",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 90",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 91",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 92",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 93",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 94",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 95",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 96",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 97",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 98",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 99",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 100",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 101",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 102",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 103",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 104",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 105",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 106",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 107",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 108",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 109",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 110",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 111",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 112",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 113",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 114",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 115",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 116",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 117",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 118",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 119",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 120",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 121",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 122",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 123",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 124",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 125",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 126",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 127",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 128",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 129",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 130",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 131",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 132",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 133",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 134",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 135",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 136",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 137",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 138",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 139",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 140",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 141",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 142",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 143",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 144",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 145",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 146",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 147",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 148",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 149",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 150",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 151",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 152",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 153",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 154",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 155",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 156",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 157",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 158",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 159",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 160",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 161",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 162",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 163",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 164",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 165",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 166",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 167",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 168",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 169",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 170",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 171",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 172",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 173",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 174",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 175",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 176",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 177",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 178",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 179",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 180",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 181",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 182",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 183",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 184",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 185",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 186",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 187",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 188",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 189",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 190",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 191",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 192",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 193",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 194",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 195",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 196",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 197",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 198",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 199",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 200",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 201",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 202",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 203",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 204",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 205",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 206",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 207",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 208",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 209",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 210",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 211",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 212",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 213",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 214",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 215",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 216",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 217",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 218",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 219",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 220",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 221",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 222",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 223",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 224",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 225",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 226",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 227",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 228",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 229",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 230",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 231",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 232",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 233",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 234",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 235",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 236",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 237",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 238",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 239",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 240",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 241",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 242",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 243",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 244",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 245",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 246",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 247",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 248",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 249",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 250",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 251",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 252",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "ally 253",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "atk_pct",
+      "fixed_value": 0,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "no critical",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "crit_rate",
+      "fixed_value": -15,
+      "target": "self",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "enemy field",
+      "source": "스킬1",
+      "type": "buff",
+      "stat": "received_dmg_pct",
+      "fixed_value": 10,
+      "target": "boss",
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    }
+  ],
+  "owners": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "script": [
+    [
+      20,
+      24,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      20,
+      2,
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0
+    ]
+  ],
+  "combat": {
+    "weapons": [
+      {
+        "enabled": true,
+        "capacity": 10000,
+        "interval": 0.008333333333333333,
+        "coefficient": 100
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      },
+      {
+        "enabled": false
+      }
+    ],
+    "targets": [
+      {
+        "hp": 1e+30
+      }
+    ],
+    "trace": "summary"
+  }
+}

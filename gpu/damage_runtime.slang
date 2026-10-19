@@ -32,6 +32,10 @@ uint64_t damageValue(inout Runtime s, uint who, uint64_t coefficient, uint64_t w
     bool optimal = false)
 {
     uint64_t b[64]; collectStats(s,who,when,b);
+    uint64_t enemyModifiers[3]; collectEnemyModifiers(s,who,s.target,when,enemyModifiers);
+    b[S_enemy_def_down_pct] = f64Add(b[S_enemy_def_down_pct],enemyModifiers[0]);
+    b[S_enemy_def_down_flat] = f64Add(b[S_enemy_def_down_flat],enemyModifiers[1]);
+    b[S_received_dmg_pct] = f64Add(b[S_received_dmg_pct],enemyModifiers[2]);
     uint64_t f1 = f64Mul(coefficient,normal ? f64Add(ONE,f64Div(b[S_normal_atk_dmg_pct],HUNDRED)) : ONE);
     uint64_t defense = s.combat != 0 ? s.targetDefense[s.target] : s.defense;
     defense = (flags & H_ARMOR) != 0 ? 0 : f64Mul(larger(0,f64Add(f64Mul(defense,f64Add(ONE,f64Div(b[S_enemy_def_down_pct],HUNDRED))),b[S_enemy_def_down_flat])),f64Add(ONE,f64Div(b[S_def_ignore_pct],HUNDRED) ^ F64_SIGN));

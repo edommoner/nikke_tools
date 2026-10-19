@@ -1,0 +1,8249 @@
+{
+  "cases": [
+    {
+      "name": "enemy-buff-def_pct-boss",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "boss",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-def_pct-target",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "target",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-def_pct-all_enemies",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "all_enemies",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-def_pct-enemies_top_hp:1",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "enemies_top_hp:1",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-def_pct-enemies_lowest_hp:1",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "enemies_lowest_hp:1",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-def_pct-enemies_nearest:1",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "enemies_nearest:1",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-def_pct-enemies_top_def:2",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "enemies_top_def:2",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-def_pct-enemies_lowest_def:2",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "enemies_lowest_def:2",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-def_caster_based_pct-boss",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_caster_based_pct",
+          "fixed_value": -25,
+          "target": "boss",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_flat": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -100
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-def_caster_based_pct-target",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_caster_based_pct",
+          "fixed_value": -25,
+          "target": "target",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -100
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-def_caster_based_pct-all_enemies",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_caster_based_pct",
+          "fixed_value": -25,
+          "target": "all_enemies",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_flat": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -100
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -100
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -100
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-def_caster_based_pct-enemies_top_hp:1",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_caster_based_pct",
+          "fixed_value": -25,
+          "target": "enemies_top_hp:1",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_flat": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -100
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-def_caster_based_pct-enemies_lowest_hp:1",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_caster_based_pct",
+          "fixed_value": -25,
+          "target": "enemies_lowest_hp:1",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -100
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-def_caster_based_pct-enemies_nearest:1",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_caster_based_pct",
+          "fixed_value": -25,
+          "target": "enemies_nearest:1",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -100
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-def_caster_based_pct-enemies_top_def:2",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_caster_based_pct",
+          "fixed_value": -25,
+          "target": "enemies_top_def:2",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_flat": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -100
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -100
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-def_caster_based_pct-enemies_lowest_def:2",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_caster_based_pct",
+          "fixed_value": -25,
+          "target": "enemies_lowest_def:2",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -100
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": -100
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_flat": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-received_dmg_pct-boss",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "boss",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 20
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-received_dmg_pct-target",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "target",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 20
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-received_dmg_pct-all_enemies",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "all_enemies",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 20
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 20
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 20
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-received_dmg_pct-enemies_top_hp:1",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "enemies_top_hp:1",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 20
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-received_dmg_pct-enemies_lowest_hp:1",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "enemies_lowest_hp:1",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 20
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-received_dmg_pct-enemies_nearest:1",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "enemies_nearest:1",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 20
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-received_dmg_pct-enemies_top_def:2",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "enemies_top_def:2",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 20
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 20
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-received_dmg_pct-enemies_lowest_def:2",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "enemies_lowest_def:2",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          2,
+          5,
+          0,
+          0
+        ],
+        [
+          0.8,
+          2,
+          0,
+          0,
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 20
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 20
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-new-generation-does-not-refresh-old-def_pct",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "target",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.15,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.15,
+          2,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          22,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          500,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.3,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          1,
+          3,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          0,
+          4,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": -50
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-new-generation-does-not-refresh-old-received_dmg_pct",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "target",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.15,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.15,
+          2,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          22,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          500,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          1,
+          2,
+          0,
+          0
+        ],
+        [
+          0.3,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          1,
+          3,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          0,
+          4,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 20
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-notice-scope-squad",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "boss",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          },
+          "event_scope": "squad"
+        },
+        {
+          "name": "receiver0",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:Exposure"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver1",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:Exposure"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver2",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:Exposure"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver3",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:Exposure"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver4",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:Exposure"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          },
+          "attack_buffs": [
+            10,
+            10,
+            10,
+            10,
+            10
+          ]
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-notice-scope-recipients",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "boss",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          },
+          "event_scope": "recipients"
+        },
+        {
+          "name": "receiver0",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:Exposure"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver1",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:Exposure"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver2",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:Exposure"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver3",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:Exposure"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "receiver4",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:Exposure"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          },
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-and-ally-same-name-do-not-merge",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "self",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "boss",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-runtime-versus-finite-gate--1",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "boss",
+          "duration": -1,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": [
+              "self_state:Marker"
+            ]
+          }
+        },
+        {
+          "name": "Marker",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 5,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Remove marker",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "target": "self",
+          "target_effect": "Marker",
+          "fixed_value": 0,
+          "trigger": {
+            "timing": [
+              "event:full_reload"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.01,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          19,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-runtime-versus-finite-gate-10",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "boss",
+          "duration": 10,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": [
+              "self_state:Marker"
+            ]
+          }
+        },
+        {
+          "name": "Marker",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "atk_pct",
+          "fixed_value": 5,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Remove marker",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "target": "self",
+          "target_effect": "Marker",
+          "fixed_value": 0,
+          "trigger": {
+            "timing": [
+              "event:full_reload"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.01,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          19,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -25
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-ordered-binary64-sums",
+      "effects": [
+        {
+          "name": "sum0",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 1e+16,
+          "target": "boss",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "sum1",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 1,
+          "target": "boss",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "sum2",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": -1e+16,
+          "target": "boss",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-damage-factor-def_pct",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_pct",
+          "fixed_value": -25,
+          "target": "boss",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "shot",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            700,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": false,
+      "enemy_reference": true
+    },
+    {
+      "name": "enemy-buff-damage-factor-def_caster_based_pct",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "def_caster_based_pct",
+          "fixed_value": -25,
+          "target": "boss",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "shot",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            650,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": false,
+      "enemy_reference": true
+    },
+    {
+      "name": "enemy-buff-damage-factor-received_dmg_pct",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "all_allies",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "boss",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "shot",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "boss",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            660,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": false,
+      "enemy_reference": true
+    },
+    {
+      "name": "enemy-buff-runtime-recipient-hp-is-not-an-ally--1",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "boss",
+          "duration": -1,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": [
+              "ally_hp_below:50"
+            ]
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 0
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200,
+            "hp": 100000
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-runtime-recipient-hp-is-not-an-ally-10",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "boss",
+          "duration": 10,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": [
+              "ally_hp_below:50"
+            ]
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200,
+            "hp": 100000
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-mixed-generations-retain-unreplaced-recipients",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "all_enemies",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          500,
+          0
+        ],
+        [
+          0.3,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 20
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 20
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    },
+    {
+      "name": "enemy-buff-name-aliases-respect-generation-membership",
+      "effects": [
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "all_enemies",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "Exposure",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "received_dmg_pct",
+          "fixed_value": 10,
+          "target": "all_enemies",
+          "duration": 0.5,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          500,
+          0
+        ],
+        [
+          0.4,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.4,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.4,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0.4,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 30
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 10
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "received_damage_pct": 30
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000000.0,
+            "defense": 400
+          },
+          {
+            "hp": 500,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 900,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          },
+          {
+            "base_hp": 1000000,
+            "base_defense": 200
+          }
+        ]
+      },
+      "enemy_buff_reference": true
+    }
+  ]
+}
