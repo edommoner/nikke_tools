@@ -48,10 +48,10 @@ def observe(case):
         targets=[0 if n=='__enemy__' else int(n.rsplit(':',1)[1]) for n in members if n.startswith('__enemy__')]
         packets.append(dict(name=effect.get('name'),caster=NAMES.index(caster),time=t,target_mask=sum(1<<i for i in set(targets))))
     bm.register_damage_handler(packet)
-    events={0:'battle_start',14:'last_bullet',7:'on_attack',8:'hit_count',17:'event:cover_healed',19:'event:full_reload'}
+    events={10:'full_charge',11:'full_charge_fire',12:'full_charge_hit',0:'battle_start',14:'last_bullet',7:'on_attack',8:'hit_count',17:'event:cover_healed',19:'event:full_reload'}
     current=0;started=False;queries=[];spawn_order=len(targets)
     for t,op,event,who,arg,index,extra,extra2 in case['script']:
-        if not case.get('duration_extend_reference') or op==4:bm.tick(t)
+        if not (case.get('duration_extend_reference') or case.get('stack_reference')) or op==4:bm.tick(t)
         if op==4:
             if not started:
                 for n in NAMES:bm.notify('battle_start',t,n)
@@ -91,9 +91,16 @@ def observe(case):
         binding=getattr(ab,'enemy_recipient_key',None)
         enemy_generation=binding.bindings[0].actor.generation if binding is not None and len(binding.bindings)==1 else None
         carriers.append(dict(enemy_generation=enemy_generation,definition=definition,recipients=sum(member(n) for n in (ab.target_chars or [])),stacks=ab.stack,lazy_pending=ab.target_chars is None,expiry=math.copysign(1e30,ab.expires_at) if math.isinf(ab.expires_at) else ab.expires_at))
+    if case.get('stack_reference'):
+        for ab,r in zip(bm._active,carriers):
+            r['activated']=ab.activated_at
+            if ab.effect.get('duration_bullets',-1)>0:
+                r.update(bullet_left=ab.bullets_left,recipient_bullets=[ab.bullets_per_target.get(n,0) for n in NAMES],recipient_stack_overrides=[ab.per_char_stacks.get(n,0) for n in NAMES])
+            binding=getattr(ab,'enemy_recipient_key',None)
+            if binding is not None:r['enemy_generations']={str(0 if b.label=='__enemy__' else int(b.label.rsplit(':',1)[1])):b.actor.generation for b in binding.bindings}
     clocks=[]
     for timers in (bm._instant_timers,bm._dot_timers):
         for key,(_,due,expiry) in timers.items():
             definition=next(i for i,(e,_) in enumerate(raw) if id(e)==key)
             clocks.append(dict(definition=definition,due=due,expiry=math.copysign(1e30,expiry) if math.isinf(expiry) else expiry))
-    return dict(queries=queries,carriers=carriers,timers=sorted(clocks,key=lambda c:c['definition']),endings=endings,packets=packets)
+    return dict(queries=queries,carriers=carriers,timers=sorted(clocks,key=lambda c:c['definition']),endings=endings,packets=packets,**(dict(budgets={str(i):bm._trigger_counts.get(id(e),0) for i,(e,_) in enumerate(raw) if e.get('max_trigger') is not None}) if case.get('stack_reference') else {}))

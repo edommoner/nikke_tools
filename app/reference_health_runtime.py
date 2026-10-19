@@ -1,4 +1,4 @@
-"""Synchronize reference-driven maximum HP at outer execution boundaries.
+"""Synchronize reference/stack-driven maximum HP at outer execution boundaries.
 Grants retain native named/stack-child ordering. Crossings observe one actor at
 one time; a silent final pass publishes child-mutated rates without edge reentry.
 """
@@ -11,7 +11,9 @@ def is_reference_health(effect):
 def enabled(manager):
     result=getattr(manager,'_nikke_reference_health_defined',None)
     if result is None:
-        result=any(is_reference_health(e) for e,_ in manager._effects)
+        effects=[e for e,_ in manager._effects]
+        stack_changes=any(e.get('stat') in ('buff_stack_add','buff_stack_remove','buff_stack_init','buff_max_stack_add','debuff_stack_add','debuff_stack_remove') for e in effects)
+        result=any(is_reference_health(e) for e in effects) or stack_changes and any(e.get('type')=='buff' and e.get('stat') in HP_STATS for e in effects)
         manager._nikke_reference_health_defined=result
     return result
 

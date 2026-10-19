@@ -18,7 +18,7 @@ uint removalMembers(inout Runtime s,uint slot)
     {
         uint mask=0;
         for(uint target=0;target<s.targetCount;target++)
-            if((s.activeRecipients[slot]&(1U<<(target+5)))!=0 && s.targetAlive[target]!=0 && s.targetGeneration[target]==s.enemyCaptureGeneration[slot]) mask|=1U<<(target+5);
+            if((s.activeRecipients[slot]&(1U<<(target+5)))!=0 && s.targetAlive[target]!=0 && s.targetGeneration[target]==enemyCarrierGeneration(s,slot,target)) mask|=1U<<(target+5);
         return mask;
     }
     if(definition_kind(s.inputBase,definition)!=3 || f64Zero(definition_interval(s.inputBase,definition))) return s.lazyPending[slot]!=0 ? 0 : s.activeRecipients[slot];
@@ -40,7 +40,8 @@ void removeNamedResidents(inout Runtime s,uint row,uint target,uint64_t when)
     {
         uint slot=s.orderedRows[pass],definition=s.carrierDefinition[slot];
         if(s.alive[slot]==0 || definition_name(s.inputBase,definition)!=name) continue;
-        uint notices=definition_enemyBuff(s.inputBase,definition)!=0 ? enemyMaskCount(s.activeRecipients[slot]>>5) : 1;
+        bool sharedEnemy=s.bulletInitialized[slot]==2;
+        uint notices=definition_enemyBuff(s.inputBase,definition)!=0 && !sharedEnemy ? enemyMaskCount(s.activeRecipients[slot]>>5) : 1;
         if(policy!=0)
         {
             uint prior=removalMembers(s,slot),stripped=prior&scope;
@@ -57,8 +58,8 @@ void removeNamedResidents(inout Runtime s,uint row,uint target,uint64_t when)
             }
             if(definition_enemyBuff(s.inputBase,definition)!=0)
             {
-                notices=enemyMaskCount(stripped>>5);
-                if(remaining!=0) { queueRemovalNotice(s,definition_owner(s.inputBase,definition),name,notices);continue; }
+                notices=sharedEnemy ? 1 : enemyMaskCount(stripped>>5);
+                if(remaining!=0) { if(!sharedEnemy) queueRemovalNotice(s,definition_owner(s.inputBase,definition),name,notices);continue; }
             }
             else if(remaining!=0) continue;
         }

@@ -14,6 +14,10 @@ from timer_registry_cases import NAMES
 def observe(case):
     config=case['combat'];targets=config['targets'];attacks=case.get('base_atk',[1000]*5)
     chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES]
+    physical=case.get('inspect_physical_frames',False)
+    if physical:
+        from portable_weapon_oracle import authored_weapon,authored_weapon_state
+        for char,weapon in zip(chars,config['weapons']):char['_weapon']=copy.deepcopy(char['_weapon']);authored_weapon(char,weapon)
     raw=[(copy.deepcopy(e),NAMES[o]) for e,o in zip(case['effects'],case.get('owners',[0]*len(case['effects'])))]
     class BM(BuffManager):
         def _register_all(self):self._effects=raw;self._build_notify_index()
@@ -21,6 +25,10 @@ def observe(case):
     enemy=dict(**{'def':targets[0].get('defense',0)},core_px=0,code=None,optimal_range_weapons=[],atk=targets[0].get('attack',DEFAULT_BOSS_ATK))
     bm=BM(chars,state=dict(base_stats={n:dict(atk=a,hp=1000000,**{'def':case.get('environment',{}).get('allies',[{} for _ in NAMES])[NAMES.index(n)].get('base_defense',0)}) for n,a in zip(NAMES,attacks)},enemy=enemy,
                          full_burst=False,rng_acc={},rng_expected=True))
+    actors=[authored_weapon_state(char,weapon,attack) for char,weapon,attack in zip(chars,config['weapons'],attacks)] if physical else []
+    if physical:
+        from calculator import timeline
+        timeline._register_instant_handlers(bm,dict(zip(NAMES,actors)),None)
     from periodic_source_specs import specification as source_specification
     if any(source_specification(e) for e,_ in raw):
         from calculator import timeline
@@ -85,8 +93,13 @@ def observe(case):
         if op==4:
             if not started:
                 for n in NAMES:bm.notify('battle_start',t,n)
+                if physical:
+                    for n,actor in zip(NAMES,actors):actor.ammo=actor._full_ammo(bm,t)
                 started=True
             bm.tick(t)
+            if physical:
+                for actor,weapon in zip(actors,config['weapons']):
+                    if weapon.get('enabled',False):actor.tick(t,bm,enemy,{'rng_mode':'expected'})
         elif op==0:
             bm.tick(t);bm.notify({7:'on_attack',8:'hit_count',19:'event:full_reload'}[event],t,NAMES[who])
         elif op==18:damage(dict(stat='auto_damage',target='',fixed_value=extra,name=''),NAMES[who],t,normal=True)
@@ -120,4 +133,4 @@ def observe(case):
     for record in pool(bm,'staged_dot').values():
         row=next(i for i,(e,_) in enumerate(raw) if e is record.effect)
         staged_state.append(dict(definition=row,generation=record.generation,sequence=record.sequence,total=record.total,index=record.index,start=record.start,active=True))
-    return dict(queries=queries,packets=packets,target_scored_damage=target_scored,periodic_snapshots=periodic_snapshots,staged_state=sorted(staged_state,key=lambda r:r['definition']))
+    return dict(queries=queries,packets=packets,target_scored_damage=target_scored,periodic_snapshots=periodic_snapshots,staged_state=sorted(staged_state,key=lambda r:r['definition']),**(dict(carrier_births=__import__('portable_carrier_observer').records(bm,raw)) if case.get('inspect_carrier_activation') else {}))

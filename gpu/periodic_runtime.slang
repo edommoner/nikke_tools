@@ -57,7 +57,8 @@ void registerTimer(inout Runtime s, uint source, uint64_t when)
     uint row = periodicClockOwner(s,source); Definition d = readDefinition(s.inputBase,row), grant = readDefinition(s.inputBase,source);
     bool was = s.timerActive[row] != 0;
     bool staged=s.stagedEnabled!=0 && isStaged(s,row);
-    bool resident = s.alive[row] != 0 && (staged || f64Less(when,s.end[row]));
+    // Native _active retains a DoT until a tick explicitly retires it.
+    bool resident = s.alive[row] != 0;
     uint target = d.target != 0 ? 0 : s.target;
     bool retained = (d.periodicFlags & 1) != 0;
     bool sameTarget = retained || s.combat == 0 || (s.timerTarget[row] == target && s.timerGeneration[row] == s.targetGeneration[target]);
@@ -80,9 +81,8 @@ void registerTimer(inout Runtime s, uint source, uint64_t when)
     s.expiry[row] = f64Less(grant.duration,0) ? F64_INF : f64Add(when,grant.duration);
     if (d.kind == 3)
     {
-        if (s.alive[row] == 0) markEntry(s,row);
-        s.activated[row] = when;
-        if (!registerDotReference(s,row,resident)) s.stacks[row] = checkedStackIncrement(s.stacks[row],d.maxStack,s.error);
+        if (s.alive[row] == 0) { markEntry(s,row);s.activated[row]=when; }
+        if (!registerDotReference(s,row,resident) && (!resident || d.maxStack!=1)) s.stacks[row] = checkedStackIncrement(s.stacks[row],d.maxStack,s.error);
         if (s.error!=0) return;
         s.end[row] = s.expiry[row]; s.alive[row] = 1;
     }

@@ -100,7 +100,7 @@ def _observe(case, innate):
             phase=ctrl._phase;phase_id=0 if phase=='idle' else 4 if phase=='switching' else 5 if phase=='full_burst' else int(phase.split(':')[1])
             queries.append(dict(damage=total.copy(),body_damage=body.copy(),pending_burst=dict(count=len(ctrl._pending_burst_dmg),enqueued=enqueued,fired=fired),attack_buffs=[bm.get_buffs(n,'__enemy__',t)['atk_pct'] for n in NAMES],combat=dict(phase=phase_id,gauge=state['burst_gauge'])))
         else:raise ValueError('Unported pending component stimulus')
-    return dict(queries=queries,packets=packets)
+    return dict(queries=queries,packets=packets,**(dict(carrier_births=__import__('portable_carrier_observer').records(bm,raw)) if case.get('inspect_carrier_activation') else {}))
 
 
 def observe(case):

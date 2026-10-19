@@ -1,5 +1,9 @@
 """Static reference identity; live quantities and activation hit counts stay GPU owned."""
 def hit_reference(effect):
+    if effect.get('type')=='instant' and effect.get('stat') in ('debuff_stack_add','debuff_stack_remove') and effect.get('scaling')=='stack_count' and effect.get('scaling_ref'):
+        name=effect['scaling_ref']
+        if not isinstance(name,str) or ':' in name:raise ValueError('Invalid stack delta reference')
+        return 1,name
     if effect.get('type')!='damage':return 0,None
     gauge=effect.get('hit_count_gauge_ref')
     if gauge is not None:

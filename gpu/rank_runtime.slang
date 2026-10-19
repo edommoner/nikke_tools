@@ -8,8 +8,11 @@ uint64_t recipientAttack(inout Runtime s, uint who, uint64_t when)
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
         uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row);
-        if (d.kind != 0 || s.alive[row] == 0 || !f64Less(when,s.end[row]) || (s.activeRecipients[row] & (1U << who)) == 0) continue;
-        uint64_t value = f64Mul(d.value,f64FromI64(s.stacks[row]));
+        if (d.kind != 0 || s.alive[row] == 0 || (s.activeRecipients[row] & (1U << who)) == 0) continue;
+        // Native ranking uses the representative scalar, including references
+        // and max_stack=1 semantics; it does not use per-recipient overrides.
+        if(d.stat!=S_atk_pct && d.stat!=S_atk_flat && d.stat!=S_atk_caster_based_pct) continue;
+        uint64_t value = scalarValue(s,row,who);
         if (d.stat == S_atk_pct) percent = f64Add(percent,value);
         else if (d.stat == S_atk_flat) flat = f64Add(flat,value);
         else if (d.stat == S_atk_caster_based_pct) flat = f64Add(flat,f64Mul(s.baseAttack[d.owner],f64Div(value,HUNDRED)));

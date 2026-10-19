@@ -23,7 +23,7 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
         if (incoming.enemyBuff != prior.enemyBuff || incoming.enemyBuff != 0 && !enemyCarrierSameLife(s,slot,recipients,incomingGeneration)) same = false;
         if (!same) continue;
         if (s.carrierDefinition[slot] == definition) return slot;
-        if (merged == P_CARRIERS && (incoming.mergeEligible & 1) != 0 && (prior.mergeEligible & 1) != 0 && incoming.name == prior.name &&
+        if (merged == P_CARRIERS && (referenceCaptureFlags(s,slot)&4)==0 && (incoming.mergeEligible & 1) != 0 && (prior.mergeEligible & 1) != 0 && incoming.name == prior.name &&
             incoming.owner == prior.owner && incoming.kind == prior.kind && incoming.statKey == prior.statKey && incoming.maxStack == prior.maxStack) merged = slot;
     }
     if (merged != P_CARRIERS) return merged;
@@ -71,7 +71,7 @@ void queueRemovalNotice(inout Runtime s,uint owner,uint name,uint repeats=1)
 void queueCarrierEnd(inout Runtime s,uint slot,uint repeats=0)
 {
     uint definition=s.carrierDefinition[slot];
-    if(repeats==0) repeats=definition_enemyBuff(s.inputBase,definition)!=0 ? countbits(s.activeRecipients[slot]>>5) : 1;
+    if(repeats==0) repeats=definition_enemyBuff(s.inputBase,definition)!=0 && s.bulletInitialized[slot]!=2 ? countbits(s.activeRecipients[slot]>>5) : 1;
     unlinkBulletCarrier(s,slot);discardLazy(s,slot);s.alive[slot]=0;s.stacks[slot]=0;
     queueRemovalNotice(s,definition_owner(s.inputBase,definition),definition_name(s.inputBase,definition),repeats);
 }

@@ -1,10 +1,14 @@
+// Initializers can create a shared enemy carrier. Its generation vector uses
+// the bullet-only words (enemy finite bullet clocks are not admitted).
+uint enemyCarrierGeneration(inout Runtime s,uint slot,uint target)
+{ return s.bulletInitialized[slot]!=2 ? s.enemyCaptureGeneration[slot] : target<5 ? s.recipientBullets[slot*5+target] : s.recipientStacks[slot*5+target-5]; }
 // Each enemy receiver owns a resident lifetime/order and captured generation.
 // Parent activation snapshots order and generations before synchronous children.
 [noinline]
 bool enemyCarrierSameLife(inout Runtime s, uint slot, uint recipients,uint incomingGeneration)
 {
     for (uint target = 0; target < s.targetCount; target++)
-        if ((recipients & (1U << (target+5))) != 0 && incomingGeneration != s.enemyCaptureGeneration[slot]) return false;
+        if ((recipients & (1U << (target+5))) != 0 && incomingGeneration != enemyCarrierGeneration(s,slot,target)) return false;
     return true;
 }
 [noinline]
@@ -25,8 +29,8 @@ void collectEnemyModifiers(inout Runtime s, uint who, uint target, uint64_t when
         uint row = s.enemyBuffRows[i];
 #endif
         Definition d = residentDefinition(s,row);
-        if (d.enemyBuff == 0 || s.alive[row] == 0 || !f64Less(when,s.end[row]) ||
-            (s.activeRecipients[row] & (1U << (target+5))) == 0 || s.targetGeneration[target] != s.enemyCaptureGeneration[row] ||
+        if (d.enemyBuff == 0 || d.kind!=0 || s.alive[row] == 0 || !f64Less(when,s.end[row]) ||
+            (s.activeRecipients[row] & (1U << (target+5))) == 0 || s.targetGeneration[target] != enemyCarrierGeneration(s,row,target) ||
             excludedDamageBuff(s,row,who) || !basicConditions(s,row,when,true,target+5)) continue;
         uint64_t value = scalarValue(s,row,who); uint key = d.stat == S_enemy_def_down_pct ? 0 : d.stat == S_def_caster_based_pct ? 1 : 2;
         if (key == 1) value = f64Mul(s.baseDefense[d.owner],f64Div(value,HUNDRED));

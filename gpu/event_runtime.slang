@@ -133,7 +133,7 @@ bool stateMember(inout Runtime s, uint who, int name, uint flags)
 bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uint recipient = 0xffffffff)
 {
     uint definition = s.carrierDefinition[row]; Definition d = readDefinition(s.inputBase,definition);
-    if (runtime && (!f64Less(d.duration,0) || (d.flags & 2) == 0)) return true;
+    if (runtime && (referenceCaptureFlags(s,row)&4)==0 && (!f64Less(d.duration,0) || (d.flags & 2) == 0)) return true;
     for (uint i = 0; i < d.conditionCount; i++)
     {
         uint at = s.inputBase+P_CONDITION_BASE+definition*P_CONDITION_WORDS+i*4;
@@ -155,7 +155,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
                 uint j = s.orderedRows[pass]; Definition carrier = residentDefinition(s,j);
                 bool member=(s.activeRecipients[j]&(1U<<d.owner))!=0;
                 if (carrier.enemyBuff!=0) for (uint enemy=0; enemy<s.targetCount; enemy++)
-                    if ((s.activeRecipients[j]&(1U<<(enemy+5)))!=0 && s.targetAlive[enemy]!=0 && s.targetGeneration[enemy]==s.enemyCaptureGeneration[j]) member=true;
+                    if ((s.activeRecipients[j]&(1U<<(enemy+5)))!=0 && s.targetAlive[enemy]!=0 && s.targetGeneration[enemy]==enemyCarrierGeneration(s,j,enemy)) member=true;
                 if (carrier.kind==3)
                 { uint packed; member=(carrier.periodicFlags&1)!=0 ? periodicDamageMask(s,s.carrierDefinition[j],packed)!=0 : targetLive(s,s.timerTarget[s.carrierDefinition[j]],s.timerGeneration[s.carrierDefinition[j]]); }
                 if (carrier.owner == d.owner && int(carrier.name) == name && s.alive[j] != 0 && member) { count = carrierStackValue(s,j); break; }
@@ -414,6 +414,7 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
 #include "periodic_runtime.slang"
 #include "removal_runtime.slang"
 #include "duration_extend_runtime.slang"
+#include "stack_runtime.slang"
 #include "event_candidate_runtime.slang"
 #include "pending_burst_runtime.slang"
 
@@ -818,6 +819,12 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (f.mode == 0 && !activationConditions(s,row,f.time) && !(f.event == 0 && f64Less(d.duration,0) && passive != 0)) continue;
         if(d.kind==15 && f.event!=28 && d.budget>=0 && s.activations[row]>=uint(d.budget)) continue;
         uint recipientOrder = 0, recipientMask = f.mode==19 ? f.value : d.recipients, enemyOrder=0;
+        if(stackOperation(d.kind))
+        {
+            uint order;
+            if((f.event!=28 || (d.flags&1)!=0 && s.alive[row]==0) && d.budget>=0 && !stackLazySelector(s,row) && stackSelectedRecipients(s,row,f.target,f.time,true,order)==0) continue;
+            recipientMask=d.kind>=19 ? stackSelectedRecipients(s,row,f.target,f.time,false,order) : 0;
+        }
         if (f.mode!=19 && (d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 30 || d.kind==15))
         {
             if(d.kind==15 && d.budget<0 && !hasDurationExtensionMembers(s,row)) recipientMask=0;
@@ -850,7 +857,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if(staged && s.error==0) prepareStaged(s,row,count,f.time,previousCarrier);
             continue;
         }
-        if(d.kind==0 && d.enemyBuff!=0 && recipientMask!=0 && f.mode!=19 && (countbits(recipientMask)!=1 || s.hpPendingMask!=0 || s.hpDirtyMask!=0))
+        if((d.kind==0 || d.kind==4) && d.enemyBuff!=0 && recipientMask!=0 && f.mode!=19 && (countbits(recipientMask)!=1 || s.hpPendingMask!=0 || s.hpDirtyMask!=0))
         {
             pushFrame(s,frames,depth,18,f.event,d.owner,int(row),f.time,enemyOrder);
             if(s.error==0)
@@ -871,7 +878,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (s.error != 0) break;
             d = residentDefinition(s,row);
             bool live = s.alive[row] != 0 && f64Less(f.time,s.end[row]);
-            if (!live) captureBuffReference(s,row,sourceRow);
+            if (!live) { storeReferenceCapture(s,row,0,0);captureBuffReference(s,row,sourceRow); }
             if (!live) { resetBulletCarrier(s,row); discardLazy(s,row); s.stacks[row] = 0; s.hpSnapshot[row] = 0; markEntry(s,row); }
             uint previousStack = s.stacks[row];
             if (activationLazy)
@@ -880,7 +887,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 else if (s.lazyPending[row] != 0) unlinkLazyCache(s,row);
             }
             else { s.activeRecipients[row] = recipientMask; s.carrierRecipientOrder[row] = recipientOrder; }
-            s.stacks[row] = checkedStackIncrement(s.stacks[row],d.maxStack,s.error);
+            if(!live || d.maxStack!=1) s.stacks[row] = checkedStackIncrement(s.stacks[row],d.maxStack,s.error);
             if (s.error!=0) break;
             s.alive[row] = 1; s.activated[row] = f.time;
             s.end[row] = f64Less(duration,0) ? F64_INF : f64Add(f.time,duration);
@@ -1004,6 +1011,13 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 if (d.target != 0) pushFrame(s,frames,depth,12,31,d.owner,int(d.name),f.time);
             }
         }
+        else if(stackOperation(d.kind))
+        {
+            uint begin=s.removalCount;
+            if(d.kind==18) initializeStack(s,row,f.target,f.time);
+            else mutateStacks(s,row,recipientMask,f.time);
+            if(s.error==0 && s.removalCount>begin) pushFrame(s,frames,depth,9,0,0,int(begin),f.time);
+        }
         else if (d.kind == 15) extendNamedResidents(s,row,recipientMask,f.time);
         else if (d.kind == 1)
         {
@@ -1026,9 +1040,10 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         }
         else s.error = 32;
 #ifdef PORTABLE_HEALTH_SCAN_REFERENCE
-        syncHealth(s,f.time);
+        if((s.healthMask&32)==0) syncHealth(s,f.time);
 #else
-        if (d.kind == 1) syncHealth(s,f.time);
+        // Reference/stack-derived HP flushes after all synchronous children.
+        if (d.kind == 1 && (s.healthMask&32)==0) syncHealth(s,f.time);
 #endif
     }
     s.target = entryTarget;
@@ -1208,6 +1223,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if (numericStatus != 0) { results[output] = 128; return; }
     admitDefinitions(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
+    if (!validStackDefinitions(s)) { results[output]=64;return; }
     if (!validEventCandidates(s)) { results[output] = 64; return; }
     for (uint row = 0; row < s.count; row++) if (!validPendingDefinition(s,row)) { results[output] = 64; return; }
     if (!validateDurationGroups(s)) { results[output] = 64; return; }
@@ -1366,7 +1382,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     {
         uint slot = s.orderedRows[pass], at = output+P_CARRIER_STATE_BASE+pass*P_CARRIER_WORDS;
         results[at] = slot; results[at+1] = s.carrierDefinition[slot]; results[at+2] = s.activeRecipients[slot];
-        results[at+3] = s.stacks[slot]; results[at+4] = s.alive[slot] | (s.lazyPending[slot] << 1);
+        results[at+3] = s.stacks[slot]; results[at+4] = s.alive[slot] | (s.lazyPending[slot] << 1) | (uint(s.bulletInitialized[slot]==2)<<2);
         storeNumber(at+5,s.end[slot]); storeNumber(at+7,s.activated[slot]); results[at+9] = s.entryOrder[slot]; storeNumber(at+10,s.hpSnapshot[slot]);
         results[at+12] = definition_enemyBuff(s.inputBase,s.carrierDefinition[slot])!=0 ? s.enemyCaptureGeneration[slot] : uint(s.bulletLeft[slot]);
         for (uint who = 0; who < 5; who++) { results[at+13+who] = s.recipientBullets[slot*5+who]; results[at+18+who] = s.recipientStacks[slot*5+who]; }

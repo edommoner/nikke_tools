@@ -62,7 +62,8 @@ void captureBuffReference(inout Runtime s, uint slot, uint source)
 {
     bool present=false; uint64_t count=0;
     if (referenceScaleMode(s,source)==2) count=scaleReferenceCount(s,source,present);
-    storeReferenceCapture(s,slot,uint(present),count);
+    // Initialized carriers retain their birth-time runtime predicate policy.
+    storeReferenceCapture(s,slot,(referenceCaptureFlags(s,slot)&4)|uint(present),count);
 }
 [noinline]
 uint64_t scalarReferenceCount(inout Runtime s, uint slot, out bool scaled)
@@ -107,9 +108,9 @@ bool validateReferences(inout Runtime s)
             if (key==0 || key>s.resourceCount || name!=commands[s.inputBase+P_RESOURCE_NAME_BASE+key-1]) return false;
         }
         Definition d=readDefinition(s.inputBase,row);
-        if ((d.flags&~7U)!=0 || uint((d.flags&4)!=0)!=uint(scale!=0)) return false;
+        if ((d.flags&~15U)!=0 || uint((d.flags&4)!=0)!=uint(scale!=0)) return false;
         if ((scale==1 || scale==2) && (d.stat==S_max_hp_pct || d.stat==S_max_hp_only_pct || d.stat==S_hp_caster_based_pct || d.stat==S_hp_only_caster_based_pct)) s.healthMask|=32;
-        if (hit!=0 && d.kind!=3) return false;
+        if (hit!=0 && d.kind!=3 && !(hit==1 && (d.kind==20 || d.kind==21))) return false;
         if (scale==3 && (d.kind!=3 || f64Zero(d.interval) || (d.periodicFlags&2)==0)) return false;
         if ((scale==1 || scale==2) && d.kind!=0 && d.kind!=4) return false;
     }
