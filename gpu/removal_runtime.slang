@@ -1,4 +1,5 @@
 // Native removal changes resident membership, not unrelated mode/instant clocks.
+[noinline]
 uint filterRemovalOrder(uint order,uint mask,uint width,uint count)
 {
     uint filtered=0,size=0,field=(1U<<width)-1;
@@ -9,55 +10,58 @@ uint filterRemovalOrder(uint order,uint mask,uint width,uint count)
     }
     return filtered;
 }
+[noinline]
 uint removalMembers(inout Runtime s,uint slot)
 {
     uint definition=s.carrierDefinition[slot];
-    if(s.defs[definition].kind!=3 || f64Zero(s.defs[definition].interval)) return s.lazyPending[slot]!=0 ? 0 : s.activeRecipients[slot];
-    if((s.defs[definition].periodicFlags&1)==0) return 1U<<(s.timerTarget[definition]+5);
+    if(definition_kind(s.inputBase,definition)!=3 || f64Zero(definition_interval(s.inputBase,definition))) return s.lazyPending[slot]!=0 ? 0 : s.activeRecipients[slot];
+    if((definition_periodicFlags(s.inputBase,definition)&1)==0) return 1U<<(s.timerTarget[definition]+5);
     uint mask=0,order=s.periodicOrder[definition];
     for(uint i=0;i<8;i++) { uint value=(order>>(4*i))&15;if(value==0) break;mask|=1U<<(value-1); }
     return mask<<5;
 }
 // All old instances are changed before any state_end callback runs. This
 // preserves callbacks that recycle a slot or register a new same-name clock.
+[noinline]
 void removeNamedResidents(inout Runtime s,uint row,uint target,uint64_t when)
 {
-    uint policy=s.defs[row].target,name=uint(s.defs[row].targetName),scope=0xffffffff;
+    uint policy=definition_target(s.inputBase,row),name=uint(definition_targetName(s.inputBase,row)),scope=0xffffffff;
     if(policy==1) { uint order;scope=selectRecipients(s,row,when,order); }
-    else if(policy==2) { uint order;scope=enemyDamageMask(s,s.defs[row],target,order)<<5; }
+    else if(policy==2) { uint order;scope=enemyDamageMask(s,readDefinition(s.inputBase,row),target,order)<<5; }
     if(scope==0) return;
     for(uint pass=0;pass<s.orderedCount && s.error==0;pass++)
     {
         uint slot=s.orderedRows[pass],definition=s.carrierDefinition[slot];
-        if(s.alive[slot]==0 || s.defs[definition].name!=name) continue;
-        uint notices=s.defs[definition].enemyBuff!=0 ? enemyMaskCount(s.activeRecipients[slot]>>5) : 1;
+        if(s.alive[slot]==0 || definition_name(s.inputBase,definition)!=name) continue;
+        uint notices=definition_enemyBuff(s.inputBase,definition)!=0 ? enemyMaskCount(s.activeRecipients[slot]>>5) : 1;
         if(policy!=0)
         {
             uint prior=removalMembers(s,slot),stripped=prior&scope;
             if(stripped==0) continue;
             uint remaining=prior&~stripped;
-            if(s.defs[definition].kind==3 && !f64Zero(s.defs[definition].interval))
+            if(definition_kind(s.inputBase,definition)==3 && !f64Zero(definition_interval(s.inputBase,definition)))
             {
-                if((s.defs[definition].periodicFlags&1)!=0) s.periodicOrder[definition]=filterRemovalOrder(s.periodicOrder[definition],remaining>>5,4,8);
+                if((definition_periodicFlags(s.inputBase,definition)&1)!=0) s.periodicOrder[definition]=filterRemovalOrder(s.periodicOrder[definition],remaining>>5,4,8);
             }
             else
             {
                 s.activeRecipients[slot]=remaining;
                 s.carrierRecipientOrder[slot]=filterRemovalOrder(s.carrierRecipientOrder[slot],remaining&31,3,5);
             }
-            if(s.defs[definition].enemyBuff!=0)
+            if(definition_enemyBuff(s.inputBase,definition)!=0)
             {
                 notices=enemyMaskCount(stripped>>5);
-                if(remaining!=0) { queueRemovalNotice(s,s.defs[definition].owner,name,notices);continue; }
+                if(remaining!=0) { queueRemovalNotice(s,definition_owner(s.inputBase,definition),name,notices);continue; }
             }
             else if(remaining!=0) continue;
         }
         queueCarrierEnd(s,slot,notices);
         // Only periodic damage has both a resident and its definition clock.
         // Instant clocks have no resident, and never reach this retirement.
-        if(s.defs[definition].kind==3) s.timerActive[definition]=0;
+        if(definition_kind(s.inputBase,definition)==3) s.timerActive[definition]=0;
     }
 }
+[noinline]
 bool validRemovalDefinition(uint input,uint combat,uint row)
 {
     uint at=input+P_DEFINITION_BASE+row*P_DEFINITION_WORDS;

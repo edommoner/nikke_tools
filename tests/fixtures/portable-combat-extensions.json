@@ -1474,7 +1474,8 @@
               "battle_start"
             ],
             "condition": []
-          }
+          },
+          "reload_time": 1
         },
         {
           "name": "remove",
@@ -4166,7 +4167,8 @@
               "battle_start"
             ],
             "condition": []
-          }
+          },
+          "reload_time": 1
         },
         {
           "name": "remove",
@@ -4387,7 +4389,8 @@
             "condition": []
           },
           "charge_time": 0.5,
-          "full_charge_mult": 100
+          "full_charge_mult": 100,
+          "reload_time": 1
         },
         {
           "name": "remove",
@@ -4510,7 +4513,7 @@
               {
                 "ammo": 0,
                 "shots": 1,
-                "next": 0.0,
+                "next": 0.75,
                 "reload_until": -1.0
               }
             ]
@@ -4531,7 +4534,7 @@
               {
                 "ammo": 0,
                 "shots": 1,
-                "next": 0.0,
+                "next": 0.75,
                 "reload_until": 1.75
               }
             ]

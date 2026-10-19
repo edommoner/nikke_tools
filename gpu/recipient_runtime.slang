@@ -20,7 +20,7 @@ bool validRecipientPlan(uint at, bool enemy = false)
 [noinline]
 uint selectRecipients(inout Runtime s, uint row, uint64_t when, out uint order)
 {
-    Definition d = s.defs[row];
+    Definition d = readDefinition(s.inputBase,row);
     uint at = s.inputBase+P_RECIPIENT_BASE+row*8;
     uint kind = commands[at], count = commands[at+1], candidates = commands[at+2];
     uint exclude = commands[at+3], authoredOrder = commands[at+4];

@@ -1,4 +1,5 @@
 struct ResourceDefinition { uint op, key, flags; uint64_t cap, literal, minimum; };
+[ForceInline]
 ResourceDefinition resourceDefinition(inout Runtime s, uint row)
 {
     uint at=s.inputBase+P_RESOURCE_DEFINITION_BASE+row*10; ResourceDefinition r;
@@ -85,10 +86,10 @@ bool nextResourceBoundary(inout Runtime s, uint who, uint key, uint64_t cursor, 
 {
     bool found = false; selected = 0;
 #ifdef PORTABLE_RESOURCE_SCAN_REFERENCE
-    for (uint row = 0; row < s.count; row++) for (uint slot = 0; slot < s.defs[row].triggerCount; slot++)
+    for (uint row = 0; row < s.count; row++) for (uint slot = 0; slot < definition_triggerCount(s.inputBase,row); slot++)
     {
         uint at = s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS+slot*8;
-        if (s.defs[row].owner != who || commands[at] != 30 || commands[at+4] != key) continue;
+        if (definition_owner(s.inputBase,row) != who || commands[at] != 30 || commands[at+4] != key) continue;
 #else
     uint encoded = results[s.resourceOutput+P_RESOURCE_STEP_HEAD_BASE+who*P_RESOURCE_KEYS+key];
     while (encoded != 0)
@@ -123,7 +124,7 @@ bool initializeResources(inout Runtime s)
     for (uint word = 1; word < 8; word++) if (commands[s.inputBase+P_RESOURCE_META_BASE+word] != 0) return false;
     for (uint row = 0; row < s.count; row++)
     {
-        Definition d = s.defs[row]; ResourceDefinition r = resourceDefinition(s,row); uint at = s.inputBase+P_RESOURCE_DEFINITION_BASE+row*10;
+        Definition d = readDefinition(s.inputBase,row); ResourceDefinition r = resourceDefinition(s,row); uint at = s.inputBase+P_RESOURCE_DEFINITION_BASE+row*10;
         if (commands[at+3] != 0 || r.op > 5 || r.flags > 3) return false;
         if (r.op == 0)
         { for (uint k = 1; k < 10; k++) if (commands[at+k] != 0) return false; if (d.kind >= 9 && d.kind <= 11) return false; }

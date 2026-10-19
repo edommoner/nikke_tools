@@ -11,8 +11,8 @@ void initializeHPWatches(inout Runtime s)
     // spellings such as 50 and 50.0 as distinct named keys).
     for (uint owner = 0; owner < 5; owner++) for (uint row = 0; row < s.count; row++)
     {
-        if (s.defs[row].owner != owner) continue;
-        for (uint slot = 0; slot < s.defs[row].triggerCount; slot++)
+        if (definition_owner(s.inputBase,row) != owner) continue;
+        for (uint slot = 0; slot < definition_triggerCount(s.inputBase,row); slot++)
         {
             uint at = s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS+slot*8;
             int stage = int(commands[at+7]);
@@ -22,7 +22,7 @@ void initializeHPWatches(inout Runtime s)
             for (uint i = 0; i < s.hpWatchCount; i++)
             {
                 uint prior = hpWatchAddress(s,i);
-                if (s.defs[s.hpWatchSlots[i]/8].owner == owner && commands[prior] == commands[at] && commands[prior+4] == commands[at+4]) seen = true;
+                if (definition_owner(s.inputBase,s.hpWatchSlots[i]/8) == owner && commands[prior] == commands[at] && commands[prior+4] == commands[at+4]) seen = true;
             }
 #endif
             if (!seen) s.hpWatchSlots[s.hpWatchCount++] = row*8+slot;

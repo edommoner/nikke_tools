@@ -41,7 +41,7 @@ uint64_t referenceCount(inout Runtime s, uint who, uint key, uint name, bool gau
 [noinline]
 uint activationHitCount(inout Runtime s, uint row)
 {
-    Definition d=s.defs[row]; uint at=s.inputBase+P_REFERENCE_DEFINITION_BASE+row*4,mode=commands[at]&3;
+    Definition d=readDefinition(s.inputBase,row); uint at=s.inputBase+P_REFERENCE_DEFINITION_BASE+row*4,mode=commands[at]&3;
     if (f64Zero(d.value)) return 0;
     if (mode==0) return d.damageHits;
     bool present; uint64_t value=referenceCount(s,d.owner,(commands[at+1]&511)-1,commands[at+2]&255,mode==2,present);
@@ -56,7 +56,7 @@ uint activationHitCount(inout Runtime s, uint row)
 uint64_t scaleReferenceCount(inout Runtime s, uint source, out bool present)
 {
     uint at=s.inputBase+P_REFERENCE_DEFINITION_BASE+source*4;
-    return referenceCount(s,s.defs[source].owner,((commands[at+1]>>9)&511)-1,(commands[at+2]>>8)&255,false,present);
+    return referenceCount(s,definition_owner(s.inputBase,source),((commands[at+1]>>9)&511)-1,(commands[at+2]>>8)&255,false,present);
 }
 void captureBuffReference(inout Runtime s, uint slot, uint source)
 {
@@ -76,7 +76,7 @@ uint64_t scalarReferenceCount(inout Runtime s, uint slot, out bool scaled)
 bool registerDotReference(inout Runtime s, uint row, bool resident)
 {
     if (referenceScaleMode(s,row)!=3) { storeReferenceCapture(s,row,0,0); return false; }
-    if (!resident || s.defs[row].maxStack!=1)
+    if (!resident || definition_maxStack(s.inputBase,row)!=1)
     {
         bool present; uint64_t value=scaleReferenceCount(s,row,present);
         storeReferenceCapture(s,row,3,present ? value : ONE);
@@ -87,7 +87,7 @@ bool registerDotReference(inout Runtime s, uint row, bool resident)
 }
 uint64_t activationDamageCoefficient(inout Runtime s, uint row)
 {
-    Definition d=s.defs[row]; uint64_t scale=referenceScaleMode(s,row)==3 ? carrierStackValue(s,row) : f64FromI64((d.periodicFlags&2)!=0 ? s.stacks[row] : 1);
+    Definition d=readDefinition(s.inputBase,row); uint64_t scale=referenceScaleMode(s,row)==3 ? carrierStackValue(s,row) : f64FromI64((d.periodicFlags&2)!=0 ? s.stacks[row] : 1);
     if(s.stagedScopeRow==row+1 && s.alive[row]!=0 && s.stagedScopeEntry==s.entryOrder[row] && s.stagedScopeGeneration==stagedGeneration(s,row)) scale=f64FromI64(s.stagedScopeStack);
     return f64Mul(d.value,scale);
 }
@@ -106,7 +106,7 @@ bool validateReferences(inout Runtime s)
             if (mode==0) { if (key!=0 || name!=0) return false; continue; }
             if (key==0 || key>s.resourceCount || name!=commands[s.inputBase+P_RESOURCE_NAME_BASE+key-1]) return false;
         }
-        Definition d=s.defs[row];
+        Definition d=readDefinition(s.inputBase,row);
         if ((d.flags&~7U)!=0 || uint((d.flags&4)!=0)!=uint(scale!=0)) return false;
         if ((scale==1 || scale==2) && (d.stat==S_max_hp_pct || d.stat==S_max_hp_only_pct || d.stat==S_hp_caster_based_pct || d.stat==S_hp_only_caster_based_pct)) s.healthMask|=32;
         if (hit!=0 && d.kind!=3) return false;

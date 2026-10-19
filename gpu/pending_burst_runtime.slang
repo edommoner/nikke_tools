@@ -2,7 +2,7 @@
 // every queued packet after full-burst buffs and before any queued landing.
 bool validPendingDefinition(inout Runtime s, uint row)
 {
-    Definition d = s.defs[row];
+    Definition d = readDefinition(s.inputBase,row);
     if (d.damagePending != 0)
     {
         bool cast = false;
@@ -20,14 +20,14 @@ bool validPendingDefinition(inout Runtime s, uint row)
         {
             uint target = word*32+bit;
             if (target >= s.count) return false;
-            if (s.defs[target].owner != d.owner || s.defs[target].kind != 0 && s.defs[target].kind != 4) return false;
+            if (definition_owner(s.inputBase,target) != d.owner || definition_kind(s.inputBase,target) != 0 && definition_kind(s.inputBase,target) != 4) return false;
         }
     }
     return true;
 }
 void enqueuePendingBurst(inout Runtime s, uint row, uint64_t when)
 {
-    Definition d = s.defs[row];
+    Definition d = readDefinition(s.inputBase,row);
     uint64_t coefficient = d.value; // plain bonus coefficient is not a DoT stack multiplier
     if (f64Zero(coefficient)) return;
     if (!f64Finite(coefficient)) { s.error = 16; return; }
@@ -54,7 +54,7 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
     // Capture all amounts before routing/landing can change target state.
     for (uint index = 0; index < count && s.error == 0; index++)
     {
-        uint row = s.pendingRow[index]; Definition d = s.defs[row];
+        uint row = s.pendingRow[index]; Definition d = readDefinition(s.inputBase,row);
 #ifndef PORTABLE_PENDING_RECALCULATE_REFERENCE
         // No event is dispatched during this calculation phase. Repeated
         // adjacent definitions with the same captured coefficient share it.
@@ -67,7 +67,7 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
     }
     for (uint index = 0; index < count && s.error == 0; index++)
     {
-        uint row = s.pendingRow[index]; Definition d = s.defs[row]; d.damageHits = s.pendingHits[index];
+        uint row = s.pendingRow[index]; Definition d = readDefinition(s.inputBase,row); d.damageHits = s.pendingHits[index];
         for (uint hit = 0; hit < d.damageHits && s.error == 0; hit++)
         {
             uint packedOrder; uint inherited = aimedTarget(s,d.owner);

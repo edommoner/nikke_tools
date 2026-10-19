@@ -46,7 +46,7 @@ void knockDown(inout Runtime s, uint who, uint64_t when)
     }
     for (uint row = 0; row < s.count; row++)
     {
-        Definition d = s.defs[row];
+        Definition d = readDefinition(s.inputBase,row);
         if (d.owner == who) for (uint slot = 0; slot < d.triggerCount; slot++)
         {
             uint event = commands[s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS+slot*8];

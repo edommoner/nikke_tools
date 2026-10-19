@@ -3,7 +3,7 @@
 [noinline]
 uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t when)
 {
-    Definition incoming = s.defs[definition];
+    Definition incoming = readDefinition(s.inputBase,definition);
 #ifndef PORTABLE_CARRIER_SCAN_REFERENCE
     // Most real definitions have one carrier and no compatible name aliases.
     // Avoid a growing resident scan on first activation and ordinary refresh.
@@ -37,11 +37,13 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
 
 // GPU-owned 16-bit payloads use existing output alignment padding. No
 // private queue array or extra dispatch-frame branch is needed for repeats.
+[noinline]
 uint loadRemovalNotice(inout Runtime s,uint index)
 {
     uint at=s.resourceOutput+P_REMOVAL_QUEUE_BASE+index/2;
     return (results[at]>>((index&1)*16))&65535;
 }
+[noinline]
 void queueRemovalNotice(inout Runtime s,uint owner,uint name,uint repeats=1)
 {
     if(name>=P_DEFINITIONS || repeats==0) return;
@@ -52,10 +54,11 @@ void queueRemovalNotice(inout Runtime s,uint owner,uint name,uint repeats=1)
         results[at]=(results[at]&~(65535U<<shift))|((owner|(name<<3))<<shift);
     }
 }
+[noinline]
 void queueCarrierEnd(inout Runtime s,uint slot,uint repeats=0)
 {
     uint definition=s.carrierDefinition[slot];
-    if(repeats==0) repeats=s.defs[definition].enemyBuff!=0 ? countbits(s.activeRecipients[slot]>>5) : 1;
+    if(repeats==0) repeats=definition_enemyBuff(s.inputBase,definition)!=0 ? countbits(s.activeRecipients[slot]>>5) : 1;
     unlinkBulletCarrier(s,slot);discardLazy(s,slot);s.alive[slot]=0;s.stacks[slot]=0;
-    queueRemovalNotice(s,s.defs[definition].owner,s.defs[definition].name,repeats);
+    queueRemovalNotice(s,definition_owner(s.inputBase,definition),definition_name(s.inputBase,definition),repeats);
 }

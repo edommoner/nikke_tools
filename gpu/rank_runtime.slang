@@ -21,7 +21,7 @@ uint64_t recipientAttack(inout Runtime s, uint who, uint64_t when)
 uint rankedRecipients(inout Runtime s, uint definition, uint64_t when, out uint order)
 {
     uint at = s.inputBase+P_RECIPIENT_BASE+definition*8;
-    uint kind = commands[at], count = commands[at+1], owner = s.defs[definition].owner;
+    uint kind = commands[at], count = commands[at+1], owner = definition_owner(s.inputBase,definition);
     uint pool = kind == 15 || kind == 16 ? commands[at+2] : 31;
     if (commands[at+3] != 0) pool &= ~(1U << owner);
     pool &= ~s.downMask;

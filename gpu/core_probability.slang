@@ -4,19 +4,23 @@
 struct Wide { uint limb[6]; };
 struct Bounds { Wide lo; Wide hi; };
 
+[ForceInline]
 Wide wideSmall(uint x) { Wide a = {}; a.limb[0] = x; return a; }
+[ForceInline]
 Wide wideOne() { Wide a = {}; a.limb[4] = 1; return a; }
 bool wideLess(Wide a, Wide b)
 {
     for (int i = 5; i >= 0; i--) if (a.limb[i] != b.limb[i]) return a.limb[i] < b.limb[i];
     return false;
 }
+[ForceInline]
 Wide wideAdd(Wide a, Wide b)
 {
     Wide r; uint64_t carry = 0;
     for (uint i = 0; i < 6; i++) { carry += uint64_t(a.limb[i]) + b.limb[i]; r.limb[i] = uint(carry); carry >>= 32; }
     return r;
 }
+[ForceInline]
 Wide wideSub(Wide a, Wide b)
 {
     Wide r; uint64_t borrow = 0;
@@ -27,12 +31,14 @@ Wide wideSub(Wide a, Wide b)
     }
     return r;
 }
+[ForceInline]
 Wide wideTimes(Wide a, uint n)
 {
     Wide r; uint64_t carry = 0;
     for (uint i = 0; i < 6; i++) { carry += uint64_t(a.limb[i]) * n; r.limb[i] = uint(carry); carry >>= 32; }
     return r;
 }
+[ForceInline]
 Wide wideDivide(Wide a, uint n, bool up)
 {
     Wide r; uint64_t remainder = 0;
@@ -40,6 +46,7 @@ Wide wideDivide(Wide a, uint n, bool up)
     { uint64_t next = (remainder << 32) | a.limb[i]; r.limb[i] = uint(next / n); remainder = next % n; }
     return up && remainder != 0 ? wideAdd(r, wideSmall(1)) : r;
 }
+[ForceInline]
 Wide wideProduct(Wide a, Wide b, bool up)
 {
     uint product[12] = {};
@@ -57,14 +64,17 @@ Wide wideProduct(Wide a, Wide b, bool up)
     bool remainder = (product[0] | product[1] | product[2] | product[3]) != 0;
     return up && remainder ? wideAdd(r, wideSmall(1)) : r;
 }
+[ForceInline]
 Bounds boundProduct(Bounds a, Bounds b)
 {
     Bounds r; r.lo = wideProduct(a.lo, b.lo, false); r.hi = wideProduct(a.hi, b.hi, true); return r;
 }
+[ForceInline]
 Bounds boundDivide(Bounds a, uint n)
 {
     Bounds r; r.lo = wideDivide(a.lo, n, false); r.hi = wideDivide(a.hi, n, true); return r;
 }
+[ForceInline]
 Bounds ratioBounds(uint64_t numerator, uint64_t denominator)
 {
     Bounds r = {}; uint64_t remainder = numerator;
@@ -90,6 +100,7 @@ uint64_t wideToBinary64(Wide a, uint scale)
     return f64Pack(0, highest - 128 - int(scale) + 1023, significand);
 }
 
+[noinline]
 uint64_t coreProbability(uint64_t x, out uint status)
 {
     status = 0;

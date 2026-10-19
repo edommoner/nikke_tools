@@ -22,6 +22,7 @@ void storeLandingReceipt(uint at,LandingReceipt r)
     results[at+6]=r.hit|(r.hits<<9)|(r.depth<<18);results[at+7]=r.epoch;
 #endif
 }
+[ForceInline]
 LandingReceipt loadLandingReceipt(uint at)
 {
     LandingReceipt r;
@@ -76,7 +77,7 @@ void drainLandings(inout Runtime s,uint64_t when,uint output)
         if(++work>4096) { s.error=4;break; }
         LandingReceipt receipt=loadLandingReceipt(landingAddress(s,results[header+1]++));
         uint row=receipt.row,inherited=receipt.target,mask=receipt.mask,order=receipt.order,epoch=receipt.epoch;
-        Definition d=s.defs[row];d.damageHits=receipt.hits;
+        Definition d=readDefinition(s.inputBase,row);d.damageHits=receipt.hits;
         if(mask==0xffffffff)
         {
             mask=enemyDamageMask(s,d,inherited,order);

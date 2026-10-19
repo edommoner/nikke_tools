@@ -44,4 +44,11 @@ class RemovalTests(unittest.TestCase):
   c=next(c for c in v.fixtures() if c['name']=='named-removal-keeps-independent-weapon-mode')
   from portable_weapon_oracle import observe as weapon
   self.assertEqual([q['damage'][0] for q in weapon(c)[0]],[2000,4000]);self.assertTrue(c['weapon_reference'])
+ def test_native_weapon_implicit_reload_matches_explicit_wire_default(self):
+  from portable_weapon_oracle import observe as weapon
+  c=copy.deepcopy(next(c for c in v.fixtures() if c['name']=='named-removal-last-bullet-keeps-mode-magazine'))
+  explicit=copy.deepcopy(c);explicit['combat']['weapons'][0]['reload']=1
+  self.assertEqual(v.compile_case(c)[0],v.compile_case(explicit)[0])
+  self.assertEqual(weapon(c),weapon(explicit))
+  self.assertEqual(weapon(c)[0][1]['combat']['weapons'][0]['reload_until'],1.25)
 if __name__=='__main__':unittest.main()

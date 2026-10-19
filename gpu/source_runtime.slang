@@ -25,7 +25,7 @@ uint64_t sourceInterval(inout Runtime s, uint row, uint count)
 [noinline]
 void registerSource(inout Runtime s, uint row, uint64_t when)
 {
-    uint at=sourceDescriptor(s,row), owner=s.defs[row].owner, name=commands[at];
+    uint at=sourceDescriptor(s,row), owner=definition_owner(s.inputBase,row), name=commands[at];
     uint encoded=sourceLookup(s,owner,name), header=s.resourceOutput+P_SOURCE_HEADER_BASE, slot;
     if (encoded==0)
     {
@@ -50,7 +50,7 @@ bool initializeSources(inout Runtime s)
     uint unique=0;
     for (uint row=0; row<s.count; row++)
     {
-        uint at=sourceDescriptor(s,row); Definition d=s.defs[row];
+        uint at=sourceDescriptor(s,row); Definition d=readDefinition(s.inputBase,row);
         if (d.kind!=35)
         { for (uint i=0; i<P_SOURCE_DEFINITION_WORDS; i++) if (commands[at+i]!=0) return false; continue; }
         s.sourceEnabled=1;
@@ -65,7 +65,7 @@ bool initializeSources(inout Runtime s)
         }
         bool first=true;
         for (uint other=0; other<row; other++)
-            if (s.defs[other].kind==35 && s.defs[other].owner==d.owner && commands[sourceDescriptor(s,other)]==commands[at]) first=false;
+            if (definition_kind(s.inputBase,other)==35 && definition_owner(s.inputBase,other)==d.owner && commands[sourceDescriptor(s,other)]==commands[at]) first=false;
         if (first && ++unique>P_SOURCES) return false;
     }
     return true;

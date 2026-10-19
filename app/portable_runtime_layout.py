@@ -1,6 +1,6 @@
 """Generate compact zeroing loops from the shared Runtime declaration.
-Definitions are immutable and fully decoded before use; do not initialize a
-second 256-element temporary definition array just to overwrite it immediately.
+Immutable definitions are read directly from the static input wire; runtime
+initialization covers mutable state only.
 """
 import re
 from collections import defaultdict
@@ -27,7 +27,7 @@ def runtime_initializer():
             if size:arrays[size].append(name)
             else:scalars.append(name)
     lines=['// Generated from Runtime in event_runtime.slang by portable_runtime_layout.py.',
-           '// Immutable defs[] are completely decoded before any consumer runs.',
+           '// Immutable definitions remain in the GPU input buffer.',
            '[noinline]','void initializeRuntime(inout Runtime s)','{']
     lines += [f'    s.{name} = 0;' for name in scalars]
     for size,names in arrays.items():

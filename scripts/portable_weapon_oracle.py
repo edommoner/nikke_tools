@@ -34,6 +34,14 @@ def authored_weapon_state(char,w,base_atk=1000):
     return st
 
 
+def observed_next_fire(st,bm):
+    """Project native split auto/charge clocks onto the common availability field."""
+    mode=bm.get_weapon_change(st.name)
+    charge=(mode.get('charge',mode.get('weapon_type','SR') in ('SR','RL'))
+            if mode is not None else st.fire_mode=='charge')
+    return max(st.next_fire_time,st._post_delay_end_t) if charge else st.next_fire_time
+
+
 def _observe(case):
     w=case['combat']['weapons'][0]
     if any(x.get('enabled',False) for x in case['combat']['weapons'][1:]):raise ValueError('Oracle fixture needs one enabled shooter')
@@ -50,6 +58,8 @@ def _observe(case):
     bm=BM(chars,state=dict(base_stats=bs,enemy=enemy,full_burst=False,rng_acc={},rng_expected=True,camera=set()))
     st=authored_weapon_state(chars[0],w)
     total=0;shots=0;gauge=0;queries=[];started=False
+    # Canonical charge next means the post-shot availability clock; the native
+    # auto-fire clock is unused while charge uses _post_delay_end_t.
     commands=[];next_frame=0;clock=0.0;accumulated=case['combat'].get('clock')=='accumulated'
     for command in case['script']:
         if command[1]==24:
@@ -66,7 +76,7 @@ def _observe(case):
             hits=st.tick(t,bm,enemy,{'rng_mode':'expected'})
             total+=sum(h.damage for h in hits);shots+=int(bool(hits))
             if hits:gauge=min(100,gauge+st._burst_gain(bm.get_buffs(names[0],'__enemy__',t),len(hits),full_charge=st.fire_mode=='charge' and case.get('weapon_reference_context',{}).get('camera',False)))
-        elif op==2:queries.append(dict(damage=[total,0,0,0,0],combat={'gauge':gauge,'clock':'accumulated' if accumulated else 'grid','weapons':[dict(ammo=st.ammo,shots=shots,next=st.next_fire_time,reload_until=st.reloading_until)]}))
+        elif op==2:queries.append(dict(damage=[total,0,0,0,0],combat={'gauge':gauge,'clock':'accumulated' if accumulated else 'grid','weapons':[dict(ammo=st.ammo,shots=shots,next=observed_next_fire(st,bm),reload_until=st.reloading_until)]}))
         else:raise ValueError('Oracle accepts frame/query fixtures only')
     return queries,dict(warm=st.warmup_shots,last_interval=st._last_inter)
 

@@ -7,6 +7,7 @@ static const uint64_t TEN = uint64_t(0x40240000) << 32;
 
 #include "ammo_instant_runtime.slang"
 
+[noinline]
 void initializeCombat(inout Runtime s, uint input)
 {
     s.automaticAddAim = commands[input+P_AIM_POLICY_BASE];
@@ -66,9 +67,35 @@ struct Weapon
     int shotLimit;
     uint64_t coefficient, interval, reloadTime, chargeTime, gain, coreBonus, firstCoefficient, fullChargeMult, minCycle, gaugeMultiplier, rateMin, rateMax, warmLimit, coolTime;
 };
-Weapon selectWeapon(inout Runtime s, uint who, uint64_t when)
+[noinline]
+void selectWeapon(inout Runtime s,uint who,uint64_t when,out Weapon w)
 {
-    Weapon w = {};
+    w.mode=0;
+    w.capacity=0;
+    w.pellets=0;
+    w.muzzles=0;
+    w.infinite=0;
+    w.sentinelMode=0;
+    w.reloadAllowed=0;
+    w.optimal=0;
+    w.rawRate=0;
+    w.ammoBuffs=0;
+    w.delayCover=0;
+    w.shotLimit=0;
+    w.coefficient=0;
+    w.interval=0;
+    w.reloadTime=0;
+    w.chargeTime=0;
+    w.gain=0;
+    w.coreBonus=0;
+    w.firstCoefficient=0;
+    w.fullChargeMult=0;
+    w.minCycle=0;
+    w.gaugeMultiplier=0;
+    w.rateMin=0;
+    w.rateMax=0;
+    w.warmLimit=0;
+    w.coolTime=0;
     w.delayCover = s.delayCover[who]; w.ammoBuffs = 1; w.rawRate = s.rawRate[who]; w.rateMin = s.rateMin[who]; w.rateMax = s.rateMax[who]; w.warmLimit = s.warmLimit[who]; w.coolTime = s.coolTime[who];
     w.minCycle = s.minCycle[who]; w.gaugeMultiplier = s.gaugeMultiplier[who]; w.fullChargeMult = s.fullChargeMult[who]; w.optimal = s.attackContext[who] & 1;
     w.mode = s.weaponMode[who]; w.capacity = s.capacity[who]; w.pellets = s.pellets[who]; w.muzzles = s.muzzles[who];
@@ -89,7 +116,7 @@ Weapon selectWeapon(inout Runtime s, uint who, uint64_t when)
         w.rawRate = 1; uint timing = s.inputBase+P_MODE_TIMING_BASE+uint(index)*P_MODE_TIMING_WORDS;
         w.rateMin = loadNumber(timing); w.rateMax = loadNumber(timing+2); w.warmLimit = loadNumber(timing+4); w.coolTime = loadNumber(timing+6);
     }
-    if (w.pellets == 0 || w.pellets > 64 || w.muzzles == 0 || w.muzzles > 8) { s.error = 64; return w; }
+    if (w.pellets == 0 || w.pellets > 64 || w.muzzles == 0 || w.muzzles > 8) { s.error = 64; return; }
     if (s.appliedEpoch[who] != s.modeEpoch[who])
     {
         s.appliedEpoch[who] = s.modeEpoch[who]; s.physicalModeIndex[who] = index; s.modeShots[who] = 0; s.pendingAutoReload[who] = 0;
@@ -102,7 +129,7 @@ Weapon selectWeapon(inout Runtime s, uint who, uint64_t when)
     else w.capacity = fullCapacity(s,who,s.capacity[who],true,when);
     if (index >= 0 && w.sentinelMode == 0 && w.shotLimit >= 0 && uint(w.shotLimit) == commands[s.inputBase+P_MODE_BASE+uint(index)*P_MODE_WORDS+1]) w.shotLimit = int(w.capacity);
     if (s.weaponInitialized[who] == 0) { s.weaponInitialized[who] = 1; s.ammo[who] = w.capacity; }
-    return w;
+    return;
 }
 #include "weapon_runtime.slang"
 void initializeMagazines(inout Runtime s, uint64_t when)
@@ -204,7 +231,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     landedAmount=0;landedCount=0;landedTarget=0;
     if (s.weaponEnabled[who] == 0 || (s.downMask & (1U << who)) != 0) return;
     uint target = aimedTarget(s,who); if (target == 0xffffffff) return;
-    s.target = target; Weapon w = selectWeapon(s,who,when);
+    s.target = target; Weapon w;selectWeapon(s,who,when,w);
     if (s.error != 0) return;
     if (s.modeIndex[who] < 0 && f64Less(0,s.reloadUntil[who]) && hasInfiniteAmmo(s,who,when))
     { s.reloadUntil[who] = F64_SIGN | ONE; s.nextShot[who] = larger(s.nextShot[who],when); }
@@ -213,7 +240,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     {
         if (f64Less(when,s.reloadUntil[who])) return;
         if (!completeReload(s,w,who,when,output)) return;
-        w = selectWeapon(s,who,when); // A completion callback may change the mode.
+        selectWeapon(s,who,when,w); // A completion callback may change the mode.
     }
     if (s.modeIndex[who] < 0 && !f64Less(s.postReloadUntil[who],0))
     {
@@ -293,7 +320,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     {
         s.modeShots[who]++;
         if (w.shotLimit >= 0 && s.modeShots[who] >= uint(w.shotLimit))
-        { uint name = s.defs[mode].name; s.frameAmmoActive[who] = 0; clearMode(s,who,when); dispatch(s,0,29,who,int(name),when,output); return; }
+        { uint name = definition_name(s.inputBase,mode); s.frameAmmoActive[who] = 0; clearMode(s,who,when); dispatch(s,0,29,who,int(name),when,output); return; }
     }
     if (w.mode == 1)
     { s.pendingAutoReload[who] = uint(scheduleAutoReload); s.charging[who] = 0; s.nextShot[who] = larger(f64Add(when,f64Add(w.interval,w.chargeTime ^ F64_SIGN)),f64Add(s.chargeStartedAt[who],w.minCycle)); }
@@ -338,6 +365,7 @@ void advanceCombat(inout Runtime s, uint64_t through, uint output)
     }
 }
 
+[noinline]
 void writeCombatQuery(inout Runtime s, uint output, uint states)
 {
     for (uint who = 0; who < 5; who++)

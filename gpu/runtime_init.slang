@@ -1,5 +1,5 @@
 // Generated from Runtime in event_runtime.slang by portable_runtime_layout.py.
-// Immutable defs[] are completely decoded before any consumer runs.
+// Immutable definitions remain in the GPU input buffer.
 [noinline]
 void initializeRuntime(inout Runtime s)
 {

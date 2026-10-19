@@ -2,16 +2,16 @@
 bool validateDurationGroups(inout Runtime s)
 {
     if (s.durationEnabled == 0) return true;
-    for (uint row = 0; row < s.count; row++) if (s.defs[row].durationGroup != 0)
+    for (uint row = 0; row < s.count; row++) if (definition_durationGroup(s.inputBase,row) != 0)
     {
-        Definition d = s.defs[row];
+        Definition d = readDefinition(s.inputBase,row);
 #ifdef PORTABLE_DURATION_SCAN_REFERENCE
-        for (uint prior = 0; prior < row; prior++) if (d.durationGroup == s.defs[prior].durationGroup &&
-            (d.owner != s.defs[prior].owner || d.name != s.defs[prior].name)) return false;
+        for (uint prior = 0; prior < row; prior++) if (d.durationGroup == definition_durationGroup(s.inputBase,prior) &&
+            (d.owner != definition_owner(s.inputBase,prior) || d.name != definition_name(s.inputBase,prior))) return false;
 #else
         uint encoded = s.durationGroupFirst[d.durationGroup-1];
         if (encoded == 0) s.durationGroupFirst[d.durationGroup-1] = row+1;
-        else if (d.owner != s.defs[encoded-1].owner || d.name != s.defs[encoded-1].name) return false;
+        else if (d.owner != definition_owner(s.inputBase,encoded-1) || d.name != definition_name(s.inputBase,encoded-1)) return false;
 #endif
     }
     return true;

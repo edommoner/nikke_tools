@@ -7,7 +7,7 @@ bool validEventCandidates(inout Runtime s)
     {
         uint expected[64]; for (uint event = 0; event < 64; event++) expected[event] = 0;
         for (uint row = word*32; row < min(s.count,(word+1)*32); row++)
-            for (uint slot = 0; slot < s.defs[row].triggerCount; slot++)
+            for (uint slot = 0; slot < definition_triggerCount(s.inputBase,row); slot++)
             {
                 uint event = commands[s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS+slot*8];
                 if (event >= 64) return false;

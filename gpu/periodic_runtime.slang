@@ -18,7 +18,7 @@ void capturePeriodicTargets(inout Runtime s, uint row, uint source, bool append)
 {
     uint packed = 0, count = 0, mask = 0;
     if (append) { mask = periodicDamageMask(s,row,packed); count = enemyMaskCount(mask); }
-    Definition selector = s.defs[source];
+    Definition selector = readDefinition(s.inputBase,source);
     // Native damage carrier registration resolves target by logical aim.
     // Legacy single-recipient clocks retain their separate captured context.
     if (selector.damageRoute == 0) selector.damageRoute = 6;
@@ -36,12 +36,12 @@ void capturePeriodicTargets(inout Runtime s, uint row, uint source, bool append)
 [noinline]
 uint periodicClockOwner(inout Runtime s, uint source)
 {
-    uint group = s.defs[source].periodicGroup;
+    uint group = definition_periodicGroup(s.inputBase,source);
     if (group == 0) return source;
 #ifdef PORTABLE_PERIODIC_OWNER_SCAN_REFERENCE
     uint selected = source, first = 0xffffffff;
     for (uint row = 0; row < s.count; row++)
-        if (s.defs[row].periodicGroup == group && s.timerActive[row] != 0 && s.alive[row] != 0 && s.timerOrder[row] < first)
+        if (definition_periodicGroup(s.inputBase,row) == group && s.timerActive[row] != 0 && s.alive[row] != 0 && s.timerOrder[row] < first)
         { selected = row; first = s.timerOrder[row]; }
     return selected;
 #else
@@ -54,7 +54,7 @@ uint periodicClockOwner(inout Runtime s, uint source)
 [noinline]
 void registerTimer(inout Runtime s, uint source, uint64_t when)
 {
-    uint row = periodicClockOwner(s,source); Definition d = s.defs[row], grant = s.defs[source];
+    uint row = periodicClockOwner(s,source); Definition d = readDefinition(s.inputBase,row), grant = readDefinition(s.inputBase,source);
     bool was = s.timerActive[row] != 0;
     bool staged=s.stagedEnabled!=0 && isStaged(s,row);
     bool resident = s.alive[row] != 0 && (staged || f64Less(when,s.end[row]));
@@ -91,7 +91,7 @@ bool validatePeriodicDefinitions(inout Runtime s)
 {
     for (uint row = 0; row < s.count; row++)
     {
-        Definition d = s.defs[row]; bool damageClock = d.kind == 3 && !f64Zero(d.interval);
+        Definition d = readDefinition(s.inputBase,row); bool damageClock = d.kind == 3 && !f64Zero(d.interval);
         if (d.periodicFlags > 7 || d.periodicGroup > s.count) return false;
         bool retained = damageClock && (d.damageRoute >= 2 || d.periodicGroup != 0);
         if ((d.periodicFlags & 1) != uint(retained) || retained && s.combat == 0) return false;
@@ -101,7 +101,7 @@ bool validatePeriodicDefinitions(inout Runtime s)
         uint members = 0;
         for (uint other = 0; other < s.count; other++)
         {
-            Definition b = s.defs[other];
+            Definition b = readDefinition(s.inputBase,other);
             if (d.periodicGroup != 0 && b.periodicGroup == d.periodicGroup)
             { if (b.owner != d.owner || b.name != d.name) return false; members++; }
             if (row != other && (d.periodicFlags & 4) != 0 && (b.periodicFlags & 4) != 0 && d.name == b.name && d.owner == b.owner)
