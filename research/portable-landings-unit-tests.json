@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "tests": 106,
+  "native_runtime_tests": 15,
+  "log": "..........................................................................................................\n----------------------------------------------------------------------\nRan 106 tests in 3.596s\n\nOK\n",
+  "native_logs": {
+    "staged": "../Users/edo/Documents/ChatGPT/nikke_tools/research/upstream/nikke-calc-master/scraper/profile_fetch.py:187: ResourceWarning: unclosed file <_io.TextIOWrapper name='/Users/edo/Documents/ChatGPT/nikke_tools/research/upstream/nikke-calc-master/scraper/nikke_scraped.json' mode='r' encoding='utf-8'>\n  d = json.load(open(os.path.join(HERE, \"nikke_scraped.json\"), encoding=\"utf-8\"))\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n.......\n----------------------------------------------------------------------\nRan 9 tests in 0.644s\n\nOK\n",
+    "source": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n"
+  },
+  "validation_sha256": {
+    "tests/test_portable_staged.py": "02eca2ac1a25aad73c7e4b1f189701ed5af862050f17be078748124729258d93",
+    "tests/test_portable_landings.py": "b047b8d204c1184f39f61790cc22616f45737e8d66628d919fc350440dccdf6a",
+    "tests/test_portable_enemy_spawn.py": "06569df12a3256865e9964f33369883be93f279c223c89b914c39f871a7d2fbe",
+    "tests/test_portable_enemy_attack.py": "505d93504716ed04767f481b0f9d3bc7b1b8bf54f3cec956e27a8d81f3343b0c",
+    "tests/test_portable_numeric_design.py": "cd615ca10d1566b453ba747961b55befc36f038b0dc55b89505d7e68a0a74a14",
+    "tests/test_portable_enemy_aim.py": "13bbf8b806d0c035de7e6a945bdd4b111c9e6404cbfbdba89c1741a4a0c339d4",
+    "tests/test_portable_sources.py": "4449025637250cbe125c923e5a22827cca38bbeb36a4921e326369477f058734",
+    "tests/test_portable_resources.py": "53bf94b3e44e3db5492cd597ab79903dcab3666bd839e2ea116c2cb63da81059",
+    "tests/test_portable_periodic_targets.py": "002fcb8699977734ee2ce266568e2116085214229b2b73e7308dab1adc1f7bf6",
+    "tests/test_portable_references.py": "f34b521e23fb0a6b667a282c998de6b1ce8a054950f9c6d36fcb53c39aa4361e",
+    "tests/test_portable_probe.py": "498279f222d8643cfa9e8da1609e98e3bc0d1bd8e9a8aa5b901446f59dfc3f3d",
+    "tests/test_portable_runtime.py": "ebd0de5ac7d9c6d0fbefcf0e58ec5db29d420551b26c744b831f930767050f5f",
+    "tests/test_portable_combat.py": "5ad9cfaf2231c2ac7ec68665d6773cf590b96348f68f235c9e69cef9f3f2c333",
+    "tests/test_portable_reference_scales.py": "983b5f80c7ba3e1d30cfbf2d0cfd61e3553c3a44d3a9679ae09a4d6092ea4321",
+    "tests/test_portable_lifesteal.py": "32ffd0149978ad63b430cb974cc93b4ada49b54a2059db106dc2f690b7501466",
+    "tests/test_portable_event_candidates.py": "ed44559cdb08639441ce9d9d5b7b079c8789b8615b32fde5d874e47817a190a1",
+    "tests/test_portable_metal_deadlines.py": "9795079b34bf86221d40e3b4e232170bf1ffe485ebfbee514cec6f4afb41885f",
+    "tests/test_portable_timeline.py": "3d74cb2aa4a41971fd3c70dc3e56be2513a47c6cdfff557265b09ea508f4510a",
+    "tests/test_staged_dot_runtime.py": "8e1274fa65db1f0b9329382b34600e4713b73c26e4eebc5564569dba1c72d557",
+    "tests/test_periodic_source_runtime.py": "8358a6dd5f6b63b83df42ac759c0aa0a6ba98c14832ef3ac5e3d418948a87938"
+  }
+}

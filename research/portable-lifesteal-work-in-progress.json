@@ -1,5 +1,5 @@
 {
-  "stage": "working-normal-lifesteal-prototype-skill-landing-incomplete",
+  "stage": "historical-v39-prototype-resolved-by-v40-native-landings",
   "passed": false,
   "gpu_execution_verified": true,
   "backend": "metal",
@@ -57,5 +57,8 @@
   "prototype_verifier_backend_choices": [
     "metal",
     "cuda"
-  ]
+  ],
+  "historical_source_commit": "27c7438066be03ae3cdd29ce76273ceddcd64d5b",
+  "resolved_by": "portable-landings-validation.json",
+  "historical_record": true
 }

@@ -6,20 +6,20 @@
   "transport": {
     "backend": "cuda",
     "device": "NVIDIA GeForce RTX 3070 Ti",
-    "cases": 1204,
+    "cases": 1247,
     "command_status": "completed",
-    "host_dispatch_seconds": 8.794313800055534
+    "host_dispatch_seconds": 13.92094870004803
   },
   "generated_sha256": {
-    "cuda": "9b5a40c4d3f02062de55e88774d9ff418563dc50e0b4720d61d7e4b79c04ff43",
-    "metal": "a1521f220898babc6c4f34f3b8dc6782a7ccaabe9322cbbc79917ece49b3156b"
+    "cuda": "c8ec453b9131fa1c7ac28aab26b4e8c5a8cb5a569173d446900786359472104f",
+    "metal": "82251a8d0148c069e6421730555505d00e554176924f89b5fe04fc48d83823a2"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "97c90b27ad093bebdf8b29c46529a557a37dcc93a2b6ccc59d674ad32970b484",
+    "gpu/event_runtime.slang": "16035f857393086f844d2d96bc232fdfde1a6fc58d58559effdc8e220f1c3405",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "913bd108d3eefe350726635ca63d2a4eed35a51e2e42072522d7d56fd37ec397",
-    "gpu/runtime_init.slang": "1dac2bb813bd98a598d0aaed2aeb29006513c0bb1e25b73c95011a20c8befd7f",
+    "gpu/portable_schema.slang": "9098976fce9cd2a1be172c68054aa0262435888346c9afa5d52f3bf07e87a5f7",
+    "gpu/runtime_init.slang": "9360ad094f972f0d252218ef3ab71d21b67c4cbc6354352611e95e06601b82b1",
     "gpu/resource_runtime.slang": "5663120967beaf269c3928a7c581d4a9d009da7e1b36cf05b129f36df84ff2ab",
     "gpu/source_runtime.slang": "53c5f6285f4e2bbc43f90ae0c0c436269456c1a88e70aea676dc5fd9a905c71c",
     "gpu/reference_runtime.slang": "d4b97eb4fd07c38dcd990e1babe887c6d1ca6a4bb38e39db13c1c473c38ce417",
@@ -31,6 +31,7 @@
     "gpu/carrier_runtime.slang": "dcbc75f3d88edda0227c68975087fc56c73ed938e6b3b72cd5d6246eace7a43c",
     "gpu/quantity_runtime.slang": "44d9e37a3c81f77dcea96406db0cafc797401e211d5f9b41903b27254f72587e",
     "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
+    "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
     "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
     "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
     "gpu/recipient_runtime.slang": "e3dca124f523e4a28ec42e3bc915df6163dfeb2b071e0b25248ad6b0a4e85e0d",
@@ -41,18 +42,24 @@
     "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
     "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
     "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
+    "gpu/landing_runtime.slang": "12f368a2f4818d4bb3f2d6bcd9491a85cbf6a36e45a5e24764bbd0042974e5e7",
     "gpu/periodic_runtime.slang": "78c594e573b27072615102916c7605440cbd5fbfb0b34cf19c57be4c47fb3d57",
     "gpu/event_candidate_runtime.slang": "5b986d2d51b052186bedb820788460d009220a58e84d6a8803770b64287db356",
-    "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
+    "gpu/pending_burst_runtime.slang": "5715cb906074a136b5db6fc23c5fc2c81009cd943ee32222ff2de65973425708",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-    "gpu/combat_runtime.slang": "fbbbadce16ebca5b4dcc0c6f6a44f834ff785824ee031f745edfb1269ef9f465",
+    "gpu/combat_runtime.slang": "edac77a6c1b7fa6981fc181a43d7a1dc1b902d3c1bc4d8d3cea654bc5e879bf1",
     "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
   },
-  "input_sha256": "23e0ff69559f8d708fecb2c2b06bbc3a742e8c10288b43423e92eddeb9416654",
-  "output_sha256": "2a231ac0e81db0a1f3b622beaec4bf688dd5b25109297820c4658f0fec408cd7",
+  "input_sha256": "ce6b1e570bd6df60fdbc5d25b1acaa1cfad0d408be3bf0a77c286d87044e45e6",
+  "output_sha256": "075e34b8586dc1b9f4d7092dea948487f8c5d390e1b857d54f10c4f938370f29",
   "validation_sha256": {
+    "app/portable_lifesteal_reference.py": "eeb7dd998fce96afbc032e95b5f9b7454cb0f408d4472bfd6dae9f23a64a1104",
+    "scripts/portable_lifesteal_oracle.py": "082a9149627a837f0efd0ff966af6de8868be3a7b776bdc7b8b21dc13ae0d531",
+    "scripts/portable_landing_oracle.py": "318d4436c3636724112025866cd8e21f692772b96a83450e7bf3fae020484b45",
+    "tests/fixtures/portable-lifesteal-prototype.json": "7cb6cc69c90263f1aacaa86d777ef52e519e1d169386eba3093bb0d38b294ac0",
+    "tests/fixtures/portable-landings.json": "351c697e09cc503a03c91910b2b902e84c20acb6ad110d8532409f4036100a1b",
     "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
     "app/staged_dot_specs.py": "5c38be17b5afbe79c6d7a4a0cf9d00108d97ee37822c725803944a9f6cf617d1",
     "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",
@@ -63,7 +70,7 @@
     "app/periodic_source_runtime.py": "bd45e4244fd741ff053a756876253b62221f1d28cfb00e01d89d5cacb39af062",
     "tests/fixtures/portable-sources.json": "7c67eb17ad96eff5237e1a14de38ef5f30494cba272cf56da8acb0ce7c45ec86",
     "app/reference_count_runtime.py": "009b8bbee5523994861860c6101416bc1ff1e72b04a7da46e78f6ce9a5d571ef",
-    "app/reference_health_runtime.py": "e6e4e530b9fd3749c5015574f4c8d65eba09e6217bf3871fa5735f6351c91ac1",
+    "app/reference_health_runtime.py": "5b756375f135d8b22d188c6e6e8d185bfbcbd36ed96b71ac1794f314aa2f9f41",
     "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
     "tests/fixtures/portable-reference-scales.json": "e0e26b2691affa2f30e1456c9bf49923c24f0a63667c16da45f73a31c7ad61bd",
     "app/portable_reference_specs.py": "de22b095242d7fd64ac1cdd362011fda0f48ea2f33e84be58dd348bc7400ff1a",
@@ -74,21 +81,21 @@
     "app/resource_runtime.py": "8356943f18d137bfb90d60ab2096c2505403c9156f088cf29c7aeda38fecd58c",
     "scripts/portable_resource_oracle.py": "6e8ab20b01c41618c554779f4f41eb6a693c14893da935e1cf2b382d7b6040d8",
     "tests/fixtures/portable-resources.json": "d3e83f6c000d3f98cf94c42facabb4db6eb9d6eb341600866b52979eb16c52d4",
-    "app/portable_roster_input.py": "7f65ee49d9688b59493ec958584ff157312e259eadf269b55fba6af813265593",
+    "app/portable_roster_input.py": "0a6c8c37bcf4e93af644769125a09535c618c4d601039fec440d473d84999121",
     "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
     "app/portable_enemy_specs.py": "52ef96d79d4791ebe5a7da2ad6cee0a8550a50edccb1a3f5aaa5b7f4204e8686",
-    "app/portable_runtime.py": "eb81ea1ea20db04e384fce8d02735740bf2c3c2f51a21b688b91337d1d0a1ebc",
+    "app/portable_runtime.py": "05b51c4965dbd7869ee9b93538147bb39b478af3d712f081079e731b8b5a56ab",
     "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
-    "app/portable_specs.py": "c1e087ba0b90f706ba9deaa58f1a4d2cb6e0fb9067d6fbf0714d122c435344e8",
+    "app/portable_specs.py": "833d0c47ead526a8f2460dc1a8935e9a21fe966a049eee6e8402ec61d4aacd70",
     "app/portable_periodic_specs.py": "830b7b7bd25586ae568b210dd3583c3e7349bb0ac29226d0748ba77b7da3d9bf",
     "app/portable_backend.py": "65fa85746a0be27fce443e95f47a92885a4c822dc6630141b1baa972c4cfff53",
     "app/portable_trigger_specs.py": "de8354e952352ce0e40bf3f8ddf97f36595500ea3e7436672ae4ba0934871040",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
-    "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
+    "app/portable_damage_specs.py": "62d322155e688a5e428b4cf56550216c6d050c0605487d39331d4306d47b14bb",
     "scripts/portable_pending_oracle.py": "5919e9b30ef2b97cfeee24d19eb080c522df2fb6b98c1555be2efdf5c68e3359",
     "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
-    "scripts/portable_health_oracle.py": "3c8c66d0674675c3fbf884ed8ef53408a4ca74e2593ea3b1df3594b8176a5bfc",
+    "scripts/portable_health_oracle.py": "0a10670fdba64a4e5de217869efc4f763ecf1dd67713cc67d7a8a2c25a62ed4f",
     "scripts/portable_enemy_oracle.py": "1ed2d643cbb0999088b3ae2f119dae7a43ece9c84fa56c2150a46f882c2da893",
     "scripts/portable_burst_oracle.py": "640bc66abb2df8b237383df3d626df30bc565de382b19671fbf11ba83d5ee94a",
     "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
@@ -98,7 +105,7 @@
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "ca4b9726a997cba106c26c83dac16aba5a5ec3ec6ecfb5595e44ca5af046063a",
+    "scripts/verify-portable-combat.py": "15d02d3f51cdd390aad12acdd5ed46de3465052ab922d79b0b0426b6e987664d",
     "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
     "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
     "tests/fixtures/portable-enemy-spawn-order.json": "7c72c2ec3a76bba4bf0da1be6a8e1e32db6124ef37feb87cb72a5447c8010791",
@@ -1164,6 +1171,41 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     2,
     64,
     8,
@@ -1339,7 +1381,15 @@
     64,
     64,
     64,
-    64
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    16
   ],
   "expected_statuses": [
     0,
@@ -2370,6 +2420,41 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     2,
     64,
     8,
@@ -2545,46 +2630,19 @@
     64,
     64,
     64,
-    64
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    16
   ],
   "batch_layout": {
-    "positive_count": 1028,
+    "positive_count": 1063,
     "rejection_indices": [
-      1028,
-      1029,
-      1030,
-      1031,
-      1032,
-      1033,
-      1034,
-      1035,
-      1036,
-      1037,
-      1038,
-      1039,
-      1040,
-      1041,
-      1042,
-      1043,
-      1044,
-      1045,
-      1046,
-      1047,
-      1048,
-      1049,
-      1050,
-      1051,
-      1052,
-      1053,
-      1054,
-      1055,
-      1056,
-      1057,
-      1058,
-      1059,
-      1060,
-      1061,
-      1062,
       1063,
       1064,
       1065,
@@ -2725,7 +2783,50 @@
       1200,
       1201,
       1202,
-      1203
+      1203,
+      1204,
+      1205,
+      1206,
+      1207,
+      1208,
+      1209,
+      1210,
+      1211,
+      1212,
+      1213,
+      1214,
+      1215,
+      1216,
+      1217,
+      1218,
+      1219,
+      1220,
+      1221,
+      1222,
+      1223,
+      1224,
+      1225,
+      1226,
+      1227,
+      1228,
+      1229,
+      1230,
+      1231,
+      1232,
+      1233,
+      1234,
+      1235,
+      1236,
+      1237,
+      1238,
+      1239,
+      1240,
+      1241,
+      1242,
+      1243,
+      1244,
+      1245,
+      1246
     ]
   },
   "rejected_cases": [
@@ -3432,6 +3533,38 @@
     {
       "name": "wire-staged-index-padding",
       "status": 64
+    },
+    {
+      "name": "wire-landing-policy",
+      "status": 64
+    },
+    {
+      "name": "wire-landing-reserved",
+      "status": 64
+    },
+    {
+      "name": "wire-landing-last-reserved",
+      "status": 64
+    },
+    {
+      "name": "wire-landing-without-combat",
+      "status": 64
+    },
+    {
+      "name": "wire-landing-disabled",
+      "status": 64
+    },
+    {
+      "name": "wire-landing-flush-payload",
+      "status": 64
+    },
+    {
+      "name": "landing-2049-receipts",
+      "status": 64
+    },
+    {
+      "name": "lifesteal-numeric-overflow",
+      "status": 16
     }
   ],
   "known_cpu_differences": [
@@ -5379,6 +5512,28 @@
     "reference-large-negative-count-is-empty",
     "reference-zero-coefficient-does-not-evaluate-overlarge-count"
   ],
+  "landing_cpu_regressions": [
+    "landing-native-next-frame",
+    "landing-final-flush-before-next-frame",
+    "landing-named-notice-grants-life-before-normal-receipt",
+    "landing-named-notice-does-not-recalculate-captured-hits",
+    "landing-recovery-notice-does-not-recalculate-captured-hits",
+    "landing-life-expired-before-queued-receipt",
+    "landing-rate-rechecks-current-hp-per-receipt",
+    "landing-notice-modifier-affects-next-receipt",
+    "landing-drain-includes-appended-child",
+    "landing-dot-collector-precedes-burst-and-shots",
+    "landing-stage-amounts-captured-before-later-stack",
+    "landing-ally-provider-keeps-attacker-source",
+    "landing-full-health-still-notifies",
+    "landing-b3-captured-packets-recover",
+    "landing-b3-captures-after-earlier-recovery",
+    "landing-b3-child-pending-survives-parent-drain",
+    "landing-routed-recovery-per-enemy",
+    "landing-split-rounded-recovery",
+    "landing-overkill-recovery-uses-full-packet",
+    "landing-all-2048-receipts"
+  ],
   "lazy_cpu_regressions": [
     "lazy-rank-waits-for-later-startup-buffs",
     "same-caster-time-selector-shares-rank-snapshot",
@@ -5406,6 +5561,23 @@
     "state-predicate-does-not-force-lazy-resolution",
     "same-time-recreation-reuses-cache-after-original-was-removed",
     "lazy-max-hp-first-consumption-and-derived-percentage"
+  ],
+  "lifesteal_cpu_regressions": [
+    "life-authored-single-packet",
+    "life-full-hp-still-notifies",
+    "life-zero-rate-no-notice",
+    "life-negative-rate-no-notice",
+    "life-negative-received-clamps-potency",
+    "life-outgoing-received-order",
+    "life-rate-underflows-but-notifies",
+    "life-fractional-quantity",
+    "life-initial-zero-hp-is-live",
+    "life-hit-notice-grants-before-recovery",
+    "life-auto-attack-notice-grants-this-shot",
+    "life-pellet-notice-grants-before-landing",
+    "life-saturates-at-maximum",
+    "life-notice-modifier-applies-to-later-pellet",
+    "life-down-attacker-no-revival"
   ],
   "mode_session_cpu_regressions": [
     "mode-expiry-end-child-starts-fresh-session",
@@ -9859,11 +10031,151 @@
     {
       "name": "staged-index-all-254-carriers",
       "passed": true
+    },
+    {
+      "name": "life-authored-single-packet",
+      "passed": true
+    },
+    {
+      "name": "life-full-hp-still-notifies",
+      "passed": true
+    },
+    {
+      "name": "life-zero-rate-no-notice",
+      "passed": true
+    },
+    {
+      "name": "life-negative-rate-no-notice",
+      "passed": true
+    },
+    {
+      "name": "life-negative-received-clamps-potency",
+      "passed": true
+    },
+    {
+      "name": "life-outgoing-received-order",
+      "passed": true
+    },
+    {
+      "name": "life-rate-underflows-but-notifies",
+      "passed": true
+    },
+    {
+      "name": "life-fractional-quantity",
+      "passed": true
+    },
+    {
+      "name": "life-initial-zero-hp-is-live",
+      "passed": true
+    },
+    {
+      "name": "life-hit-notice-grants-before-recovery",
+      "passed": true
+    },
+    {
+      "name": "life-auto-attack-notice-grants-this-shot",
+      "passed": true
+    },
+    {
+      "name": "life-pellet-notice-grants-before-landing",
+      "passed": true
+    },
+    {
+      "name": "life-saturates-at-maximum",
+      "passed": true
+    },
+    {
+      "name": "life-notice-modifier-applies-to-later-pellet",
+      "passed": true
+    },
+    {
+      "name": "life-down-attacker-no-revival",
+      "passed": true
+    },
+    {
+      "name": "landing-native-next-frame",
+      "passed": true
+    },
+    {
+      "name": "landing-final-flush-before-next-frame",
+      "passed": true
+    },
+    {
+      "name": "landing-named-notice-grants-life-before-normal-receipt",
+      "passed": true
+    },
+    {
+      "name": "landing-named-notice-does-not-recalculate-captured-hits",
+      "passed": true
+    },
+    {
+      "name": "landing-recovery-notice-does-not-recalculate-captured-hits",
+      "passed": true
+    },
+    {
+      "name": "landing-life-expired-before-queued-receipt",
+      "passed": true
+    },
+    {
+      "name": "landing-rate-rechecks-current-hp-per-receipt",
+      "passed": true
+    },
+    {
+      "name": "landing-notice-modifier-affects-next-receipt",
+      "passed": true
+    },
+    {
+      "name": "landing-drain-includes-appended-child",
+      "passed": true
+    },
+    {
+      "name": "landing-dot-collector-precedes-burst-and-shots",
+      "passed": true
+    },
+    {
+      "name": "landing-stage-amounts-captured-before-later-stack",
+      "passed": true
+    },
+    {
+      "name": "landing-ally-provider-keeps-attacker-source",
+      "passed": true
+    },
+    {
+      "name": "landing-full-health-still-notifies",
+      "passed": true
+    },
+    {
+      "name": "landing-b3-captured-packets-recover",
+      "passed": true
+    },
+    {
+      "name": "landing-b3-captures-after-earlier-recovery",
+      "passed": true
+    },
+    {
+      "name": "landing-b3-child-pending-survives-parent-drain",
+      "passed": true
+    },
+    {
+      "name": "landing-routed-recovery-per-enemy",
+      "passed": true
+    },
+    {
+      "name": "landing-split-rounded-recovery",
+      "passed": true
+    },
+    {
+      "name": "landing-overkill-recovery-uses-full-packet",
+      "passed": true
+    },
+    {
+      "name": "landing-all-2048-receipts",
+      "passed": true
     }
   ],
   "metal_generated_sha256": {
-    "cuda": "296abee1a18d2b97855c1e1ca9aba13465c690d6f3ae39be13e7a6453f397df1",
-    "metal": "de493004557cfae1962c7afc18c9323766cb0d691f7ae3de08b68b302875cc4c"
+    "cuda": "569a2f7eb6929c7217a36234756641a913df0c67f044bfcaebd155aa295d33fb",
+    "metal": "bd1e99c4a02e38bf2425fe55200590628040997b0be624267437351a3a4bc01e"
   },
   "metal_comparison": {
     "source_sha256": true,
@@ -9889,7 +10201,9 @@
     "enemy_component_cpu_regressions": true,
     "health_cpu_regressions": true,
     "hit_reference_cpu_regressions": true,
+    "landing_cpu_regressions": true,
     "lazy_cpu_regressions": true,
+    "lifesteal_cpu_regressions": true,
     "mode_session_cpu_regressions": true,
     "named_buff_cpu_regressions": true,
     "pending_controller_cpu_regressions": true,
@@ -9910,10 +10224,10 @@
   },
   "execution": {
     "command": "python scripts/verify-portable-combat.py --backend cuda",
-    "commit": "21e03a0fdd974c7e4a485746d1ddc087e9809666",
+    "commit": "431d6998716d2d5d805948a3915df16156b3f3bb",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "38, 4504",
+    "gpu_before": "29, 4540",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -9931,8 +10245,8 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 66.97557559981942,
-    "stdout": "{\"passed\": true, \"cases\": 1028, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
+    "elapsed_seconds": 80.5815385999158,
+    "stdout": "{\"passed\": true, \"cases\": 1063, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
     "stderr": ""
   },
   "postcheck": {
@@ -9940,33 +10254,33 @@
     "original_head_after": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_after": []
   },
-  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-21e03a0\\research\\portable-combat-cuda.json",
+  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-431d699\\research\\portable-combat-cuda.json",
   "available": true,
   "full_readback_available": true,
   "compiler_success_log_saved": false,
   "generated_normalization": {
     "cuda": {
       "available": true,
-      "raw_sha256": "9b5a40c4d3f02062de55e88774d9ff418563dc50e0b4720d61d7e4b79c04ff43",
-      "lf_sha256": "190fcee3f40b1e74ab1ca4081c61704e421ba939e1477e2f9904f0e4000b4d52",
-      "no_line_directives_sha256": "99eb7cc678663fd6939bf71f3048ae93649ea264891b04e2da96de9f53ac2c07",
-      "no_line_directives_portable_prelude_sha256": "cf43fd236cc568df9ca7c91c8fe71addd335851425404d9cab379e8403b8f3a6",
-      "lines": 44392,
-      "no_line_directive_lines": 32926,
-      "line_directives": 11466
+      "raw_sha256": "c8ec453b9131fa1c7ac28aab26b4e8c5a8cb5a569173d446900786359472104f",
+      "lf_sha256": "a617b72e4ec5cc67ed1536ae8abe192ce05717f41c160c10e694f725ae69d74d",
+      "no_line_directives_sha256": "b60d56c88e77e5ebeb0e10070f77e6f86a856f46384492de7cc7ec2f354390d1",
+      "no_line_directives_portable_prelude_sha256": "e614e316cc8186acae000db3165eae27f02242c127a046fc3d7441a18d3cb82c",
+      "lines": 46108,
+      "no_line_directive_lines": 34185,
+      "line_directives": 11923
     },
     "metal": {
       "available": true,
-      "raw_sha256": "a1521f220898babc6c4f34f3b8dc6782a7ccaabe9322cbbc79917ece49b3156b",
-      "lf_sha256": "de11eddace022facce43221646e8616b93cde0273541d3de434d1be789cb7594",
-      "no_line_directives_sha256": "d170dbef7e3d4364b2ff0548ac7becf2e4c18e8729e9a6fa80279139c6ce6d4e",
-      "no_line_directives_portable_prelude_sha256": "d170dbef7e3d4364b2ff0548ac7becf2e4c18e8729e9a6fa80279139c6ce6d4e",
-      "lines": 44884,
-      "no_line_directive_lines": 33312,
-      "line_directives": 11572
+      "raw_sha256": "82251a8d0148c069e6421730555505d00e554176924f89b5fe04fc48d83823a2",
+      "lf_sha256": "b4418cbfc38c4f2a8a2d20b43bf223ec5073479dfaf141bbff7b545dc104d358",
+      "no_line_directives_sha256": "b1ffa48048421380fa1d61d7a95f05ce49468f62872de966a55e415116058146",
+      "no_line_directives_portable_prelude_sha256": "b1ffa48048421380fa1d61d7a95f05ce49468f62872de966a55e415116058146",
+      "lines": 46598,
+      "no_line_directive_lines": 34571,
+      "line_directives": 12027
     }
   },
   "summary_only": true,
-  "summary_source": "windows-portable-combat-v38.json",
+  "summary_source": "windows-portable-combat-v40.json",
   "scope": "Shared event/combat mechanics, enemy packets, allied cover state and pending B3 bonuses; independent components are not full battle or catalog certification"
 }

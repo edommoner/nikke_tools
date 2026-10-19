@@ -1,0 +1,491 @@
+{
+  "stage": "native-cache-bug-corrected-in-compatibility-layer",
+  "passed": true,
+  "case": {
+    "name": "landing-rate-rechecks-current-hp-per-receipt",
+    "effects": [
+      {
+        "name": "no crit",
+        "type": "buff",
+        "source": "스킬1",
+        "stat": "crit_rate",
+        "fixed_value": -15,
+        "target": "self",
+        "duration": -1,
+        "trigger": {
+          "timing": [
+            "battle_start"
+          ],
+          "condition": []
+        }
+      },
+      {
+        "name": "life",
+        "type": "buff",
+        "source": "스킬1",
+        "stat": "lifesteal_pct",
+        "fixed_value": 5,
+        "target": "self",
+        "duration": -1,
+        "trigger": {
+          "timing": [
+            "battle_start"
+          ],
+          "condition": [
+            "self_hp_below:15"
+          ]
+        }
+      },
+      {
+        "name": "received",
+        "type": "buff",
+        "source": "스킬1",
+        "stat": "heal_received_pct",
+        "fixed_value": 0,
+        "target": "self",
+        "duration": -1,
+        "trigger": {
+          "timing": [
+            "battle_start"
+          ],
+          "condition": []
+        }
+      },
+      {
+        "name": "outgoing",
+        "type": "buff",
+        "source": "스킬1",
+        "stat": "outgoing_heal_pct",
+        "fixed_value": 0,
+        "target": "self",
+        "duration": -1,
+        "trigger": {
+          "timing": [
+            "battle_start"
+          ],
+          "condition": []
+        }
+      },
+      {
+        "name": "on attack skill",
+        "type": "damage",
+        "source": "스킬2",
+        "stat": "damage:2",
+        "fixed_value": 100,
+        "target": "enemy",
+        "trigger": {
+          "timing": [
+            "on_attack"
+          ],
+          "condition": []
+        }
+      }
+    ],
+    "owners": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "base_atk": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ],
+    "environment": {
+      "allies": [
+        {
+          "base_hp": 1000,
+          "hp": 100
+        },
+        {
+          "base_hp": 1000,
+          "hp": 1000
+        },
+        {
+          "base_hp": 1000,
+          "hp": 1000
+        },
+        {
+          "base_hp": 1000,
+          "hp": 1000
+        },
+        {
+          "base_hp": 1000,
+          "hp": 1000
+        }
+      ],
+      "native_landing": true
+    },
+    "combat": {
+      "weapons": [
+        {
+          "enabled": true,
+          "mode": "auto",
+          "stage": 0,
+          "capacity": 20,
+          "coefficient": 100,
+          "interval": 1,
+          "reload": 1,
+          "gauge": 0
+        },
+        {
+          "enabled": false,
+          "stage": 0
+        },
+        {
+          "enabled": false,
+          "stage": 0
+        },
+        {
+          "enabled": false,
+          "stage": 0
+        },
+        {
+          "enabled": false,
+          "stage": 0
+        }
+      ],
+      "targets": [
+        {
+          "hp": 1000000000000.0
+        }
+      ],
+      "trace": "full",
+      "clock": "accumulated"
+    },
+    "script": [
+      [
+        0.05,
+        24,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0
+      ],
+      [
+        0.05,
+        30,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0
+      ],
+      [
+        0.05,
+        2,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0
+      ]
+    ],
+    "expected_queries": [
+      {
+        "damage": [
+          3000,
+          0,
+          0,
+          0,
+          0
+        ],
+        "allies": [
+          {
+            "hp": 200
+          }
+        ]
+      }
+    ],
+    "native_duration": 0.05
+  },
+  "before": {
+    "queries": [
+      {
+        "damage": [
+          3000,
+          0,
+          0,
+          0,
+          0
+        ],
+        "allies": [
+          {
+            "hp": 250.0,
+            "max_hp": 1000.0,
+            "hp_pct": 25.0,
+            "down": false
+          },
+          {
+            "hp": 1000,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "down": false
+          },
+          {
+            "hp": 1000,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "down": false
+          },
+          {
+            "hp": 1000,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "down": false
+          },
+          {
+            "hp": 1000,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "down": false
+          }
+        ],
+        "attack_buffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "pending_burst": {
+          "count": 0
+        }
+      }
+    ],
+    "history": [
+      {
+        "event": "on_attack",
+        "time": 0.0,
+        "owner": 0,
+        "hp": 100
+      },
+      {
+        "event": "hit_count:on attack skill",
+        "time": 0.0,
+        "owner": 0,
+        "hp": 100
+      },
+      {
+        "event": "hit_count:on attack skill",
+        "time": 0.0,
+        "owner": 0,
+        "hp": 100
+      },
+      {
+        "event": "hit_count",
+        "time": 0.0,
+        "owner": 0,
+        "hp": 100
+      },
+      {
+        "event": "native-body-heal",
+        "time": 0.0,
+        "owner": 0,
+        "hp": 100,
+        "amount": 50.0
+      },
+      {
+        "event": "event:heal_received",
+        "time": 0.0,
+        "owner": 0,
+        "hp": 150.0
+      },
+      {
+        "event": "native-body-heal",
+        "time": 0.016666666666666666,
+        "owner": 0,
+        "hp": 150.0,
+        "amount": 50.0
+      },
+      {
+        "event": "event:heal_received",
+        "time": 0.016666666666666666,
+        "owner": 0,
+        "hp": 200.0
+      },
+      {
+        "event": "native-body-heal",
+        "time": 0.016666666666666666,
+        "owner": 0,
+        "hp": 200.0,
+        "amount": 50.0
+      },
+      {
+        "event": "event:heal_received",
+        "time": 0.016666666666666666,
+        "owner": 0,
+        "hp": 250.0
+      }
+    ],
+    "frames": [
+      0.0,
+      0.016666666666666666,
+      0.03333333333333333,
+      0.05
+    ],
+    "hits": [
+      {
+        "owner": 0,
+        "time": 0.0,
+        "damage": 1000,
+        "tag": "normal"
+      },
+      {
+        "owner": 0,
+        "time": 0.0,
+        "damage": 1000,
+        "tag": "damage"
+      },
+      {
+        "owner": 0,
+        "time": 0.0,
+        "damage": 1000,
+        "tag": "damage"
+      }
+    ]
+  },
+  "expected_hp": 200,
+  "note": "Installed native HP sync changed hp_pct but did not advance the numeric cache version; second queued receipt at the same timestamp reused lifesteal from the prior HP rate",
+  "after": {
+    "queries": [
+      {
+        "damage": [
+          3000,
+          0,
+          0,
+          0,
+          0
+        ],
+        "allies": [
+          {
+            "hp": 200.0,
+            "max_hp": 1000.0,
+            "hp_pct": 20.0,
+            "down": false
+          },
+          {
+            "hp": 1000,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "down": false
+          },
+          {
+            "hp": 1000,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "down": false
+          },
+          {
+            "hp": 1000,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "down": false
+          },
+          {
+            "hp": 1000,
+            "max_hp": 1000.0,
+            "hp_pct": 100.0,
+            "down": false
+          }
+        ],
+        "attack_buffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "pending_burst": {
+          "count": 0
+        }
+      }
+    ],
+    "history": [
+      {
+        "event": "on_attack",
+        "time": 0.0,
+        "owner": 0,
+        "hp": 100
+      },
+      {
+        "event": "hit_count:on attack skill",
+        "time": 0.0,
+        "owner": 0,
+        "hp": 100
+      },
+      {
+        "event": "hit_count:on attack skill",
+        "time": 0.0,
+        "owner": 0,
+        "hp": 100
+      },
+      {
+        "event": "hit_count",
+        "time": 0.0,
+        "owner": 0,
+        "hp": 100
+      },
+      {
+        "event": "native-body-heal",
+        "time": 0.0,
+        "owner": 0,
+        "hp": 100,
+        "amount": 50.0
+      },
+      {
+        "event": "event:heal_received",
+        "time": 0.0,
+        "owner": 0,
+        "hp": 150.0
+      },
+      {
+        "event": "native-body-heal",
+        "time": 0.016666666666666666,
+        "owner": 0,
+        "hp": 150.0,
+        "amount": 50.0
+      },
+      {
+        "event": "event:heal_received",
+        "time": 0.016666666666666666,
+        "owner": 0,
+        "hp": 200.0
+      }
+    ],
+    "frames": [
+      0.0,
+      0.016666666666666666,
+      0.03333333333333333,
+      0.05
+    ],
+    "hits": [
+      {
+        "owner": 0,
+        "time": 0.0,
+        "damage": 1000,
+        "tag": "normal"
+      },
+      {
+        "owner": 0,
+        "time": 0.0,
+        "damage": 1000,
+        "tag": "damage"
+      },
+      {
+        "owner": 0,
+        "time": 0.0,
+        "damage": 1000,
+        "tag": "damage"
+      }
+    ]
+  }
+}

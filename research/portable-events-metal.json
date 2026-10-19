@@ -1,6 +1,14 @@
 {
   "results": [
     {
+      "landing_queue": {
+        "native": false,
+        "enqueued": 0,
+        "landed": 0,
+        "drains": 0,
+        "peak": 0,
+        "entries": []
+      },
       "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
@@ -1262,6 +1270,14 @@
       "max_stack_depth": 3
     },
     {
+      "landing_queue": {
+        "native": false,
+        "enqueued": 0,
+        "landed": 0,
+        "drains": 0,
+        "peak": 0,
+        "entries": []
+      },
       "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
@@ -2523,6 +2539,14 @@
       "max_stack_depth": 3
     },
     {
+      "landing_queue": {
+        "native": false,
+        "enqueued": 0,
+        "landed": 0,
+        "drains": 0,
+        "peak": 0,
+        "entries": []
+      },
       "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
@@ -3842,6 +3866,14 @@
       "max_stack_depth": 5
     },
     {
+      "landing_queue": {
+        "native": false,
+        "enqueued": 0,
+        "landed": 0,
+        "drains": 0,
+        "peak": 0,
+        "entries": []
+      },
       "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
@@ -5289,6 +5321,14 @@
       "max_stack_depth": 5
     },
     {
+      "landing_queue": {
+        "native": false,
+        "enqueued": 0,
+        "landed": 0,
+        "drains": 0,
+        "peak": 0,
+        "entries": []
+      },
       "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
@@ -6641,6 +6681,14 @@
       "max_stack_depth": 5
     },
     {
+      "landing_queue": {
+        "native": false,
+        "enqueued": 0,
+        "landed": 0,
+        "drains": 0,
+        "peak": 0,
+        "entries": []
+      },
       "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
@@ -8069,6 +8117,14 @@
       "max_stack_depth": 5
     },
     {
+      "landing_queue": {
+        "native": false,
+        "enqueued": 0,
+        "landed": 0,
+        "drains": 0,
+        "peak": 0,
+        "entries": []
+      },
       "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
@@ -9536,6 +9592,14 @@
       "max_stack_depth": 5
     },
     {
+      "landing_queue": {
+        "native": false,
+        "enqueued": 0,
+        "landed": 0,
+        "drains": 0,
+        "peak": 0,
+        "entries": []
+      },
       "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
@@ -10939,6 +11003,14 @@
       "max_stack_depth": 3
     },
     {
+      "landing_queue": {
+        "native": false,
+        "enqueued": 0,
+        "landed": 0,
+        "drains": 0,
+        "peak": 0,
+        "entries": []
+      },
       "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
@@ -11664,6 +11736,14 @@
       "max_stack_depth": 1
     },
     {
+      "landing_queue": {
+        "native": false,
+        "enqueued": 0,
+        "landed": 0,
+        "drains": 0,
+        "peak": 0,
+        "entries": []
+      },
       "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
@@ -12184,6 +12264,14 @@
       "max_stack_depth": 1
     },
     {
+      "landing_queue": {
+        "native": false,
+        "enqueued": 0,
+        "landed": 0,
+        "drains": 0,
+        "peak": 0,
+        "entries": []
+      },
       "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
@@ -12603,6 +12691,14 @@
       "max_stack_depth": 2
     },
     {
+      "landing_queue": {
+        "native": false,
+        "enqueued": 0,
+        "landed": 0,
+        "drains": 0,
+        "peak": 0,
+        "entries": []
+      },
       "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
@@ -12970,6 +13066,14 @@
       "max_stack_depth": 1
     },
     {
+      "landing_queue": {
+        "native": false,
+        "enqueued": 0,
+        "landed": 0,
+        "drains": 0,
+        "peak": 0,
+        "entries": []
+      },
       "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
@@ -13337,6 +13441,14 @@
       "max_stack_depth": 1
     },
     {
+      "landing_queue": {
+        "native": false,
+        "enqueued": 0,
+        "landed": 0,
+        "drains": 0,
+        "peak": 0,
+        "entries": []
+      },
       "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
@@ -13704,6 +13816,14 @@
       "max_stack_depth": 1
     },
     {
+      "landing_queue": {
+        "native": false,
+        "enqueued": 0,
+        "landed": 0,
+        "drains": 0,
+        "peak": 0,
+        "entries": []
+      },
       "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
@@ -14123,6 +14243,14 @@
       "max_stack_depth": 1
     },
     {
+      "landing_queue": {
+        "native": false,
+        "enqueued": 0,
+        "landed": 0,
+        "drains": 0,
+        "peak": 0,
+        "entries": []
+      },
       "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
@@ -14854,11 +14982,11 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.0052429999923333526,
+    "gpu_seconds": 0.007206624955870211,
     "input_bytes": 4980740,
-    "library_compile_seconds": 0.0008620023727416992,
-    "output_bytes": 4456448,
-    "pipeline_compile_seconds": 0.0019419193267822266,
+    "library_compile_seconds": 0.0008559226989746094,
+    "output_bytes": 6291456,
+    "pipeline_compile_seconds": 0.0018900632858276367,
     "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
@@ -14867,11 +14995,11 @@
     "gpu_timeout_seconds": 120
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "97c90b27ad093bebdf8b29c46529a557a37dcc93a2b6ccc59d674ad32970b484",
+    "gpu/event_runtime.slang": "16035f857393086f844d2d96bc232fdfde1a6fc58d58559effdc8e220f1c3405",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "913bd108d3eefe350726635ca63d2a4eed35a51e2e42072522d7d56fd37ec397",
-    "gpu/runtime_init.slang": "1dac2bb813bd98a598d0aaed2aeb29006513c0bb1e25b73c95011a20c8befd7f",
+    "gpu/portable_schema.slang": "9098976fce9cd2a1be172c68054aa0262435888346c9afa5d52f3bf07e87a5f7",
+    "gpu/runtime_init.slang": "9360ad094f972f0d252218ef3ab71d21b67c4cbc6354352611e95e06601b82b1",
     "gpu/resource_runtime.slang": "5663120967beaf269c3928a7c581d4a9d009da7e1b36cf05b129f36df84ff2ab",
     "gpu/source_runtime.slang": "53c5f6285f4e2bbc43f90ae0c0c436269456c1a88e70aea676dc5fd9a905c71c",
     "gpu/reference_runtime.slang": "d4b97eb4fd07c38dcd990e1babe887c6d1ca6a4bb38e39db13c1c473c38ce417",
@@ -14883,6 +15011,7 @@
     "gpu/carrier_runtime.slang": "dcbc75f3d88edda0227c68975087fc56c73ed938e6b3b72cd5d6246eace7a43c",
     "gpu/quantity_runtime.slang": "44d9e37a3c81f77dcea96406db0cafc797401e211d5f9b41903b27254f72587e",
     "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
+    "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
     "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
     "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
     "gpu/recipient_runtime.slang": "e3dca124f523e4a28ec42e3bc915df6163dfeb2b071e0b25248ad6b0a4e85e0d",
@@ -14893,21 +15022,22 @@
     "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
     "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
     "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
+    "gpu/landing_runtime.slang": "12f368a2f4818d4bb3f2d6bcd9491a85cbf6a36e45a5e24764bbd0042974e5e7",
     "gpu/periodic_runtime.slang": "78c594e573b27072615102916c7605440cbd5fbfb0b34cf19c57be4c47fb3d57",
     "gpu/event_candidate_runtime.slang": "5b986d2d51b052186bedb820788460d009220a58e84d6a8803770b64287db356",
-    "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
+    "gpu/pending_burst_runtime.slang": "5715cb906074a136b5db6fc23c5fc2c81009cd943ee32222ff2de65973425708",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-    "gpu/combat_runtime.slang": "fbbbadce16ebca5b4dcc0c6f6a44f834ff785824ee031f745edfb1269ef9f465",
+    "gpu/combat_runtime.slang": "edac77a6c1b7fa6981fc181a43d7a1dc1b902d3c1bc4d8d3cea654bc5e879bf1",
     "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
   },
   "generated_sha256": {
-    "cuda": "296abee1a18d2b97855c1e1ca9aba13465c690d6f3ae39be13e7a6453f397df1",
-    "metal": "de493004557cfae1962c7afc18c9323766cb0d691f7ae3de08b68b302875cc4c"
+    "cuda": "569a2f7eb6929c7217a36234756641a913df0c67f044bfcaebd155aa295d33fb",
+    "metal": "bd1e99c4a02e38bf2425fe55200590628040997b0be624267437351a3a4bc01e"
   },
-  "input_sha256": "e4bb5851ae492a2cf4764c6bcca99ed8d794ffff6953227d1008bda5f9bd0466",
-  "output_sha256": "d8e3e975f3e391df6de7a88631eb9180383dc9d1dd5f05f988586ac19cd3492d",
+  "input_sha256": "bddaed2298ea05a7edcd3d5bfebf7614544c028b6e668b0699c15c6e4143164b",
+  "output_sha256": "1e075875c53a078377f9b64b035adfb381d5b7357870aadba43a15de36f5ba8c",
   "gpu_execution_verified": true,
   "backend": "metal",
   "application_event_runtime_connected": true,
@@ -14928,6 +15058,14 @@
         4000
       ],
       "actual": {
+        "landing_queue": {
+          "native": false,
+          "enqueued": 0,
+          "landed": 0,
+          "drains": 0,
+          "peak": 0,
+          "entries": []
+        },
         "staged_applications": [],
         "periodic_sources": [],
         "source_queries": [],
@@ -16201,6 +16339,14 @@
         4000
       ],
       "actual": {
+        "landing_queue": {
+          "native": false,
+          "enqueued": 0,
+          "landed": 0,
+          "drains": 0,
+          "peak": 0,
+          "entries": []
+        },
         "staged_applications": [],
         "periodic_sources": [],
         "source_queries": [],
@@ -17474,6 +17620,14 @@
         5000
       ],
       "actual": {
+        "landing_queue": {
+          "native": false,
+          "enqueued": 0,
+          "landed": 0,
+          "drains": 0,
+          "peak": 0,
+          "entries": []
+        },
         "staged_applications": [],
         "periodic_sources": [],
         "source_queries": [],
@@ -18805,6 +18959,14 @@
         14000
       ],
       "actual": {
+        "landing_queue": {
+          "native": false,
+          "enqueued": 0,
+          "landed": 0,
+          "drains": 0,
+          "peak": 0,
+          "entries": []
+        },
         "staged_applications": [],
         "periodic_sources": [],
         "source_queries": [],
@@ -20264,6 +20426,14 @@
         4000
       ],
       "actual": {
+        "landing_queue": {
+          "native": false,
+          "enqueued": 0,
+          "landed": 0,
+          "drains": 0,
+          "peak": 0,
+          "entries": []
+        },
         "staged_applications": [],
         "periodic_sources": [],
         "source_queries": [],
@@ -21628,6 +21798,14 @@
         12000
       ],
       "actual": {
+        "landing_queue": {
+          "native": false,
+          "enqueued": 0,
+          "landed": 0,
+          "drains": 0,
+          "peak": 0,
+          "entries": []
+        },
         "staged_applications": [],
         "periodic_sources": [],
         "source_queries": [],
@@ -23068,6 +23246,14 @@
         12000
       ],
       "actual": {
+        "landing_queue": {
+          "native": false,
+          "enqueued": 0,
+          "landed": 0,
+          "drains": 0,
+          "peak": 0,
+          "entries": []
+        },
         "staged_applications": [],
         "periodic_sources": [],
         "source_queries": [],
@@ -24547,6 +24733,14 @@
         14000
       ],
       "actual": {
+        "landing_queue": {
+          "native": false,
+          "enqueued": 0,
+          "landed": 0,
+          "drains": 0,
+          "peak": 0,
+          "entries": []
+        },
         "staged_applications": [],
         "periodic_sources": [],
         "source_queries": [],
@@ -25959,6 +26153,14 @@
         3513
       ],
       "actual": {
+        "landing_queue": {
+          "native": false,
+          "enqueued": 0,
+          "landed": 0,
+          "drains": 0,
+          "peak": 0,
+          "entries": []
+        },
         "staged_applications": [],
         "periodic_sources": [],
         "source_queries": [],
@@ -26692,6 +26894,14 @@
         4
       ],
       "actual": {
+        "landing_queue": {
+          "native": false,
+          "enqueued": 0,
+          "landed": 0,
+          "drains": 0,
+          "peak": 0,
+          "entries": []
+        },
         "staged_applications": [],
         "periodic_sources": [],
         "source_queries": [],
@@ -27219,6 +27429,14 @@
         1000
       ],
       "actual": {
+        "landing_queue": {
+          "native": false,
+          "enqueued": 0,
+          "landed": 0,
+          "drains": 0,
+          "peak": 0,
+          "entries": []
+        },
         "staged_applications": [],
         "periodic_sources": [],
         "source_queries": [],
@@ -27645,6 +27863,14 @@
         1000
       ],
       "actual": {
+        "landing_queue": {
+          "native": false,
+          "enqueued": 0,
+          "landed": 0,
+          "drains": 0,
+          "peak": 0,
+          "entries": []
+        },
         "staged_applications": [],
         "periodic_sources": [],
         "source_queries": [],
@@ -28019,6 +28245,14 @@
         1000
       ],
       "actual": {
+        "landing_queue": {
+          "native": false,
+          "enqueued": 0,
+          "landed": 0,
+          "drains": 0,
+          "peak": 0,
+          "entries": []
+        },
         "staged_applications": [],
         "periodic_sources": [],
         "source_queries": [],
@@ -28393,6 +28627,14 @@
         1001
       ],
       "actual": {
+        "landing_queue": {
+          "native": false,
+          "enqueued": 0,
+          "landed": 0,
+          "drains": 0,
+          "peak": 0,
+          "entries": []
+        },
         "staged_applications": [],
         "periodic_sources": [],
         "source_queries": [],
@@ -28767,6 +29009,14 @@
         6000
       ],
       "actual": {
+        "landing_queue": {
+          "native": false,
+          "enqueued": 0,
+          "landed": 0,
+          "drains": 0,
+          "peak": 0,
+          "entries": []
+        },
         "staged_applications": [],
         "periodic_sources": [],
         "source_queries": [],
@@ -29195,6 +29445,14 @@
         3500
       ],
       "actual": {
+        "landing_queue": {
+          "native": false,
+          "enqueued": 0,
+          "landed": 0,
+          "drains": 0,
+          "peak": 0,
+          "entries": []
+        },
         "staged_applications": [],
         "periodic_sources": [],
         "source_queries": [],
@@ -29939,12 +30197,12 @@
       "command_status": "completed",
       "configured_max_threads_per_threadgroup": 1,
       "device": "Apple M5",
-      "gpu_seconds": 0.001760541636031121,
+      "gpu_seconds": 0.0018796249642036855,
       "input_bytes": 622596,
-      "library_compile_seconds": 0.0008180141448974609,
-      "output_bytes": 557056,
-      "pipeline_compile_seconds": 0.0017980337142944336,
-      "pipeline_lock_wait_seconds": 9.5367431640625e-07,
+      "library_compile_seconds": 0.0008139610290527344,
+      "output_bytes": 786432,
+      "pipeline_compile_seconds": 0.001835942268371582,
+      "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
       "pipeline_max_threads_per_threadgroup": 1,
       "registry_id": "4294968313",
       "threads_per_threadgroup": 1,
@@ -29952,11 +30210,11 @@
       "gpu_timeout_seconds": 120
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "97c90b27ad093bebdf8b29c46529a557a37dcc93a2b6ccc59d674ad32970b484",
+      "gpu/event_runtime.slang": "16035f857393086f844d2d96bc232fdfde1a6fc58d58559effdc8e220f1c3405",
       "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "913bd108d3eefe350726635ca63d2a4eed35a51e2e42072522d7d56fd37ec397",
-      "gpu/runtime_init.slang": "1dac2bb813bd98a598d0aaed2aeb29006513c0bb1e25b73c95011a20c8befd7f",
+      "gpu/portable_schema.slang": "9098976fce9cd2a1be172c68054aa0262435888346c9afa5d52f3bf07e87a5f7",
+      "gpu/runtime_init.slang": "9360ad094f972f0d252218ef3ab71d21b67c4cbc6354352611e95e06601b82b1",
       "gpu/resource_runtime.slang": "5663120967beaf269c3928a7c581d4a9d009da7e1b36cf05b129f36df84ff2ab",
       "gpu/source_runtime.slang": "53c5f6285f4e2bbc43f90ae0c0c436269456c1a88e70aea676dc5fd9a905c71c",
       "gpu/reference_runtime.slang": "d4b97eb4fd07c38dcd990e1babe887c6d1ca6a4bb38e39db13c1c473c38ce417",
@@ -29968,6 +30226,7 @@
       "gpu/carrier_runtime.slang": "dcbc75f3d88edda0227c68975087fc56c73ed938e6b3b72cd5d6246eace7a43c",
       "gpu/quantity_runtime.slang": "44d9e37a3c81f77dcea96406db0cafc797401e211d5f9b41903b27254f72587e",
       "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
+      "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
       "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
       "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
       "gpu/recipient_runtime.slang": "e3dca124f523e4a28ec42e3bc915df6163dfeb2b071e0b25248ad6b0a4e85e0d",
@@ -29978,29 +30237,30 @@
       "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
       "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
       "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
+      "gpu/landing_runtime.slang": "12f368a2f4818d4bb3f2d6bcd9491a85cbf6a36e45a5e24764bbd0042974e5e7",
       "gpu/periodic_runtime.slang": "78c594e573b27072615102916c7605440cbd5fbfb0b34cf19c57be4c47fb3d57",
       "gpu/event_candidate_runtime.slang": "5b986d2d51b052186bedb820788460d009220a58e84d6a8803770b64287db356",
-      "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
+      "gpu/pending_burst_runtime.slang": "5715cb906074a136b5db6fc23c5fc2c81009cd943ee32222ff2de65973425708",
       "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-      "gpu/combat_runtime.slang": "fbbbadce16ebca5b4dcc0c6f6a44f834ff785824ee031f745edfb1269ef9f465",
+      "gpu/combat_runtime.slang": "edac77a6c1b7fa6981fc181a43d7a1dc1b902d3c1bc4d8d3cea654bc5e879bf1",
       "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
       "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
       "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
     },
     "generated_sha256": {
-      "cuda": "296abee1a18d2b97855c1e1ca9aba13465c690d6f3ae39be13e7a6453f397df1",
-      "metal": "de493004557cfae1962c7afc18c9323766cb0d691f7ae3de08b68b302875cc4c"
+      "cuda": "569a2f7eb6929c7217a36234756641a913df0c67f044bfcaebd155aa295d33fb",
+      "metal": "bd1e99c4a02e38bf2425fe55200590628040997b0be624267437351a3a4bc01e"
     },
-    "input_sha256": "2f66607040ffcbc353f157b391bb542cfd1086208df831a20c8377252b8e65ae",
-    "output_sha256": "f4c9227553e969ccc99f7cb404ffa2705d5a1ea7c403ccdf8c172df5c27a702e",
+    "input_sha256": "f3299655466455d23d286d52c5b90e4620a7b4e9e445015e8a0b1b6528152fd5",
+    "output_sha256": "90672043d84e4b98e50bb156b9322c3bdf795d30433bf8ea044bc8accdfb57ef",
     "gpu_execution_verified": true,
     "backend": "metal"
   },
   "adapter_sha256": {
-    "app/portable_runtime.py": "eb81ea1ea20db04e384fce8d02735740bf2c3c2f51a21b688b91337d1d0a1ebc",
+    "app/portable_runtime.py": "05b51c4965dbd7869ee9b93538147bb39b478af3d712f081079e731b8b5a56ab",
     "app/portable_trigger_specs.py": "de8354e952352ce0e40bf3f8ddf97f36595500ea3e7436672ae4ba0934871040",
-    "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
-    "app/portable_specs.py": "c1e087ba0b90f706ba9deaa58f1a4d2cb6e0fb9067d6fbf0714d122c435344e8",
+    "app/portable_damage_specs.py": "62d322155e688a5e428b4cf56550216c6d050c0605487d39331d4306d47b14bb",
+    "app/portable_specs.py": "833d0c47ead526a8f2460dc1a8935e9a21fe966a049eee6e8402ec61d4aacd70",
     "app/portable_backend.py": "65fa85746a0be27fce443e95f47a92885a4c822dc6630141b1baa972c4cfff53",
     "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
