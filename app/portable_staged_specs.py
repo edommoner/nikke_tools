@@ -8,3 +8,7 @@ def pack(words,index,spec,L,keys,double_words,parent):
     at=L['STAGED_DEFINITION_BASE']+index*8
     count=spec.count if isinstance(spec.count,int) else 256+keys[spec.count]
     words[at:at+8]=[1,count,*double_words(spec.gap),*double_words(spec.post_delay),0 if spec.damage_stack is None else spec.damage_stack+1,parent+1]
+
+def pack_index(words,specs,L):
+    rows=[row for row,spec in enumerate(specs) if spec is not None]
+    at=L['STAGED_INDEX_BASE'];words[at:at+1+len(rows)]=[len(rows),*rows]

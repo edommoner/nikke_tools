@@ -1013,8 +1013,17 @@ void stagedPass(inout Runtime s,uint64_t when,uint output)
     while(s.error==0)
     {
         uint selected=s.count,sequence=0;uint64_t due=0;
-        for(uint row=0;row<s.count;row++)
+#ifdef PORTABLE_STAGED_FULL_SCAN
+        for(uint slot=0;slot<s.count;slot++)
+#else
+        for(uint slot=0;slot<s.stagedEnabled;slot++)
+#endif
         {
+#ifdef PORTABLE_STAGED_FULL_SCAN
+            uint row=slot;
+#else
+            uint row=commands[s.inputBase+P_STAGED_INDEX_BASE+1+slot];
+#endif
             uint at=stagedAddress(s,row);
             if(results[at]==0 || s.alive[row]==0 || results[at+3]>=results[at+2]) continue;
             uint64_t next=stagedNext(s,row);

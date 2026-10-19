@@ -258,6 +258,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             if row[7]<0 and row[14]>0:raise UnsupportedPortable('Infinite conditional weapon mode is not ported')
             from portable_combat import pack_mode
             pack_mode(words,index,row,double_words)
+    from portable_staged_specs import pack_index
+    pack_index(words,staged,L)
     combat_meta = None
     if combat is not None:
         from portable_combat import pack_combat

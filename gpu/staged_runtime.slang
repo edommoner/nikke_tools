@@ -37,6 +37,8 @@ bool initializeStaged(inout Runtime s)
 {
     for (uint i=0;i<8;i++) results[s.resourceOutput+P_STAGED_HEADER_BASE+i]=0;
     for (uint i=0;i<P_DEFINITIONS*6;i++) results[s.resourceOutput+P_STAGED_STATE_BASE+i]=0;
+    uint index=s.inputBase+P_STAGED_INDEX_BASE,total=commands[index],found=0;
+    if(total>s.count) return false;
     for (uint row=0;row<s.count;row++)
     {
         uint at=stagedDefinition(s,row), flag=commands[at];
@@ -48,7 +50,11 @@ bool initializeStaged(inout Runtime s)
         if(code>64 && (code<256 || code-256>=s.resourceCount)) return false;
         if(!f64Finite(gap) || f64Less(gap,uint64_t(0x3eb0c6f7)<<32|0xa0b5ed8d) || f64Less(f64FromI64(60),gap) || !f64Finite(post) || f64Less(post,0) || f64Less(f64FromI64(3600),post)) return false;
         if(!f64Finite(d.duration) || (d.maxStack!=0xffffffff && (d.maxStack==0 || d.maxStack>64)) || !(f64Equal(d.duration,ONE|F64_SIGN) || f64Less(0,d.duration) && !f64Less(f64FromI64(86400),d.duration))) return false;
-        s.stagedEnabled=1;
+        if(found>=total || commands[index+1+found]!=row) return false;
+        found++;
     }
+    if(found!=total) return false;
+    for(uint i=total;i<P_DEFINITIONS;i++) if(commands[index+1+i]!=0) return false;
+    s.stagedEnabled=total;
     return true;
 }

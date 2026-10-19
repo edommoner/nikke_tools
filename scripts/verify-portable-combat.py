@@ -334,6 +334,9 @@ def main():
         enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-staged-'+name,status=64))
     words,meta=compile_case(staged_fixture);words[L['STAGED_DEFINITION_BASE']+1]=1
     enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-staged-disabled-padding',status=64))
+    for name,field,value in [('count',0,257),('missing',0,0),('wrong-row',1,1),('out-of-range',1,256),('padding',2,1)]:
+        words,meta=compile_case(staged_fixture);words[L['STAGED_INDEX_BASE']+field]=value
+        enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-staged-index-'+name,status=64))
     rejections += enemy_rejections;negative_programs += enemy_bad
     indices=list(range(len(cases),len(cases)+len(rejections)))
     statuses=[0]*len(cases)+[c['status'] for c in rejections]

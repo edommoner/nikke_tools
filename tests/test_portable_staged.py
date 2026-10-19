@@ -24,6 +24,11 @@ class StagedTests(unittest.TestCase):
             elif change=='wrong-family':c['effects'][1]['type']='buff'
             else:c['effects'].append(copy.deepcopy(c['effects'][2 if change=='duplicate-child' else 1]));c['owners'].append(0)
             with self.subTest(change=change),self.assertRaises(ValueError):v.compile_case(c)
+    def test_static_index_contains_every_staged_row_once_in_order(self):
+        for c in CASES:
+            words,_=v.compile_case(c);at=L['STAGED_INDEX_BASE'];expected=[i for i,e in enumerate(c['effects']) if 'ramp_interval' in e]
+            self.assertEqual(words[at],len(expected));self.assertEqual(words[at+1:at+1+len(expected)],expected)
+            self.assertTrue(all(v==0 for v in words[at+1+len(expected):at+1+L['DEFINITIONS']]))
     def manager(self):
         m=BuffManager.__new__(BuffManager);m._cur_t=99;m._effects=[];m._nikke_reference_health_defined=False;return m
     def test_damage_callback_time_restores_through_nested_calls(self):

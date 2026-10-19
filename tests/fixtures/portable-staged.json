@@ -4320,6 +4320,5463 @@
           ]
         }
       ]
+    },
+    {
+      "name": "staged-index-all-254-carriers",
+      "effects": [
+        {
+          "name": "",
+          "type": "buff",
+          "source": "스킬1",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "duration": -1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "parent",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "damage:1",
+          "fixed_value": 0,
+          "target": "enemy",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot0",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot1",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot2",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot3",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot4",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot5",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot6",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot7",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot8",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot9",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot10",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot11",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot12",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot13",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot14",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot15",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot16",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot17",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot18",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot19",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot20",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot21",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot22",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot23",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot24",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot25",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot26",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot27",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot28",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot29",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot30",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot31",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot32",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot33",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot34",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot35",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot36",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot37",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot38",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot39",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot40",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot41",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot42",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot43",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot44",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot45",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot46",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot47",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot48",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot49",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot50",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot51",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot52",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot53",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot54",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot55",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot56",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot57",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot58",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot59",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot60",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot61",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot62",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot63",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot64",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot65",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot66",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot67",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot68",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot69",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot70",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot71",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot72",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot73",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot74",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot75",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot76",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot77",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot78",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot79",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot80",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot81",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot82",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot83",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot84",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot85",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot86",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot87",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot88",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot89",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot90",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot91",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot92",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot93",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot94",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot95",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot96",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot97",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot98",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot99",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot100",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot101",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot102",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot103",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot104",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot105",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot106",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot107",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot108",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot109",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot110",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot111",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot112",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot113",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot114",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot115",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot116",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot117",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot118",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot119",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot120",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot121",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot122",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot123",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot124",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot125",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot126",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot127",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot128",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot129",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot130",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot131",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot132",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot133",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot134",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot135",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot136",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot137",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot138",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot139",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot140",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot141",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot142",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot143",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot144",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot145",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot146",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot147",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot148",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot149",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot150",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot151",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot152",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot153",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot154",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot155",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot156",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot157",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot158",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot159",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot160",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot161",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot162",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot163",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot164",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot165",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot166",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot167",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot168",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot169",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot170",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot171",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot172",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot173",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot174",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot175",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot176",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot177",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot178",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot179",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot180",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot181",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot182",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot183",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot184",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot185",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot186",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot187",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot188",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot189",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot190",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot191",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot192",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot193",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot194",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot195",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot196",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot197",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot198",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot199",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot200",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot201",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot202",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot203",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot204",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot205",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot206",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot207",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot208",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot209",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot210",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot211",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot212",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot213",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot214",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot215",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot216",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot217",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot218",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot219",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot220",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot221",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot222",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot223",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot224",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot225",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot226",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot227",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot228",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot229",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot230",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot231",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot232",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot233",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot234",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot235",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot236",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot237",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot238",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot239",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot240",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot241",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot242",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot243",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot244",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot245",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot246",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot247",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot248",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot249",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot250",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot251",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot252",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "dot253",
+          "type": "damage",
+          "source": "스킬2",
+          "stat": "dot_damage",
+          "fixed_value": 100,
+          "target": "same_target:parent",
+          "scaling": "stack_count",
+          "duration": 1,
+          "tick_interval": 1,
+          "ramp_interval": 1e-06,
+          "post_ramp_tick_delay": 3600,
+          "max_stack": 64,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          }
+        ],
+        "trace": "summary"
+      },
+      "staged_reference": true,
+      "enemy_reference": true,
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            254000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
     }
   ]
 }
