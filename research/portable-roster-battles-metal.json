@@ -4496,7 +4496,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.9893366660107858
+      "cpu_reference_wall_seconds": 0.9641243339865468
     },
     {
       "character": "아니스 : 스파클링 서머",
@@ -8889,7 +8889,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.0133642090368085
+      "cpu_reference_wall_seconds": 1.024536665994674
     },
     {
       "character": "미란다",
@@ -12455,7 +12455,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.9296777499839664
+      "cpu_reference_wall_seconds": 0.9463329580030404
     },
     {
       "character": "미란다",
@@ -16761,7 +16761,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.010819957999047
+      "cpu_reference_wall_seconds": 1.030401542026084
     },
     {
       "character": "미카",
@@ -20301,7 +20301,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.7202335000038147
+      "cpu_reference_wall_seconds": 0.7255566249950789
     },
     {
       "character": "미카",
@@ -24581,7 +24581,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.7590514580369927
+      "cpu_reference_wall_seconds": 0.7657631660113111
     },
     {
       "character": "브리드",
@@ -28097,7 +28097,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.9708445409778506
+      "cpu_reference_wall_seconds": 0.9764757920056581
     },
     {
       "character": "브리드",
@@ -32353,7 +32353,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.0463192910538055
+      "cpu_reference_wall_seconds": 1.0632486249669455
     },
     {
       "character": "솔린",
@@ -35919,7 +35919,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.1925258749979548
+      "cpu_reference_wall_seconds": 1.193447208032012
     },
     {
       "character": "솔린",
@@ -40225,7 +40225,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.2679805420339108
+      "cpu_reference_wall_seconds": 1.2750642920145765
     },
     {
       "character": "리타",
@@ -43910,7 +43910,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.8924593749688938
+      "cpu_reference_wall_seconds": 0.8961062920279801
     },
     {
       "character": "리타",
@@ -48335,7 +48335,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.9429035839857534
+      "cpu_reference_wall_seconds": 0.9481774160522036
     },
     {
       "character": "은화",
@@ -51876,7 +51876,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.9502621249994263
+      "cpu_reference_wall_seconds": 1.0091130409855396
     },
     {
       "character": "은화",
@@ -56157,7 +56157,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.02313491696259
+      "cpu_reference_wall_seconds": 1.0303642500075512
     },
     {
       "character": "드레이크",
@@ -59723,7 +59723,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.94612820900511
+      "cpu_reference_wall_seconds": 0.9545511250034906
     },
     {
       "character": "드레이크",
@@ -64029,7 +64029,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.0200419159955345
+      "cpu_reference_wall_seconds": 1.02614974998869
     },
     {
       "character": "N102",
@@ -67582,7 +67582,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.9110331250121817
+      "cpu_reference_wall_seconds": 0.9178537919651717
     },
     {
       "character": "N102",
@@ -71875,7 +71875,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.9985525829833932
+      "cpu_reference_wall_seconds": 1.0082123749889433
     },
     {
       "character": "메어리",
@@ -75428,7 +75428,7 @@
         "frames": 10800,
         "max_stack_depth": 6
       },
-      "cpu_reference_wall_seconds": 0.9427360420231707
+      "cpu_reference_wall_seconds": 0.9489539159694687
     },
     {
       "character": "메어리",
@@ -79721,7 +79721,7 @@
         "frames": 10800,
         "max_stack_depth": 6
       },
-      "cpu_reference_wall_seconds": 1.0170095829525962
+      "cpu_reference_wall_seconds": 1.0231708750361577
     },
     {
       "character": "메어리 : 베이 갓데스",
@@ -83359,7 +83359,7 @@
         "frames": 10800,
         "max_stack_depth": 6
       },
-      "cpu_reference_wall_seconds": 0.6951960829901509
+      "cpu_reference_wall_seconds": 0.6986582910176367
     },
     {
       "character": "메어리 : 베이 갓데스",
@@ -87737,7 +87737,7 @@
         "frames": 10800,
         "max_stack_depth": 6
       },
-      "cpu_reference_wall_seconds": 0.7802777499891818
+      "cpu_reference_wall_seconds": 0.7936035839957185
     },
     {
       "character": "프림",
@@ -91290,7 +91290,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.809231291001197
+      "cpu_reference_wall_seconds": 0.8176518749678507
     },
     {
       "character": "프림",
@@ -95583,7 +95583,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.8786517920088954
+      "cpu_reference_wall_seconds": 0.8925873329862952
     },
     {
       "character": "율리아",
@@ -99112,7 +99112,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.9846997920540161
+      "cpu_reference_wall_seconds": 0.9883209999534301
     },
     {
       "character": "율리아",
@@ -103381,7 +103381,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.0541761250351556
+      "cpu_reference_wall_seconds": 1.0581968750339001
     },
     {
       "character": "미하라",
@@ -106984,7 +106984,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.0139183329883963
+      "cpu_reference_wall_seconds": 1.0112500420073047
     },
     {
       "character": "미하라",
@@ -111327,7 +111327,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.0776218750397675
+      "cpu_reference_wall_seconds": 1.0856769160018303
     },
     {
       "character": "애드미",
@@ -114764,7 +114764,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.9237935410346836
+      "cpu_reference_wall_seconds": 0.9237517500296235
     },
     {
       "character": "애드미",
@@ -118941,7 +118941,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.0031370000215247
+      "cpu_reference_wall_seconds": 1.0166118750348687
     },
     {
       "character": "도라",
@@ -122507,7 +122507,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.945997458009515
+      "cpu_reference_wall_seconds": 0.9467192919692025
     },
     {
       "character": "도라",
@@ -126813,7 +126813,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.0169626660062931
+      "cpu_reference_wall_seconds": 1.0269586250069551
     },
     {
       "character": "노벨",
@@ -130274,7 +130274,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.089089667017106
+      "cpu_reference_wall_seconds": 1.092165959009435
     },
     {
       "character": "노벨",
@@ -134475,7 +134475,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.1802600409719162
+      "cpu_reference_wall_seconds": 1.1818540829699486
     },
     {
       "character": "이사벨",
@@ -138163,7 +138163,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.957967667025514
+      "cpu_reference_wall_seconds": 0.9655390830012038
     },
     {
       "character": "이사벨",
@@ -142591,7 +142591,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.0427382919588126
+      "cpu_reference_wall_seconds": 1.053633000003174
     },
     {
       "character": "누아르",
@@ -146242,7 +146242,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.103989916970022
+      "cpu_reference_wall_seconds": 1.0686812089988962
     },
     {
       "character": "누아르",
@@ -150633,7 +150633,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.1237947500194423
+      "cpu_reference_wall_seconds": 1.1336203750106506
     },
     {
       "character": "루주",
@@ -154376,7 +154376,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.7364298329921439
+      "cpu_reference_wall_seconds": 0.7402353749494068
     },
     {
       "character": "루주",
@@ -158859,7 +158859,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.8206181669957004
+      "cpu_reference_wall_seconds": 0.8201251669670455
     },
     {
       "character": "프로덕트 12",
@@ -162351,7 +162351,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.2204304580227472
+      "cpu_reference_wall_seconds": 1.2111893750261515
     },
     {
       "character": "프로덕트 12",
@@ -166583,7 +166583,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.365508624992799
+      "cpu_reference_wall_seconds": 1.3008033339865506
     },
     {
       "character": "iDoll 오션",
@@ -170036,7 +170036,7 @@
         "frames": 10800,
         "max_stack_depth": 6
       },
-      "cpu_reference_wall_seconds": 0.8343777499976568
+      "cpu_reference_wall_seconds": 0.8141326659824699
     },
     {
       "character": "iDoll 오션",
@@ -174229,7 +174229,7 @@
         "frames": 10800,
         "max_stack_depth": 6
       },
-      "cpu_reference_wall_seconds": 0.9673012500279583
+      "cpu_reference_wall_seconds": 0.8931752089993097
     },
     {
       "character": "퀀시 : 이스케이프 퀸",
@@ -178067,7 +178067,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.8882806249894202
+      "cpu_reference_wall_seconds": 1.7942468750406988
     },
     {
       "character": "퀀시 : 이스케이프 퀸",
@@ -182645,7 +182645,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 2.0677318339585327
+      "cpu_reference_wall_seconds": 1.9474856670130976
     },
     {
       "character": "히메노",
@@ -186132,7 +186132,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.0112780830240808
+      "cpu_reference_wall_seconds": 0.9669946670182981
     },
     {
       "character": "히메노",
@@ -190359,7 +190359,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.0530301669496112
+      "cpu_reference_wall_seconds": 1.061157749965787
     },
     {
       "character": "파스칼",
@@ -193825,7 +193825,7 @@
         "frames": 10800,
         "max_stack_depth": 4
       },
-      "cpu_reference_wall_seconds": 0.6885338749852963
+      "cpu_reference_wall_seconds": 0.6716490830294788
     },
     {
       "character": "파스칼",
@@ -198031,7 +198031,7 @@
         "frames": 10800,
         "max_stack_depth": 4
       },
-      "cpu_reference_wall_seconds": 0.7136015419964679
+      "cpu_reference_wall_seconds": 0.7042546249576844
     },
     {
       "character": "사쿠라 (SR)",
@@ -201547,7 +201547,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 0.9203303749673069
+      "cpu_reference_wall_seconds": 0.9197358749806881
     },
     {
       "character": "사쿠라 (SR)",
@@ -205803,7 +205803,7 @@
         "frames": 10800,
         "max_stack_depth": 3
       },
-      "cpu_reference_wall_seconds": 1.0035495840129443
+      "cpu_reference_wall_seconds": 0.9960852090152912
     }
   ],
   "validation_sha256": {
@@ -206004,6 +206004,7 @@
     "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
     "scripts/portable_burst_oracle.py": "640bc66abb2df8b237383df3d626df30bc565de382b19671fbf11ba83d5ee94a",
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
+    "scripts/portable_control_verifier.py": "13b4b525663b86cf2b0e565e361488ebe57d9eee8609c5642acde00b4038c22d",
     "scripts/portable_enemy_buff_oracle.py": "4ea37a8bd5632e1e52f321fb9d49d9f97f965e6a3f9b416a4ba77cdf8d500346",
     "scripts/portable_enemy_oracle.py": "d46c7638c6d85b6a96cd7e50f8f93d9c8acb61c8e35c5dcd8e3753b321b01679",
     "scripts/portable_health_oracle.py": "3c8c66d0674675c3fbf884ed8ef53408a4ca74e2593ea3b1df3594b8176a5bfc",
@@ -206120,11 +206121,11 @@
     "scripts/verify-periodic-detail.py": "592431aefb6cbba77fc8b0ac925dbcbe342fa87e488d423cedfa270df0261e05",
     "scripts/verify-periodic-sources-detail.py": "bece3113347f76c55022591fb7308cc2bcd181ff56497cb17de691f791450dda",
     "scripts/verify-periodic-targets-detail.py": "e159b1a38c095cfedb489105ae2c90051f6cf34cdbc8a35acb351b1e9b835159",
-    "scripts/verify-portable-api.py": "f45b9f4c0ad7226211bdf3a374d1ef193fa36a2fb7d7a5af0df5436b2dc2fa9f",
-    "scripts/verify-portable-attack-rank.py": "fb8f7697c7c9df51ee1f58e0eb4e5e596b8f9eddd444869cffe926945d9f044c",
+    "scripts/verify-portable-api.py": "708d5d636795bdc82a0a2f2043d88657e33fdb6125d8d8d6dddf2016b21e5518",
+    "scripts/verify-portable-attack-rank.py": "e80520e7baee2c21580548a020164bbf124a9524466621d208c3fe804ecc21a9",
     "scripts/verify-portable-catalog-weapons.py": "4986f71dc931d68ffad1bcdea2bf9be5e1dcb586e8d0c1a6001b5ca75799e3e6",
     "scripts/verify-portable-combat.py": "2f7af31e1de4fb50faed69513682fa6465e265147d3b5236d7901197db56ac90",
-    "scripts/verify-portable-event-index.py": "00b8309eb3cc30f293d82bf91b3273d85a60b7ec2a5ce960c3b68c915bb54c25",
+    "scripts/verify-portable-event-index.py": "39777a51f8dc99d6f442a6a2f933f11316abaee3dbcf923bf154d78dc39df0de",
     "scripts/verify-portable-events.py": "a0c19364ccfbb0436268ca56a79457abbb588235c71a8e6d1565d8fe757cd6a7",
     "scripts/verify-portable-metal-lock.py": "1b61cb71e824881b0979abab06cfa614018222454b6f357013ba88be7f4646de",
     "scripts/verify-portable-numeric.py": "6f69e28e3de824899cc5e25320eb9ebfc2a5a4f44c5a3e5dc393a0ce7b664d9e",
@@ -206191,19 +206192,19 @@
         2,
         3
       ],
-      "wall_seconds": 9.625346166954841,
+      "wall_seconds": 9.454938458045945,
       "transport": {
         "backend": "metal",
         "cases": 4,
         "command_status": "completed",
         "configured_max_threads_per_threadgroup": 1,
         "device": "Apple M5",
-        "gpu_seconds": 8.4453246666817,
+        "gpu_seconds": 8.470935791672673,
         "input_bytes": 851972,
-        "library_compile_seconds": 0.000698089599609375,
+        "library_compile_seconds": 0.0007039308547973633,
         "output_bytes": 851968,
-        "pipeline_compile_seconds": 0.002048969268798828,
-        "pipeline_lock_wait_seconds": 1.9073486328125e-06,
+        "pipeline_compile_seconds": 0.0020990371704101562,
+        "pipeline_lock_wait_seconds": 9.5367431640625e-07,
         "pipeline_max_threads_per_threadgroup": 1,
         "registry_id": "4294968313",
         "threads_per_threadgroup": 1,
@@ -206259,18 +206260,18 @@
         6,
         7
       ],
-      "wall_seconds": 9.716474457993172,
+      "wall_seconds": 9.663618457969278,
       "transport": {
         "backend": "metal",
         "cases": 4,
         "command_status": "completed",
         "configured_max_threads_per_threadgroup": 1,
         "device": "Apple M5",
-        "gpu_seconds": 8.742224833287764,
+        "gpu_seconds": 8.685293750022538,
         "input_bytes": 851972,
-        "library_compile_seconds": 0.0006639957427978516,
+        "library_compile_seconds": 0.0006870031356811523,
         "output_bytes": 851968,
-        "pipeline_compile_seconds": 0.0020389556884765625,
+        "pipeline_compile_seconds": 0.0019969940185546875,
         "pipeline_lock_wait_seconds": 9.5367431640625e-07,
         "pipeline_max_threads_per_threadgroup": 1,
         "registry_id": "4294968313",
@@ -206327,19 +206328,19 @@
         10,
         11
       ],
-      "wall_seconds": 11.100813333003316,
+      "wall_seconds": 11.10896025004331,
       "transport": {
         "backend": "metal",
         "cases": 4,
         "command_status": "completed",
         "configured_max_threads_per_threadgroup": 1,
         "device": "Apple M5",
-        "gpu_seconds": 10.124812000023667,
+        "gpu_seconds": 10.124873166671023,
         "input_bytes": 851972,
-        "library_compile_seconds": 0.0006690025329589844,
+        "library_compile_seconds": 0.000677943229675293,
         "output_bytes": 851968,
-        "pipeline_compile_seconds": 0.0020029544830322266,
-        "pipeline_lock_wait_seconds": 1.9073486328125e-06,
+        "pipeline_compile_seconds": 0.0021219253540039062,
+        "pipeline_lock_wait_seconds": 9.5367431640625e-07,
         "pipeline_max_threads_per_threadgroup": 1,
         "registry_id": "4294968313",
         "threads_per_threadgroup": 1,
@@ -206395,19 +206396,19 @@
         14,
         15
       ],
-      "wall_seconds": 9.205795000016224,
+      "wall_seconds": 9.303554958023597,
       "transport": {
         "backend": "metal",
         "cases": 4,
         "command_status": "completed",
         "configured_max_threads_per_threadgroup": 1,
         "device": "Apple M5",
-        "gpu_seconds": 8.229686583334114,
+        "gpu_seconds": 8.310473249992356,
         "input_bytes": 851972,
-        "library_compile_seconds": 0.0006600618362426758,
+        "library_compile_seconds": 0.0006750822067260742,
         "output_bytes": 851968,
-        "pipeline_compile_seconds": 0.00198209285736084,
-        "pipeline_lock_wait_seconds": 9.5367431640625e-07,
+        "pipeline_compile_seconds": 0.0020279884338378906,
+        "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
         "pipeline_max_threads_per_threadgroup": 1,
         "registry_id": "4294968313",
         "threads_per_threadgroup": 1,
@@ -206463,19 +206464,19 @@
         18,
         19
       ],
-      "wall_seconds": 9.191688082995825,
+      "wall_seconds": 9.226681041007396,
       "transport": {
         "backend": "metal",
         "cases": 4,
         "command_status": "completed",
         "configured_max_threads_per_threadgroup": 1,
         "device": "Apple M5",
-        "gpu_seconds": 8.231055749987718,
+        "gpu_seconds": 8.232528124994133,
         "input_bytes": 851972,
-        "library_compile_seconds": 0.0008370876312255859,
+        "library_compile_seconds": 0.0006890296936035156,
         "output_bytes": 851968,
-        "pipeline_compile_seconds": 0.002200007438659668,
-        "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
+        "pipeline_compile_seconds": 0.0020140409469604492,
+        "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
         "pipeline_max_threads_per_threadgroup": 1,
         "registry_id": "4294968313",
         "threads_per_threadgroup": 1,
@@ -206531,19 +206532,19 @@
         22,
         23
       ],
-      "wall_seconds": 12.977034792013,
+      "wall_seconds": 12.922395540983416,
       "transport": {
         "backend": "metal",
         "cases": 4,
         "command_status": "completed",
         "configured_max_threads_per_threadgroup": 1,
         "device": "Apple M5",
-        "gpu_seconds": 11.992390375002287,
+        "gpu_seconds": 11.88199187500868,
         "input_bytes": 851972,
-        "library_compile_seconds": 0.0006560087203979492,
+        "library_compile_seconds": 0.0006940364837646484,
         "output_bytes": 851968,
-        "pipeline_compile_seconds": 0.0020020008087158203,
-        "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+        "pipeline_compile_seconds": 0.0020009279251098633,
+        "pipeline_lock_wait_seconds": 9.5367431640625e-07,
         "pipeline_max_threads_per_threadgroup": 1,
         "registry_id": "4294968313",
         "threads_per_threadgroup": 1,
@@ -206599,18 +206600,18 @@
         26,
         27
       ],
-      "wall_seconds": 9.904182625003159,
+      "wall_seconds": 9.962188375007827,
       "transport": {
         "backend": "metal",
         "cases": 4,
         "command_status": "completed",
         "configured_max_threads_per_threadgroup": 1,
         "device": "Apple M5",
-        "gpu_seconds": 8.931475416698959,
+        "gpu_seconds": 8.9660258750082,
         "input_bytes": 851972,
-        "library_compile_seconds": 0.0006799697875976562,
+        "library_compile_seconds": 0.0006749629974365234,
         "output_bytes": 851968,
-        "pipeline_compile_seconds": 0.0020949840545654297,
+        "pipeline_compile_seconds": 0.0019910335540771484,
         "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
         "pipeline_max_threads_per_threadgroup": 1,
         "registry_id": "4294968313",
@@ -206667,18 +206668,18 @@
         30,
         31
       ],
-      "wall_seconds": 9.202816833974794,
+      "wall_seconds": 9.213062624970917,
       "transport": {
         "backend": "metal",
         "cases": 4,
         "command_status": "completed",
         "configured_max_threads_per_threadgroup": 1,
         "device": "Apple M5",
-        "gpu_seconds": 8.242182333313394,
+        "gpu_seconds": 8.23694562498713,
         "input_bytes": 851972,
-        "library_compile_seconds": 0.0006810426712036133,
+        "library_compile_seconds": 0.0006620883941650391,
         "output_bytes": 851968,
-        "pipeline_compile_seconds": 0.0020200014114379883,
+        "pipeline_compile_seconds": 0.0020399093627929688,
         "pipeline_lock_wait_seconds": 9.5367431640625e-07,
         "pipeline_max_threads_per_threadgroup": 1,
         "registry_id": "4294968313",
@@ -206735,18 +206736,18 @@
         34,
         35
       ],
-      "wall_seconds": 10.319310332997702,
+      "wall_seconds": 10.32058787503047,
       "transport": {
         "backend": "metal",
         "cases": 4,
         "command_status": "completed",
         "configured_max_threads_per_threadgroup": 1,
         "device": "Apple M5",
-        "gpu_seconds": 9.35769687499851,
+        "gpu_seconds": 9.336936166626401,
         "input_bytes": 851972,
-        "library_compile_seconds": 0.0006569623947143555,
+        "library_compile_seconds": 0.0006939172744750977,
         "output_bytes": 851968,
-        "pipeline_compile_seconds": 0.001986980438232422,
+        "pipeline_compile_seconds": 0.0020029544830322266,
         "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
         "pipeline_max_threads_per_threadgroup": 1,
         "registry_id": "4294968313",
@@ -206803,18 +206804,18 @@
         38,
         39
       ],
-      "wall_seconds": 12.674755166983232,
+      "wall_seconds": 12.716762707976159,
       "transport": {
         "backend": "metal",
         "cases": 4,
         "command_status": "completed",
         "configured_max_threads_per_threadgroup": 1,
         "device": "Apple M5",
-        "gpu_seconds": 11.714690333348699,
+        "gpu_seconds": 11.742493625031784,
         "input_bytes": 851972,
-        "library_compile_seconds": 0.0006530284881591797,
+        "library_compile_seconds": 0.0006679296493530273,
         "output_bytes": 851968,
-        "pipeline_compile_seconds": 0.0020641088485717773,
+        "pipeline_compile_seconds": 0.0019959211349487305,
         "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
         "pipeline_max_threads_per_threadgroup": 1,
         "registry_id": "4294968313",
@@ -206871,19 +206872,19 @@
         42,
         43
       ],
-      "wall_seconds": 12.499756250006612,
+      "wall_seconds": 12.59512062498834,
       "transport": {
         "backend": "metal",
         "cases": 4,
         "command_status": "completed",
         "configured_max_threads_per_threadgroup": 1,
         "device": "Apple M5",
-        "gpu_seconds": 11.51861216663383,
+        "gpu_seconds": 11.612715541676152,
         "input_bytes": 851972,
-        "library_compile_seconds": 0.000738978385925293,
+        "library_compile_seconds": 0.0006660223007202148,
         "output_bytes": 851968,
-        "pipeline_compile_seconds": 0.0020819902420043945,
-        "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+        "pipeline_compile_seconds": 0.0020159482955932617,
+        "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
         "pipeline_max_threads_per_threadgroup": 1,
         "registry_id": "4294968313",
         "threads_per_threadgroup": 1,
@@ -206939,19 +206940,19 @@
         46,
         47
       ],
-      "wall_seconds": 12.630980500020087,
+      "wall_seconds": 12.525369041017257,
       "transport": {
         "backend": "metal",
         "cases": 4,
         "command_status": "completed",
         "configured_max_threads_per_threadgroup": 1,
         "device": "Apple M5",
-        "gpu_seconds": 11.64341441669967,
+        "gpu_seconds": 11.549858333310112,
         "input_bytes": 851972,
-        "library_compile_seconds": 0.0006608963012695312,
+        "library_compile_seconds": 0.0006759166717529297,
         "output_bytes": 851968,
-        "pipeline_compile_seconds": 0.0020939111709594727,
-        "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
+        "pipeline_compile_seconds": 0.002007007598876953,
+        "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
         "pipeline_max_threads_per_threadgroup": 1,
         "registry_id": "4294968313",
         "threads_per_threadgroup": 1,
@@ -207007,18 +207008,18 @@
         50,
         51
       ],
-      "wall_seconds": 9.091935250035021,
+      "wall_seconds": 9.118056790961418,
       "transport": {
         "backend": "metal",
         "cases": 4,
         "command_status": "completed",
         "configured_max_threads_per_threadgroup": 1,
         "device": "Apple M5",
-        "gpu_seconds": 8.114559541689232,
+        "gpu_seconds": 8.127511416678317,
         "input_bytes": 851972,
-        "library_compile_seconds": 0.0006580352783203125,
+        "library_compile_seconds": 0.0006639957427978516,
         "output_bytes": 851968,
-        "pipeline_compile_seconds": 0.001989006996154785,
+        "pipeline_compile_seconds": 0.0020079612731933594,
         "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
         "pipeline_max_threads_per_threadgroup": 1,
         "registry_id": "4294968313",
@@ -207069,5 +207070,5 @@
       "gpu_timeline_connected": true
     }
   ],
-  "elapsed_wall_seconds": 193.22630162502173
+  "elapsed_wall_seconds": 192.9971753329737
 }

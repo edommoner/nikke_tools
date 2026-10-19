@@ -1,14 +1,14 @@
 {
-  "wire_abi": "0x5045564C",
-  "positive_cases": 739,
-  "rejections": 88,
-  "batched_inputs": 827,
+  "wire_abi": "0x5045564D",
+  "positive_cases": 772,
+  "rejections": 94,
+  "batched_inputs": 866,
   "gpu_dispatches": 1,
   "metal_verified": true,
   "cuda_verified": true,
   "cuda_comparison": "exact-source-input-output-validation-hashes-statuses-cases-and-all-cpu-reference-lists-including-declared-mode-reference-defect",
   "metal_report": "portable-combat-metal.json",
-  "previous_cuda_checkpoint": "portable-combat-v27-checkpoint.json",
+  "previous_cuda_checkpoint": "portable-combat-v28-checkpoint.json",
   "gpu_timeline_connected": true,
   "autonomous_battle_connected": false,
   "all_characters_supported": false,
@@ -22,7 +22,7 @@
   "regressions": {
     "existing_events": 16,
     "existing_rejections": 2,
-    "portable_unit_tests": 49,
+    "portable_unit_tests": 53,
     "http_timeline_180_seconds_verified": true,
     "trigger_cpu_references": 15,
     "damage_cpu_references": 37,
@@ -45,7 +45,7 @@
     "http_bullet_verified": true,
     "burst_cpu_references": 31,
     "http_burst_verified": true,
-    "enemy_component_cpu_references": 41,
+    "enemy_component_cpu_references": 63,
     "http_enemy_packets_verified": true,
     "numeric_cases": 34874,
     "numeric_mismatches": 0,
@@ -66,17 +66,21 @@
     "http_named_buff_verified": true,
     "native_enemy_recipient_unit_tests": 10,
     "metal_deadline_unit_tests": 5,
-    "enemy_buff_cpu_references": 36,
+    "enemy_buff_cpu_references": 45,
     "http_enemy_buff_verified": true,
     "original_metal_probe_cases": 4,
     "server_unit_tests": 8,
     "http_event_candidates_verified": true,
-    "event_candidate_api_cases": 5
+    "event_candidate_api_cases": 5,
+    "http_enemy_attack_verified": true,
+    "enemy_attack_api_cases": 4
   },
   "next_work": [
+    "Audit spawn-order ties of remaining enemy selectors, per-recipient periodic clocks and mutable enemy metadata",
+    "Expand bounded enemy actor/world capacity beyond eight for effects requesting larger target counts without silent filtering",
     "Extend enemy state predicates/selectors, finite-bullet enemy recipients, periodic per-recipient clocks and incoming enemy modifiers",
     "Port remaining protection, lifesteal, control, resource accumulators and dynamic coefficient/duration mechanisms without filtering definitions",
-    "Expand full-roster and favorite/cube/control/world variants beyond 23 candidates and 46 simple-boss profiles",
+    "Expand full-roster and favorite/cube/control/world variants beyond 26 candidates and 52 simple-boss profiles",
     "Connect normal UI single/batch requests to shared GPU execution with full admission and end-to-end memory/performance validation"
   ],
   "cuda_report": "portable-combat-cuda.json",
@@ -940,7 +944,7 @@
     "minimum_prepared_effects": 82,
     "definition_capacity": 256,
     "evidence": "portable-catalog-readiness.json",
-    "evidence_sha256": "8320b26a4e87d2877cb3108c2adbdfb69b4afcb0fa34fd571be38fbcc23bd2e8",
+    "evidence_sha256": "0175329d75efdf44813512fd66d5675f5a65eb30f48b0c489eb4cbe2f7936cce",
     "scope": "Selected audit squads, not a minimum across every possible squad",
     "capacity_gap_resolved": true,
     "full_battle_connected": false,
@@ -949,11 +953,11 @@
   },
   "definition_capacity": 256,
   "source_sha256": {
-    "gpu/event_runtime.slang": "c9ecfc88fc8c8cb14404ec70bb25eee67ec2b04df31817f6076dd7b4923cdbb2",
+    "gpu/event_runtime.slang": "43c46846bb7ff09b31db3247f4013c492eff682728406d417281b997fedab823",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "28ed1da79038cb71ccdd9dbaf17a8c05c1a70d2dfb4c9edd9ca93c8d84a97069",
-    "gpu/runtime_init.slang": "a01c53fe2f677d1ff2dec1d58c6cfbb54db249aff9cc8bf062f476de6fc021e8",
+    "gpu/portable_schema.slang": "aa67910202aa44e21a40fd946f64c3f29cea641dac38df52fbce074110dd48bd",
+    "gpu/runtime_init.slang": "4ee03c4a1e99580f79f50e5d9754ed7d11a1cc438f0d866fccff523d62cf22fb",
     "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
     "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
     "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
@@ -967,24 +971,25 @@
     "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
     "gpu/incoming_runtime.slang": "322e92344f55def51fe181360ce35aba89daf341d423bed94b7da22923fa701b",
     "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
-    "gpu/enemy_damage_runtime.slang": "499f560b14bdf8521d3157a5af56cac405f7e1507e5665a21d223cecf96806ba",
+    "gpu/enemy_attack_rank_runtime.slang": "b56c55e800f34a26e44c41371a2472142c0d967b75b4a46f400ee12b208e724f",
+    "gpu/enemy_damage_runtime.slang": "e8b1d1542c729faa26353b22fbd8a55f28db417ac5fb229efa45b030ee1049b7",
     "gpu/event_candidate_runtime.slang": "5b986d2d51b052186bedb820788460d009220a58e84d6a8803770b64287db356",
     "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-    "gpu/combat_runtime.slang": "e0ae735642a5baa35a2e9964f38526b9cf2df4464480320e357d98de5756f671",
+    "gpu/combat_runtime.slang": "be9e50e3cad5170ba71a83ff980a99eb4d0385cf9ba9466e73d1f61dc8df63da",
     "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
   },
-  "input_sha256": "e8f91e25433cb25b9b6059d318568b4cf6093b78649aa53afce6946696d67fe4",
-  "output_sha256": "cd0b4789ab432d51f7de161c1a2845a471e1662f91d2256c84602f4ff88c6416",
+  "input_sha256": "168cce11f3803f74a830a5f422055383a2241b52a6ddf841a07339d112e08d1c",
+  "output_sha256": "4451b40724086a11b234e55e85968640b5d5398c4d1bdfdc71959f8b1de85894",
   "metal_validation_sha256": {
-    "app/portable_roster_input.py": "239f8f32affdde4d8284feb1ce249cd7bfdfdc82a43c24f5d7d2faaf51eb8ed7",
+    "app/portable_roster_input.py": "7f65ee49d9688b59493ec958584ff157312e259eadf269b55fba6af813265593",
     "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
-    "app/portable_enemy_specs.py": "1c94c632641ef75261250c2a0a7e526688d0070fc9918221d92c69ac0dd68ea9",
+    "app/portable_enemy_specs.py": "6878531dc825fb11cbf02fb9f1ba7fb310b259c5df73c20f462e5ba32f756876",
     "app/portable_runtime.py": "a0501cf218fdf62f7dd7d4df56214ef16ba4132a3426d6fb54765e2084d10e07",
-    "app/portable_combat.py": "c68f952bd72a151b2ab429af20859436234e1de068cbd803fd15b8bcedbee49f",
-    "app/portable_specs.py": "e2ba1966fcc5cae260aa8ffa05e60fcfccae2a82d180df7b425639d716ce6f9a",
+    "app/portable_combat.py": "bd31654f2d8530755c9ab9e78b8badba4ece201020fb7103e9672c955bebd988",
+    "app/portable_specs.py": "2fece091f9dea21ae1a8ef9dfceb69dc8ea6ced1c76a161393ef5a82eb0e1045",
     "app/portable_backend.py": "ab722934db2e3b7ae228990c7f0555dcea079c624675fa735b7328fa62889ec0",
     "app/portable_trigger_specs.py": "70d19d08eb1bb29674ed2c8360e7748556f0674775e180169e6f957b39607fc6",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
@@ -993,7 +998,7 @@
     "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
     "scripts/portable_health_oracle.py": "3c8c66d0674675c3fbf884ed8ef53408a4ca74e2593ea3b1df3594b8176a5bfc",
-    "scripts/portable_enemy_oracle.py": "527cf7b9556cd4bb2184af981c62bfb29bd9b713fd410a2b2ee4cd2bef95082a",
+    "scripts/portable_enemy_oracle.py": "d46c7638c6d85b6a96cd7e50f8f93d9c8acb61c8e35c5dcd8e3753b321b01679",
     "scripts/portable_burst_oracle.py": "640bc66abb2df8b237383df3d626df30bc565de382b19671fbf11ba83d5ee94a",
     "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
     "scripts/portable_weapon_oracle.py": "f011a2e648b4a34eb4bc6db5053066fec4b236c472ca7cad2e92e5677ffcc1a1",
@@ -1002,9 +1007,10 @@
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "202d7b9a71f54dfa68e02b6ca0182da6c4ec431210c5572a47faf162b98adebe",
+    "scripts/verify-portable-combat.py": "2f7af31e1de4fb50faed69513682fa6465e265147d3b5236d7901197db56ac90",
     "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
-    "scripts/portable_enemy_buff_oracle.py": "77cdccc2a572775264abb9949f8964d4edfb0363309cd56be1360d08661ea1eb",
+    "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
+    "scripts/portable_enemy_buff_oracle.py": "4ea37a8bd5632e1e52f321fb9d49d9f97f965e6a3f9b416a4ba77cdf8d500346",
     "tests/fixtures/portable-enemy-buffs.json": "d1112e9bc6f236f1af7ec39453b7ca4e3d2ea8a548e57a38368965ff9b9cfd85",
     "research/portable-mode-session-contract.json": "8c31ba85469c0ba1374ba0682bbb34aa3bc03eef2840a6c052e7efe405b3f5aa",
     "tests/fixtures/portable-buff-notices.json": "234bd8ad051a89f7382b67069e0cfdf5e479cc0c9de42ba3528ae3d493265fd8",
@@ -1044,12 +1050,12 @@
   "real_equipment_report": "portable-real-equipment-metal.json",
   "multiple_carriers_per_definition": true,
   "validation_sha256": {
-    "app/portable_roster_input.py": "239f8f32affdde4d8284feb1ce249cd7bfdfdc82a43c24f5d7d2faaf51eb8ed7",
+    "app/portable_roster_input.py": "7f65ee49d9688b59493ec958584ff157312e259eadf269b55fba6af813265593",
     "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
-    "app/portable_enemy_specs.py": "1c94c632641ef75261250c2a0a7e526688d0070fc9918221d92c69ac0dd68ea9",
+    "app/portable_enemy_specs.py": "6878531dc825fb11cbf02fb9f1ba7fb310b259c5df73c20f462e5ba32f756876",
     "app/portable_runtime.py": "a0501cf218fdf62f7dd7d4df56214ef16ba4132a3426d6fb54765e2084d10e07",
-    "app/portable_combat.py": "c68f952bd72a151b2ab429af20859436234e1de068cbd803fd15b8bcedbee49f",
-    "app/portable_specs.py": "e2ba1966fcc5cae260aa8ffa05e60fcfccae2a82d180df7b425639d716ce6f9a",
+    "app/portable_combat.py": "bd31654f2d8530755c9ab9e78b8badba4ece201020fb7103e9672c955bebd988",
+    "app/portable_specs.py": "2fece091f9dea21ae1a8ef9dfceb69dc8ea6ced1c76a161393ef5a82eb0e1045",
     "app/portable_backend.py": "ab722934db2e3b7ae228990c7f0555dcea079c624675fa735b7328fa62889ec0",
     "app/portable_trigger_specs.py": "70d19d08eb1bb29674ed2c8360e7748556f0674775e180169e6f957b39607fc6",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
@@ -1058,7 +1064,7 @@
     "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
     "scripts/portable_health_oracle.py": "3c8c66d0674675c3fbf884ed8ef53408a4ca74e2593ea3b1df3594b8176a5bfc",
-    "scripts/portable_enemy_oracle.py": "527cf7b9556cd4bb2184af981c62bfb29bd9b713fd410a2b2ee4cd2bef95082a",
+    "scripts/portable_enemy_oracle.py": "d46c7638c6d85b6a96cd7e50f8f93d9c8acb61c8e35c5dcd8e3753b321b01679",
     "scripts/portable_burst_oracle.py": "640bc66abb2df8b237383df3d626df30bc565de382b19671fbf11ba83d5ee94a",
     "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
     "scripts/portable_weapon_oracle.py": "f011a2e648b4a34eb4bc6db5053066fec4b236c472ca7cad2e92e5677ffcc1a1",
@@ -1067,9 +1073,10 @@
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "202d7b9a71f54dfa68e02b6ca0182da6c4ec431210c5572a47faf162b98adebe",
+    "scripts/verify-portable-combat.py": "2f7af31e1de4fb50faed69513682fa6465e265147d3b5236d7901197db56ac90",
     "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
-    "scripts/portable_enemy_buff_oracle.py": "77cdccc2a572775264abb9949f8964d4edfb0363309cd56be1360d08661ea1eb",
+    "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
+    "scripts/portable_enemy_buff_oracle.py": "4ea37a8bd5632e1e52f321fb9d49d9f97f965e6a3f9b416a4ba77cdf8d500346",
     "tests/fixtures/portable-enemy-buffs.json": "d1112e9bc6f236f1af7ec39453b7ca4e3d2ea8a548e57a38368965ff9b9cfd85",
     "research/portable-mode-session-contract.json": "8c31ba85469c0ba1374ba0682bbb34aa3bc03eef2840a6c052e7efe405b3f5aa",
     "tests/fixtures/portable-buff-notices.json": "234bd8ad051a89f7382b67069e0cfdf5e479cc0c9de42ba3528ae3d493265fd8",
@@ -1102,7 +1109,7 @@
   },
   "recipient_cases": 36,
   "recipient_cpu_references": 32,
-  "own_effect_preflight_passed": 23,
+  "own_effect_preflight_passed": 26,
   "carrier_capacity": 512,
   "carrier_cases": 18,
   "carrier_cpu_references": 41,
@@ -1140,14 +1147,14 @@
     "input_output_hashes_match": true
   },
   "own_effect_preflight_stages": {
+    "3": 10,
     "1": 11,
-    "3": 9,
-    "2": 3
+    "2": 5
   },
   "experimental_real_prepared_input_connected": true,
   "normal_ui_connected": false,
-  "enemy_damage_cases": 43,
-  "enemy_component_cpu_references": 41,
+  "enemy_damage_cases": 67,
+  "enemy_component_cpu_references": 63,
   "accumulated_cpu_clock_connected": true,
   "burst_trace_capacity": 128,
   "real_fixed_squad": {
@@ -1219,25 +1226,27 @@
     "report": "portable-metal-pipeline-lock.json",
     "failed_concurrency_report": "portable-pending-concurrent-compile-timeout.json",
     "scope": "compile only, released before GPU dispatch",
-    "gpu_lock_wait_seconds": 0.21026599407196045
+    "gpu_lock_wait_seconds": 0.20953500270843506
   },
-  "verified_commit": "0ef99241e2c175ff6661241f375d1c1a48de95ee",
-  "windows_report": "windows-portable-combat-v28.json",
+  "verified_commit": "ebe666311d2476ee7f5ca3b36375843ce9846713",
+  "windows_report": "windows-portable-combat-v29.json",
   "burst_duration_cases": 30,
   "burst_duration_cpu_references": 30,
   "burst_only_trace_connected": true,
   "burst_only_trace_computation_parity_verified": true,
   "real_roster_profiles": {
     "report": "portable-roster-battles-metal.json",
-    "required_cases": 46,
-    "passed_cases": 46,
+    "required_cases": 52,
+    "passed_cases": 52,
     "overall_passed": true,
     "candidates": [
+      "아니스 : 스파클링 서머",
       "미란다",
       "미카",
       "브리드",
       "솔린",
       "리타",
+      "은화",
       "드레이크",
       "N102",
       "메어리",
@@ -1247,6 +1256,7 @@
       "미하라",
       "애드미",
       "도라",
+      "노벨",
       "이사벨",
       "누아르",
       "루주",
@@ -1664,8 +1674,8 @@
       0.06750975002069026
     ]
   },
-  "enemy_buff_cases": 39,
-  "enemy_buff_cpu_references": 36,
+  "enemy_buff_cases": 48,
+  "enemy_buff_cpu_references": 45,
   "enemy_buff_damage_cpu_references": 3,
   "sparse_enemy_buff_recipients_connected": true,
   "enemy_generation_matching_connected": true,
@@ -1692,7 +1702,7 @@
     "dispatch_threads_per_group": 1,
     "tests": 5,
     "cold_compile_report": "portable-combat-metal.json",
-    "latest_pipeline_compile_seconds": 166.12087893486023,
+    "latest_pipeline_compile_seconds": 167.00948095321655,
     "windows_verification_timeout_unchanged": 120
   },
   "enemy_buff_benchmark": {
@@ -1723,7 +1733,9 @@
     "report": "portable-event-index-equivalence.json",
     "positive_cases": 739,
     "rejections": 88,
-    "all_output_words_equal": true
+    "all_output_words_equal": true,
+    "source_commit": "0ef99241e2c175ff6661241f375d1c1a48de95ee",
+    "scope": "Historical v28 event-index control; v29 current whole-output comparison uses attack-rank control"
   },
   "event_candidate_assumption_audit": "portable-event-candidate-assumption-audit.json",
   "event_candidate_coverage_growth": {
@@ -1769,12 +1781,74 @@
     "source_commit": "0ef99241e2c175ff6661241f375d1c1a48de95ee",
     "measurement_context": "Variants ran sequentially after all other verification handles from this thread terminated; unrelated desktop GPU activity is not claimed excluded"
   },
+  "previous_event_candidate_validation_receipt": {
+    "report": "portable-event-candidate-validation.json",
+    "artifact_commit": "b9e1be38a55c63ac89f28ff61e7eb32d6d057c2e"
+  },
+  "previous_event_candidate_unit_report": {
+    "report": "portable-event-candidate-unit-tests.json",
+    "artifact_commit": "b9e1be38a55c63ac89f28ff61e7eb32d6d057c2e"
+  },
+  "enemy_attack_cases": 33,
+  "enemy_attack_native_damage_references": 22,
+  "enemy_attack_native_buff_references": 9,
+  "enemy_attack_hand_live_body_cases": 2,
+  "enemy_attack_rank_connected": true,
+  "enemy_attack_input_words": 16,
+  "enemy_attack_runtime_uint_fields_added": 1,
+  "enemy_attack_runtime_allocation_growth_measured": false,
+  "enemy_attack_uses_existing_birth_epochs": true,
+  "enemy_attack_cache_invalidated_on_generation_change": true,
+  "enemy_attack_integer_precision_loss_rejected": true,
+  "enemy_attack_design_correction": "portable-enemy-attack-design-correction.json",
+  "enemy_attack_equivalence": {
+    "report": "portable-attack-rank-equivalence.json",
+    "positive_cases": 772,
+    "rejections": 94,
+    "all_output_words_equal": true
+  },
+  "enemy_attack_coverage_growth": {
+    "before": 23,
+    "after": 26,
+    "new_candidates": [
+      "아니스 : 스파클링 서머",
+      "은화",
+      "노벨"
+    ],
+    "scope": "Own-definition preflight and 52 simple-boss profiles; not full variant certification"
+  },
+  "enemy_attack_benchmark": {
+    "before": 0.18269754166249186,
+    "after": 0.1714734166744165,
+    "ratio": 0.9385644443491727,
+    "scope": "128 programs, eight enemies, top-three damage every 0.05 seconds for 60 seconds; 1200 selections each, all output compared, not full battle or catalog",
+    "input_output_hashes_match": true,
+    "before_samples": [
+      0.18374037503963336,
+      0.17977829166920856,
+      0.18269754166249186
+    ],
+    "after_samples": [
+      0.17164725001202896,
+      0.1670614166650921,
+      0.1714734166744165
+    ],
+    "source_commit": "ebe666311d2476ee7f5ca3b36375843ce9846713",
+    "measurement_context": "Variants ran sequentially after all other verification handles from this thread terminated; unrelated desktop GPU activity is not claimed excluded"
+  },
+  "unchanged_prior_verifications": {
+    "numeric_cases": 34874,
+    "original_metal_probe_cases": 4,
+    "server_unit_cases": 8,
+    "native_enemy_recipient_unit_cases": 10,
+    "scope": "Historical execution; relevant unchanged fingerprints checked, not rerun for v29"
+  },
   "windows_execution": {
     "command": "python scripts/verify-portable-combat.py --backend cuda",
-    "commit": "0ef99241e2c175ff6661241f375d1c1a48de95ee",
+    "commit": "ebe666311d2476ee7f5ca3b36375843ce9846713",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "30, 4577",
+    "gpu_before": "32, 4653",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -1792,8 +1866,8 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 50.38209640001878,
-    "stdout": "{\"passed\": true, \"cases\": 739, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
+    "elapsed_seconds": 51.77537419972941,
+    "stdout": "{\"passed\": true, \"cases\": 772, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
     "stderr": ""
   },
   "windows_postcheck": {
@@ -1802,12 +1876,12 @@
     "original_status_after": []
   },
   "cuda_validation_sha256": {
-    "app/portable_roster_input.py": "239f8f32affdde4d8284feb1ce249cd7bfdfdc82a43c24f5d7d2faaf51eb8ed7",
+    "app/portable_roster_input.py": "7f65ee49d9688b59493ec958584ff157312e259eadf269b55fba6af813265593",
     "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
-    "app/portable_enemy_specs.py": "1c94c632641ef75261250c2a0a7e526688d0070fc9918221d92c69ac0dd68ea9",
+    "app/portable_enemy_specs.py": "6878531dc825fb11cbf02fb9f1ba7fb310b259c5df73c20f462e5ba32f756876",
     "app/portable_runtime.py": "a0501cf218fdf62f7dd7d4df56214ef16ba4132a3426d6fb54765e2084d10e07",
-    "app/portable_combat.py": "c68f952bd72a151b2ab429af20859436234e1de068cbd803fd15b8bcedbee49f",
-    "app/portable_specs.py": "e2ba1966fcc5cae260aa8ffa05e60fcfccae2a82d180df7b425639d716ce6f9a",
+    "app/portable_combat.py": "bd31654f2d8530755c9ab9e78b8badba4ece201020fb7103e9672c955bebd988",
+    "app/portable_specs.py": "2fece091f9dea21ae1a8ef9dfceb69dc8ea6ced1c76a161393ef5a82eb0e1045",
     "app/portable_backend.py": "ab722934db2e3b7ae228990c7f0555dcea079c624675fa735b7328fa62889ec0",
     "app/portable_trigger_specs.py": "70d19d08eb1bb29674ed2c8360e7748556f0674775e180169e6f957b39607fc6",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
@@ -1816,7 +1890,7 @@
     "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
     "scripts/portable_health_oracle.py": "3c8c66d0674675c3fbf884ed8ef53408a4ca74e2593ea3b1df3594b8176a5bfc",
-    "scripts/portable_enemy_oracle.py": "527cf7b9556cd4bb2184af981c62bfb29bd9b713fd410a2b2ee4cd2bef95082a",
+    "scripts/portable_enemy_oracle.py": "d46c7638c6d85b6a96cd7e50f8f93d9c8acb61c8e35c5dcd8e3753b321b01679",
     "scripts/portable_burst_oracle.py": "640bc66abb2df8b237383df3d626df30bc565de382b19671fbf11ba83d5ee94a",
     "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
     "scripts/portable_weapon_oracle.py": "f011a2e648b4a34eb4bc6db5053066fec4b236c472ca7cad2e92e5677ffcc1a1",
@@ -1825,9 +1899,10 @@
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "202d7b9a71f54dfa68e02b6ca0182da6c4ec431210c5572a47faf162b98adebe",
+    "scripts/verify-portable-combat.py": "2f7af31e1de4fb50faed69513682fa6465e265147d3b5236d7901197db56ac90",
     "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
-    "scripts/portable_enemy_buff_oracle.py": "77cdccc2a572775264abb9949f8964d4edfb0363309cd56be1360d08661ea1eb",
+    "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
+    "scripts/portable_enemy_buff_oracle.py": "4ea37a8bd5632e1e52f321fb9d49d9f97f965e6a3f9b416a4ba77cdf8d500346",
     "tests/fixtures/portable-enemy-buffs.json": "d1112e9bc6f236f1af7ec39453b7ca4e3d2ea8a548e57a38368965ff9b9cfd85",
     "research/portable-mode-session-contract.json": "8c31ba85469c0ba1374ba0682bbb34aa3bc03eef2840a6c052e7efe405b3f5aa",
     "tests/fixtures/portable-buff-notices.json": "234bd8ad051a89f7382b67069e0cfdf5e479cc0c9de42ba3528ae3d493265fd8",
@@ -1861,20 +1936,39 @@
   "generated_source_comparison": {
     "raw_hashes_equal": false,
     "normalized_code_equal": true,
-    "evidence": "portable-generated-v28-comparison.json"
+    "evidence": "portable-generated-v29-comparison.json"
   },
   "windows_checks_this_stage": {
     "invocations": 1,
     "same_revision_retries": 0,
     "preflight_skips": 0,
     "final": {
-      "commit": "0ef99241e2c175ff6661241f375d1c1a48de95ee",
-      "seconds": 50.38209640001878,
-      "report": "windows-portable-combat-v28.json",
-      "positive_cases": 739,
-      "rejections": 88
+      "commit": "ebe666311d2476ee7f5ca3b36375843ce9846713",
+      "seconds": 51.77537419972941,
+      "report": "windows-portable-combat-v29.json",
+      "positive_cases": 772,
+      "rejections": 94
     }
   },
-  "event_candidate_validation_receipt": "portable-event-candidate-validation.json",
-  "event_candidate_unit_report": "portable-event-candidate-unit-tests.json"
+  "control_comparison_runner": {
+    "module": "scripts/portable_control_verifier.py",
+    "supported_backends": [
+      "metal",
+      "cuda"
+    ],
+    "current_control_gpu_backend": "metal",
+    "common_core_verified_backends": [
+      "metal",
+      "cuda"
+    ]
+  },
+  "api_driver_loading_fix": {
+    "report": "portable-enemy-attack-api-driver-error.json",
+    "resolved_by_source_commit": "ebe666311d2476ee7f5ca3b36375843ce9846713",
+    "verified_report": "portable-api-metal.json",
+    "passed": true,
+    "gpu_calculation_changed": false
+  },
+  "enemy_attack_unit_report": "portable-enemy-attack-unit-tests.json",
+  "enemy_attack_validation_receipt": "portable-enemy-attack-validation.json"
 }
