@@ -33,6 +33,8 @@ def observe(case):
     for i in range(1,len(targets)):
         registry.bind(ActorKind.ADD,f'__enemy__:add:{i}',lambda i=i:(generations[i],active[i] and run.adds[i-1].alive,None),identity=i-1)
     state(bm).world_actor_registry=(boss,registry)
+    auto=case['combat'].get('automatic_add_aim',[False]*5)
+    boss.aim_of={n:AIM_ADDS if auto[i] else 'body' for i,n in enumerate(NAMES)}
     bm.enemy_resolver=lambda target,caster:boss.resolve_enemies(target,caster=caster)
     events={7:'on_attack',8:'hit_count',17:'event:cover_healed',19:'event:full_reload'}
     current=0;started=False;queries=[];spawn_order=len(targets)
@@ -44,6 +46,10 @@ def observe(case):
                 started=True
         elif op==20:
             current=arg;boss.aim_of[NAMES[who]]=AIM_ADDS if arg else 'body'
+        elif op==27:
+            boss.aim_of[NAMES[who]]=AIM_ADDS if arg else 'body'
+            label=boss.resolve_enemies('enemies_nearest:1',caster=NAMES[who])[0]
+            current=0 if label=='__enemy__' else int(label.rsplit(':',1)[1])
         elif op==22:
             active[arg]=False
             if arg:run.adds[arg-1].gone='retired'

@@ -242,7 +242,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             at=L['COMMAND_BASE']+i*8;words[at:at+8]=[op,*double_words(t),0,0,arg,0,0]
             at=L['INCOMING_BASE']+i*L['INCOMING_WORDS'];words[at:at+4]=[*double_words(extra),*double_words(extra2)]
             continue
-        if op in (4,20,21,22,24):
+        if op in (4,20,21,22,24,27):
             if combat is None:raise UnsupportedPortable('Combat command requires combat configuration')
             if any(type(v) is not int for v in (op,event,owner,arg,query,extra2)) or event or extra2 or not 0<=owner<5:
                 raise ValueError('Invalid combat command')
@@ -257,6 +257,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
                     raise ValueError('Combat frames must start at zero and increase strictly')
                 previous_frame=t
             if op in (20,21,22) and not 0<=arg<len(combat['targets']):raise ValueError('Invalid target slot')
+            if op==27 and arg not in (0,1):raise ValueError('Invalid automatic add aim policy')
             if op==21:
                 double_words(extra)
                 if not 1<=extra<=1e30:raise ValueError('Invalid spawn HP')

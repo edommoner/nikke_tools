@@ -24,10 +24,12 @@ def observe(case):
     pattern=Pattern(idx=0,id='authored-adds',kind='summon',after=())
     boss=BossScript([pattern],enemy,lambda *_:False);run=boss._runs[0];run.active=True
     run.adds=[_Add(id=f'__enemy__:{i}',name=f'__enemy__:{i}',spec=SummonSpec(name=f'__enemy__:{i}',hp=t['hp'],atk=t.get('attack',0)),order=i,gone='' if t.get('active',True) else '퇴장') for i,t in enumerate(targets) if i]
-    boss.aim_of={n:'body' for n in NAMES};bm.enemy_resolver=lambda target,caster:boss.resolve_enemies(target,caster=caster)
+    auto=config.get('automatic_add_aim',[False]*5)
+    boss.aim_of={n:AIM_ADDS if auto[i] else 'body' for i,n in enumerate(NAMES)};bm.enemy_resolver=lambda target,caster:boss.resolve_enemies(target,caster=caster)
     raw_damage=[0]*5;body_damage=[0]*5;overkill=[0]*5;target_damage=[0]*len(targets);target_scored=[0]*len(targets);packets=[];gauge=config.get('initial_gauge',0)
-    def damage(effect,caster,t):
-        nonlocal gauge
+    normal_target=0;native_hits=[0]*len(targets)
+    def damage(effect,caster,t,*,normal=False):
+        nonlocal gauge,normal_target
         who=NAMES.index(caster);parts=effect['stat'].split(':');kind=parts[0];hits=int(parts[1]) if len(parts)>1 else 1
         coefficient=effect.get('fixed_value',effect.get('values',{}).get('10',0));target=effect['target']
         if coefficient==0:return
@@ -45,14 +47,15 @@ def observe(case):
             selected=boss.route(event);mask=0
             for name,weight in selected:
                 index=0 if name==ENEMY else int(name.split(':')[1]);share=amount if weight==1.0 else round(amount*weight);mask|=1<<index
-                raw_damage[who]+=share;target_damage[index]+=share
+                raw_damage[who]+=share;target_damage[index]+=share;native_hits[index]+=1
+                if normal:normal_target=index
                 if index:
                     actor=run.adds[index-1];scored=min(share,actor.spec.hp-actor.dealt) if actor.alive else 0
                     boss.hit_add(HitEvent(t=t,caster=caster,damage=share,is_crit=False,hit_tag=kind),name,t)
                 else:scored=share;body_damage[who]+=share
                 target_scored[index]+=scored;overkill[who]+=share-scored
-            packets.append(dict(target_order=[0 if name==ENEMY else int(name.split(':')[1]) for name,_ in selected],effect=effect['name'],time=t,target_mask=mask,hit_index=hit+1,hit_count=hits,weighted_amount=amount*(selected[0][1] if selected else 0),delivered_amount=(amount if not selected or selected[0][1]==1.0 else round(amount*selected[0][1]))))
-            bm.notify('hit_count:'+effect['name'],t,caster)
+            if not normal:packets.append(dict(target_order=[0 if name==ENEMY else int(name.split(':')[1]) for name,_ in selected],effect=effect['name'],time=t,target_mask=mask,hit_index=hit+1,hit_count=hits,weighted_amount=amount*(selected[0][1] if selected else 0),delivered_amount=(amount if not selected or selected[0][1]==1.0 else round(amount*selected[0][1]))))
+            bm.notify('hit_count' if normal else 'hit_count:'+effect['name'],t,caster)
         if not bm.state['full_burst']:gauge=min(100,gauge+config['weapons'][who].get('gauge',0)*hits)
     bm.register_damage_handler(damage)
     queries=[];started=False;spawn_order=len(targets)
@@ -64,7 +67,9 @@ def observe(case):
             bm.tick(t)
         elif op==0:
             bm.tick(t);bm.notify({7:'on_attack',8:'hit_count',19:'event:full_reload'}[event],t,NAMES[who])
+        elif op==18:damage(dict(stat='auto_damage',target='',fixed_value=extra,name=''),NAMES[who],t,normal=True)
         elif op==20:boss.aim_of[NAMES[who]]=AIM_ADDS if arg else 'body'
+        elif op==27:boss.aim_of[NAMES[who]]=AIM_ADDS if arg else 'body'
         elif op==22:
             if arg==0:raise ValueError('Native BossScript body is always present')
             run.adds[arg-1].gone='퇴장';bm._invalidate_buffs_cache()
@@ -75,5 +80,7 @@ def observe(case):
         elif op==2:
             queries.append(dict(body_damage=body_damage.copy(),add_damage=[boss.add_dealt.get(n,0) for n in NAMES],damage=raw_damage.copy(),scored_damage=[body_damage[i]+boss.add_dealt.get(n,0) for i,n in enumerate(NAMES)],add_overkill=overkill.copy(),
                                 attack_buffs=[bm.get_buffs(n,'__enemy__',t)['atk_pct'] for n in NAMES],combat=dict(gauge=gauge)))
+            if case.get('normal_aim_reference'):
+                queries[-1]['combat'].update(target=normal_target,targets=[dict(damage=amount,hits=hits) for amount,hits in zip(target_damage,native_hits)])
         else:raise ValueError('Enemy component oracle supports notifications, aim, add life changes, authored frames and queries')
     return dict(queries=queries,packets=packets,target_scored_damage=target_scored)

@@ -9,6 +9,8 @@ static const uint64_t TEN = uint64_t(0x40240000) << 32;
 
 void initializeCombat(inout Runtime s, uint input)
 {
+    s.automaticAddAim = commands[input+P_AIM_POLICY_BASE];
+    if (s.automaticAddAim > 31) { s.error = 64; return; }
     s.enemyEpoch = 1; for (uint target = 0; target < 8; target++) s.enemyBirth[target] = 1;
     s.lastB3Caster = 0xffffffff; s.lastB3Time = F64_SIGN | ONE; s.lastFullStart = F64_SIGN | ONE;
     s.gaugeCharging = 1; s.clockMode = commands[input+6];

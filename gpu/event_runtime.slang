@@ -73,7 +73,7 @@ struct Runtime
     uint modeEpoch[5], appliedEpoch[5], modeShots[5], pendingReentry[5], reentrySlot, reentryDone, casts[5], burstTraceCount;
     uint pellets[5], muzzles[5], inputBase;
     uint64_t modeEnd[5], reentryDelay;
-    uint enemyAttackOrder, enemySpawnOrder, combatStarted, combat, targetCount, target, aim[5], targetAlive[8], targetGeneration[8], targetHits[8];
+    uint automaticAddAim, enemyAttackOrder, enemySpawnOrder, combatStarted, combat, targetCount, target, aim[5], targetAlive[8], targetGeneration[8], targetHits[8];
     uint64_t targetHP[8], targetMaxHP[8], targetDamage[8], targetDefense[8];
     uint64_t scoredDamage[5], addScoredDamage[5], addOverkill[5], targetScoredDamage[8], targetDealt[8];
     uint timerTarget[P_DEFINITIONS];
@@ -297,8 +297,12 @@ bool targetLive(inout Runtime s, uint target, uint generation)
 {
     return s.combat == 0 || (target < s.targetCount && s.targetAlive[target] != 0 && s.targetGeneration[target] == generation);
 }
+#include "enemy_spawn_order_runtime.slang"
+#include "enemy_aim_runtime.slang"
+
 uint aimedTarget(inout Runtime s, uint who)
 {
+    if ((s.automaticAddAim & (1U << who)) != 0) return automaticEnemyAim(s,enemySpawnSequence(s));
     uint t = s.aim[who];
     if (s.targetAlive[t] != 0) return t;
     for (uint j = 0; j < s.targetCount; j++) if (s.targetAlive[j] != 0) return j;
@@ -410,7 +414,6 @@ void registerTimer(inout Runtime s, uint row, uint64_t when)
 #include "damage_runtime.slang"
 #include "incoming_runtime.slang"
 #include "burst_runtime.slang"
-#include "enemy_spawn_order_runtime.slang"
 #include "enemy_attack_rank_runtime.slang"
 #include "enemy_damage_runtime.slang"
 #include "event_candidate_runtime.slang"
@@ -1003,6 +1006,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     s.baseCrit = loadNumber(input+24); s.baseCritDamage = loadNumber(input+26);
     if (s.combat == 0) for (uint word = 0; word < 16; word++)
         if (commands[input+P_TARGET_ATTACK_BASE+word] != 0) { results[output] = 64; return; }
+    if (s.combat == 0 && commands[input+P_AIM_POLICY_BASE] != 0) { results[output] = 64; return; }
     if (s.combat != 0) initializeCombat(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
     uint numericStatus; s.probability = coreProbability(loadNumber(input+20),numericStatus);
@@ -1140,11 +1144,16 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         }
         else if (op == 25) dispatch(s,8,0,0,int(step),when,output);
         else if (op == 24 && s.combat != 0) advanceCombat(s,when,output);
-        else if ((op == 20 || op == 21 || op == 22) && s.combat != 0)
+        else if ((op == 20 || op == 21 || op == 22 || op == 27) && s.combat != 0)
         {
             uint target = commands[at+5], who = commands[at+4];
-            if (target >= s.targetCount || who >= 5) { s.error = 64; break; }
-            if (op == 20) { s.aim[who] = target; s.target = target; }
+            if (who >= 5 || (op == 27 ? target > 1 : target >= s.targetCount)) { s.error = 64; break; }
+            if (op == 27)
+            {
+                uint bit = 1U << who; s.automaticAddAim = target != 0 ? s.automaticAddAim | bit : s.automaticAddAim & ~bit;
+                uint aimed = aimedTarget(s,who); s.target = aimed == 0xffffffff ? 0 : aimed;
+            }
+            else if (op == 20) { s.automaticAddAim &= ~(1U << who); s.aim[who] = target; s.target = target; }
             else if (op == 22) s.targetAlive[target] = 0;
             else
             {

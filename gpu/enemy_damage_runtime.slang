@@ -18,8 +18,8 @@ uint enemyDamageMask(inout Runtime s, Definition d, uint inherited, out uint pac
     uint first = 0xffffffff;
     if (d.damageRoute == 6)
     {
-        first = s.aim[d.owner];
-        if (s.targetAlive[first] == 0)
+        first = (s.automaticAddAim & (1U << d.owner)) != 0 ? automaticEnemyAim(s,sequence) : s.aim[d.owner];
+        if (first == 0xffffffff || s.targetAlive[first] == 0)
         {
             first = 0xffffffff;
             for (uint rank = 1; rank < s.targetCount; rank++)

@@ -45,6 +45,7 @@ void initializeRuntime(inout Runtime s)
     s.burstTraceCount = 0;
     s.inputBase = 0;
     s.reentryDelay = 0;
+    s.automaticAddAim = 0;
     s.enemyAttackOrder = 0;
     s.enemySpawnOrder = 0;
     s.combatStarted = 0;

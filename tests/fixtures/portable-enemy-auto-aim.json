@@ -1,0 +1,3685 @@
+{
+  "cases": [
+    {
+      "name": "enemy-auto-aim-initial-policy",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:1",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "target_order": [
+            1
+          ],
+          "target_mask": 2
+        }
+      ],
+      "expected_target_scores": [
+        0,
+        1000,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-reverse-birth",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:1",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          21,
+          0,
+          0,
+          2,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "target_order": [
+            3
+          ],
+          "target_mask": 8
+        }
+      ],
+      "expected_target_scores": [
+        0,
+        0,
+        0,
+        1000
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-reverse-birth-nearest-three",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:3",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          21,
+          0,
+          0,
+          2,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "target_order": [
+            3,
+            1,
+            2
+          ],
+          "target_mask": 14
+        }
+      ],
+      "expected_target_scores": [
+        0,
+        1000,
+        1000,
+        1000
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-dead-oldest",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:1",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          22,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "target_order": [
+            2
+          ],
+          "target_mask": 4
+        }
+      ],
+      "expected_target_scores": [
+        0,
+        0,
+        1000,
+        0
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-body-fallback",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:1",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          22,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          22,
+          0,
+          0,
+          2,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          22,
+          0,
+          0,
+          3,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "target_order": [
+            0
+          ],
+          "target_mask": 1
+        }
+      ],
+      "expected_target_scores": [
+        1000,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-command-enable",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:1",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          27,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "target_order": [
+            1
+          ],
+          "target_mask": 2
+        }
+      ],
+      "expected_target_scores": [
+        0,
+        1000,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-explicit-overrides-policy",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:1",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "target_order": [
+            0
+          ],
+          "target_mask": 1
+        }
+      ],
+      "expected_target_scores": [
+        1000,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-explicit-respawn-then-enable",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:1",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.3,
+          27,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "target_order": [
+            2
+          ],
+          "target_mask": 4
+        }
+      ],
+      "expected_target_scores": [
+        0,
+        0,
+        1000,
+        0
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-command-disable",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:1",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          27,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "target_order": [
+            0
+          ],
+          "target_mask": 1
+        }
+      ],
+      "expected_target_scores": [
+        1000,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-multi-hit-kill-switch",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage:3",
+          "fixed_value": 100,
+          "target": "enemies_nearest:1",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000
+          },
+          {
+            "kind": 5,
+            "hp": 1000
+          },
+          {
+            "kind": 5,
+            "hp": 1000
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "target_order": [
+            1
+          ],
+          "target_mask": 2
+        },
+        {
+          "target_order": [
+            2
+          ],
+          "target_mask": 4
+        },
+        {
+          "target_order": [
+            3
+          ],
+          "target_mask": 8
+        }
+      ],
+      "expected_target_scores": [
+        0,
+        1000,
+        1000,
+        1000
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-buff-reverse-birth",
+      "effects": [
+        {
+          "name": "Reordered",
+          "type": "buff",
+          "stat": "def_pct",
+          "fixed_value": -10,
+          "target": "enemies_nearest:1",
+          "source": "스킬1",
+          "duration": 1,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "enemy_buff_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          21,
+          0,
+          0,
+          2,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          3,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0,
+            "defense_flat": 0,
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0,
+            "defense_flat": 0,
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0,
+            "defense_flat": 0,
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -10,
+            "defense_flat": 0,
+            "received_damage_pct": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-buff-dead-oldest",
+      "effects": [
+        {
+          "name": "Reordered",
+          "type": "buff",
+          "stat": "def_pct",
+          "fixed_value": -10,
+          "target": "enemies_nearest:1",
+          "source": "스킬1",
+          "duration": 1,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "enemy_buff_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          22,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          3,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0,
+            "defense_flat": 0,
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0,
+            "defense_flat": 0,
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": -10,
+            "defense_flat": 0,
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0,
+            "defense_flat": 0,
+            "received_damage_pct": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-buff-body-fallback",
+      "effects": [
+        {
+          "name": "Reordered",
+          "type": "buff",
+          "stat": "def_pct",
+          "fixed_value": -10,
+          "target": "enemies_nearest:1",
+          "source": "스킬1",
+          "duration": 1,
+          "max_stack": 3,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "enemy_buff_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          22,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          22,
+          0,
+          0,
+          2,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          22,
+          0,
+          0,
+          3,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          3,
+          3,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "enemy_modifiers": {
+            "defense_pct": -10,
+            "defense_flat": 0,
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0,
+            "defense_flat": 0,
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0,
+            "defense_flat": 0,
+            "received_damage_pct": 0
+          }
+        },
+        {
+          "enemy_modifiers": {
+            "defense_pct": 0,
+            "defense_flat": 0,
+            "received_damage_pct": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-weapon-initial",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0,
+            "interval": 1,
+            "capacity": 10,
+            "coefficient": 100
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "target": 1,
+            "targets": [
+              {
+                "damage": 0,
+                "hits": 0
+              },
+              {
+                "damage": 1000,
+                "hits": 1
+              },
+              {
+                "damage": 0,
+                "hits": 0
+              },
+              {
+                "damage": 0,
+                "hits": 0
+              }
+            ]
+          }
+        }
+      ],
+      "enemy_reference": true,
+      "normal_aim_reference": true,
+      "expected_trace_total": 0,
+      "expected_target_scores": [
+        0,
+        1000,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-weapon-reverse-birth",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0,
+            "interval": 1,
+            "capacity": 10,
+            "coefficient": 100
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          0.2,
+          21,
+          0,
+          0,
+          2,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "target": 3,
+            "targets": [
+              {
+                "damage": 0,
+                "hits": 0
+              },
+              {
+                "damage": 0,
+                "hits": 0
+              },
+              {
+                "damage": 0,
+                "hits": 0
+              },
+              {
+                "damage": 1000,
+                "hits": 1
+              }
+            ]
+          }
+        }
+      ],
+      "enemy_reference": true,
+      "normal_aim_reference": true,
+      "expected_trace_total": 0,
+      "expected_target_scores": [
+        0,
+        0,
+        0,
+        1000
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-weapon-dead-oldest",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0,
+            "interval": 1,
+            "capacity": 10,
+            "coefficient": 100
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          22,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "target": 2,
+            "targets": [
+              {
+                "damage": 0,
+                "hits": 0
+              },
+              {
+                "damage": 0,
+                "hits": 0
+              },
+              {
+                "damage": 1000,
+                "hits": 1
+              },
+              {
+                "damage": 0,
+                "hits": 0
+              }
+            ]
+          }
+        }
+      ],
+      "enemy_reference": true,
+      "normal_aim_reference": true,
+      "expected_trace_total": 0,
+      "expected_target_scores": [
+        0,
+        0,
+        1000,
+        0
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-weapon-body-fallback",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0,
+            "interval": 1,
+            "capacity": 10,
+            "coefficient": 100
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          22,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          22,
+          0,
+          0,
+          2,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          22,
+          0,
+          0,
+          3,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "target": 0,
+            "targets": [
+              {
+                "damage": 1000,
+                "hits": 1
+              },
+              {
+                "damage": 0,
+                "hits": 0
+              },
+              {
+                "damage": 0,
+                "hits": 0
+              },
+              {
+                "damage": 0,
+                "hits": 0
+              }
+            ]
+          }
+        }
+      ],
+      "enemy_reference": true,
+      "normal_aim_reference": true,
+      "expected_trace_total": 0,
+      "expected_target_scores": [
+        1000,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-weapon-explicit-override",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0,
+            "interval": 1,
+            "capacity": 10,
+            "coefficient": 100
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          20,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          18,
+          0,
+          0,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "target": 0,
+            "targets": [
+              {
+                "damage": 1000,
+                "hits": 1
+              },
+              {
+                "damage": 0,
+                "hits": 0
+              },
+              {
+                "damage": 0,
+                "hits": 0
+              },
+              {
+                "damage": 0,
+                "hits": 0
+              }
+            ]
+          }
+        }
+      ],
+      "enemy_reference": true,
+      "normal_aim_reference": true,
+      "expected_trace_total": 0,
+      "expected_target_scores": [
+        1000,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-autonomous-two-shooters",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "stage": 0,
+            "interval": 1,
+            "capacity": 10,
+            "coefficient": 100
+          },
+          {
+            "enabled": true,
+            "stage": 0,
+            "interval": 1,
+            "capacity": 10,
+            "coefficient": 100
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000
+          },
+          {
+            "kind": 5,
+            "hp": 1000
+          },
+          {
+            "kind": 5,
+            "hp": 1000
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            1000,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "shots": 1
+              },
+              {
+                "shots": 1
+              }
+            ],
+            "targets": [
+              {
+                "hits": 0
+              },
+              {
+                "hits": 1,
+                "active": false
+              },
+              {
+                "hits": 1,
+                "active": false
+              },
+              {
+                "hits": 0
+              }
+            ]
+          }
+        }
+      ],
+      "expected_trace_total": 0,
+      "expected_target_scores": [
+        0,
+        1000,
+        1000,
+        0
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-owner-four",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:1",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        4,
+        4
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          false,
+          false,
+          false,
+          false,
+          true
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          4,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            1000
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "target_order": [
+            1
+          ],
+          "target_mask": 2
+        }
+      ],
+      "expected_target_scores": [
+        0,
+        1000,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-weapon-owner-four",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        4
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0,
+            "interval": 1,
+            "capacity": 10,
+            "coefficient": 100
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          false,
+          false,
+          false,
+          false,
+          true
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          18,
+          0,
+          4,
+          0,
+          -1,
+          100,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            1000
+          ],
+          "combat": {
+            "target": 1,
+            "targets": [
+              {
+                "damage": 0,
+                "hits": 0
+              },
+              {
+                "damage": 1000,
+                "hits": 1
+              },
+              {
+                "damage": 0,
+                "hits": 0
+              },
+              {
+                "damage": 0,
+                "hits": 0
+              }
+            ]
+          }
+        }
+      ],
+      "enemy_reference": true,
+      "normal_aim_reference": true,
+      "expected_trace_total": 0,
+      "expected_target_scores": [
+        0,
+        1000,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-inactive-then-spawn",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "strike",
+          "source": "스킬1",
+          "type": "damage",
+          "stat": "damage",
+          "fixed_value": 100,
+          "target": "enemies_nearest:1",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "enemy_reference": true,
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0,
+            "active": false
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0,
+            "active": false
+          },
+          {
+            "kind": 5,
+            "hp": 1000000.0,
+            "active": false
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          21,
+          0,
+          0,
+          3,
+          -1,
+          1000000.0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expected_packets": [
+        {
+          "target_order": [
+            3
+          ],
+          "target_mask": 8
+        }
+      ],
+      "expected_target_scores": [
+        0,
+        0,
+        0,
+        1000
+      ]
+    },
+    {
+      "name": "enemy-auto-aim-no-live-actors",
+      "effects": [
+        {
+          "name": "no crit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "stage": 0,
+            "interval": 1,
+            "capacity": 10,
+            "coefficient": 100
+          },
+          {
+            "enabled": true,
+            "stage": 0,
+            "interval": 1,
+            "capacity": 10,
+            "coefficient": 100
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          },
+          {
+            "enabled": false,
+            "stage": 0
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1000000000.0,
+            "active": false
+          },
+          {
+            "kind": 5,
+            "hp": 1000,
+            "active": false
+          },
+          {
+            "kind": 5,
+            "hp": 1000,
+            "active": false
+          },
+          {
+            "kind": 5,
+            "hp": 1000,
+            "active": false
+          }
+        ],
+        "trace": "full",
+        "automatic_add_aim": [
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "shots": 0
+              },
+              {
+                "shots": 0
+              }
+            ]
+          }
+        }
+      ],
+      "expected_trace_total": 0,
+      "expected_target_scores": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}
