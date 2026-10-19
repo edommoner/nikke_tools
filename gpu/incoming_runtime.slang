@@ -31,6 +31,7 @@ uint64_t incomingBodyDamage(inout Runtime s, uint who, uint64_t attack, uint64_t
 [noinline]
 void knockDown(inout Runtime s, uint who, uint64_t when)
 {
+    for (uint key = 0; key < s.resourceCount; key++) setResourceValue(s,who*P_RESOURCE_KEYS+key,0);
     uint bit = 1U << who; s.downMask |= bit; s.hp[who] = 0; s.hpPct[who] = 0;
     s.hpPendingMask &= ~bit; s.hpDirtyMask &= ~bit;
     for (uint row = 0; row < s.carrierCount; row++)

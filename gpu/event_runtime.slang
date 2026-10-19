@@ -42,6 +42,7 @@ struct Frame
 struct Runtime
 {
     Definition defs[P_DEFINITIONS];
+    uint resourceCount, resourceAmmoObserved, resourceTraceCount, resourceTraceTotal, resourceOutput;
     uint bulletHead, bulletTail, bulletCount, bulletLinked[P_CARRIERS], bulletPrev[P_CARRIERS], bulletNext[P_CARRIERS], bulletInitialized[P_CARRIERS];
     int bulletLeft[P_CARRIERS]; uint recipientBullets[P_CARRIERS*5], recipientStacks[P_CARRIERS*5];
     uint carrierCount, carrierDefinition[P_CARRIERS], multiCarrier[P_DEFINITIONS], removalCount, removalQueue[P_CARRIERS];
@@ -106,6 +107,8 @@ void addSum(inout Sum sum, uint64_t term)
         f64Add(f64Add(sum.total,combined ^ F64_SIGN),term) : f64Add(f64Add(term,combined ^ F64_SIGN),sum.total);
     sum.correction = f64Add(sum.correction,correction); sum.total = combined;
 }
+#include "resource_runtime.slang"
+
 // Definition predicates use compiled IDs and exact binary64 operands.
 // Runtime tests are deliberately distinct from activation-time gates.
 bool stateMember(inout Runtime s, uint who, int name, uint flags)
@@ -127,7 +130,8 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
     {
         uint at = s.inputBase+P_CONDITION_BASE+definition*P_CONDITION_WORDS+i*4;
         uint kind = commands[at]; int name = int(commands[at+1]); uint64_t arg = loadNumber(at+2);
-        if (runtime && kind != C_FULL && kind != C_NOT_FULL && kind != C_SELF_STATE && kind != C_NOT_SELF_STATE && kind != C_SELF_STACK && kind != C_CAST && kind != C_NOT_CAST && kind != C_CHARGING && kind != C_ENEMIES_ABOVE && kind != C_ENEMIES_BELOW && kind != C_HP_ABOVE && kind != C_HP_BELOW && kind != C_HP_MAX && kind != C_ALLY_HP_BELOW && kind != C_COVER_ALIVE && kind != C_COVER_BROKEN) continue;
+        if (runtime && kind != C_GAUGE_ABOVE && kind != C_GAUGE_BELOW && kind != C_FULL && kind != C_NOT_FULL && kind != C_SELF_STATE && kind != C_NOT_SELF_STATE && kind != C_SELF_STACK && kind != C_CAST && kind != C_NOT_CAST && kind != C_CHARGING && kind != C_ENEMIES_ABOVE && kind != C_ENEMIES_BELOW && kind != C_HP_ABOVE && kind != C_HP_BELOW && kind != C_HP_MAX && kind != C_ALLY_HP_BELOW && kind != C_COVER_ALIVE && kind != C_COVER_BROKEN) continue;
+        if (kind >= C_GAUGE_ABOVE && kind <= C_GAUGE_MOD && !resourceCondition(s,d.owner,kind,uint(name),arg,int(commands[s.inputBase+P_RESOURCE_CONDITION_BASE+definition*3+i]))) return false;
         if (kind == C_FULL && s.phase != 5 || kind == C_NOT_FULL && s.phase == 5) return false;
         if (kind == C_SELF_STATE || kind == C_NOT_SELF_STATE)
         {
@@ -497,6 +501,23 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
             (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
         { depth--; continue; }
+        if (f.mode == 14)
+        {
+            uint64_t boundary;
+            if (!nextResourceBoundary(s,f.owner,uint(f.argument),f.healthPrevious,f.healthNext,boundary)) { depth--; continue; }
+            frames[depth].healthPrevious = boundary;
+            logResourceNotification(s,30,f.owner,uint(f.argument),f.time,boundary,output);
+            if (s.error == 0) pushFrame(s,frames,depth,0,30,f.owner,f.argument,f.time);
+            if (s.error == 0) frames[depth].healthValue = boundary;
+            continue;
+        }
+        if (f.mode == 15)
+        {
+            if (f.value == 0) { depth--; continue; }
+            frames[depth].value--;
+            logResourceNotification(s,26,f.owner,uint(f.argument),f.time,ONE,output);
+            if (s.error == 0) pushFrame(s,frames,depth,0,26,f.owner,0,f.time); continue;
+        }
         if (f.mode == 13) { advanceBuffActivation(s,frames,depth); continue; }
         if (f.mode == 12)
         {
@@ -704,9 +725,9 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                     uint event = commands[at], mode = commands[at+3]; int tag = int(commands[at+4]), stage = int(commands[at+7]);
                     if (event != f.event) continue;
                     if (event == 4 && stage != f.argument || event == 6 && int(j) != f.argument) continue;
-                    if ((event == 9 || event == 29 || event == 31 || event == 48 || event == 49) && tag != f.argument) continue;
+                    if ((event == 9 || event == 29 || event == 30 || event == 31 || event == 48 || event == 49) && tag != f.argument) continue;
                     if (event == 9 && commands[at+5] != f.value) continue;
-                    multiplicity++; bool ok = true;
+                    multiplicity++; bool ok = event != 30 || resourceModulo(f.healthValue,uint(f64ToPositiveStep(loadNumber(at+1)))) == 0;
                     if (mode != 0 || event == 7 || event == 8)
                     {
                         uint counter = j*8+slot, status;
@@ -831,6 +852,44 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             // The percentage form emits its named completion even with no recipients.
             if (d.kind == 13 && d.target != 0 && s.error == 0)
                 pushFrame(s,frames,depth,0,31,d.owner,int(d.name),f.time);
+        }
+        else if (d.kind >= 9 && d.kind <= 11)
+        {
+            ResourceDefinition r = resourceDefinition(s,row);
+            if ((r.flags & 2) == 0) continue;
+            uint key = r.key-1, at = d.owner*P_RESOURCE_KEYS+key;
+            if ((r.flags & 1) != 0) { setResourceCap(s,at,r.cap); }
+            uint64_t old = resourceValue(s,at), value = old, spent = 0;
+            if (d.kind == 9)
+            {
+                value = f64Add(old,d.value);
+                if ((resourceFlags(s,at) & 2) != 0) value = smaller(value,effectiveResourceCap(s,d.owner,key));
+            }
+            else
+            {
+                uint64_t available = larger(0,f64Add(old,r.minimum ^ F64_SIGN));
+                bool all = f64Equal(d.value,F64_SIGN | ONE);
+                value = all ? r.minimum : larger(r.minimum,f64Add(old,d.value ^ F64_SIGN));
+                spent = all ? available : larger(0,smaller(d.value,available));
+            }
+            if (!f64Finite(value) || !f64Finite(spent)) { s.error = 16; break; }
+            setResourceValue(s,at,value); results[resourceAddress(s,at)] |= 1;
+            if (d.kind == 9 && f64Less(old,value) && results[s.resourceOutput+P_RESOURCE_STEP_HEAD_BASE+at] != 0)
+            {
+                pushFrame(s,frames,depth,14,0,d.owner,int(key),f.time);
+                if (s.error == 0) { frames[depth].healthPrevious = old; frames[depth].healthNext = value; }
+            }
+            else if (d.kind == 11 && f64Less(0,spent))
+            {
+                uint status; uint64_t count = f64ToI64(spent,1,status);
+                if (status != 0 || count > 0x7fffffff) { s.error = 2; break; }
+                if (s.resourceAmmoObserved == 0 && s.traceMode != 1)
+                {
+                    if (count > 0x7fffffff-s.resourceTraceTotal) { s.error = 2; break; }
+                    s.resourceTraceTotal += uint(count);
+                }
+                else if (count != 0) pushFrame(s,frames,depth,15,0,d.owner,int(key),f.time,uint(count));
+            }
         }
         else if (d.kind == 25) s.pendingReentry[d.owner] = 1;
         else if (d.kind == 2)
@@ -957,6 +1016,9 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
 #else
     Runtime s; initializeRuntime(s);
 #endif
+    s.resourceOutput = output;
+    s.resourceCount = commands[input+P_RESOURCE_META_BASE];
+    if (s.resourceCount > P_RESOURCE_KEYS) { results[output] = 64; return; }
     s.generation = 1; s.count = commands[input+1]; s.combat = commands[input+3]; s.inputBase = input; s.traceMode = commands[input+5];
     if (commands[input] != PORTABLE_ABI || s.count == 0 || s.count > P_DEFINITIONS || commands[input+2] > P_COMMANDS || s.traceMode > 2)
     { results[output] = 64; return; }
@@ -1086,6 +1148,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     for (uint row = 0; row < s.count; row++) if (!validPendingDefinition(s,row)) { results[output] = 64; return; }
     if (!validateDurationGroups(s)) { results[output] = 64; return; }
     if (!validatePeriodicDefinitions(s)) { results[output] = 64; return; }
+    if (!initializeResources(s)) { results[output] = 64; return; }
     initializeHPWatches(s);
     uint queries = 0;
     for (uint step = 0; step < commands[input+2] && s.error == 0; step++)
@@ -1150,6 +1213,16 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             if (s.error != 0) break;
             land(s,who,target,amount);
             dispatch(s,0,8,who,0,when,output);
+        }
+        else if (op == 28)
+        {
+            uint who = commands[at+4], key = commands[at+5], index = commands[at+6];
+            if (who >= 5 || key >= s.resourceCount || index >= P_COMMANDS || commands[at+3] != 0 || commands[at+7] != 0) { s.error = 64; break; }
+            uint dst = output+P_RESOURCE_QUERY_BASE+index*12, pos = who*P_RESOURCE_KEYS+key;
+            storeNumber(dst,when); results[dst+2] = who; results[dst+3] = key;
+            results[dst+4] = resourceFlags(s,pos); results[dst+5] = 0;
+            storeNumber(dst+6,resourceValue(s,pos)); storeNumber(dst+8,resourceCap(s,pos));
+            storeNumber(dst+10,(resourceFlags(s,pos) & 2) != 0 ? effectiveResourceCap(s,who,key) : 0);
         }
         else if (op == 2)
         {
@@ -1218,6 +1291,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         results[at+12] = uint(s.bulletLeft[slot]);
         for (uint who = 0; who < 5; who++) { results[at+13+who] = s.recipientBullets[slot*5+who]; results[at+18+who] = s.recipientStacks[slot*5+who]; }
     }
+    results[output+P_RESOURCE_HEADER_BASE] = s.resourceTraceCount; results[output+P_RESOURCE_HEADER_BASE+1] = s.resourceTraceTotal;
     results[output+9] = s.orderedCount;
     results[output+10] = s.cacheCount; results[output+11] = s.cacheEvaluations; results[output+12] = s.cacheReuses; results[output+13] = s.lazyPendingCount; results[output+14] = s.lazyMappedPendingCount; results[output+15] = s.bulletCount;
     results[output] = s.error; results[output+1] = queries; results[output+2] = s.traceCount; results[output+3] = s.maxDepth; results[output+4] = s.burstTraceCount; results[output+6] = s.traceTotal;

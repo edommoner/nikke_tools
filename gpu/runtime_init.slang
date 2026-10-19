@@ -3,6 +3,11 @@
 [noinline]
 void initializeRuntime(inout Runtime s)
 {
+    s.resourceCount = 0;
+    s.resourceAmmoObserved = 0;
+    s.resourceTraceCount = 0;
+    s.resourceTraceTotal = 0;
+    s.resourceOutput = 0;
     s.bulletHead = 0;
     s.bulletTail = 0;
     s.bulletCount = 0;

@@ -8,17 +8,15 @@
   "cpu_simulation_executed": false,
   "gpu_execution_performed": false,
   "issues": {
-    "Unported buff or recipient selector": 263,
+    "Unported buff or recipient selector": 267,
     "Unported instant or recipient selector": 37,
-    "Unported effect fields: gauge_id": 30,
-    "Unported effect fields: gauge_id, gauge_max": 23,
     "Unported effect fields: scaling, scaling_ref": 19,
-    "Unported trigger timing: event:part_destroy": 13,
+    "Unported trigger timing: event:part_destroy": 16,
     "Unported trigger timing: event:enemy_spawn": 10,
     "Unported effect fields: remove_scope": 10,
+    "Unported trigger timing: enemy_death": 9,
     "Unported effect fields: scaling": 8,
     "Unported enemy damage selector": 8,
-    "Unported trigger timing: enemy_death": 7,
     "Unported predicate: target_code:전격": 7,
     "Unported effect fields: end_on_shield_consumed": 7,
     "Unported trigger timing: charge_hold:0.5": 6,
@@ -26,6 +24,7 @@
     "Unported predicate: self_state:바니 모드 : 인게이지": 6,
     "Unported predicate: self_state:바니 모드 : 스탠스": 6,
     "Unported predicate: target_code:풍압": 5,
+    "Unported trigger timing: event:projectile_destroy": 4,
     "Unported predicate: prob:20": 4,
     "Unported trigger timing: non_full_charge_fire_count:3": 4,
     "Unported trigger timing: charge_hold_count:1:3": 4,
@@ -47,10 +46,7 @@
     "Unported trigger timing: multi_hit:4": 2,
     "Unported effect fields: persist_on_revive": 2,
     "Unported predicate: prob:5": 2,
-    "Unported trigger timing: every_stack:경험치:10": 2,
     "Unported effect fields: scaling, scaling_hp_pct": 2,
-    "Unported predicate: gauge_above:MP:1": 2,
-    "Unported predicate: gauge_eq:MP:0": 2,
     "Unported damage family": 2,
     "Unported predicate: core_hit": 2,
     "Unported predicate: optimal_range": 2,
@@ -62,6 +58,7 @@
     "Unported predicate: target_state:붐 인스톨": 2,
     "Unported predicate: not_target_state:누적 폭발 스킬": 2,
     "Unported trigger timing: event:accum_full:누적 폭발 스킬": 2,
+    "Unported trigger timing: event:target_counter_complete:빙의": 2,
     "Unported effect fields: land_in_full_burst": 2,
     "Unported trigger timing: event:stat_applied:dot_dmg_pct": 2,
     "Unported trigger timing: event:stat_applied:split_dmg_pct": 2,
@@ -70,33 +67,19 @@
     "Unported predicate: target_state:안티 AT 필드": 2,
     "Unported predicate: target_code:작열": 1,
     "Unported effect fields: target_code": 1,
-    "Unported predicate: gauge_eq:화력 게이지:100": 1,
     "Unported predicate: self_stun_immune": 1,
     "Unported trigger timing: crit_hit_count:4": 1,
     "Unported trigger timing: body_hit_count:1": 1,
-    "Unported predicate: gauge_above:티켓:1": 1,
     "Unported predicate: target_state:내부 폭발탄": 1,
-    "Unported predicate: gauge_above:오버 에너지 단계:1": 1,
-    "Unported predicate: gauge_above:오버 에너지 단계:2": 1,
-    "Unported predicate: gauge_above:오버 에너지 단계:3": 1,
-    "Unported predicate: gauge_above:오버 에너지 단계:4": 1,
     "Unported effect fields: entry_reload": 1,
-    "Unported predicate: gauge_eq:과전류:1": 1,
-    "Unported predicate: gauge_eq:과전류:2": 1,
-    "Unported predicate: gauge_eq:과전류:3": 1,
-    "Unported predicate: gauge_eq:과전류:4": 1,
-    "Unported predicate: gauge_eq:과전류:5": 1,
-    "Unported trigger timing: event:projectile_destroy": 1,
     "Unported effect fields: max_ammo_scaling_ref": 1,
     "Unported predicate: target_stunned": 1,
-    "Unported predicate: gauge_above:용사 레벨:2": 1,
+    "Unported predicate: not_core": 1,
+    "Unported trigger timing: core_hit_count:3": 1,
     "Unported predicate: prob:{0}": 1,
     "Unported trigger timing: core_hit_count:60": 1,
     "Unported trigger timing: event:ally_burst_cast": 1,
     "Unported effect fields: skill_damage": 1,
-    "Unported predicate: gauge_eq:파죽:1": 1,
-    "Unported predicate: gauge_eq:파죽:2": 1,
-    "Unported predicate: gauge_eq:파죽:3": 1,
     "Unported predicate: prob:25": 1,
     "Unported trigger timing: part_hit_count:5": 1,
     "Unported predicate: self_stat_above:accuracy_pct:0": 1,
@@ -108,43 +91,25 @@
     "Unported trigger timing: feather_tick": 1,
     "Unported trigger timing: event:shield_applied": 1,
     "Unported effect fields: target_counter": 1,
-    "Unported trigger timing: event:target_counter_complete:빙의": 1,
-    "Unported predicate: gauge_above:유령:1": 1,
-    "Unported predicate: gauge_above:유령:4": 1,
-    "Unported effect fields: gauge_id, minimum_remaining": 1,
     "Unported predicate: focusing": 1,
-    "Unported predicate: gauge_above:과열 명중:30": 1,
-    "Unported predicate: gauge_above:과열 명중:60": 1,
-    "Unported predicate: gauge_below:배터리:1": 1,
-    "Unported predicate: gauge_mod:공격 횟수:6:2": 1,
-    "Unported predicate: gauge_mod:공격 횟수:6:4": 1,
-    "Unported predicate: gauge_mod:공격 횟수:6:0": 1,
     "Unported predicate: self_state:무대 파트 : 댄스": 1,
-    "Unported predicate: gauge_mod:무대_단계:2:1": 1,
-    "Unported predicate: gauge_mod:무대_단계:2:0": 1,
     "Unported predicate: self_undying": 1,
     "Unported trigger timing: core_hit_count:1": 1,
     "Unported trigger timing: crit_hit_count:44": 1,
     "Unported predicate: no_broken_cover_ally": 1,
-    "Unported predicate: gauge_above:초감각:100": 1,
-    "Unported predicate: gauge_above:초감각:70": 1,
-    "Unported predicate: gauge_above:초감각:55": 1,
-    "Unported predicate: gauge_above:초감각:25": 1,
     "Unported predicate: target_state:해킹": 1,
     "Unported predicate: target_code:수냉": 1
   },
   "diagnostic_semantic_issues": {
-    "Unported buff or recipient selector": 263,
+    "Unported buff or recipient selector": 267,
     "Unported instant or recipient selector": 37,
-    "Unported effect fields: gauge_id": 30,
-    "Unported effect fields: gauge_id, gauge_max": 23,
     "Unported effect fields: scaling, scaling_ref": 19,
-    "Unported trigger timing: event:part_destroy": 13,
+    "Unported trigger timing: event:part_destroy": 16,
     "Unported trigger timing: event:enemy_spawn": 10,
     "Unported effect fields: remove_scope": 10,
+    "Unported trigger timing: enemy_death": 9,
     "Unported effect fields: scaling": 8,
     "Unported enemy damage selector": 8,
-    "Unported trigger timing: enemy_death": 7,
     "Unported predicate: target_code:전격": 7,
     "Unported effect fields: end_on_shield_consumed": 7,
     "Unported trigger timing: charge_hold:0.5": 6,
@@ -152,6 +117,7 @@
     "Unported predicate: self_state:바니 모드 : 인게이지": 6,
     "Unported predicate: self_state:바니 모드 : 스탠스": 6,
     "Unported predicate: target_code:풍압": 5,
+    "Unported trigger timing: event:projectile_destroy": 4,
     "Unported predicate: prob:20": 4,
     "Unported trigger timing: non_full_charge_fire_count:3": 4,
     "Unported trigger timing: charge_hold_count:1:3": 4,
@@ -173,10 +139,7 @@
     "Unported trigger timing: multi_hit:4": 2,
     "Unported effect fields: persist_on_revive": 2,
     "Unported predicate: prob:5": 2,
-    "Unported trigger timing: every_stack:경험치:10": 2,
     "Unported effect fields: scaling, scaling_hp_pct": 2,
-    "Unported predicate: gauge_above:MP:1": 2,
-    "Unported predicate: gauge_eq:MP:0": 2,
     "Unported damage family": 2,
     "Unported predicate: core_hit": 2,
     "Unported predicate: optimal_range": 2,
@@ -188,6 +151,7 @@
     "Unported predicate: target_state:붐 인스톨": 2,
     "Unported predicate: not_target_state:누적 폭발 스킬": 2,
     "Unported trigger timing: event:accum_full:누적 폭발 스킬": 2,
+    "Unported trigger timing: event:target_counter_complete:빙의": 2,
     "Unported effect fields: land_in_full_burst": 2,
     "Unported trigger timing: event:stat_applied:dot_dmg_pct": 2,
     "Unported trigger timing: event:stat_applied:split_dmg_pct": 2,
@@ -196,33 +160,19 @@
     "Unported predicate: target_state:안티 AT 필드": 2,
     "Unported predicate: target_code:작열": 1,
     "Unported effect fields: target_code": 1,
-    "Unported predicate: gauge_eq:화력 게이지:100": 1,
     "Unported predicate: self_stun_immune": 1,
     "Unported trigger timing: crit_hit_count:4": 1,
     "Unported trigger timing: body_hit_count:1": 1,
-    "Unported predicate: gauge_above:티켓:1": 1,
     "Unported predicate: target_state:내부 폭발탄": 1,
-    "Unported predicate: gauge_above:오버 에너지 단계:1": 1,
-    "Unported predicate: gauge_above:오버 에너지 단계:2": 1,
-    "Unported predicate: gauge_above:오버 에너지 단계:3": 1,
-    "Unported predicate: gauge_above:오버 에너지 단계:4": 1,
     "Unported effect fields: entry_reload": 1,
-    "Unported predicate: gauge_eq:과전류:1": 1,
-    "Unported predicate: gauge_eq:과전류:2": 1,
-    "Unported predicate: gauge_eq:과전류:3": 1,
-    "Unported predicate: gauge_eq:과전류:4": 1,
-    "Unported predicate: gauge_eq:과전류:5": 1,
-    "Unported trigger timing: event:projectile_destroy": 1,
     "Unported effect fields: max_ammo_scaling_ref": 1,
     "Unported predicate: target_stunned": 1,
-    "Unported predicate: gauge_above:용사 레벨:2": 1,
+    "Unported predicate: not_core": 1,
+    "Unported trigger timing: core_hit_count:3": 1,
     "Unported predicate: prob:{0}": 1,
     "Unported trigger timing: core_hit_count:60": 1,
     "Unported trigger timing: event:ally_burst_cast": 1,
     "Unported effect fields: skill_damage": 1,
-    "Unported predicate: gauge_eq:파죽:1": 1,
-    "Unported predicate: gauge_eq:파죽:2": 1,
-    "Unported predicate: gauge_eq:파죽:3": 1,
     "Unported predicate: prob:25": 1,
     "Unported trigger timing: part_hit_count:5": 1,
     "Unported predicate: self_stat_above:accuracy_pct:0": 1,
@@ -234,45 +184,29 @@
     "Unported trigger timing: feather_tick": 1,
     "Unported trigger timing: event:shield_applied": 1,
     "Unported effect fields: target_counter": 1,
-    "Unported trigger timing: event:target_counter_complete:빙의": 1,
-    "Unported predicate: gauge_above:유령:1": 1,
-    "Unported predicate: gauge_above:유령:4": 1,
-    "Unported effect fields: gauge_id, minimum_remaining": 1,
     "Unported predicate: focusing": 1,
-    "Unported predicate: gauge_above:과열 명중:30": 1,
-    "Unported predicate: gauge_above:과열 명중:60": 1,
-    "Unported predicate: gauge_below:배터리:1": 1,
-    "Unported predicate: gauge_mod:공격 횟수:6:2": 1,
-    "Unported predicate: gauge_mod:공격 횟수:6:4": 1,
-    "Unported predicate: gauge_mod:공격 횟수:6:0": 1,
     "Unported predicate: self_state:무대 파트 : 댄스": 1,
-    "Unported predicate: gauge_mod:무대_단계:2:1": 1,
-    "Unported predicate: gauge_mod:무대_단계:2:0": 1,
     "Unported predicate: self_undying": 1,
     "Unported trigger timing: core_hit_count:1": 1,
     "Unported trigger timing: crit_hit_count:44": 1,
     "Unported predicate: no_broken_cover_ally": 1,
-    "Unported predicate: gauge_above:초감각:100": 1,
-    "Unported predicate: gauge_above:초감각:70": 1,
-    "Unported predicate: gauge_above:초감각:55": 1,
-    "Unported predicate: gauge_above:초감각:25": 1,
     "Unported predicate: target_state:해킹": 1,
     "Unported predicate: target_code:수냉": 1
   },
   "missing_families": {
-    "damage_modifiers": 148,
-    "effect_lifecycle": 94,
-    "weapon": 70,
-    "damage": 65,
-    "resource_accumulation": 56,
+    "damage_modifiers": 136,
+    "effect_lifecycle": 93,
+    "weapon": 69,
+    "damage": 62,
     "protection": 50,
-    "control_survival": 45,
-    "healing": 31,
-    "charge": 20,
-    "ammo_reload": 20,
+    "control_survival": 44,
+    "healing": 29,
+    "resource_accumulation": 16,
+    "charge": 15,
+    "ammo_reload": 15,
     "burst_cooldown": 13,
-    "hp": 12,
     "healing_buffers": 9,
+    "hp": 8,
     "character_state": 5
   },
   "weapon_gaps": {
@@ -2696,11 +2630,10 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "화력 게이지 충전",
@@ -2713,11 +2646,10 @@
           "conditions": [
             "self_state:화력 충전"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "화력 게이지 회복",
@@ -2728,11 +2660,10 @@
             "event:state_end:화력 충전"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "버스트 속도 증폭",
@@ -2792,11 +2723,10 @@
           "conditions": [
             "gauge_below:화력 게이지:100"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "화력 충전 2",
@@ -2809,11 +2739,10 @@
           "conditions": [
             "gauge_below:화력 게이지:100"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "초화력",
@@ -2826,11 +2755,10 @@
           "conditions": [
             "gauge_eq:화력 게이지:100"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_eq:화력 게이지:100",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_eq:화력 게이지:100"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "초화력 2",
@@ -2843,11 +2771,10 @@
           "conditions": [
             "gauge_eq:화력 게이지:100"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "화력 강화 1",
@@ -7918,11 +7845,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "티켓 효과",
@@ -7981,13 +7907,10 @@
           "conditions": [
             "gauge_above:티켓:1"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_above:티켓:1",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: gauge_above:티켓:1"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "열차 탑승 도와줄게! 2",
@@ -8001,11 +7924,10 @@
             "gauge_above:티켓:1",
             "not_self_state:첫차 할인"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "첫차 할인",
@@ -12087,13 +12009,10 @@
           "conditions": [
             "self_state:일렉트릭 파워 풀 풀 차지"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "오버 에너지 2",
@@ -12106,13 +12025,10 @@
           "conditions": [
             "gauge_above:오버 에너지:100"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "오버 에너지 3",
@@ -12125,13 +12041,10 @@
           "conditions": [
             "gauge_above:오버 에너지:100"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "오버 에너지 단계 1",
@@ -12144,11 +12057,10 @@
           "conditions": [
             "gauge_above:오버 에너지 단계:1"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_above:오버 에너지 단계:1",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_above:오버 에너지 단계:1"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "오버 에너지 단계 2",
@@ -12161,11 +12073,10 @@
           "conditions": [
             "gauge_above:오버 에너지 단계:2"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_above:오버 에너지 단계:2",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_above:오버 에너지 단계:2"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "오버 에너지 단계 3",
@@ -12178,11 +12089,10 @@
           "conditions": [
             "gauge_above:오버 에너지 단계:3"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_above:오버 에너지 단계:3",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_above:오버 에너지 단계:3"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "오버 에너지 단계 4",
@@ -12195,13 +12105,10 @@
           "conditions": [
             "gauge_above:오버 에너지 단계:4"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_above:오버 에너지 단계:4",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: gauge_above:오버 에너지 단계:4"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "오버 에너지 4",
@@ -12818,11 +12725,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "출력 전환 시퀀스 2",
@@ -12878,13 +12784,10 @@
           "conditions": [
             "gauge_eq:과전류:1"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_eq:과전류:1",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: gauge_eq:과전류:1"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "메티스 버스트 버스터 4",
@@ -12897,13 +12800,10 @@
           "conditions": [
             "gauge_eq:과전류:2"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_eq:과전류:2",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: gauge_eq:과전류:2"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "메티스 버스트 버스터 5",
@@ -12916,13 +12816,10 @@
           "conditions": [
             "gauge_eq:과전류:3"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_eq:과전류:3",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: gauge_eq:과전류:3"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "메티스 버스트 버스터 6",
@@ -12935,13 +12832,10 @@
           "conditions": [
             "gauge_eq:과전류:4"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_eq:과전류:4",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: gauge_eq:과전류:4"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "메티스 버스트 버스터 7",
@@ -12954,13 +12848,10 @@
           "conditions": [
             "gauge_eq:과전류:5"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_eq:과전류:5",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: gauge_eq:과전류:5"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "메티스 버스트 버스터 8",
@@ -13994,11 +13885,10 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "정크 헌팅 2",
@@ -14010,10 +13900,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
+          "diagnostic_semantic_issue": "Unported trigger timing: event:projectile_destroy",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "issue": "Unported trigger timing: event:projectile_destroy"
         },
         {
           "name": "정크 헌팅 3",
@@ -14025,10 +13915,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
+          "diagnostic_semantic_issue": "Unported trigger timing: event:part_destroy",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "issue": "Unported trigger timing: event:part_destroy"
         },
         {
           "name": "정크 헌팅 4",
@@ -14040,10 +13930,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
+          "diagnostic_semantic_issue": "Unported trigger timing: enemy_death",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "issue": "Unported trigger timing: enemy_death"
         },
         {
           "name": "정크 헌팅 5",
@@ -14096,10 +13986,10 @@
             "gauge_below:사제 탄창:4"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
+          "diagnostic_semantic_issue": "Unported trigger timing: event:projectile_destroy",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "issue": "Unported trigger timing: event:projectile_destroy"
         },
         {
           "name": "홈메이드 매거진 3",
@@ -14117,12 +14007,12 @@
             "gauge_below:사제 탄창:4"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
+          "diagnostic_semantic_issue": "Unported trigger timing: event:projectile_destroy",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: gauge_id"
+          "issue": "Unported trigger timing: event:projectile_destroy"
         },
         {
           "name": "인 투 더 헤븐",
@@ -17689,11 +17579,10 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "바디 컨텍 2",
@@ -17706,11 +17595,10 @@
           "conditions": [
             "burst_casted"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "바디 컨텍 3",
@@ -17763,11 +17651,10 @@
           "conditions": [
             "gauge_above:포획 사슬:1"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "타이트",
@@ -17816,10 +17703,10 @@
             "target_state:사슬 감기"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
+          "diagnostic_semantic_issue": "Unported trigger timing: enemy_death",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "issue": "Unported trigger timing: enemy_death"
         },
         {
           "name": "타이트 4",
@@ -19389,13 +19276,10 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "용사 레벨 업",
@@ -19406,13 +19290,10 @@
             "every_stack:경험치:10"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "용사 레벨 업 보상",
@@ -19423,11 +19304,10 @@
             "every_stack:경험치:10"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: every_stack:경험치:10",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: every_stack:경험치:10"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "용사 레벨 업 보상 2",
@@ -19438,11 +19318,10 @@
             "every_stack:경험치:10"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: every_stack:경험치:10",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: every_stack:경험치:10"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "용사의 숙명",
@@ -19505,12 +19384,12 @@
             "not_core"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
+          "diagnostic_semantic_issue": "Unported predicate: not_core",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "issue": "Unported predicate: not_core"
         },
         {
           "name": "경험치 3",
@@ -19522,10 +19401,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
+          "diagnostic_semantic_issue": "Unported trigger timing: core_hit_count:3",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "issue": "Unported trigger timing: core_hit_count:3"
         },
         {
           "name": "용사의 자질",
@@ -19538,13 +19417,10 @@
           "conditions": [
             "gauge_above:용사 레벨:2"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_above:용사 레벨:2",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: gauge_above:용사 레벨:2"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "익스터미네이션",
@@ -19787,11 +19663,10 @@
           "conditions": [
             "gauge_eq:MP:0"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "다이아몬드 더스트",
@@ -19817,11 +19692,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "메디테이션 2",
@@ -19834,11 +19708,10 @@
           "conditions": [
             "gauge_above:MP:1"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "메디테이션 3",
@@ -19865,11 +19738,10 @@
           "conditions": [
             "gauge_above:MP:1"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_above:MP:1",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_above:MP:1"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "블레스 유 2",
@@ -19882,11 +19754,10 @@
           "conditions": [
             "gauge_above:MP:1"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_above:MP:1",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_above:MP:1"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "블레스 유 3",
@@ -19899,11 +19770,10 @@
           "conditions": [
             "gauge_eq:MP:0"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_eq:MP:0",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_eq:MP:0"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "블레스 유 4",
@@ -19917,10 +19787,10 @@
             "gauge_eq:MP:0"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_eq:MP:0",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_eq:MP:0"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "블레스 유 5",
@@ -25035,11 +24905,10 @@
             "full_charge_fire_count:3"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "화무십일홍 · 파죽",
@@ -25052,11 +24921,10 @@
           "conditions": [
             "gauge_eq:파죽:1"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_eq:파죽:1",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_eq:파죽:1"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "화무십일홍 · 파죽 2",
@@ -25069,11 +24937,10 @@
           "conditions": [
             "gauge_eq:파죽:2"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_eq:파죽:2",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_eq:파죽:2"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "화무십일홍 · 파죽 3",
@@ -25086,11 +24953,10 @@
           "conditions": [
             "gauge_eq:파죽:3"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_eq:파죽:3",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_eq:파죽:3"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "화무십일홍 · 파죽 4",
@@ -25103,11 +24969,10 @@
           "conditions": [
             "gauge_eq:파죽:3"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "화무십일홍 · 수라",
@@ -35880,11 +35745,10 @@
             "burst_enter:2"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "탄환 가져오기 2",
@@ -35915,11 +35779,10 @@
           "conditions": [
             "not_during_full_burst"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "나쁜 손버릇 2",
@@ -35964,11 +35827,10 @@
           "conditions": [
             "during_full_burst"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "사랑의 탄환 2",
@@ -36013,11 +35875,10 @@
           "conditions": [
             "during_full_burst"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "사랑의 탄환 5",
@@ -46501,11 +46362,10 @@
           "conditions": [
             "during_charge"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "오토 파이어 레디1 제거",
@@ -46576,11 +46436,10 @@
             "full_charge_fire"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "세븐스 드워프 V+VI 제거",
@@ -46724,11 +46583,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "세븐스 드워프 풀 액티브 5",
@@ -47647,12 +47505,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
+          "diagnostic_semantic_issue": "Unported trigger timing: event:target_counter_complete:빙의",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "issue": "Unported trigger timing: event:target_counter_complete:빙의"
         },
         {
           "name": "헬로 고스트",
@@ -47665,11 +47523,10 @@
           "conditions": [
             "gauge_above:유령:1"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_above:유령:1",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_above:유령:1"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "헬로 고스트 2",
@@ -47682,11 +47539,10 @@
           "conditions": [
             "gauge_above:유령:4"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_above:유령:4",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_above:유령:4"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "고스트 버스터",
@@ -47730,13 +47586,10 @@
           "conditions": [
             "gauge_below:유령:13"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, minimum_remaining",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: gauge_id, minimum_remaining"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "13 고스트 3",
@@ -47766,11 +47619,10 @@
           "conditions": [
             "gauge_eq:유령:13"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -48781,11 +48633,10 @@
           "conditions": [
             "self_state:미래 예지"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "과열 명중 초기화",
@@ -48796,13 +48647,10 @@
             "event:미래 예지"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "과열 II",
@@ -48817,13 +48665,10 @@
             "self_state:과열 I",
             "gauge_above:과열 명중:30"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_above:과열 명중:30",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: gauge_above:과열 명중:30"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "과열 III",
@@ -48838,13 +48683,10 @@
             "self_state:과열 II",
             "gauge_above:과열 명중:60"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_above:과열 명중:60",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: gauge_above:과열 명중:60"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "미래 예지 5",
@@ -51302,12 +51144,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
+          "diagnostic_semantic_issue": "Unported trigger timing: event:part_destroy",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "issue": "Unported trigger timing: event:part_destroy"
         },
         {
           "name": "변신! 아크레인저 블랙! 2",
@@ -51382,13 +51224,10 @@
           "conditions": [
             "self_state:변신"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "배터리 긴급 충전",
@@ -51401,13 +51240,10 @@
           "conditions": [
             "not_self_state:변신"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "변신",
@@ -51443,12 +51279,12 @@
             "self_state:변신"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
+          "diagnostic_semantic_issue": "Unported trigger timing: event:part_destroy",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: gauge_id"
+          "issue": "Unported trigger timing: event:part_destroy"
         },
         {
           "name": "배터리 긴급 충전 2",
@@ -51461,13 +51297,10 @@
           "conditions": [
             "gauge_eq:배터리:100"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "궁극! 아크 블랙 메테오! 2",
@@ -51508,13 +51341,10 @@
           "conditions": [
             "gauge_below:배터리:1"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_below:배터리:1",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: gauge_below:배터리:1"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -52922,11 +52752,10 @@
             "full_burst_end"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "청춘의 기록",
@@ -52953,11 +52782,10 @@
           "conditions": [
             "self_state:추억 남기기"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "기억과 추억 2",
@@ -52971,11 +52799,10 @@
             "self_state:추억 남기기",
             "gauge_mod:공격 횟수:6:2"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_mod:공격 횟수:6:2",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_mod:공격 횟수:6:2"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "행복한 기억",
@@ -52990,10 +52817,10 @@
             "gauge_mod:공격 횟수:6:4"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_mod:공격 횟수:6:4",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_mod:공격 횟수:6:4"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "소중한 추억",
@@ -53007,11 +52834,10 @@
             "self_state:추억 남기기",
             "gauge_mod:공격 횟수:6:0"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_mod:공격 횟수:6:0",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_mod:공격 횟수:6:0"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "기억과 추억 5",
@@ -53731,11 +53557,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "다 함께 불러주세요! (보컬 해제)",
@@ -53777,10 +53602,10 @@
             "gauge_mod:무대_단계:2:1"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_mod:무대_단계:2:1",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_mod:무대_단계:2:1"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "무대 파트 : 보컬",
@@ -53794,10 +53619,10 @@
             "gauge_mod:무대_단계:2:0"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_mod:무대_단계:2:0",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_mod:무대_단계:2:0"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "떼창",
@@ -61202,11 +61027,10 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id, gauge_max",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id, gauge_max"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "사격 간파",
@@ -61219,11 +61043,10 @@
           "conditions": [
             "gauge_above:초감각:100"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_above:초감각:100",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_above:초감각:100"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "초감각 2",
@@ -61236,11 +61059,10 @@
           "conditions": [
             "gauge_above:초감각:70"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_above:초감각:70",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_above:초감각:70"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "초감각 3",
@@ -61253,11 +61075,10 @@
           "conditions": [
             "gauge_above:초감각:55"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_above:초감각:55",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_above:초감각:55"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "초감각 4",
@@ -61270,11 +61091,10 @@
           "conditions": [
             "gauge_above:초감각:25"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: gauge_above:초감각:25",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: gauge_above:초감각:25"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "초감각 5",
@@ -61285,11 +61105,10 @@
             "every:2s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "방어 관통 사격",
@@ -61329,11 +61148,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: gauge_id",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: gauge_id"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "긴급 충전 2",
@@ -63210,10 +63028,13 @@
     "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
     "app/portable_enemy_specs.py": "027f575ec84a2f872d01622281971f1f97919c82e705f8a484208cfa811b1804",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
-    "app/portable_runtime.py": "e36f818f6eb3e310049d9b163e451f03ddc0bf4718ee703e3f816a23a7f12604",
-    "app/portable_specs.py": "63c1e8a8a8aafbc158e92c7488cb726b29d107fa47eba9d049412802fcc20549",
-    "app/portable_trigger_specs.py": "70d19d08eb1bb29674ed2c8360e7748556f0674775e180169e6f957b39607fc6",
+    "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
+    "app/portable_resource_specs.py": "7b08e48b1a70f9aa2d35a3e3e9ae1bcd6a17e096edc55ce8b00e2383ea0ae9eb",
+    "app/portable_runtime.py": "694aad00624e4b843230dcb0ed637b04d1d9b611158a2368f85c5ab049026712",
+    "app/portable_specs.py": "668d370e22b307359737f906e0393e9f4589322634f3ab549e80053bfd5dbd34",
+    "app/portable_trigger_specs.py": "a20f8d96a514fb6217c3eba47bf4a569fc1c861bc8837519b56694580e55dda4",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
+    "app/resource_specs.py": "de67874a373c94834d3fbe43d9be9d18ccc45e1e22f563f9e5d892b66ea07b85",
     "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",
     "app/survival_compat.py": "8302b469cac555a91f2b33f898bfce64e5707a131531ceb746dc0b90697d923e",
     "app/survival_scaling_compat.py": "7d58315941ff7256dcbeb1fa38c15e7fc5a801d1e96822610d612a114b9b56bc",
@@ -63255,7 +63076,8 @@
     "research/upstream/nikke-calc-master/runner/snapshot.py": "fb86552304db9789ed36b7e5bfb2ab18374f581fc61a32b05cf04e973e555dbd",
     "research/upstream/nikke-calc-master/runner/spec.py": "609ec07a8db4a88e0a2912193b4bfb0b1433e8f11d2ec32f43d4c5f014b0e730",
     "research/upstream/nikke-calc-master/runner/squads.py": "22247095ff5737c98173b5ac92dbd268bbc74828a2fcaa28018f8eb23db93e7a",
-    "scripts/audit-portable-catalog.py": "893f9a905b6a3e09759470ba94dd6f5114a8f33d811324e55e09b13b3659307f",
-    "scripts/detail_coverage.py": "eef94f7675f270e8a4870323cb1e55e8506f2e5fe47e6fa4b1645d9aaf71dc40"
+    "scripts/audit-portable-catalog.py": "05edcb8794397c8fe590a41f614896fddc602ec4f45ee1e803a1dd54d598f5f0",
+    "scripts/detail_coverage.py": "eef94f7675f270e8a4870323cb1e55e8506f2e5fe47e6fa4b1645d9aaf71dc40",
+    "tests/fixtures/portable-resources.json": "d3e83f6c000d3f98cf94c42facabb4db6eb9d6eb341600866b52979eb16c52d4"
   }
 }

@@ -1,0 +1,1738 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "resource-zero",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 0.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 1,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-below-minimum",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 0.5,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 1,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-at-minimum",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 1.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 1,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-partial-to-minimum",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              0.0,
+              4.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 5.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 1,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          }
+        ],
+        "resource_trace_total": 4
+      }
+    },
+    {
+      "name": "resource-ordinary-remainder",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              0.0,
+              6.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 10.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 4.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          }
+        ],
+        "resource_trace_total": 6
+      }
+    },
+    {
+      "name": "resource-upper-branch",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              0.0,
+              9.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 13.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 4.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          }
+        ],
+        "resource_trace_total": 9
+      }
+    },
+    {
+      "name": "resource-all-above-minimum",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              0.0,
+              12.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 13.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 1,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          },
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          }
+        ],
+        "resource_trace_total": 12
+      }
+    },
+    {
+      "name": "resource-fractional",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 2.25,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 1,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          }
+        ],
+        "resource_trace_total": 1
+      }
+    },
+    {
+      "name": "resource-all-fractional",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 2.25,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 1,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          }
+        ],
+        "resource_trace_total": 1
+      }
+    },
+    {
+      "name": "resource-rounded-remainder-is-not-spend",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 1e+16,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 1e+16,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [
+          {
+            "event": 26,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.1,
+            "boundary": 1
+          }
+        ],
+        "resource_trace_total": 1
+      }
+    },
+    {
+      "name": "resource-minimum-on-zero-request",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 0.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 1,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-legacy-negative-request",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 3.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 5.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-legacy-negative-resource",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": -1.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-fractional-caps-and-snapshot-boundary-union",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              23.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "attack_buffs": [
+              46.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "attack_buffs": [
+              46.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "attack_buffs": [
+              69.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "attack_buffs": [
+              69.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 4.5,
+            "cap_present": true,
+            "base_cap": 10.0,
+            "effective_cap": 15.0
+          },
+          {
+            "time": 0.5,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 7.5,
+            "cap_present": true,
+            "base_cap": 10.0,
+            "effective_cap": 15.0
+          },
+          {
+            "time": 1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 3.25,
+            "cap_present": true,
+            "base_cap": 10.0,
+            "effective_cap": 15.0
+          },
+          {
+            "time": 2.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 6.25,
+            "cap_present": true,
+            "base_cap": 10.0,
+            "effective_cap": 10.0
+          },
+          {
+            "time": 3,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 0.0,
+            "cap_present": true,
+            "base_cap": 10.0,
+            "effective_cap": 10.0
+          }
+        ],
+        "resource_trace": [
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0,
+            "boundary": 2
+          },
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0,
+            "boundary": 3
+          },
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0,
+            "boundary": 4
+          },
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0,
+            "boundary": 6
+          },
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.5,
+            "boundary": 6
+          },
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.5,
+            "boundary": 8
+          },
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.5,
+            "boundary": 9
+          },
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0.5,
+            "boundary": 10
+          },
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 2.1,
+            "boundary": 4
+          },
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 2.1,
+            "boundary": 6
+          },
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 2.1,
+            "boundary": 8
+          },
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 2.1,
+            "boundary": 9
+          }
+        ],
+        "resource_trace_total": 12
+      }
+    },
+    {
+      "name": "resource-marker-refresh-expiry",
+      "native": {
+        "queries": [],
+        "resource_queries": [
+          {
+            "time": 0.2,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 2.0,
+            "cap_present": true,
+            "base_cap": 100.0,
+            "effective_cap": 100.0
+          },
+          {
+            "time": 0.7,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 4.0,
+            "cap_present": true,
+            "base_cap": 100.0,
+            "effective_cap": 100.0
+          },
+          {
+            "time": 0.81,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 49.0,
+            "cap_present": true,
+            "base_cap": 100.0,
+            "effective_cap": 100.0
+          },
+          {
+            "time": 0.9,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 49.0,
+            "cap_present": true,
+            "base_cap": 100.0,
+            "effective_cap": 100.0
+          },
+          {
+            "time": 0.91,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 100.0,
+            "cap_present": true,
+            "base_cap": 100.0,
+            "effective_cap": 100.0
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-runtime-and-latched-predicates",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              20.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "attack_buffs": [
+              50.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "attack_buffs": [
+              40.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "attack_buffs": [
+              80.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "attack_buffs": [
+              90.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "attack_buffs": [
+              50.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "attack_buffs": [
+              20.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-modulo-beyond-int64-and-negative-truncation",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              1111.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-cap-declaration-does-not-clamp-consume",
+      "native": {
+        "queries": [],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 100.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 100.0,
+            "cap_present": true,
+            "base_cap": 5.0,
+            "effective_cap": 5.0
+          },
+          {
+            "time": 0.2,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 5.0,
+            "cap_present": true,
+            "base_cap": 5.0,
+            "effective_cap": 5.0
+          },
+          {
+            "time": 0.4,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": -5.0,
+            "cap_present": true,
+            "base_cap": 5.0,
+            "effective_cap": -5.0
+          },
+          {
+            "time": 0.5,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 0.0,
+            "cap_present": true,
+            "base_cap": 5.0,
+            "effective_cap": -5.0
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-cap-literal-not-multiplied-by-stack",
+      "native": {
+        "queries": [],
+        "resource_queries": [
+          {
+            "time": 0.3,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 20.0,
+            "cap_present": true,
+            "base_cap": 10.0,
+            "effective_cap": 20.0
+          },
+          {
+            "time": 0.71,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 20.0,
+            "cap_present": true,
+            "base_cap": 10.0,
+            "effective_cap": 10.0
+          },
+          {
+            "time": 0.8,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 10.0,
+            "cap_present": true,
+            "base_cap": 10.0,
+            "effective_cap": 10.0
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-cap-uses-raw-literal-not-level-value",
+      "native": {
+        "queries": [],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 10.0,
+            "cap_present": true,
+            "base_cap": 10.0,
+            "effective_cap": 10.0
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-present-zero-is-distinct-from-absent",
+      "native": {
+        "queries": [],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": false,
+            "value": 0.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 0.0,
+            "cap_present": true,
+            "base_cap": 10.0,
+            "effective_cap": 10.0
+          },
+          {
+            "time": 0.2,
+            "owner": 0,
+            "resource": "unknown",
+            "present": false,
+            "value": 0.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-same-key-owner-local",
+      "native": {
+        "queries": [],
+        "resource_queries": [
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "MP",
+            "present": true,
+            "value": 3.0,
+            "cap_present": true,
+            "base_cap": 5.0,
+            "effective_cap": 5.0
+          },
+          {
+            "time": 0.1,
+            "owner": 4,
+            "resource": "MP",
+            "present": true,
+            "value": 7.0,
+            "cap_present": true,
+            "base_cap": 7.0,
+            "effective_cap": 7.0
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-same-instant-name-different-keys",
+      "native": {
+        "queries": [],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "MP",
+            "present": true,
+            "value": 3.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "XP",
+            "present": true,
+            "value": 4.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-duplicate-descriptors-unique-boundary-events",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              18.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 6.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0,
+            "boundary": 2
+          },
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0,
+            "boundary": 3
+          },
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0,
+            "boundary": 4
+          },
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0,
+            "boundary": 6
+          }
+        ],
+        "resource_trace_total": 4
+      }
+    },
+    {
+      "name": "resource-nested-charge-keeps-parent-snapshot",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              3.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 7.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0,
+            "boundary": 2
+          },
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0,
+            "boundary": 4
+          },
+          {
+            "event": 30,
+            "owner": 0,
+            "resource": "fuel",
+            "time": 0,
+            "boundary": 6
+          }
+        ],
+        "resource_trace_total": 3
+      }
+    },
+    {
+      "name": "resource-periodic-instant-excludes-final-expiry",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "attack_buffs": [
+              10.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "attack_buffs": [
+              10.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "attack_buffs": [
+              10.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": false,
+            "value": 0.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.5,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 1.25,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 2.5,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 1.5,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 3.75,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 2,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 3.75,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-missing-value-does-not-declare-cap",
+      "native": {
+        "queries": [],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": false,
+            "value": 0.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 0.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-marker-does-not-intercept-unrelated-charge",
+      "native": {
+        "queries": [],
+        "resource_queries": [
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 5.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.6,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 8.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-fractional-spend-is-not-accumulated-ammo",
+      "native": {
+        "queries": [
+          {
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "resource_queries": [
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 0.30000000000000004,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          },
+          {
+            "time": 0.2,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 0.0,
+            "cap_present": false,
+            "base_cap": null,
+            "effective_cap": null
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-down-clears-value-keeps-key-and-base-cap",
+      "native": {
+        "queries": [],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "MP",
+            "present": true,
+            "value": 7.0,
+            "cap_present": true,
+            "base_cap": 10.0,
+            "effective_cap": 13.0
+          },
+          {
+            "time": 0.1,
+            "owner": 0,
+            "resource": "MP",
+            "present": true,
+            "value": 0.0,
+            "cap_present": true,
+            "base_cap": 10.0,
+            "effective_cap": 10.0
+          },
+          {
+            "time": 0.1,
+            "owner": 4,
+            "resource": "MP",
+            "present": true,
+            "value": 9.0,
+            "cap_present": true,
+            "base_cap": 12.0,
+            "effective_cap": 12.0
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-cap-cancellation-integer",
+      "native": {
+        "queries": [],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 11.0,
+            "cap_present": true,
+            "base_cap": 10.0,
+            "effective_cap": 11.0
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    },
+    {
+      "name": "resource-cap-cancellation-float",
+      "native": {
+        "queries": [],
+        "resource_queries": [
+          {
+            "time": 0,
+            "owner": 0,
+            "resource": "fuel",
+            "present": true,
+            "value": 11.0,
+            "cap_present": true,
+            "base_cap": 10.0,
+            "effective_cap": 11.0
+          }
+        ],
+        "resource_trace": [],
+        "resource_trace_total": 0
+      }
+    }
+  ],
+  "source_sha256": {
+    "scripts/portable_resource_oracle.py": "6e8ab20b01c41618c554779f4f41eb6a693c14893da935e1cf2b382d7b6040d8",
+    "app/resource_specs.py": "de67874a373c94834d3fbe43d9be9d18ccc45e1e22f563f9e5d892b66ea07b85",
+    "app/resource_runtime.py": "8356943f18d137bfb90d60ab2096c2505403c9156f088cf29c7aeda38fecd58c",
+    "tests/fixtures/portable-resources.json": "d3e83f6c000d3f98cf94c42facabb4db6eb9d6eb341600866b52979eb16c52d4",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  },
+  "cpu_trace_used_as_gpu_input": false
+}
