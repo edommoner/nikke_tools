@@ -12,7 +12,7 @@ def observe(case, *, with_carriers=False, with_cover=False):
     class BM(BuffManager):
         def _register_all(self):self._effects=raw;self._build_notify_index()
     allies=case['environment']['allies']
-    base={n:dict(atk=1000,hp=a['base_hp'],**{'def':a.get('base_defense',0)}) for n,a in zip(NAMES,allies)}
+    base={n:dict(atk=case.get('base_atk',[1000]*5)[NAMES.index(n)],hp=a['base_hp'],**{'def':a.get('base_defense',0)}) for n,a in zip(NAMES,allies)}
     state=dict(base_stats=base,hp={n:a.get('hp',a['base_hp']) for n,a in zip(NAMES,allies)},
                hp_pct={n:a.get('hp',a['base_hp'])/a['base_hp']*100 for n,a in zip(NAMES,allies)},
                enemy={'def':0},full_burst=False,rng_acc={},rng_expected=True)

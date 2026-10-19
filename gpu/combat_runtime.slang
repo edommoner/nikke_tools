@@ -194,6 +194,7 @@ bool changedWeaponSession(inout Runtime s, uint who, uint epoch, int originalMod
     // its physical shot, so its consumption and scheduling still finish.
     return !(originalMode < 0 && s.modeIndex[who] < 0 && s.physicalModeIndex[who] < 0);
 }
+[noinline]
 void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output)
 {
     if (s.weaponEnabled[who] == 0 || (s.downMask & (1U << who)) != 0) return;

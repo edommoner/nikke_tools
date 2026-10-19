@@ -69,7 +69,7 @@ void ensureLazyRecipients(inout Runtime s, uint row, uint64_t when)
                 residentDefinition(s,i).lazyGroup == group && f64Equal(s.activated[i],key))
             { s.lazyLink[i] = entry+1; s.cacheRefs[entry]++; }
     }
-    s.activeRecipients[row] = s.cacheMask[entry] & ~s.downMask;
+    s.activeRecipients[row] = s.cacheMask[entry] & ~s.downMask; s.carrierRecipientOrder[row] = s.cacheOrder[entry];
     resolveBulletTargets(s,row);
     unlinkLazyCache(s,row); s.lazyPending[row] = 0; s.lazyPendingCount--; s.lazyMappedPendingCount -= d.queryResolve;
 }

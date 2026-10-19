@@ -35,7 +35,7 @@ def double_words(value):
 def validate_effect(eff, *, combat=None):
     allowed = {'name','source','type','stat','fixed_value','values','duration','duration_values',
                'target','trigger','note','polarity','favorite','_source_tag','_quant_group','max_ammo_reduction_exclusive','trigger_values','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
-    if eff.get('type')=='buff':allowed=allowed | {'duration_bullets'}
+    if eff.get('type')=='buff':allowed=allowed | {'duration_bullets','event_scope'}
     effect_allowed=allowed | ({'scaling'} if eff.get('stat') in ('heal_hp_pct','cover_heal_pct','cover_hp_pct') else set()) | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','cover_during_delay','first_damage_coeff','max_ammo_buff_applies','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
     if set(eff)-effect_allowed:
         raise UnsupportedPortable('Unported effect fields: '+', '.join(sorted(set(eff)-effect_allowed)))
@@ -54,6 +54,8 @@ def validate_effect(eff, *, combat=None):
         raise UnsupportedPortable('Weapon/burst modifier requires combat mechanics')
     if combat is None and set(eff.get('trigger',{}).get('condition',[])) & {'during_charge','burst_casted','burst_not_casted','has_burst1_ally','no_burst1_ally'}:
         raise UnsupportedPortable('Predicate requires combat-owned charge/burst state')
+    if 'event_scope' in eff and eff['event_scope'] not in ('squad','recipients'):
+        raise UnsupportedPortable('Invalid named event audience')
     if kind=='buff':
         if (stat not in BUFFS and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat))) or not recipient_admitted(target):
             raise UnsupportedPortable('Unported buff or recipient selector')
@@ -192,7 +194,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         force=L['FORCE_BASE']+index*L['MASK_WORDS']
         words[force:force+L['MASK_WORDS']]=[int(row[legacy.B3_MASK+k]) for k in range(L['MASK_WORDS'])]
         health=L['HEALTH_DEFINITION_BASE']+index*L['HEALTH_DEFINITION_WORDS']
-        words[health:health+2]=[int(row[50]),int(effects[index][0].get('stat')=='def_pct') | (int(effects[index][0].get('stat')=='received_dmg_pct')<<1)]
+        words[health:health+4]=[int(row[50]),int(effects[index][0].get('stat')=='def_pct') | (int(effects[index][0].get('stat')=='received_dmg_pct')<<1),
+                              (int(bool(eff.get('name'))) | (int(eff.get('event_scope')=='recipients')<<1)) if eff.get('type')=='buff' else 0,0]
         if row[1]==2:
             if row[7]<0 and row[14]>0:raise UnsupportedPortable('Infinite conditional weapon mode is not ported')
             from portable_combat import pack_mode

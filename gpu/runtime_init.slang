@@ -51,6 +51,7 @@ void initializeRuntime(inout Runtime s)
     s.target = 0;
     s.infiniteRowCount = 0;
     s.namedEventOwners = 0;
+    s.stackEventOwners = 0;
     s.phase = 0;
     s.castMask = 0;
     s.traceMode = 0;
@@ -92,6 +93,7 @@ void initializeRuntime(inout Runtime s)
         s.lazyLink[index] = 0;
         s.queryAllowed[index] = 0;
         s.activeRecipients[index] = 0;
+        s.carrierRecipientOrder[index] = 0;
         s.hpSnapshot[index] = 0;
         s.activated[index] = 0;
         s.infiniteRows[index] = 0;
