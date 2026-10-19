@@ -73,11 +73,11 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.006888999952934682,
+    "gpu_seconds": 0.007028583320789039,
     "input_bytes": 2801668,
-    "library_compile_seconds": 0.0007569789886474609,
+    "library_compile_seconds": 0.3599900007247925,
     "output_bytes": 3391488,
-    "pipeline_compile_seconds": 0.0007710456848144531,
+    "pipeline_compile_seconds": 1.4475809335708618,
     "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
@@ -91,7 +91,7 @@
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/portable_schema.slang": "268d93bbe3e9fa8556fa3585769ed3e2f90375f552205750136b4ca8fc8b0b6b",
-    "gpu/stack_numeric.slang": "db639cde6047760f2a7676725d354c4c1a2361e13303b16374033adf810bea94",
+    "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
     "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
     "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
     "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
@@ -130,8 +130,8 @@
     "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
   },
   "generated_sha256": {
-    "cuda": "0fd6b190dd8bc317d0d25c42a19d63fb58d638154181c9e805dbf48bc5d1d252",
-    "metal": "27c9a08f23b85f77b2224c083767b97a308bd09c54fc53b3c8755c1cff91c1c2"
+    "cuda": "7cf42a4630adb0ae133eba7e861e2b061389970b33055ab91ef248655ca8eabf",
+    "metal": "10e6c5eb5d8f6b7595c4d1c550f0dfcbc30321e8a86519341b3c5f0a17c7390b"
   },
   "input_sha256": "b802bb3d245b317f7531e8e5a64142adf2ed47d11a451f163020ee1fbe669b4d",
   "output_sha256": "f107b7e3446d5e2b0ce1fd70212eba52385318601c45a12bd1cc1ecc23574e53",

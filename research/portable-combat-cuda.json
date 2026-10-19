@@ -8,14 +8,14 @@
     "device": "NVIDIA GeForce RTX 3070 Ti",
     "cases": 1355,
     "command_status": "completed",
-    "host_dispatch_seconds": 12.668736500199884
+    "host_dispatch_seconds": 5.038200099952519
   },
   "source_sha256": {
     "gpu/event_runtime.slang": "39d2305e6464f54ee916b436d2617a6b686b8d44c772089c7e08cf3dca2a35c3",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/portable_schema.slang": "268d93bbe3e9fa8556fa3585769ed3e2f90375f552205750136b4ca8fc8b0b6b",
-    "gpu/stack_numeric.slang": "db639cde6047760f2a7676725d354c4c1a2361e13303b16374033adf810bea94",
+    "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
     "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
     "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
     "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
@@ -10649,11 +10649,11 @@
     }
   ],
   "execution": {
-    "command": "python research/windows-v49-sequence.py --backend cuda",
-    "commit": "851625603c9079008bedfb892b80ba36575daeeb",
+    "command": "python research/windows-v50-sequence.py --backend cuda",
+    "commit": "6e28e63d65c9109b56480782b053b2dddf44b71f",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "37, 4770",
+    "gpu_before": "35, 4527",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -10671,21 +10671,21 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 103.03830679971725,
-    "stdout": "{\"command\": \"python research/verify-stack-foundation-existing.py --backend cuda\", \"elapsed_seconds\": 77.36544420011342, \"exit_code\": 0, \"stdout\": \"{\\\"passed\\\": true, \\\"cases\\\": 1149, \\\"device\\\": \\\"NVIDIA GeForce RTX 3070 Ti\\\", \\\"backend\\\": \\\"cuda\\\"}\\n\", \"stderr\": \"\"}\n{\"command\": \"python research/verify-stack-foundation.py --backend cuda\", \"elapsed_seconds\": 25.531967099756002, \"exit_code\": 0, \"stdout\": \"Stack numeric cases passed 19908 cuda\\nStack notice cases passed 9 cuda\\n\", \"stderr\": \"\"}\n",
+    "elapsed_seconds": 82.4859194997698,
+    "stdout": "{\"command\": \"python research/verify-stack-increment-existing.py --backend cuda\", \"elapsed_seconds\": 61.54020659998059, \"exit_code\": 0, \"stdout\": \"{\\\"passed\\\": true, \\\"cases\\\": 1149, \\\"device\\\": \\\"NVIDIA GeForce RTX 3070 Ti\\\", \\\"backend\\\": \\\"cuda\\\"}\\n\", \"stderr\": \"\"}\n{\"command\": \"python research/verify-stack-foundation.py --backend cuda\", \"elapsed_seconds\": 20.81321149971336, \"exit_code\": 0, \"stdout\": \"Stack numeric cases passed 19908 cuda\\nStack notice cases passed 9 cuda\\n\", \"stderr\": \"\"}\n",
     "stderr": ""
   },
   "steps": [
     {
-      "command": "python research/verify-stack-foundation-existing.py --backend cuda",
-      "elapsed_seconds": 77.36544420011342,
+      "command": "python research/verify-stack-increment-existing.py --backend cuda",
+      "elapsed_seconds": 61.54020659998059,
       "exit_code": 0,
       "stdout": "{\"passed\": true, \"cases\": 1149, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
       "stderr": ""
     },
     {
       "command": "python research/verify-stack-foundation.py --backend cuda",
-      "elapsed_seconds": 25.531967099756002,
+      "elapsed_seconds": 20.81321149971336,
       "exit_code": 0,
       "stdout": "Stack numeric cases passed 19908 cuda\nStack notice cases passed 9 cuda\n",
       "stderr": ""
@@ -10698,51 +10698,46 @@
     "existing_gpu_service_preserved": true
   },
   "generated_sha256": {
-    "cuda": "e3cb21b3ae9696233ab73f151e4c504cc010afbf2adfded03523358acd6242d1",
-    "metal": "2dac9e587e6c5d347c81bf368b6fd4e3d400b8771e4ea15ce1031df8e735635e"
+    "cuda": "cc6972776dd076db09397e816b61f2130fa6bccb132bd1642286574f8275a941",
+    "metal": "48ec58a7d462a0410776d4712870db3502e61f5657c4b1e5bb907bfd923b97ea"
   },
   "generated_normalization": {
     "cuda": {
       "available": true,
-      "raw_sha256": "e3cb21b3ae9696233ab73f151e4c504cc010afbf2adfded03523358acd6242d1",
-      "lf_sha256": "5c2c23ddd0d6097c1f36322ae1f0a1138dd474b1b591a78eb5a4f354031cfb26",
-      "no_line_directives_sha256": "17dcb27cbd00e3634c9bef77e48266c7a0de2ccb7eadbb745bf28ff9a4ebcf63",
-      "no_line_directives_portable_prelude_sha256": "f9aec22a0a6cb20c0d1656e664dec0e71f1a5ffb12122c4374417251812ff14f",
-      "lines": 52015,
-      "no_line_directive_lines": 38469,
-      "line_directives": 13546
+      "raw_sha256": "cc6972776dd076db09397e816b61f2130fa6bccb132bd1642286574f8275a941",
+      "lf_sha256": "652f7987b870410634c16e7e2dda35afccea5301055f66c6360595f2eeaf1f7a",
+      "no_line_directives_sha256": "fca417e6a43b126fa0c871aae063178409911ade9c77e58c16fbf3c0296db52f",
+      "no_line_directives_portable_prelude_sha256": "d2529a1b2809ba378638bf52b6f7546116688fb22cd6d284b1c5524d8b28e98b",
+      "lines": 51756,
+      "no_line_directive_lines": 38278,
+      "line_directives": 13478
     },
     "metal": {
       "available": true,
-      "raw_sha256": "2dac9e587e6c5d347c81bf368b6fd4e3d400b8771e4ea15ce1031df8e735635e",
-      "lf_sha256": "1de0f62dc0f6c247c22f9b9ff18d4e199602a6ebda58b2f7c2077d8e0dc3bcc4",
-      "no_line_directives_sha256": "eaa3049efcb5529ecefbd5fe5388c9785c739f10cba8df8fd9862b8b80720f3c",
-      "no_line_directives_portable_prelude_sha256": "eaa3049efcb5529ecefbd5fe5388c9785c739f10cba8df8fd9862b8b80720f3c",
-      "lines": 52355,
-      "no_line_directive_lines": 38752,
-      "line_directives": 13603
+      "raw_sha256": "48ec58a7d462a0410776d4712870db3502e61f5657c4b1e5bb907bfd923b97ea",
+      "lf_sha256": "315ed6a71835d6bd09b6593c8164f7f591de55cb22ebf7e3f9bd12fa28ccc06d",
+      "no_line_directives_sha256": "42fd7d9abea8d16fcf164f2a2200bc47f1b303f5f173b5b33fd5ea332b5305de",
+      "no_line_directives_portable_prelude_sha256": "42fd7d9abea8d16fcf164f2a2200bc47f1b303f5f173b5b33fd5ea332b5305de",
+      "lines": 52089,
+      "no_line_directive_lines": 38556,
+      "line_directives": 13533
     }
   },
-  "stack_foundation_existing_parity": {
+  "stack_increment_existing_parity": {
     "passed": true,
-    "previous_proof_commit": "97e47b2",
+    "previous_proof_commit": "7d52456",
     "inputs": 1355,
     "positives": 1149,
     "rejections": 206,
-    "input_normalization": "ABI word 0x50455661 to 0x50455660 only",
-    "all_prior_output_bytes_equal": true,
-    "added_output_tail_zero": true,
-    "no_output_normalization": true,
-    "prior_input_sha256": "3f6a37f83aee33688a070ebf8af661dc6e982136cbb4dffc67e701fd4f8818cd",
-    "prior_output_sha256": "6fb4c20bf83c7e8566b9aa06e2a7c392b328c1ae0972aebc0780c9666d124f26",
-    "cpu_trace_used_as_gpu_input": false,
+    "all_input_and_output_bytes_equal": true,
+    "no_input_or_output_normalization": true,
     "backend": "cuda",
     "source_sha256": {
       "gpu/event_runtime.slang": "39d2305e6464f54ee916b436d2617a6b686b8d44c772089c7e08cf3dca2a35c3",
       "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
       "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
       "gpu/portable_schema.slang": "268d93bbe3e9fa8556fa3585769ed3e2f90375f552205750136b4ca8fc8b0b6b",
-      "gpu/stack_numeric.slang": "db639cde6047760f2a7676725d354c4c1a2361e13303b16374033adf810bea94",
+      "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
       "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
       "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
       "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
@@ -10798,16 +10793,16 @@
       "device": "NVIDIA GeForce RTX 3070 Ti",
       "cases": 19908,
       "command_status": "completed",
-      "host_dispatch_seconds": 0.0001276000402867794
+      "host_dispatch_seconds": 0.00011090002954006195
     },
     "source_sha256": {
       "gpu/stack_numeric_probe.slang": "7028641e99168172b9c6896b0926a4d02bbc21430417dad498189b8ae179f746",
       "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
-      "gpu/stack_numeric.slang": "db639cde6047760f2a7676725d354c4c1a2361e13303b16374033adf810bea94"
+      "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671"
     },
     "generated_sha256": {
-      "cuda": "77b1939f373b38640598d4a0bf79761f6ecd0b71e346d5a4ed642f919d9eefdf",
-      "metal": "cbc7b70055a353d16e4d2b4dd643d108a5d1a83470f1e786e3a74d37afe95d9f"
+      "cuda": "cf9dd3fd5276468fb10316d56c3a023dbd1bf5a9c74a0ba08b1cd12d84913dbb",
+      "metal": "e81e57e24cc4df856bd2b09776cede13413de058eb5e4638b98c76b630cfb78b"
     },
     "input_sha256": "95002f41c40212d56b29fab376ad5a921d0df4340ade5a2c13a9273d6ec4bcca",
     "output_sha256": "c3b6a0268cbe8244adb363f199b2ab69ebf69f46db7515c985b2572fae813cec",
@@ -10888,7 +10883,7 @@
       "device": "NVIDIA GeForce RTX 3070 Ti",
       "cases": 9,
       "command_status": "completed",
-      "host_dispatch_seconds": 2.0434007002040744
+      "host_dispatch_seconds": 1.2931830999441445
     },
     "source_sha256": {
       "gpu/stack_notice_probe.slang": "371bf4bb9d3254068750a800113902adde69a98a7366546b005cee251a4215e0",
@@ -10896,7 +10891,7 @@
       "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
       "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
       "gpu/portable_schema.slang": "268d93bbe3e9fa8556fa3585769ed3e2f90375f552205750136b4ca8fc8b0b6b",
-      "gpu/stack_numeric.slang": "db639cde6047760f2a7676725d354c4c1a2361e13303b16374033adf810bea94",
+      "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
       "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
       "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
       "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
@@ -10935,8 +10930,8 @@
       "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
     },
     "generated_sha256": {
-      "cuda": "5baffd3b9b589d97b5419321e86d8e55c39e7be4bedc36d702dcd6bffa4359cb",
-      "metal": "7510976d6d4ed9f762e73038200b85b051b8639b6e5903bd12b20b172475cc0f"
+      "cuda": "7699b6dc23d690e36268111ee7db3e7e4a5928bfa01c53b0af2b604f01664560",
+      "metal": "b871a60c0b0e280ccba23a67dc1d861d8d4e87f4405c53fd07fa9a3a79c115ae"
     },
     "input_sha256": "b802bb3d245b317f7531e8e5a64142adf2ed47d11a451f163020ee1fbe669b4d",
     "output_sha256": "f107b7e3446d5e2b0ce1fd70212eba52385318601c45a12bd1cc1ecc23574e53",
@@ -10951,9 +10946,9 @@
     "executed": false,
     "reason": "Old Metal receipts intentionally not compared."
   },
-  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-8516256\\research\\portable-combat-cuda.json",
+  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-6e28e63\\research\\portable-combat-cuda.json",
   "missing_artifacts": [],
   "summary_only": true,
-  "summary_source": "windows-portable-combat-v49.json",
+  "summary_source": "windows-portable-combat-v50.json",
   "scope": "Shared event/combat mechanics, enemy packets, allied cover state and pending B3 bonuses; independent components are not full battle or catalog certification"
 }

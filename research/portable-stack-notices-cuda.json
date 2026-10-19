@@ -72,7 +72,7 @@
     "device": "NVIDIA GeForce RTX 3070 Ti",
     "cases": 9,
     "command_status": "completed",
-    "host_dispatch_seconds": 2.0434007002040744
+    "host_dispatch_seconds": 1.2931830999441445
   },
   "source_sha256": {
     "gpu/stack_notice_probe.slang": "371bf4bb9d3254068750a800113902adde69a98a7366546b005cee251a4215e0",
@@ -80,7 +80,7 @@
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/portable_schema.slang": "268d93bbe3e9fa8556fa3585769ed3e2f90375f552205750136b4ca8fc8b0b6b",
-    "gpu/stack_numeric.slang": "db639cde6047760f2a7676725d354c4c1a2361e13303b16374033adf810bea94",
+    "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
     "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
     "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
     "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
@@ -119,8 +119,8 @@
     "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
   },
   "generated_sha256": {
-    "cuda": "5baffd3b9b589d97b5419321e86d8e55c39e7be4bedc36d702dcd6bffa4359cb",
-    "metal": "7510976d6d4ed9f762e73038200b85b051b8639b6e5903bd12b20b172475cc0f"
+    "cuda": "7699b6dc23d690e36268111ee7db3e7e4a5928bfa01c53b0af2b604f01664560",
+    "metal": "b871a60c0b0e280ccba23a67dc1d861d8d4e87f4405c53fd07fa9a3a79c115ae"
   },
   "input_sha256": "b802bb3d245b317f7531e8e5a64142adf2ed47d11a451f163020ee1fbe669b4d",
   "output_sha256": "f107b7e3446d5e2b0ce1fd70212eba52385318601c45a12bd1cc1ecc23574e53",

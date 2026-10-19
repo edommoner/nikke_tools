@@ -26,7 +26,7 @@ CPUの `BuffManager.ref_count` はゲージを整数へ切り捨て、所有ス�
 - initは同名のactive対象が既にあると抑制します。最初の同所有者の登録buffから直接生成し、対象定義の条件・予算を迂回します。通常の名前通知・周期登録・発数寿命の初期化は行いません。
 - debuff操作は明示参照の0を保持します。対象の免疫を個別に除外し、一部対象でも共有residentの値を変更します。名前指定の下限0、未指定の下限1です。0でもresident・時計は残り、期限更新・stack通知はありません。未指定はpolarityが厳密にharmfulかつmax_stack>1です。
 - max_stack_addはbeneficialで始まる通常buffかつmax_stack!=1へ適用します。共有residentに非対象者が含まれると全体をスキップし、代表と対象別overrideをそれぞれ上限処理します。代表が変化した時だけ期限更新・通知します。
-- 免疫はactive対象リスト上の存在判定です。実行時predicate・期限判定・lazy対象の解決へ置き換えません。敵の世代・対象処理は既存のCPU互換層と照合します。
+- 免疫はactive対象リスト上の存在判定です。実行時predicate・期限判定・lazy対象の解決へ置き換えません。敵は追加で `enemy_field_visible` による生存・世代一致が必要です。対象操作は現在対象の明示コンテキストを保持し、名前の一致後にも世代を照合します。既存CPUの敵操作ライフサイクル22時点を実行して確認しました（新GPU効果種別の検証ではありません）。
 - 操作自体の有限予算は、実際に一致したresidentがなくても通常の対象解決規則で消費します。対象hit counterへの名前付き操作禁止を保持します。
 - 通常max_stack=1のrefreshで既存0を1へ戻さないCPU挙動、参照DoT捕捉値、HP再計算と子通知の順序を、効果種別を受理する前に追加照合します。
 
@@ -39,3 +39,13 @@ Macの全22ゲートは成功しました。単体131件、CPU既存25件、58�
 Windowsも固定ソース8516256を低優先度・120秒上限の1回、103.038秒で成功しました。本体・数値・通知の入力/出力・source SHAが一致し、本体の正規化生成コード・status・全CPU参照リストも一致します。7分割の圧縮転送を検証し、元HEAD・作業状態・サービスを保持、残存検証プロセス0です。両GPUの証跡は `research/portable-stack-foundation-validation.json`。
 
 全22ゲート・Windows実行・転送終了後、一般のsoftware binary64増加と、同じ検査を持つuint64の+1専用候補を比較しました。1149正例の全出力wordsと数値19908件が完全一致しました。64入力×16384回増加の中央値は有限上限34.327→9.113ms、無制限30.513→9.205ms。実行器の32バフ×64イベント×64入力では53.946→47.470ms（約12.0%短縮）で、各3標本の範囲は重なりません。1回warmup後に順次3回ずつ測定しました。限定負荷であり、実編成全体の速度やピークメモリの測定ではありません。デスクトップGPU活動は除外できません。8516256自体は一般版のままで、候補の採用版は別の固定ソースとして再検証します。
+
+## +1専用処理の採用後（両GPU検証完了）
+
+固定ソース `6e28e63` は上の整数専用候補を既定とし、`PORTABLE_STACK_INCREMENT_GENERAL_CONTROL` で一般版の比較経路を残します。任意deltaの `checkedStackChange` は一般のsoftware binary64処理を保持します。新しい型や効果種別は増やしません。採用版の再現は `research/verify-stack-increment-existing.py --backend metal`、全体ゲートは `research/run-stack-increment-gates.py` です。最適化前 `7d52456` の全1355入力・出力94208 wordsは正規化なしで一致しました。
+
+次の接続のための独立CPU監査では、初期化・max_stack=1の0保持・共有対象の一部だけへのmax_stack_addの11ケースも成功しました。初期化が対象定義の予算/条件を迂回し、発数寿命を初期化しないことを含みます。`research/portable-stack-initialization-contract.json` と敵の世代参照 `research/portable-stack-enemy-contract.json` はGPU受理ケースへ加算しません。
+
+採用版6e28e63も全22ゲートが成功しました。WindowsはBelowNormal・120秒上限で1回、82.486秒で成功し、元HEAD・作業・サービスを保持、残存プロセス0、7分割の保存済み転送も終了しています。最適化前の全1355入力・全出力、両GPUの数値19908・通知9、status・CPU参照・正規化生成コードが一致しました。測定候補と実採用版の生成コードは行指定と空行を除く全行が一致します（コメント追加に伴う空行1つだけの差）。GPU入出力には正規化を使いません。採用の対応は `research/portable-stack-increment-adoption.json`、最終証跡は `research/portable-stack-increment-validation.json` です。
+
+基盤版8516256の証跡はproof commit `7d52456` に保存しています。上記の基盤版と採用版でWindowsの短い検証は各1回、計2回です。効率比較自体はMacだけで、再転送のためのGPU再実行はありません。全キャラ・全効果への接続は未完了です。

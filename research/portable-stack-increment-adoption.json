@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "baseline_source": "8516256",
+  "measured_candidate": "PORTABLE_STACK_INCREMENT_INTEGER_CANDIDATE",
+  "adopted_source": "6e28e63",
+  "generated_code_comparison": {
+    "metal": {
+      "measured_candidate_sha256": "3c6f7a9d96e273967e07e8d3d4286daf4b2a74de0075588d8374a4f7b89890d2",
+      "adopted_source_sha256": "42fd7d9abea8d16fcf164f2a2200bc47f1b303f5f173b5b33fd5ea332b5305de",
+      "equal_without_blank_line_normalization": false,
+      "equal_after_ignoring_blank_lines": true,
+      "nonempty_code_sha256": "19f5b089277d1c0125b6f8d3f9bb7787f8a227d6f7996b14f45e6f465a69b81d",
+      "difference": "One extra blank line in checkedStackIncrement after the source comment; no nonempty generated line differs"
+    },
+    "cuda": {
+      "measured_candidate_sha256": "25fa7491275b395d875ebb7c42b3ea247f7a22ea0547b6df6d5aa07084d68e32",
+      "adopted_source_sha256": "d2529a1b2809ba378638bf52b6f7546116688fb22cd6d284b1c5524d8b28e98b",
+      "equal_without_blank_line_normalization": false,
+      "equal_after_ignoring_blank_lines": true,
+      "nonempty_code_sha256": "936308ddd4b3dc4a27cbf908dde3d3a493599ea7bc86b15b0fe5b09e7a682783",
+      "difference": "One extra blank line in checkedStackIncrement after the source comment; no nonempty generated line differs"
+    }
+  },
+  "all_1355_input_output_bytes_equal": true,
+  "numeric_cases": 19908,
+  "notice_cases": 9,
+  "production_change_adopted": true,
+  "scope": "Measured candidate and adopted generated code have identical nonempty lines after discarding line directives. Raw input/output are independently identical without normalization on both GPUs."
+}

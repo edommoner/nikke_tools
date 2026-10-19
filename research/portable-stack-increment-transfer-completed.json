@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "parts": 7,
+  "total_parts": 7,
+  "remote_turn_status": "completed",
+  "remote_turn_id": "01a1556f-3b2c-7e91-96c7-abeee60e1cf0",
+  "encoding": "gzip+base64",
+  "decoded_sha256": "6e276cee201cb3f3a6b3a8981d3798680a5c1da28452830a7ef560c9b0864768",
+  "gpu_rerun_for_transfer": false
+}

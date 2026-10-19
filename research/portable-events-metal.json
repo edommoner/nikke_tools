@@ -14982,12 +14982,12 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.005832541617564857,
+    "gpu_seconds": 0.0055021666921675205,
     "input_bytes": 4980740,
-    "library_compile_seconds": 0.0008820295333862305,
+    "library_compile_seconds": 0.0008469820022583008,
     "output_bytes": 6029312,
-    "pipeline_compile_seconds": 0.0010309219360351562,
-    "pipeline_lock_wait_seconds": 1.9073486328125e-06,
+    "pipeline_compile_seconds": 0.0009599924087524414,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
     "threads_per_threadgroup": 1,
@@ -14999,7 +14999,7 @@
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/portable_schema.slang": "268d93bbe3e9fa8556fa3585769ed3e2f90375f552205750136b4ca8fc8b0b6b",
-    "gpu/stack_numeric.slang": "db639cde6047760f2a7676725d354c4c1a2361e13303b16374033adf810bea94",
+    "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
     "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
     "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
     "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
@@ -15038,8 +15038,8 @@
     "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
   },
   "generated_sha256": {
-    "cuda": "256d84a7d1556c5786a5a8e2e9cf37a937ecd39763a202c79a8e8a276ae781de",
-    "metal": "6bc25b6abb1d19f3421cebcbc4498b10921465fd7d030077bbb92a621b806541"
+    "cuda": "d049bfd365763749591b5f4570094ac45d866c5c8e6b9438786030d6026107e4",
+    "metal": "8d07428f13008dede81b01d51f61f07c51bc42f5ecd3011f278fa925d806a58a"
   },
   "input_sha256": "48d0d2c36b40fc72ccad1360d79f0281a1b39a5b13112e261aa6ccb2b2657d91",
   "output_sha256": "04e6517ec39615062901a16a06f45f79949a3174d3aef0e8f61b7d357cdeaaa4",
@@ -30202,12 +30202,12 @@
       "command_status": "completed",
       "configured_max_threads_per_threadgroup": 1,
       "device": "Apple M5",
-      "gpu_seconds": 0.0020063749980181456,
+      "gpu_seconds": 0.0018730000592768192,
       "input_bytes": 622596,
-      "library_compile_seconds": 0.000843048095703125,
+      "library_compile_seconds": 0.0008950233459472656,
       "output_bytes": 753664,
-      "pipeline_compile_seconds": 0.000950932502746582,
-      "pipeline_lock_wait_seconds": 9.5367431640625e-07,
+      "pipeline_compile_seconds": 0.0010010004043579102,
+      "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
       "pipeline_max_threads_per_threadgroup": 1,
       "registry_id": "4294968313",
       "threads_per_threadgroup": 1,
@@ -30219,7 +30219,7 @@
       "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
       "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
       "gpu/portable_schema.slang": "268d93bbe3e9fa8556fa3585769ed3e2f90375f552205750136b4ca8fc8b0b6b",
-      "gpu/stack_numeric.slang": "db639cde6047760f2a7676725d354c4c1a2361e13303b16374033adf810bea94",
+      "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
       "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
       "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
       "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
@@ -30258,8 +30258,8 @@
       "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
     },
     "generated_sha256": {
-      "cuda": "256d84a7d1556c5786a5a8e2e9cf37a937ecd39763a202c79a8e8a276ae781de",
-      "metal": "6bc25b6abb1d19f3421cebcbc4498b10921465fd7d030077bbb92a621b806541"
+      "cuda": "d049bfd365763749591b5f4570094ac45d866c5c8e6b9438786030d6026107e4",
+      "metal": "8d07428f13008dede81b01d51f61f07c51bc42f5ecd3011f278fa925d806a58a"
     },
     "input_sha256": "7a7fd5703e8a5f1b8badfce31752c1255aaceec55e26cf15550b6c81b1b16995",
     "output_sha256": "0fb64de4e3f113c2766c0dbbf22749a7b65944a7b6eb6c99ccf2079ab71a9aa1",

@@ -1,14 +1,14 @@
 {
   "wire_abi": "0x50455661",
-  "verified_commit": "851625603c9079008bedfb892b80ba36575daeeb",
+  "verified_commit": "6e28e63d65c9109b56480782b053b2dddf44b71f",
   "source_provenance": {
-    "fixed_shared_source_commit": "851625603c9079008bedfb892b80ba36575daeeb",
-    "metal_core_report_source_commit": "851625603c9079008bedfb892b80ba36575daeeb",
-    "windows_source_commit": "851625603c9079008bedfb892b80ba36575daeeb"
+    "fixed_shared_source_commit": "6e28e63d65c9109b56480782b053b2dddf44b71f",
+    "metal_core_report_source_commit": "6e28e63d65c9109b56480782b053b2dddf44b71f",
+    "windows_source_commit": "6e28e63d65c9109b56480782b053b2dddf44b71f"
   },
   "previous_checkpoint": {
-    "report": "portable-combat-v48-checkpoint.json",
-    "proof_commit": "97e47b2"
+    "report": "portable-combat-v49-checkpoint.json",
+    "proof_commit": "7d52456"
   },
   "positive_cases": 1149,
   "rejections": 206,
@@ -18,13 +18,13 @@
   "cuda_verified": true,
   "metal_report": "portable-combat-metal.json",
   "cuda_report": "portable-combat-cuda.json",
-  "windows_report": "windows-portable-combat-v49.json",
+  "windows_report": "windows-portable-combat-v50.json",
   "source_sha256": {
     "gpu/event_runtime.slang": "39d2305e6464f54ee916b436d2617a6b686b8d44c772089c7e08cf3dca2a35c3",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/portable_schema.slang": "268d93bbe3e9fa8556fa3585769ed3e2f90375f552205750136b4ca8fc8b0b6b",
-    "gpu/stack_numeric.slang": "db639cde6047760f2a7676725d354c4c1a2361e13303b16374033adf810bea94",
+    "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
     "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
     "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
     "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
@@ -202,11 +202,11 @@
   "cpu_trace_used_as_gpu_input": false,
   "windows_checks_this_stage": 1,
   "windows_execution": {
-    "command": "python research/windows-v49-sequence.py --backend cuda",
-    "commit": "851625603c9079008bedfb892b80ba36575daeeb",
+    "command": "python research/windows-v50-sequence.py --backend cuda",
+    "commit": "6e28e63d65c9109b56480782b053b2dddf44b71f",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "37, 4770",
+    "gpu_before": "35, 4527",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -224,8 +224,8 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 103.03830679971725,
-    "stdout": "{\"command\": \"python research/verify-stack-foundation-existing.py --backend cuda\", \"elapsed_seconds\": 77.36544420011342, \"exit_code\": 0, \"stdout\": \"{\\\"passed\\\": true, \\\"cases\\\": 1149, \\\"device\\\": \\\"NVIDIA GeForce RTX 3070 Ti\\\", \\\"backend\\\": \\\"cuda\\\"}\\n\", \"stderr\": \"\"}\n{\"command\": \"python research/verify-stack-foundation.py --backend cuda\", \"elapsed_seconds\": 25.531967099756002, \"exit_code\": 0, \"stdout\": \"Stack numeric cases passed 19908 cuda\\nStack notice cases passed 9 cuda\\n\", \"stderr\": \"\"}\n",
+    "elapsed_seconds": 82.4859194997698,
+    "stdout": "{\"command\": \"python research/verify-stack-increment-existing.py --backend cuda\", \"elapsed_seconds\": 61.54020659998059, \"exit_code\": 0, \"stdout\": \"{\\\"passed\\\": true, \\\"cases\\\": 1149, \\\"device\\\": \\\"NVIDIA GeForce RTX 3070 Ti\\\", \\\"backend\\\": \\\"cuda\\\"}\\n\", \"stderr\": \"\"}\n{\"command\": \"python research/verify-stack-foundation.py --backend cuda\", \"elapsed_seconds\": 20.81321149971336, \"exit_code\": 0, \"stdout\": \"Stack numeric cases passed 19908 cuda\\nStack notice cases passed 9 cuda\\n\", \"stderr\": \"\"}\n",
     "stderr": ""
   },
   "windows_postcheck": {
@@ -274,9 +274,9 @@
     "damage_cpu_regressions": true,
     "trigger_cpu_regressions": true
   },
-  "generated_source_comparison": "portable-generated-v49-comparison.json",
-  "validation_receipt": "portable-stack-foundation-validation.json",
-  "existing_parity": "portable-stack-foundation-existing-metal-parity.json",
+  "generated_source_comparison": "portable-generated-v50-comparison.json",
+  "validation_receipt": "portable-stack-increment-validation.json",
+  "existing_parity": "portable-stack-increment-existing-metal-parity.json",
   "regressions": {
     "duration_extend_cpu_regressions": [
       "duration-extend-exact-space-prefix",
@@ -1999,5 +1999,9 @@
     "added_private_arrays": 0,
     "added_runtime_scalars": 0,
     "new_effect_kinds_admitted": false
-  }
+  },
+  "historical_measurement_scope": "Inherited landing/definition/mode/session metrics retain their original proof provenance; they are not fresh timing measurements at this source.",
+  "windows_checks_foundation_and_specialization": 2,
+  "stack_increment_specialization_adopted": true,
+  "stack_increment_measurement": "portable-stack-increment-benchmark.json"
 }

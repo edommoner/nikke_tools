@@ -1,0 +1,239 @@
+{
+  "passed": true,
+  "observations": [
+    {
+      "time": 0,
+      "action": "frame",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "time": 0.01,
+      "action": "apply",
+      "values": [
+        12.0,
+        12.0,
+        12.0,
+        0.0
+      ]
+    },
+    {
+      "time": 0.02,
+      "action": "apply",
+      "values": [
+        24.0,
+        24.0,
+        24.0,
+        0.0
+      ]
+    },
+    {
+      "time": 0.025,
+      "action": "immune",
+      "values": [
+        24.0,
+        24.0,
+        24.0,
+        0.0
+      ]
+    },
+    {
+      "time": 0.03,
+      "action": "up",
+      "values": [
+        34.0,
+        24.0,
+        34.0,
+        0.0
+      ]
+    },
+    {
+      "time": 0.04,
+      "action": "down",
+      "values": [
+        24.0,
+        24.0,
+        24.0,
+        0.0
+      ]
+    },
+    {
+      "time": 0.05,
+      "action": "clear",
+      "values": [
+        4.0,
+        24.0,
+        24.0,
+        1.0
+      ]
+    },
+    {
+      "time": 0.06,
+      "action": "extend",
+      "values": [
+        4.0,
+        24.0,
+        24.0,
+        1.0
+      ]
+    },
+    {
+      "time": 0.07,
+      "action": "clean",
+      "values": [
+        0.0,
+        24.0,
+        24.0,
+        1.0
+      ]
+    },
+    {
+      "time": 0.08,
+      "action": "kill",
+      "values": [
+        0.0,
+        0.0,
+        24.0,
+        1.0
+      ]
+    },
+    {
+      "time": 0.3,
+      "action": "frame",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "time": 0.31,
+      "action": "apply",
+      "values": [
+        12.0,
+        12.0,
+        12.0,
+        1.0
+      ]
+    },
+    {
+      "time": 0.32,
+      "action": "up",
+      "values": [
+        22.0,
+        22.0,
+        22.0,
+        1.0
+      ]
+    },
+    {
+      "time": 0.33,
+      "action": "down",
+      "values": [
+        12.0,
+        12.0,
+        12.0,
+        1.0
+      ]
+    },
+    {
+      "time": 0.332,
+      "action": "down",
+      "values": [
+        2.0,
+        2.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "time": 0.335,
+      "action": "generic",
+      "values": [
+        12.0,
+        12.0,
+        12.0,
+        1.0
+      ]
+    },
+    {
+      "time": 0.34,
+      "action": "extend-all",
+      "values": [
+        12.0,
+        12.0,
+        12.0,
+        1.0
+      ]
+    },
+    {
+      "time": 0.35,
+      "action": "clean-all",
+      "values": [
+        2.0,
+        2.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "time": 0.36,
+      "action": "clear-child",
+      "values": [
+        2.0,
+        2.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "time": 0.37,
+      "action": "global",
+      "values": [
+        2.0,
+        2.0,
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "time": 0.38,
+      "action": "global-child",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "time": 0.6,
+      "action": "frame",
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        8.0
+      ]
+    }
+  ],
+  "scope": "Existing native CPU mutation/cleanse/extend reference only; not new GPU operator admission",
+  "cpu_trace_used_as_gpu_input": false,
+  "semantics": {
+    "targets": "resolve_enemy_mutation uses explicit current-target context when available",
+    "membership": "enemy_mutation_targets intersects canonical labels then generation/alive visibility",
+    "immunity": "presence in active target list plus enemy_field_visible; runtime predicates/expiry are not re-evaluated"
+  },
+  "source_sha256": {
+    "app/enemy_recipient_runtime.py": "7ab242283f8de0b746e10af22178a074ee4368c8a7160c0be084ca0b0ac65d4d",
+    "app/enemy_recipient_specs.py": "d9f9c1c2daaac1860fb7ad722348c31029c3287e5de15229a02a9ea0d91566ba",
+    "scripts/enemy_mutation_cases.py": "98ca3b89d636d647ceee79d31edf886d64fdfd9ca5e0fa5de04a966007781ee7",
+    "scripts/enemy_recipient_cases.py": "8240eb41629785b0448609121bf45910de08bed9d4e494cb607fc35ca8976772",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}

@@ -1195676,12 +1195676,12 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.5139095833292231,
+    "gpu_seconds": 0.5039617499569431,
     "input_bytes": 421806084,
-    "library_compile_seconds": 0.000861048698425293,
+    "library_compile_seconds": 0.5027279853820801,
     "output_bytes": 510607360,
-    "pipeline_compile_seconds": 0.00102996826171875,
-    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_compile_seconds": 0.0011039972305297852,
+    "pipeline_lock_wait_seconds": 2.9802322387695312e-06,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
     "threads_per_threadgroup": 1,
@@ -1195693,7 +1195693,7 @@
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/portable_schema.slang": "268d93bbe3e9fa8556fa3585769ed3e2f90375f552205750136b4ca8fc8b0b6b",
-    "gpu/stack_numeric.slang": "db639cde6047760f2a7676725d354c4c1a2361e13303b16374033adf810bea94",
+    "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
     "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
     "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
     "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
@@ -1195732,8 +1195732,8 @@
     "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
   },
   "generated_sha256": {
-    "cuda": "256d84a7d1556c5786a5a8e2e9cf37a937ecd39763a202c79a8e8a276ae781de",
-    "metal": "6bc25b6abb1d19f3421cebcbc4498b10921465fd7d030077bbb92a621b806541"
+    "cuda": "d049bfd365763749591b5f4570094ac45d866c5c8e6b9438786030d6026107e4",
+    "metal": "8d07428f13008dede81b01d51f61f07c51bc42f5ecd3011f278fa925d806a58a"
   },
   "input_sha256": "d3fd365618d159e45d23e0f5c40f1e8133e985ff9ad131881c12f8be4ee87b58",
   "output_sha256": "e872a8f3fad710d3205cff5374688c7564be65dcc559da143bac30375b580038",
@@ -2401189,12 +2401189,12 @@
       "command_status": "completed",
       "configured_max_threads_per_threadgroup": 1,
       "device": "Apple M5",
-      "gpu_seconds": 0.5139095833292231,
+      "gpu_seconds": 0.5039617499569431,
       "input_bytes": 421806084,
-      "library_compile_seconds": 0.000861048698425293,
+      "library_compile_seconds": 0.5027279853820801,
       "output_bytes": 510607360,
-      "pipeline_compile_seconds": 0.00102996826171875,
-      "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+      "pipeline_compile_seconds": 0.0011039972305297852,
+      "pipeline_lock_wait_seconds": 2.9802322387695312e-06,
       "pipeline_max_threads_per_threadgroup": 1,
       "registry_id": "4294968313",
       "threads_per_threadgroup": 1,
@@ -2401206,7 +2401206,7 @@
       "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
       "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
       "gpu/portable_schema.slang": "268d93bbe3e9fa8556fa3585769ed3e2f90375f552205750136b4ca8fc8b0b6b",
-      "gpu/stack_numeric.slang": "db639cde6047760f2a7676725d354c4c1a2361e13303b16374033adf810bea94",
+      "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
       "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
       "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
       "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
@@ -2401245,8 +2401245,8 @@
       "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
     },
     "generated_sha256": {
-      "cuda": "256d84a7d1556c5786a5a8e2e9cf37a937ecd39763a202c79a8e8a276ae781de",
-      "metal": "6bc25b6abb1d19f3421cebcbc4498b10921465fd7d030077bbb92a621b806541"
+      "cuda": "d049bfd365763749591b5f4570094ac45d866c5c8e6b9438786030d6026107e4",
+      "metal": "8d07428f13008dede81b01d51f61f07c51bc42f5ecd3011f278fa925d806a58a"
     },
     "input_sha256": "d3fd365618d159e45d23e0f5c40f1e8133e985ff9ad131881c12f8be4ee87b58",
     "output_sha256": "e872a8f3fad710d3205cff5374688c7564be65dcc559da143bac30375b580038",

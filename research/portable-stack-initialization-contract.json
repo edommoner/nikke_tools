@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "scope": "Native CPU contract only; corresponding GPU effect kinds remain unadmitted",
+  "cases": [
+    {
+      "name": "init-0.0",
+      "stack": 1,
+      "notifications": [
+        "on_attack"
+      ]
+    },
+    {
+      "name": "init--0.0",
+      "stack": 1,
+      "notifications": [
+        "on_attack"
+      ]
+    },
+    {
+      "name": "init-0.5",
+      "stack": 0,
+      "notifications": [
+        "on_attack"
+      ]
+    },
+    {
+      "name": "init--0.5",
+      "stack": 0,
+      "notifications": [
+        "on_attack"
+      ]
+    },
+    {
+      "name": "init--1.0",
+      "stack": 0,
+      "notifications": [
+        "on_attack"
+      ]
+    },
+    {
+      "name": "init-3.9",
+      "stack": 3,
+      "notifications": [
+        "on_attack"
+      ]
+    },
+    {
+      "name": "init-9.0",
+      "stack": 5,
+      "notifications": [
+        "on_attack"
+      ]
+    },
+    {
+      "name": "init-bypasses-target-gates-and-bullet-initialization",
+      "stack": 3,
+      "bullets_left": -1,
+      "expiry": 3
+    },
+    {
+      "name": "single-stack-zero-survives-normal-refresh",
+      "stack": 0,
+      "expiry": 3
+    },
+    {
+      "name": "shared-max-add-self",
+      "stack": 1,
+      "partial_skips": 1,
+      "expiry": 2
+    },
+    {
+      "name": "shared-max-add-all_allies",
+      "stack": 3,
+      "partial_skips": 0,
+      "expiry": 3
+    }
+  ],
+  "cpu_trace_used_as_gpu_input": false
+}
