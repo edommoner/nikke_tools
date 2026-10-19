@@ -61,6 +61,10 @@ def cases(buff,op,notify,query,case):
             if mode=='reinitialize':effects.append(op('buff_stack_init',3,name='reinitialize',trigger=dict(timing=['event:state_end:seed'],condition=[])))
             script += [[.5,4,0,0,0,-1,0,0],query(.5)]
         c=add('shared-enemy-end-is-per-resident-'+mode,effects,script);c['combat']['targets']=copy.deepcopy(enemies)
+        if mode=='partial-removal':
+            for spawn in (False,True):
+                script=[notify(0),[.05,22,0,0,1,-1,0,0]]+([[.06,21,0,0,1,-1,100000,0]] if spawn else [])+[notify(.1,7),query(.1),notify(.2,8),query(.2,1)]
+                c=add('shared-removal-retains-stale-other-target-'+str(spawn),copy.deepcopy(effects),script);c['combat']['targets']=copy.deepcopy(enemies)
     e=buff(stat='received_dmg_pct',target='all_enemies',trigger=never)
     c=add('init-shared-enemy-generation-and-mutation',[e,on(op('buff_stack_init',3),'event:full_reload'),op('debuff_stack_add',1,target='all_enemies')],[notify(0),query(0),query(0,1,1),[.1,22,0,0,1,-1,0,0],[.2,21,0,0,1,-1,100000,0],notify(.3,7),query(.3,2,1),query(.3,3,0),query(.3,4,2)])
     c['combat']['targets']=copy.deepcopy(enemies)

@@ -11481,6 +11481,398 @@
       "stack_reference": true
     },
     {
+      "name": "stack-shared-removal-retains-stale-other-target-False",
+      "effects": [
+        {
+          "name": "seed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_pct",
+          "fixed_value": 1,
+          "target": "all_enemies",
+          "duration": -1,
+          "max_stack": 5,
+          "polarity": "beneficial",
+          "trigger": {
+            "timing": [
+              "full_charge_hit"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "operation",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "buff_stack_init",
+          "fixed_value": 3,
+          "target": "self",
+          "target_effect": "seed",
+          "trigger": {
+            "timing": [
+              "event:full_reload"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "end observer",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 100,
+          "polarity": "beneficial",
+          "trigger": {
+            "timing": [
+              "event:state_end:seed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "remove boss",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 1,
+          "target": "boss",
+          "target_effect": "seed",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "remove_scope": "target"
+        },
+        {
+          "name": "remove all_enemies",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 1,
+          "target": "all_enemies",
+          "target_effect": "seed",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          },
+          "remove_scope": "target"
+        }
+      ],
+      "expected_queries": [
+        {
+          "time": 0.1
+        },
+        {
+          "time": 0.2
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000
+          },
+          {
+            "hp": 100000,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 100000,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          0,
+          19,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.05,
+          22,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "stack_reference": true
+    },
+    {
+      "name": "stack-shared-removal-retains-stale-other-target-True",
+      "effects": [
+        {
+          "name": "seed",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "received_dmg_pct",
+          "fixed_value": 1,
+          "target": "all_enemies",
+          "duration": -1,
+          "max_stack": 5,
+          "polarity": "beneficial",
+          "trigger": {
+            "timing": [
+              "full_charge_hit"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "operation",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "buff_stack_init",
+          "fixed_value": 3,
+          "target": "self",
+          "target_effect": "seed",
+          "trigger": {
+            "timing": [
+              "event:full_reload"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "end observer",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 1,
+          "target": "self",
+          "duration": -1,
+          "max_stack": 100,
+          "polarity": "beneficial",
+          "trigger": {
+            "timing": [
+              "event:state_end:seed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "remove boss",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 1,
+          "target": "boss",
+          "target_effect": "seed",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "remove_scope": "target"
+        },
+        {
+          "name": "remove all_enemies",
+          "source": "스킬1",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "fixed_value": 1,
+          "target": "all_enemies",
+          "target_effect": "seed",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          },
+          "remove_scope": "target"
+        }
+      ],
+      "expected_queries": [
+        {
+          "time": 0.1
+        },
+        {
+          "time": 0.2
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000
+          },
+          {
+            "hp": 100000,
+            "kind": 5,
+            "identity": 0
+          },
+          {
+            "hp": 100000,
+            "kind": 5,
+            "identity": 1
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          0,
+          19,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.05,
+          22,
+          0,
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.06,
+          21,
+          0,
+          0,
+          1,
+          -1,
+          100000,
+          0
+        ],
+        [
+          0.1,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "stack_reference": true
+    },
+    {
       "name": "stack-shared-enemy-end-is-per-resident-reinitialize",
       "effects": [
         {

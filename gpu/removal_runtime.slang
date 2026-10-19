@@ -44,7 +44,9 @@ void removeNamedResidents(inout Runtime s,uint row,uint target,uint64_t when)
         uint notices=definition_enemyBuff(s.inputBase,definition)!=0 && !sharedEnemy ? enemyMaskCount(s.activeRecipients[slot]>>5) : 1;
         if(policy!=0)
         {
-            uint prior=removalMembers(s,slot),stripped=prior&scope;
+            // Native scoped removal edits canonical target_chars, including
+            // stale bindings. Generation filtering belongs to value queries.
+            uint prior=sharedEnemy ? s.activeRecipients[slot] : removalMembers(s,slot),stripped=prior&scope;
             if(stripped==0) continue;
             uint remaining=prior&~stripped;
             if(definition_kind(s.inputBase,definition)==3 && !f64Zero(definition_interval(s.inputBase,definition)))
