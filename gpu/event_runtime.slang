@@ -108,6 +108,7 @@ void addSum(inout Sum sum, uint64_t term)
     sum.correction = f64Add(sum.correction,correction); sum.total = combined;
 }
 #include "resource_runtime.slang"
+#include "reference_runtime.slang"
 
 // Definition predicates use compiled IDs and exact binary64 operands.
 // Runtime tests are deliberately distinct from activation-time gates.
@@ -532,7 +533,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         }
         if (f.mode == 10)
         {
-            Definition damage = s.defs[uint(f.argument)];
+            Definition damage = s.defs[uint(f.argument)]; damage.damageHits=f.repeatLeft;
             if (f.cursor >= damage.damageHits || f64Zero(damage.value))
             {
                 depth--;
@@ -924,7 +925,12 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         {
             if (f.event != 28) s.stacks[row] = 1;
             if (d.damagePending != 0) enqueuePendingBurst(s,row,f.time);
-            else pushFrame(s,frames,depth,10,0,d.owner,int(row),f.time);
+            else
+            {
+                uint hits=activationHitCount(s,row);
+                if (s.error==0) pushFrame(s,frames,depth,10,0,d.owner,int(row),f.time);
+                if (s.error==0) frames[depth].repeatLeft=hits;
+            }
         }
         else s.error = 32;
 #ifdef PORTABLE_HEALTH_SCAN_REFERENCE
@@ -1148,7 +1154,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     for (uint row = 0; row < s.count; row++) if (!validPendingDefinition(s,row)) { results[output] = 64; return; }
     if (!validateDurationGroups(s)) { results[output] = 64; return; }
     if (!validatePeriodicDefinitions(s)) { results[output] = 64; return; }
-    if (!initializeResources(s)) { results[output] = 64; return; }
+    if (!initializeResources(s) || !validateReferences(s)) { results[output] = 64; return; }
     initializeHPWatches(s);
     uint queries = 0;
     for (uint step = 0; step < commands[input+2] && s.error == 0; step++)

@@ -1,7 +1,7 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721361U;
+static const uint PORTABLE_ABI = 1346721362U;
 static const uint P_RESOURCE_KEYS = 256U;
-static const uint P_BATCH = 1024U;
+static const uint P_BATCH = 2048U;
 static const uint P_PENDING = 512U;
 static const uint P_TRIGGERS = 8U;
 static const uint P_CONDITIONS = 3U;
@@ -65,6 +65,8 @@ static const uint P_PERIODIC_DEFINITION_BASE = 51920U;
 static const uint P_RESOURCE_META_BASE = 52432U;
 static const uint P_RESOURCE_DEFINITION_BASE = 52440U;
 static const uint P_RESOURCE_CONDITION_BASE = 55000U;
+static const uint P_REFERENCE_DEFINITION_BASE = 55768U;
+static const uint P_RESOURCE_NAME_BASE = 56792U;
 static const uint P_INPUT_WORDS = 57344U;
 static const uint P_QUERY_BASE = 16U;
 static const uint P_TRACE_BASE = 2064U;

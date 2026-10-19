@@ -12,8 +12,10 @@ def damage_plan(effect):
     if len(parts)>2 or parts[0] not in DAMAGE_FAMILIES:raise ValueError('Unported damage family')
     hits=1
     if len(parts)==2:
-        if not re.fullmatch(r'[1-9][0-9]*',parts[1]) or not 1<=int(parts[1])<=256:raise ValueError('Damage hit count must be an integer in 1..256')
-        hits=int(parts[1])
+        if not parts[1]:raise ValueError('Empty hit count reference')
+        if parts[1].lstrip('-').isdigit():
+            if not re.fullmatch(r'[1-9][0-9]*',parts[1]) or not 1<=int(parts[1])<=256:raise ValueError('Damage hit count must be an integer in 1..256')
+            hits=int(parts[1])
     target=effect.get('target','target');count=1
     if target=='target':route=ROUTES['INHERITED']
     elif target in ('enemy','target_body','same_target','enemies_nearest_in_range') or isinstance(target,str) and re.fullmatch(r'same_target:[^:]+',target):route=ROUTES['NEAREST']

@@ -30,12 +30,21 @@ def observe(case):
     normal_target=0;native_hits=[0]*len(targets)
     def damage(effect,caster,t,*,normal=False):
         nonlocal gauge,normal_target
-        who=NAMES.index(caster);parts=effect['stat'].split(':');kind=parts[0];hits=int(parts[1]) if len(parts)>1 else 1
+        who=NAMES.index(caster);parts=effect['stat'].split(':');kind=parts[0];hits=1
         coefficient=effect.get('fixed_value',effect.get('values',{}).get('10',0));target=effect['target']
-        if effect.get('scaling')=='stack_count':
+        if effect.get('scaling')=='stack_count' and kind=='dot_damage':
             entry=next((a for a in bm._active if a.caster==caster and a.effect.get('name')==effect.get('name')),None)
             coefficient*=entry.stack if entry is not None else 0
         if coefficient==0:return
+        # Same precedence as the original timeline's hit_count block; live
+        # quantities come from original BuffManager.ref_count, never GPU state.
+        if effect.get('hit_count_gauge_ref'):
+            hits=int(bm.state.get('gauges',{}).get(caster,{}).get(effect['hit_count_gauge_ref'],0))
+        elif len(parts)>1 and parts[1].lstrip('-').isdigit():hits=int(parts[1])
+        elif len(parts)>1:
+            value=bm.ref_count(caster,parts[1]);hits=value if value is not None else 1
+        elif effect.get('scaling')=='stack_count' and kind!='dot_damage':
+            value=bm.ref_count(caster,effect.get('scaling_ref',''));hits=value if value is not None else 1
         for hit in range(hits):
             buffs=bm.get_buffs(caster,'__enemy__',t)
             ht=default_hit_type(is_normal_atk=kind=='auto_damage',coeff=coefficient,is_final_atk=True,is_full_burst=bm.state['full_burst'],

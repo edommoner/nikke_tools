@@ -38,6 +38,11 @@ def validate_effect(eff, *, combat=None):
     allowed = {'name','source','type','stat','fixed_value','values','duration','duration_values',
                'target','trigger','note','polarity','favorite','_source_tag','_quant_group','max_ammo_reduction_exclusive','trigger_values','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
     if resource_op:allowed |= {'gauge_id','gauge_max'}
+    if eff.get('type')=='damage':
+        allowed |= {'hit_count_gauge_ref'}
+        if eff.get('scaling')=='stack_count' and eff.get('stat','').split(':')[0]!='dot_damage':allowed |= {'scaling','scaling_ref'}
+        from portable_reference_specs import hit_reference
+        hit_reference(eff)
     if resource_op in (2,3):allowed |= {'minimum_remaining'}
     if eff.get('type')=='buff':allowed=allowed | {'duration_bullets','event_scope'}
     effect_allowed=allowed | ({'scaling'} if eff.get('stat') in ('heal_hp_pct','cover_heal_pct','cover_hp_pct') or eff.get('type')=='damage' and eff.get('stat')=='dot_damage' else set()) | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','cover_during_delay','first_damage_coeff','max_ammo_buff_applies','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
@@ -47,7 +52,7 @@ def validate_effect(eff, *, combat=None):
     try:validate_input(eff)
     except ValueError as error:raise UnsupportedPortable(str(error)) from error
     kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
-    if kind=='damage' and 'scaling' in eff and (stat!='dot_damage' or eff['scaling']!='stack_count' or not eff.get('tick_interval')):raise UnsupportedPortable('Periodic damage scaling requires an own-stack DoT clock')
+    if kind=='damage' and 'scaling' in eff and (eff['scaling']!='stack_count' or stat.split(':')[0]=='dot_damage' and (stat!='dot_damage' or not eff.get('tick_interval'))):raise UnsupportedPortable('Periodic damage scaling requires an own-stack DoT clock')
     if stat=='cover_hp_pct' and eff.get('scaling') not in (None,'max_hp'):raise UnsupportedPortable('Unported cover HP basis')
     if kind=='buff' and 'duration_bullets' in eff:
         bullets=eff['duration_bullets']
@@ -108,6 +113,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     program=legacy.compile_effects(chars,effects)
     from portable_resource_specs import identities,pack as pack_resource,operation as resource_operation
     resource_keys=identities(effects,script,L['RESOURCE_KEYS']);resource_query_indices={}
+    for name in resource_keys:program['states'].setdefault(name,len(program['states']))
+    if len(program['states'])>L['DEFINITIONS']:raise UnsupportedPortable('Reference name capacity exceeded')
     if len(program['effects'])!=len(effects) or not 1<=len(effects)<=L['DEFINITIONS']:
         raise UnsupportedPortable('Portable definition capacity or expansion exceeded')
     from portable_periodic_specs import periodic_groups, periodic_flags
@@ -128,6 +135,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     if type(cover_sync) is not bool:raise ValueError('Cover synchronization policy must be boolean')
     words[7]=int(cover_sync)
     words[L['RESOURCE_META_BASE']]=len(resource_keys)
+    for name,key in resource_keys.items():words[L['RESOURCE_NAME_BASE']+key]=program['states'][name]
     for i,attack in enumerate(base_atk):
         if attack<0:raise ValueError('Negative base attack')
         words[8+2*i:10+2*i]=double_words(attack)
@@ -164,7 +172,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         if row[1] in (0,4,5,6,7,8,12,13,14,24,30):pack_recipients(words,index,row,L,effects[index][0],stat_keys[(effects[index][0].get('type'),effects[index][0].get('stat',''))],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],effects[index][0].get('target')),0) if effects[index][0].get('type')=='buff' else 0)
         if effects[index][0].get('type')=='damage':
             route,count,hits=damage_plan(effects[index][0])
-            if int(row[61])!=hits:raise UnsupportedPortable('Unported compiled hit count')
+            from portable_reference_specs import hit_reference
+            if not hit_reference(effects[index][0])[0] and int(row[61])!=hits:raise UnsupportedPortable('Unported compiled hit count')
             from calculator.timeline import BURST_GAUGE_EXCEPTIONS
             override=BURST_GAUGE_EXCEPTIONS.get(effects[index][1],{}).get(effects[index][0].get('name'),{}).get('burst_energy',-1)
             at=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS']
@@ -218,6 +227,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             route,count=enemy_buff_plan(eff);packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS']
             words[packet:packet+8]=[route,count,0,0,0,0,0,0]
         pack_resource(words,index,row,L,effects[index][0],resource_keys,program['states'],double_words)
+        from portable_reference_specs import pack as pack_reference
+        pack_reference(words,index,L,effects[index][0],resource_keys,program['states'])
         if row[1]==2:
             if row[7]<0 and row[14]>0:raise UnsupportedPortable('Infinite conditional weapon mode is not ported')
             from portable_combat import pack_mode

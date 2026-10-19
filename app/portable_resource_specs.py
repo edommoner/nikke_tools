@@ -24,7 +24,10 @@ def identities(effects,script,limit):
     def add(name):
         if not isinstance(name,str) or not name or ':' in name:raise ValueError('Invalid resource identity')
         keys.setdefault(name,len(keys))
+    from portable_reference_specs import hit_reference
     for effect,_ in effects:
+        mode,name=hit_reference(effect)
+        if mode:add(name)
         if operation(effect):add(effect['gauge_id'])
         for t in effect.get('trigger',{}).get('timing',[]):
             if t.startswith('every_stack:'):add(t.split(':')[1])

@@ -10,13 +10,13 @@
   "issues": {
     "Unported buff or recipient selector": 267,
     "Unported instant or recipient selector": 37,
-    "Unported effect fields: scaling, scaling_ref": 19,
     "Unported trigger timing: event:part_destroy": 16,
+    "Unported effect fields: scaling, scaling_ref": 12,
+    "Unported enemy damage selector": 11,
     "Unported trigger timing: event:enemy_spawn": 10,
     "Unported effect fields: remove_scope": 10,
     "Unported trigger timing: enemy_death": 9,
     "Unported effect fields: scaling": 8,
-    "Unported enemy damage selector": 8,
     "Unported predicate: target_code:전격": 7,
     "Unported effect fields: end_on_shield_consumed": 7,
     "Unported trigger timing: charge_hold:0.5": 6,
@@ -88,6 +88,7 @@
     "Unported trigger timing: pellet_hit_in_shot:5": 1,
     "Unported predicate: target_state:고위험 대상": 1,
     "Unported trigger timing: crit_hit_count:2": 1,
+    "Unported predicate: target_state:해풍": 1,
     "Unported trigger timing: feather_tick": 1,
     "Unported trigger timing: event:shield_applied": 1,
     "Unported effect fields: target_counter": 1,
@@ -103,13 +104,13 @@
   "diagnostic_semantic_issues": {
     "Unported buff or recipient selector": 267,
     "Unported instant or recipient selector": 37,
-    "Unported effect fields: scaling, scaling_ref": 19,
     "Unported trigger timing: event:part_destroy": 16,
+    "Unported effect fields: scaling, scaling_ref": 12,
+    "Unported enemy damage selector": 11,
     "Unported trigger timing: event:enemy_spawn": 10,
     "Unported effect fields: remove_scope": 10,
     "Unported trigger timing: enemy_death": 9,
     "Unported effect fields: scaling": 8,
-    "Unported enemy damage selector": 8,
     "Unported predicate: target_code:전격": 7,
     "Unported effect fields: end_on_shield_consumed": 7,
     "Unported trigger timing: charge_hold:0.5": 6,
@@ -181,6 +182,7 @@
     "Unported trigger timing: pellet_hit_in_shot:5": 1,
     "Unported predicate: target_state:고위험 대상": 1,
     "Unported trigger timing: crit_hit_count:2": 1,
+    "Unported predicate: target_state:해풍": 1,
     "Unported trigger timing: feather_tick": 1,
     "Unported trigger timing: event:shield_applied": 1,
     "Unported effect fields: target_counter": 1,
@@ -197,7 +199,7 @@
     "damage_modifiers": 136,
     "effect_lifecycle": 93,
     "weapon": 69,
-    "damage": 62,
+    "damage": 59,
     "protection": 50,
     "control_survival": 44,
     "healing": 29,
@@ -1749,11 +1751,10 @@
           "conditions": [
             "self_stack_above:유탄:1"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "유탄 제거",
@@ -12163,13 +12164,10 @@
           "conditions": [
             "gauge_above:오버 에너지 단계:1"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -17614,10 +17612,10 @@
             "gauge_above:포획 사슬:1"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "사슬 감기",
@@ -37506,12 +37504,12 @@
             "target_state:해풍"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
+          "diagnostic_semantic_issue": "Unported predicate: target_state:해풍",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "issue": "Unported predicate: target_state:해풍"
         },
         {
           "name": "장비 옵션",
@@ -46422,10 +46420,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "오토 파이어 레디 소모",
@@ -47924,11 +47922,10 @@
           "conditions": [
             "self_state:아름다움"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -58733,10 +58730,10 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: scaling, scaling_ref",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported effect fields: scaling, scaling_ref"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "섬멸 2",
@@ -63026,12 +63023,13 @@
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
     "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
     "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
-    "app/portable_enemy_specs.py": "027f575ec84a2f872d01622281971f1f97919c82e705f8a484208cfa811b1804",
+    "app/portable_enemy_specs.py": "c7d1343e9519bf438b9b569394633856937a14d80653235df6f3267ce586b722",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
+    "app/portable_reference_specs.py": "670173546ff3487804c84a93307b09447bb87267c32c63569a30112f00c559cb",
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
-    "app/portable_resource_specs.py": "7b08e48b1a70f9aa2d35a3e3e9ae1bcd6a17e096edc55ce8b00e2383ea0ae9eb",
-    "app/portable_runtime.py": "694aad00624e4b843230dcb0ed637b04d1d9b611158a2368f85c5ab049026712",
-    "app/portable_specs.py": "b60b4b707b4015d71b68e214d248e3010addc7643934bbfec387b1342aa77ade",
+    "app/portable_resource_specs.py": "1b515c2fe0105e6f4aadc6e95fdb713784e1b6edbf71645cda3cfd49f33fea4a",
+    "app/portable_runtime.py": "c61d9a93ae83a202403d1f07f95b13cbb4669099eb81498387e3b3ee16a06d4c",
+    "app/portable_specs.py": "7fb7723806d586eb6d724ecdfe68e2c5303ed0458fe6cb234154ffb4ac287e6e",
     "app/portable_trigger_specs.py": "a20f8d96a514fb6217c3eba47bf4a569fc1c861bc8837519b56694580e55dda4",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/resource_specs.py": "de67874a373c94834d3fbe43d9be9d18ccc45e1e22f563f9e5d892b66ea07b85",
@@ -63076,7 +63074,7 @@
     "research/upstream/nikke-calc-master/runner/snapshot.py": "fb86552304db9789ed36b7e5bfb2ab18374f581fc61a32b05cf04e973e555dbd",
     "research/upstream/nikke-calc-master/runner/spec.py": "609ec07a8db4a88e0a2912193b4bfb0b1433e8f11d2ec32f43d4c5f014b0e730",
     "research/upstream/nikke-calc-master/runner/squads.py": "22247095ff5737c98173b5ac92dbd268bbc74828a2fcaa28018f8eb23db93e7a",
-    "scripts/audit-portable-catalog.py": "05edcb8794397c8fe590a41f614896fddc602ec4f45ee1e803a1dd54d598f5f0",
+    "scripts/audit-portable-catalog.py": "847c0897d74d6b0b74d7e25f96a648b81bf03384e0de151df0977a51483762fd",
     "scripts/detail_coverage.py": "eef94f7675f270e8a4870323cb1e55e8506f2e5fe47e6fa4b1645d9aaf71dc40",
     "tests/fixtures/portable-resources.json": "d3e83f6c000d3f98cf94c42facabb4db6eb9d6eb341600866b52979eb16c52d4"
   }

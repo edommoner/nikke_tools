@@ -21,7 +21,7 @@ def main():
     semantic=Counter(e['diagnostic_semantic_issue'] for r in rows for e in r.get('effects',[]) if e.get('diagnostic_semantic_issue'))
     families=Counter(e['family'] for r in rows for e in r.get('effects',[]) if not e['preflight_passed'])
     weapons=Counter(g for r in rows for g in r.get('weapon_gaps',[]))
-    tracked=['app/portable_resource_specs.py','app/portable_resource_decode.py','app/resource_specs.py','tests/fixtures/portable-resources.json','app/portable_catalog.py','app/portable_enemy_specs.py','app/portable_recipient_specs.py','app/portable_weapon_input.py','app/portable_specs.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_combat.py','app/engine_worker.py',
+    tracked=['app/portable_reference_specs.py','app/portable_resource_specs.py','app/portable_resource_decode.py','app/resource_specs.py','tests/fixtures/portable-resources.json','app/portable_catalog.py','app/portable_enemy_specs.py','app/portable_recipient_specs.py','app/portable_weapon_input.py','app/portable_specs.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_combat.py','app/engine_worker.py',
              'app/effect_spec.py','scripts/audit-portable-catalog.py','scripts/detail_coverage.py',
              'data/engine-effect-overrides.json','research/upstream/nikke-calc-master/data/parsed_nikke.json']
     from effect_spec import COMPAT_LAYERS

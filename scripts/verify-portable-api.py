@@ -24,7 +24,7 @@ def main():
         parser.error('Use a loopback HTTP origin')
     path=ROOT/f'research/portable-api-{args.backend}.json'
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n', encoding='utf-8')
-    tracked=['app/portable_resource_specs.py','app/portable_resource_decode.py','app/resource_specs.py','tests/fixtures/portable-resources.json','server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_backend.py',
+    tracked=['app/portable_reference_specs.py','tests/fixtures/portable-hit-references.json','app/portable_resource_specs.py','app/portable_resource_decode.py','app/resource_specs.py','tests/fixtures/portable-resources.json','server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_backend.py',
              'scripts/verify-portable-api.py','tests/fixtures/portable-events.json',
              'tests/fixtures/portable-event-candidates.json','tests/fixtures/portable-enemy-attack-ranks.json','tests/fixtures/portable-enemy-spawn-order.json','tests/fixtures/portable-enemy-auto-aim.json','tests/fixtures/portable-periodic-targets.json','tests/fixtures/portable-enemy-buffs.json','tests/fixtures/portable-buff-notices.json','tests/fixtures/portable-mode-sessions.json','tests/fixtures/portable-ammo-modes.json','tests/fixtures/portable-ammo-instants.json','tests/fixtures/portable-burst-duration.json','tests/fixtures/portable-pending-burst.json','tests/fixtures/portable-cover.json','tests/fixtures/portable-enemy-damage.json','tests/fixtures/portable-burst-resources.json','tests/fixtures/portable-bullets.json','tests/fixtures/portable-lazy.json','tests/fixtures/portable-carriers.json','app/portable_recipient_specs.py','tests/fixtures/portable-recipients.json','app/portable_combat.py','app/portable_specs.py','app/portable_periodic_specs.py','app/world_condition_specs.py','app/impact_specs.py',
              'tests/fixtures/portable-capacity.json','tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
@@ -416,6 +416,13 @@ def main():
         verifier.contains(resident['resource_queries'],c['expected_resource_queries'],name)
         if 'expected_resource_trace' in c:assert resident['resource_trace']==c['expected_resource_trace'],name
         result['resource_execution'].append(dict(name=name,execution=actual))
+    reference_cases=json.loads((ROOT/'tests/fixtures/portable-hit-references.json').read_text(encoding='utf-8'))['cases']
+    result['hit_reference_execution']=[]
+    for name in ('reference-parent-count-before-hit-consumption','reference-first-carrier-not-sum','reference-gauge-reference-overrides-numeric-suffix','reference-periodic-reads-count-at-each-tick'):
+        c=next(c for c in reference_cases if c['name']==name)
+        body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(c['effects'],c['owners'])],script=c['script'],base_atk=c.get('base_atk',[1000]*5),combat=c['combat'],backend=args.backend)
+        actual=request(body);assert actual['gpu_execution_verified'];verifier.contains(actual['results'][0]['queries'],c['expected_queries'],name)
+        result['hit_reference_execution'].append(dict(name=name,execution=actual))
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in hashes}
     result.update(passed=True,api_status=200,unsupported_status=400,unsupported_error=detail['error'],adapter_sha256=hashes)
     path.write_text(json.dumps(result,indent=2)+'\n', encoding='utf-8')
