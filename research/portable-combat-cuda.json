@@ -6,20 +6,20 @@
   "transport": {
     "backend": "cuda",
     "device": "NVIDIA GeForce RTX 3070 Ti",
-    "cases": 866,
+    "cases": 910,
     "command_status": "completed",
-    "host_dispatch_seconds": 11.949242200236768
+    "host_dispatch_seconds": 10.37458680011332
   },
   "generated_sha256": {
-    "cuda": "e7ddfb9c68fe2814b16f3d666fb8e09522c5ace9ecb35e2d3c40f57a38d4d781",
-    "metal": "5cbc27c4eaf3556611f5a7fabe0efb72a511a83bc5818392c655b1ac2898dcd9"
+    "cuda": "e86125d216e15d1fbc3c7a569a1d379701abab2b9a6e91f75ddf89d8a47afce2",
+    "metal": "1a21449e7a3637197b389a65cda6c45f3867ad25bb19b8d11cac9bcd092cb666"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "43c46846bb7ff09b31db3247f4013c492eff682728406d417281b997fedab823",
+    "gpu/event_runtime.slang": "b7a40716d9b539bf5e11c30d5cb0887a902137871db284242abd459e491ef81e",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "aa67910202aa44e21a40fd946f64c3f29cea641dac38df52fbce074110dd48bd",
-    "gpu/runtime_init.slang": "4ee03c4a1e99580f79f50e5d9754ed7d11a1cc438f0d866fccff523d62cf22fb",
+    "gpu/portable_schema.slang": "e9332b02acb771f0f390c240799169c839f77b98f8d6fe982b937698014c7913",
+    "gpu/runtime_init.slang": "e88d615c09111792e620613dede626a6c303cd4115d28d72bb2e1d19aee48a45",
     "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
     "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
     "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
@@ -33,8 +33,9 @@
     "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
     "gpu/incoming_runtime.slang": "322e92344f55def51fe181360ce35aba89daf341d423bed94b7da22923fa701b",
     "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
-    "gpu/enemy_attack_rank_runtime.slang": "b56c55e800f34a26e44c41371a2472142c0d967b75b4a46f400ee12b208e724f",
-    "gpu/enemy_damage_runtime.slang": "e8b1d1542c729faa26353b22fbd8a55f28db417ac5fb229efa45b030ee1049b7",
+    "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+    "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+    "gpu/enemy_damage_runtime.slang": "15cd9ddb9aa149727e4ca051db26463ecd210b5c1df0d9a4f54167f82b3276fd",
     "gpu/event_candidate_runtime.slang": "5b986d2d51b052186bedb820788460d009220a58e84d6a8803770b64287db356",
     "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
@@ -43,15 +44,15 @@
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
   },
-  "input_sha256": "168cce11f3803f74a830a5f422055383a2241b52a6ddf841a07339d112e08d1c",
-  "output_sha256": "4451b40724086a11b234e55e85968640b5d5398c4d1bdfdc71959f8b1de85894",
+  "input_sha256": "8cdff091527f2ef6617b7f3792428ebed817e5b23d85ae1edd95a0e3c7c6f3a4",
+  "output_sha256": "457c51aa5a4cb61caca2e7486549e0901208f569bd5e9e6bc2ed21783fa64d5d",
   "validation_sha256": {
     "app/portable_roster_input.py": "7f65ee49d9688b59493ec958584ff157312e259eadf269b55fba6af813265593",
     "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
-    "app/portable_enemy_specs.py": "6878531dc825fb11cbf02fb9f1ba7fb310b259c5df73c20f462e5ba32f756876",
-    "app/portable_runtime.py": "a0501cf218fdf62f7dd7d4df56214ef16ba4132a3426d6fb54765e2084d10e07",
+    "app/portable_enemy_specs.py": "4191596c60b2a5957abcb55566d7cb2891797ec32a24fcda8971e0eda28cad18",
+    "app/portable_runtime.py": "3e8f40b15ec2f87bc2c6487b36de5bbb90fa389ca4b113cf129a3a8bc99453b2",
     "app/portable_combat.py": "bd31654f2d8530755c9ab9e78b8badba4ece201020fb7103e9672c955bebd988",
-    "app/portable_specs.py": "2fece091f9dea21ae1a8ef9dfceb69dc8ea6ced1c76a161393ef5a82eb0e1045",
+    "app/portable_specs.py": "4eb3c3ba75a8e067cd0b6a5d4c3558e95ed2bdc93e37bbc73c275e684429ee87",
     "app/portable_backend.py": "ab722934db2e3b7ae228990c7f0555dcea079c624675fa735b7328fa62889ec0",
     "app/portable_trigger_specs.py": "70d19d08eb1bb29674ed2c8360e7748556f0674775e180169e6f957b39607fc6",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
@@ -60,7 +61,7 @@
     "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
     "scripts/portable_health_oracle.py": "3c8c66d0674675c3fbf884ed8ef53408a4ca74e2593ea3b1df3594b8176a5bfc",
-    "scripts/portable_enemy_oracle.py": "d46c7638c6d85b6a96cd7e50f8f93d9c8acb61c8e35c5dcd8e3753b321b01679",
+    "scripts/portable_enemy_oracle.py": "4b519d4f9edd0461851dc52f0deb3452c1a6ea6e93a03e2a495e26c285bf1ab4",
     "scripts/portable_burst_oracle.py": "640bc66abb2df8b237383df3d626df30bc565de382b19671fbf11ba83d5ee94a",
     "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
     "scripts/portable_weapon_oracle.py": "f011a2e648b4a34eb4bc6db5053066fec4b236c472ca7cad2e92e5677ffcc1a1",
@@ -69,9 +70,10 @@
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "2f7af31e1de4fb50faed69513682fa6465e265147d3b5236d7901197db56ac90",
+    "scripts/verify-portable-combat.py": "e91a42f2f5caed5aa41d4250d670e332db4830227b29d8330f14e1c00f9b6e03",
     "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
     "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
+    "tests/fixtures/portable-enemy-spawn-order.json": "7c72c2ec3a76bba4bf0da1be6a8e1e32db6124ef37feb87cb72a5447c8010791",
     "scripts/portable_enemy_buff_oracle.py": "4ea37a8bd5632e1e52f321fb9d49d9f97f965e6a3f9b416a4ba77cdf8d500346",
     "tests/fixtures/portable-enemy-buffs.json": "d1112e9bc6f236f1af7ec39453b7ca4e3d2ea8a548e57a38368965ff9b9cfd85",
     "research/portable-mode-session-contract.json": "8c31ba85469c0ba1374ba0682bbb34aa3bc03eef2840a6c052e7efe405b3f5aa",
@@ -82,7 +84,7 @@
     "tests/fixtures/portable-burst-duration.json": "43b852e0e57886272ca1de313b48022218702946d96622de9af7c0359ecdb64b",
     "tests/fixtures/portable-pending-burst.json": "da124167496dc414248c8abd737b7410b4fa0a1d50b5899f4ba7cb1c1bd1b941",
     "tests/fixtures/portable-cover.json": "3b2cae16148429ef53243644607f63aca167ba013ec98bbb15948533cb829fc7",
-    "tests/fixtures/portable-enemy-damage.json": "ce4bcf341f5d7a68dedaedd9dbb432621705fc727e81b4f0467ed37caa46b050",
+    "tests/fixtures/portable-enemy-damage.json": "3c2bcbb04f5f39d6400b7ca8ab147c0230fc98cc4b31e4ad1aec100ce4848f52",
     "tests/fixtures/portable-burst-resources.json": "8d0f0ff8422c6b28c0c90d318569ff278b126c6e7a935b401861df0120fa13f7",
     "tests/fixtures/portable-bullets.json": "ade37d6cad7cbfa3587542cf2095d8ab0c107bf443bc061281412146fedc6e65",
     "tests/fixtures/portable-lazy.json": "1fb643957e6d9e830127c0c61a66bab058645689d643a83a39ac81d610987b46",
@@ -876,6 +878,48 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     2,
     64,
     8,
@@ -961,6 +1005,8 @@
     64,
     16,
     16,
+    64,
+    64,
     64,
     64,
     64,
@@ -1744,6 +1790,48 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     2,
     64,
     8,
@@ -1829,6 +1917,8 @@
     64,
     16,
     16,
+    64,
+    64,
     64,
     64,
     64,
@@ -1840,50 +1930,8 @@
     64
   ],
   "batch_layout": {
-    "positive_count": 772,
+    "positive_count": 814,
     "rejection_indices": [
-      772,
-      773,
-      774,
-      775,
-      776,
-      777,
-      778,
-      779,
-      780,
-      781,
-      782,
-      783,
-      784,
-      785,
-      786,
-      787,
-      788,
-      789,
-      790,
-      791,
-      792,
-      793,
-      794,
-      795,
-      796,
-      797,
-      798,
-      799,
-      800,
-      801,
-      802,
-      803,
-      804,
-      805,
-      806,
-      807,
-      808,
-      809,
-      810,
-      811,
-      812,
-      813,
       814,
       815,
       816,
@@ -1935,7 +1983,51 @@
       862,
       863,
       864,
-      865
+      865,
+      866,
+      867,
+      868,
+      869,
+      870,
+      871,
+      872,
+      873,
+      874,
+      875,
+      876,
+      877,
+      878,
+      879,
+      880,
+      881,
+      882,
+      883,
+      884,
+      885,
+      886,
+      887,
+      888,
+      889,
+      890,
+      891,
+      892,
+      893,
+      894,
+      895,
+      896,
+      897,
+      898,
+      899,
+      900,
+      901,
+      902,
+      903,
+      904,
+      905,
+      906,
+      907,
+      908,
+      909
     ]
   },
   "rejected_cases": [
@@ -2313,6 +2405,14 @@
     },
     {
       "name": "wire-enemy-attack-no-combat",
+      "status": 64
+    },
+    {
+      "name": "wire-enemy-buff-add-defense-high",
+      "status": 64
+    },
+    {
+      "name": "wire-enemy-buff-add-defense-low",
       "status": 64
     }
   ],
@@ -3816,7 +3916,14 @@
     "enemy-attack-buff-respawn-preserves-static-rank",
     "enemy-attack-buff-initially-inactive-highest-appears",
     "enemy-attack-buff-equal-attack-respawn-moves-behind-old-add",
-    "enemy-attack-buff-equal-attack-new-add-follows-old-add"
+    "enemy-attack-buff-equal-attack-new-add-follows-old-add",
+    "enemy-spawn-buff-all",
+    "enemy-spawn-buff-maximum",
+    "enemy-spawn-buff-current",
+    "enemy-spawn-buff-lowest",
+    "enemy-spawn-buff-nearest",
+    "enemy-spawn-buff-defense-high",
+    "enemy-spawn-buff-defense-low"
   ],
   "enemy_component_cpu_regressions": [
     "all-enemies-single-packet",
@@ -3856,6 +3963,7 @@
     "eight-logical-targets-and-high-membership-bit",
     "split-half-even-1001",
     "split-half-even-1003",
+    "respawn-resets-generation-local-scored-health",
     "rounded-zero-shares-still-notify-and-charge",
     "enemy-buff-damage-factor-def_pct",
     "enemy-buff-damage-factor-def_caster_based_pct",
@@ -3881,7 +3989,41 @@
     "enemy-attack-split-reselects-after-kill",
     "enemy-attack-single-burst-flags",
     "enemy-attack-bonus-family",
-    "enemy-attack-periodic-notification"
+    "enemy-attack-periodic-notification",
+    "enemy-spawn-all-after-respawn",
+    "enemy-spawn-all-warm-then-respawn",
+    "enemy-spawn-all-same-time-respawns",
+    "enemy-spawn-all-inactive-then-spawn",
+    "enemy-spawn-maximum-after-respawn",
+    "enemy-spawn-maximum-warm-then-respawn",
+    "enemy-spawn-maximum-same-time-respawns",
+    "enemy-spawn-maximum-inactive-then-spawn",
+    "enemy-spawn-current-after-respawn",
+    "enemy-spawn-current-warm-then-respawn",
+    "enemy-spawn-current-same-time-respawns",
+    "enemy-spawn-current-inactive-then-spawn",
+    "enemy-spawn-lowest-after-respawn",
+    "enemy-spawn-lowest-warm-then-respawn",
+    "enemy-spawn-lowest-same-time-respawns",
+    "enemy-spawn-lowest-inactive-then-spawn",
+    "enemy-spawn-nearest-after-respawn",
+    "enemy-spawn-nearest-warm-then-respawn",
+    "enemy-spawn-nearest-same-time-respawns",
+    "enemy-spawn-nearest-inactive-then-spawn",
+    "enemy-spawn-defense-high-after-respawn",
+    "enemy-spawn-defense-high-warm-then-respawn",
+    "enemy-spawn-defense-high-same-time-respawns",
+    "enemy-spawn-defense-high-inactive-then-spawn",
+    "enemy-spawn-defense-low-after-respawn",
+    "enemy-spawn-defense-low-warm-then-respawn",
+    "enemy-spawn-defense-low-same-time-respawns",
+    "enemy-spawn-defense-low-inactive-then-spawn",
+    "enemy-spawn-maximum-new-max-hp",
+    "enemy-spawn-current-hp-reorders-after-damage",
+    "enemy-spawn-lowest-hp-filters-killed-add",
+    "enemy-spawn-nearest-in-range-damage",
+    "enemy-spawn-nearest-in-range-armor_break_damage",
+    "enemy-spawn-dead-explicit-aim-falls-back-by-birth"
   ],
   "health_cpu_regressions": [
     "initial-allied-hp-and-defense",
@@ -7329,11 +7471,179 @@
     {
       "name": "enemy-attack-buff-equal-attack-new-add-follows-old-add",
       "passed": true
+    },
+    {
+      "name": "enemy-spawn-all-after-respawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-all-warm-then-respawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-all-same-time-respawns",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-all-inactive-then-spawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-maximum-after-respawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-maximum-warm-then-respawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-maximum-same-time-respawns",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-maximum-inactive-then-spawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-current-after-respawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-current-warm-then-respawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-current-same-time-respawns",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-current-inactive-then-spawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-lowest-after-respawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-lowest-warm-then-respawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-lowest-same-time-respawns",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-lowest-inactive-then-spawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-nearest-after-respawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-nearest-warm-then-respawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-nearest-same-time-respawns",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-nearest-inactive-then-spawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-defense-high-after-respawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-defense-high-warm-then-respawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-defense-high-same-time-respawns",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-defense-high-inactive-then-spawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-defense-low-after-respawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-defense-low-warm-then-respawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-defense-low-same-time-respawns",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-defense-low-inactive-then-spawn",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-maximum-new-max-hp",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-current-hp-reorders-after-damage",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-lowest-hp-filters-killed-add",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-nearest-in-range-damage",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-nearest-in-range-armor_break_damage",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-explicit-live-aim-is-preserved",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-dead-explicit-aim-falls-back-by-birth",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-buff-all",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-buff-maximum",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-buff-current",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-buff-lowest",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-buff-nearest",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-buff-defense-high",
+      "passed": true
+    },
+    {
+      "name": "enemy-spawn-buff-defense-low",
+      "passed": true
     }
   ],
   "metal_generated_sha256": {
-    "cuda": "3d5ad8b2b54a4ff24a79876a58cf04193130ed88b29e8c89db868620b498608f",
-    "metal": "1ea9b424edf1958a9140a389cb4b447e62a092faf04bcac1bed98734776e0469"
+    "cuda": "d0474fd441375d615c48d0e2b261060435dc3b6924cbe10937113c26af8f5b90",
+    "metal": "6738e93d90e4dfeb00a84c3a6b213391c835887663ce1d59ca8d7db7e55dfc01"
   },
   "metal_comparison": {
     "source_sha256": true,
@@ -7374,10 +7684,10 @@
   },
   "execution": {
     "command": "python scripts/verify-portable-combat.py --backend cuda",
-    "commit": "ebe666311d2476ee7f5ca3b36375843ce9846713",
+    "commit": "df09a686b85f128add7a2187d0b909d4b67d86af",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "32, 4653",
+    "gpu_before": "39, 4640",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -7395,8 +7705,8 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 51.77537419972941,
-    "stdout": "{\"passed\": true, \"cases\": 772, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
+    "elapsed_seconds": 49.39157790038735,
+    "stdout": "{\"passed\": true, \"cases\": 814, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
     "stderr": ""
   },
   "postcheck": {
@@ -7404,33 +7714,33 @@
     "original_head_after": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_after": []
   },
-  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-ebe6663\\research\\portable-combat-cuda.json",
+  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-df09a68\\research\\portable-combat-cuda.json",
   "available": true,
   "full_readback_available": true,
   "compiler_success_log_saved": false,
   "generated_normalization": {
     "cuda": {
       "available": true,
-      "raw_sha256": "e7ddfb9c68fe2814b16f3d666fb8e09522c5ace9ecb35e2d3c40f57a38d4d781",
-      "lf_sha256": "f606cff7b64507df8e288425ba0da5b6256a0c0e253cfec081a714eb5ca83880",
-      "no_line_directives_sha256": "c243a901a330036665b488bfc8250dce7081e67436ee44f39b290c5d903672ec",
-      "no_line_directives_portable_prelude_sha256": "f2d9ba64747a0a2be2c9a1e33fc52da417f849c37c376a4d53f277ad334b8269",
-      "lines": 35107,
-      "no_line_directive_lines": 26075,
-      "line_directives": 9032
+      "raw_sha256": "e86125d216e15d1fbc3c7a569a1d379701abab2b9a6e91f75ddf89d8a47afce2",
+      "lf_sha256": "5b47780a58764d1197a55f05675fed404534da814d959364f532b1d46121b35d",
+      "no_line_directives_sha256": "44bffcc96a79a04b3e97559b51cab3ef190bcc285286c36cec7503fd46b95e25",
+      "no_line_directives_portable_prelude_sha256": "f486298f535a99cb86adc716a17b796d8d64fb64969af5eb283388f7e5a0c5da",
+      "lines": 35250,
+      "no_line_directive_lines": 26187,
+      "line_directives": 9063
     },
     "metal": {
       "available": true,
-      "raw_sha256": "5cbc27c4eaf3556611f5a7fabe0efb72a511a83bc5818392c655b1ac2898dcd9",
-      "lf_sha256": "79995fb2b82efe17cf10aaf5511112d24f6215d87d8fc6e8135b0b84d7975260",
-      "no_line_directives_sha256": "8e157bc4fe23b378a4279904edd0a9b20445814a53803b85326c936174cdf59d",
-      "no_line_directives_portable_prelude_sha256": "8e157bc4fe23b378a4279904edd0a9b20445814a53803b85326c936174cdf59d",
-      "lines": 35426,
-      "no_line_directive_lines": 26328,
-      "line_directives": 9098
+      "raw_sha256": "1a21449e7a3637197b389a65cda6c45f3867ad25bb19b8d11cac9bcd092cb666",
+      "lf_sha256": "2fa502cdb5e45179e5eb5604bcfd643cec5897323c6e9dd4c7d1c7f2d8d00d5f",
+      "no_line_directives_sha256": "40076a47008151c32b9f9dd1e027bb1a57ff356d6a88de59863d002f820b9abf",
+      "no_line_directives_portable_prelude_sha256": "40076a47008151c32b9f9dd1e027bb1a57ff356d6a88de59863d002f820b9abf",
+      "lines": 35567,
+      "no_line_directive_lines": 26437,
+      "line_directives": 9130
     }
   },
   "summary_only": true,
-  "summary_source": "windows-portable-combat-v29.json",
+  "summary_source": "windows-portable-combat-v30.json",
   "scope": "Shared event/combat mechanics, enemy packets, allied cover state and pending B3 bonuses; independent components are not full battle or catalog certification"
 }
