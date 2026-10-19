@@ -61,12 +61,13 @@ def _observe(case):
                     cooldown_wait_mask=sum(1<<NAMES.index(n) for n in (ctrl._cd_wait_candidates or [])),
                     cooldown_applied=[ctrl._cd_applied_at_cast[n] for n in NAMES],
                     weapons=[dict(ready=ctrl.burst_ready_at[n]) for n in NAMES])))
-            if case.get('ammo_reference'):
+            if (case.get('ammo_reference') or case.get('mode_session_reference')):
                 queries[-1]['damage']=damage.copy()
                 queries[-1]['combat']['weapons']=[dict(ready=ctrl.burst_ready_at[n],ammo=actors[n].ammo,shots=shots[i],reload_until=actors[n].reloading_until,next=actors[n].next_fire_time) for i,n in enumerate(NAMES)]
-            if case.get('ammo_reference'):
+            if (case.get('ammo_reference') or case.get('mode_session_reference')):
                 for name,projection in zip(NAMES,queries[-1]['combat']['weapons']):
                     actor=actors[name];mode=bm.get_weapon_change(name)
+                    if case.get('mode_session_reference'):projection['mode_shots']=actor._wc_shots if mode is not None else 0
                     projection['mode_index']=next((i for i,(e,n) in enumerate(raw) if n==name and e.get('type')=='weapon_change' and mode is not None and e.get('name')==mode.get('name')),-1)
                     charge=bool(mode.get('charge')) if mode is not None else actor.fire_mode=='charge'
                     if charge:

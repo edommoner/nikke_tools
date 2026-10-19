@@ -21,7 +21,7 @@ void initializeCombat(inout Runtime s, uint input)
         s.fullChargeMult[who] = f64Div(loadNumber(input+P_WEAPON_EXTRA_BASE+who*4+2),HUNDRED); s.attackContext[who] = commands[input+P_ATTACK_CONTEXT_BASE+who];
         s.pellets[who] = commands[input+P_WEAPON_EXTRA_BASE+who*4]; s.muzzles[who] = commands[input+P_WEAPON_EXTRA_BASE+who*4+1];
         s.weaponEnabled[who] = commands[at]; s.weaponMode[who] = commands[at+1];
-        s.capacity[who] = commands[at+2]; s.ammo[who] = s.capacity[who]; s.stage[who] = commands[at+3]; s.currentStage[who] = s.stage[who];
+        s.capacity[who] = commands[at+2]; s.ammo[who] = s.capacity[who]; s.stage[who] = commands[at+3]; s.currentStage[who] = s.stage[who]; s.physicalModeIndex[who] = -1;
         s.coefficient[who] = loadNumber(at+4); s.interval[who] = loadNumber(at+6);
         s.reloadTime[who] = loadNumber(at+8); s.chargeTime[who] = loadNumber(at+10);
         s.gain[who] = loadNumber(at+12); s.cooldown[who] = loadNumber(at+14);
@@ -88,7 +88,7 @@ Weapon selectWeapon(inout Runtime s, uint who, uint64_t when)
     if (w.pellets == 0 || w.pellets > 64 || w.muzzles == 0 || w.muzzles > 8) { s.error = 64; return w; }
     if (s.appliedEpoch[who] != s.modeEpoch[who])
     {
-        s.appliedEpoch[who] = s.modeEpoch[who]; s.modeShots[who] = 0; s.pendingAutoReload[who] = 0;
+        s.appliedEpoch[who] = s.modeEpoch[who]; s.physicalModeIndex[who] = index; s.modeShots[who] = 0; s.pendingAutoReload[who] = 0;
         // CharState resets its pre-entry capacity memo when the mode is entered.
         s.modeCapacityEpoch[who] = 0;
         w.capacity = w.sentinelMode != 0 ? 999999 : ammoInstantCapacity(s,who,when); s.modeMagazine[who] = w.capacity;
@@ -187,6 +187,13 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
     s.gaugeCharging = uint(s.phase == 0);
 }
 [noinline]
+bool changedWeaponSession(inout Runtime s, uint who, uint epoch, int originalMode)
+{
+    if (s.modeEpoch[who] == epoch) return false;
+    // A temporary logical entry/cancel during a base-gun callback did not replace
+    // its physical shot, so its consumption and scheduling still finish.
+    return !(originalMode < 0 && s.modeIndex[who] < 0 && s.physicalModeIndex[who] < 0);
+}
 void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output)
 {
     if (s.weaponEnabled[who] == 0 || (s.downMask & (1U << who)) != 0) return;
@@ -220,7 +227,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output)
         s.modeCapacityEpoch[who] = 0;
         s.ammo[who] = ammoInstantCapacity(s,who,when);
         dispatch(s,0,19,who,0,when,output);
-        if (s.error != 0 || s.modeEpoch[who] != epoch) return;
+        if (s.error != 0 || changedWeaponSession(s,who,epoch,mode)) return;
         // Automatic completion bypasses partial clips and post-reload delay.
     }
     w.infinite = uint(hasInfiniteAmmo(s,who,when));
@@ -233,13 +240,13 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output)
             s.charging[who] = 1; s.chargeStartedAt[who] = when;
             w.infinite = uint(hasInfiniteAmmo(s,who,when));
             if (w.infinite == 0 && s.ammo[who] == 1) dispatch(s,0,21,who,0,when,output);
-            if (s.modeEpoch[who] != epoch) return;
+            if (changedWeaponSession(s,who,epoch,mode)) return;
         }
         s.chargeUntil[who] = f64Add(s.chargeStartedAt[who],effectiveCharge(s,who,w.chargeTime,when));
         if (s.error != 0 || f64Less(when,s.chargeUntil[who])) return;
         dispatch(s,0,10,who,0,when,output);
         w.infinite = uint(hasInfiniteAmmo(s,who,when));
-        if (s.modeEpoch[who] != epoch) return;
+        if (changedWeaponSession(s,who,epoch,mode)) return;
     }
 #ifdef PORTABLE_CHARGE_COLLECT_REFERENCE
     bool scheduleAutoReload = w.mode == 1 && w.delayCover != 0 && !f64Less(readStat(s,who,S_reload_speed_pct,when),HUNDRED);
@@ -252,7 +259,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output)
     bool last = w.infinite == 0 && s.ammo[who] == 1;
     if (last && w.mode != 1) dispatch(s,0,21,who,0,when,output);
     if (w.mode != 1) advanceWarmup(s,w,who,when,shotInterval);
-    if (w.mode != 1 && w.infinite == 0) { if (s.modeEpoch[who] == epoch) s.ammo[who]--; dispatch(s,0,26,who,0,when,output); }
+    if (w.mode != 1 && w.infinite == 0) { if (!changedWeaponSession(s,who,epoch,mode)) s.ammo[who]--; dispatch(s,0,26,who,0,when,output); }
     uint64_t coefficient = mode >= 0 && modeShots == 0 && !f64Less(w.firstCoefficient,0) ? w.firstCoefficient : w.coefficient;
     uint64_t amount = damageValue(s,who,f64Div(coefficient,f64FromI64(w.pellets)),when,true,w.coreBonus,w.mode == 1 ? H_CHARGE : 0,w.fullChargeMult,w.optimal != 0);
     if (s.error != 0) return;
@@ -267,14 +274,14 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output)
     }
     s.shots[who] = completedShots;
     addBurstGauge(s,f64Mul(f64Mul(w.gain,f64FromI64(count)),w.gaugeMultiplier));
-    if (w.mode == 1 && w.infinite == 0) { if (s.modeEpoch[who] == epoch) s.ammo[who]--; dispatch(s,0,26,who,0,when,output); }
+    if (w.mode == 1 && w.infinite == 0) { if (!changedWeaponSession(s,who,epoch,mode)) s.ammo[who]--; dispatch(s,0,26,who,0,when,output); }
     dispatch(s,0,7,who,0,when,output);
     if (w.mode == 1) dispatch(s,0,11,who,0,when,output);
     for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,8,who,0,when,output);
     if (w.mode == 1) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,12,who,0,when,output);
     if (s.bulletCount != 0) consumeBulletBuffs(s,who,when,output);
     if (last) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,14,who,0,when,output);
-    if (s.modeEpoch[who] != epoch) return; // Preserve a callback's new session.
+    if (changedWeaponSession(s,who,epoch,mode)) return; // Preserve a callback's new session.
     if (mode >= 0)
     {
         s.modeShots[who]++;

@@ -180,6 +180,7 @@ void initializeRuntime(inout Runtime s)
         s.lastProbability[index] = 0;
         s.probabilityRatio[index] = 0;
         s.modeIndex[index] = 0;
+        s.physicalModeIndex[index] = 0;
         s.currentStage[index] = 0;
         s.attackContext[index] = 0;
         s.fullChargeMult[index] = 0;

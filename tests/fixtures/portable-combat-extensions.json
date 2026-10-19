@@ -3754,7 +3754,16 @@
             0,
             0,
             0
-          ]
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 999998,
+                "mode_index": 1,
+                "mode_shots": 1
+              }
+            ]
+          }
         },
         {
           "damage": [
@@ -3768,7 +3777,9 @@
             "weapons": [
               {
                 "mode_index": 1,
-                "mode_shots": 1
+                "mode_shots": 1,
+                "ammo": 999998,
+                "next": 0.75
               }
             ]
           }
@@ -3784,12 +3795,54 @@
           "combat": {
             "weapons": [
               {
-                "mode_index": -1
+                "mode_index": -1,
+                "ammo": 9,
+                "mode_shots": 0
               }
             ]
           }
         }
-      ]
+      ],
+      "mode_session_reference": true,
+      "known_mode_cpu_difference": {
+        "reason": "Pinned CharState._in_weapon_change never observes the expired gap when the end callback immediately creates a child mode. GAMEPLAY.md:577-578 requires a new mode magazine and fresh charge; keep the pre-existing shared fresh-session expectation.",
+        "contract": "research/portable-mode-session-contract.json",
+        "differences": [
+          {
+            "query": 1,
+            "path": [
+              "combat",
+              "weapons",
+              0,
+              "ammo"
+            ],
+            "cpu": 999997,
+            "gpu": 999998
+          },
+          {
+            "query": 1,
+            "path": [
+              "combat",
+              "weapons",
+              0,
+              "mode_shots"
+            ],
+            "cpu": 2,
+            "gpu": 1
+          },
+          {
+            "query": 1,
+            "path": [
+              "combat",
+              "weapons",
+              0,
+              "next"
+            ],
+            "cpu": 0.5,
+            "gpu": 0.75
+          }
+        ]
+      }
     },
     {
       "name": "all-stage-state-uses-current-stage",

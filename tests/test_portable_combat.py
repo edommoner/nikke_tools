@@ -108,3 +108,11 @@ class InfiniteModeInputTests(unittest.TestCase):
     def test_presence_does_not_require_positive_numeric_value(self):
         for name in ('infinite-buff-presence-None','infinite-buff-presence-0','infinite-buff-presence--99','infinite-buff-presence-1e+308'):
             v.compile_case(next(c for c in v.fixtures() if c['name']==name))
+
+
+class ModeSessionContractTests(unittest.TestCase):
+    def test_primary_contract_is_pinned_to_the_recorded_sources(self):
+        import json,hashlib
+        contract=json.loads((ROOT/'research/portable-mode-session-contract.json').read_text())
+        for key,digest in [('primary_source','primary_source_sha256'),('pinned_cpu_source','pinned_cpu_sha256')]:
+            self.assertEqual(hashlib.sha256((ROOT/contract[key]).read_bytes()).hexdigest(),contract[digest])

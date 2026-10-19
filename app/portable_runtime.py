@@ -177,7 +177,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
                 'EVENT':int(row[145]),'THRESHOLD':int(row[146]),'COUNT_MODE':int(row[147]),
                 'EVENT_NAME':int(row[148]),'TARGET_NAME':int(row[36]),
                 'FORCE_MASK':int(row[legacy.B3_MASK]),'RECIPIENTS':31 if row[4]==1 else 1<<int(row[0]),
-                'TARGET':int(bool(effects[index][0].get('name'))) if row[1]==13 else int(effects[index][0].get('target')=='boss'), 'STAGE_ARG':int(row[151]),
+                'TARGET':int(bool(effects[index][0].get('name'))) if row[1] in (2,13) else int(effects[index][0].get('target')=='boss'), 'STAGE_ARG':int(row[151]),
                 'STAGE_OVERRIDE':int(row[252]),'REENTRY':int(row[253]),'TOGGLE':int(bool(int(row[213]) & 128)), 'DAMAGE_FLAGS':int(row[39])}
         for key,value in fields.items():compact[F[key]]=value & 0xffffffff
         for key,offset in [('VALUE',6),('DURATION',7),('INTERVAL',59)]:compact[F[key]:F[key]+2]=double_words(row[offset])

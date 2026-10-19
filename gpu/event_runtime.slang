@@ -67,7 +67,7 @@ struct Runtime
     uint64_t warm[5], lastFire[5], lastInterval[5], postReloadUntil[5];
     uint64_t rateMin[5], rateMax[5], warmLimit[5], coolTime[5], postReloadDelay[5];
     uint64_t spreadStart[5], spreadEnd[5], spreadShots[5], coreDiameter[5], lastSpread[5], lastProbability[5], probabilityRatio[5];
-    int modeIndex[5];
+    int modeIndex[5], physicalModeIndex[5];
     uint currentStage[5], enemySnapshot, attackContext[5];
     uint64_t fullChargeMult[5];
     uint modeEpoch[5], appliedEpoch[5], modeShots[5], pendingReentry[5], reentrySlot, reentryDone, casts[5], burstTraceCount;
@@ -350,7 +350,10 @@ void writeDamageAccounting(inout Runtime s, uint output, bool targets = false)
 // End the old session before callbacks. A child may install a new session.
 void clearMode(inout Runtime s, uint who, uint64_t when)
 {
-    s.pendingAutoReload[who] = 0; s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who];
+    s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who]; s.modeShots[who] = 0;
+    // A logical mode cancelled before any physical entry never replaced the gun.
+    if (s.physicalModeIndex[who] < 0) return;
+    s.physicalModeIndex[who] = -1; s.pendingAutoReload[who] = 0;
     s.ammo[who] = fullCapacity(s,who,s.capacity[who],true,when); s.weaponInitialized[who] = 1; s.reloadUntil[who] = F64_SIGN | ONE;
     s.charging[who] = 0; s.nextShot[who] = when; s.modeShots[who] = 0; s.postReloadUntil[who] = F64_SIGN | ONE;
 }
@@ -433,6 +436,15 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
             (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
         { depth--; continue; }
+        if (f.mode == 12)
+        {
+            // A resumable squad broadcast keeps depth bounded and the original
+            // name/order intact even when one recipient changes the mode.
+            if (f.cursor == 5) { depth--; continue; }
+            uint recipient = frames[depth].cursor++;
+            pushFrame(s,frames,depth,0,31,recipient,f.argument,f.time);
+            continue;
+        }
         if (f.mode == 10)
         {
             Definition damage = s.defs[uint(f.argument)];
@@ -744,6 +756,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 if (prior != int(row)) { s.modeEpoch[d.owner]++; s.modeShots[d.owner] = 0; }
                 s.modeIndex[d.owner] = int(row);
                 s.modeEnd[d.owner] = f64Less(d.duration,0) ? FOREVER : f64Add(f.time,d.duration);
+                if (d.target != 0) pushFrame(s,frames,depth,12,31,d.owner,int(d.name),f.time);
             }
         }
         else if (d.kind == 1)
@@ -897,7 +910,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             if (commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8] == 31) s.namedEventOwners |= 1U << d.owner;
         d.flags = commands[at+D_FLAGS]; d.period = loadNumber(at+D_PERIOD); d.damageFlags = commands[at+D_DAMAGE_FLAGS];
         d.target = commands[at+D_TARGET];
-        if ((d.kind == 13 || d.kind == 14) && (d.target > 1 || !f64Finite(d.value))) { s.error = 64; break; }
+        if ((d.kind == 2 || d.kind == 13 || d.kind == 14) && (d.target > 1 || !f64Finite(d.value))) { s.error = 64; break; }
         d.recipients = commands[at+D_RECIPIENTS];
         d.mergeEligible = commands[input+P_RECIPIENT_BASE+j*8+7] & 3;
         d.queryResolve = (commands[input+P_RECIPIENT_BASE+j*8+7] >> 2) & 1;
