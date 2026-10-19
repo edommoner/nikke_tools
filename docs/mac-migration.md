@@ -2,7 +2,9 @@
 
 現在の確認範囲と未完了項目は[共通実行器の進捗](portable-combat-runtime.md)と `research/portable-combat-checkpoint.json` を参照してください。以下は移行開始時の手順・経緯を含み、共通Metal本体の全キャラ対応完了を示す文書ではありません。
 
-2026-10-19にMacBook Air・Apple M5（GPU 10コア）・24GB・macOS 26.6.2 arm64を実機確認しました。CPU起動（203体）とMetal実証4ケースは成功し、`research/portable-probe-metal.json` に実GPUの結果を保存しています。現時点で本体のGPU計算はCUDA専用で、Metal向けの本体移植は未完成です。MacでCPUを使う作業環境と、共通GPUコアの小さな実証を先行して整備しています。
+2026-10-19にMacBook Air・Apple M5（GPU 10コア）・24GB・macOS 26.6.2 arm64を実機確認しました。CPU起動（203体）とMetal実証4ケースは成功し、`research/portable-probe-metal.json` に実GPUの結果を保存しています。移行開始時点では本体のGPU計算はCUDA専用でした。現在は共通Metal本体を部分接続しており、全キャラ対応は未完了です。MacでCPUを使う作業環境と、共通GPUコアの小さな実証を先行して整備しています。
+
+最新のスタック操作・変更免疫は固定版 `ba890da` でMetal／CUDA1297正例・231拒否、スタックCPU参照148件とMac全22ゲートが成功しました。[最新の引き継ぎ](mac-handoff.md) と [共通スタック操作](portable-stack-operators.md) を参照してください。
 
 ## 移行時の問題と対処
 

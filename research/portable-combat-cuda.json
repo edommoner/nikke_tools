@@ -6,28 +6,28 @@
   "transport": {
     "backend": "cuda",
     "device": "NVIDIA GeForce RTX 3070 Ti",
-    "cases": 1355,
+    "cases": 1528,
     "command_status": "completed",
-    "host_dispatch_seconds": 5.038200099952519
+    "host_dispatch_seconds": 5.193800100125372
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "39d2305e6464f54ee916b436d2617a6b686b8d44c772089c7e08cf3dca2a35c3",
+    "gpu/event_runtime.slang": "43cc590815065c953db003af828a653202ae28283807f83e318011dc18c66a08",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
-    "gpu/portable_schema.slang": "268d93bbe3e9fa8556fa3585769ed3e2f90375f552205750136b4ca8fc8b0b6b",
+    "gpu/portable_schema.slang": "0c37e503279270b89dc7dd76e0591ccf4402681b2b30dce5bcce98be57e80021",
     "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
     "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
     "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
     "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
     "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
-    "gpu/reference_runtime.slang": "133be7a63ebd51120783cd1c51172092cf258db1b8998d156e914eb5c507d3e7",
+    "gpu/reference_runtime.slang": "577faa263c6d245f24de4720751509e91a6b8933aa374012e45ccf56a36377d8",
     "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
     "gpu/bullet_runtime.slang": "1b0f0ffb2eaff6778e0fcab801cb7d644b83af2cb9bc8a230b9d33502bc1c324",
-    "gpu/rank_runtime.slang": "81cbe580f8ff5e80c4d4a88e26822747f25dec1bcb40c958ddded1f5bdaca863",
+    "gpu/rank_runtime.slang": "4d8cb1dcd4950bd278bcad169813484fba0087e2c67681799e141e5f44af7a44",
     "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
-    "gpu/enemy_buff_runtime.slang": "d27ebbbaec782eb6ae855bf3dfa3dc6cd2857eb1e251a48c03c693622425904b",
-    "gpu/carrier_runtime.slang": "aaa524ef99987422c18f32f9c3361046be46a46efed67603a5b4aaabc461d057",
-    "gpu/quantity_runtime.slang": "44d9e37a3c81f77dcea96406db0cafc797401e211d5f9b41903b27254f72587e",
+    "gpu/enemy_buff_runtime.slang": "a731007f062901024ef74bfc2a670de243c61d17890a21e7a2d2ec74c4a800bb",
+    "gpu/carrier_runtime.slang": "27f3a94d2cb7657481fa2bb63041146f6c53919a384bd532f8fb9b4e86c6f049",
+    "gpu/quantity_runtime.slang": "843dc4d8246dc2babe7a02db51eb365883551e6aa150cf4ea661b10eb3af5a5e",
     "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
     "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
     "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
@@ -41,9 +41,10 @@
     "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
     "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
     "gpu/landing_runtime.slang": "763ee4080d8ec7191c6937c2c5a8e048ecc212cf2db07664ea26f6beb4aaff84",
-    "gpu/periodic_runtime.slang": "7b2ef46b0576ebe659dfb549e651cedecbf66bf2afab9b9025b2477b985670a9",
-    "gpu/removal_runtime.slang": "52a1642db17ad0a03ad92785d2a5ef50db12f1a2c289ec4b853b4f765b2968b6",
+    "gpu/periodic_runtime.slang": "9715ff9577a3b087abc0ace532fb7d532160c91d7b7c68dd2f96494932c01c2a",
+    "gpu/removal_runtime.slang": "8148ff4830f45c2e5234c6b68163f6201aaea3d02974e58e3311f98c5b4311ed",
     "gpu/duration_extend_runtime.slang": "2a8810be4130e3d3beb86ded42a7017a138f0c26b97c26b0720ff8062a62c8ef",
+    "gpu/stack_runtime.slang": "8bd3eb78b2827c0068eacfe62d1b1fe7ad51fba403cea16118354248e3ef9474",
     "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
     "gpu/pending_burst_runtime.slang": "c4b0ee8ded3c5922ce8370b12ebec0dbb86ad0bae9d530d615e4f498029f1758",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
@@ -51,16 +52,16 @@
     "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
-    "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
+    "gpu/admission_runtime.slang": "daa035a5cda2b8b69541639f0e9c7c08361a2a4fa8f58627e82bf86a4f632599"
   },
-  "input_sha256": "d3fd365618d159e45d23e0f5c40f1e8133e985ff9ad131881c12f8be4ee87b58",
-  "output_sha256": "e872a8f3fad710d3205cff5374688c7564be65dcc559da143bac30375b580038",
+  "input_sha256": "906a58cd9abaa0353d6b0f457718da006b6a37a2987127a07a8c348185b3214e",
+  "output_sha256": "103348153d8d6251f2adfb1baf864ce2ea55e2171f90a354ea51938786b4e72f",
   "validation_sha256": {
     "app/portable_duration_extend_specs.py": "f3909d1ce0a448090fd853a8fbb44f64bf6acdbb1803742812a2fb84bd42f9a8",
     "scripts/portable_duration_extend_oracle.py": "6d68ed922e60c67690b613de36d74753d4ac660e35e9132519b58aff3fff2d77",
     "tests/fixtures/portable-duration-extend.json": "32f301f32116ebf38f9ccd198240cd4efedc0afa37aaba82a0888c5e3c83d4fc",
     "app/portable_removal_specs.py": "65eeea6e89b54a4215ec93c6658d26231f4c8a656d3ac8b2ddd52ef5bcec0fcf",
-    "scripts/portable_removal_oracle.py": "bb47fb4399e67ca42e94fbc578f547b67b390e46ef82d4dc6fb2f0438f39763f",
+    "scripts/portable_removal_oracle.py": "60db8b34e47f2c9a269902f712fa70541011807e145607ce0f1fa2aa526002a3",
     "tests/fixtures/portable-removal.json": "ac1eea32bed09887687c397f70348dcf9fdb08d5946e2f3d147c65af4ca81d54",
     "app/portable_lifesteal_reference.py": "eeb7dd998fce96afbc032e95b5f9b7454cb0f408d4472bfd6dae9f23a64a1104",
     "scripts/portable_lifesteal_oracle.py": "082a9149627a837f0efd0ff966af6de8868be3a7b776bdc7b8b21dc13ae0d531",
@@ -77,10 +78,10 @@
     "app/periodic_source_runtime.py": "bd45e4244fd741ff053a756876253b62221f1d28cfb00e01d89d5cacb39af062",
     "tests/fixtures/portable-sources.json": "7c67eb17ad96eff5237e1a14de38ef5f30494cba272cf56da8acb0ce7c45ec86",
     "app/reference_count_runtime.py": "009b8bbee5523994861860c6101416bc1ff1e72b04a7da46e78f6ce9a5d571ef",
-    "app/reference_health_runtime.py": "5b756375f135d8b22d188c6e6e8d185bfbcbd36ed96b71ac1794f314aa2f9f41",
+    "app/reference_health_runtime.py": "f823783f8c82c623609e1035dbc13414b335514605018686a0f449334648ca40",
     "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
     "tests/fixtures/portable-reference-scales.json": "e0e26b2691affa2f30e1456c9bf49923c24f0a63667c16da45f73a31c7ad61bd",
-    "app/portable_reference_specs.py": "de22b095242d7fd64ac1cdd362011fda0f48ea2f33e84be58dd348bc7400ff1a",
+    "app/portable_reference_specs.py": "e0ce11eef8ee6dff7726f1dfc58798daa42003a9889a414d26ecfdac6aa4fdde",
     "tests/fixtures/portable-hit-references.json": "3868b333fdc77e82c644c038f62b4534e84e6214be0b93a5b2448e4750e05d8e",
     "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
@@ -90,20 +91,20 @@
     "tests/fixtures/portable-resources.json": "d3e83f6c000d3f98cf94c42facabb4db6eb9d6eb341600866b52979eb16c52d4",
     "app/portable_roster_input.py": "0a6c8c37bcf4e93af644769125a09535c618c4d601039fec440d473d84999121",
     "app/portable_runtime_layout.py": "1a882b22eef68f04633c2a0fcdc542b188669e50f283dc88bf241af33c7ca0f1",
-    "app/portable_enemy_specs.py": "52ef96d79d4791ebe5a7da2ad6cee0a8550a50edccb1a3f5aaa5b7f4204e8686",
-    "app/portable_runtime.py": "578bcda5e4214721170d122b9bc1e0906d422ddd846a3fd6725f688b013ea450",
+    "app/portable_enemy_specs.py": "eaac9b2ebfdf2d50fea010cacda4f519c6125985d4acbc9b63fc01c8f45a931f",
+    "app/portable_runtime.py": "86687bf87efcb4294e0ccda32bcc7fd41c0afa0ae355ed55f30079acbab33a4a",
     "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
-    "app/portable_specs.py": "ef472af91fc2925302919c4ae09665f262523b1497afe695063f48dfaf5abe9d",
+    "app/portable_specs.py": "bb882ba22203834f99ed923e148474fdfb2469044ce672b6433a5d762c95b758",
     "app/portable_periodic_specs.py": "830b7b7bd25586ae568b210dd3583c3e7349bb0ac29226d0748ba77b7da3d9bf",
     "app/portable_backend.py": "65fa85746a0be27fce443e95f47a92885a4c822dc6630141b1baa972c4cfff53",
     "app/portable_trigger_specs.py": "de8354e952352ce0e40bf3f8ddf97f36595500ea3e7436672ae4ba0934871040",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
     "app/portable_damage_specs.py": "62d322155e688a5e428b4cf56550216c6d050c0605487d39331d4306d47b14bb",
-    "scripts/portable_pending_oracle.py": "5919e9b30ef2b97cfeee24d19eb080c522df2fb6b98c1555be2efdf5c68e3359",
+    "scripts/portable_pending_oracle.py": "ece6a9c87fc4bbfdbabf0dd57071c51ffaf6122688c8990e0293c224cc80de54",
     "app/named_target_specs.py": "992edd9391038bafc41bc9a38c613506591e6d04933c2907e570be1966ef42b3",
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
     "scripts/portable_health_oracle.py": "0a10670fdba64a4e5de217869efc4f763ecf1dd67713cc67d7a8a2c25a62ed4f",
-    "scripts/portable_enemy_oracle.py": "1ed2d643cbb0999088b3ae2f119dae7a43ece9c84fa56c2150a46f882c2da893",
+    "scripts/portable_enemy_oracle.py": "02301b70b20fb340b081def44bda7544d8080e4bec7ea91ebe52d74f8c104060",
     "scripts/portable_burst_oracle.py": "a0bec96a54611670528ede5bce6b435f1f472dc078b0ea559db42afb48c54dfb",
     "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
     "scripts/portable_weapon_oracle.py": "f6de982a48e39b941dfead71d190d2b8d530b25a8aba37021f8692c7990a53a2",
@@ -112,7 +113,7 @@
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "2186200030d0e8027146c74fb5eafb340111b1ca9a0433f8844b8ab64f89b418",
+    "scripts/verify-portable-combat.py": "8092f2f97c59e3e117b08200f789e6d871936fd9d5195f461ac634a6dc5175db",
     "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
     "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
     "tests/fixtures/portable-enemy-spawn-order.json": "7c72c2ec3a76bba4bf0da1be6a8e1e32db6124ef37feb87cb72a5447c8010791",
@@ -148,7 +149,12 @@
     "tests/fixtures/portable-combat-extensions.json": "2277883e34b033505e715674ddd81006894ab8c6d9ad52076f89c4cebed4a96b",
     "tests/fixtures/portable-autonomous.json": "0d97f8e8a848cfaf25d08e52414f1055d6a8807625f28bce3608a1726db6a5e9",
     "scripts/run-metal-probe.swift": "0f2b54212a600ae31a20930a3982e71d851b9951f63a2391d7bc1643c793a101",
-    "app/weapon_mode_runtime.py": "dfd7b6e0cdb1b7d6e9dcb2393e57526e1b1c9c353123320bab16daed5c75474e"
+    "scripts/portable_carrier_observer.py": "8dd189479876fc0d0951a25fe35c3b5db2419461dcfaa22189f517a8b9701b46",
+    "app/weapon_mode_runtime.py": "dfd7b6e0cdb1b7d6e9dcb2393e57526e1b1c9c353123320bab16daed5c75474e",
+    "app/portable_stack_specs.py": "5e4432eea9a269def3f8f92c9ea5f5e4b5284b78b48636e04eaabd4bd4b3330b",
+    "scripts/portable_stack_oracle.py": "8c3ae95d44d61b52cf64ec9ae458bd62d1aae58a1bd15972e11d9c05400681b8",
+    "scripts/portable_stack_validation.py": "e26299ee1feeb50774647e7cb55564b9fc4ada4685945d30e37da3b459f2c150",
+    "tests/fixtures/portable-stacks.json": "a49be6396171f6b6e67b3b4345d102a5b1bf408aacc96de63b28af78cca4473c"
   },
   "actual_statuses": [
     0,
@@ -1300,6 +1306,154 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     2,
     64,
     8,
@@ -1505,7 +1659,32 @@
     64,
     64,
     64,
-    64
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    2,
+    2
   ],
   "expected_statuses": [
     0,
@@ -2657,6 +2836,154 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     2,
     64,
     8,
@@ -2862,159 +3189,36 @@
     64,
     64,
     64,
-    64
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    2,
+    2
   ],
   "batch_layout": {
-    "positive_count": 1149,
+    "positive_count": 1297,
     "rejection_indices": [
-      1149,
-      1150,
-      1151,
-      1152,
-      1153,
-      1154,
-      1155,
-      1156,
-      1157,
-      1158,
-      1159,
-      1160,
-      1161,
-      1162,
-      1163,
-      1164,
-      1165,
-      1166,
-      1167,
-      1168,
-      1169,
-      1170,
-      1171,
-      1172,
-      1173,
-      1174,
-      1175,
-      1176,
-      1177,
-      1178,
-      1179,
-      1180,
-      1181,
-      1182,
-      1183,
-      1184,
-      1185,
-      1186,
-      1187,
-      1188,
-      1189,
-      1190,
-      1191,
-      1192,
-      1193,
-      1194,
-      1195,
-      1196,
-      1197,
-      1198,
-      1199,
-      1200,
-      1201,
-      1202,
-      1203,
-      1204,
-      1205,
-      1206,
-      1207,
-      1208,
-      1209,
-      1210,
-      1211,
-      1212,
-      1213,
-      1214,
-      1215,
-      1216,
-      1217,
-      1218,
-      1219,
-      1220,
-      1221,
-      1222,
-      1223,
-      1224,
-      1225,
-      1226,
-      1227,
-      1228,
-      1229,
-      1230,
-      1231,
-      1232,
-      1233,
-      1234,
-      1235,
-      1236,
-      1237,
-      1238,
-      1239,
-      1240,
-      1241,
-      1242,
-      1243,
-      1244,
-      1245,
-      1246,
-      1247,
-      1248,
-      1249,
-      1250,
-      1251,
-      1252,
-      1253,
-      1254,
-      1255,
-      1256,
-      1257,
-      1258,
-      1259,
-      1260,
-      1261,
-      1262,
-      1263,
-      1264,
-      1265,
-      1266,
-      1267,
-      1268,
-      1269,
-      1270,
-      1271,
-      1272,
-      1273,
-      1274,
-      1275,
-      1276,
-      1277,
-      1278,
-      1279,
-      1280,
-      1281,
-      1282,
-      1283,
-      1284,
-      1285,
-      1286,
-      1287,
-      1288,
-      1289,
-      1290,
-      1291,
-      1292,
-      1293,
-      1294,
-      1295,
-      1296,
       1297,
       1298,
       1299,
@@ -3072,7 +3276,180 @@
       1351,
       1352,
       1353,
-      1354
+      1354,
+      1355,
+      1356,
+      1357,
+      1358,
+      1359,
+      1360,
+      1361,
+      1362,
+      1363,
+      1364,
+      1365,
+      1366,
+      1367,
+      1368,
+      1369,
+      1370,
+      1371,
+      1372,
+      1373,
+      1374,
+      1375,
+      1376,
+      1377,
+      1378,
+      1379,
+      1380,
+      1381,
+      1382,
+      1383,
+      1384,
+      1385,
+      1386,
+      1387,
+      1388,
+      1389,
+      1390,
+      1391,
+      1392,
+      1393,
+      1394,
+      1395,
+      1396,
+      1397,
+      1398,
+      1399,
+      1400,
+      1401,
+      1402,
+      1403,
+      1404,
+      1405,
+      1406,
+      1407,
+      1408,
+      1409,
+      1410,
+      1411,
+      1412,
+      1413,
+      1414,
+      1415,
+      1416,
+      1417,
+      1418,
+      1419,
+      1420,
+      1421,
+      1422,
+      1423,
+      1424,
+      1425,
+      1426,
+      1427,
+      1428,
+      1429,
+      1430,
+      1431,
+      1432,
+      1433,
+      1434,
+      1435,
+      1436,
+      1437,
+      1438,
+      1439,
+      1440,
+      1441,
+      1442,
+      1443,
+      1444,
+      1445,
+      1446,
+      1447,
+      1448,
+      1449,
+      1450,
+      1451,
+      1452,
+      1453,
+      1454,
+      1455,
+      1456,
+      1457,
+      1458,
+      1459,
+      1460,
+      1461,
+      1462,
+      1463,
+      1464,
+      1465,
+      1466,
+      1467,
+      1468,
+      1469,
+      1470,
+      1471,
+      1472,
+      1473,
+      1474,
+      1475,
+      1476,
+      1477,
+      1478,
+      1479,
+      1480,
+      1481,
+      1482,
+      1483,
+      1484,
+      1485,
+      1486,
+      1487,
+      1488,
+      1489,
+      1490,
+      1491,
+      1492,
+      1493,
+      1494,
+      1495,
+      1496,
+      1497,
+      1498,
+      1499,
+      1500,
+      1501,
+      1502,
+      1503,
+      1504,
+      1505,
+      1506,
+      1507,
+      1508,
+      1509,
+      1510,
+      1511,
+      1512,
+      1513,
+      1514,
+      1515,
+      1516,
+      1517,
+      1518,
+      1519,
+      1520,
+      1521,
+      1522,
+      1523,
+      1524,
+      1525,
+      1526,
+      1527
     ]
   },
   "rejected_cases": [
@@ -3899,6 +4276,106 @@
     {
       "name": "wire-duration-extension-enemy-payload",
       "status": 64
+    },
+    {
+      "name": "wire-stack-metadata-tag",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-metadata-native-kind",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-metadata-nan-duration",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-metadata-runtime-flag-range",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-metadata-runtime-policy-missing",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-metadata-runtime-with-finite-duration",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-metadata-runtime-on-instant",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-metadata-padding",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-instant-native-kind",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-init-not-first-definition",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-init-target-overflow",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-policy-zero",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-policy-overflow",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-delta-nan",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-delta-inf",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-target-name-overflow",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-recipient-flags",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-ally-enemy-payload",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-enemy-route",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-enemy-count",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-enemy-payload",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-immune-bit-on-scalar",
+      "status": 64
+    },
+    {
+      "name": "wire-stack-debuff-gauge-only-mode",
+      "status": 64
+    },
+    {
+      "name": "stack-unlimited-own-overflow",
+      "status": 2
+    },
+    {
+      "name": "stack-unlimited-max-overflow",
+      "status": 2
     }
   ],
   "known_cpu_differences": [
@@ -5915,6 +6392,156 @@
     "source-health-max_hp_pct",
     "source-same-time-population-refresh",
     "source-first-frame-underflowed-interval"
+  ],
+  "stack_cpu_regressions": [
+    "stack-buff_stack_add-named-0.0",
+    "stack-buff_stack_add-named--0.0",
+    "stack-buff_stack_add-named-0.5",
+    "stack-buff_stack_add-named--0.5",
+    "stack-buff_stack_add-named-1.9",
+    "stack-buff_stack_add-named--1.9",
+    "stack-buff_stack_add-named-1e+308",
+    "stack-buff_stack_add-named--1e+308",
+    "stack-buff_stack_remove-named-0.0",
+    "stack-buff_stack_remove-named--0.0",
+    "stack-buff_stack_remove-named-0.5",
+    "stack-buff_stack_remove-named--0.5",
+    "stack-buff_stack_remove-named-1.9",
+    "stack-buff_stack_remove-named--1.9",
+    "stack-buff_stack_remove-named-1e+308",
+    "stack-buff_stack_remove-named--1e+308",
+    "stack-debuff_stack_add-generic-0.0",
+    "stack-debuff_stack_add-generic--0.0",
+    "stack-debuff_stack_add-generic-0.5",
+    "stack-debuff_stack_add-generic--0.5",
+    "stack-debuff_stack_add-generic-1.9",
+    "stack-debuff_stack_add-generic--1.9",
+    "stack-debuff_stack_add-generic-1e+308",
+    "stack-debuff_stack_add-generic--1e+308",
+    "stack-debuff_stack_add-named-0.0",
+    "stack-debuff_stack_add-named--0.0",
+    "stack-debuff_stack_add-named-0.5",
+    "stack-debuff_stack_add-named--0.5",
+    "stack-debuff_stack_add-named-1.9",
+    "stack-debuff_stack_add-named--1.9",
+    "stack-debuff_stack_add-named-1e+308",
+    "stack-debuff_stack_add-named--1e+308",
+    "stack-debuff_stack_remove-generic-0.0",
+    "stack-debuff_stack_remove-generic--0.0",
+    "stack-debuff_stack_remove-generic-0.5",
+    "stack-debuff_stack_remove-generic--0.5",
+    "stack-debuff_stack_remove-generic-1.9",
+    "stack-debuff_stack_remove-generic--1.9",
+    "stack-debuff_stack_remove-generic-1e+308",
+    "stack-debuff_stack_remove-generic--1e+308",
+    "stack-debuff_stack_remove-named-0.0",
+    "stack-debuff_stack_remove-named--0.0",
+    "stack-debuff_stack_remove-named-0.5",
+    "stack-debuff_stack_remove-named--0.5",
+    "stack-debuff_stack_remove-named-1.9",
+    "stack-debuff_stack_remove-named--1.9",
+    "stack-debuff_stack_remove-named-1e+308",
+    "stack-debuff_stack_remove-named--1e+308",
+    "stack-buff_stack_add-immune",
+    "stack-buff_stack_remove-immune",
+    "stack-debuff_stack_add-immune",
+    "stack-debuff_stack_remove-immune",
+    "stack-buff_max_stack_add-immune",
+    "stack-init-0.0",
+    "stack-init--0.0",
+    "stack-init-0.5",
+    "stack-init--0.5",
+    "stack-init--1.0",
+    "stack-init-3.9",
+    "stack-init-9.0",
+    "stack-init-bypasses-target-gates-and-bullet-init",
+    "stack-single-zero-normal-refresh",
+    "stack-max-shared-self",
+    "stack-max-shared-all_allies",
+    "stack-own-ignores-target-all_allies_excl_self-None",
+    "stack-own-ignores-target-allies_weapon:UNKNOWN-None",
+    "stack-own-ignores-target-allies_weapon:UNKNOWN-1",
+    "stack-own-ignores-target-allies_weapon_top_atk:UNKNOWN:1-1",
+    "stack-empty-lazy-budget-buff_max_stack_add",
+    "stack-empty-lazy-budget-debuff_stack_add",
+    "stack-budget-consumed-without-matching-carrier",
+    "stack-capped-positive-refresh-2-False",
+    "stack-capped-positive-refresh-None-True",
+    "stack-capped-positive-refresh-None-False",
+    "stack-capped-positive-refresh-1e+30-False",
+    "stack-generic-polarity-and-unlimited-filter",
+    "stack-captured-notices-survive-parent-removal",
+    "stack-notices-keep-original-caster",
+    "stack-init-first-registered-definition",
+    "stack-init-suppressed-by-other-owner",
+    "stack-init-appends-when-caster-not-a-member",
+    "stack-init-lazy-residents-stay-distinct",
+    "stack-init-does-not-apply-duration-values",
+    "stack-init-does-not-check-immunity",
+    "stack-init-self-reference-after-slot-reuse",
+    "stack-debuff-delta-reference-0.0-resource",
+    "stack-debuff-delta-reference--0.5-resource",
+    "stack-debuff-delta-reference-2.0-missing",
+    "stack-dot-zero-and-refresh-1",
+    "stack-dot-zero-and-refresh-5",
+    "stack-dot-captured-huge-value-clamps-before-narrowing",
+    "stack-init-quantity-max_hp_pct",
+    "stack-init-quantity-max_hp_only_pct",
+    "stack-init-quantity-atk_pct",
+    "stack-mutate-quantity-max_hp_pct",
+    "stack-mutate-quantity-max_hp_only_pct",
+    "stack-shared-enemy-end-is-per-resident-expiry",
+    "stack-shared-enemy-end-is-per-resident-partial-removal",
+    "stack-shared-removal-retains-stale-other-target-False",
+    "stack-shared-removal-retains-stale-other-target-True",
+    "stack-shared-enemy-end-is-per-resident-reinitialize",
+    "stack-init-shared-enemy-generation-and-mutation",
+    "stack-init-shared-enemy-immunity-is-generation-bound",
+    "stack-enemy-marker-has-no-damage-modifier-stack_change_immune",
+    "stack-enemy-marker-has-no-damage-modifier-buff_max_stack_add",
+    "stack-508-residents-deferred-original-owner-notices",
+    "stack-hp-stack-child-before-boundary-False",
+    "stack-hp-stack-child-before-boundary-True",
+    "stack-nested-removal-defers-derived-hp-until-stack-children",
+    "stack-dot-expired-unretired-zero-survives-refresh",
+    "stack-periodic-buff_stack_add-does-not-recheck-activation-budget-target",
+    "stack-periodic-buff_stack_init-does-not-recheck-activation-budget-target",
+    "stack-passive-max-operation-uses-common-frame-executor",
+    "stack-forced-slot-stack-operation-uses-common-executor",
+    "stack-passive-activation-retains-empty-target-budget",
+    "stack-passive-periodic-stack-callback-does-not-spend-another-budget",
+    "stack-finite-conditional-passive-rechecks-empty-budget-target",
+    "stack-external-reference-is-not-own-stack-2",
+    "stack-external-reference-is-not-own-stack-None",
+    "stack-init-caster-hp-flat-hp_caster_based_pct",
+    "stack-init-caster-hp-flat-hp_only_caster_based_pct",
+    "stack-init-snapshot-hp-does-not-run-normal-grant",
+    "stack-birth-runtime-policy-init-True-refresh-False",
+    "stack-birth-runtime-policy-init-True-refresh-True",
+    "stack-birth-runtime-policy-init-False-refresh-False",
+    "stack-initialized-runtime-carrier-is-not-merged-with-finite-alias",
+    "stack-max-raw-integer-0.0",
+    "stack-max-raw-integer--0.0",
+    "stack-max-raw-integer-0.5",
+    "stack-max-raw-integer--0.5",
+    "stack-max-raw-integer--1.0",
+    "stack-max-raw-integer-1.9",
+    "stack-max-raw-integer-1e+308",
+    "stack-buff_max_stack_add-value-fallback-False",
+    "stack-buff_max_stack_add-value-fallback-True",
+    "stack-buff_stack_add-value-fallback-False",
+    "stack-buff_stack_add-value-fallback-True",
+    "stack-expired-unretired-immunity-presence",
+    "stack-immune-runtime-predicate-is-not-rechecked",
+    "stack-lazy-marker-buff_max_stack_add-without-query",
+    "stack-lazy-marker-buff_stack_add-without-query",
+    "stack-init-can-target-ephemeral-buff-definition",
+    "stack-max-per-target-overrides-rise-at-representative-cap",
+    "stack-per-target-overrides-and-representative-ranking",
+    "stack-zero-single-layer-still-affects-recipient-ranking",
+    "stack-expired-unretired-carrier-still-participates-in-ranking",
+    "stack-initialized-bullet-lifetime-then-refresh-False",
+    "stack-initialized-bullet-lifetime-then-refresh-True"
   ],
   "staged_cpu_regressions": [
     "staged-triangular-and-post-period",
@@ -10646,14 +11273,606 @@
     {
       "name": "duration-extend-definition-255-mask-boundary",
       "passed": true
+    },
+    {
+      "name": "stack-buff_stack_add-named-0.0",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_add-named--0.0",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_add-named-0.5",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_add-named--0.5",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_add-named-1.9",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_add-named--1.9",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_add-named-1e+308",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_add-named--1e+308",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_remove-named-0.0",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_remove-named--0.0",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_remove-named-0.5",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_remove-named--0.5",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_remove-named-1.9",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_remove-named--1.9",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_remove-named-1e+308",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_remove-named--1e+308",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-generic-0.0",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-generic--0.0",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-generic-0.5",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-generic--0.5",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-generic-1.9",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-generic--1.9",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-generic-1e+308",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-generic--1e+308",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-named-0.0",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-named--0.0",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-named-0.5",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-named--0.5",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-named-1.9",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-named--1.9",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-named-1e+308",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-named--1e+308",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-generic-0.0",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-generic--0.0",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-generic-0.5",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-generic--0.5",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-generic-1.9",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-generic--1.9",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-generic-1e+308",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-generic--1e+308",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-named-0.0",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-named--0.0",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-named-0.5",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-named--0.5",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-named-1.9",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-named--1.9",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-named-1e+308",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-named--1e+308",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_add-immune",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_remove-immune",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_add-immune",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff_stack_remove-immune",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_max_stack_add-immune",
+      "passed": true
+    },
+    {
+      "name": "stack-init-0.0",
+      "passed": true
+    },
+    {
+      "name": "stack-init--0.0",
+      "passed": true
+    },
+    {
+      "name": "stack-init-0.5",
+      "passed": true
+    },
+    {
+      "name": "stack-init--0.5",
+      "passed": true
+    },
+    {
+      "name": "stack-init--1.0",
+      "passed": true
+    },
+    {
+      "name": "stack-init-3.9",
+      "passed": true
+    },
+    {
+      "name": "stack-init-9.0",
+      "passed": true
+    },
+    {
+      "name": "stack-init-bypasses-target-gates-and-bullet-init",
+      "passed": true
+    },
+    {
+      "name": "stack-single-zero-normal-refresh",
+      "passed": true
+    },
+    {
+      "name": "stack-max-shared-self",
+      "passed": true
+    },
+    {
+      "name": "stack-max-shared-all_allies",
+      "passed": true
+    },
+    {
+      "name": "stack-own-ignores-target-all_allies_excl_self-None",
+      "passed": true
+    },
+    {
+      "name": "stack-own-ignores-target-allies_weapon:UNKNOWN-None",
+      "passed": true
+    },
+    {
+      "name": "stack-own-ignores-target-allies_weapon:UNKNOWN-1",
+      "passed": true
+    },
+    {
+      "name": "stack-own-ignores-target-allies_weapon_top_atk:UNKNOWN:1-1",
+      "passed": true
+    },
+    {
+      "name": "stack-empty-lazy-budget-buff_max_stack_add",
+      "passed": true
+    },
+    {
+      "name": "stack-empty-lazy-budget-debuff_stack_add",
+      "passed": true
+    },
+    {
+      "name": "stack-budget-consumed-without-matching-carrier",
+      "passed": true
+    },
+    {
+      "name": "stack-capped-positive-refresh-2-False",
+      "passed": true
+    },
+    {
+      "name": "stack-capped-positive-refresh-None-True",
+      "passed": true
+    },
+    {
+      "name": "stack-capped-positive-refresh-None-False",
+      "passed": true
+    },
+    {
+      "name": "stack-capped-positive-refresh-1e+30-False",
+      "passed": true
+    },
+    {
+      "name": "stack-generic-polarity-and-unlimited-filter",
+      "passed": true
+    },
+    {
+      "name": "stack-captured-notices-survive-parent-removal",
+      "passed": true
+    },
+    {
+      "name": "stack-notices-keep-original-caster",
+      "passed": true
+    },
+    {
+      "name": "stack-init-first-registered-definition",
+      "passed": true
+    },
+    {
+      "name": "stack-init-suppressed-by-other-owner",
+      "passed": true
+    },
+    {
+      "name": "stack-init-appends-when-caster-not-a-member",
+      "passed": true
+    },
+    {
+      "name": "stack-init-lazy-residents-stay-distinct",
+      "passed": true
+    },
+    {
+      "name": "stack-init-does-not-apply-duration-values",
+      "passed": true
+    },
+    {
+      "name": "stack-init-does-not-check-immunity",
+      "passed": true
+    },
+    {
+      "name": "stack-init-self-reference-after-slot-reuse",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff-delta-reference-0.0-resource",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff-delta-reference--0.5-resource",
+      "passed": true
+    },
+    {
+      "name": "stack-debuff-delta-reference-2.0-missing",
+      "passed": true
+    },
+    {
+      "name": "stack-dot-zero-and-refresh-1",
+      "passed": true
+    },
+    {
+      "name": "stack-dot-zero-and-refresh-5",
+      "passed": true
+    },
+    {
+      "name": "stack-dot-captured-huge-value-clamps-before-narrowing",
+      "passed": true
+    },
+    {
+      "name": "stack-init-quantity-max_hp_pct",
+      "passed": true
+    },
+    {
+      "name": "stack-init-quantity-max_hp_only_pct",
+      "passed": true
+    },
+    {
+      "name": "stack-init-quantity-atk_pct",
+      "passed": true
+    },
+    {
+      "name": "stack-mutate-quantity-max_hp_pct",
+      "passed": true
+    },
+    {
+      "name": "stack-mutate-quantity-max_hp_only_pct",
+      "passed": true
+    },
+    {
+      "name": "stack-shared-enemy-end-is-per-resident-expiry",
+      "passed": true
+    },
+    {
+      "name": "stack-shared-enemy-end-is-per-resident-partial-removal",
+      "passed": true
+    },
+    {
+      "name": "stack-shared-removal-retains-stale-other-target-False",
+      "passed": true
+    },
+    {
+      "name": "stack-shared-removal-retains-stale-other-target-True",
+      "passed": true
+    },
+    {
+      "name": "stack-shared-enemy-end-is-per-resident-reinitialize",
+      "passed": true
+    },
+    {
+      "name": "stack-init-shared-enemy-generation-and-mutation",
+      "passed": true
+    },
+    {
+      "name": "stack-init-shared-enemy-immunity-is-generation-bound",
+      "passed": true
+    },
+    {
+      "name": "stack-enemy-marker-has-no-damage-modifier-stack_change_immune",
+      "passed": true
+    },
+    {
+      "name": "stack-enemy-marker-has-no-damage-modifier-buff_max_stack_add",
+      "passed": true
+    },
+    {
+      "name": "stack-508-residents-deferred-original-owner-notices",
+      "passed": true
+    },
+    {
+      "name": "stack-hp-stack-child-before-boundary-False",
+      "passed": true
+    },
+    {
+      "name": "stack-hp-stack-child-before-boundary-True",
+      "passed": true
+    },
+    {
+      "name": "stack-nested-removal-defers-derived-hp-until-stack-children",
+      "passed": true
+    },
+    {
+      "name": "stack-dot-expired-unretired-zero-survives-refresh",
+      "passed": true
+    },
+    {
+      "name": "stack-periodic-buff_stack_add-does-not-recheck-activation-budget-target",
+      "passed": true
+    },
+    {
+      "name": "stack-periodic-buff_stack_init-does-not-recheck-activation-budget-target",
+      "passed": true
+    },
+    {
+      "name": "stack-passive-max-operation-uses-common-frame-executor",
+      "passed": true
+    },
+    {
+      "name": "stack-forced-slot-stack-operation-uses-common-executor",
+      "passed": true
+    },
+    {
+      "name": "stack-passive-activation-retains-empty-target-budget",
+      "passed": true
+    },
+    {
+      "name": "stack-passive-periodic-stack-callback-does-not-spend-another-budget",
+      "passed": true
+    },
+    {
+      "name": "stack-finite-conditional-passive-rechecks-empty-budget-target",
+      "passed": true
+    },
+    {
+      "name": "stack-external-reference-is-not-own-stack-2",
+      "passed": true
+    },
+    {
+      "name": "stack-external-reference-is-not-own-stack-None",
+      "passed": true
+    },
+    {
+      "name": "stack-init-caster-hp-flat-hp_caster_based_pct",
+      "passed": true
+    },
+    {
+      "name": "stack-init-caster-hp-flat-hp_only_caster_based_pct",
+      "passed": true
+    },
+    {
+      "name": "stack-init-snapshot-hp-does-not-run-normal-grant",
+      "passed": true
+    },
+    {
+      "name": "stack-birth-runtime-policy-init-True-refresh-False",
+      "passed": true
+    },
+    {
+      "name": "stack-birth-runtime-policy-init-True-refresh-True",
+      "passed": true
+    },
+    {
+      "name": "stack-birth-runtime-policy-init-False-refresh-False",
+      "passed": true
+    },
+    {
+      "name": "stack-initialized-runtime-carrier-is-not-merged-with-finite-alias",
+      "passed": true
+    },
+    {
+      "name": "stack-max-raw-integer-0.0",
+      "passed": true
+    },
+    {
+      "name": "stack-max-raw-integer--0.0",
+      "passed": true
+    },
+    {
+      "name": "stack-max-raw-integer-0.5",
+      "passed": true
+    },
+    {
+      "name": "stack-max-raw-integer--0.5",
+      "passed": true
+    },
+    {
+      "name": "stack-max-raw-integer--1.0",
+      "passed": true
+    },
+    {
+      "name": "stack-max-raw-integer-1.9",
+      "passed": true
+    },
+    {
+      "name": "stack-max-raw-integer-1e+308",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_max_stack_add-value-fallback-False",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_max_stack_add-value-fallback-True",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_add-value-fallback-False",
+      "passed": true
+    },
+    {
+      "name": "stack-buff_stack_add-value-fallback-True",
+      "passed": true
+    },
+    {
+      "name": "stack-expired-unretired-immunity-presence",
+      "passed": true
+    },
+    {
+      "name": "stack-immune-runtime-predicate-is-not-rechecked",
+      "passed": true
+    },
+    {
+      "name": "stack-lazy-marker-buff_max_stack_add-without-query",
+      "passed": true
+    },
+    {
+      "name": "stack-lazy-marker-buff_stack_add-without-query",
+      "passed": true
+    },
+    {
+      "name": "stack-init-can-target-ephemeral-buff-definition",
+      "passed": true
+    },
+    {
+      "name": "stack-max-per-target-overrides-rise-at-representative-cap",
+      "passed": true
+    },
+    {
+      "name": "stack-per-target-overrides-and-representative-ranking",
+      "passed": true
+    },
+    {
+      "name": "stack-zero-single-layer-still-affects-recipient-ranking",
+      "passed": true
+    },
+    {
+      "name": "stack-expired-unretired-carrier-still-participates-in-ranking",
+      "passed": true
+    },
+    {
+      "name": "stack-initialized-bullet-lifetime-then-refresh-False",
+      "passed": true
+    },
+    {
+      "name": "stack-initialized-bullet-lifetime-then-refresh-True",
+      "passed": true
     }
   ],
   "execution": {
-    "command": "python research/windows-v50-sequence.py --backend cuda",
-    "commit": "6e28e63d65c9109b56480782b053b2dddf44b71f",
+    "command": "python research/verify-stack-regression.py --backend cuda",
+    "commit": "ba890da6d0c8de9d28b7aceeadb1dc93267b6ae3",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "35, 4527",
+    "gpu_before": "31, 4202",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -10671,26 +11890,10 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 82.4859194997698,
-    "stdout": "{\"command\": \"python research/verify-stack-increment-existing.py --backend cuda\", \"elapsed_seconds\": 61.54020659998059, \"exit_code\": 0, \"stdout\": \"{\\\"passed\\\": true, \\\"cases\\\": 1149, \\\"device\\\": \\\"NVIDIA GeForce RTX 3070 Ti\\\", \\\"backend\\\": \\\"cuda\\\"}\\n\", \"stderr\": \"\"}\n{\"command\": \"python research/verify-stack-foundation.py --backend cuda\", \"elapsed_seconds\": 20.81321149971336, \"exit_code\": 0, \"stdout\": \"Stack numeric cases passed 19908 cuda\\nStack notice cases passed 9 cuda\\n\", \"stderr\": \"\"}\n",
+    "elapsed_seconds": 66.9845878998749,
+    "stdout": "{\"passed\": true, \"cases\": 1297, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
     "stderr": ""
   },
-  "steps": [
-    {
-      "command": "python research/verify-stack-increment-existing.py --backend cuda",
-      "elapsed_seconds": 61.54020659998059,
-      "exit_code": 0,
-      "stdout": "{\"passed\": true, \"cases\": 1149, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
-      "stderr": ""
-    },
-    {
-      "command": "python research/verify-stack-foundation.py --backend cuda",
-      "elapsed_seconds": 20.81321149971336,
-      "exit_code": 0,
-      "stdout": "Stack numeric cases passed 19908 cuda\nStack notice cases passed 9 cuda\n",
-      "stderr": ""
-    }
-  ],
   "postcheck": {
     "remaining_verification_processes": 0,
     "original_head_after": "61a43e91301841c272badce519e4d8984bb5efae",
@@ -10698,58 +11901,62 @@
     "existing_gpu_service_preserved": true
   },
   "generated_sha256": {
-    "cuda": "cc6972776dd076db09397e816b61f2130fa6bccb132bd1642286574f8275a941",
-    "metal": "48ec58a7d462a0410776d4712870db3502e61f5657c4b1e5bb907bfd923b97ea"
+    "cuda": "044da551150743321e66762113aac846be508b7a4228023454906534dd93b732",
+    "metal": "d812ac0b91534e32933db294d09fb2a2b6e998fed5139f19c2478c8a68f6c376"
   },
   "generated_normalization": {
     "cuda": {
       "available": true,
-      "raw_sha256": "cc6972776dd076db09397e816b61f2130fa6bccb132bd1642286574f8275a941",
-      "lf_sha256": "652f7987b870410634c16e7e2dda35afccea5301055f66c6360595f2eeaf1f7a",
-      "no_line_directives_sha256": "fca417e6a43b126fa0c871aae063178409911ade9c77e58c16fbf3c0296db52f",
-      "no_line_directives_portable_prelude_sha256": "d2529a1b2809ba378638bf52b6f7546116688fb22cd6d284b1c5524d8b28e98b",
-      "lines": 51756,
-      "no_line_directive_lines": 38278,
-      "line_directives": 13478
+      "raw_sha256": "044da551150743321e66762113aac846be508b7a4228023454906534dd93b732",
+      "lf_sha256": "928c815b4b4a775db2e291b291467778e098c7de078e34d6aecf8e675c517016",
+      "no_line_directives_sha256": "f246f9bbc99bfc1ad9055494d2905ed1fc9e7624d9df0885ff83fe83d18ba6f7",
+      "no_line_directives_portable_prelude_sha256": "89679898e7bbb0a239bd61df512c91c18987dccd54ca33417307e24560935434",
+      "lines": 55589,
+      "no_line_directive_lines": 41089,
+      "line_directives": 14500
     },
     "metal": {
       "available": true,
-      "raw_sha256": "48ec58a7d462a0410776d4712870db3502e61f5657c4b1e5bb907bfd923b97ea",
-      "lf_sha256": "315ed6a71835d6bd09b6593c8164f7f591de55cb22ebf7e3f9bd12fa28ccc06d",
-      "no_line_directives_sha256": "42fd7d9abea8d16fcf164f2a2200bc47f1b303f5f173b5b33fd5ea332b5305de",
-      "no_line_directives_portable_prelude_sha256": "42fd7d9abea8d16fcf164f2a2200bc47f1b303f5f173b5b33fd5ea332b5305de",
-      "lines": 52089,
-      "no_line_directive_lines": 38556,
-      "line_directives": 13533
+      "raw_sha256": "d812ac0b91534e32933db294d09fb2a2b6e998fed5139f19c2478c8a68f6c376",
+      "lf_sha256": "e9dca107b9ae594882e59fbc7ea9e54d2041c0958d81721c5c7c001a6ac69f47",
+      "no_line_directives_sha256": "b7a9d8bf3f475a31180c608024436680925dbd46274cfdd8e3541d2f3151ee3b",
+      "no_line_directives_portable_prelude_sha256": "b7a9d8bf3f475a31180c608024436680925dbd46274cfdd8e3541d2f3151ee3b",
+      "lines": 55900,
+      "no_line_directive_lines": 41353,
+      "line_directives": 14547
     }
   },
-  "stack_increment_existing_parity": {
+  "stack_existing_parity": {
     "passed": true,
-    "previous_proof_commit": "7d52456",
-    "inputs": 1355,
-    "positives": 1149,
-    "rejections": 206,
-    "all_input_and_output_bytes_equal": true,
-    "no_input_or_output_normalization": true,
-    "backend": "cuda",
+    "prior_proof_commit": "029aa07",
+    "prior_inputs": 1355,
+    "current_positive_inputs": 1297,
+    "current_inputs": 1528,
+    "prior_input_sha256": "d3fd365618d159e45d23e0f5c40f1e8133e985ff9ad131881c12f8be4ee87b58",
+    "prior_output_sha256": "e872a8f3fad710d3205cff5374688c7564be65dcc559da143bac30375b580038",
+    "current_subset_input_sha256": "02a5bad0f4685a153669c3be4d737b132536e265755791a220a92da93863fe10",
+    "current_subset_output_sha256": "127c13cccb955052f466b316d956b9ff97e7027ed1fb4b10def21f3b6a11f025",
+    "input_normalization": "ABI word 0x50455662 to 0x50455661 only for prior-input audit",
+    "no_output_normalization": true,
+    "cpu_trace_used_as_gpu_input": false,
     "source_sha256": {
-      "gpu/event_runtime.slang": "39d2305e6464f54ee916b436d2617a6b686b8d44c772089c7e08cf3dca2a35c3",
+      "gpu/event_runtime.slang": "43cc590815065c953db003af828a653202ae28283807f83e318011dc18c66a08",
       "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
       "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
-      "gpu/portable_schema.slang": "268d93bbe3e9fa8556fa3585769ed3e2f90375f552205750136b4ca8fc8b0b6b",
+      "gpu/portable_schema.slang": "0c37e503279270b89dc7dd76e0591ccf4402681b2b30dce5bcce98be57e80021",
       "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
       "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
       "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
       "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
       "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
-      "gpu/reference_runtime.slang": "133be7a63ebd51120783cd1c51172092cf258db1b8998d156e914eb5c507d3e7",
+      "gpu/reference_runtime.slang": "577faa263c6d245f24de4720751509e91a6b8933aa374012e45ccf56a36377d8",
       "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
       "gpu/bullet_runtime.slang": "1b0f0ffb2eaff6778e0fcab801cb7d644b83af2cb9bc8a230b9d33502bc1c324",
-      "gpu/rank_runtime.slang": "81cbe580f8ff5e80c4d4a88e26822747f25dec1bcb40c958ddded1f5bdaca863",
+      "gpu/rank_runtime.slang": "4d8cb1dcd4950bd278bcad169813484fba0087e2c67681799e141e5f44af7a44",
       "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
-      "gpu/enemy_buff_runtime.slang": "d27ebbbaec782eb6ae855bf3dfa3dc6cd2857eb1e251a48c03c693622425904b",
-      "gpu/carrier_runtime.slang": "aaa524ef99987422c18f32f9c3361046be46a46efed67603a5b4aaabc461d057",
-      "gpu/quantity_runtime.slang": "44d9e37a3c81f77dcea96406db0cafc797401e211d5f9b41903b27254f72587e",
+      "gpu/enemy_buff_runtime.slang": "a731007f062901024ef74bfc2a670de243c61d17890a21e7a2d2ec74c4a800bb",
+      "gpu/carrier_runtime.slang": "27f3a94d2cb7657481fa2bb63041146f6c53919a384bd532f8fb9b4e86c6f049",
+      "gpu/quantity_runtime.slang": "843dc4d8246dc2babe7a02db51eb365883551e6aa150cf4ea661b10eb3af5a5e",
       "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
       "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
       "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
@@ -10763,9 +11970,10 @@
       "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
       "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
       "gpu/landing_runtime.slang": "763ee4080d8ec7191c6937c2c5a8e048ecc212cf2db07664ea26f6beb4aaff84",
-      "gpu/periodic_runtime.slang": "7b2ef46b0576ebe659dfb549e651cedecbf66bf2afab9b9025b2477b985670a9",
-      "gpu/removal_runtime.slang": "52a1642db17ad0a03ad92785d2a5ef50db12f1a2c289ec4b853b4f765b2968b6",
+      "gpu/periodic_runtime.slang": "9715ff9577a3b087abc0ace532fb7d532160c91d7b7c68dd2f96494932c01c2a",
+      "gpu/removal_runtime.slang": "8148ff4830f45c2e5234c6b68163f6201aaea3d02974e58e3311f98c5b4311ed",
       "gpu/duration_extend_runtime.slang": "2a8810be4130e3d3beb86ded42a7017a138f0c26b97c26b0720ff8062a62c8ef",
+      "gpu/stack_runtime.slang": "8bd3eb78b2827c0068eacfe62d1b1fe7ad51fba403cea16118354248e3ef9474",
       "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
       "gpu/pending_burst_runtime.slang": "c4b0ee8ded3c5922ce8370b12ebec0dbb86ad0bae9d530d615e4f498029f1758",
       "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
@@ -10773,182 +11981,22 @@
       "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
       "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
       "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
-      "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
+      "gpu/admission_runtime.slang": "daa035a5cda2b8b69541639f0e9c7c08361a2a4fa8f58627e82bf86a4f632599"
     },
-    "input_sha256": "d3fd365618d159e45d23e0f5c40f1e8133e985ff9ad131881c12f8be4ee87b58",
-    "output_sha256": "e872a8f3fad710d3205cff5374688c7564be65dcc559da143bac30375b580038"
-  },
-  "stack_numeric": {
-    "passed": true,
-    "cases": 19908,
-    "statuses": {
-      "0": 17739,
-      "2": 1633,
-      "64": 536
-    },
-    "cpu_trace_used_as_gpu_input": false,
-    "scope": "Integer update/default/sign/clamp before checked signed31-bit result; not effect-family admission",
-    "transport": {
-      "backend": "cuda",
-      "device": "NVIDIA GeForce RTX 3070 Ti",
-      "cases": 19908,
-      "command_status": "completed",
-      "host_dispatch_seconds": 0.00011090002954006195
-    },
-    "source_sha256": {
-      "gpu/stack_numeric_probe.slang": "7028641e99168172b9c6896b0926a4d02bbc21430417dad498189b8ae179f746",
-      "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
-      "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671"
-    },
-    "generated_sha256": {
-      "cuda": "cf9dd3fd5276468fb10316d56c3a023dbd1bf5a9c74a0ba08b1cd12d84913dbb",
-      "metal": "e81e57e24cc4df856bd2b09776cede13413de058eb5e4638b98c76b630cfb78b"
-    },
-    "input_sha256": "95002f41c40212d56b29fab376ad5a921d0df4340ade5a2c13a9273d6ec4bcca",
-    "output_sha256": "c3b6a0268cbe8244adb363f199b2ab69ebf69f46db7515c985b2572fae813cec",
-    "gpu_execution_verified": true,
+    "input_sha256": "906a58cd9abaa0353d6b0f457718da006b6a37a2987127a07a8c348185b3214e",
+    "output_sha256": "103348153d8d6251f2adfb1baf864ce2ea55e2171f90a354ea51938786b4e72f",
     "backend": "cuda"
   },
-  "stack_notices": {
-    "passed": true,
-    "cases": [
-      {
-        "mode": 0,
-        "passed": true,
-        "status": 0,
-        "notices": 4096
-      },
-      {
-        "mode": 1,
-        "passed": true,
-        "status": 64,
-        "notices": 4096
-      },
-      {
-        "mode": 2,
-        "passed": true,
-        "status": 64,
-        "notices": 0
-      },
-      {
-        "mode": 3,
-        "passed": true,
-        "status": 64,
-        "notices": 0
-      },
-      {
-        "mode": 4,
-        "passed": true,
-        "status": 0,
-        "notices": 0
-      },
-      {
-        "mode": 5,
-        "passed": true,
-        "status": 0,
-        "notices": 4096
-      },
-      {
-        "mode": 6,
-        "passed": true,
-        "native_activation_order": [
-          "topic",
-          "remove first",
-          "nested",
-          "ended",
-          "tail",
-          "nested",
-          "ended"
-        ],
-        "native_attack_pct": 2210
-      },
-      {
-        "mode": 7,
-        "passed": true,
-        "status": 0,
-        "notices": 1
-      },
-      {
-        "mode": 8,
-        "passed": true,
-        "owner": 4,
-        "stack": 2147483647,
-        "native_attack_pct": 1
-      }
-    ],
-    "cpu_trace_used_as_gpu_input": false,
-    "scope": "4096 shared reservations; atomic rejection; 31-bit snapshots; mixed end/stack drain and nested child reuse; not new effect admission",
-    "transport": {
-      "backend": "cuda",
-      "device": "NVIDIA GeForce RTX 3070 Ti",
-      "cases": 9,
-      "command_status": "completed",
-      "host_dispatch_seconds": 1.2931830999441445
-    },
-    "source_sha256": {
-      "gpu/stack_notice_probe.slang": "371bf4bb9d3254068750a800113902adde69a98a7366546b005cee251a4215e0",
-      "gpu/event_runtime.slang": "39d2305e6464f54ee916b436d2617a6b686b8d44c772089c7e08cf3dca2a35c3",
-      "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
-      "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
-      "gpu/portable_schema.slang": "268d93bbe3e9fa8556fa3585769ed3e2f90375f552205750136b4ca8fc8b0b6b",
-      "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
-      "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
-      "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
-      "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
-      "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
-      "gpu/reference_runtime.slang": "133be7a63ebd51120783cd1c51172092cf258db1b8998d156e914eb5c507d3e7",
-      "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
-      "gpu/bullet_runtime.slang": "1b0f0ffb2eaff6778e0fcab801cb7d644b83af2cb9bc8a230b9d33502bc1c324",
-      "gpu/rank_runtime.slang": "81cbe580f8ff5e80c4d4a88e26822747f25dec1bcb40c958ddded1f5bdaca863",
-      "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
-      "gpu/enemy_buff_runtime.slang": "d27ebbbaec782eb6ae855bf3dfa3dc6cd2857eb1e251a48c03c693622425904b",
-      "gpu/carrier_runtime.slang": "aaa524ef99987422c18f32f9c3361046be46a46efed67603a5b4aaabc461d057",
-      "gpu/quantity_runtime.slang": "44d9e37a3c81f77dcea96406db0cafc797401e211d5f9b41903b27254f72587e",
-      "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
-      "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
-      "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
-      "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
-      "gpu/recipient_runtime.slang": "c29f87bdc65479778b72949a0876b42bc1bef9791bd3bb922a7dff6360c65215",
-      "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
-      "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
-      "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
-      "gpu/incoming_runtime.slang": "bde3b172675e137dea190196aeeb2b81e2608115756da932e2642d410c57cf68",
-      "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
-      "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
-      "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
-      "gpu/landing_runtime.slang": "763ee4080d8ec7191c6937c2c5a8e048ecc212cf2db07664ea26f6beb4aaff84",
-      "gpu/periodic_runtime.slang": "7b2ef46b0576ebe659dfb549e651cedecbf66bf2afab9b9025b2477b985670a9",
-      "gpu/removal_runtime.slang": "52a1642db17ad0a03ad92785d2a5ef50db12f1a2c289ec4b853b4f765b2968b6",
-      "gpu/duration_extend_runtime.slang": "2a8810be4130e3d3beb86ded42a7017a138f0c26b97c26b0720ff8062a62c8ef",
-      "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
-      "gpu/pending_burst_runtime.slang": "c4b0ee8ded3c5922ce8370b12ebec0dbb86ad0bae9d530d615e4f498029f1758",
-      "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-      "gpu/combat_runtime.slang": "007857a4a49acddb59fd36935d5acd578d70af69815cf4f63647836837ee872b",
-      "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
-      "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
-      "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
-      "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
-    },
-    "generated_sha256": {
-      "cuda": "7699b6dc23d690e36268111ee7db3e7e4a5928bfa01c53b0af2b604f01664560",
-      "metal": "b871a60c0b0e280ccba23a67dc1d861d8d4e87f4405c53fd07fa9a3a79c115ae"
-    },
-    "input_sha256": "b802bb3d245b317f7531e8e5a64142adf2ed47d11a451f163020ee1fbe669b4d",
-    "output_sha256": "f107b7e3446d5e2b0ce1fd70212eba52385318601c45a12bd1cc1ecc23574e53",
-    "gpu_execution_verified": true,
-    "backend": "cuda"
-  },
-  "codec_verification": {
+  "additional_probes": {
     "executed": false,
-    "reason": "Omitted as requested; codec unchanged."
+    "reason": "Numeric foundation, notice probes and codec omitted as requested."
   },
   "metal_comparison": {
     "executed": false,
     "reason": "Old Metal receipts intentionally not compared."
   },
-  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-6e28e63\\research\\portable-combat-cuda.json",
-  "missing_artifacts": [],
+  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-ba890da\\research\\portable-combat-cuda.json",
   "summary_only": true,
-  "summary_source": "windows-portable-combat-v50.json",
+  "summary_source": "windows-portable-combat-v52.json",
   "scope": "Shared event/combat mechanics, enemy packets, allied cover state and pending B3 bonuses; independent components are not full battle or catalog certification"
 }

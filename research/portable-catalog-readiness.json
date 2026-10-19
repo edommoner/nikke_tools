@@ -3,13 +3,13 @@
   "audited_characters": 203,
   "full_character_verified": 0,
   "weapon_input_preflight_passed": 203,
-  "own_effect_preflight_passed": 29,
+  "own_effect_preflight_passed": 30,
   "assumptions": "favorite stage 0, no cube, fixed five-member real roster; definition preflight only; not battle compatibility",
   "cpu_simulation_executed": false,
   "gpu_execution_performed": false,
   "issues": {
-    "Unported buff or recipient selector": 245,
-    "Unported instant or recipient selector": 27,
+    "Unported buff or recipient selector": 237,
+    "Unported instant or recipient selector": 19,
     "Unported trigger timing: event:part_destroy": 15,
     "Unported enemy damage selector": 12,
     "Unported trigger timing: event:enemy_spawn": 10,
@@ -40,7 +40,6 @@
     "Unported predicate: target_state:거품": 3,
     "Unported predicate: target_state:예고장": 3,
     "Unported effect fields: damage_formula, weapon_type": 2,
-    "Unported trigger timing: weapon_hit:부착형 유탄 4": 2,
     "Unported trigger timing: part_hit_count:1": 2,
     "Unported trigger timing: multi_hit:4": 2,
     "Unported effect fields: persist_on_revive": 2,
@@ -63,6 +62,8 @@
     "Unported predicate: target_state:안티 AT 필드": 2,
     "Unported predicate: target_code:작열": 1,
     "Unported effect fields: target_code": 1,
+    "Stack operation has the wrong effect kind": 1,
+    "Unported trigger timing: weapon_hit:부착형 유탄 4": 1,
     "Unported predicate: self_stun_immune": 1,
     "Unported trigger timing: crit_hit_count:4": 1,
     "Unported trigger timing: body_hit_count:1": 1,
@@ -97,8 +98,8 @@
     "Unported predicate: target_code:수냉": 1
   },
   "diagnostic_semantic_issues": {
-    "Unported buff or recipient selector": 245,
-    "Unported instant or recipient selector": 27,
+    "Unported buff or recipient selector": 237,
+    "Unported instant or recipient selector": 19,
     "Unported trigger timing: event:part_destroy": 15,
     "Unported enemy damage selector": 12,
     "Unported trigger timing: event:enemy_spawn": 10,
@@ -129,7 +130,6 @@
     "Unported predicate: target_state:거품": 3,
     "Unported predicate: target_state:예고장": 3,
     "Unported effect fields: damage_formula, weapon_type": 2,
-    "Unported trigger timing: weapon_hit:부착형 유탄 4": 2,
     "Unported trigger timing: part_hit_count:1": 2,
     "Unported trigger timing: multi_hit:4": 2,
     "Unported effect fields: persist_on_revive": 2,
@@ -152,6 +152,8 @@
     "Unported predicate: target_state:안티 AT 필드": 2,
     "Unported predicate: target_code:작열": 1,
     "Unported effect fields: target_code": 1,
+    "Stack operation has the wrong effect kind": 1,
+    "Unported trigger timing: weapon_hit:부착형 유탄 4": 1,
     "Unported predicate: self_stun_immune": 1,
     "Unported trigger timing: crit_hit_count:4": 1,
     "Unported trigger timing: body_hit_count:1": 1,
@@ -187,8 +189,8 @@
   },
   "missing_families": {
     "damage_modifiers": 127,
-    "effect_lifecycle": 81,
     "weapon": 69,
+    "effect_lifecycle": 65,
     "damage": 56,
     "protection": 50,
     "control_survival": 44,
@@ -1725,10 +1727,10 @@
             "not_during_full_burst"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: weapon_hit:부착형 유탄 4",
+          "diagnostic_semantic_issue": "Stack operation has the wrong effect kind",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: weapon_hit:부착형 유탄 4"
+          "issue": "Stack operation has the wrong effect kind"
         },
         {
           "name": "유탄 폭발",
@@ -5033,13 +5035,10 @@
             "last_bullet_fire"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "정의의 천칭 2",
@@ -6217,13 +6216,10 @@
             "hit_count:{0}"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "응원의 축포 2",
@@ -8316,11 +8312,10 @@
           "conditions": [
             "self_state:클라이막스"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -15044,11 +15039,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "페퍼 테라피 3",
@@ -21366,13 +21360,10 @@
             "on_attack_count:90"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "좀 더 많은 당근",
@@ -21658,11 +21649,10 @@
             "hit_count:100"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "프라이즈 2",
@@ -21896,7 +21886,7 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 84,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
@@ -24237,13 +24227,10 @@
             "every:3s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "무상",
@@ -34526,11 +34513,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -35016,11 +35002,10 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "골든 칩",
@@ -35178,11 +35163,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -36440,13 +36424,10 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "휘슬 충전",
@@ -36459,13 +36440,10 @@
           "conditions": [
             "enemy_count_below:3"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "펭군 긴급 출동",
@@ -36494,13 +36472,10 @@
           "conditions": [
             "enemy_count_above:6"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "펭군 긴급 출동 2",
@@ -38824,11 +38799,10 @@
             "full_burst_start_count:3"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "불가사리(모양) 오므라이스 4",
@@ -41203,13 +41177,10 @@
             "on_attack_count:12"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "같이 놀자아…. 2",
@@ -43476,11 +43447,10 @@
             "on_attack_count:100"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "아이리스",
@@ -62940,21 +62910,21 @@
     "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
     "app/portable_damage_specs.py": "62d322155e688a5e428b4cf56550216c6d050c0605487d39331d4306d47b14bb",
     "app/portable_duration_extend_specs.py": "f3909d1ce0a448090fd853a8fbb44f64bf6acdbb1803742812a2fb84bd42f9a8",
-    "app/portable_enemy_specs.py": "52ef96d79d4791ebe5a7da2ad6cee0a8550a50edccb1a3f5aaa5b7f4204e8686",
+    "app/portable_enemy_specs.py": "eaac9b2ebfdf2d50fea010cacda4f519c6125985d4acbc9b63fc01c8f45a931f",
     "app/portable_lifesteal_reference.py": "eeb7dd998fce96afbc032e95b5f9b7454cb0f408d4472bfd6dae9f23a64a1104",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
-    "app/portable_reference_specs.py": "de22b095242d7fd64ac1cdd362011fda0f48ea2f33e84be58dd348bc7400ff1a",
+    "app/portable_reference_specs.py": "e0ce11eef8ee6dff7726f1dfc58798daa42003a9889a414d26ecfdac6aa4fdde",
     "app/portable_removal_specs.py": "65eeea6e89b54a4215ec93c6658d26231f4c8a656d3ac8b2ddd52ef5bcec0fcf",
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
     "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
-    "app/portable_runtime.py": "578bcda5e4214721170d122b9bc1e0906d422ddd846a3fd6725f688b013ea450",
+    "app/portable_runtime.py": "86687bf87efcb4294e0ccda32bcc7fd41c0afa0ae355ed55f30079acbab33a4a",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "ef472af91fc2925302919c4ae09665f262523b1497afe695063f48dfaf5abe9d",
+    "app/portable_specs.py": "bb882ba22203834f99ed923e148474fdfb2469044ce672b6433a5d762c95b758",
     "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
     "app/portable_trigger_specs.py": "de8354e952352ce0e40bf3f8ddf97f36595500ea3e7436672ae4ba0934871040",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/reference_count_runtime.py": "009b8bbee5523994861860c6101416bc1ff1e72b04a7da46e78f6ce9a5d571ef",
-    "app/reference_health_runtime.py": "5b756375f135d8b22d188c6e6e8d185bfbcbd36ed96b71ac1794f314aa2f9f41",
+    "app/reference_health_runtime.py": "f823783f8c82c623609e1035dbc13414b335514605018686a0f449334648ca40",
     "app/resource_specs.py": "de67874a373c94834d3fbe43d9be9d18ccc45e1e22f563f9e5d892b66ea07b85",
     "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",
     "app/staged_dot_specs.py": "5c38be17b5afbe79c6d7a4a0cf9d00108d97ee37822c725803944a9f6cf617d1",
@@ -63003,7 +62973,7 @@
     "scripts/portable_duration_extend_oracle.py": "6d68ed922e60c67690b613de36d74753d4ac660e35e9132519b58aff3fff2d77",
     "scripts/portable_landing_oracle.py": "318d4436c3636724112025866cd8e21f692772b96a83450e7bf3fae020484b45",
     "scripts/portable_lifesteal_oracle.py": "082a9149627a837f0efd0ff966af6de8868be3a7b776bdc7b8b21dc13ae0d531",
-    "scripts/portable_removal_oracle.py": "bb47fb4399e67ca42e94fbc578f547b67b390e46ef82d4dc6fb2f0438f39763f",
+    "scripts/portable_removal_oracle.py": "60db8b34e47f2c9a269902f712fa70541011807e145607ce0f1fa2aa526002a3",
     "scripts/portable_source_oracle.py": "97475bdc1a97ddb67281c08bbfb7ee95978826e3f834f271155933fc4e631970",
     "tests/fixtures/portable-duration-extend.json": "32f301f32116ebf38f9ccd198240cd4efedc0afa37aaba82a0888c5e3c83d4fc",
     "tests/fixtures/portable-landings.json": "351c697e09cc503a03c91910b2b902e84c20acb6ad110d8532409f4036100a1b",
