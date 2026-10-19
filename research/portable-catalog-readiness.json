@@ -3,14 +3,14 @@
   "audited_characters": 203,
   "full_character_verified": 0,
   "weapon_input_preflight_passed": 203,
-  "own_effect_preflight_passed": 30,
+  "own_effect_preflight_passed": 32,
   "assumptions": "favorite stage 0, no cube, fixed five-member real roster; definition preflight only; not battle compatibility",
   "cpu_simulation_executed": false,
   "gpu_execution_performed": false,
   "issues": {
-    "Unported buff or recipient selector": 237,
-    "Unported instant or recipient selector": 19,
+    "Unported buff or recipient selector": 223,
     "Unported trigger timing: event:part_destroy": 15,
+    "Unported instant or recipient selector": 14,
     "Unported enemy damage selector": 12,
     "Unported trigger timing: event:enemy_spawn": 10,
     "Unported trigger timing: charge_hold:1": 10,
@@ -82,6 +82,7 @@
     "Unported predicate: self_stat_above:accuracy_pct:0": 1,
     "Unported trigger timing: multi_hit:2": 1,
     "Unported duration extension recipient selector": 1,
+    "Unported cleanse recipient selector": 1,
     "Unported trigger timing: pellet_hit_in_shot:5": 1,
     "Unported predicate: target_state:고위험 대상": 1,
     "Unported trigger timing: crit_hit_count:2": 1,
@@ -98,9 +99,9 @@
     "Unported predicate: target_code:수냉": 1
   },
   "diagnostic_semantic_issues": {
-    "Unported buff or recipient selector": 237,
-    "Unported instant or recipient selector": 19,
+    "Unported buff or recipient selector": 223,
     "Unported trigger timing: event:part_destroy": 15,
+    "Unported instant or recipient selector": 14,
     "Unported enemy damage selector": 12,
     "Unported trigger timing: event:enemy_spawn": 10,
     "Unported trigger timing: charge_hold:1": 10,
@@ -172,6 +173,7 @@
     "Unported predicate: self_stat_above:accuracy_pct:0": 1,
     "Unported trigger timing: multi_hit:2": 1,
     "Unported duration extension recipient selector": 1,
+    "Unported cleanse recipient selector": 1,
     "Unported trigger timing: pellet_hit_in_shot:5": 1,
     "Unported predicate: target_state:고위험 대상": 1,
     "Unported trigger timing: crit_hit_count:2": 1,
@@ -190,9 +192,9 @@
   "missing_families": {
     "damage_modifiers": 127,
     "weapon": 69,
-    "effect_lifecycle": 65,
     "damage": 56,
     "protection": 50,
+    "effect_lifecycle": 47,
     "control_survival": 44,
     "resource_accumulation": 16,
     "charge": 15,
@@ -2542,11 +2544,10 @@
           "conditions": [
             "not_self_state:건강한 몸"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "건강한 몸 3",
@@ -6245,13 +6246,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "설온제 2",
@@ -7912,13 +7910,10 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "안전하게 모실게!",
@@ -8108,7 +8103,7 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 87,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
@@ -9885,13 +9880,10 @@
             "every:30s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "환경 조성 2",
@@ -10013,13 +10005,10 @@
           "conditions": [
             "self_state:포메이션 AS"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "포메이션 LT 5",
@@ -16499,13 +16488,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "구경났냐 짜식들아!! 2",
@@ -33900,13 +33886,10 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "청소를 시작하겠습니다, 주인님.",
@@ -33933,13 +33916,10 @@
             "on_attack_count:420"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "잠시 쉬어갈 시간입니다, 주인님.",
@@ -34157,7 +34137,7 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 85,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
@@ -34192,12 +34172,12 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
+          "diagnostic_semantic_issue": "Unported cleanse recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported instant or recipient selector"
+          "issue": "Unported cleanse recipient selector"
         },
         {
           "name": "프로 케첩",
@@ -34222,11 +34202,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "프로 메이드장 2",
@@ -50264,11 +50243,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -50774,13 +50752,10 @@
             "burst_enter:1"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "WAKE UP! 2",
@@ -52156,13 +52131,10 @@
             "event:state_end:망상"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "상상 실연",
@@ -53494,11 +53466,10 @@
           "conditions": [
             "gauge_mod:무대_단계:2:1"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "무대 파트 : 보컬",
@@ -53511,11 +53482,10 @@
           "conditions": [
             "gauge_mod:무대_단계:2:0"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "떼창",
@@ -53923,11 +53893,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "퍼포먼스 2",
@@ -54212,13 +54181,10 @@
             "stack_reach:서약 위반 증거:3"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "서약 해지 2",
@@ -59420,13 +59386,10 @@
             "event:full_reload"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "산성탄 2",
@@ -59804,11 +59767,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported instant or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -62910,21 +62872,21 @@
     "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
     "app/portable_damage_specs.py": "62d322155e688a5e428b4cf56550216c6d050c0605487d39331d4306d47b14bb",
     "app/portable_duration_extend_specs.py": "f3909d1ce0a448090fd853a8fbb44f64bf6acdbb1803742812a2fb84bd42f9a8",
-    "app/portable_enemy_specs.py": "eaac9b2ebfdf2d50fea010cacda4f519c6125985d4acbc9b63fc01c8f45a931f",
+    "app/portable_enemy_specs.py": "34cfe5234f5ed216af3cf3cbdde5c6b777a48eed2a81676294f2ed96d1ab6e49",
     "app/portable_lifesteal_reference.py": "eeb7dd998fce96afbc032e95b5f9b7454cb0f408d4472bfd6dae9f23a64a1104",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
     "app/portable_reference_specs.py": "e0ce11eef8ee6dff7726f1dfc58798daa42003a9889a414d26ecfdac6aa4fdde",
     "app/portable_removal_specs.py": "65eeea6e89b54a4215ec93c6658d26231f4c8a656d3ac8b2ddd52ef5bcec0fcf",
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
     "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
-    "app/portable_runtime.py": "86687bf87efcb4294e0ccda32bcc7fd41c0afa0ae355ed55f30079acbab33a4a",
+    "app/portable_runtime.py": "221e29a10f805c54c0f15da017e62756148afbd3177b133f916116fc5b101146",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "bb882ba22203834f99ed923e148474fdfb2469044ce672b6433a5d762c95b758",
+    "app/portable_specs.py": "7b8135ebebcb4bfba825db6fb56d75a0a01a2136f22590e68e12b4751f753f80",
     "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
     "app/portable_trigger_specs.py": "de8354e952352ce0e40bf3f8ddf97f36595500ea3e7436672ae4ba0934871040",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/reference_count_runtime.py": "009b8bbee5523994861860c6101416bc1ff1e72b04a7da46e78f6ce9a5d571ef",
-    "app/reference_health_runtime.py": "f823783f8c82c623609e1035dbc13414b335514605018686a0f449334648ca40",
+    "app/reference_health_runtime.py": "3c61602618461266b8a35afdd4206d63243b3f52c027495104e67228f2ea53f6",
     "app/resource_specs.py": "de67874a373c94834d3fbe43d9be9d18ccc45e1e22f563f9e5d892b66ea07b85",
     "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",
     "app/staged_dot_specs.py": "5c38be17b5afbe79c6d7a4a0cf9d00108d97ee37822c725803944a9f6cf617d1",
@@ -62973,7 +62935,7 @@
     "scripts/portable_duration_extend_oracle.py": "6d68ed922e60c67690b613de36d74753d4ac660e35e9132519b58aff3fff2d77",
     "scripts/portable_landing_oracle.py": "318d4436c3636724112025866cd8e21f692772b96a83450e7bf3fae020484b45",
     "scripts/portable_lifesteal_oracle.py": "082a9149627a837f0efd0ff966af6de8868be3a7b776bdc7b8b21dc13ae0d531",
-    "scripts/portable_removal_oracle.py": "60db8b34e47f2c9a269902f712fa70541011807e145607ce0f1fa2aa526002a3",
+    "scripts/portable_removal_oracle.py": "e759261912f0f99a9b6f0ba879accbbacf45b75467d0d7e5eec1c2eb90d92f1d",
     "scripts/portable_source_oracle.py": "97475bdc1a97ddb67281c08bbfb7ee95978826e3f834f271155933fc4e631970",
     "tests/fixtures/portable-duration-extend.json": "32f301f32116ebf38f9ccd198240cd4efedc0afa37aaba82a0888c5e3c83d4fc",
     "tests/fixtures/portable-landings.json": "351c697e09cc503a03c91910b2b902e84c20acb6ad110d8532409f4036100a1b",

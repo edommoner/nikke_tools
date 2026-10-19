@@ -1,0 +1,5 @@
+{
+  "passed": false,
+  "reason": "Reference validator still restricted definition flags to the old low four bits, rejecting all new immunity flags. Expanded the mask, retaining subtype validation in validStatusDefinitions.",
+  "output": "Traceback (most recent call last):\n  File \"/Users/edo/Documents/ChatGPT/nikke_tools/research/verify-status-operators.py\", line 10, in <module>\n    evidence=run_programs(programs,backend=args.backend);results=evidence.pop('results');rows=[]\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/edo/Documents/ChatGPT/nikke_tools/app/portable_runtime.py\", line 572, in run_programs\n    raise PortableExecutionError(results,evidence)\nportable_runtime.PortableExecutionError: Portable GPU execution failed closed: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 0, 0, 0]\n"
+}
