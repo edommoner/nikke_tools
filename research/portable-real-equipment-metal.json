@@ -2126,7 +2126,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -4254,7 +4254,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -6382,7 +6382,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -8510,7 +8510,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -10638,7 +10638,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -12766,7 +12766,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -14894,7 +14894,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -17022,7 +17022,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -19150,7 +19150,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -21278,7 +21278,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -23406,7 +23406,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -25534,7 +25534,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -27662,7 +27662,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -29790,7 +29790,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -31918,7 +31918,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -34046,7 +34046,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -36174,7 +36174,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -38302,7 +38302,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -40430,7 +40430,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -42558,7 +42558,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -44686,7 +44686,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -46814,7 +46814,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -48942,7 +48942,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -51070,7 +51070,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -53198,7 +53198,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -55326,7 +55326,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -57454,7 +57454,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -59582,7 +59582,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -61710,7 +61710,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -63838,7 +63838,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -65966,7 +65966,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -68094,7 +68094,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -70222,7 +70222,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -72350,7 +72350,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -74478,7 +74478,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -76606,7 +76606,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -78734,7 +78734,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -80862,7 +80862,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -82990,7 +82990,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -85118,7 +85118,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -87246,7 +87246,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -89374,7 +89374,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -91502,7 +91502,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -93630,7 +93630,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -95758,7 +95758,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -97886,7 +97886,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -100014,7 +100014,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -102142,7 +102142,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -104270,7 +104270,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -106398,7 +106398,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -108526,7 +108526,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -110654,7 +110654,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -112782,7 +112782,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -114910,7 +114910,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -117038,7 +117038,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -119166,7 +119166,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -121294,7 +121294,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -123422,7 +123422,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -125550,7 +125550,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -127678,7 +127678,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -129806,7 +129806,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -131934,7 +131934,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -134062,7 +134062,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -136190,7 +136190,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -138318,7 +138318,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -140446,7 +140446,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -142574,7 +142574,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -144702,7 +144702,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -146830,7 +146830,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -148958,7 +148958,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -151086,7 +151086,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -153214,7 +153214,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -155342,7 +155342,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -157470,7 +157470,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -159598,7 +159598,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -161726,7 +161726,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -163854,7 +163854,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -165982,7 +165982,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -168110,7 +168110,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -170238,7 +170238,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -172366,7 +172366,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -174494,7 +174494,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -176622,7 +176622,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -178750,7 +178750,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -180878,7 +180878,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -183006,7 +183006,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -185134,7 +185134,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -187262,7 +187262,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -189390,7 +189390,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -191518,7 +191518,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -193646,7 +193646,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -195774,7 +195774,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -197902,7 +197902,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -200030,7 +200030,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -202158,7 +202158,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -204286,7 +204286,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -206414,7 +206414,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -208542,7 +208542,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -210670,7 +210670,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -212798,7 +212798,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -214926,7 +214926,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -217054,7 +217054,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -219182,7 +219182,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -221310,7 +221310,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -223438,7 +223438,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -225566,7 +225566,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -227694,7 +227694,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -229822,7 +229822,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -231950,7 +231950,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -234078,7 +234078,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -236206,7 +236206,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -238334,7 +238334,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -240462,7 +240462,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -242590,7 +242590,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -244718,7 +244718,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -246846,7 +246846,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -248974,7 +248974,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -251102,7 +251102,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -253230,7 +253230,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -255358,7 +255358,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -257486,7 +257486,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -259614,7 +259614,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -261742,7 +261742,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -263870,7 +263870,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -265998,7 +265998,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -268126,7 +268126,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -270254,7 +270254,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -272382,7 +272382,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -274510,7 +274510,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -276638,7 +276638,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -278766,7 +278766,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -280894,7 +280894,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -283022,7 +283022,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -285150,7 +285150,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -287278,7 +287278,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -289406,7 +289406,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -291534,7 +291534,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -293662,7 +293662,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -295790,7 +295790,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -297918,7 +297918,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -300046,7 +300046,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -302174,7 +302174,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -304302,7 +304302,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -306430,7 +306430,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -308558,7 +308558,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -310686,7 +310686,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -312814,7 +312814,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -314942,7 +314942,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -317070,7 +317070,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -319198,7 +319198,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -321326,7 +321326,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -323454,7 +323454,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -325582,7 +325582,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -327710,7 +327710,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -329838,7 +329838,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -331966,7 +331966,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -334094,7 +334094,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -336222,7 +336222,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -338350,7 +338350,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -340478,7 +340478,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -342606,7 +342606,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -344734,7 +344734,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -346862,7 +346862,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -348990,7 +348990,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -351118,7 +351118,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -353246,7 +353246,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -355374,7 +355374,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -357502,7 +357502,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -359630,7 +359630,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -361758,7 +361758,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -363886,7 +363886,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -366014,7 +366014,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -368142,7 +368142,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -370270,7 +370270,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -372398,7 +372398,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -374526,7 +374526,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -376654,7 +376654,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -378782,7 +378782,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -380910,7 +380910,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -383038,7 +383038,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -385166,7 +385166,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -387294,7 +387294,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -389422,7 +389422,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -391550,7 +391550,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -393678,7 +393678,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -395806,7 +395806,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -397934,7 +397934,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -400062,7 +400062,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -402190,7 +402190,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -404318,7 +404318,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -406446,7 +406446,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -408574,7 +408574,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -410702,7 +410702,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -412830,7 +412830,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -414958,7 +414958,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -417086,7 +417086,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -419214,7 +419214,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -421342,7 +421342,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -423470,7 +423470,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -425598,7 +425598,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -427726,7 +427726,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -429854,7 +429854,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     },
     {
       "pending_burst": {
@@ -431982,7 +431982,7 @@
       "trace_total": 0,
       "burst_trace_total": 0,
       "frames": 1,
-      "max_stack_depth": 2
+      "max_stack_depth": 1
     }
   ],
   "transport": {
@@ -431990,23 +431990,23 @@
     "cases": 203,
     "command_status": "completed",
     "device": "Apple M5",
-    "gpu_seconds": 0.009822833351790905,
+    "gpu_seconds": 0.009225416695699096,
     "input_bytes": 43237380,
-    "library_compile_seconds": 0.0007920265197753906,
+    "library_compile_seconds": 0.0007500648498535156,
     "output_bytes": 43237376,
-    "pipeline_compile_seconds": 0.0019069910049438477,
-    "pipeline_lock_wait_seconds": 2.9802322387695312e-06,
+    "pipeline_compile_seconds": 0.0016369819641113281,
+    "pipeline_lock_wait_seconds": 1.9073486328125e-06,
     "registry_id": "4294968313"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "429fc75886d45cbd6ee9baa743df0dcd4173263765faaca0c0ed81cfbf79c37f",
+    "gpu/event_runtime.slang": "e060c7373364dc630bc283d45e0551df972ff83815a84e640ed79808f6441fe0",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "641f98ccf1551346b545891ae7affbff13b31170aad8f68a308900f6c47eaeb0",
-    "gpu/runtime_init.slang": "d5e90d5fc6102ee541713c46551ac7cd0e055084d80c42e318b8f995d7a68643",
+    "gpu/portable_schema.slang": "e1fa2424feaf3c09ef61e4d6bb4f54274fce35b96d9e74fcc83294de5b04ad66",
+    "gpu/runtime_init.slang": "bf9e4ab1bc9b975fde7f2566918d8e4fdd62b134507c04fcd0bce74e30a5f3aa",
     "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
     "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
-    "gpu/lazy_runtime.slang": "fe31cbd40e8bc75d82b7d1146639772c6b236c3a08c126e4aa92299aae41932f",
+    "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
     "gpu/carrier_runtime.slang": "ee5785eb4a314831e271644f7341e5642549ffd3d19008e11fd877f3368a369f",
     "gpu/quantity_runtime.slang": "5d0a7ee77ad299b161f59ecccccc16a5a082ccc57fcf226c04873464264c2abf",
     "gpu/health_runtime.slang": "071e46cf983d294241247cfef5a3de6105829bd9e85fed05dc9d6050f8cc90fb",
@@ -432019,17 +432019,17 @@
     "gpu/enemy_damage_runtime.slang": "499f560b14bdf8521d3157a5af56cac405f7e1507e5665a21d223cecf96806ba",
     "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-    "gpu/combat_runtime.slang": "ff02e14488e11244be44b45933dd11348958b91c31e0efe62983a517bce98067",
+    "gpu/combat_runtime.slang": "2308b86207cb779fd51e713069637de51dec9cb9551b0156b8c4a067b11ad2eb",
     "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
   },
   "generated_sha256": {
-    "cuda": "33975a6c22a3b6bbc7f3404a5a060416400f45a4ba89fd866a0625dc6350b06f",
-    "metal": "5fb0d838fffb5d97e344fdd2c9ea5fec94f9dd055c4f194edc4a0cfb3ab7603f"
+    "cuda": "f5af1abe1d98178f8d1c1854232d94a5f5b1008fdf3cc7dfe29c7843df14b677",
+    "metal": "66ab1595d6d76eb6b6b0d43ba03aae2ff4010b0e3fc30eaed3724eb56970733f"
   },
-  "input_sha256": "d94496c1033821faa83e68dd1ffc57179e233d200cd4939f41edc1e38766ae99",
-  "output_sha256": "2ed6ac681e6ad7025b7b5d62f63f0019bab10c14d75dee79e71f36b985426c52",
+  "input_sha256": "bf70db31a55fd4ef3829d6c308f65e736aa07f71182cd918581b8349ff8a853e",
+  "output_sha256": "857a690fe3639c615366f3ccda25aede07d3a68d2302043437b275f178bce25f",
   "gpu_execution_verified": true,
   "backend": "metal",
   "application_event_runtime_connected": true,
@@ -432081,9 +432081,9 @@
     "app/portable_enemy_specs.py": "af19e9a5245d4171f45848254fe3fbfdfcbdcc39ca6ef0d6193b8a5e0bd5cf9a",
     "app/portable_recipient_specs.py": "19afc8e22bbc2593627174ef8b336b1e76483e7896f7bb3c729c7069efa21e7f",
     "app/portable_roster_input.py": "239f8f32affdde4d8284feb1ce249cd7bfdfdc82a43c24f5d7d2faaf51eb8ed7",
-    "app/portable_runtime.py": "1abd671e3d4d08fb8ab1e63694daf6ef130f860f849c65ccbf0ea6b0e7a5adbf",
+    "app/portable_runtime.py": "76100832e7b1c16753befe31131a5de02f80f8839e267a9c126289727af7776b",
     "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
-    "app/portable_specs.py": "deab10667b5417cc821a2454642db6d80ebc8975b74e82da0f8ec06e5fd91d4e",
+    "app/portable_specs.py": "bd715e19ab01e6c51f87ea5acee7ed56b738d090d40ef921e7cf6dd7606c8087",
     "app/portable_trigger_specs.py": "529d4befa7a245503994d4a8cbd47c0f748e070c0e4745556fe3e9010770995d",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/protection_runtime.py": "a6909bbdd73ef24ebdd3136cc67932c7ab433f23ae9ecabfc2a5069a5db37c81",
@@ -432170,6 +432170,7 @@
     "scripts/audit-team-hits.py": "7311103a5496ef4e281bb933b12ce09e234883e54f69765fbadc09ddff917203",
     "scripts/benchmark-combat.py": "59f36be13bb1540eb89eceadfd1b8d5363e455be11f75346631f8a015d0d9741",
     "scripts/benchmark-portable-ammo.py": "3693d29c66e413e250987a97e05cb990edc22bc11b477027670b0d2e015f9019",
+    "scripts/benchmark-portable-buff-audience.py": "2180083d9f4e25a850cc121d1882afb13410d76ccb36089cb9e850447207fafe",
     "scripts/benchmark-portable-bullets.py": "0ca84556c19473306a989d4f3d3a1d488dbd137f18f962737453b7c60fa029fb",
     "scripts/benchmark-portable-burst.py": "588b6dbaf3f42efc29394a8ada75b07db89c329a8d13bb2b57b394eb05f6c881",
     "scripts/benchmark-portable-capacity.py": "b58f33ca679bf318bd14cf1b0c1f80ef1a31ad20a2c550c8ede176e9afc35734",
@@ -432233,7 +432234,7 @@
     "scripts/portable_burst_oracle.py": "640bc66abb2df8b237383df3d626df30bc565de382b19671fbf11ba83d5ee94a",
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
     "scripts/portable_enemy_oracle.py": "eb74ebc919498057743a1d98c243e71bf6f348721efd202002f9b03fc38ab5d4",
-    "scripts/portable_health_oracle.py": "c169559a5e81ace1a00baf243aef122544dd743ef992f4e3c7a992a276d85666",
+    "scripts/portable_health_oracle.py": "3c8c66d0674675c3fbf884ed8ef53408a4ca74e2593ea3b1df3594b8176a5bfc",
     "scripts/portable_pending_oracle.py": "5919e9b30ef2b97cfeee24d19eb080c522df2fb6b98c1555be2efdf5c68e3359",
     "scripts/portable_weapon_oracle.py": "f011a2e648b4a34eb4bc6db5053066fec4b236c472ca7cad2e92e5677ffcc1a1",
     "scripts/prepare_metadata.py": "a3dbec2b9c635a2fefae3dfe7511cc1c2b9b7155b3cd77392fe3b771667fdf7c",
@@ -432346,9 +432347,9 @@
     "scripts/verify-periodic-detail.py": "592431aefb6cbba77fc8b0ac925dbcbe342fa87e488d423cedfa270df0261e05",
     "scripts/verify-periodic-sources-detail.py": "bece3113347f76c55022591fb7308cc2bcd181ff56497cb17de691f791450dda",
     "scripts/verify-periodic-targets-detail.py": "e159b1a38c095cfedb489105ae2c90051f6cf34cdbc8a35acb351b1e9b835159",
-    "scripts/verify-portable-api.py": "b0b4699474f5450066b4e8e5288dbff1d83ef8ef4d92f93310e0d110f3bf97cc",
+    "scripts/verify-portable-api.py": "98371ed4b21801d1cac5fc6d6874afb5614a97683c01bc6437cdbab01042d569",
     "scripts/verify-portable-catalog-weapons.py": "4986f71dc931d68ffad1bcdea2bf9be5e1dcb586e8d0c1a6001b5ca75799e3e6",
-    "scripts/verify-portable-combat.py": "113019664c3b14570ab06ba7dab20707f1e20913a3a44a58701b5ce2bff6d06a",
+    "scripts/verify-portable-combat.py": "e52751143d62a85214f7b5cfc2e649ca4edd69a740215e895ba2a0e36b00af19",
     "scripts/verify-portable-events.py": "a0c19364ccfbb0436268ca56a79457abbb588235c71a8e6d1565d8fe757cd6a7",
     "scripts/verify-portable-metal-lock.py": "1b61cb71e824881b0979abab06cfa614018222454b6f357013ba88be7f4646de",
     "scripts/verify-portable-numeric.py": "6f69e28e3de824899cc5e25320eb9ebfc2a5a4f44c5a3e5dc393a0ce7b664d9e",
