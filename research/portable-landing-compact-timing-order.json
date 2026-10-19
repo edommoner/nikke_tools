@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "before_timing_utc": "2026-10-19T13:43:17.189563+00:00",
+  "verification_processes": [],
+  "windows_execution_and_transfer_terminal": true,
+  "windows_turn": "01a15460-631e-76a1-81c5-2502cddb6dd0",
+  "sequential": true,
+  "commands": [
+    {
+      "workload": "two-receipts",
+      "label": "wide",
+      "exit_code": 0
+    },
+    {
+      "workload": "two-receipts",
+      "label": "compact",
+      "exit_code": 0
+    },
+    {
+      "workload": "full-2048",
+      "label": "wide",
+      "exit_code": 0
+    },
+    {
+      "workload": "full-2048",
+      "label": "compact",
+      "exit_code": 0
+    }
+  ],
+  "after_timing_utc": "2026-10-19T13:43:40.010251+00:00"
+}

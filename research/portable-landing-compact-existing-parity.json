@@ -1,7 +1,11 @@
 {
   "passed": true,
   "baseline_commit": "60c53bc",
-  "cases": 1063,
-  "comparison": "All decoded result fields and all CPU regression lists exactly equal; wire layout changes, no raw-byte equality to old ABI claimed",
-  "current_report_sha256": "0344ea4134628004dd36db712ad68112c7bb29ad6ba4e09d8451432c366b3dd1"
+  "mechanics": 1063,
+  "profiles": 58,
+  "comparison": "Every decoded field and original CPU reference identical, including queue diagnostics; no raw old-ABI equality claim",
+  "current_reports": {
+    "portable-combat-metal": "0344ea4134628004dd36db712ad68112c7bb29ad6ba4e09d8451432c366b3dd1",
+    "portable-roster-battles-metal": "53833bd58d1f2c707b1f682ad8533f07fadfdb86e5e01d61756996dd2f2e1440"
+  }
 }

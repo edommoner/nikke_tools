@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "measured_transport_allocations": true,
+  "programs": 1247,
+  "input_bytes": 388186116,
+  "wide_output_bytes": 490340352,
+  "compact_output_bytes": 449478656,
+  "output_bytes_saved": 40861696,
+  "bytes_saved_per_program": 32768,
+  "output_reduction_fraction": 0.08333333333333333,
+  "queue_capacity_unchanged": 2048,
+  "queue_record_words_before": 12,
+  "queue_record_words_after": 8,
+  "all_output_words_equivalent_after_representation_normalization": true,
+  "scope": "GPU transport output buffers, excluding driver pipeline/runtime private-memory allocation; not a speed claim"
+}
