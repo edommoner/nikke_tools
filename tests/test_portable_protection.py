@@ -10,6 +10,9 @@ class ProtectionContracts(unittest.TestCase):
  def test_static_policy_is_shared_and_original_definition_is_preserved(self):
   c=copy.deepcopy(CASES[0]);original=copy.deepcopy(c);words,meta=v.compile_case(c);self.assertEqual(c,original)
   self.assertEqual(words[L['PROTECTION_META_BASE']],1);self.assertEqual(words[L['PROTECTION_DEFINITION_BASE']],1)
+  for case in CASES:
+   packed,_=v.compile_case(case);kinds=[policy(e)&255 for e in case['effects']]
+   self.assertEqual(packed[L['PROTECTION_META_BASE']],(1 if any(kinds) else 0)|(2 if 4 in kinds else 0)|(4 if 7 in kinds else 0)|(8 if 3 in kinds else 0))
   self.assertTrue(meta['protection_enabled']);self.assertEqual(L['PROTECTION_OBJECTS'],2*L['CARRIERS'])
   source=(R/'gpu/event_runtime.slang').read_text();body=source.split('struct Runtime\n{',1)[1].split('};',1)[0];self.assertNotIn('protection',body.lower())
  def test_layered_stimulus_is_authored_not_a_cpu_damage_or_target_trace(self):

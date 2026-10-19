@@ -49,6 +49,7 @@ bool hasProtection(inout Runtime s,uint who,uint kind)
 [noinline]
 bool protectionMarker(inout Runtime s,uint who,uint kind,uint64_t when)
 {
+    if((commands[s.inputBase+P_PROTECTION_META_BASE]&(kind==4 ? 2U : 4U))==0) return false;
     for(uint pass=0;pass<s.orderedCount;pass++)
     { uint slot=s.orderedRows[pass];if((protectionPolicy(s,s.carrierDefinition[slot])&255)==kind && queryRecipient(s,slot,who,when)) return true; }
     return false;
@@ -56,6 +57,7 @@ bool protectionMarker(inout Runtime s,uint who,uint kind,uint64_t when)
 [noinline]
 uint64_t nextShieldAmplification(inout Runtime s,uint who,uint64_t when)
 {
+    if((commands[s.inputBase+P_PROTECTION_META_BASE]&8U)==0) return 0;
     uint64_t sum=0;uint bit=1U<<who;
     for(uint pass=0;pass<s.orderedCount;pass++)
     {
@@ -266,7 +268,7 @@ bool validProtection(inout Runtime s)
     {
         uint policy=protectionPolicy(s,row),kind=policy&255;Definition d=readDefinition(s.inputBase,row);
         if(kind==0) { if(policy!=0 || d.kind==27 || d.kind==31 || d.kind==0 && (d.stat==45 || d.stat==72 || d.stat==71)) return false;continue; }
-        enabled=1;
+        enabled|=1U|(kind==4 ? 2U : 0U)|(kind==7 ? 4U : 0U)|(kind==3 ? 8U : 0U);
         if(d.quantityFlags!=(kind==4 ? 4U : 0U) || (d.flags&120U)!=0) return false;
         if(kind>7 || (policy&~511U)!=0 || (policy&256)!=0 && kind!=1 || !f64Finite(d.value) || d.enemyBuff!=0) return false;
         if(kind==1 && (d.kind!=0 || d.stat!=45) || kind==2 && (d.kind!=0 || d.stat!=72) || (kind==3 || kind==4) && (d.kind!=4 || d.stat!=0) || kind==7 && (d.kind!=0 || d.stat!=71) || kind==5 && d.kind!=27 || kind==6 && d.kind!=31) return false;

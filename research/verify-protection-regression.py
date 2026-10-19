@@ -13,14 +13,14 @@ def execute(source,entry,packed,iw,ow,backend):
  calls+=1;assert calls==1 and source=='gpu/event_runtime.slang' and (iw,ow)==(81920,135168)
  old_input=hashlib.sha256(struct.pack('<I',len(indices)));view=memoryview(packed)
  for index in indices:
-  words=view[4+index*iw*4:4+(index+1)*iw*4];assert struct.unpack_from('<I',words)[0]==0x50455664
+  words=view[4+index*iw*4:4+(index+1)*iw*4];assert struct.unpack_from('<I',words)[0]==0x50455665
   old_input.update(struct.pack('<I',0x50455663));old_input.update(words[4:77824*4]);assert not any(words[77824*4:]),'old input extension must be zero'
  assert old_input.hexdigest()==prior['input_sha256'],'Old inputs changed beyond ABI and zero extension'
  raw,e=original(source,entry,packed,iw,ow,backend);old_output=hashlib.sha256()
  for index in indices:
   chunk=memoryview(raw)[index*ow*4:(index+1)*ow*4];old_output.update(chunk[:102400*4]);assert not any(chunk[102400*4:]),'old output extension must remain zero'
  assert old_output.hexdigest()==prior['output_sha256'],'Every old output word must match without normalization'
- report=dict(passed=True,prior_proof_commit='e96a546',prior_inputs=len(indices),current_inputs=struct.unpack_from('<I',packed)[0],current_positive_inputs=len(names),prior_input_sha256=prior['input_sha256'],prior_output_sha256=prior['output_sha256'],input_projection='ABI64 to63 and remove4096 zero words only',no_output_normalization=True,all_old_output_words_equal=True,all_added_old_output_tail_words_zero=True,current_input_words=iw,current_output_words=ow,**e)
+ report=dict(passed=True,prior_proof_commit='e96a546',prior_inputs=len(indices),current_inputs=struct.unpack_from('<I',packed)[0],current_positive_inputs=len(names),prior_input_sha256=prior['input_sha256'],prior_output_sha256=prior['output_sha256'],input_projection='ABI65 to63 and remove4096 zero words only',no_output_normalization=True,all_old_output_words_equal=True,all_added_old_output_tail_words_zero=True,current_input_words=iw,current_output_words=ow,**e)
  (P/f'portable-protection-existing-{backend}-parity.json').write_text(json.dumps(report,indent=2)+'\n');return raw,e
 portable_runtime.execute=execute
 v.main();assert calls==1

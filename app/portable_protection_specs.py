@@ -18,4 +18,6 @@ def policy(effect):
 
 def pack(words,index,effect,L):
  value=policy(effect);words[L['PROTECTION_DEFINITION_BASE']+index]=value
- if value:words[L['PROTECTION_META_BASE']]|=1
+ if value:
+  kind=value&255
+  words[L['PROTECTION_META_BASE']]|=1|(2 if kind==4 else 4 if kind==7 else 8 if kind==3 else 0)

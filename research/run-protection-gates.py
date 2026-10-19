@@ -17,7 +17,7 @@ if options.resume_api_sentinel_fix:
  provenance.update(production_source_commit='dd1050cefa0f1b3c1c1a170f459638d130eaaac2',verifier_only_patch=proof,reused_completed_gates=len(rows))
  jobs=jobs[20:]
 for name,args in jobs:
- start=time.monotonic();log=Path('/tmp/'+('nikke-v57r-gate-' if options.resume_api_sentinel_fix else 'nikke-v57-gate-')+name+'.log')
+ start=time.monotonic();log=Path('/tmp/'+('nikke-v57r-gate-' if options.resume_api_sentinel_fix else 'nikke-v58-gate-')+name+'.log')
  with log.open('w') as f:result=subprocess.run([python,*args],cwd=root,stdout=f,stderr=subprocess.STDOUT)
  rows.append(dict(name=name,source_commit=source,exit_code=result.returncode,elapsed_seconds=time.monotonic()-start,log=str(log)))
  (root/'research/portable-protection-global-gates.json').write_text(json.dumps(dict(passed=all(r['exit_code']==0 for r in rows),complete=len(rows)==total,gates=rows,source_provenance=provenance),indent=2)+'\n')
