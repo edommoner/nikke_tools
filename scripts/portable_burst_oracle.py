@@ -77,7 +77,11 @@ def _observe(case):
             queries[-1]['attack_buffs']=[bm.get_buffs(n,'__enemy__',t)['atk_pct'] for n in NAMES]
             if 1<=phase<=4:queries[-1]['combat']['action']=ctrl._next_action_t if math.isfinite(ctrl._next_action_t) else 1e30
         else:raise ValueError('Burst oracle supports frames, notifications and queries')
-    return dict(queries=queries,casts=casts)
+    result=dict(queries=queries,casts=casts)
+    if case.get('mode_timing_reference'):
+        result['weapon_timings']={i:dict(warm=actors[n].warmup_shots,last_fire=actors[n].last_fire_t,last_interval=actors[n]._last_inter)
+                                  for i,(n,w) in enumerate(zip(NAMES,weapons)) if w.get('enabled',False)}
+    return result
 
 
 def observe(case):

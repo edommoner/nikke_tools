@@ -382,6 +382,9 @@ void clearMode(inout Runtime s, uint who, uint64_t when)
     s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who]; s.modeShots[who] = 0;
     // A logical mode cancelled before any physical entry never replaced the gun.
     if (s.physicalModeIndex[who] < 0) return;
+    // End callbacks operate on the restored base magazine, not the capacity
+    // captured for the old physical shot. Pending-only modes keep that shot.
+    s.frameAmmoActive[who] = 0;
     // -2 means a physical mode ended: the first base-weapon frame must
     // restart cadence at its own sampling time, without refilling a second time.
     s.physicalModeIndex[who] = -2; s.pendingAutoReload[who] = 0;

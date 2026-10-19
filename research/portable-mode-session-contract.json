@@ -1,5 +1,5 @@
 {
-  "decision": "Preserve the shared fresh-session contract: an ended mode followed by a same-frame child activation enters with its own magazine and fresh charge. Treat pinned CPU boolean-only carryover as a documented regression-reference defect, never as a passing raw-CPU equality.",
+  "decision": "Preserve the common fresh-session contract. The native compatibility layer now tracks logical session identity and physical entry, restores the base magazine before end callbacks, and prevents old-shot consumption/scheduling from overwriting a new session.",
   "primary_source": "research/upstream/nikke-calc-master/docs/GAMEPLAY.md",
   "primary_source_sha256": "9640ef2a5f0c2e651b20075e7b9e72f84890ad7c608809fd1eeb86962ce20e27",
   "source_lines": [
@@ -33,5 +33,8 @@
   "no_new_in_game_experiment": true,
   "normal_ui_connected": false,
   "full_character_certification": 0,
-  "scheduling_rationale": "The freshly entered AR fires at 0.5 and schedules the next shot one 0.25-second interval later; the pinned CPU carries over its previous session schedule."
+  "scheduling_rationale": "The freshly entered AR fires at 0.5 and schedules the next shot one 0.25-second interval later; the pinned CPU carries over its previous session schedule.",
+  "raw_cpu_differences_scope": "Historical unadapted pinned source only. These fields now match in the adapted native observer.",
+  "native_adapter_resolved": true,
+  "native_adapter": "app/weapon_mode_runtime.py"
 }

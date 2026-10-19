@@ -495,6 +495,17 @@ def main():
     except urllib.error.HTTPError as error:
         assert error.code==400;assert 'Duration extension requires a state name' in json.load(error)['error']
     else:raise AssertionError('Invalid duration extension was accepted')
+    session_cases=json.loads((ROOT/'tests/fixtures/portable-mode-sessions.json').read_text(encoding='utf-8'))['cases']
+    result['session_identity_execution']=[]
+    for name in ('session-identity-end-pct-child-reentry','session-identity-end-pct-child-cancel',
+                 'session-identity-old-charge-limit-cannot-end-replacement','session-identity-warmup-shot-keeps-physical-clock'):
+        c=next(c for c in session_cases if c['name']==name)
+        body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(c['effects'],c['owners'])],
+                  script=c['script'],base_atk=c.get('base_atk',[1000]*5),combat=c['combat'],backend=args.backend)
+        actual=request(body);assert actual['gpu_execution_verified']
+        verifier.contains(actual['results'][0]['queries'],c['expected_queries'],name)
+        if 'expected_final' in c:verifier.contains(actual['results'][0],c['expected_final'],name+'.final')
+        result['session_identity_execution'].append(dict(name=name,execution=actual))
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in hashes}
     result.update(passed=True,api_status=200,unsupported_status=400,unsupported_error=detail['error'],adapter_sha256=hashes)
     path.write_text(json.dumps(result,indent=2)+'\n', encoding='utf-8')
