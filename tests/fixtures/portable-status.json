@@ -11770,6 +11770,114 @@
       "status_reference": true
     },
     {
+      "name": "status-null-and-omitted-state-share-identity",
+      "effects": [
+        {
+          "name": "state",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": null,
+          "fixed_value": 0,
+          "target": "self",
+          "duration": 2,
+          "max_stack": 5,
+          "polarity": "harmful",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "state",
+          "source": "스킬2",
+          "type": "buff",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": 2,
+          "max_stack": 5,
+          "polarity": "harmful",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "state",
+          "source": "스킬3",
+          "type": "buff",
+          "stat": "",
+          "fixed_value": 0,
+          "target": "self",
+          "duration": 2,
+          "max_stack": 5,
+          "polarity": "harmful",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000
+          }
+        ]
+      },
+      "stack_reference": true,
+      "status_reference": true
+    },
+    {
       "name": "lazy-cache-capacity",
       "effects": [
         {

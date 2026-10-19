@@ -164,7 +164,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             raise UnsupportedPortable('Multiple named non-buff carriers are not ported')
         seen_names.setdefault(key,[]).append(index)
     duration_groups={key:i+1 for i,key in enumerate(dict.fromkeys((owner,e.get('source'),e.get('name')) for e,owner in effects if e.get('stat')=='fullburst_duration'))}
-    stat_keys={key:i for i,key in enumerate(dict.fromkeys((e.get('type'),e.get('stat','')) for e,_ in effects))}
+    def stat_identity(effect):return (effect.get('type'),effect.get('stat') if effect.get('type')=='buff' else effect.get('stat',''))
+    stat_keys={key:i for i,key in enumerate(dict.fromkeys(stat_identity(e) for e,_ in effects))}
     if not 1<=len(script)<=L['COMMANDS'] or len(base_atk)!=5:
         raise ValueError('Invalid portable command/base-stat dimensions')
     words=[0]*L['INPUT_WORDS'];words[0:3]=[ABI,len(effects),len(script)];words[5]=1
@@ -202,7 +203,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     def merge_key(index,row):
         eff,owner=effects[index]
         if not row[205] or not eff.get('name') or eff.get('_source_tag')=='equipment' and int(row[2]) in (18,20,37):return None
-        return owner,eff['name'],eff.get('stat',''),int(row[9])
+        return owner,eff['name'],stat_identity(eff)[1],int(row[9])
     for index,row in enumerate(program['effects']):
         key=merge_key(index,row)
         if key is not None:merge_groups[key]=merge_groups.get(key,0)+1
@@ -215,23 +216,23 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         removal=removal_plan(effects[index][0],combat=combat)
         cleansing=cleanse_plan(effects[index][0],combat=combat)
         if cleansing is not None:
-            if cleansing[0]==1:pack_recipients(words,index,row,L,effects[index][0],stat_keys[(effects[index][0].get('type'),effects[index][0].get('stat',''))],False,0)
+            if cleansing[0]==1:pack_recipients(words,index,row,L,effects[index][0],stat_keys[stat_identity(effects[index][0])],False,0)
             else:
                 packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS'];words[packet:packet+8]=[*cleansing[1],0,0,0,0,0,0]
             words[L['RECIPIENT_BASE']+index*8+7]=0
         if stack is not None:
-            if stack[1]==1 or enemy_buff_plan(effects[index][0]) is not None:pack_recipients(words,index,row,L,effects[index][0],stat_keys[(effects[index][0].get('type'),effects[index][0].get('stat',''))],False,0)
+            if stack[1]==1 or enemy_buff_plan(effects[index][0]) is not None:pack_recipients(words,index,row,L,effects[index][0],stat_keys[stat_identity(effects[index][0])],False,0)
             else:
                 packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS'];words[packet:packet+8]=[*stack[2],0,0,0,0,0,0]
         if stack is not None:words[L['RECIPIENT_BASE']+index*8+7]=0
-        if extension is not None and extension[0]==1:pack_recipients(words,index,row,L,effects[index][0],stat_keys[(effects[index][0].get('type'),effects[index][0].get('stat',''))],False,0)
+        if extension is not None and extension[0]==1:pack_recipients(words,index,row,L,effects[index][0],stat_keys[stat_identity(effects[index][0])],False,0)
         if extension is not None and extension[0]==2:
             if extension[1][0] in (7,8) and any(t.get('defense',0)!=0 for t in combat['targets'][1:]):raise UnsupportedPortable('Enemy defense ranking requires zero add defenses in the current boss model')
             packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS'];words[packet:packet+8]=[*extension[1],0,0,0,0,0,0]
-        if removal is not None and removal[0]==1:pack_recipients(words,index,row,L,effects[index][0],stat_keys[(effects[index][0].get('type'),effects[index][0].get('stat',''))],False,0)
+        if removal is not None and removal[0]==1:pack_recipients(words,index,row,L,effects[index][0],stat_keys[stat_identity(effects[index][0])],False,0)
         if removal is not None and removal[0]==2:
             packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS'];words[packet:packet+8]=[*removal[1],0,0,0,0,0,0]
-        if row[1] in (0,4,5,6,7,8,12,13,14,24,30):pack_recipients(words,index,row,L,effects[index][0],stat_keys[(effects[index][0].get('type'),effects[index][0].get('stat',''))],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],effects[index][0].get('target')),0) if effects[index][0].get('type')=='buff' else 0)
+        if row[1] in (0,4,5,6,7,8,12,13,14,24,30):pack_recipients(words,index,row,L,effects[index][0],stat_keys[stat_identity(effects[index][0])],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],effects[index][0].get('target')),0) if effects[index][0].get('type')=='buff' else 0)
         if effects[index][0].get('type')=='damage':
             route,count,hits=damage_plan(effects[index][0])
             from portable_reference_specs import hit_reference

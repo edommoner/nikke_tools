@@ -1874,5 +1874,6 @@
     "scripts/portable_stack_validation.py": "e26299ee1feeb50774647e7cb55564b9fc4ada4685945d30e37da3b459f2c150",
     "tests/fixtures/portable-stacks.json": "a49be6396171f6b6e67b3b4345d102a5b1bf408aacc96de63b28af78cca4473c"
   },
-  "entry_thread_index_used_only_for_guard_and_wire_offsets": true
+  "entry_thread_index_used_only_for_guard_and_wire_offsets": true,
+  "old_cases_affected_by_new_snapshot_observer_predicate": []
 }

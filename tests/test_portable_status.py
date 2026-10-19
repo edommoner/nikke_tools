@@ -17,10 +17,11 @@ class StatusContracts(unittest.TestCase):
   self.assertLessEqual(L['IMMUNITY_USED_BASE']+13*256*2,L['IMMUNITY_SCRATCH_BASE'])
   self.assertLessEqual(L['IMMUNITY_SCRATCH_BASE']+256*4,L['OUTPUT_WORDS'])
  def test_marker_canonicalization_does_not_mutate_authored_definitions(self):
-  a=b.buff(stat=None);z=b.buff(stat='');z['source']='스킬2';effects=[a,z];before=copy.deepcopy(effects)
+  a=b.buff(stat=None);missing=copy.deepcopy(a);missing.pop('stat');missing['source']='스킬2';z=b.buff(stat='');z['source']='스킬3';effects=[a,missing,z];before=copy.deepcopy(effects)
   words,_=v.compile_case(b.case('marker',effects,[b.notify(0,7)]));self.assertEqual(effects,before)
   self.assertEqual(words[L['DEFINITION_BASE']+F['KIND']],4)
-  self.assertNotEqual(words[L['RECIPIENT_BASE']+6],words[L['RECIPIENT_BASE']+8+6])
+  self.assertEqual(words[L['RECIPIENT_BASE']+6],words[L['RECIPIENT_BASE']+8+6])
+  self.assertNotEqual(words[L['RECIPIENT_BASE']+6],words[L['RECIPIENT_BASE']+16+6])
  def test_invalid_cleanse_never_reaches_gpu(self):
   for update in (dict(type='buff'),dict(target=[]),dict(target='unmodeled'),dict(fixed_value=math.inf)):
    with self.subTest(update=update),self.assertRaises((ValueError,TypeError)):validate_effect(dict(b.cleanse(),**update),combat={})

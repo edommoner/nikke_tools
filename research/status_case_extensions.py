@@ -64,4 +64,6 @@ def cases(buff,immune,cleanse,notify,query,case):
  for value in (-10,10):
   hp=buff('snapshot hp',stat='max_hp_from_max_hp_pct',fixed_value=value,target='self',max_stack=1)
   add('cleanse-snapshot-health-'+str(value),[hp,cleanse(target='self')],[notify(0,7),query(0),notify(.1,8),query(.1,1)])
+ a=buff('state',stat=None,fixed_value=0,target='self');missing=copy.deepcopy(a);missing['source']='스킬2';missing.pop('stat');empty=copy.deepcopy(a);empty.update(source='스킬3',stat='')
+ add('null-and-omitted-state-share-identity',[a,missing,empty],[notify(0,7),query(0)])
  return rows

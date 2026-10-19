@@ -520,7 +520,7 @@ def main():
     status_cases=json.loads((ROOT/'tests/fixtures/portable-status.json').read_text(encoding='utf-8'))['cases']
     from portable_status_oracle import compare as compare_status
     result['status_execution']=[]
-    for name in ('status-same-name-pools-across-owners','status-recharge-after-all-named-children','status-cleanse-dot-retains-clock-captured-reference','status-cleanse-snapshot-health--10'):
+    for name in ('status-same-name-pools-across-owners','status-recharge-after-all-named-children','status-cleanse-dot-retains-clock-captured-reference','status-cleanse-snapshot-health--10','status-null-and-omitted-state-share-identity'):
         c=next(c for c in status_cases if c['name']==name);owners=c.get('owners',[0]*len(c['effects']))
         body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(c['effects'],owners)],script=c['script'],base_atk=c.get('base_atk',[1000]*5),combat=c['combat'],backend=args.backend)
         if 'environment' in c:body['environment']=c['environment']
