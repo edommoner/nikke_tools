@@ -89,6 +89,8 @@ Weapon selectWeapon(inout Runtime s, uint who, uint64_t when)
     if (s.appliedEpoch[who] != s.modeEpoch[who])
     {
         s.appliedEpoch[who] = s.modeEpoch[who]; s.modeShots[who] = 0; s.pendingAutoReload[who] = 0;
+        // CharState resets its pre-entry capacity memo when the mode is entered.
+        s.modeCapacityEpoch[who] = 0;
         w.capacity = ammoInstantCapacity(s,who,when); s.modeMagazine[who] = w.capacity;
         s.ammo[who] = w.capacity; s.nextShot[who] = when; s.charging[who] = 0; s.reloadUntil[who] = F64_SIGN | ONE; s.postReloadUntil[who] = F64_SIGN | ONE;
     }

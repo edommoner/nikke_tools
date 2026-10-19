@@ -5883,6 +5883,609 @@
         }
       ],
       "ammo_reference": true
+    },
+    {
+      "name": "ammo-mode-entry-refreshes-preentry-capacity",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 7,
+          "duration": 2,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": true,
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "later extra magazine",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 2,
+                "shots": 1
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 20,
+                "shots": 2
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "ammo-preentry-two-reads-share-then-entry-refreshes",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 7,
+          "duration": 2,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": true,
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "later extra magazine",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "second charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": 50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 9,
+                "shots": 1
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 20,
+                "shots": 2
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "ammo-mode-capacity-refreshes-at-reload",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 7,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": true,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "reload_time": 0.2
+        },
+        {
+          "name": "later magazine",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          1.5,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.5,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 0,
+                "shots": 1
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 20,
+                "shots": 2
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
     }
   ]
 }
