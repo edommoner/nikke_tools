@@ -283,11 +283,11 @@ def main():
         verifier.contains(actual['results'][0]['trace'],c['expected_packets'],name)
         enemy_evidence.append(dict(name=name,execution=actual))
     result['enemy_execution']=enemy_evidence
-    malformed=copy.deepcopy(body);malformed['effects'][1]['effect'].update(tick_interval=.25,duration=1)
+    malformed=copy.deepcopy(body);malformed['effects'][1]['effect'].update(stat='dot_damage',tick_interval=.25,duration=1,scaling='stack_count',scaling_ref='unsupported external clock basis')
     try:request(malformed)
     except urllib.error.HTTPError as error:
-        assert error.code==400;assert 'per-recipient clocks' in json.load(error)['error']
-    else:raise AssertionError('Multi-target periodic damage silently accepted')
+        assert error.code==400;assert 'scaling_ref' in json.load(error)['error']
+    else:raise AssertionError('Unsupported periodic external scaling reference silently accepted')
     result['enemy_unsupported_status']=400
     result['quantity_unsupported_status']=400
     result['timeline_execution']=timeline_result
