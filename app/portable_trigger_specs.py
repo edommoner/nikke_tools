@@ -12,7 +12,7 @@ CONDITIONS=dict(COVER_ALIVE=36,COVER_BROKEN=37,FULL=1,NOT_FULL=2,SELF_STATE=3,NO
 EVENTS=frozenset((0,1,2,3,4,6,7,8,9,10,11,12,14,16,17,19,20,21,26,29,31,32,36,37,38,46,48,49))
 COUNT=r'(?:[1-9][0-9]*|\{0\})'
 SIMPLE=r'event:cover_healed|event:cover_hit|received_hit|event:lethal_hit|event:self_down|event:ally_down|event:heal_received|battle_start|passive|on_attack|hit_count|burst_cast|full_burst_start|full_burst_end|event:full_reload|last_bullet|last_bullet_fire|full_charge|full_charge_fire|full_charge_hit|squad_ammo_consume|pellet_hit'
-COUNTERS=rf'(?:on_attack_count|hit_count|squad_ammo_consume|pellet_hit|pellet_hit_count|full_charge_fire_count|full_charge_count|full_charge_hit_count|burst_cast_count|full_burst_start_count|full_burst_end_count|full_burst_start_exact):{COUNT}'
+COUNTERS=rf'(?:received_hit_count|on_attack_count|hit_count|squad_ammo_consume|pellet_hit|pellet_hit_count|full_charge_fire_count|full_charge_count|full_charge_hit_count|burst_cast_count|full_burst_start_count|full_burst_end_count|full_burst_start_exact):{COUNT}'
 HP_NUMBER=r'[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
 HP_TIMING=rf'hp_below:{HP_NUMBER}|hp_below_count:{HP_NUMBER}:[1-9][0-9]*|event:(?:ally_hp_below|adjacent_hp_below):{HP_NUMBER}|event:adjacent_hp_max'
 TIMING=rf'event:[^:]+|{HP_TIMING}|{SIMPLE}|{COUNTERS}|burst_enter:[123]|burst_enter_count:[123]:{COUNT}|event:state_end:[^:]+|hit_count:[^:]+:{COUNT}|stack_reach:[^:]+:[1-9][0-9]*'
@@ -63,3 +63,15 @@ def pack_descriptors(words,index,row,L,F,double_words):
     words[at+F['TRIGGER_COUNT']]=n;words[at+F['CONDITION_COUNT']]=nc
     words[at+F['FLAGS']]=int(bool(row[69])) | (int(bool(row[217]))<<1)
     words[at+F['PERIOD']:at+F['PERIOD']+2]=double_words(row[44])
+
+
+def pack_event_candidates(words,L):
+    """Immutable candidates only; descriptor credit/multiplicity stays on GPU."""
+    start=L['EVENT_CANDIDATE_BASE'];size=64*L['MASK_WORDS']
+    words[start:start+size]=[0]*size
+    for row in range(words[1]):
+        count=words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+26]
+        for slot in range(count):
+            event=words[L['EVENT_BASE']+row*L['EVENT_WORDS']+slot*8]
+            if not 0<=event<64:raise ValueError('Event candidate ID outside wire range')
+            words[start+event*L['MASK_WORDS']+row//32] |= 1<<(row%32)

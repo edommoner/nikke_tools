@@ -28,13 +28,19 @@ function gpuWorker(body,job){
   return new Promise((resolve,reject)=>{const timer=setTimeout(()=>{const error=Error('GPU処理が制限時間を超えました。');error.gpuUnavailable=true;gpuRequests.delete(id);reject(error);child.kill();},['evaluate_detail','evaluate_detail_batch'].includes(body.action)?300000:120000);gpuRequests.set(id,{timer,resolve,reject});child.stdin.write(JSON.stringify({id,body})+'\n');}).finally(()=>{if(job?.child===child)job.child=null;});
 }
 process.on('exit',()=>gpuProcess?.kill());
+export function workerTimeoutSeconds(body) {
+  // Match portable_runtime.evaluate's default backend.
+  return body.action==='evaluate_portable_events' && (body.backend ?? 'metal')==='metal' ? 630 : 120;
+}
 function worker(body, job) {
   if(body.action==='gpu_probe'||body.action==='evaluate_detail'||body.action==='evaluate_detail_batch'||body.action==='combat_prefilter'||body.action==='select'&&body.backend==='cuda')return gpuWorker(body,job);
   return new Promise((resolve,reject) => {
     const child = spawn(python, [path.join(root,'app/engine_worker.py')], {cwd:root, windowsHide:true, env:{...process.env,PYTHONIOENCODING:'utf-8',PYTHONUTF8:'1'}});
     if (job) job.child=child;
     let out='', err='';
-    const timer=setTimeout(()=>{child.kill();reject(Error('計算が120秒を超えました。'));},120000);
+    // Metal may spend 2*90s generating sources, 300s compiling, then 120s on GPU.
+    const timeoutSeconds = workerTimeoutSeconds(body);
+    const timer=setTimeout(()=>{child.kill();reject(Error(`計算が${timeoutSeconds}秒を超えました。`));},timeoutSeconds*1000);
     child.stdout.on('data',b=>out+=b); child.stderr.on('data',b=>err+=b);
     child.on('error',e=>{clearTimeout(timer);reject(e);});
     child.on('close',code=>{

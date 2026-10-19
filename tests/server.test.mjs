@@ -42,3 +42,14 @@ test('alternative skill representations preserve unrelated skill levels',()=>{
   const burst=cases.find(c=>c.field==='burst'&&c.value===10);
   assert.deepEqual(burst.evaluation.patches.a.skill_levels,{'1':7,'2':8,'3':10});
 });
+
+ test('portable Metal HTTP deadline covers source generation, compilation and GPU bounds',async()=>{
+  const {workerTimeoutSeconds}=await import('../server.mjs');
+  assert.ok(workerTimeoutSeconds({action:'evaluate_portable_events',backend:'metal'}) > 2*90+300+120);
+  assert.equal(workerTimeoutSeconds({action:'evaluate_portable_events'}),630);
+});
+ test('CUDA and ordinary CPU worker deadlines remain bounded at 120 seconds',async()=>{
+  const {workerTimeoutSeconds}=await import('../server.mjs');
+  assert.equal(workerTimeoutSeconds({action:'evaluate_portable_events',backend:'cuda'}),120);
+  assert.equal(workerTimeoutSeconds({action:'evaluate',backend:'metal'}),120);
+});

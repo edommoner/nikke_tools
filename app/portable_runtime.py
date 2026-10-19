@@ -277,6 +277,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         at=L['COMMAND_BASE']+i*8
         words[at:at+8]=[op,*double_words(t),event,owner,*(double_words(extra) if op==18 else [arg & 0xffffffff,query & 0xffffffff]),0]
     if words[6] and frame_mode!=24:raise UnsupportedPortable('Accumulated clock requires GPU-generated frames')
+    from portable_trigger_specs import pack_event_candidates
+    pack_event_candidates(words,L)
     return words,dict(states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
 
 

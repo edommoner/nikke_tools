@@ -411,6 +411,7 @@ void registerTimer(inout Runtime s, uint row, uint64_t when)
 #include "incoming_runtime.slang"
 #include "burst_runtime.slang"
 #include "enemy_damage_runtime.slang"
+#include "event_candidate_runtime.slang"
 #include "pending_burst_runtime.slang"
 
 [noinline]
@@ -705,6 +706,13 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
 #endif
             while (frames[depth].cursor < s.count)
             {
+#ifndef PORTABLE_EVENT_SCAN_REFERENCE
+                if (f.mode == 0)
+                {
+                    frames[depth].cursor = nextEventCandidate(s,f.event,frames[depth].cursor);
+                    if (frames[depth].cursor >= s.count) break;
+                }
+#endif
                 uint j = frames[depth].cursor++; Definition d = s.defs[j];
                 if (f.mode == 2)
                 {
@@ -1093,6 +1101,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         s.defs[j] = d;
     }
     if (s.error != 0) { results[output] = s.error; return; }
+    if (!validEventCandidates(s)) { results[output] = 64; return; }
     for (uint row = 0; row < s.count; row++) if (!validPendingDefinition(s,row)) { results[output] = 64; return; }
     if (!validateDurationGroups(s)) { results[output] = 64; return; }
     initializeHPWatches(s);
