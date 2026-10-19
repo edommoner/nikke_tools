@@ -1,5 +1,5 @@
 {
-  "stage": "component-verified-full-goal-in-progress",
+  "stage": "historical-component-verified",
   "source_commit": "8bc3c97a2247f7b84113894cc1fbd6d9ac368086",
   "metal_verified": true,
   "cuda_verified": true,
@@ -15,5 +15,6 @@
     "Measure and optimize staged scheduling while preserving deadline rounding and callback order",
     "Connect remaining world, lifecycle and character families",
     "Certify all 203 characters and all variants before normal UI Metal"
-  ]
+  ],
+  "continued_in": "portable-staged-index-work-in-progress.json"
 }

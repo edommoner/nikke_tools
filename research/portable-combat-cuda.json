@@ -6,24 +6,24 @@
   "transport": {
     "backend": "cuda",
     "device": "NVIDIA GeForce RTX 3070 Ti",
-    "cases": 1198,
+    "cases": 1204,
     "command_status": "completed",
-    "host_dispatch_seconds": 11.502756100147963
+    "host_dispatch_seconds": 8.794313800055534
   },
   "generated_sha256": {
-    "cuda": "1e502fe5dffd9a39aa1de6e0fe56a3234b571dc8b799283ab30859d68ecbbafc",
-    "metal": "91ef276f7d1834e141dc438fc0cdcdda43d7fc14705a0e3269afe18d9679c862"
+    "cuda": "9b5a40c4d3f02062de55e88774d9ff418563dc50e0b4720d61d7e4b79c04ff43",
+    "metal": "a1521f220898babc6c4f34f3b8dc6782a7ccaabe9322cbbc79917ece49b3156b"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "258a7120705567b2e3223a3855ea413249153e80c62dbef94cbf3da9d4feeb56",
+    "gpu/event_runtime.slang": "97c90b27ad093bebdf8b29c46529a557a37dcc93a2b6ccc59d674ad32970b484",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "e3c9f8295bc735e0fc548c918190c1c5de494723d78ed5b843ab751681af5faa",
+    "gpu/portable_schema.slang": "913bd108d3eefe350726635ca63d2a4eed35a51e2e42072522d7d56fd37ec397",
     "gpu/runtime_init.slang": "1dac2bb813bd98a598d0aaed2aeb29006513c0bb1e25b73c95011a20c8befd7f",
     "gpu/resource_runtime.slang": "5663120967beaf269c3928a7c581d4a9d009da7e1b36cf05b129f36df84ff2ab",
     "gpu/source_runtime.slang": "53c5f6285f4e2bbc43f90ae0c0c436269456c1a88e70aea676dc5fd9a905c71c",
     "gpu/reference_runtime.slang": "d4b97eb4fd07c38dcd990e1babe887c6d1ca6a4bb38e39db13c1c473c38ce417",
-    "gpu/staged_runtime.slang": "e09f6d8a23dd56d8ba243466213743bd4aa23ad71fbafe8e2551d38dd3687c93",
+    "gpu/staged_runtime.slang": "34dad1e5de97b3cf4acb2f1be37b1eb1559b179556d032397f5aba0241fd66c7",
     "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
     "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
     "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
@@ -50,13 +50,13 @@
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
   },
-  "input_sha256": "a59f583f4e73533f5f26409d2d4ba647ac5dfdf4eb0e89f8254437a86ce69b48",
-  "output_sha256": "7afdc11f68ca7ef9b5ce8d665e73edbd9a793d7a8e99451523392bdacf5d2481",
+  "input_sha256": "23e0ff69559f8d708fecb2c2b06bbc3a742e8c10288b43423e92eddeb9416654",
+  "output_sha256": "2a231ac0e81db0a1f3b622beaec4bf688dd5b25109297820c4658f0fec408cd7",
   "validation_sha256": {
-    "app/portable_staged_specs.py": "533afb55eef1f3b9b5d6a0fe3464f890ebe54db03bf82010c49f5dacb369e5fd",
+    "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
     "app/staged_dot_specs.py": "5c38be17b5afbe79c6d7a4a0cf9d00108d97ee37822c725803944a9f6cf617d1",
     "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",
-    "tests/fixtures/portable-staged.json": "d6cecaa5d6c7c5b756a17f57e021052c93448b37149288036281769b5499ba82",
+    "tests/fixtures/portable-staged.json": "d3da4ed61ef8be36f8d3e43a6c9a413f2f8547911eea3a913b4554dc4cf2f245",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
     "scripts/portable_source_oracle.py": "97475bdc1a97ddb67281c08bbfb7ee95978826e3f834f271155933fc4e631970",
     "app/periodic_source_specs.py": "4c96a26ce0d0ca987c1e057d95d9a88055e706c7bf2cadde70df6b58ec9f2444",
@@ -77,9 +77,9 @@
     "app/portable_roster_input.py": "7f65ee49d9688b59493ec958584ff157312e259eadf269b55fba6af813265593",
     "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
     "app/portable_enemy_specs.py": "52ef96d79d4791ebe5a7da2ad6cee0a8550a50edccb1a3f5aaa5b7f4204e8686",
-    "app/portable_runtime.py": "384f60e1757041d58b0174aadc8f0b1ceda918c49374ff641985de606d68af41",
+    "app/portable_runtime.py": "eb81ea1ea20db04e384fce8d02735740bf2c3c2f51a21b688b91337d1d0a1ebc",
     "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
-    "app/portable_specs.py": "8950424d2f2a3505f692e159d72668c4165b65c7caf1fd8b1195dfbad56efbd3",
+    "app/portable_specs.py": "c1e087ba0b90f706ba9deaa58f1a4d2cb6e0fb9067d6fbf0714d122c435344e8",
     "app/portable_periodic_specs.py": "830b7b7bd25586ae568b210dd3583c3e7349bb0ac29226d0748ba77b7da3d9bf",
     "app/portable_backend.py": "65fa85746a0be27fce443e95f47a92885a4c822dc6630141b1baa972c4cfff53",
     "app/portable_trigger_specs.py": "de8354e952352ce0e40bf3f8ddf97f36595500ea3e7436672ae4ba0934871040",
@@ -98,7 +98,7 @@
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "c1cd4ceaa232e8570c75e41b7fd6232a1e1f8f538e47b35c50dfde6e4a30c517",
+    "scripts/verify-portable-combat.py": "ca4b9726a997cba106c26c83dac16aba5a5ec3ec6ecfb5595e44ca5af046063a",
     "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
     "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
     "tests/fixtures/portable-enemy-spawn-order.json": "7c72c2ec3a76bba4bf0da1be6a8e1e32db6124ef37feb87cb72a5447c8010791",
@@ -1163,6 +1163,7 @@
     0,
     0,
     0,
+    0,
     2,
     64,
     8,
@@ -1297,6 +1298,11 @@
     2,
     2,
     8,
+    64,
+    64,
+    64,
+    64,
+    64,
     64,
     64,
     64,
@@ -2363,6 +2369,7 @@
     0,
     0,
     0,
+    0,
     2,
     64,
     8,
@@ -2497,6 +2504,11 @@
     2,
     2,
     8,
+    64,
+    64,
+    64,
+    64,
+    64,
     64,
     64,
     64,
@@ -2536,9 +2548,8 @@
     64
   ],
   "batch_layout": {
-    "positive_count": 1027,
+    "positive_count": 1028,
     "rejection_indices": [
-      1027,
       1028,
       1029,
       1030,
@@ -2708,7 +2719,13 @@
       1194,
       1195,
       1196,
-      1197
+      1197,
+      1198,
+      1199,
+      1200,
+      1201,
+      1202,
+      1203
     ]
   },
   "rejected_cases": [
@@ -3394,6 +3411,26 @@
     },
     {
       "name": "wire-staged-disabled-padding",
+      "status": 64
+    },
+    {
+      "name": "wire-staged-index-count",
+      "status": 64
+    },
+    {
+      "name": "wire-staged-index-missing",
+      "status": 64
+    },
+    {
+      "name": "wire-staged-index-wrong-row",
+      "status": 64
+    },
+    {
+      "name": "wire-staged-index-out-of-range",
+      "status": 64
+    },
+    {
+      "name": "wire-staged-index-padding",
       "status": 64
     }
   ],
@@ -5132,7 +5169,8 @@
     "staged-two-schedules-deadline-order",
     "staged-duration-expired-before-late-observation",
     "staged-post-delay-beyond-lifetime",
-    "staged-source-population-count"
+    "staged-source-population-count",
+    "staged-index-all-254-carriers"
   ],
   "health_cpu_regressions": [
     "initial-allied-hp-and-defense",
@@ -5603,7 +5641,8 @@
     "staged-two-schedules-deadline-order",
     "staged-duration-expired-before-late-observation",
     "staged-post-delay-beyond-lifetime",
-    "staged-source-population-count"
+    "staged-source-population-count",
+    "staged-index-all-254-carriers"
   ],
   "trigger_cpu_regressions": [
     "same-event-cpu-indexed-activation-multiplicity",
@@ -9816,11 +9855,15 @@
     {
       "name": "staged-source-population-count",
       "passed": true
+    },
+    {
+      "name": "staged-index-all-254-carriers",
+      "passed": true
     }
   ],
   "metal_generated_sha256": {
-    "cuda": "612ab00e3c0dfb02e49840c33de3372ca0ec2c4ec578091a928ce176eed1fdea",
-    "metal": "236c01ee9178b49d1478285289245dcdef8f318a97bcedbd8a514af884ed2d00"
+    "cuda": "296abee1a18d2b97855c1e1ca9aba13465c690d6f3ae39be13e7a6453f397df1",
+    "metal": "de493004557cfae1962c7afc18c9323766cb0d691f7ae3de08b68b302875cc4c"
   },
   "metal_comparison": {
     "source_sha256": true,
@@ -9867,10 +9910,10 @@
   },
   "execution": {
     "command": "python scripts/verify-portable-combat.py --backend cuda",
-    "commit": "8bc3c97a2247f7b84113894cc1fbd6d9ac368086",
+    "commit": "21e03a0fdd974c7e4a485746d1ddc087e9809666",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "25, 4554",
+    "gpu_before": "38, 4504",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -9888,8 +9931,8 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 68.93506189994514,
-    "stdout": "{\"passed\": true, \"cases\": 1027, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
+    "elapsed_seconds": 66.97557559981942,
+    "stdout": "{\"passed\": true, \"cases\": 1028, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
     "stderr": ""
   },
   "postcheck": {
@@ -9897,33 +9940,33 @@
     "original_head_after": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_after": []
   },
-  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-8bc3c97\\research\\portable-combat-cuda.json",
+  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-21e03a0\\research\\portable-combat-cuda.json",
   "available": true,
   "full_readback_available": true,
   "compiler_success_log_saved": false,
   "generated_normalization": {
     "cuda": {
       "available": true,
-      "raw_sha256": "1e502fe5dffd9a39aa1de6e0fe56a3234b571dc8b799283ab30859d68ecbbafc",
-      "lf_sha256": "7bd004d5ba88dd2cad1f5ea1636f9ce5161619102b590258dda154f09489bdfe",
-      "no_line_directives_sha256": "0c4827b5b362799f5b4a124f57d6bcaca00a6671976e0e61a0b2ce32a31ec8be",
-      "no_line_directives_portable_prelude_sha256": "1837a1b99ed1fd142efc84e1b27805a9f8ee6de563df1df71b497e7277379e51",
-      "lines": 44304,
-      "no_line_directive_lines": 32862,
-      "line_directives": 11442
+      "raw_sha256": "9b5a40c4d3f02062de55e88774d9ff418563dc50e0b4720d61d7e4b79c04ff43",
+      "lf_sha256": "190fcee3f40b1e74ab1ca4081c61704e421ba939e1477e2f9904f0e4000b4d52",
+      "no_line_directives_sha256": "99eb7cc678663fd6939bf71f3048ae93649ea264891b04e2da96de9f53ac2c07",
+      "no_line_directives_portable_prelude_sha256": "cf43fd236cc568df9ca7c91c8fe71addd335851425404d9cab379e8403b8f3a6",
+      "lines": 44392,
+      "no_line_directive_lines": 32926,
+      "line_directives": 11466
     },
     "metal": {
       "available": true,
-      "raw_sha256": "91ef276f7d1834e141dc438fc0cdcdda43d7fc14705a0e3269afe18d9679c862",
-      "lf_sha256": "ff8b1bd9f718d09e7892bcceeb8c573ef349a7e6a6dd52eb94eec7692f27ee07",
-      "no_line_directives_sha256": "125a44d7aa533406f0b436d3831dd3e30ef64187c0bf2bc29480bf53ac416270",
-      "no_line_directives_portable_prelude_sha256": "125a44d7aa533406f0b436d3831dd3e30ef64187c0bf2bc29480bf53ac416270",
-      "lines": 44803,
-      "no_line_directive_lines": 33251,
-      "line_directives": 11552
+      "raw_sha256": "a1521f220898babc6c4f34f3b8dc6782a7ccaabe9322cbbc79917ece49b3156b",
+      "lf_sha256": "de11eddace022facce43221646e8616b93cde0273541d3de434d1be789cb7594",
+      "no_line_directives_sha256": "d170dbef7e3d4364b2ff0548ac7becf2e4c18e8729e9a6fa80279139c6ce6d4e",
+      "no_line_directives_portable_prelude_sha256": "d170dbef7e3d4364b2ff0548ac7becf2e4c18e8729e9a6fa80279139c6ce6d4e",
+      "lines": 44884,
+      "no_line_directive_lines": 33312,
+      "line_directives": 11572
     }
   },
   "summary_only": true,
-  "summary_source": "windows-portable-combat-v37.json",
+  "summary_source": "windows-portable-combat-v38.json",
   "scope": "Shared event/combat mechanics, enemy packets, allied cover state and pending B3 bonuses; independent components are not full battle or catalog certification"
 }

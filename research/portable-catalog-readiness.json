@@ -62991,10 +62991,10 @@
     "app/portable_reference_specs.py": "de22b095242d7fd64ac1cdd362011fda0f48ea2f33e84be58dd348bc7400ff1a",
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
     "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
-    "app/portable_runtime.py": "384f60e1757041d58b0174aadc8f0b1ceda918c49374ff641985de606d68af41",
+    "app/portable_runtime.py": "eb81ea1ea20db04e384fce8d02735740bf2c3c2f51a21b688b91337d1d0a1ebc",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "8950424d2f2a3505f692e159d72668c4165b65c7caf1fd8b1195dfbad56efbd3",
-    "app/portable_staged_specs.py": "533afb55eef1f3b9b5d6a0fe3464f890ebe54db03bf82010c49f5dacb369e5fd",
+    "app/portable_specs.py": "c1e087ba0b90f706ba9deaa58f1a4d2cb6e0fb9067d6fbf0714d122c435344e8",
+    "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
     "app/portable_trigger_specs.py": "de8354e952352ce0e40bf3f8ddf97f36595500ea3e7436672ae4ba0934871040",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/reference_count_runtime.py": "009b8bbee5523994861860c6101416bc1ff1e72b04a7da46e78f6ce9a5d571ef",
@@ -63048,6 +63048,6 @@
     "tests/fixtures/portable-reference-scales.json": "e0e26b2691affa2f30e1456c9bf49923c24f0a63667c16da45f73a31c7ad61bd",
     "tests/fixtures/portable-resources.json": "d3e83f6c000d3f98cf94c42facabb4db6eb9d6eb341600866b52979eb16c52d4",
     "tests/fixtures/portable-sources.json": "7c67eb17ad96eff5237e1a14de38ef5f30494cba272cf56da8acb0ce7c45ec86",
-    "tests/fixtures/portable-staged.json": "d6cecaa5d6c7c5b756a17f57e021052c93448b37149288036281769b5499ba82"
+    "tests/fixtures/portable-staged.json": "d3da4ed61ef8be36f8d3e43a6c9a413f2f8547911eea3a913b4554dc4cf2f245"
   }
 }
