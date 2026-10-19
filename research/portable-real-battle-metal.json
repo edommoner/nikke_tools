@@ -1,6 +1,7 @@
 {
   "results": [
     {
+      "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
       "reference_captures": [],
@@ -3890,6 +3891,7 @@
       "max_stack_depth": 1
     },
     {
+      "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
       "reference_captures": [],
@@ -8102,6 +8104,7 @@
       "max_stack_depth": 3
     },
     {
+      "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
       "reference_captures": [],
@@ -13008,6 +13011,7 @@
       "max_stack_depth": 3
     },
     {
+      "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
       "reference_captures": [],
@@ -18954,6 +18958,7 @@
       "max_stack_depth": 3
     },
     {
+      "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
       "reference_captures": [],
@@ -22817,6 +22822,7 @@
       "max_stack_depth": 1
     },
     {
+      "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
       "reference_captures": [],
@@ -26945,6 +26951,7 @@
       "max_stack_depth": 3
     },
     {
+      "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
       "reference_captures": [],
@@ -31767,6 +31774,7 @@
       "max_stack_depth": 3
     },
     {
+      "staged_applications": [],
       "periodic_sources": [],
       "source_queries": [],
       "reference_captures": [],
@@ -37635,12 +37643,12 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 8.99401162500726,
+    "gpu_seconds": 9.10984066670062,
     "input_bytes": 2490372,
-    "library_compile_seconds": 0.0007990598678588867,
+    "library_compile_seconds": 0.0008291006088256836,
     "output_bytes": 2228224,
-    "pipeline_compile_seconds": 0.001810908317565918,
-    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_compile_seconds": 0.001916050910949707,
+    "pipeline_lock_wait_seconds": 2.9802322387695312e-06,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
     "threads_per_threadgroup": 1,
@@ -37648,14 +37656,15 @@
     "gpu_timeout_seconds": 120
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "fb5937cfcc489efa8a3995e4c70bcdb857b32c6ce272aa1e82bd70ad061e4481",
+    "gpu/event_runtime.slang": "258a7120705567b2e3223a3855ea413249153e80c62dbef94cbf3da9d4feeb56",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "c44b446bc2ff7be8d73caa7530e1aa1cbc2c56f93a0e3d9e56dd563e9b1d9950",
-    "gpu/runtime_init.slang": "807dd22c174671171a6b6690d5d7530961935773c80104bcd9d0abac5edf252e",
+    "gpu/portable_schema.slang": "e3c9f8295bc735e0fc548c918190c1c5de494723d78ed5b843ab751681af5faa",
+    "gpu/runtime_init.slang": "1dac2bb813bd98a598d0aaed2aeb29006513c0bb1e25b73c95011a20c8befd7f",
     "gpu/resource_runtime.slang": "5663120967beaf269c3928a7c581d4a9d009da7e1b36cf05b129f36df84ff2ab",
     "gpu/source_runtime.slang": "53c5f6285f4e2bbc43f90ae0c0c436269456c1a88e70aea676dc5fd9a905c71c",
-    "gpu/reference_runtime.slang": "d2ed4c3e291d4de57007194643c63efad83ef209525efe6b49f4b7de3b896143",
+    "gpu/reference_runtime.slang": "d4b97eb4fd07c38dcd990e1babe887c6d1ca6a4bb38e39db13c1c473c38ce417",
+    "gpu/staged_runtime.slang": "e09f6d8a23dd56d8ba243466213743bd4aa23ad71fbafe8e2551d38dd3687c93",
     "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
     "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
     "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
@@ -37673,7 +37682,7 @@
     "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
     "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
     "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
-    "gpu/periodic_runtime.slang": "32ce219c06db4749a284b12011a8510ff7704ab65d164ba85d31cdcacbcb9a53",
+    "gpu/periodic_runtime.slang": "78c594e573b27072615102916c7605440cbd5fbfb0b34cf19c57be4c47fb3d57",
     "gpu/event_candidate_runtime.slang": "5b986d2d51b052186bedb820788460d009220a58e84d6a8803770b64287db356",
     "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
@@ -37683,10 +37692,10 @@
     "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
   },
   "generated_sha256": {
-    "cuda": "b0f8d91449778fa365cf7e2db64a5918fae73da68c1cf5bb82657c2542398b59",
-    "metal": "dde2c6d0dc59ec5f3f1fde8a9b0176bc14ca2ca557be525a5b07099ba71439c5"
+    "cuda": "612ab00e3c0dfb02e49840c33de3372ca0ec2c4ec578091a928ce176eed1fdea",
+    "metal": "236c01ee9178b49d1478285289245dcdef8f318a97bcedbd8a514af884ed2d00"
   },
-  "input_sha256": "b85e3b575acc817e83c731b31a46c8c0760fe0efcb0d4b7d0fbbd7d1a2d64fde",
+  "input_sha256": "7fd9a6b6c056365239feffea1af39960bbc638bbc79c8333d12a9def8b0ea1a1",
   "output_sha256": "2642ea1d52b274c205ebb4fd80638a0a1dca6c24ecf3cf83bea76d91ca8aca74",
   "gpu_execution_verified": true,
   "backend": "metal",
@@ -37736,23 +37745,24 @@
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
     "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
     "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
-    "app/portable_enemy_specs.py": "c7d1343e9519bf438b9b569394633856937a14d80653235df6f3267ce586b722",
+    "app/portable_enemy_specs.py": "52ef96d79d4791ebe5a7da2ad6cee0a8550a50edccb1a3f5aaa5b7f4204e8686",
     "app/portable_periodic_specs.py": "830b7b7bd25586ae568b210dd3583c3e7349bb0ac29226d0748ba77b7da3d9bf",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
     "app/portable_reference_specs.py": "de22b095242d7fd64ac1cdd362011fda0f48ea2f33e84be58dd348bc7400ff1a",
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
-    "app/portable_resource_specs.py": "fe3be541e6e9960cfa18e9079e4f642dd14a6deb0a40c228d1e411cc678ab63d",
+    "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
     "app/portable_roster_input.py": "7f65ee49d9688b59493ec958584ff157312e259eadf269b55fba6af813265593",
-    "app/portable_runtime.py": "139885a812f9469421b9b151248faa3fa66b74cb8739721227b0601485a0646d",
+    "app/portable_runtime.py": "384f60e1757041d58b0174aadc8f0b1ceda918c49374ff641985de606d68af41",
     "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "4a8bc5a3f2c460be98e6ef0e8111d57a4704263cd36ffe8662700c5a49cd7826",
+    "app/portable_specs.py": "8950424d2f2a3505f692e159d72668c4165b65c7caf1fd8b1195dfbad56efbd3",
+    "app/portable_staged_specs.py": "533afb55eef1f3b9b5d6a0fe3464f890ebe54db03bf82010c49f5dacb369e5fd",
     "app/portable_trigger_specs.py": "de8354e952352ce0e40bf3f8ddf97f36595500ea3e7436672ae4ba0934871040",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/protection_runtime.py": "a6909bbdd73ef24ebdd3136cc67932c7ab433f23ae9ecabfc2a5069a5db37c81",
     "app/quantity_specs.py": "e8a638101b1db68e7fdcaf43867ddabd51c8dc32d09e285d1c334b8ed6674457",
-    "app/reference_count_runtime.py": "b08ddcb353844bf1ce481592ad8a0eabfa796602da4205156fede0ad1d9854e7",
-    "app/reference_health_runtime.py": "aa581221b2b204aa8857b0d35cd1a255f08b804a837205e6a8aa2177415a6c0a",
+    "app/reference_count_runtime.py": "009b8bbee5523994861860c6101416bc1ff1e72b04a7da46e78f6ce9a5d571ef",
+    "app/reference_health_runtime.py": "e6e4e530b9fd3749c5015574f4c8d65eba09e6217bf3871fa5735f6351c91ac1",
     "app/reference_rewrite.py": "1cf402b96e201ce4f3fa0f20958178e9187776987ba61ff26691cc1e9c068be7",
     "app/resource_runtime.py": "8356943f18d137bfb90d60ab2096c2505403c9156f088cf29c7aeda38fecd58c",
     "app/resource_specs.py": "de67874a373c94834d3fbe43d9be9d18ccc45e1e22f563f9e5d892b66ea07b85",
@@ -37825,7 +37835,7 @@
     "scripts/audit-infinite-ammo.py": "25758f9741c30b79fc5bc000b26c83b2f0266d33e07492a2a983d9471afcf577",
     "scripts/audit-live-reach.py": "7d346bac4f9abfba4384feec42b831e7a824e07f8f48893b266505750f71ef4e",
     "scripts/audit-named-capacity.py": "e481ed09935747bfb0ec25f61df0ca6ceccff1e8b5f5a996b3662ffa55edba6f",
-    "scripts/audit-portable-catalog.py": "2c5d6b87f5ea688a8c34aa3230a6e863d3713f3c508362931a2678cd5156ff1a",
+    "scripts/audit-portable-catalog.py": "be79b19e803c8ad0bcfb360aaa4f392cddc6bc1f1bf2bcd13482ba21c5e1d5bb",
     "scripts/audit-python-random.py": "c5c212e300b92d49e49177b7739e9ddec7157945ba4bf27dae129cfffd32abec",
     "scripts/audit-random-target-lifecycle.py": "b4c789e25b264123edadff3e9f1d3f8b96ef0ed7f87797a9f0bdcc6d83151c71",
     "scripts/audit-range-geometry.py": "ade73e98fa9aad91a00636542a4439952c500d8fdc60f679a0cc026156c8a0df",
@@ -37910,7 +37920,7 @@
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
     "scripts/portable_control_verifier.py": "13b4b525663b86cf2b0e565e361488ebe57d9eee8609c5642acde00b4038c22d",
     "scripts/portable_enemy_buff_oracle.py": "4811d1c4fb66c3bd8b49bfb2e170380e68bb77bab28d8d03d74b2c53ce437cee",
-    "scripts/portable_enemy_oracle.py": "b0c6852e26cec1cc4823ce2ba24ab8f14353f1eb3f86c314bf984eb92ef5fed8",
+    "scripts/portable_enemy_oracle.py": "1ed2d643cbb0999088b3ae2f119dae7a43ece9c84fa56c2150a46f882c2da893",
     "scripts/portable_health_oracle.py": "3c8c66d0674675c3fbf884ed8ef53408a4ca74e2593ea3b1df3594b8176a5bfc",
     "scripts/portable_pending_oracle.py": "5919e9b30ef2b97cfeee24d19eb080c522df2fb6b98c1555be2efdf5c68e3359",
     "scripts/portable_resource_oracle.py": "6e8ab20b01c41618c554779f4f41eb6a693c14893da935e1cf2b382d7b6040d8",
@@ -38027,11 +38037,11 @@
     "scripts/verify-periodic-detail.py": "592431aefb6cbba77fc8b0ac925dbcbe342fa87e488d423cedfa270df0261e05",
     "scripts/verify-periodic-sources-detail.py": "bece3113347f76c55022591fb7308cc2bcd181ff56497cb17de691f791450dda",
     "scripts/verify-periodic-targets-detail.py": "e159b1a38c095cfedb489105ae2c90051f6cf34cdbc8a35acb351b1e9b835159",
-    "scripts/verify-portable-api.py": "dba5def93308a300c6a1b022ed4f3c7e1cde0f28eef75abeafdb34ea4a8b9d53",
+    "scripts/verify-portable-api.py": "7dad249c265e45c8dc2002ab781ddd77103736164d01ccf50e6b146729cc6108",
     "scripts/verify-portable-attack-rank.py": "e80520e7baee2c21580548a020164bbf124a9524466621d208c3fe804ecc21a9",
     "scripts/verify-portable-auto-aim.py": "0e72357b8ff98edb8ff164450751be7a49cdd14125f3a027b598563e73e9f2bb",
     "scripts/verify-portable-catalog-weapons.py": "4986f71dc931d68ffad1bcdea2bf9be5e1dcb586e8d0c1a6001b5ca75799e3e6",
-    "scripts/verify-portable-combat.py": "34b1f2c15a00b599eb38bf38376ce4692e79a05b81679efe1b6332f3efe1787c",
+    "scripts/verify-portable-combat.py": "c1cd4ceaa232e8570c75e41b7fd6232a1e1f8f538e47b35c50dfde6e4a30c517",
     "scripts/verify-portable-event-index.py": "39777a51f8dc99d6f442a6a2f933f11316abaee3dbcf923bf154d78dc39df0de",
     "scripts/verify-portable-events.py": "a0c19364ccfbb0436268ca56a79457abbb588235c71a8e6d1565d8fe757cd6a7",
     "scripts/verify-portable-hit-references.py": "4b2516f9750ec2a746e8a60f4342ae4dee5f7fb1bbec84be3f0402ea1a6b2651",

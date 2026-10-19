@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "source_commit": "8bc3c97a2247f7b84113894cc1fbd6d9ac368086",
+  "gpu_rerun": false,
+  "normalization": "UTF8/LF, remove #line lines, basename absolute quoted Slang CUDA prelude include",
+  "normalized_sha256": {
+    "cuda": "1837a1b99ed1fd142efc84e1b27805a9f8ee6de563df1df71b497e7277379e51",
+    "metal": "125a44d7aa533406f0b436d3831dd3e30ef64187c0bf2bc29480bf53ac416270"
+  }
+}

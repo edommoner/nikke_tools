@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "baseline_commit": "4f3cef4",
+  "mechanics": 1004,
+  "profiles": 52,
+  "comparison": "Complete decoded equality after removing only the new empty staged_applications field; no raw ABI parity claim",
+  "current_reports": {
+    "portable-combat-metal": "35bcd1c3be78a1968c45afe5e4b40a25119725051d7af91cd5e3eb95f41ba1bc",
+    "portable-roster-battles-metal": "32033a82be0308feff6a5770acdc3cad064d2842c97c94fb17befe30101bef22"
+  }
+}
