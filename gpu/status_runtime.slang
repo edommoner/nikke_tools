@@ -2,8 +2,20 @@
 uint immunityPolicy(uint input,uint row) { return (definition_flags(input,row)>>4)&3; }
 uint64_t statusNumber(uint at) { return uint64_t(results[at])|(uint64_t(results[at+1])<<32); }
 uint immunityUsed(inout Runtime s,uint who,uint name) { return s.resourceOutput+P_IMMUNITY_USED_BASE+(who*P_DEFINITIONS+name)*2; }
-void clearImmunityScratch(inout Runtime s)
-{ for(uint word=0;word<P_DEFINITIONS*4;word++) results[s.resourceOutput+P_IMMUNITY_SCRATCH_BASE+word]=0; }
+void clearImmunityScratch(inout Runtime s,uint count)
+{
+    uint scratch=s.resourceOutput+P_IMMUNITY_SCRATCH_BASE;
+    if(count<=64)
+    {
+        for(uint group=0;group<count;group++)
+        {
+            uint name=results[scratch+P_DEFINITIONS*3+group];
+            results[scratch+name*2]=0;results[scratch+name*2+1]=0;
+            results[scratch+P_DEFINITIONS*2+name]=0;results[scratch+P_DEFINITIONS*3+group]=0;
+        }
+    }
+    else for(uint word=0;word<P_DEFINITIONS*4;word++) results[scratch+word]=0;
+}
 [noinline]
 bool harmfulBlocked(inout Runtime s,uint who,Definition incoming)
 {
@@ -35,7 +47,7 @@ bool harmfulBlocked(inout Runtime s,uint who,Definition incoming)
         if(f64Less(statusNumber(used),statusNumber(scratch+name*2)))
         { storeNumber(used,f64Add(statusNumber(used),ONE));blocked=true;break; }
     }
-    clearImmunityScratch(s);return blocked;
+    clearImmunityScratch(s,count);return blocked;
 }
 [noinline]
 uint filterHarmful(inout Runtime s,Definition d,uint mask,inout uint order)
