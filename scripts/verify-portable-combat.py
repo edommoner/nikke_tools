@@ -18,7 +18,13 @@ def fixtures():
 
 
 def compile_case(case):
-    chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES]
+    # A mode without reload_time inherits its authored base weapon, just as
+    # the independent native observer does; never borrow catalog timing from
+    # the arbitrary names used to identify these mechanical test actors.
+    chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=dict(engine_worker.META[n])) for n in NAMES]
+    if 'combat' in case:
+        for char,weapon in zip(chars,case['combat']['weapons']):
+            char['_weapon']['reload_time']=weapon.get('reload',1)
     return compile_program(chars,[(e,NAMES[o]) for e,o in zip(case['effects'],case.get('owners',[0]*len(case['effects'])))],case['script'],case.get('base_atk',[1000]*5),combat=case.get('combat'),**case.get('environment',{}))
 
 

@@ -117,6 +117,11 @@ void selectWeapon(inout Runtime s,uint who,uint64_t when,out Weapon w)
         w.rateMin = loadNumber(timing); w.rateMax = loadNumber(timing+2); w.warmLimit = loadNumber(timing+4); w.coolTime = loadNumber(timing+6);
     }
     if (w.pellets == 0 || w.pellets > 64 || w.muzzles == 0 || w.muzzles > 8) { s.error = 64; return; }
+    if (index < 0 && s.physicalModeIndex[who] == -2)
+    {
+        s.physicalModeIndex[who] = -1;
+        s.nextShot[who] = when;
+    }
     if (s.appliedEpoch[who] != s.modeEpoch[who])
     {
         s.appliedEpoch[who] = s.modeEpoch[who]; s.physicalModeIndex[who] = index; s.modeShots[who] = 0; s.pendingAutoReload[who] = 0;
