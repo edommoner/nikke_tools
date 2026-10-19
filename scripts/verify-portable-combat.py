@@ -14,7 +14,7 @@ from portable_runtime import compile_program,run_programs,PortableExecutionError
 
 
 def fixtures():
-    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json','portable-quantities.json','portable-charge-control.json','portable-health.json','portable-hp-edges.json','portable-incoming.json','portable-capacity.json','portable-recipients.json','portable-carriers.json','portable-lazy.json','portable-bullets.json','portable-burst-resources.json','portable-enemy-damage.json','portable-cover.json','portable-pending-burst.json','portable-burst-duration.json','portable-ammo-instants.json','portable-ammo-modes.json','portable-mode-sessions.json','portable-buff-notices.json','portable-enemy-buffs.json','portable-event-candidates.json','portable-enemy-attack-ranks.json')),[])
+    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json','portable-quantities.json','portable-charge-control.json','portable-health.json','portable-hp-edges.json','portable-incoming.json','portable-capacity.json','portable-recipients.json','portable-carriers.json','portable-lazy.json','portable-bullets.json','portable-burst-resources.json','portable-enemy-damage.json','portable-cover.json','portable-pending-burst.json','portable-burst-duration.json','portable-ammo-instants.json','portable-ammo-modes.json','portable-mode-sessions.json','portable-buff-notices.json','portable-enemy-buffs.json','portable-event-candidates.json','portable-enemy-attack-ranks.json','portable-enemy-spawn-order.json')),[])
 
 
 def compile_case(case):
@@ -117,7 +117,7 @@ def main():
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n',encoding='utf-8')
     tracked=['app/portable_roster_input.py','app/portable_runtime_layout.py','app/portable_enemy_specs.py','app/portable_runtime.py','app/portable_combat.py','app/portable_specs.py','app/portable_backend.py',
              'app/portable_trigger_specs.py','app/portable_recipient_specs.py','app/portable_damage_specs.py','scripts/portable_pending_oracle.py','app/named_target_specs.py','scripts/portable_capacity_oracle.py','scripts/portable_health_oracle.py','scripts/portable_enemy_oracle.py','scripts/portable_burst_oracle.py','scripts/portable_bullet_oracle.py','scripts/portable_weapon_oracle.py','scripts/verify-detail.py','app/detail_gpu.py','app/effect_spec.py','app/impact_specs.py','app/world_condition_specs.py','scripts/verify-portable-combat.py',
-             'tests/fixtures/portable-event-candidates.json','tests/fixtures/portable-enemy-attack-ranks.json','scripts/portable_enemy_buff_oracle.py','tests/fixtures/portable-enemy-buffs.json','research/portable-mode-session-contract.json','tests/fixtures/portable-buff-notices.json','tests/fixtures/portable-mode-sessions.json','tests/fixtures/portable-ammo-modes.json','tests/fixtures/portable-ammo-instants.json','tests/fixtures/portable-burst-duration.json','tests/fixtures/portable-pending-burst.json','tests/fixtures/portable-cover.json','tests/fixtures/portable-enemy-damage.json','tests/fixtures/portable-burst-resources.json','tests/fixtures/portable-bullets.json','tests/fixtures/portable-lazy.json','tests/fixtures/portable-lazy-capacity-rejection.json','tests/fixtures/portable-carriers.json','tests/fixtures/portable-recipients.json','tests/fixtures/portable-capacity.json','tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-triggers.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json','scripts/run-metal-probe.swift']
+             'tests/fixtures/portable-event-candidates.json','tests/fixtures/portable-enemy-attack-ranks.json','tests/fixtures/portable-enemy-spawn-order.json','scripts/portable_enemy_buff_oracle.py','tests/fixtures/portable-enemy-buffs.json','research/portable-mode-session-contract.json','tests/fixtures/portable-buff-notices.json','tests/fixtures/portable-mode-sessions.json','tests/fixtures/portable-ammo-modes.json','tests/fixtures/portable-ammo-instants.json','tests/fixtures/portable-burst-duration.json','tests/fixtures/portable-pending-burst.json','tests/fixtures/portable-cover.json','tests/fixtures/portable-enemy-damage.json','tests/fixtures/portable-burst-resources.json','tests/fixtures/portable-bullets.json','tests/fixtures/portable-lazy.json','tests/fixtures/portable-lazy-capacity-rejection.json','tests/fixtures/portable-carriers.json','tests/fixtures/portable-recipients.json','tests/fixtures/portable-capacity.json','tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-triggers.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json','scripts/run-metal-probe.swift']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     cases=fixtures();programs=[compile_case(c) for c in cases]
     # The same identity may be re-used only with a new bounded generation.
@@ -149,7 +149,7 @@ def main():
     bullet_count,bullet_count_meta=compile_case(cases[0]);bullet_count[L['BULLET_DEFINITION_BASE']]=2**31
     bullet_kind,bullet_kind_meta=compile_case(next(c for c in cases if c['name']=='instant-rank-allies_lowest_hp:2'));bullet_kind[L['BULLET_DEFINITION_BASE']]=1
     bullet_bound,bullet_bound_meta=compile_case(cases[0]);bullet_bound[L['BULLET_DEFINITION_BASE']:L['BULLET_DEFINITION_BASE']+2]=[1,2]
-    burst_without_combat,burst_without_meta=compile_case(next(c for c in cases if c['name']=='cast-instant-reduces-new-ready-time'));burst_without_combat[3]=0
+    burst_without_combat,burst_without_meta=compile_case(next(c for c in cases if c['name']=='cast-instant-reduces-new-ready-time'));burst_without_combat[3]=0;burst_without_combat[L['TARGET_ATTACK_BASE']:L['TARGET_ATTACK_BASE']+16]=[0]*16
     burst_recipient,burst_recipient_meta=compile_case(next(c for c in cases if c['name']=='gauge-allied-instant-25'));burst_recipient[L['RECIPIENT_BASE']]=14
     burst_overflow=copy.deepcopy(next(c for c in cases if c['name']=='negative-instant-extends-new-cooldown'))
     burst_overflow['effects'][0]['fixed_value']=-1e308;burst_overflow['effects'][0]['trigger']['timing']=['on_attack']
@@ -249,6 +249,7 @@ def main():
     enemy_buff_fixture=next(c for c in cases if c.get('enemy_buff_reference'))
     for name,offset,value in [('flag',L['HEALTH_DEFINITION_BASE']+3,2),('no-combat',3,0),('unsupported-stat',L['DEFINITION_BASE']+F['STAT'],0),('zero-count',L['DAMAGE_DEFINITION_BASE']+1,0),('count-overflow',L['DAMAGE_DEFINITION_BASE']+1,257),('ally-selector',L['RECIPIENT_BASE'],0),('missing-flag',L['HEALTH_DEFINITION_BASE']+3,0)]:
         words,meta=compile_case(enemy_buff_fixture);words[offset]=value
+        if name=='no-combat':words[L['TARGET_ATTACK_BASE']:L['TARGET_ATTACK_BASE']+16]=[0]*16
         enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-enemy-buff-'+name,status=64))
     for name,target in [('query-negative',0xfffffffe),('query-outside-world',8)]:
         words,meta=compile_case(enemy_buff_fixture);query=next(i for i,x in enumerate(enemy_buff_fixture['script']) if x[1]==2)
@@ -269,6 +270,10 @@ def main():
         enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-enemy-attack-'+name,status=64))
     words,meta=compile_case(next(c for c in cases if 'combat' not in c));words[L['TARGET_ATTACK_BASE']]=1
     enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-enemy-attack-no-combat',status=64))
+    for name in ('defense-high','defense-low'):
+        words,meta=compile_case(next(c for c in cases if c['name']=='enemy-spawn-buff-'+name))
+        at=L['TARGET_BASE']+L['TARGET_WORDS']+6;words[at:at+2]=double_words(1)
+        enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-enemy-buff-add-'+name,status=64))
     rejections += enemy_rejections;negative_programs += enemy_bad
     indices=list(range(len(cases),len(cases)+len(rejections)))
     statuses=[0]*len(cases)+[c['status'] for c in rejections]

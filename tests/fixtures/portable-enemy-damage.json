@@ -5664,7 +5664,7 @@
         0,
         0
       ],
-      "enemy_reference": false,
+      "enemy_reference": true,
       "combat": {
         "weapons": [
           {
@@ -5800,8 +5800,8 @@
           "target_mask": 7,
           "target_order": [
             0,
-            1,
-            2
+            2,
+            1
           ],
           "hit_index": 1,
           "hit_count": 1,

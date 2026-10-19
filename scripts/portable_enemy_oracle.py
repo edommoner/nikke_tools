@@ -55,7 +55,7 @@ def observe(case):
             bm.notify('hit_count:'+effect['name'],t,caster)
         if not bm.state['full_burst']:gauge=min(100,gauge+config['weapons'][who].get('gauge',0)*hits)
     bm.register_damage_handler(damage)
-    queries=[];started=False
+    queries=[];started=False;spawn_order=len(targets)
     for t,op,event,who,arg,index,extra,extra2 in case['script']:
         if op==4:
             if not started:
@@ -65,8 +65,15 @@ def observe(case):
         elif op==0:
             bm.tick(t);bm.notify({7:'on_attack',8:'hit_count',19:'event:full_reload'}[event],t,NAMES[who])
         elif op==20:boss.aim_of[NAMES[who]]=AIM_ADDS if arg else 'body'
+        elif op==22:
+            if arg==0:raise ValueError('Native BossScript body is always present')
+            run.adds[arg-1].gone='퇴장';bm._invalidate_buffs_cache()
+        elif op==21:
+            if arg==0:raise ValueError('Native BossScript body is always present')
+            run.adds[arg-1]=_Add(id=f'__enemy__:{arg}',name=f'__enemy__:{arg}',spec=SummonSpec(name=f'__enemy__:{arg}',hp=extra,atk=targets[arg].get('attack',0)),order=spawn_order)
+            spawn_order+=1;bm._invalidate_buffs_cache()
         elif op==2:
             queries.append(dict(body_damage=body_damage.copy(),add_damage=[boss.add_dealt.get(n,0) for n in NAMES],damage=raw_damage.copy(),scored_damage=[body_damage[i]+boss.add_dealt.get(n,0) for i,n in enumerate(NAMES)],add_overkill=overkill.copy(),
                                 attack_buffs=[bm.get_buffs(n,'__enemy__',t)['atk_pct'] for n in NAMES],combat=dict(gauge=gauge)))
-        else:raise ValueError('Enemy component oracle supports notifications, aim, authored frames and queries')
+        else:raise ValueError('Enemy component oracle supports notifications, aim, add life changes, authored frames and queries')
     return dict(queries=queries,packets=packets,target_scored_damage=target_scored)

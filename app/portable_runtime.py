@@ -211,7 +211,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         from portable_combat import pack_combat
         combat_meta=pack_combat(words,combat,double_words)
         for eff,owner in effects:
-            if eff.get('type')=='damage' and damage_plan(eff)[0] in (7,8) and any(t.get('defense',0)!=0 for t in combat['targets'][1:]):raise UnsupportedPortable('Enemy defense ranking requires zero add defenses in the current boss model')
+            enemy_plan=enemy_buff_plan(eff)
+            if (eff.get('type')=='damage' and damage_plan(eff)[0] in (7,8) or enemy_plan is not None and enemy_plan[0] in (7,8)) and any(t.get('defense',0)!=0 for t in combat['targets'][1:]):raise UnsupportedPortable('Enemy defense ranking requires zero add defenses in the current boss model')
             if eff.get('stat')=='accuracy_pct':
                 # Static filters may select any ally. Require geometry for all
                 # candidates rather than silently compiling an unmodelled hit rate.

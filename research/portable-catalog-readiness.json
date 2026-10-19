@@ -15,10 +15,10 @@
     "Unported effect fields: scaling, scaling_ref": 22,
     "Unported trigger timing: event:part_destroy": 13,
     "Unported trigger timing: event:enemy_spawn": 10,
-    "Unported enemy damage selector": 10,
     "Unported effect fields: remove_scope": 10,
     "Multi-target periodic damage requires per-recipient clocks": 9,
     "Unported effect fields: scaling": 9,
+    "Unported enemy damage selector": 8,
     "Unported trigger timing: enemy_death": 7,
     "Unported predicate: target_code:전격": 7,
     "Unported effect fields: end_on_shield_consumed": 7,
@@ -141,10 +141,10 @@
     "Unported effect fields: scaling, scaling_ref": 22,
     "Unported trigger timing: event:part_destroy": 13,
     "Unported trigger timing: event:enemy_spawn": 10,
-    "Unported enemy damage selector": 10,
     "Unported effect fields: remove_scope": 10,
     "Multi-target periodic damage requires per-recipient clocks": 9,
     "Unported effect fields: scaling": 9,
+    "Unported enemy damage selector": 8,
     "Unported trigger timing: enemy_death": 7,
     "Unported predicate: target_code:전격": 7,
     "Unported effect fields: end_on_shield_consumed": 7,
@@ -262,7 +262,7 @@
   "missing_families": {
     "damage_modifiers": 148,
     "effect_lifecycle": 94,
-    "damage": 77,
+    "damage": 75,
     "weapon": 70,
     "resource_accumulation": 56,
     "protection": 50,
@@ -57570,11 +57570,10 @@
             "hit_count:100"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported enemy damage selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported enemy damage selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "공격 지원",
@@ -59423,11 +59422,10 @@
           "conditions": [
             "during_full_burst"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported enemy damage selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported enemy damage selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "섬광 수류탄 투척 발동 시간 조건",
@@ -63226,10 +63224,10 @@
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
     "app/portable_combat.py": "bd31654f2d8530755c9ab9e78b8badba4ece201020fb7103e9672c955bebd988",
     "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
-    "app/portable_enemy_specs.py": "6878531dc825fb11cbf02fb9f1ba7fb310b259c5df73c20f462e5ba32f756876",
+    "app/portable_enemy_specs.py": "4191596c60b2a5957abcb55566d7cb2891797ec32a24fcda8971e0eda28cad18",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
-    "app/portable_runtime.py": "a0501cf218fdf62f7dd7d4df56214ef16ba4132a3426d6fb54765e2084d10e07",
-    "app/portable_specs.py": "2fece091f9dea21ae1a8ef9dfceb69dc8ea6ced1c76a161393ef5a82eb0e1045",
+    "app/portable_runtime.py": "3e8f40b15ec2f87bc2c6487b36de5bbb90fa389ca4b113cf129a3a8bc99453b2",
+    "app/portable_specs.py": "4eb3c3ba75a8e067cd0b6a5d4c3558e95ed2bdc93e37bbc73c275e684429ee87",
     "app/portable_trigger_specs.py": "70d19d08eb1bb29674ed2c8360e7748556f0674775e180169e6f957b39607fc6",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/staged_dot_runtime.py": "e1691c737afb9b924fe2f5a37c6ca91d822683d760a43a17d68f8a1b6efab1a7",

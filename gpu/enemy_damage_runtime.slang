@@ -11,7 +11,7 @@ uint enemyDamageMask(inout Runtime s, Definition d, uint inherited, out uint pac
         return 0;
     }
     if (d.damageRoute == 9) return enemyAttackMask(s,d.damageCount,packedOrder);
-    uint order[8], count = 0;
+    uint order[8], count = 0; uint sequence = enemySpawnSequence(s);
     // Canonical ranked HP rules keep the body first for descending ranks and
     // last for lowest HP. Adds tie by stable input/spawn order.
     if ((d.damageRoute == 2 || d.damageRoute == 3 || d.damageRoute == 4 || d.damageRoute == 7) && s.targetAlive[0] != 0) order[count++] = 0;
@@ -22,14 +22,21 @@ uint enemyDamageMask(inout Runtime s, Definition d, uint inherited, out uint pac
         if (s.targetAlive[first] == 0)
         {
             first = 0xffffffff;
-            if (s.aim[d.owner] != 0) for (uint target = 1; target < s.targetCount; target++)
+            for (uint rank = 1; rank < s.targetCount; rank++)
+            {
+                uint encoded = (sequence >> (4*rank)) & 15; if (encoded == 0) break;
+                uint target = encoded-1;
                 if (s.targetAlive[target] != 0) { first = target; break; }
-            if (first == 0xffffffff) first = aimedTarget(s,d.owner);
+            }
+            if (first == 0xffffffff && s.targetAlive[0] != 0) first = 0;
         }
     }
     if (first != 0xffffffff) order[count++] = first;
-    for (uint target = 1; target < s.targetCount; target++) if (s.targetAlive[target] != 0 && target != first)
+    for (uint rank = 1; rank < s.targetCount; rank++)
     {
+        uint encoded = (sequence >> (4*rank)) & 15; if (encoded == 0) break;
+        uint target = encoded-1;
+        if (s.targetAlive[target] == 0 || target == first) continue;
         uint at = count++;
         if (d.damageRoute == 3 || d.damageRoute == 4 || d.damageRoute == 5)
         {

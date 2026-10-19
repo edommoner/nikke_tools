@@ -3,9 +3,11 @@
 [noinline]
 uint buildEnemyAttackOrder(inout Runtime s, bool livingOnly)
 {
-    uint order[8], count = 0;
-    for (uint target = 0; target < s.targetCount; target++)
+    uint order[8], count = 0; uint sequence = enemySpawnSequence(s);
+    for (uint rank = 0; rank < s.targetCount; rank++)
     {
+        uint encoded = (sequence >> (4*rank)) & 15; if (encoded == 0) break;
+        uint target = encoded-1;
         if (livingOnly && s.targetAlive[target] == 0) continue;
         uint64_t attack = loadNumber(s.inputBase+P_TARGET_ATTACK_BASE+target*2);
         uint at = count++;
@@ -13,8 +15,7 @@ uint buildEnemyAttackOrder(inout Runtime s, bool livingOnly)
         {
             uint prior = order[at-1];
             uint64_t previous = loadNumber(s.inputBase+P_TARGET_ATTACK_BASE+prior*2);
-            bool earlierBirth = f64Equal(previous,attack) && prior != 0 && target != 0 && s.enemyBirth[target] < s.enemyBirth[prior];
-            if (!f64Less(previous,attack) && !earlierBirth) break;
+            if (!f64Less(previous,attack)) break;
             order[at] = prior; at--;
         }
         order[at] = target;

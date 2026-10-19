@@ -46,6 +46,7 @@ void initializeRuntime(inout Runtime s)
     s.inputBase = 0;
     s.reentryDelay = 0;
     s.enemyAttackOrder = 0;
+    s.enemySpawnOrder = 0;
     s.combatStarted = 0;
     s.combat = 0;
     s.targetCount = 0;
