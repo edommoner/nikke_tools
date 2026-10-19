@@ -48,7 +48,9 @@ def observe(case):
             entry=next((a for a in bm._active if a.caster==caster and a.effect.get('name')==effect.get('name')),None)
             if effect.get('ramp_interval') is not None:
                 scale=bm.staged_damage_stack(effect,caster);coefficient*=scale if scale is not None else 0
-            else:coefficient*=entry.stack if entry is not None else 0
+            else:
+                scale=entry.stack if entry is not None else bm.ref_count(caster,effect.get('scaling_ref','')) if case.get('status_damage_reference') else None
+                coefficient*=scale if scale is not None else 0
         if coefficient==0:return
         # Same precedence as the original timeline's hit_count block; live
         # quantities come from original BuffManager.ref_count, never GPU state.

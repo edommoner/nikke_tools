@@ -3,12 +3,18 @@
 [noinline]
 uint periodicDamageMask(inout Runtime s, uint row, out uint packed)
 {
+    bool status=commands[s.inputBase+P_STATUS_META_BASE]!=0;
+    if(status && s.alive[row]==0)
+    {
+        Definition selector=readDefinition(s.inputBase,row);if(selector.damageRoute==0) selector.damageRoute=6;
+        return enemyDamageMask(s,selector,s.target,packed);
+    }
     uint order = s.periodicOrder[row], count = 0, mask = 0; packed = 0;
     for (uint i = 0; i < 8; i++)
     {
         uint encoded = (order >> (4*i)) & 15; if (encoded == 0) break;
         uint target = encoded-1;
-        if (targetLive(s,target,s.periodicGeneration[row*8+target]))
+        if ((!status || (s.activeRecipients[row]&(1U<<(target+5)))!=0) && targetLive(s,target,s.periodicGeneration[row*8+target]))
         { mask |= 1U << target; packed |= encoded << (4*count); count++; }
     }
     return mask;
@@ -81,6 +87,12 @@ void registerTimer(inout Runtime s, uint source, uint64_t when)
     s.expiry[row] = f64Less(grant.duration,0) ? F64_INF : f64Add(when,grant.duration);
     if (d.kind == 3)
     {
+        if(commands[s.inputBase+P_STATUS_META_BASE]!=0 && (!resident || source!=row))
+        {
+            Definition selector=readDefinition(s.inputBase,source);if(selector.damageRoute==0) selector.damageRoute=6;
+            uint order;uint members=s.combat!=0 ? enemyDamageMask(s,selector,s.target,order)<<5 : 32;
+            s.activeRecipients[row]=resident ? s.activeRecipients[row]|members : members;
+        }
         if (s.alive[row] == 0) { markEntry(s,row);s.activated[row]=when; }
         if (!registerDotReference(s,row,resident) && (!resident || d.maxStack!=1)) s.stacks[row] = checkedStackIncrement(s.stacks[row],d.maxStack,s.error);
         if (s.error!=0) return;

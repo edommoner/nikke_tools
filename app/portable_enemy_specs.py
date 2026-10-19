@@ -32,7 +32,8 @@ ENEMY_BUFF_STATS=frozenset(('def_pct','def_caster_based_pct','received_dmg_pct',
 
 def enemy_buff_plan(effect):
     """Same enemy selectors as damaging packets; current-target keeps context."""
-    if effect.get('type')!='buff' or effect.get('stat') not in ENEMY_BUFF_STATS:return None
+    from portable_status_specs import immunity
+    if effect.get('type')!='buff' or effect.get('stat') not in ENEMY_BUFF_STATS and effect.get('stat') not in (None,'') and not immunity(effect):return None
     target=effect.get('target','self')
     if not isinstance(target,str) or target.startswith('all') and target!='all_enemies' or target.startswith('self') or target.startswith('allies'):return None
     from enemy_recipient_specs import CURRENT_TARGETS

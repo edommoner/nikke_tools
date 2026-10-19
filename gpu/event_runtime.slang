@@ -415,6 +415,7 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
 #include "removal_runtime.slang"
 #include "duration_extend_runtime.slang"
 #include "stack_runtime.slang"
+#include "status_runtime.slang"
 #include "event_candidate_runtime.slang"
 #include "pending_burst_runtime.slang"
 
@@ -451,7 +452,7 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
                 frames[depth].event = 1;
                 if (f.repeatLeft == 0)
                 {
-                    if (uint(f.healthValue) != 0) pushFrame(s,frames,depth,12,31,buff.owner,int(buff.name),f.time,uint(f.healthValue));
+                    if ((buff.buffEvent&1)!=0 && uint(f.healthValue) != 0) pushFrame(s,frames,depth,12,31,buff.owner,int(buff.name),f.time,uint(f.healthValue));
                 }
                 else if (f.healthPrevious != f.healthNext && (s.stackEventOwners & (1U << buff.owner)) != 0)
                     pushFrame(s,frames,depth,0,9,buff.owner,int(buff.name),f.time,uint(f.healthNext));
@@ -462,9 +463,9 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
                 frames[depth].event = 2;
                 if (f.repeatLeft == 0)
                 {
-                    if ((s.stackEventOwners & (1U << buff.owner)) != 0) pushFrame(s,frames,depth,0,9,buff.owner,int(buff.name),f.time,1);
+                    if ((buff.buffEvent&1)!=0 && (s.stackEventOwners & (1U << buff.owner)) != 0) pushFrame(s,frames,depth,0,9,buff.owner,int(buff.name),f.time,1);
                 }
-                else if (buff.maxStack != 1)
+                else if ((buff.buffEvent&1)!=0 && buff.maxStack != 1)
                 {
                     // Refresh computes its audience after synchronous stack children.
                     uint order = s.entryOrder[slot] == f.repeatPassive ? buffAudienceOrder(s,slot) : uint(f.healthValue);
@@ -474,6 +475,7 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
                 return;
             }
             if (f.repeatLeft!=0 && s.entryOrder[slot]==f.repeatPassive && s.carrierDefinition[slot]==f.repeatRow) captureBuffReference(s,slot,f.cursor-1);
+            rechargeImmunity(s,f.cursor-1,packedRecipientMask(f.value)|(f.value>>16));
             depth--;
             // CPU health postprocessing finds the still-active effect after all
             // notifications; cancellation can remove it or reinstall a carrier.
@@ -825,10 +827,10 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if((f.event!=28 || (d.flags&1)!=0 && s.alive[row]==0) && d.budget>=0 && !stackLazySelector(s,row) && stackSelectedRecipients(s,row,f.target,f.time,true,order)==0) continue;
             recipientMask=d.kind>=19 ? stackSelectedRecipients(s,row,f.target,f.time,false,order) : 0;
         }
-        if (f.mode!=19 && (d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 30 || d.kind==15))
+        if (f.mode!=19 && (d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 30 || d.kind==15 || d.kind==26))
         {
             if(d.kind==15 && d.budget<0 && !hasDurationExtensionMembers(s,row)) recipientMask=0;
-            else if (d.enemyBuff != 0 || d.kind==15 && d.target==2)
+            else if (d.enemyBuff != 0 || (d.kind==15 || d.kind==26) && d.target==2)
             { recipientMask = enemyDamageMask(s,d,f.target,enemyOrder) << 5; recipientOrder = 0; }
             else if (d.lazyGroup == 0) recipientMask = selectRecipients(s,row,f.time,recipientOrder);
             else recipientMask = 0;
@@ -873,11 +875,12 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (d.kind == 0 || d.kind == 4)
         {
             uint sourceRow=row; uint64_t duration = d.duration; bool activationLazy = d.lazyGroup != 0;
+            if(!activationLazy) { recipientMask=filterHarmful(s,d,recipientMask,recipientOrder);if(d.polarity==2 && recipientMask==0) continue; }
             uint capturedGeneration=d.enemyBuff!=0 && recipientMask!=0 ? (f.mode==19 ? f.repeatPassive : s.targetGeneration[firstbithigh(recipientMask>>5)]) : 0;
             row = findCarrier(s,row,recipientMask,f.time,capturedGeneration);
             if (s.error != 0) break;
             d = residentDefinition(s,row);
-            bool live = s.alive[row] != 0 && f64Less(f.time,s.end[row]);
+            bool live = s.alive[row] != 0;
             if (!live) { storeReferenceCapture(s,row,0,0);captureBuffReference(s,row,sourceRow); }
             if (!live) { resetBulletCarrier(s,row); discardLazy(s,row); s.stacks[row] = 0; s.hpSnapshot[row] = 0; markEntry(s,row); }
             uint previousStack = s.stacks[row];
@@ -902,9 +905,9 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             bool namedNotice = namedCandidate && (s.namedEventOwners & packedRecipientMask(audienceOrder)) != 0;
             bool stackNotice = (d.buffEvent & 1) != 0 && previousStack != s.stacks[row] && (s.stackEventOwners & (1U << d.owner)) != 0;
             if (live && !namedNotice && !stackNotice) captureBuffReference(s,row,sourceRow);
-            if (namedNotice || stackNotice)
+            if (namedNotice || stackNotice || immunityPolicy(s.inputBase,sourceRow)==3)
             {
-                pushFrame(s,frames,depth,13,0,d.owner,int(row),f.time,recipientOrder);
+                pushFrame(s,frames,depth,13,0,d.owner,int(row),f.time,recipientOrder | ((recipientMask&~31U)<<16));
                 if (s.error == 0)
                 {
                     frames[depth].healthValue = audienceOrder; frames[depth].healthPrevious = previousStack;
@@ -1025,6 +1028,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             removeNamedResidents(s,row,f.target,f.time);
             if (s.removalCount > begin) pushFrame(s,frames,depth,9,0,0,int(begin),f.time);
         }
+        else if (d.kind==26) cleanseResidents(s,row,recipientMask);
         else if (d.kind == 33) pushFrame(s,frames,depth,2,0,d.owner,int(row),f.time);
         else if (d.kind == 3)
         {
@@ -1223,6 +1227,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if (numericStatus != 0) { results[output] = 128; return; }
     admitDefinitions(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
+    if (!validStatusDefinitions(s)) { results[output]=64;return; }
     if (!validStackDefinitions(s)) { results[output]=64;return; }
     if (!validEventCandidates(s)) { results[output] = 64; return; }
     for (uint row = 0; row < s.count; row++) if (!validPendingDefinition(s,row)) { results[output] = 64; return; }

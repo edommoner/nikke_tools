@@ -89,6 +89,17 @@ bool registerDotReference(inout Runtime s, uint row, bool resident)
 uint64_t activationDamageCoefficient(inout Runtime s, uint row)
 {
     Definition d=readDefinition(s.inputBase,row); uint64_t scale=referenceScaleMode(s,row)==3 ? carrierStackValue(s,row) : f64FromI64((d.periodicFlags&2)!=0 ? s.stacks[row] : 1);
+    if(commands[s.inputBase+P_STATUS_META_BASE]!=0 && d.kind==3 && !f64Zero(d.interval) && (d.periodicFlags&2)!=0)
+    {
+        bool present=false;scale=0;
+        for(uint pass=0;pass<s.orderedCount;pass++)
+        {
+            uint slot=s.orderedRows[pass];
+            if(s.alive[slot]!=0 && definition_owner(s.inputBase,s.carrierDefinition[slot])==d.owner && definition_name(s.inputBase,s.carrierDefinition[slot])==d.name)
+            { scale=carrierStackValue(s,slot);present=true;break; }
+        }
+        if(!present && referenceScaleMode(s,row)==3) scale=scaleReferenceCount(s,row,present);
+    }
     if(s.stagedScopeRow==row+1 && s.alive[row]!=0 && s.stagedScopeEntry==s.entryOrder[row] && s.stagedScopeGeneration==stagedGeneration(s,row)) scale=f64FromI64(s.stagedScopeStack);
     return f64Mul(d.value,scale);
 }
@@ -108,7 +119,7 @@ bool validateReferences(inout Runtime s)
             if (key==0 || key>s.resourceCount || name!=commands[s.inputBase+P_RESOURCE_NAME_BASE+key-1]) return false;
         }
         Definition d=readDefinition(s.inputBase,row);
-        if ((d.flags&~15U)!=0 || uint((d.flags&4)!=0)!=uint(scale!=0)) return false;
+        if ((d.flags&~127U)!=0 || uint((d.flags&4)!=0)!=uint(scale!=0)) return false;
         if ((scale==1 || scale==2) && (d.stat==S_max_hp_pct || d.stat==S_max_hp_only_pct || d.stat==S_hp_caster_based_pct || d.stat==S_hp_only_caster_based_pct)) s.healthMask|=32;
         if (hit!=0 && d.kind!=3 && !(hit==1 && (d.kind==20 || d.kind==21))) return false;
         if (scale==3 && (d.kind!=3 || f64Zero(d.interval) || (d.periodicFlags&2)==0)) return false;

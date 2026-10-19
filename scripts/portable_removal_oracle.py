@@ -103,4 +103,7 @@ def observe(case):
         for key,(_,due,expiry) in timers.items():
             definition=next(i for i,(e,_) in enumerate(raw) if id(e)==key)
             clocks.append(dict(definition=definition,due=due,expiry=math.copysign(1e30,expiry) if math.isinf(expiry) else expiry))
-    return dict(queries=queries,carriers=carriers,timers=sorted(clocks,key=lambda c:c['definition']),endings=endings,packets=packets,**(dict(budgets={str(i):bm._trigger_counts.get(id(e),0) for i,(e,_) in enumerate(raw) if e.get('max_trigger') is not None}) if case.get('stack_reference') else {}))
+    result=dict(queries=queries,carriers=carriers,timers=sorted(clocks,key=lambda c:c['definition']),endings=endings,packets=packets,**(dict(budgets={str(i):bm._trigger_counts.get(id(e),0) for i,(e,_) in enumerate(raw) if e.get('max_trigger') is not None}) if case.get('stack_reference') else {}))
+    if case.get('status_reference'):
+        result['immunity_usage']=[dict(recipient=NAMES.index(name) if name in NAMES else 5 if name=='__enemy__' else 5+int(name.rsplit(':',1)[1]),name=key,used=used) for (name,key),used in bm._immune_used.items() if used]
+    return result

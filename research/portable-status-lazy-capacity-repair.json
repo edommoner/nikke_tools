@@ -1,0 +1,2673 @@
+{
+  "passed": true,
+  "statuses": [
+    0,
+    64
+  ],
+  "old_input_native_valid": true,
+  "cpu": {
+    "queries": [],
+    "carriers": [],
+    "timers": [
+      {
+        "definition": 0,
+        "due": 0.2,
+        "expiry": 0.1
+      },
+      {
+        "definition": 1,
+        "due": 0.4,
+        "expiry": 0.2
+      },
+      {
+        "definition": 2,
+        "due": 0.6,
+        "expiry": 0.3
+      },
+      {
+        "definition": 3,
+        "due": 0.8,
+        "expiry": 0.4
+      },
+      {
+        "definition": 4,
+        "due": 1.0,
+        "expiry": 0.5
+      },
+      {
+        "definition": 5,
+        "due": 1.2,
+        "expiry": 0.6
+      },
+      {
+        "definition": 6,
+        "due": 1.4,
+        "expiry": 0.7
+      },
+      {
+        "definition": 7,
+        "due": 1.6,
+        "expiry": 0.8
+      },
+      {
+        "definition": 51,
+        "due": 0.2,
+        "expiry": 0.1
+      },
+      {
+        "definition": 52,
+        "due": 0.4,
+        "expiry": 0.2
+      },
+      {
+        "definition": 53,
+        "due": 0.6,
+        "expiry": 0.3
+      },
+      {
+        "definition": 54,
+        "due": 0.8,
+        "expiry": 0.4
+      },
+      {
+        "definition": 55,
+        "due": 1.0,
+        "expiry": 0.5
+      },
+      {
+        "definition": 56,
+        "due": 1.2,
+        "expiry": 0.6
+      },
+      {
+        "definition": 57,
+        "due": 1.4,
+        "expiry": 0.7
+      },
+      {
+        "definition": 58,
+        "due": 1.6,
+        "expiry": 0.8
+      },
+      {
+        "definition": 102,
+        "due": 0.2,
+        "expiry": 0.1
+      },
+      {
+        "definition": 103,
+        "due": 0.4,
+        "expiry": 0.2
+      },
+      {
+        "definition": 104,
+        "due": 0.6,
+        "expiry": 0.3
+      },
+      {
+        "definition": 105,
+        "due": 0.8,
+        "expiry": 0.4
+      },
+      {
+        "definition": 106,
+        "due": 1.0,
+        "expiry": 0.5
+      },
+      {
+        "definition": 107,
+        "due": 1.2,
+        "expiry": 0.6
+      },
+      {
+        "definition": 108,
+        "due": 1.4,
+        "expiry": 0.7
+      },
+      {
+        "definition": 109,
+        "due": 1.6,
+        "expiry": 0.8
+      },
+      {
+        "definition": 153,
+        "due": 0.2,
+        "expiry": 0.1
+      },
+      {
+        "definition": 154,
+        "due": 0.4,
+        "expiry": 0.2
+      },
+      {
+        "definition": 155,
+        "due": 0.6,
+        "expiry": 0.3
+      },
+      {
+        "definition": 156,
+        "due": 0.8,
+        "expiry": 0.4
+      },
+      {
+        "definition": 157,
+        "due": 1.0,
+        "expiry": 0.5
+      },
+      {
+        "definition": 158,
+        "due": 1.2,
+        "expiry": 0.6
+      },
+      {
+        "definition": 159,
+        "due": 1.4,
+        "expiry": 0.7
+      },
+      {
+        "definition": 160,
+        "due": 1.6,
+        "expiry": 0.8
+      },
+      {
+        "definition": 204,
+        "due": 0.2,
+        "expiry": 0.1
+      },
+      {
+        "definition": 205,
+        "due": 0.4,
+        "expiry": 0.2
+      },
+      {
+        "definition": 206,
+        "due": 0.6,
+        "expiry": 0.3
+      },
+      {
+        "definition": 207,
+        "due": 0.8,
+        "expiry": 0.4
+      },
+      {
+        "definition": 208,
+        "due": 1.0,
+        "expiry": 0.5
+      },
+      {
+        "definition": 209,
+        "due": 1.2,
+        "expiry": 0.6
+      },
+      {
+        "definition": 210,
+        "due": 1.4,
+        "expiry": 0.7
+      },
+      {
+        "definition": 211,
+        "due": 1.6,
+        "expiry": 0.8
+      }
+    ],
+    "endings": [
+      {
+        "name": "clock 0 0",
+        "caster": 0,
+        "time": 1
+      },
+      {
+        "name": "clock 0 1",
+        "caster": 0,
+        "time": 1
+      },
+      {
+        "name": "clock 0 2",
+        "caster": 0,
+        "time": 1
+      },
+      {
+        "name": "clock 0 3",
+        "caster": 0,
+        "time": 1
+      },
+      {
+        "name": "clock 0 4",
+        "caster": 0,
+        "time": 1
+      },
+      {
+        "name": "clock 0 5",
+        "caster": 0,
+        "time": 1
+      },
+      {
+        "name": "clock 0 6",
+        "caster": 0,
+        "time": 1
+      },
+      {
+        "name": "clock 0 7",
+        "caster": 0,
+        "time": 1
+      },
+      {
+        "name": "clock 1 0",
+        "caster": 1,
+        "time": 1
+      },
+      {
+        "name": "clock 1 1",
+        "caster": 1,
+        "time": 1
+      },
+      {
+        "name": "clock 1 2",
+        "caster": 1,
+        "time": 1
+      },
+      {
+        "name": "clock 1 3",
+        "caster": 1,
+        "time": 1
+      },
+      {
+        "name": "clock 1 4",
+        "caster": 1,
+        "time": 1
+      },
+      {
+        "name": "clock 1 5",
+        "caster": 1,
+        "time": 1
+      },
+      {
+        "name": "clock 1 6",
+        "caster": 1,
+        "time": 1
+      },
+      {
+        "name": "clock 1 7",
+        "caster": 1,
+        "time": 1
+      },
+      {
+        "name": "clock 2 0",
+        "caster": 2,
+        "time": 1
+      },
+      {
+        "name": "clock 2 1",
+        "caster": 2,
+        "time": 1
+      },
+      {
+        "name": "clock 2 2",
+        "caster": 2,
+        "time": 1
+      },
+      {
+        "name": "clock 2 3",
+        "caster": 2,
+        "time": 1
+      },
+      {
+        "name": "clock 2 4",
+        "caster": 2,
+        "time": 1
+      },
+      {
+        "name": "clock 2 5",
+        "caster": 2,
+        "time": 1
+      },
+      {
+        "name": "clock 2 6",
+        "caster": 2,
+        "time": 1
+      },
+      {
+        "name": "clock 2 7",
+        "caster": 2,
+        "time": 1
+      },
+      {
+        "name": "clock 3 0",
+        "caster": 3,
+        "time": 1
+      },
+      {
+        "name": "clock 3 1",
+        "caster": 3,
+        "time": 1
+      },
+      {
+        "name": "clock 3 2",
+        "caster": 3,
+        "time": 1
+      },
+      {
+        "name": "clock 3 3",
+        "caster": 3,
+        "time": 1
+      },
+      {
+        "name": "clock 3 4",
+        "caster": 3,
+        "time": 1
+      },
+      {
+        "name": "clock 3 5",
+        "caster": 3,
+        "time": 1
+      },
+      {
+        "name": "clock 3 6",
+        "caster": 3,
+        "time": 1
+      },
+      {
+        "name": "clock 3 7",
+        "caster": 3,
+        "time": 1
+      },
+      {
+        "name": "clock 4 0",
+        "caster": 4,
+        "time": 1
+      },
+      {
+        "name": "clock 4 1",
+        "caster": 4,
+        "time": 1
+      },
+      {
+        "name": "clock 4 2",
+        "caster": 4,
+        "time": 1
+      },
+      {
+        "name": "clock 4 3",
+        "caster": 4,
+        "time": 1
+      },
+      {
+        "name": "clock 4 4",
+        "caster": 4,
+        "time": 1
+      },
+      {
+        "name": "clock 4 5",
+        "caster": 4,
+        "time": 1
+      },
+      {
+        "name": "clock 4 6",
+        "caster": 4,
+        "time": 1
+      },
+      {
+        "name": "clock 4 7",
+        "caster": 4,
+        "time": 1
+      }
+    ],
+    "packets": [
+      {
+        "name": "clock 0 0",
+        "caster": 0,
+        "time": 0.0999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 0 1",
+        "caster": 0,
+        "time": 0.19990000000000002,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 0 2",
+        "caster": 0,
+        "time": 0.2999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 0 3",
+        "caster": 0,
+        "time": 0.39990000000000003,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 0 4",
+        "caster": 0,
+        "time": 0.4999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 0 5",
+        "caster": 0,
+        "time": 0.5999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 0 6",
+        "caster": 0,
+        "time": 0.6999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 0 7",
+        "caster": 0,
+        "time": 0.7999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 1 0",
+        "caster": 1,
+        "time": 0.0999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 1 1",
+        "caster": 1,
+        "time": 0.19990000000000002,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 1 2",
+        "caster": 1,
+        "time": 0.2999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 1 3",
+        "caster": 1,
+        "time": 0.39990000000000003,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 1 4",
+        "caster": 1,
+        "time": 0.4999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 1 5",
+        "caster": 1,
+        "time": 0.5999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 1 6",
+        "caster": 1,
+        "time": 0.6999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 1 7",
+        "caster": 1,
+        "time": 0.7999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 2 0",
+        "caster": 2,
+        "time": 0.0999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 2 1",
+        "caster": 2,
+        "time": 0.19990000000000002,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 2 2",
+        "caster": 2,
+        "time": 0.2999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 2 3",
+        "caster": 2,
+        "time": 0.39990000000000003,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 2 4",
+        "caster": 2,
+        "time": 0.4999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 2 5",
+        "caster": 2,
+        "time": 0.5999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 2 6",
+        "caster": 2,
+        "time": 0.6999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 2 7",
+        "caster": 2,
+        "time": 0.7999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 3 0",
+        "caster": 3,
+        "time": 0.0999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 3 1",
+        "caster": 3,
+        "time": 0.19990000000000002,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 3 2",
+        "caster": 3,
+        "time": 0.2999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 3 3",
+        "caster": 3,
+        "time": 0.39990000000000003,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 3 4",
+        "caster": 3,
+        "time": 0.4999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 3 5",
+        "caster": 3,
+        "time": 0.5999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 3 6",
+        "caster": 3,
+        "time": 0.6999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 3 7",
+        "caster": 3,
+        "time": 0.7999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 4 0",
+        "caster": 4,
+        "time": 0.0999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 4 1",
+        "caster": 4,
+        "time": 0.19990000000000002,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 4 2",
+        "caster": 4,
+        "time": 0.2999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 4 3",
+        "caster": 4,
+        "time": 0.39990000000000003,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 4 4",
+        "caster": 4,
+        "time": 0.4999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 4 5",
+        "caster": 4,
+        "time": 0.5999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 4 6",
+        "caster": 4,
+        "time": 0.6999,
+        "target_mask": 1
+      },
+      {
+        "name": "clock 4 7",
+        "caster": 4,
+        "time": 0.7999,
+        "target_mask": 1
+      }
+    ],
+    "budgets": {},
+    "immunity_usage": [],
+    "damage_reference": {
+      "queries": [],
+      "packets": [
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 0 0",
+          "time": 0.0999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 0",
+          "time": 0.0999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 0 1",
+          "time": 0.19990000000000002,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 0",
+          "time": 0.19990000000000002,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 0 2",
+          "time": 0.2999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 0",
+          "time": 0.2999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 0 3",
+          "time": 0.39990000000000003,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 0",
+          "time": 0.39990000000000003,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 0 4",
+          "time": 0.4999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 0",
+          "time": 0.4999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 0 5",
+          "time": 0.5999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 0",
+          "time": 0.5999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 0 6",
+          "time": 0.6999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 0",
+          "time": 0.6999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 0 7",
+          "time": 0.7999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 0",
+          "time": 0.7999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 1 0",
+          "time": 0.0999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 1",
+          "time": 0.0999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 1 1",
+          "time": 0.19990000000000002,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 1",
+          "time": 0.19990000000000002,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 1 2",
+          "time": 0.2999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 1",
+          "time": 0.2999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 1 3",
+          "time": 0.39990000000000003,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 1",
+          "time": 0.39990000000000003,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 1 4",
+          "time": 0.4999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 1",
+          "time": 0.4999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 1 5",
+          "time": 0.5999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 1",
+          "time": 0.5999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 1 6",
+          "time": 0.6999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 1",
+          "time": 0.6999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 1 7",
+          "time": 0.7999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 1",
+          "time": 0.7999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 2 0",
+          "time": 0.0999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 2",
+          "time": 0.0999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 2 1",
+          "time": 0.19990000000000002,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 2",
+          "time": 0.19990000000000002,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 2 2",
+          "time": 0.2999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 2",
+          "time": 0.2999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 2 3",
+          "time": 0.39990000000000003,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 2",
+          "time": 0.39990000000000003,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 2 4",
+          "time": 0.4999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 2",
+          "time": 0.4999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 2 5",
+          "time": 0.5999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 2",
+          "time": 0.5999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 2 6",
+          "time": 0.6999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 2",
+          "time": 0.6999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 2 7",
+          "time": 0.7999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 2",
+          "time": 0.7999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 3 0",
+          "time": 0.0999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 3",
+          "time": 0.0999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 3 1",
+          "time": 0.19990000000000002,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 3",
+          "time": 0.19990000000000002,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 3 2",
+          "time": 0.2999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 3",
+          "time": 0.2999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 3 3",
+          "time": 0.39990000000000003,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 3",
+          "time": 0.39990000000000003,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 3 4",
+          "time": 0.4999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 3",
+          "time": 0.4999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 3 5",
+          "time": 0.5999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 3",
+          "time": 0.5999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 3 6",
+          "time": 0.6999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 3",
+          "time": 0.6999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 3 7",
+          "time": 0.7999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 3",
+          "time": 0.7999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 4 0",
+          "time": 0.0999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 4",
+          "time": 0.0999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 4 1",
+          "time": 0.19990000000000002,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 4",
+          "time": 0.19990000000000002,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 4 2",
+          "time": 0.2999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 4",
+          "time": 0.2999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 4 3",
+          "time": 0.39990000000000003,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 4",
+          "time": 0.39990000000000003,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 4 4",
+          "time": 0.4999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 4",
+          "time": 0.4999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 4 5",
+          "time": 0.5999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 4",
+          "time": 0.5999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 4 6",
+          "time": 0.6999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 4",
+          "time": 0.6999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "clock 4 7",
+          "time": 0.7999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        },
+        {
+          "target_order": [
+            0
+          ],
+          "effect": "reader 4",
+          "time": 0.7999,
+          "target_mask": 1,
+          "hit_index": 1,
+          "hit_count": 1,
+          "weighted_amount": 11.0,
+          "delivered_amount": 11
+        }
+      ],
+      "target_scored_damage": [
+        880
+      ],
+      "periodic_snapshots": [],
+      "staged_state": []
+    }
+  },
+  "native_damage": {
+    "queries": [],
+    "packets": [
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 0 0",
+        "time": 0.0999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 0",
+        "time": 0.0999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 0 1",
+        "time": 0.19990000000000002,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 0",
+        "time": 0.19990000000000002,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 0 2",
+        "time": 0.2999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 0",
+        "time": 0.2999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 0 3",
+        "time": 0.39990000000000003,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 0",
+        "time": 0.39990000000000003,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 0 4",
+        "time": 0.4999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 0",
+        "time": 0.4999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 0 5",
+        "time": 0.5999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 0",
+        "time": 0.5999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 0 6",
+        "time": 0.6999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 0",
+        "time": 0.6999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 0 7",
+        "time": 0.7999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 0",
+        "time": 0.7999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 1 0",
+        "time": 0.0999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 1",
+        "time": 0.0999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 1 1",
+        "time": 0.19990000000000002,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 1",
+        "time": 0.19990000000000002,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 1 2",
+        "time": 0.2999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 1",
+        "time": 0.2999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 1 3",
+        "time": 0.39990000000000003,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 1",
+        "time": 0.39990000000000003,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 1 4",
+        "time": 0.4999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 1",
+        "time": 0.4999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 1 5",
+        "time": 0.5999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 1",
+        "time": 0.5999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 1 6",
+        "time": 0.6999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 1",
+        "time": 0.6999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 1 7",
+        "time": 0.7999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 1",
+        "time": 0.7999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 2 0",
+        "time": 0.0999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 2",
+        "time": 0.0999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 2 1",
+        "time": 0.19990000000000002,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 2",
+        "time": 0.19990000000000002,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 2 2",
+        "time": 0.2999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 2",
+        "time": 0.2999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 2 3",
+        "time": 0.39990000000000003,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 2",
+        "time": 0.39990000000000003,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 2 4",
+        "time": 0.4999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 2",
+        "time": 0.4999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 2 5",
+        "time": 0.5999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 2",
+        "time": 0.5999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 2 6",
+        "time": 0.6999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 2",
+        "time": 0.6999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 2 7",
+        "time": 0.7999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 2",
+        "time": 0.7999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 3 0",
+        "time": 0.0999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 3",
+        "time": 0.0999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 3 1",
+        "time": 0.19990000000000002,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 3",
+        "time": 0.19990000000000002,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 3 2",
+        "time": 0.2999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 3",
+        "time": 0.2999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 3 3",
+        "time": 0.39990000000000003,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 3",
+        "time": 0.39990000000000003,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 3 4",
+        "time": 0.4999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 3",
+        "time": 0.4999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 3 5",
+        "time": 0.5999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 3",
+        "time": 0.5999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 3 6",
+        "time": 0.6999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 3",
+        "time": 0.6999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 3 7",
+        "time": 0.7999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 3",
+        "time": 0.7999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 4 0",
+        "time": 0.0999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 4",
+        "time": 0.0999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 4 1",
+        "time": 0.19990000000000002,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 4",
+        "time": 0.19990000000000002,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 4 2",
+        "time": 0.2999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 4",
+        "time": 0.2999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 4 3",
+        "time": 0.39990000000000003,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 4",
+        "time": 0.39990000000000003,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 4 4",
+        "time": 0.4999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 4",
+        "time": 0.4999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 4 5",
+        "time": 0.5999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 4",
+        "time": 0.5999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 4 6",
+        "time": 0.6999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 4",
+        "time": 0.6999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "clock 4 7",
+        "time": 0.7999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      },
+      {
+        "target_order": [
+          0
+        ],
+        "effect": "reader 4",
+        "time": 0.7999,
+        "target_mask": 1,
+        "hit_index": 1,
+        "hit_count": 1,
+        "weighted_amount": 11.0,
+        "delivered_amount": 11
+      }
+    ],
+    "target_scored_damage": [
+      880
+    ],
+    "periodic_snapshots": [],
+    "staged_state": []
+  },
+  "execution": {
+    "transport": {
+      "backend": "metal",
+      "cases": 2,
+      "command_status": "completed",
+      "configured_max_threads_per_threadgroup": 1,
+      "device": "Apple M5",
+      "gpu_seconds": 0.28141187503933907,
+      "input_bytes": 622596,
+      "library_compile_seconds": 0.0009210109710693359,
+      "output_bytes": 819200,
+      "pipeline_compile_seconds": 0.001083970069885254,
+      "pipeline_lock_wait_seconds": 1.9073486328125e-06,
+      "pipeline_max_threads_per_threadgroup": 1,
+      "registry_id": "4294968313",
+      "threads_per_threadgroup": 1,
+      "compile_timeout_seconds": 300,
+      "gpu_timeout_seconds": 120
+    },
+    "source_sha256": {
+      "gpu/event_runtime.slang": "0405a9049ccb7b66a84b29fb10d22a3fffd505affdb1637332d47e2c2843b532",
+      "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+      "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+      "gpu/portable_schema.slang": "c852a63052391f1132dd4e61b1b58957872445f9f6b9a69691bb765f675d8d25",
+      "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
+      "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
+      "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
+      "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+      "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+      "gpu/reference_runtime.slang": "3ea6e2b3d617728568a4455097ae2f139466127729026b3011dbb3d930b72a05",
+      "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+      "gpu/bullet_runtime.slang": "1b0f0ffb2eaff6778e0fcab801cb7d644b83af2cb9bc8a230b9d33502bc1c324",
+      "gpu/rank_runtime.slang": "4d8cb1dcd4950bd278bcad169813484fba0087e2c67681799e141e5f44af7a44",
+      "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
+      "gpu/enemy_buff_runtime.slang": "a731007f062901024ef74bfc2a670de243c61d17890a21e7a2d2ec74c4a800bb",
+      "gpu/carrier_runtime.slang": "1d8852d19b683e93daceaeaaa5d70b261d5d034cd8633e8a3b7e58d29403671c",
+      "gpu/quantity_runtime.slang": "843dc4d8246dc2babe7a02db51eb365883551e6aa150cf4ea661b10eb3af5a5e",
+      "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
+      "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
+      "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
+      "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+      "gpu/recipient_runtime.slang": "c29f87bdc65479778b72949a0876b42bc1bef9791bd3bb922a7dff6360c65215",
+      "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+      "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+      "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
+      "gpu/incoming_runtime.slang": "bde3b172675e137dea190196aeeb2b81e2608115756da932e2642d410c57cf68",
+      "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
+      "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+      "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
+      "gpu/landing_runtime.slang": "763ee4080d8ec7191c6937c2c5a8e048ecc212cf2db07664ea26f6beb4aaff84",
+      "gpu/periodic_runtime.slang": "574670587e48ff1bfc0498e2ba7b71a86c1285b2281649e46bd9e5ef877f21b9",
+      "gpu/removal_runtime.slang": "172835be425438ac089febcde44eb469d303163dc0a14f77785f3bf82014d013",
+      "gpu/duration_extend_runtime.slang": "2a8810be4130e3d3beb86ded42a7017a138f0c26b97c26b0720ff8062a62c8ef",
+      "gpu/stack_runtime.slang": "58d87685f0e28428039550f432d46b3eec0ba3b87e653c2dcc9bfed92f0866ec",
+      "gpu/status_runtime.slang": "60f155cf659e2d515ca1bf0578464e0d1c29dec7872ce46d84ebe54a954ef45b",
+      "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+      "gpu/pending_burst_runtime.slang": "c4b0ee8ded3c5922ce8370b12ebec0dbb86ad0bae9d530d615e4f498029f1758",
+      "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+      "gpu/combat_runtime.slang": "007857a4a49acddb59fd36935d5acd578d70af69815cf4f63647836837ee872b",
+      "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+      "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
+      "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+      "gpu/admission_runtime.slang": "9f9674bf516696da4a73f15558e2b15d0f11af2490f5aeba0f3a1dd0ea942932"
+    },
+    "generated_sha256": {
+      "cuda": "d3fb61db93c73227ac1e2ac70fdf0a73d0da48a470fbb44e3e97107a8b370570",
+      "metal": "0142868712bcbd1894f8f9407c2907fc0c73df3ef54029cebd4e6996d3c4ac9b"
+    },
+    "input_sha256": "e0d1140ed468321bb1bfde03757ee584df7e871c3ed52fa21e975296d0c8471b",
+    "output_sha256": "167bb07b2220bdb3d754c0306769a08f2b69d87716c00328692fc89d1993c8b8",
+    "gpu_execution_verified": true,
+    "backend": "metal"
+  }
+}

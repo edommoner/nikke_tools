@@ -41,7 +41,8 @@ def value(effect,char):
     return result
 
 def pack_metadata(words,L,effects,double_words):
-    if not any(operation(e) for e,_ in effects):return
+    from portable_status_specs import enabled as status_enabled
+    if not any(operation(e) for e,_ in effects) and not status_enabled(effects):return
     # MODE_BASE is a tagged union: weapon modes retain all 32 original words.
     # Nonweapon records carry the literal native duration and init binding.
     for i,(e,owner) in enumerate(effects):

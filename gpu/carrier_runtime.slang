@@ -9,7 +9,7 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
     // Avoid a growing resident scan on first activation and ordinary refresh.
     if (incoming.enemyBuff == 0 && s.multiCarrier[definition] == 0)
     {
-        bool primaryLive = s.alive[definition] != 0 && f64Less(when,s.end[definition]);
+        bool primaryLive = s.alive[definition] != 0;
         if (primaryLive && (incoming.bulletDuration != 0 || incoming.lazyGroup != 0 || s.lazyPending[definition] == 0 && s.activeRecipients[definition] == recipients)) return definition;
         if (!primaryLive && (incoming.mergeEligible & 2) == 0) return definition;
     }
@@ -18,18 +18,19 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
         uint slot = s.orderedRows[pass]; Definition prior = residentDefinition(s,slot);
-        if (s.alive[slot] == 0 || !f64Less(when,s.end[slot])) continue;
+        if (s.alive[slot] == 0) continue;
         bool same = incoming.bulletDuration != 0 && s.carrierDefinition[slot] == definition ? true : incoming.lazyGroup != 0 ? prior.lazyGroup == incoming.lazyGroup : s.lazyPending[slot] == 0 && s.activeRecipients[slot] == recipients;
         if (incoming.enemyBuff != prior.enemyBuff || incoming.enemyBuff != 0 && !enemyCarrierSameLife(s,slot,recipients,incomingGeneration)) same = false;
         if (!same) continue;
         if (s.carrierDefinition[slot] == definition) return slot;
+        if (!f64Less(when,s.end[slot])) continue;
         if (merged == P_CARRIERS && (referenceCaptureFlags(s,slot)&4)==0 && (incoming.mergeEligible & 1) != 0 && (prior.mergeEligible & 1) != 0 && incoming.name == prior.name &&
             incoming.owner == prior.owner && incoming.kind == prior.kind && incoming.statKey == prior.statKey && incoming.maxStack == prior.maxStack) merged = slot;
     }
     if (merged != P_CARRIERS) return merged;
-    if (s.alive[definition] == 0 || !f64Less(when,s.end[definition])) return definition;
+    if (s.alive[definition] == 0) return definition;
     for (uint slot = s.count; slot < s.carrierCount; slot++)
-        if (s.alive[slot] == 0 || !f64Less(when,s.end[slot]))
+        if (s.alive[slot] == 0)
         { resetBulletCarrier(s,slot); discardLazy(s,slot); s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot; }
     if (s.carrierCount == P_CARRIERS) { s.error = 64; return definition; }
     uint slot = s.carrierCount++; s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot;

@@ -21,6 +21,7 @@ uint removalMembers(inout Runtime s,uint slot)
             if((s.activeRecipients[slot]&(1U<<(target+5)))!=0 && s.targetAlive[target]!=0 && s.targetGeneration[target]==enemyCarrierGeneration(s,slot,target)) mask|=1U<<(target+5);
         return mask;
     }
+    if(definition_kind(s.inputBase,definition)==3 && !f64Zero(definition_interval(s.inputBase,definition)) && commands[s.inputBase+P_STATUS_META_BASE]!=0) return s.activeRecipients[slot];
     if(definition_kind(s.inputBase,definition)!=3 || f64Zero(definition_interval(s.inputBase,definition))) return s.lazyPending[slot]!=0 ? 0 : s.activeRecipients[slot];
     if((definition_periodicFlags(s.inputBase,definition)&1)==0) return 1U<<(s.timerTarget[definition]+5);
     uint mask=0,order=s.periodicOrder[definition];
@@ -49,7 +50,7 @@ void removeNamedResidents(inout Runtime s,uint row,uint target,uint64_t when)
             uint prior=sharedEnemy ? s.activeRecipients[slot] : removalMembers(s,slot),stripped=prior&scope;
             if(stripped==0) continue;
             uint remaining=prior&~stripped;
-            if(definition_kind(s.inputBase,definition)==3 && !f64Zero(definition_interval(s.inputBase,definition)))
+            if(definition_kind(s.inputBase,definition)==3 && !f64Zero(definition_interval(s.inputBase,definition)) && commands[s.inputBase+P_STATUS_META_BASE]==0)
             {
                 if((definition_periodicFlags(s.inputBase,definition)&1)!=0) s.periodicOrder[definition]=filterRemovalOrder(s.periodicOrder[definition],remaining>>5,4,8);
             }

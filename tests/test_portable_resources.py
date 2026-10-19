@@ -40,5 +40,5 @@ class ResourceTests(unittest.TestCase):
         c=next(c for c in CASES if c['name']=='resource-same-instant-name-different-keys');words,meta=v.compile_case(c)
         self.assertEqual(words[L['RESOURCE_META_BASE']],2)
         self.assertEqual(len(words),L['INPUT_WORDS'])
-        self.assertEqual((L['INPUT_WORDS'],L['OUTPUT_WORDS']),(77824,94208))
+        self.assertEqual((L['INPUT_WORDS'],L['OUTPUT_WORDS']),(77824,102400))
 if __name__=='__main__':unittest.main()

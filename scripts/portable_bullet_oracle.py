@@ -63,7 +63,9 @@ def _observe(case):
         if ab.effect.get('duration_bullets',-1)>0:
             record.update(bullet_left=ab.bullets_left,recipient_bullets=[ab.bullets_per_target.get(n,0) for n in NAMES],recipient_stack_overrides=[ab.per_char_stacks.get(n,0) for n in NAMES])
         carriers.append(record)
-    return dict(queries=queries,carriers=carriers)
+    result=dict(queries=queries,carriers=carriers)
+    if case.get('status_reference'):result['immunity_usage']=[dict(recipient=NAMES.index(name),name=key,used=used) for (name,key),used in bm._immune_used.items() if used]
+    return result
 
 
 def observe(case):

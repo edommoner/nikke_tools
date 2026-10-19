@@ -144,7 +144,7 @@ uint initializeStack(inout Runtime s,uint row,uint target,uint64_t when)
 [noinline]
 bool validStackDefinitions(inout Runtime s)
 {
-    bool enabled=false;for(uint row=0;row<s.count;row++) enabled|=stackOperation(definition_kind(s.inputBase,row));
+    bool enabled=false;for(uint row=0;row<s.count;row++) enabled|=stackOperation(definition_kind(s.inputBase,row)) || ((definition_flags(s.inputBase,row)>>4)&3)!=0;
     for(uint row=0;row<s.count;row++)
     {
         Definition d=readDefinition(s.inputBase,row);

@@ -13,7 +13,7 @@ def compare(case,gpu,contains):
     assert len(active)==len(cpu['carriers']),(case['name'],'resident count',active,cpu['carriers'])
     for a,b in zip(active,cpu['carriers']):
         a=dict(a);effect=case['effects'][a['definition']]
-        if effect.get('type')=='damage' and effect.get('tick_interval'):
+        if effect.get('type')=='damage' and effect.get('tick_interval') and 'immunity_usage' not in gpu:
             binding=gpu['periodic_bindings'][a['definition']]
             a['recipients']=sum(1<<(t+5) for t in binding['target_order']) if binding['flags']&1 else 1<<(gpu['timers'][a['definition']]['target_slot']+5)
         expected=dict(b);expected['end']=expected.pop('expiry')
