@@ -15,6 +15,8 @@ import selectors
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
+MAX_INPUT_WORDS=131072
+MAX_OUTPUT_WORDS=262144
 
 
 def source_hashes(source):
@@ -91,7 +93,7 @@ def run_metal_command(command, *, compile_timeout=300, gpu_timeout=120):
 def execute(source, entry, packed, input_words, output_words, backend='metal'):
     if backend not in ('metal', 'cuda'):
         raise ValueError('Explicit metal or cuda backend required; no CPU fallback')
-    if type(input_words) is not int or type(output_words) is not int or not 1<=input_words<=131072 or not 1<=output_words<=131072:
+    if type(input_words) is not int or type(output_words) is not int or not 1<=input_words<=MAX_INPUT_WORDS or not 1<=output_words<=MAX_OUTPUT_WORDS:
         raise ValueError('Invalid portable word strides')
     count, = struct.unpack_from('<I', packed)
     if not 1 <= count <= 65536 or 1+count*input_words>0xffffffff or count*output_words>0xffffffff or len(packed) != (1+count*input_words)*4:

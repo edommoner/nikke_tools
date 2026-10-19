@@ -73,11 +73,14 @@ class CombatBoundaryTests(unittest.TestCase):
         outputs += [(L['STAGED_HEADER_BASE'],8),(L['STAGED_STATE_BASE'],L['DEFINITIONS']*6)]
         inputs += [(L['SOURCE_DEFINITION_BASE'],L['DEFINITIONS']*L['SOURCE_DEFINITION_WORDS'])]
         outputs += [(L['SOURCE_HEADER_BASE'],8),(L['SOURCE_STATE_BASE'],L['SOURCES']*L['SOURCE_STATE_WORDS']),(L['SOURCE_LOOKUP_BASE'],5*L['DEFINITIONS']),(L['SOURCE_QUERY_BASE'],L['COMMANDS']*8)]
-        for regions,capacity in [(inputs,L['INPUT_WORDS']),(outputs,L['OUTPUT_WORDS'])]:
+        inputs += [(L['STATUS_META_BASE'],8),(L['PROTECTION_META_BASE'],8),(L['PROTECTION_DEFINITION_BASE'],L['DEFINITIONS'])]
+        outputs += [(L['IMMUNITY_USED_BASE'],13*L['DEFINITIONS']*2),(L['IMMUNITY_SCRATCH_BASE'],L['DEFINITIONS']*4),(L['PROTECTION_HIT_BASE'],L['COMMANDS']*5*16),(L['PROTECTION_QUERY_BASE'],L['COMMANDS']*50),(L['PROTECTION_STATE_BASE'],50),(L['PROTECTION_BUILD_BASE'],10),(L['PROTECTION_MAP_BASE'],L['CARRIERS']),(L['PROTECTION_SELECTION_BASE'],L['CARRIERS']),(L['PROTECTION_OBJECT_BASE'],L['PROTECTION_OBJECTS']*L['PROTECTION_OBJECT_WORDS'])]
+        from portable_backend import MAX_INPUT_WORDS,MAX_OUTPUT_WORDS
+        for regions,capacity,limit in [(inputs,L['INPUT_WORDS'],MAX_INPUT_WORDS),(outputs,L['OUTPUT_WORDS'],MAX_OUTPUT_WORDS)]:
             end=0
             for start,size in sorted(regions):
                 self.assertGreaterEqual(start,end);end=start+size
-            self.assertLessEqual(end,capacity);self.assertLessEqual(capacity,131072)
+            self.assertLessEqual(end,capacity);self.assertLessEqual(capacity,limit)
 
     def test_accuracy_requires_geometry_instead_of_reusing_static_probability(self):
         c=copy.deepcopy(v.fixtures()[0]);c['effects'][0]['stat']='accuracy_pct'

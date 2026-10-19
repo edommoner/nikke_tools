@@ -48,7 +48,7 @@ func run() throws {
     let entry = CommandLine.arguments.count == 7 ? CommandLine.arguments[4] : "portableProbe"
     let inputWords = CommandLine.arguments.count == 7 ? Int(CommandLine.arguments[5]) ?? 0 : 97
     let outputWords = CommandLine.arguments.count == 7 ? Int(CommandLine.arguments[6]) ?? 0 : 7
-    guard inputWords > 0 && inputWords <= 131072 && outputWords > 0 && outputWords <= 131072 else { throw ProbeError("Invalid wire layout") }
+    guard inputWords > 0 && inputWords <= 131072 && outputWords > 0 && outputWords <= 262144 else { throw ProbeError("Invalid wire layout") }
     guard let device = MTLCreateSystemDefaultDevice() else { throw ProbeError("No Metal device") }
     let inputData = try Data(contentsOf: URL(fileURLWithPath: CommandLine.arguments[2]))
     guard inputData.count >= 4 else { throw ProbeError("Missing input header") }

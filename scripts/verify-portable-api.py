@@ -28,6 +28,7 @@ def main():
              'scripts/verify-portable-api.py','tests/fixtures/portable-events.json',
              'tests/fixtures/portable-event-candidates.json','tests/fixtures/portable-enemy-attack-ranks.json','tests/fixtures/portable-enemy-spawn-order.json','tests/fixtures/portable-enemy-auto-aim.json','tests/fixtures/portable-periodic-targets.json','tests/fixtures/portable-enemy-buffs.json','tests/fixtures/portable-buff-notices.json','tests/fixtures/portable-mode-sessions.json','tests/fixtures/portable-ammo-modes.json','tests/fixtures/portable-ammo-instants.json','tests/fixtures/portable-burst-duration.json','tests/fixtures/portable-pending-burst.json','tests/fixtures/portable-cover.json','tests/fixtures/portable-enemy-damage.json','tests/fixtures/portable-burst-resources.json','tests/fixtures/portable-bullets.json','tests/fixtures/portable-lazy.json','tests/fixtures/portable-carriers.json','app/portable_recipient_specs.py','tests/fixtures/portable-recipients.json','app/portable_combat.py','app/portable_specs.py','app/portable_periodic_specs.py','app/world_condition_specs.py','app/impact_specs.py',
              'tests/fixtures/portable-capacity.json','tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
+    tracked += ['app/portable_protection_specs.py','app/protection_runtime.py','scripts/portable_protection_oracle.py','tests/fixtures/portable-protection.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases'][0]
     payload=dict(chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES],
@@ -526,6 +527,14 @@ def main():
         if 'environment' in c:body['environment']=c['environment']
         actual=request(body);assert actual['gpu_execution_verified'];compare_status(c,actual['results'][0],verifier.contains)
         result['status_execution'].append(dict(name=name,execution=actual))
+    protection_cases=json.loads((ROOT/'tests/fixtures/portable-protection.json').read_text(encoding='utf-8'))['cases']
+    from portable_protection_oracle import compare as compare_protection
+    result['protection_execution']=[]
+    for name in ('protection-captured-object-survives-carrier-reuse','protection-refresh-observes-old-shield-when-snapshotting','protection-amp-partial-maps','protection-nonzero-caster-invincible','protection-recreated-during-named-callback'):
+        c=next(c for c in protection_cases if c['name']==name);owners=c.get('owners',[0]*len(c['effects']))
+        body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(c['effects'],owners)],script=c['script'],base_atk=c.get('base_atk',[1000]*5),backend=args.backend,environment=c['environment'])
+        actual=request(body);assert actual['gpu_execution_verified'];compare_protection(c,actual['results'][0],verifier.contains)
+        result['protection_execution'].append(dict(name=name,execution=actual))
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in hashes}
     result.update(passed=True,api_status=200,unsupported_status=400,unsupported_error=detail['error'],adapter_sha256=hashes)
     path.write_text(json.dumps(result,indent=2)+'\n', encoding='utf-8')

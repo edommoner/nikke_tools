@@ -14,7 +14,7 @@ class EnemyAttackInputTests(unittest.TestCase):
         words,_=v.compile_case(self.case());at=L['TARGET_ATTACK_BASE']
         values=struct.unpack('<8d',struct.pack('<16I',*words[at:at+16]))
         self.assertEqual(values,(DEFAULT_BOSS_ATK,0,0,0,0,0,0,0))
-        self.assertEqual((L['INPUT_WORDS'],L['OUTPUT_WORDS']),(77824,102400))
+        self.assertEqual((L['INPUT_WORDS'],L['OUTPUT_WORDS']),(81920,135168))
     def test_invalid_attack_data_is_rejected_before_dispatch(self):
         for value in (float('nan'),float('inf'),-1,1e31,True,9007199254740993,10**1000):
             case=copy.deepcopy(self.case());case['combat']['targets'][1]['attack']=value

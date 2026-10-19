@@ -28,10 +28,10 @@ class PortableBoundaryTests(unittest.TestCase):
         self.assertEqual((self.chars,self.effects,self.script),before)
 
     def test_unported_semantics_fail_before_any_gpu_dispatch(self):
-        variants=[dict(trigger=dict(timing=['passive'],condition=['has_burst1_ally'])),dict(stat='shield_from_max_hp_pct'),dict(target='allies_random:1'),dict(scaling='stack_count'),
+        variants=[dict(trigger=dict(timing=['passive'],condition=['has_burst1_ally'])),dict(stat='taunt'),dict(target='allies_random:1'),dict(scaling='stack_count'),
                   dict(trigger=dict(timing=['battle_start'],condition=['full_burst'])),
-                  dict(trigger=dict(timing=['event:shield_applied'],condition=[])),
-                  dict(trigger=dict(timing=['battle_start'],condition=['during_shield']))]
+                  dict(trigger=dict(timing=['event:enemy_spawn'],condition=[])),
+                  dict(trigger=dict(timing=['battle_start'],condition=['self_stun_immune']))]
         for change in variants:
             with self.subTest(change=change):
                 saved=self.effects;self.effects=copy.deepcopy(saved)
@@ -49,8 +49,8 @@ class PortableBoundaryTests(unittest.TestCase):
         for trigger in (dict(timing=['battle_start']*9),dict(timing=[]),
                         dict(timing=['battle_start'],condition=['during_full_burst']*4),
                         dict(timing=['every:0s']),dict(timing=['every:nan']),
-                        dict(timing=['every:inf']),dict(timing=['event:shield_applied']),
-                        dict(timing=['battle_start'],condition=['during_shield'])):
+                        dict(timing=['every:inf']),dict(timing=['event:enemy_spawn']),
+                        dict(timing=['battle_start'],condition=['self_stun_immune'])):
             with self.subTest(trigger=trigger),self.assertRaises(ValueError):validate_input(dict(trigger=trigger))
 
     def test_quantity_metadata_and_policy_are_fail_closed(self):
@@ -283,5 +283,5 @@ class PortableAmmoInputTests(unittest.TestCase):
     def test_named_events_keep_reserved_builtin_semantics(self):
         from portable_trigger_specs import validate_input
         validate_input(dict(trigger=dict(timing=['event:custom cartridge completion'],condition=[])))
-        for value in ('event:', 'event:shield_applied', 'event:enemy_spawn', 'event:foo:bar'):
+        for value in ('event:', 'event:enemy_spawn', 'event:enemy_spawn', 'event:foo:bar'):
             with self.subTest(value=value),self.assertRaises(ValueError):validate_input(dict(trigger=dict(timing=[value],condition=[])))

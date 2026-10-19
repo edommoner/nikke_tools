@@ -1,5 +1,7 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721379U;
+static const uint PORTABLE_ABI = 1346721380U;
+static const uint P_PROTECTION_OBJECTS = 1024U;
+static const uint P_PROTECTION_OBJECT_WORDS = 24U;
 static const uint P_REMOVALS = 4096U;
 static const uint P_LANDINGS = 2048U;
 #ifdef PORTABLE_WIDE_LANDINGS
@@ -83,7 +85,9 @@ static const uint P_STAGED_DEFINITION_BASE = 75480U;
 static const uint P_STAGED_INDEX_BASE = 77528U;
 static const uint P_LANDING_META_BASE = 77792U;
 static const uint P_STATUS_META_BASE = 77800U;
-static const uint P_INPUT_WORDS = 77824U;
+static const uint P_PROTECTION_META_BASE = 77808U;
+static const uint P_PROTECTION_DEFINITION_BASE = 77816U;
+static const uint P_INPUT_WORDS = 81920U;
 static const uint P_QUERY_BASE = 16U;
 static const uint P_TRACE_BASE = 2064U;
 static const uint P_STATE_BASE = 3088U;
@@ -137,10 +141,17 @@ static const uint P_STACK_NOTICE_VALUE_BASE = 88072U;
 #endif
 static const uint P_IMMUNITY_USED_BASE = 92168U;
 static const uint P_IMMUNITY_SCRATCH_BASE = 98824U;
+static const uint P_PROTECTION_HIT_BASE = 99848U;
+static const uint P_PROTECTION_QUERY_BASE = 104968U;
+static const uint P_PROTECTION_STATE_BASE = 108168U;
+static const uint P_PROTECTION_MAP_BASE = 108224U;
+static const uint P_PROTECTION_SELECTION_BASE = 108736U;
+static const uint P_PROTECTION_OBJECT_BASE = 109248U;
+static const uint P_PROTECTION_BUILD_BASE = 133824U;
 #ifdef PORTABLE_WIDE_LANDINGS
-static const uint P_OUTPUT_WORDS = 110592U;
+static const uint P_OUTPUT_WORDS = 143360U;
 #else
-static const uint P_OUTPUT_WORDS = 102400U;
+static const uint P_OUTPUT_WORDS = 135168U;
 #endif
 static const uint D_OWNER = 0U;
 static const uint D_KIND = 1U;
@@ -170,6 +181,7 @@ static const uint D_CONDITION_COUNT = 27U;
 static const uint D_FLAGS = 28U;
 static const uint D_PERIOD = 29U;
 static const uint D_DAMAGE_FLAGS = 31U;
+static const uint C_SHIELD = 12U;
 static const uint C_GAUGE_ABOVE = 18U;
 static const uint C_GAUGE_BELOW = 19U;
 static const uint C_GAUGE_EQ = 20U;

@@ -14,7 +14,8 @@ def enabled(manager):
         effects=[e for e,_ in manager._effects]
         stack_changes=any(e.get('stat') in ('buff_stack_add','buff_stack_remove','buff_stack_init','buff_max_stack_add','debuff_stack_add','debuff_stack_remove','debuff_cleanse') for e in effects)
         observed_hp=HP_STATS | ({'max_hp_from_max_hp_pct'} if any(e.get('stat')=='debuff_cleanse' for e in effects) else set())
-        result=any(is_reference_health(e) for e in effects) or stack_changes and any(e.get('type')=='buff' and e.get('stat') in observed_hp for e in effects)
+        protection_health=any(e.get('type')=='buff' and e.get('stat') in HP_STATS|{'max_hp_from_max_hp_pct'} and 'during_shield' in e.get('trigger',{}).get('condition',[]) for e in effects)
+        result=protection_health or any(is_reference_health(e) for e in effects) or stack_changes and any(e.get('type')=='buff' and e.get('stat') in observed_hp for e in effects)
         manager._nikke_reference_health_defined=result
     return result
 
@@ -55,6 +56,8 @@ def execute(manager,t,callback):
 def install():
     from calculator.buff_manager import BuffManager
     if getattr(BuffManager,'_nikke_reference_health',False):return
+    from protection_runtime import install_health_gate
+    install_health_gate()
     original_notify=BuffManager.notify;original_activate=BuffManager._activate
     original_dispatch=BuffManager._dispatch_instant;original_tick=BuffManager.tick
     original_damage=BuffManager.register_damage_handler;original_reset=BuffManager.reset

@@ -101,6 +101,8 @@ struct Runtime
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
 
+bool hasProtection(inout Runtime s,uint who,uint kind);
+
 [ForceInline]
 Definition residentDefinition(inout Runtime s, uint slot) { return readDefinition(s.inputBase,s.carrierDefinition[slot]); }
 
@@ -138,7 +140,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
     {
         uint at = s.inputBase+P_CONDITION_BASE+definition*P_CONDITION_WORDS+i*4;
         uint kind = commands[at]; int name = int(commands[at+1]); uint64_t arg = loadNumber(at+2);
-        if (runtime && kind != C_GAUGE_ABOVE && kind != C_GAUGE_BELOW && kind != C_FULL && kind != C_NOT_FULL && kind != C_SELF_STATE && kind != C_NOT_SELF_STATE && kind != C_SELF_STACK && kind != C_CAST && kind != C_NOT_CAST && kind != C_CHARGING && kind != C_ENEMIES_ABOVE && kind != C_ENEMIES_BELOW && kind != C_HP_ABOVE && kind != C_HP_BELOW && kind != C_HP_MAX && kind != C_ALLY_HP_BELOW && kind != C_COVER_ALIVE && kind != C_COVER_BROKEN) continue;
+        if (runtime && kind != C_GAUGE_ABOVE && kind != C_GAUGE_BELOW && kind != C_FULL && kind != C_NOT_FULL && kind != C_SELF_STATE && kind != C_NOT_SELF_STATE && kind != C_SELF_STACK && kind != C_CAST && kind != C_NOT_CAST && kind != C_CHARGING && kind != C_ENEMIES_ABOVE && kind != C_ENEMIES_BELOW && kind != C_HP_ABOVE && kind != C_HP_BELOW && kind != C_HP_MAX && kind != C_ALLY_HP_BELOW && kind != C_COVER_ALIVE && kind != C_COVER_BROKEN && kind != C_SHIELD) continue;
         if (kind >= C_GAUGE_ABOVE && kind <= C_GAUGE_MOD && !resourceCondition(s,d.owner,kind,uint(name),arg,int(commands[s.inputBase+P_RESOURCE_CONDITION_BASE+definition*3+i]))) return false;
         if (kind == C_FULL && s.phase != 5 || kind == C_NOT_FULL && s.phase == 5) return false;
         if (kind == C_SELF_STATE || kind == C_NOT_SELF_STATE)
@@ -164,6 +166,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
             if (f64Less(count,arg)) return false;
         }
         if (kind == C_HP_ABOVE && f64Less(s.hpPct[d.owner],arg) || kind == C_HP_BELOW && f64Less(arg,s.hpPct[d.owner]) || kind == C_HP_MAX && f64Less(s.hpPct[d.owner],HUNDRED)) return false;
+        if (kind == C_SHIELD && !hasProtection(s,d.owner,1)) return false;
         if (kind == C_COVER_ALIVE && f64Zero(s.coverHP[d.owner]) || kind == C_COVER_BROKEN && !f64Zero(s.coverHP[d.owner])) return false;
         if (kind == C_NOT_SELF_HEAL && (s.healSource < 0 || uint(s.healSource) == d.owner)) return false;
         if (kind == C_ALLY_HP_BELOW)
@@ -418,6 +421,7 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
 #include "status_runtime.slang"
 #include "event_candidate_runtime.slang"
 #include "pending_burst_runtime.slang"
+#include "protection_runtime.slang"
 
 [noinline]
 uint packedRecipientMask(uint order)
@@ -477,6 +481,14 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
             if (f.repeatLeft!=0 && s.entryOrder[slot]==f.repeatPassive && s.carrierDefinition[slot]==f.repeatRow) captureBuffReference(s,slot,f.cursor-1);
             rechargeImmunity(s,f.cursor-1,packedRecipientMask(f.value)|(f.value>>16));
             depth--;
+            uint protection=protectionPolicy(s,f.repeatRow)&255;
+            if((protection==1 || protection==2) && buff.lazyGroup==0 && f.value!=0 && s.alive[slot]!=0 && s.entryOrder[slot]==f.repeatPassive && s.carrierDefinition[slot]==f.repeatRow)
+            {
+                if(f.repeatLeft!=0) captureBuffReference(s,slot,f.repeatRow);
+                uint order=buildProtection(s,slot,f.time);
+                if(order!=0 && s.error==0) pushFrame(s,frames,depth,21,0,buff.owner,0,f.time,order);
+                return;
+            }
             // CPU health postprocessing finds the still-active effect after all
             // notifications; cancellation can remove it or reinstall a carrier.
             if (buff.lazyGroup != 0 || f.value == 0 || !(buff.stat >= S_max_hp_pct && buff.stat <= S_max_hp_only_pct || buff.stat == S_max_hp_from_max_hp_pct)) return;
@@ -529,6 +541,13 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
             (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
         { depth--; continue; }
+        if(f.mode==20) { advanceProtectionHit(s,frames,depth);continue; }
+        if(f.mode==21)
+        {
+            uint encoded=f.cursor<5 ? (f.value>>(f.cursor*3))&7 : 0;
+            if(encoded==0) { depth--;continue; }
+            frames[depth].cursor++;pushFrame(s,frames,depth,0,18,encoded-1,0,f.time);continue;
+        }
         if (f.mode==18)
         {
             uint encoded=f.cursor<8 ? (f.value>>(f.cursor*4))&15 : 0;
@@ -666,7 +685,14 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 frames[depth].cursor = who+1; frames[depth].owner = who;
                 uint input = s.inputBase+P_INCOMING_BASE+uint(f.argument)*P_INCOMING_WORDS;
                 frames[depth].healthValue = incomingBodyDamage(s,who,loadNumber(input),loadNumber(input+2),f.time);
-                frames[depth].event = 1; continue;
+                frames[depth].event = 1;
+                if(commands[at]==31)
+                {
+                    uint64_t amount=frames[depth].healthValue;
+                    pushFrame(s,frames,depth,20,0,who,f.argument,f.time);
+                    if(s.error==0) frames[depth].healthValue=amount;
+                }
+                continue;
             }
             if (f.event == 1)
             {
@@ -689,6 +715,14 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 if (!fell) syncHealthActor(s,f.owner,f.time);
                 frames[depth].value = uint(fell); frames[depth].event = 3;
                 pushFrame(s,frames,depth,0,32,f.owner,0,f.time); continue;
+            }
+            if(f.event==3 && f64Less(0,f.healthPrevious))
+            { frames[depth].event=4;pushFrame(s,frames,depth,0,36,f.owner,0,f.time);continue; }
+            if(commands[at]==31)
+            {
+                uint hit=output+P_PROTECTION_HIT_BASE+(uint(f.argument)*5+f.owner)*16;
+                storeNumber(hit+12,f.healthValue);storeNumber(hit+14,f.value!=0 && (s.downMask&(1U<<f.owner))==0 ? 0 : s.hp[f.owner]);
+                if(f.value!=0 && (s.downMask&(1U<<f.owner))==0) results[hit+3]|=4;
             }
             frames[depth].event = 0;
             if (f.value != 0 && (s.downMask & (1U << f.owner)) == 0)
@@ -827,7 +861,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if((f.event!=28 || (d.flags&1)!=0 && s.alive[row]==0) && d.budget>=0 && !stackLazySelector(s,row) && stackSelectedRecipients(s,row,f.target,f.time,true,order)==0) continue;
             recipientMask=d.kind>=19 ? stackSelectedRecipients(s,row,f.target,f.time,false,order) : 0;
         }
-        if (f.mode!=19 && (d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 30 || d.kind==15 || d.kind==26))
+        if (f.mode!=19 && (d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 27 || d.kind == 31 || d.kind == 30 || d.kind==15 || d.kind==26))
         {
             if(d.kind==15 && d.budget<0 && !hasDurationExtensionMembers(s,row)) recipientMask=0;
             else if (d.enemyBuff != 0 || (d.kind==15 || d.kind==26) && d.target==2)
@@ -905,7 +939,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             bool namedNotice = namedCandidate && (s.namedEventOwners & packedRecipientMask(audienceOrder)) != 0;
             bool stackNotice = (d.buffEvent & 1) != 0 && previousStack != s.stacks[row] && (s.stackEventOwners & (1U << d.owner)) != 0;
             if (live && !namedNotice && !stackNotice) captureBuffReference(s,row,sourceRow);
-            if (namedNotice || stackNotice || immunityPolicy(s.inputBase,sourceRow)==3)
+            if (namedNotice || stackNotice || immunityPolicy(s.inputBase,sourceRow)==3 || (protectionPolicy(s,sourceRow)&255)==1 || (protectionPolicy(s,sourceRow)&255)==2)
             {
                 pushFrame(s,frames,depth,13,0,d.owner,int(row),f.time,recipientOrder | ((recipientMask&~31U)<<16));
                 if (s.error == 0)
@@ -925,6 +959,18 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             else
             {
                 applyHealthBuff(s,row,f.time);
+            }
+        }
+        else if(d.kind==27 || d.kind==31)
+        {
+            uint kind=d.kind==27 ? 1 : 2;
+            if(!f64Zero(d.value)) for(uint i=0;i<5;i++)
+            {
+                uint encoded=(recipientOrder>>(i*3))&7;if(encoded==0) break;uint who=encoded-1;
+                uint64_t basis=d.healthScaling!=0 ? effectiveMaxHP(s,d.owner,f.time) : protectionCapacity(s,who,kind);
+                uint64_t amount=f64Div(f64Mul(basis,d.value),HUNDRED);
+                if(!f64Finite(amount)) { s.error=16;break; }
+                healProtection(s,who,kind,amount,f.time);
             }
         }
         else if (d.kind == 7 || d.kind == 30)
@@ -1227,6 +1273,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if (numericStatus != 0) { results[output] = 128; return; }
     admitDefinitions(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
+    if(!validProtection(s)) { results[output]=64;return; }
     if (!validStatusDefinitions(s)) { results[output]=64;return; }
     if (!validStackDefinitions(s)) { results[output]=64;return; }
     if (!validEventCandidates(s)) { results[output] = 64; return; }
@@ -1272,6 +1319,12 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             uint owner=commands[at+4], name=commands[at+5], index=commands[at+6];
             if (owner>=5 || name>=P_DEFINITIONS || index>=P_COMMANDS || commands[at+3]!=0 || commands[at+7]!=0) { s.error=64; break; }
             writeSourceQuery(s,owner,name,index,when);
+        }
+        else if(op==31)
+        {
+            uint raw=s.inputBase+P_INCOMING_BASE+step*P_INCOMING_WORDS;
+            if(commands[at+3]>1 || commands[at+4]>31 || commands[at+5]==0 || commands[at+5]>31 || commands[at+6]!=0 || commands[at+7]!=0 || !f64Finite(loadNumber(raw)) || !f64Finite(loadNumber(raw+2)) || f64Less(loadNumber(raw),0) || f64Less(loadNumber(raw+2),0) || f64Less((uint64_t(0x46293e59)<<32)|uint64_t(0x39a08cea),loadNumber(raw)) || f64Less(f64FromI64(1000000),loadNumber(raw+2))) { s.error=64;break; }
+            dispatch(s,8,0,0,int(step),when,output);
         }
         else if (op == 25) dispatch(s,8,0,0,int(step),when,output);
         else if (op == 24 && s.combat != 0) advanceCombat(s,when,output);
@@ -1334,6 +1387,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             writeCovers(s,when,output+P_COVER_QUERY_BASE+index*40);
             writePendingBurst(s,output+P_PENDING_QUERY_BASE+index*4,false);
             writeIncoming(s,output+P_INCOMING_QUERY_BASE+index*P_INCOMING_QUERY_WORDS);
+            writeProtection(s,output+P_PROTECTION_QUERY_BASE+index*50);
             writeDamageAccounting(s,output+P_DAMAGE_ACCOUNTING_QUERY_BASE+index*40);
             queries = max(queries,index+1); uint dst = output+P_QUERY_BASE+index*P_QUERY_WORDS;
             storeNumber(dst,when);
@@ -1355,6 +1409,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     writePendingBurst(s,output+P_PENDING_STATE_BASE,true);
     writeCovers(s,commands[input+2] > 0 ? loadNumber(input+P_COMMAND_BASE+(commands[input+2]-1)*8+1) : 0,output+P_COVER_STATE_BASE);
     writeIncoming(s,output+P_INCOMING_STATE_BASE);
+    writeProtection(s,output+P_PROTECTION_STATE_BASE);
     writeHealth(s,commands[input+2] > 0 ? loadNumber(input+P_COMMAND_BASE+(commands[input+2]-1)*8+1) : 0,output+P_HEALTH_STATE_BASE);
     for (uint j = 0; j < s.count; j++)
     {

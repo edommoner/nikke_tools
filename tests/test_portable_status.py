@@ -13,7 +13,7 @@ class StatusContracts(unittest.TestCase):
   self.assertEqual(a[L['DEFINITION_BASE']+F['FLAGS']]&112,48);self.assertEqual(z[L['DEFINITION_BASE']+F['FLAGS']]&112,112)
  def test_status_metadata_and_charge_storage_are_buffer_owned(self):
   words,_=v.compile_case(b.case('count',[b.immune()],[b.notify(0)]));self.assertEqual(words[L['STATUS_META_BASE']],3)
-  self.assertEqual(L['INPUT_WORDS'],77824);self.assertEqual(L['OUTPUT_WORDS']-94208,8192)
+  self.assertEqual(L['INPUT_WORDS'],81920);self.assertEqual(L['IMMUNITY_SCRATCH_BASE']-L['IMMUNITY_USED_BASE'],13*L['DEFINITIONS']*2)
   self.assertLessEqual(L['IMMUNITY_USED_BASE']+13*256*2,L['IMMUNITY_SCRATCH_BASE'])
   self.assertLessEqual(L['IMMUNITY_SCRATCH_BASE']+256*4,L['OUTPUT_WORDS'])
  def test_marker_canonicalization_does_not_mutate_authored_definitions(self):
