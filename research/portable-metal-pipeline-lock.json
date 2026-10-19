@@ -8,18 +8,18 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.005400208407081664,
+    "gpu_seconds": 0.0028372500091791153,
     "input_bytes": 311300,
-    "library_compile_seconds": 0.0010280609130859375,
+    "library_compile_seconds": 0.0010590553283691406,
     "output_bytes": 360448,
-    "pipeline_compile_seconds": 0.001145005226135254,
-    "pipeline_lock_wait_seconds": 0.20944297313690186,
+    "pipeline_compile_seconds": 0.0010470151901245117,
+    "pipeline_lock_wait_seconds": 0.21010303497314453,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
     "threads_per_threadgroup": 1
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "60e5c0e55f31b28134db60a93babf2657c8aa5307a85581a372b1538475f4ee9",
+    "gpu/event_runtime.slang": "820399fc54a42f0ab3ff71616de3cf50833b973e0efde84009b5f22b453d7c72",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/portable_schema.slang": "ff3234260d75365b8a7907ce3a3d1055de454e21315cf7e02ebfe57854ad98c3",
@@ -60,13 +60,13 @@
     "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
     "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
   },
-  "generated_sha256": "4260dd988b62387937ba4c56d689a4601813fbc82c4d00a293715a2f4b582459",
+  "generated_sha256": "8b77981133573e64cba398fed495853fb88a49f8dd69b46ebc674b9b7bea935d",
   "input_sha256": "9f722ad3bd5c52aa4246a91e750d5accf93519961099bcdebb8e8e17a679e587",
   "output_sha256": "9435ed276d300c9f6cf67bc02236045d87456f575f835786ee95ea72d874f4e7",
   "validation_sha256": {
     "scripts/run-metal-probe.swift": "0f2b54212a600ae31a20930a3982e71d851b9951f63a2391d7bc1643c793a101",
     "scripts/verify-portable-metal-lock.py": "1b61cb71e824881b0979abab06cfa614018222454b6f357013ba88be7f4646de",
-    "scripts/verify-portable-combat.py": "a83e32b8fb644c27bd14a5a2002cc8168ce5636a506fb6125d41cf5d2889aae5",
+    "scripts/verify-portable-combat.py": "2186200030d0e8027146c74fb5eafb340111b1ca9a0433f8844b8ab64f89b418",
     "app/portable_runtime.py": "578bcda5e4214721170d122b9bc1e0906d422ddd846a3fd6725f688b013ea450"
   },
   "diagnostic": "portable_stage=pipeline_lock\nportable_stage=library_compile\nportable_stage=pipeline_compile\nportable_stage=gpu_dispatch\n"

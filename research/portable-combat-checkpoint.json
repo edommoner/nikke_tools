@@ -1,26 +1,27 @@
 {
   "wire_abi": "0x50455660",
-  "verified_commit": "a7f478452f7d9c3dbdca97879a2efdf8634c38a9",
+  "verified_commit": "2e1a265a58622cde3bdeef9c4bd9c9e3ad0d4e9c",
   "source_provenance": {
-    "fixed_shared_source_commit": "a7f478452f7d9c3dbdca97879a2efdf8634c38a9",
-    "metal_core_report_source_commit": "a7f478452f7d9c3dbdca97879a2efdf8634c38a9",
-    "windows_source_commit": "a7f478452f7d9c3dbdca97879a2efdf8634c38a9"
+    "fixed_shared_source_commit": "2e1a265a58622cde3bdeef9c4bd9c9e3ad0d4e9c",
+    "metal_core_report_source_commit": "2e1a265a58622cde3bdeef9c4bd9c9e3ad0d4e9c",
+    "windows_source_commit": "2e1a265a58622cde3bdeef9c4bd9c9e3ad0d4e9c"
   },
   "previous_checkpoint": {
-    "report": "portable-combat-v46-checkpoint.json",
-    "proof_commit": "3ff4eda"
+    "report": "portable-combat-v47-checkpoint.json",
+    "proof_commit": "169a6a3",
+    "original_report": "portable-combat-checkpoint.json"
   },
-  "positive_cases": 1139,
+  "positive_cases": 1149,
   "rejections": 206,
-  "batched_inputs": 1345,
+  "batched_inputs": 1355,
   "gpu_dispatches": 1,
   "metal_verified": true,
   "cuda_verified": true,
   "metal_report": "portable-combat-metal.json",
   "cuda_report": "portable-combat-cuda.json",
-  "windows_report": "windows-portable-combat-v47.json",
+  "windows_report": "windows-portable-combat-v48.json",
   "source_sha256": {
-    "gpu/event_runtime.slang": "60e5c0e55f31b28134db60a93babf2657c8aa5307a85581a372b1538475f4ee9",
+    "gpu/event_runtime.slang": "820399fc54a42f0ab3ff71616de3cf50833b973e0efde84009b5f22b453d7c72",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/portable_schema.slang": "ff3234260d75365b8a7907ce3a3d1055de454e21315cf7e02ebfe57854ad98c3",
@@ -61,8 +62,8 @@
     "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
     "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
   },
-  "input_sha256": "825d76cccafe5593032bc8a55508d3bec9fea74b2311ef6249202ad6fb4a0060",
-  "output_sha256": "de062fda107789c6f2e04cefaf2f4e4a99fe84c4c5ed690fa4bf942b0afd8be8",
+  "input_sha256": "3f6a37f83aee33688a070ebf8af661dc6e982136cbb4dffc67e701fd4f8818cd",
+  "output_sha256": "6fb4c20bf83c7e8566b9aa06e2a7c392b328c1ae0972aebc0780c9666d124f26",
   "validation_sha256": {
     "app/portable_duration_extend_specs.py": "f3909d1ce0a448090fd853a8fbb44f64bf6acdbb1803742812a2fb84bd42f9a8",
     "scripts/portable_duration_extend_oracle.py": "6d68ed922e60c67690b613de36d74753d4ac660e35e9132519b58aff3fff2d77",
@@ -112,7 +113,7 @@
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
     "scripts/portable_health_oracle.py": "0a10670fdba64a4e5de217869efc4f763ecf1dd67713cc67d7a8a2c25a62ed4f",
     "scripts/portable_enemy_oracle.py": "1ed2d643cbb0999088b3ae2f119dae7a43ece9c84fa56c2150a46f882c2da893",
-    "scripts/portable_burst_oracle.py": "640bc66abb2df8b237383df3d626df30bc565de382b19671fbf11ba83d5ee94a",
+    "scripts/portable_burst_oracle.py": "a0bec96a54611670528ede5bce6b435f1f472dc078b0ea559db42afb48c54dfb",
     "scripts/portable_bullet_oracle.py": "81729186abcbb057dd41c4eef6e981e7ff9d7f10deb4b2fe660a8a693113b0cc",
     "scripts/portable_weapon_oracle.py": "f6de982a48e39b941dfead71d190d2b8d530b25a8aba37021f8692c7990a53a2",
     "scripts/verify-detail.py": "20de1868cf509afa5696af87d94db27974d97c8505702e40eed27886f7c09972",
@@ -120,7 +121,7 @@
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "a83e32b8fb644c27bd14a5a2002cc8168ce5636a506fb6125d41cf5d2889aae5",
+    "scripts/verify-portable-combat.py": "2186200030d0e8027146c74fb5eafb340111b1ca9a0433f8844b8ab64f89b418",
     "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
     "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
     "tests/fixtures/portable-enemy-spawn-order.json": "7c72c2ec3a76bba4bf0da1be6a8e1e32db6124ef37feb87cb72a5447c8010791",
@@ -128,9 +129,9 @@
     "tests/fixtures/portable-periodic-targets.json": "d81c7db7e3c17527ea04738940b9cd42eb389269b762d33ad4a163944c4d6506",
     "scripts/portable_enemy_buff_oracle.py": "4811d1c4fb66c3bd8b49bfb2e170380e68bb77bab28d8d03d74b2c53ce437cee",
     "tests/fixtures/portable-enemy-buffs.json": "d1112e9bc6f236f1af7ec39453b7ca4e3d2ea8a548e57a38368965ff9b9cfd85",
-    "research/portable-mode-session-contract.json": "8c31ba85469c0ba1374ba0682bbb34aa3bc03eef2840a6c052e7efe405b3f5aa",
+    "research/portable-mode-session-contract.json": "c62411b5f4809bcf01bfe1f41b6764453ad69f713962e86afec6c9722f9cd64c",
     "tests/fixtures/portable-buff-notices.json": "234bd8ad051a89f7382b67069e0cfdf5e479cc0c9de42ba3528ae3d493265fd8",
-    "tests/fixtures/portable-mode-sessions.json": "027dbc7c09af926d554359128a7aa6662d287123eb3534f3f911c5181fc11593",
+    "tests/fixtures/portable-mode-sessions.json": "33ae421f083331b19d8de60b4e10da3c9502c3cb6e1a64640f3102d723fa0aa3",
     "tests/fixtures/portable-ammo-modes.json": "bcf69144ed0706a9e8f85e22b8f98824fbc2309e54c4d8ddc5a0a9c4da4365a2",
     "tests/fixtures/portable-ammo-instants.json": "69dad6e77c9eb72c06c3178197a2d5081ef4b0072a76f0fb5ce36e471dbdebb8",
     "tests/fixtures/portable-burst-duration.json": "43b852e0e57886272ca1de313b48022218702946d96622de9af7c0359ecdb64b",
@@ -153,9 +154,10 @@
     "tests/fixtures/portable-damage.json": "ab596e0f01bb9f94ee9813c6027d46a85415b77d5a72c36e06b32bf45b6ac5c7",
     "tests/fixtures/portable-triggers.json": "680d8d5e212f9604e23f895b141651114e8703a4051facd37deb5ac890a403ec",
     "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
-    "tests/fixtures/portable-combat-extensions.json": "2ea14dc26e0b3b3c6333b1adec9995bfa87bc5f4925ea544f02db8324cbd9552",
+    "tests/fixtures/portable-combat-extensions.json": "2277883e34b033505e715674ddd81006894ab8c6d9ad52076f89c4cebed4a96b",
     "tests/fixtures/portable-autonomous.json": "0d97f8e8a848cfaf25d08e52414f1055d6a8807625f28bce3608a1726db6a5e9",
-    "scripts/run-metal-probe.swift": "0f2b54212a600ae31a20930a3982e71d851b9951f63a2391d7bc1643c793a101"
+    "scripts/run-metal-probe.swift": "0f2b54212a600ae31a20930a3982e71d851b9951f63a2391d7bc1643c793a101",
+    "app/weapon_mode_runtime.py": "dfd7b6e0cdb1b7d6e9dcb2393e57526e1b1c9c353123320bab16daed5c75474e"
   },
   "input_words": 77824,
   "output_words": 90112,
@@ -171,7 +173,7 @@
   "real_equipment_initialization_squads": 203,
   "real_roster_profiles": 58,
   "real_fixed_squad": 8,
-  "unit_tests": 128,
+  "unit_tests": 131,
   "native_runtime_tests": 15,
   "lifesteal_cases": 15,
   "landing_cases": 20,
@@ -200,11 +202,11 @@
   "cpu_trace_used_as_gpu_input": false,
   "windows_checks_this_stage": 1,
   "windows_execution": {
-    "command": "python scripts/verify-portable-combat.py --backend cuda",
-    "commit": "a7f478452f7d9c3dbdca97879a2efdf8634c38a9",
+    "command": "python research/verify-session-identity.py --backend cuda",
+    "commit": "2e1a265a58622cde3bdeef9c4bd9c9e3ad0d4e9c",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "44, 4927",
+    "gpu_before": "37, 4871",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -222,8 +224,8 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 61.98892530007288,
-    "stdout": "{\"passed\": true, \"cases\": 1139, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
+    "elapsed_seconds": 73.22970429994166,
+    "stdout": "{\"passed\": true, \"cases\": 1149, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
     "stderr": ""
   },
   "windows_postcheck": {
@@ -243,37 +245,37 @@
     "known_cpu_differences": true,
     "known_health_cpu_differences": true,
     "known_mode_cpu_differences": true,
-    "ammo_instant_cpu_regressions": true,
-    "bullet_cpu_regressions": true,
-    "burst_cpu_regressions": true,
-    "burst_duration_cpu_regressions": true,
-    "capacity_cpu_regressions": true,
-    "carrier_cpu_regressions": true,
-    "cover_cpu_regressions": true,
-    "damage_cpu_regressions": true,
     "duration_extend_cpu_regressions": true,
-    "enemy_buff_cpu_regressions": true,
-    "enemy_component_cpu_regressions": true,
-    "health_cpu_regressions": true,
-    "hit_reference_cpu_regressions": true,
-    "landing_cpu_regressions": true,
-    "lazy_cpu_regressions": true,
-    "lifesteal_cpu_regressions": true,
-    "mode_session_cpu_regressions": true,
-    "named_buff_cpu_regressions": true,
-    "pending_controller_cpu_regressions": true,
-    "periodic_target_cpu_regressions": true,
     "removal_cpu_regressions": true,
-    "resource_cpu_regressions": true,
-    "scale_reference_cpu_regressions": true,
-    "source_cpu_regressions": true,
+    "landing_cpu_regressions": true,
+    "lifesteal_cpu_regressions": true,
     "staged_cpu_regressions": true,
-    "trigger_cpu_regressions": true,
-    "weapon_cpu_regressions": true
+    "source_cpu_regressions": true,
+    "scale_reference_cpu_regressions": true,
+    "hit_reference_cpu_regressions": true,
+    "resource_cpu_regressions": true,
+    "periodic_target_cpu_regressions": true,
+    "enemy_buff_cpu_regressions": true,
+    "named_buff_cpu_regressions": true,
+    "mode_session_cpu_regressions": true,
+    "ammo_instant_cpu_regressions": true,
+    "burst_duration_cpu_regressions": true,
+    "pending_controller_cpu_regressions": true,
+    "cover_cpu_regressions": true,
+    "enemy_component_cpu_regressions": true,
+    "burst_cpu_regressions": true,
+    "bullet_cpu_regressions": true,
+    "lazy_cpu_regressions": true,
+    "carrier_cpu_regressions": true,
+    "capacity_cpu_regressions": true,
+    "health_cpu_regressions": true,
+    "weapon_cpu_regressions": true,
+    "damage_cpu_regressions": true,
+    "trigger_cpu_regressions": true
   },
-  "generated_source_comparison": "portable-generated-v47-comparison.json",
-  "validation_receipt": "portable-mode-return-validation.json",
-  "existing_parity": "portable-mode-return-existing-parity.json",
+  "generated_source_comparison": "portable-generated-v48-comparison.json",
+  "validation_receipt": "portable-session-identity-validation.json",
+  "existing_parity": "portable-session-identity-existing-metal-parity.json",
   "regressions": {
     "duration_extend_cpu_regressions": [
       "duration-extend-exact-space-prefix",
@@ -674,6 +676,8 @@
     "mode_session_cpu_regressions": [
       "mode-duration-restores-base",
       "mode-round-limit-restores-magazine",
+      "mode-toggle-end-child-reentry",
+      "mode-replacement-first-shot-coefficient",
       "reload-callback-selects-new-mode-before-fire",
       "charge-mode-entry-and-round-exit",
       "finite-timed-mode-stalls-on-empty",
@@ -700,7 +704,17 @@
       "mode-entry-delivers-in-squad-order",
       "mode-entry-force-refresh-is-synchronous-and-budgeted",
       "unnamed-mode-does-not-emit-entry",
-      "mode-entry-duplicate-descriptors-preserve-multiplicity"
+      "mode-entry-duplicate-descriptors-preserve-multiplicity",
+      "session-identity-old-auto-limit-cannot-end-replacement",
+      "session-identity-old-charge-limit-cannot-end-replacement",
+      "session-identity-full-charge-change-cancels-old-shot",
+      "session-identity-auto-last-fire-keeps-committed-packet",
+      "session-identity-charge-last-fire-cancels-old-charge",
+      "session-identity-pellet-change-keeps-parent-packet",
+      "session-identity-warmup-shot-keeps-physical-clock",
+      "session-identity-end-pct-child-reentry",
+      "session-identity-end-pct-child-cancel",
+      "session-identity-same-definition-refresh-keeps-round-progress"
     ],
     "ammo_instant_cpu_regressions": [
       "ammo-pct-5-10",
@@ -1610,8 +1624,8 @@
     "character_state": 3
   },
   "next_work": [
-    "Resolve same-frame replacement/reentry CPU session carryover against the common fresh-session contract",
-    "Connect remaining lifecycle, world and effect families for all 203 characters; full certification remains 0/203"
+    "Connect stack mutation/init/immunity and remaining lifecycle, world, control and effect families for all 203 characters",
+    "Certify all character variants against independent reference behavior before normal UI GPU admission"
   ],
   "landing_bytes_saved_per_program": 32768,
   "landing_pool_bytes_before": 98304,
@@ -1674,10 +1688,7 @@
   },
   "mode_return_pending_uses_existing_state": true,
   "mode_return_added_private_arrays": 0,
-  "unresolved_raw_cpu_mode_cases": [
-    "mode-toggle-end-child-reentry",
-    "mode-replacement-first-shot-coefficient"
-  ],
+  "unresolved_raw_cpu_mode_cases": [],
   "mode_return_efficiency_evaluated": true,
   "mode_return_efficiency_production_change_adopted": false,
   "mode_return_efficiency_measurements": {
@@ -1718,5 +1729,52 @@
       "ranges_overlap": true
     }
   },
-  "mode_return_efficiency_decision": "Retain verified separate guard: the two equivalent variants have overlapping sample ranges in both limited workloads; first workload is especially variable."
+  "mode_return_efficiency_decision": "Retain verified separate guard: the two equivalent variants have overlapping sample ranges in both limited workloads; first workload is especially variable.",
+  "additional_native_tests": 10,
+  "known_mode_cpu_differences": [],
+  "native_session_identity": true,
+  "end_callbacks_use_restored_base_capacity": true,
+  "session_end_added_gpu_arrays": 0,
+  "session_end_added_gpu_scalars": 0,
+  "session_end_efficiency_evaluated": true,
+  "session_end_efficiency_adopted": false,
+  "session_end_efficiency_measurements": {
+    "exit-once": {
+      "median_gpu_seconds": {
+        "redundant": 0.01728687505237758,
+        "central": 0.017235666629858315
+      },
+      "ratio": 0.9970377281976002,
+      "ranges": {
+        "redundant": [
+          0.017040708335116506,
+          0.019826541654765606
+        ],
+        "central": [
+          0.017024500062689185,
+          0.01724299998022616
+        ]
+      },
+      "ranges_overlap": true
+    },
+    "exit-every-frame": {
+      "median_gpu_seconds": {
+        "redundant": 0.02267845836468041,
+        "central": 0.02248083334416151
+      },
+      "ratio": 0.9912857824222002,
+      "ranges": {
+        "redundant": [
+          0.021139250020496547,
+          0.022861333331093192
+        ],
+        "central": [
+          0.02246850007213652,
+          0.02279062499292195
+        ]
+      },
+      "ranges_overlap": true
+    }
+  },
+  "session_end_efficiency_decision": "Keep the fixed verified source: sample ranges overlap in both workloads."
 }
