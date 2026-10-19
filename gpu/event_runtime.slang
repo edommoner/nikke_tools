@@ -843,7 +843,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if(staged && s.error==0) prepareStaged(s,row,count,f.time,previousCarrier);
             continue;
         }
-        if(d.kind==0 && d.enemyBuff!=0 && recipientMask!=0 && f.mode!=19)
+        if(d.kind==0 && d.enemyBuff!=0 && recipientMask!=0 && f.mode!=19 && (countbits(recipientMask)!=1 || s.hpPendingMask!=0 || s.hpDirtyMask!=0))
         {
             pushFrame(s,frames,depth,18,f.event,d.owner,int(row),f.time,enemyOrder);
             if(s.error==0)
@@ -859,7 +859,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (d.kind == 0 || d.kind == 4)
         {
             uint sourceRow=row; uint64_t duration = d.duration; bool activationLazy = d.lazyGroup != 0;
-            row = findCarrier(s,row,recipientMask,f.time,f.mode==19 ? f.repeatPassive : 0);
+            uint capturedGeneration=d.enemyBuff!=0 && recipientMask!=0 ? (f.mode==19 ? f.repeatPassive : s.targetGeneration[firstbithigh(recipientMask>>5)]) : 0;
+            row = findCarrier(s,row,recipientMask,f.time,capturedGeneration);
             if (s.error != 0) break;
             d = residentDefinition(s,row);
             bool live = s.alive[row] != 0 && f64Less(f.time,s.end[row]);
@@ -874,7 +875,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             else { s.activeRecipients[row] = recipientMask; s.carrierRecipientOrder[row] = recipientOrder; }
             s.stacks[row] = min(s.stacks[row]+1,d.maxStack); s.alive[row] = 1; s.activated[row] = f.time;
             s.end[row] = f64Less(duration,0) ? F64_INF : f64Add(f.time,duration);
-            if (d.enemyBuff != 0) s.enemyCaptureGeneration[row] = f.repeatPassive;
+            if (d.enemyBuff != 0) s.enemyCaptureGeneration[row] = capturedGeneration;
             if (d.bulletDuration != 0) prepareBulletActivation(s,row,recipientMask,live,activationLazy,previousStack);
             bool namedCandidate = (d.buffEvent & 1) != 0 && (!live || d.maxStack != 1) && s.namedEventOwners != 0;
 #ifdef PORTABLE_BUFF_AUDIENCE_SCAN_REFERENCE

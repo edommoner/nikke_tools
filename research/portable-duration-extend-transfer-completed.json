@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "windows_execution_and_transfer_terminal": true,
+  "windows_gpu_runs": 1,
+  "source_commit": "43f43a54535992d6992e0b3042c99c2e6c809bd4",
+  "thread_id": "01a140bc-5f3b-7661-b720-50c945596eaa",
+  "turn_id": "01a154f2-d369-7770-a0ee-cce3387bbcb0",
+  "thread_status": "idle",
+  "turn_status": "completed",
+  "cursor": "210a18da-e379-4ea4-b2b1-a6d235611c2f:9",
+  "parts": 22,
+  "summary_sha256": "d0798b09fa4140df1f9e78d95e7465faa03f2995c1018ad3ec4eb58be7fb2e1b",
+  "elapsed_seconds": 67.48257240001112
+}

@@ -1,6 +1,6 @@
 {
   "passed": false,
-  "stage": "metal-full-core-native-verified-global-cuda-efficiency-pending",
+  "stage": "single-receiver-optimization-promoted-metal-core-reverified-global-cuda-pending",
   "full_goal_complete": false,
   "full_character_verified": 0,
   "normal_ui_backend": "cpu",
@@ -12,9 +12,9 @@
   "native_duration_cases": 39,
   "unit_tests": 127,
   "full_metal_core_verified": true,
-  "windows_current_source_verified": false,
-  "windows_runs_this_phase": 0,
-  "efficiency_measurement_completed": false,
+  "windows_current_source_verified": true,
+  "windows_runs_this_phase": 1,
+  "efficiency_measurement_completed": true,
   "previous_source_commit": "9047790eea544c91df2124a05a4a7f65d066aca9",
   "previous_proof_commit": "dcae794ceebe0043529c5289eb430ee374d43f12",
   "previous_reports": [
@@ -63,13 +63,19 @@
     "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
     "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
   },
-  "live_handles": {
-    "global_gate_batch": 34749
-  },
+  "live_handles": {},
   "next_actions": [
     "Finish all global Metal correctness gates",
     "Run one short bounded CUDA check of the fixed current source and transfer results",
     "Optimize and measure new common processing after all validation and transfers are terminal",
     "Connect remaining lifecycle/world/effect families and certify every character variant"
-  ]
+  ],
+  "source_commit": "43f43a54535992d6992e0b3042c99c2e6c809bd4",
+  "windows_transfer_complete": true,
+  "global_gates_completed": true,
+  "efficiency_parity": "portable-enemy-fanout-parity.json",
+  "optimized_metal_core_verified": true,
+  "optimized_windows_verified": false,
+  "optimization_parity_inputs": 1131,
+  "optimization": "One-receiver direct execution only with no pending/dirty HP notifications; multiple receivers retain queued snapshots"
 }
