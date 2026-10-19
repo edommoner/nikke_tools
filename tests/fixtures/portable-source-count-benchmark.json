@@ -1,0 +1,653 @@
+{
+  "name": "owned-source-count-fixed-load",
+  "effects": [
+    {
+      "name": "refresh",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "periodic_source_refresh",
+      "target": "self",
+      "periodic_source": {
+        "name": "bird",
+        "slots": [
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120,
+          120
+        ],
+        "base_interval": 3600,
+        "population_reduction_pct": 0
+      },
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "no crit",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_rate",
+      "target": "self",
+      "fixed_value": -15,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "population",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "atk_pct",
+      "target": "self",
+      "fixed_value": 1,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      },
+      "scaling": "stack_count",
+      "scaling_ref": "bird"
+    },
+    {
+      "name": "projectile",
+      "type": "damage",
+      "source": "스킬2",
+      "stat": "damage:bird",
+      "target": "all_enemies",
+      "fixed_value": 1e-300,
+      "trigger": {
+        "timing": [
+          "every:0.05s"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other0",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other1",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other2",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other3",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other4",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other5",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other6",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other7",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other8",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other9",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other10",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other11",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other12",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other13",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other14",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other15",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other16",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other17",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other18",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other19",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other20",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other21",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other22",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other23",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other24",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other25",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other26",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other27",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "other28",
+      "type": "buff",
+      "source": "스킬2",
+      "stat": "crit_dmg",
+      "target": "self",
+      "fixed_value": 0,
+      "duration": -1,
+      "trigger": {
+        "timing": [
+          "battle_start"
+        ],
+        "condition": []
+      }
+    }
+  ],
+  "owners": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "combat": {
+    "weapons": [
+      {
+        "enabled": false,
+        "stage": 0
+      },
+      {
+        "enabled": false,
+        "stage": 0
+      },
+      {
+        "enabled": false,
+        "stage": 0
+      },
+      {
+        "enabled": false,
+        "stage": 0
+      },
+      {
+        "enabled": false,
+        "stage": 0
+      }
+    ],
+    "targets": [
+      {
+        "hp": 1000000000.0
+      }
+    ],
+    "trace": "summary"
+  },
+  "script": [
+    [
+      3,
+      24,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      3,
+      29,
+      0,
+      0,
+      "bird",
+      0,
+      0,
+      0
+    ],
+    [
+      3,
+      2,
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0
+    ]
+  ],
+  "expected_queries": [
+    {
+      "damage": [
+        1920,
+        0,
+        0,
+        0,
+        0
+      ],
+      "attack_buffs": [
+        32,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

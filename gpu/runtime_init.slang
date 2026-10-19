@@ -3,6 +3,8 @@
 [noinline]
 void initializeRuntime(inout Runtime s)
 {
+    s.sourceEnabled = 0;
+    s.sourceTime = 0;
     s.resourceCount = 0;
     s.resourceAmmoObserved = 0;
     s.resourceTraceCount = 0;

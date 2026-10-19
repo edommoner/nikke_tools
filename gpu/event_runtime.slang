@@ -42,6 +42,7 @@ struct Frame
 struct Runtime
 {
     Definition defs[P_DEFINITIONS];
+    uint sourceEnabled; uint64_t sourceTime;
     uint resourceCount, resourceAmmoObserved, resourceTraceCount, resourceTraceTotal, resourceOutput;
     uint bulletHead, bulletTail, bulletCount, bulletLinked[P_CARRIERS], bulletPrev[P_CARRIERS], bulletNext[P_CARRIERS], bulletInitialized[P_CARRIERS];
     int bulletLeft[P_CARRIERS]; uint recipientBullets[P_CARRIERS*5], recipientStacks[P_CARRIERS*5];
@@ -108,6 +109,7 @@ void addSum(inout Sum sum, uint64_t term)
     sum.correction = f64Add(sum.correction,correction); sum.total = combined;
 }
 #include "resource_runtime.slang"
+#include "source_runtime.slang"
 #include "reference_runtime.slang"
 
 // Definition predicates use compiled IDs and exact binary64 operands.
@@ -482,7 +484,7 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
 void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, uint64_t when, uint output)
 {
     if (owner >= 5) { s.error = 64; return; }
-    syncHealth(s,when);
+    s.sourceTime=when; syncHealth(s,when);
     uint entryTarget = s.target;
     Frame frames[32]; int depth = -1;
     if ((s.healthMask&32)!=0) pushFrame(s,frames,depth,16,0,0,0,when);
@@ -505,7 +507,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             uint who = 0; while ((s.hpDirtyMask & (1U << who)) == 0) who++;
             s.hpDirtyMask &= ~(1U << who); syncHealthActor(s,who,frames[depth].time); continue;
         }
-        Frame f = frames[depth]; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; uint row = s.count, passive = 0;
+        Frame f = frames[depth]; s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; uint row = s.count, passive = 0;
         if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
             (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
         { depth--; continue; }
@@ -740,7 +742,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                     uint event = commands[at], mode = commands[at+3]; int tag = int(commands[at+4]), stage = int(commands[at+7]);
                     if (event != f.event) continue;
                     if (event == 4 && stage != f.argument || event == 6 && int(j) != f.argument) continue;
-                    if ((event == 9 || event == 29 || event == 30 || event == 31 || event == 48 || event == 49) && tag != f.argument) continue;
+                    if ((event == 9 || event == 29 || event == 30 || event == 31 || event == 48 || event == 49 || event == 59) && tag != f.argument) continue;
                     if (event == 9 && commands[at+5] != f.value) continue;
                     multiplicity++; bool ok = event != 30 || resourceModulo(f.healthValue,uint(f64ToPositiveStep(loadNumber(at+1)))) == 0;
                     if (mode != 0 || event == 7 || event == 8)
@@ -784,6 +786,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             s.activations[row]++;
         }
         if (!f64Zero(d.interval) && f.event != 28) { registerTimer(s,row,f.time); continue; }
+        if (d.kind==35) { registerSource(s,row,f.time); continue; }
         if (d.kind == 0 || d.kind == 4)
         {
             uint sourceRow=row; uint64_t duration = d.duration; bool activationLazy = d.lazyGroup != 0;
@@ -985,11 +988,34 @@ void timerPass(inout Runtime s, uint64_t when, bool damagePass, uint output)
         if (damagePass || d.immediate != 2 || basicConditions(s,j,observed,true)) dispatch(s,1,28,d.owner,int(j),observed,output); s.target = parentTarget;
     }
 }
+// Snapshot keys/owners, not epochs: a later existing key observes a child's
+// replacement. New keys wait until the next phase. Only the current record's
+// post-notify advance is guarded against replacement.
+[noinline]
+void sourcePass(inout Runtime s, uint64_t when, uint output)
+{
+    if (s.sourceEnabled==0) return;
+    uint header=s.resourceOutput+P_SOURCE_HEADER_BASE, count=results[header], owners=results[header+1];
+    for (uint i=0; i<owners && s.error==0; i++) for (uint slot=0; slot<count && s.error==0; slot++)
+    {
+        uint owner=results[header+2+i], record=sourceAddress(s,slot), row=results[record]-1;
+        if (s.defs[row].owner!=owner || results[record+2]==0) continue;
+        uint64_t due=sourceNumber(record+6); if (f64Less(when,due)) continue;
+        uint population=sourceLiveCount(s,slot,when);
+        if (population==0) { results[record+2]=0; continue; }
+        uint epoch=results[record+1], at=sourceDescriptor(s,row);
+        dispatch(s,0,commands[at+2]!=0 ? 60 : 59,owner,int(commands[at]),when,output);
+        if (results[record+1]==epoch) storeNumber(record+6,f64Add(due,sourceInterval(s,row,population)));
+    }
+    s.sourceTime=when;
+}
 [noinline]
 void tick(inout Runtime s, uint64_t when, uint output)
 {
+    s.sourceTime=when;
     if (s.hpWatchCount != 0) dispatch(s,7,0,0,0,when,output);
     timerPass(s,when,true,output);
+    sourcePass(s,when,output);
     uint begin = s.removalCount;
     for (uint pass = 0; pass < s.orderedCount && s.error == 0; pass++)
     {
@@ -1172,6 +1198,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if (!validateDurationGroups(s)) { results[output] = 64; return; }
     if (!validatePeriodicDefinitions(s)) { results[output] = 64; return; }
     if (!initializeResources(s) || !validateReferences(s)) { results[output] = 64; return; }
+    if (!initializeSources(s)) { results[output]=64; return; }
     initializeHPWatches(s);
     uint queries = 0;
     for (uint step = 0; step < commands[input+2] && s.error == 0; step++)
@@ -1201,6 +1228,12 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
                 s.coverDamage[who] = f64Add(s.coverDamage[who],taken);
                 dispatch(s,0,36,who,0,when,output);
             }
+        }
+        else if (op==29)
+        {
+            uint owner=commands[at+4], name=commands[at+5], index=commands[at+6];
+            if (owner>=5 || name>=P_DEFINITIONS || index>=P_COMMANDS || commands[at+3]!=0 || commands[at+7]!=0) { s.error=64; break; }
+            writeSourceQuery(s,owner,name,index,when);
         }
         else if (op == 25) dispatch(s,8,0,0,int(step),when,output);
         else if (op == 24 && s.combat != 0) advanceCombat(s,when,output);
@@ -1314,6 +1347,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         results[at+12] = uint(s.bulletLeft[slot]);
         for (uint who = 0; who < 5; who++) { results[at+13+who] = s.recipientBullets[slot*5+who]; results[at+18+who] = s.recipientStacks[slot*5+who]; }
     }
+    if (s.error==0 && s.sourceEnabled!=0 && commands[input+2]!=0) finishSourceCounts(s,loadNumber(input+P_COMMAND_BASE+(commands[input+2]-1)*8+1));
     results[output+P_RESOURCE_HEADER_BASE] = s.resourceTraceCount; results[output+P_RESOURCE_HEADER_BASE+1] = s.resourceTraceTotal;
     results[output+9] = s.orderedCount;
     results[output+10] = s.cacheCount; results[output+11] = s.cacheEvaluations; results[output+12] = s.cacheReuses; results[output+13] = s.lazyPendingCount; results[output+14] = s.lazyMappedPendingCount; results[output+15] = s.bulletCount;

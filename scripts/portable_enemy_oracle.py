@@ -21,6 +21,10 @@ def observe(case):
     enemy=dict(**{'def':targets[0].get('defense',0)},core_px=0,code=None,optimal_range_weapons=[],atk=targets[0].get('attack',DEFAULT_BOSS_ATK))
     bm=BM(chars,state=dict(base_stats={n:dict(atk=a,hp=1000000,**{'def':case.get('environment',{}).get('allies',[{} for _ in NAMES])[NAMES.index(n)].get('base_defense',0)}) for n,a in zip(NAMES,attacks)},enemy=enemy,
                          full_burst=False,rng_acc={},rng_expected=True))
+    from periodic_source_specs import specification as source_specification
+    if any(source_specification(e) for e,_ in raw):
+        from calculator import timeline
+        timeline._register_instant_handlers(bm,{n:object() for n in NAMES},None)
     pattern=Pattern(idx=0,id='authored-adds',kind='summon',after=())
     boss=BossScript([pattern],enemy,lambda *_:False);run=boss._runs[0];run.active=True
     run.adds=[_Add(id=f'__enemy__:{i}',name=f'__enemy__:{i}',spec=SummonSpec(name=f'__enemy__:{i}',hp=t['hp'],atk=t.get('attack',0)),order=i,gone='' if t.get('active',True) else '퇴장') for i,t in enumerate(targets) if i]

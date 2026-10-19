@@ -48,13 +48,15 @@ func run() throws {
     let entry = CommandLine.arguments.count == 7 ? CommandLine.arguments[4] : "portableProbe"
     let inputWords = CommandLine.arguments.count == 7 ? Int(CommandLine.arguments[5]) ?? 0 : 97
     let outputWords = CommandLine.arguments.count == 7 ? Int(CommandLine.arguments[6]) ?? 0 : 7
-    guard inputWords > 0 && inputWords <= 65536 && outputWords > 0 && outputWords <= 65536 else { throw ProbeError("Invalid wire layout") }
+    guard inputWords > 0 && inputWords <= 131072 && outputWords > 0 && outputWords <= 131072 else { throw ProbeError("Invalid wire layout") }
     guard let device = MTLCreateSystemDefaultDevice() else { throw ProbeError("No Metal device") }
     let inputData = try Data(contentsOf: URL(fileURLWithPath: CommandLine.arguments[2]))
     guard inputData.count >= 4 else { throw ProbeError("Missing input header") }
     let count = inputData.withUnsafeBytes { UInt32(littleEndian: $0.loadUnaligned(as: UInt32.self)) }
     guard count > 0 && count <= 65536 && inputData.count == (1 + Int(count) * inputWords) * 4 else { throw ProbeError("Invalid input dimensions") }
+    guard 1 + Int(count) * inputWords <= Int(UInt32.max), Int(count) * outputWords <= Int(UInt32.max) else { throw ProbeError("Wire addressing exceeds uint32") }
     let outputSize = Int(count) * outputWords * 4
+    guard inputData.count <= device.maxBufferLength && outputSize <= device.maxBufferLength else { throw ProbeError("Wire buffer exceeds device limit") }
     guard let input = device.makeBuffer(length: inputData.count, options: .storageModeShared),
           let output = device.makeBuffer(length: outputSize, options: .storageModeShared),
           let queue = device.makeCommandQueue() else { throw ProbeError("Metal allocation failed") }

@@ -26,6 +26,11 @@ uint64_t referenceCount(inout Runtime s, uint who, uint key, uint name, bool gau
 #endif
     if (selected<s.resourceCount && (resourceFlags(s,who*P_RESOURCE_KEYS+selected)&1)!=0)
     { present=true; return truncateReference(resourceValue(s,who*P_RESOURCE_KEYS+selected)); }
+    if (!gaugeOnly && s.sourceEnabled!=0)
+    {
+        uint encoded=sourceLookup(s,who,name);
+        if (encoded!=0) { present=true; return f64FromI64(sourceLiveCount(s,encoded-1,s.sourceTime)); }
+    }
     if (!gaugeOnly) for (uint pass=0; pass<s.orderedCount; pass++)
     {
         uint slot=s.orderedRows[pass]; Definition d=residentDefinition(s,slot);

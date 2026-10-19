@@ -35,9 +35,12 @@ def double_words(value):
 def validate_effect(eff, *, combat=None):
     from portable_resource_specs import operation as resource_operation,validate as validate_resource
     resource_op=resource_operation(eff);validate_resource(eff)
+    from periodic_source_specs import specification as source_specification
+    source_spec=source_specification(eff)
     if eff.get('type')=='damage' and not isinstance(eff.get('stat',''),str):raise UnsupportedPortable('Damage family must be a string')
     allowed = {'name','source','type','stat','fixed_value','values','duration','duration_values',
                'target','trigger','note','polarity','favorite','_source_tag','_quant_group','max_ammo_reduction_exclusive','trigger_values','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
+    if source_spec:allowed |= {'periodic_source','feather_id','feather_slots','feather_interval_base','feather_interval_step_pct'}
     if resource_op:allowed |= {'gauge_id','gauge_max'}
     if eff.get('type')=='damage':
         allowed |= {'hit_count_gauge_ref'}
@@ -84,7 +87,7 @@ def validate_effect(eff, *, combat=None):
             if route>=2 and combat is None:raise ValueError('Enemy selection requires combat-owned targets')
         except ValueError as error:raise UnsupportedPortable(str(error)) from error
     elif kind=='instant':
-        if resource_op in (1,2,3):pass
+        if source_spec or resource_op in (1,2,3):pass
         elif stat in ('ammo_charge_pct','ammo_charge_flat','heal_hp_pct','cover_heal_pct','cover_revive','current_hp_reduce','burst_cooldown_reduce','burst_charge_pct'):
             if not recipient_admitted(target,instant=True):raise UnsupportedPortable('Unported health recipient selector')
             if eff.get('scaling') not in (None,'max_hp') or stat not in ('heal_hp_pct','cover_heal_pct','current_hp_reduce') and eff.get('scaling') is not None:raise UnsupportedPortable('Unported healing basis')
@@ -116,7 +119,15 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     effects = list(effects)
     if not 1<=len(effects)<=L['DEFINITIONS']:raise UnsupportedPortable('Portable definition capacity exceeded')
     for eff, owner in effects:validate_effect(eff,combat=combat)
+    from portable_source_specs import validate_sources,pack as pack_source
+    validate_sources(effects)
     program=legacy.compile_effects(chars,effects)
+    source_query_indices={}
+    for command in script:
+        if len(command)==8 and command[1]==29:
+            name=command[4]
+            if not isinstance(name,str) or not name:raise ValueError('Invalid periodic source query name')
+            program['states'].setdefault(name,len(program['states']))
     from portable_resource_specs import identities,pack as pack_resource,operation as resource_operation
     resource_keys=identities(effects,script,L['RESOURCE_KEYS']);resource_query_indices={}
     for name in resource_keys:program['states'].setdefault(name,len(program['states']))
@@ -130,7 +141,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     for index,(eff,owner) in enumerate(effects):
         key=(owner,eff.get('name'));previous=seen_names.get(key,[])
         resource_instant=resource_operation(eff) in (1,2,3) and all(resource_operation(effects[j][0]) in (1,2,3) for j in previous)
-        if previous and not periodic.get(index) and not resource_instant and (eff.get('type')!='buff' or any(effects[j][0].get('type')!='buff' for j in previous)):
+        source_instant=eff.get('stat') in ('periodic_source_refresh','feather_refresh') and all(effects[j][0].get('stat') in ('periodic_source_refresh','feather_refresh') for j in previous)
+        if previous and not periodic.get(index) and not resource_instant and not source_instant and (eff.get('type')!='buff' or any(effects[j][0].get('type')!='buff' for j in previous)):
             raise UnsupportedPortable('Multiple named non-buff carriers are not ported')
         seen_names.setdefault(key,[]).append(index)
     duration_groups={key:i+1 for i,key in enumerate(dict.fromkeys((owner,e.get('source'),e.get('name')) for e,owner in effects if e.get('stat')=='fullburst_duration'))}
@@ -235,6 +247,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         pack_resource(words,index,row,L,effects[index][0],resource_keys,program['states'],double_words)
         from portable_reference_specs import pack as pack_reference
         pack_reference(words,index,L,effects[index][0],resource_keys,program['states'],F)
+        pack_source(words,index,row,L,effects[index][0],double_words)
         if row[1]==2:
             if row[7]<0 and row[14]>0:raise UnsupportedPortable('Infinite conditional weapon mode is not ported')
             from portable_combat import pack_mode
@@ -280,6 +293,12 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             at=L['COMMAND_BASE']+i*8;words[at:at+8]=[op,*double_words(t),0,0,arg,0,0]
             at=L['INCOMING_BASE']+i*L['INCOMING_WORDS'];words[at:at+4]=[*double_words(extra),*double_words(extra2)]
             continue
+        if op==29:
+            if event or type(owner) is not int or not 0<=owner<5 or type(query) is not int or not 0<=query<L['COMMANDS'] or query in source_query_indices or extra or extra2:
+                raise ValueError('Invalid periodic source query')
+            source_query_indices[query]=dict(time=t,owner=owner,name=arg)
+            at=L['COMMAND_BASE']+i*8;words[at:at+8]=[op,*double_words(t),0,owner,program['states'][arg],query,0]
+            continue
         if op in (4,20,21,22,24,27):
             if combat is None:raise UnsupportedPortable('Combat command requires combat configuration')
             if any(type(v) is not int for v in (op,event,owner,arg,query,extra2)) or event or extra2 or not 0<=owner<5:
@@ -319,7 +338,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     if words[6] and frame_mode!=24:raise UnsupportedPortable('Accumulated clock requires GPU-generated frames')
     from portable_trigger_specs import pack_event_candidates
     pack_event_candidates(words,L)
-    return words,dict(resource_names=list(resource_keys),resource_query_indices=sorted(resource_query_indices),states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
+    return words,dict(source_definitions=[dict(name=next((k for k,v in program['states'].items() if v==int(row[304])),None),owner=int(row[0]),legacy=bool(row[137])) if int(row[1])==35 else None for row in program['effects']],source_query_indices=source_query_indices,resource_names=list(resource_keys),resource_query_indices=sorted(resource_query_indices),states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
 
 
 def decode(words,metadata):
@@ -424,7 +443,18 @@ def decode(words,metadata):
                 if carrier['slot']==slot:carrier['stacks']=int(value)
     from portable_resource_decode import resource_readback
     resource_state=resource_readback(words,metadata,L,number)
-    return dict(reference_captures=captures,**resource_state,periodic_bindings=periodic,pending_burst=dict(count=count,enqueued=words[pending+1],fired=words[pending+2],entries=queue),covers=covers,body_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+20+2*k) for k in range(5)],add_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+30+2*k) for k in range(5)],scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+2*k) for k in range(5)],add_overkill=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+10+2*k) for k in range(5)],target_scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+40+2*k) for k in range(len((metadata.get('combat') or {}).get('targets',[])))],bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
+    source_count=words[L['SOURCE_HEADER_BASE']]
+    if source_count>L['SOURCES']:raise RuntimeError('Invalid periodic source output count')
+    sources=[]
+    for index in range(source_count):
+        at=L['SOURCE_STATE_BASE']+index*L['SOURCE_STATE_WORDS'];row=words[at]-1
+        if not 0<=row<len(metadata['source_definitions']) or metadata['source_definitions'][row] is None:raise RuntimeError('Invalid periodic source descriptor readback')
+        sources.append(dict(**metadata['source_definitions'][row],definition=row,epoch=words[at+1],scheduled=bool(words[at+2]),count=words[at+3],refreshed=number(at+4),next_at=number(at+6) if words[at+2] else None))
+    source_queries=[]
+    for index,query in sorted(metadata['source_query_indices'].items(),key=lambda p:int(p[0])):
+        at=L['SOURCE_QUERY_BASE']+int(index)*8
+        source_queries.append(dict(**query,present=bool(words[at]),count=words[at+1],epoch=words[at+2],scheduled=bool(words[at+3]),next_at=number(at+4) if words[at+3] else None))
+    return dict(periodic_sources=sources,source_queries=source_queries,reference_captures=captures,**resource_state,periodic_bindings=periodic,pending_burst=dict(count=count,enqueued=words[pending+1],fired=words[pending+2],entries=queue),covers=covers,body_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+20+2*k) for k in range(5)],add_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+30+2*k) for k in range(5)],scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+2*k) for k in range(5)],add_overkill=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+10+2*k) for k in range(5)],target_scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+40+2*k) for k in range(len((metadata.get('combat') or {}).get('targets',[])))],bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
 
 
 def run_programs(programs, *, backend='metal'):
@@ -447,4 +477,8 @@ def evaluate(body):
     """Application worker entry; callers supply definitions and external events."""
     compiled=compile_program(body['chars'],[(item['effect'],item['owner']) for item in body['effects']],
                              body['script'],body['base_atk'],combat=body.get('combat'),**body.get('environment',{}))
-    return run_programs([compiled],backend=body.get('backend','metal'))
+    result=run_programs([compiled],backend=body.get('backend','metal'))
+    if any(spec and spec['legacy'] for spec in compiled[1]['source_definitions']):
+        from periodic_source_specs import LEGACY_WARNING
+        result['app_warnings']=[LEGACY_WARNING]
+    return result

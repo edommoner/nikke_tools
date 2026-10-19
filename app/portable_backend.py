@@ -91,8 +91,10 @@ def run_metal_command(command, *, compile_timeout=300, gpu_timeout=120):
 def execute(source, entry, packed, input_words, output_words, backend='metal'):
     if backend not in ('metal', 'cuda'):
         raise ValueError('Explicit metal or cuda backend required; no CPU fallback')
+    if type(input_words) is not int or type(output_words) is not int or not 1<=input_words<=131072 or not 1<=output_words<=131072:
+        raise ValueError('Invalid portable word strides')
     count, = struct.unpack_from('<I', packed)
-    if not 1 <= count <= 65536 or len(packed) != (1+count*input_words)*4:
+    if not 1 <= count <= 65536 or 1+count*input_words>0xffffffff or count*output_words>0xffffffff or len(packed) != (1+count*input_words)*4:
         raise ValueError('Invalid portable wire dimensions')
     outputs, hashes = build(source, entry)
     directory = ROOT/'research/portable-build'
