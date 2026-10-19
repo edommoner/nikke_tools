@@ -102,8 +102,6 @@ def pack_mode(words,index,row,double_words):
         raise ValueError('Invalid mode timing or gauge')
     if not 0<=row[226]<=1e6:raise ValueError('Invalid mode charge multiplier')
     if not 0<=row[26]<=1e6 or not -1<=row[236]<=1e6 or not 0<=row[228]<=1e6:raise ValueError('Invalid mode coefficient/core multiplier')
-    if capacity==-1 and row[233]:raise ValueError('Infinite mode ammunition-buff policy is not connected')
-    if capacity==-1 and limit>=0:raise ValueError('Infinite modes cannot have a round-count lifetime')
     at=L['MODE_BASE']+index*L['MODE_WORDS']
     words[at:at+4]=[{1:0,2:2,3:1}[int(row[224])],max(0,capacity),pellets,muzzles]
     for offset,value in [(4,row[26]),(6,row[28]),(8,row[237]),(10,row[225]),(12,row[249]),(14,row[228]),(16,row[236]),(18,row[227])]:

@@ -79,6 +79,7 @@ struct Runtime
     uint timerTarget[P_DEFINITIONS];
     uint weaponEnabled[5], weaponMode[5], capacity[5], shots[5], stage[5], charging[5];
     int ammo[5]; uint reloadCancelOnFull[5], modeCapacityEpoch[5];
+    uint frameAmmoActive[5], frameAmmoBase[5], infiniteRowCount, infiniteRows[P_CARRIERS];
     uint namedEventOwners; uint phase, castMask, traceMode, traceTotal, burstTraceTotal, nextFrame, frameCount, clockMode; uint64_t frameTime;
     uint burstModifierMask, cooldownWaitMask, gaugeCharging; uint64_t cooldownApplied[5];
     uint64_t coefficient[5], interval[5], reloadTime[5], chargeTime[5], gain[5], cooldown[5];
@@ -182,6 +183,15 @@ void markEntry(inout Runtime s, uint row)
     s.orderedRows[s.orderedCount-1] = row;
     if (s.entryClock == 0x7fffffff) { s.error = 2; return; }
     s.entryOrder[row] = ++s.entryClock;
+    // Keep the boolean-stat index in precisely the same activation order.
+    uint position = 0; while (position < s.infiniteRowCount && s.infiniteRows[position] != row) position++;
+    if (position < s.infiniteRowCount)
+    {
+        for (uint i = position; i+1 < s.infiniteRowCount; i++) s.infiniteRows[i] = s.infiniteRows[i+1];
+        s.infiniteRowCount--;
+    }
+    Definition indexed = residentDefinition(s,row);
+    if (indexed.kind == 0 && indexed.stat == S_infinite_ammo) s.infiniteRows[s.infiniteRowCount++] = row;
 }
 
 bool excludedDamageBuff(inout Runtime s, uint resident, uint who)
@@ -224,7 +234,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
     {
         uint selected = s.orderedRows[pass]; Definition d = residentDefinition(s,selected);
 #endif
-        if (d.alliedFlags != 0 || d.kind != 0 || d.stat >= 64 || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
+        if (d.alliedFlags != 0 || d.kind != 0 || d.stat >= 64 || d.stat == S_infinite_ammo || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
             !queryRecipient(s,selected,who,when)) continue;
         uint64_t value = d.stat == S_atk_caster_based_pct ? scalarValue(s,selected,who) : recipientValue(s,selected,who);
         if (d.stat == S_crit_rate || d.stat == S_normal_atk_crit_rate)

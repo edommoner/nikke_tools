@@ -43,7 +43,7 @@ class CombatBoundaryTests(unittest.TestCase):
     def test_unported_mode_mechanics_fail_before_gpu(self):
         base=next(c for c in v.fixtures() if c['name']=='mode-duration-restores-base')
         for patch in (dict(full_charge_mult=float('nan')),dict(fire_rate_max=8),dict(entry_reload=True),
-                      dict(max_ammo_buff_applies=True),dict(duration_bullets=2),dict(tick_interval=.1),
+                      dict(tick_interval=.1),
                       dict(duration=-1,trigger=dict(timing=['passive'],condition=['during_full_burst']))):
             c=copy.deepcopy(base);c['effects'][1].update(patch)
             with self.subTest(patch=patch),self.assertRaises(ValueError):v.compile_case(c)
@@ -96,3 +96,15 @@ class PortableDefinitionCapacityTests(unittest.TestCase):
         with self.assertRaises(ValueError):v.compile_case(base)
 
 if __name__=='__main__':unittest.main()
+
+
+class InfiniteModeInputTests(unittest.TestCase):
+    def test_literal_unbounded_mode_accepts_its_mode_policies(self):
+        base=next(c for c in v.fixtures() if c['name']=='sentinel-auto-consumes-cartridge')
+        for patch in ({'max_ammo_buff_applies':True},{'duration_bullets':2}):
+            c=copy.deepcopy(base);c['effects'][2].update(patch)
+            before=copy.deepcopy(c);v.compile_case(c);self.assertEqual(c,before)
+
+    def test_presence_does_not_require_positive_numeric_value(self):
+        for name in ('infinite-buff-presence-None','infinite-buff-presence-0','infinite-buff-presence--99','infinite-buff-presence-1e+308'):
+            v.compile_case(next(c for c in v.fixtures() if c['name']==name))

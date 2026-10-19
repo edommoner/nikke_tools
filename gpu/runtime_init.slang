@@ -49,6 +49,7 @@ void initializeRuntime(inout Runtime s)
     s.combat = 0;
     s.targetCount = 0;
     s.target = 0;
+    s.infiniteRowCount = 0;
     s.namedEventOwners = 0;
     s.phase = 0;
     s.castMask = 0;
@@ -93,6 +94,7 @@ void initializeRuntime(inout Runtime s)
         s.activeRecipients[index] = 0;
         s.hpSnapshot[index] = 0;
         s.activated[index] = 0;
+        s.infiniteRows[index] = 0;
         s.orderedRows[index] = 0;
         s.stacks[index] = 0;
         s.alive[index] = 0;
@@ -202,6 +204,8 @@ void initializeRuntime(inout Runtime s)
         s.ammo[index] = 0;
         s.reloadCancelOnFull[index] = 0;
         s.modeCapacityEpoch[index] = 0;
+        s.frameAmmoActive[index] = 0;
+        s.frameAmmoBase[index] = 0;
         s.cooldownApplied[index] = 0;
         s.coefficient[index] = 0;
         s.interval[index] = 0;

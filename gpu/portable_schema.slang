@@ -1,5 +1,5 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721351U;
+static const uint PORTABLE_ABI = 1346721352U;
 static const uint P_BATCH = 1024U;
 static const uint P_PENDING = 512U;
 static const uint P_TRIGGERS = 8U;
@@ -186,6 +186,7 @@ static const uint S_part_dmg_pct = 54U;
 static const uint S_intercept_dmg_pct = 55U;
 static const uint S_burst_dmg_aoe_pct = 56U;
 static const uint S_burst_dmg_single_pct = 57U;
+static const uint S_infinite_ammo = 59U;
 static const uint S_invincible = 67U;
 static const uint S_undying = 68U;
 static const uint S_cover_hp_pct = 70U;

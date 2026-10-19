@@ -64,6 +64,15 @@ def _observe(case):
             if case.get('ammo_reference'):
                 queries[-1]['damage']=damage.copy()
                 queries[-1]['combat']['weapons']=[dict(ready=ctrl.burst_ready_at[n],ammo=actors[n].ammo,shots=shots[i],reload_until=actors[n].reloading_until,next=actors[n].next_fire_time) for i,n in enumerate(NAMES)]
+            if case.get('ammo_reference'):
+                for name,projection in zip(NAMES,queries[-1]['combat']['weapons']):
+                    actor=actors[name];mode=bm.get_weapon_change(name)
+                    projection['mode_index']=next((i for i,(e,n) in enumerate(raw) if n==name and e.get('type')=='weapon_change' and mode is not None and e.get('name')==mode.get('name')),-1)
+                    charge=bool(mode.get('charge')) if mode is not None else actor.fire_mode=='charge'
+                    if charge:
+                        projection.pop('next')
+                        if actor._charge_phase=='charging':projection.update(charging=True,charge_until=actor._charge_end_t)
+                        else:projection.update(charging=False,next=actor._post_delay_end_t)
             queries[-1]['attack_buffs']=[bm.get_buffs(n,'__enemy__',t)['atk_pct'] for n in NAMES]
             if 1<=phase<=4:queries[-1]['combat']['action']=ctrl._next_action_t if math.isfinite(ctrl._next_action_t) else 1e30
         else:raise ValueError('Burst oracle supports frames, notifications and queries')

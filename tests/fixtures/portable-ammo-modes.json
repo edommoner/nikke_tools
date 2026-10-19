@@ -1,0 +1,6451 @@
+{
+  "cases": [
+    {
+      "name": "sentinel-auto-consumes-cartridge",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": false,
+          "burst_energy": 0
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 999998,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-auto-pct-event:cover_healed-maxbuff-False",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 0,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": false,
+          "burst_energy": 0
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 5,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-auto-pct-on_attack-maxbuff-False",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 0,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": false,
+          "burst_energy": 0
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 499998,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-auto-pct-event:cover_healed-maxbuff-True",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": false,
+          "burst_energy": 0
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 10,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-auto-pct-on_attack-maxbuff-True",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": false,
+          "burst_energy": 0
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 0,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-auto-flat-callback",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": false,
+          "burst_energy": 0
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_flat",
+          "fixed_value": -2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 999996,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-auto-infinite-buff",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": false,
+          "burst_energy": 0
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 999999,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-auto-round-lifetime",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": false,
+          "burst_energy": 0,
+          "duration_bullets": 2
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 10,
+                "mode_index": -1,
+                "shots": 2
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-auto-mode-buff-policy-ignored",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": true,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": false,
+          "burst_energy": 0
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 999998,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-charge-consumes-cartridge",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": true,
+          "burst_energy": 0,
+          "charge_time": 0.1,
+          "post_fire_delay": 0.1,
+          "full_charge_mult": 100
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 999998,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-charge-pct-event:cover_healed-maxbuff-False",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 0,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": true,
+          "burst_energy": 0,
+          "charge_time": 0.1,
+          "post_fire_delay": 0.1,
+          "full_charge_mult": 100
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 5,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-charge-pct-on_attack-maxbuff-False",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 0,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": true,
+          "burst_energy": 0,
+          "charge_time": 0.1,
+          "post_fire_delay": 0.1,
+          "full_charge_mult": 100
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 499998,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-charge-pct-event:cover_healed-maxbuff-True",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": true,
+          "burst_energy": 0,
+          "charge_time": 0.1,
+          "post_fire_delay": 0.1,
+          "full_charge_mult": 100
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 10,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-charge-pct-on_attack-maxbuff-True",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": true,
+          "burst_energy": 0,
+          "charge_time": 0.1,
+          "post_fire_delay": 0.1,
+          "full_charge_mult": 100
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 0,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-charge-flat-callback",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": true,
+          "burst_energy": 0,
+          "charge_time": 0.1,
+          "post_fire_delay": 0.1,
+          "full_charge_mult": 100
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_flat",
+          "fixed_value": -2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 999996,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-charge-infinite-buff",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": true,
+          "burst_energy": 0,
+          "charge_time": 0.1,
+          "post_fire_delay": 0.1,
+          "full_charge_mult": 100
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 999999,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-charge-round-lifetime",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": true,
+          "burst_energy": 0,
+          "charge_time": 0.1,
+          "post_fire_delay": 0.1,
+          "full_charge_mult": 100,
+          "duration_bullets": 2
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.32,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.32,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 10,
+                "mode_index": -1,
+                "shots": 2
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-charge-mode-buff-policy-ignored",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": true,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": true,
+          "burst_energy": 0,
+          "charge_time": 0.1,
+          "post_fire_delay": 0.1,
+          "full_charge_mult": 100
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 999998,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "mode-charge-consumes-across-cycles--1",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": true,
+          "burst_energy": 0,
+          "charge_time": 0.1,
+          "post_fire_delay": 0.1,
+          "full_charge_mult": 100
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.4,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.4,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 999998,
+                "shots": 1
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 999997,
+                "shots": 2
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "mode-charge-consumes-across-cycles-7",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 7,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": true,
+          "burst_energy": 0,
+          "charge_time": 0.1,
+          "post_fire_delay": 0.1,
+          "full_charge_mult": 100
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.4,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.4,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 6,
+                "shots": 1
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 5,
+                "shots": 2
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-last-bullet-and-unmanaged-reload",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": false,
+          "burst_energy": 0,
+          "reload_time": 2
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -1000000000.0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 0,
+                "shots": 1,
+                "reload_until": 3.1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "infinite-buff-presence-None",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "infinite",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "duration": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 5,
+                "shots": 3,
+                "reload_until": -1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "infinite-buff-presence-0",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "infinite",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "duration": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": 0
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 5,
+                "shots": 3,
+                "reload_until": -1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "infinite-buff-presence--99",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "infinite",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "duration": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": -99
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 5,
+                "shots": 3,
+                "reload_until": -1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "infinite-buff-presence-1e+308",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "infinite",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "duration": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": 1e+308
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 5,
+                "shots": 3,
+                "reload_until": -1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "infinite-buff-expiry",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "infinite",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "duration": 0.5,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 3,
+                "shots": 3
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "infinite-buff-cancels-base-reload",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 1,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          1.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 0,
+                "shots": 2,
+                "reload_until": -1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "ammo-periodic-ammo_charge_pct",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -20,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "every:0.1s"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.3,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 2,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "ammo-periodic-ammo_charge_flat",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_flat",
+          "fixed_value": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "every:0.1s"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.3,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 2,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "infinite-buff-named-removal",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "infinite",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "duration": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": 0
+        },
+        {
+          "name": "remove",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "remove_named_buff",
+          "target_effect": "infinite",
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 4,
+                "shots": 2
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "infinite-granted-by-last-fire-keeps-current-consumption",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "infinite",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "duration": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "last_bullet_fire"
+            ],
+            "condition": []
+          },
+          "fixed_value": 0
+        },
+        {
+          "name": "last hit",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 10,
+          "duration": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "last_bullet"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 1,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            2100,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 0,
+                "shots": 2
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "infinite-granted-by-full-charge",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "infinite",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "duration": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "full_charge"
+            ],
+            "condition": []
+          },
+          "fixed_value": 0
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 1,
+            "interval": 0.2,
+            "reload": 2,
+            "mode": "charge",
+            "charge": 0.1
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 1,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "infinite-during-charge-suppresses-last-fire",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "infinite",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "duration": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "passive"
+            ],
+            "condition": [
+              "during_charge"
+            ]
+          },
+          "fixed_value": 0
+        },
+        {
+          "name": "must not fire",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 99,
+          "duration": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "last_bullet_fire"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 1,
+            "interval": 0.2,
+            "reload": 2,
+            "mode": "charge",
+            "charge": 0.1
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ],
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 1,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "infinite-ranked-other-caster-expiry",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "infinite",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "duration": 0.5,
+          "target": "allies_top_atk:1",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": 0
+        }
+      ],
+      "owners": [
+        0,
+        1
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 3,
+                "shots": 3
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "infinite-cloned-recipient-carriers",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "infinite",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "duration": 0.3,
+          "target": "allies_with_buff:mark",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          },
+          "fixed_value": 0
+        },
+        {
+          "name": "mark",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "duration": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mark",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 0,
+          "duration": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 0.5,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          8,
+          1,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.3,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 4,
+                "shots": 2
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 3,
+                "shots": 3
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "infinite-cancel-no-completion",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "fixed_value": 0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          },
+          "duration": -1
+        },
+        {
+          "name": "completion",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 99,
+          "duration": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:full_reload"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 1,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          1.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 0,
+                "shots": 2,
+                "reload_until": -1
+              }
+            ]
+          },
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-charge-auto-reload-context",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": true,
+          "burst_energy": 0,
+          "charge_time": 0.1,
+          "post_fire_delay": 0.1,
+          "full_charge_mult": 100,
+          "cover_during_delay": true
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "auto",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "reload_speed_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.25,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.25,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 1999998,
+                "shots": 1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "infinite-buff-bullet-lifetime",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "infinite",
+          "source": "스킬2",
+          "type": "buff",
+          "stat": "infinite_ammo",
+          "duration": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": 0,
+          "duration_bullets": 1
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 4,
+                "shots": 3,
+                "reload_until": -1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "finite-all-rounds-lifetime-follows-buffed-magazine",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": true,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "duration_bullets": 3,
+          "burst_energy": 0
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          4,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          4,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          5,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 1,
+                "shots": 5,
+                "mode_index": 2
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 10,
+                "shots": 6,
+                "mode_index": -1
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "ammo-removal-during-charge-False",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -100,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2,
+            "mode": "charge",
+            "charge": 0.4
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.4,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.4,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 0,
+                "shots": 0,
+                "charging": true
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": -1,
+                "shots": 1,
+                "charging": false
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "ammo-removal-during-charge-True",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": true,
+          "burst_energy": 0,
+          "charge_time": 0.4,
+          "post_fire_delay": 0.1,
+          "full_charge_mult": 100
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -1000000000.0,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.4,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.4,
+          2,
+          0,
+          0,
+          -1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 0,
+                "shots": 0,
+                "charging": true
+              }
+            ]
+          }
+        },
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": -1,
+                "shots": 1,
+                "charging": false
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-disabled-initial-magazine-uses-base",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": false,
+          "burst_energy": 0
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 10,
+                "shots": 0
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-last-cartridge-emits-last-hit",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "duration": 3,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": false,
+          "burst_energy": 0
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_flat",
+          "fixed_value": -999997,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "last hit",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "fixed_value": 17,
+          "duration": -1,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "last_bullet"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            17,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 0,
+                "shots": 2
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-auto-end-child-uses-restored-base",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": false,
+          "burst_energy": 0,
+          "duration_bullets": 2
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "end refill",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:state_end:mode"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 5,
+                "mode_index": -1,
+                "shots": 2
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    },
+    {
+      "name": "sentinel-charge-end-child-uses-restored-base",
+      "effects": [
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "fixed_value": -15,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "extra magazine",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_ammo_pct",
+          "fixed_value": 100,
+          "duration": -1,
+          "target": "all_allies",
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "mode",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "stat": "weapon_change",
+          "target": "self",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": -1,
+          "fire_rate": 1,
+          "max_ammo_buff_applies": false,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "charge": true,
+          "burst_energy": 0,
+          "charge_time": 0.1,
+          "post_fire_delay": 0.1,
+          "full_charge_mult": 100,
+          "duration_bullets": 2
+        },
+        {
+          "name": "charge",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "end refill",
+          "source": "스킬3",
+          "type": "instant",
+          "stat": "ammo_charge_pct",
+          "fixed_value": -50,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:state_end:mode"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "owners": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "capacity": 5,
+            "interval": 1,
+            "reload": 2
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          },
+          {
+            "enabled": false,
+            "capacity": 5
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.32,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.32,
+          2,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "combat": {
+            "weapons": [
+              {
+                "ammo": 5,
+                "mode_index": -1,
+                "shots": 2
+              }
+            ]
+          }
+        }
+      ],
+      "ammo_reference": true
+    }
+  ]
+}
