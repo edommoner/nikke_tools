@@ -6,16 +6,12 @@
   "transport": {
     "backend": "cuda",
     "device": "NVIDIA GeForce RTX 3070 Ti",
-    "cases": 1337,
+    "cases": 1345,
     "command_status": "completed",
-    "host_dispatch_seconds": 9.42865590006113
-  },
-  "generated_sha256": {
-    "cuda": "904521c2e1cfd20e125b8dbb22f05697067951f4bed497528cc3badeca62d748",
-    "metal": "580bcdd4fc590dac16e882ff5f62b405f31dc305fcea405bedf002d4183970d1"
+    "host_dispatch_seconds": 7.13434370001778
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "5a07fa53a058640d8207ee014ab1eef5f97b5a4807a2bc5f8f72c29071d6224d",
+    "gpu/event_runtime.slang": "60e5c0e55f31b28134db60a93babf2657c8aa5307a85581a372b1538475f4ee9",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/portable_schema.slang": "ff3234260d75365b8a7907ce3a3d1055de454e21315cf7e02ebfe57854ad98c3",
@@ -50,14 +46,14 @@
     "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
     "gpu/pending_burst_runtime.slang": "c4b0ee8ded3c5922ce8370b12ebec0dbb86ad0bae9d530d615e4f498029f1758",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-    "gpu/combat_runtime.slang": "002d9bee278fc77e761b957dc4ccf60dd0f35e1961d5eb99c739517ca3f1415f",
+    "gpu/combat_runtime.slang": "007857a4a49acddb59fd36935d5acd578d70af69815cf4f63647836837ee872b",
     "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
     "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
   },
-  "input_sha256": "15ecd5c155b5d57e500e8b2ab533c01d445df423c4ac590c0dbd2072768f92ae",
-  "output_sha256": "9c7d28e936972facc16b592d4e343d9bcc0beb5f33e7318f19130e6e9dc79dc2",
+  "input_sha256": "825d76cccafe5593032bc8a55508d3bec9fea74b2311ef6249202ad6fb4a0060",
+  "output_sha256": "de062fda107789c6f2e04cefaf2f4e4a99fe84c4c5ed690fa4bf942b0afd8be8",
   "validation_sha256": {
     "app/portable_duration_extend_specs.py": "f3909d1ce0a448090fd853a8fbb44f64bf6acdbb1803742812a2fb84bd42f9a8",
     "scripts/portable_duration_extend_oracle.py": "6d68ed922e60c67690b613de36d74753d4ac660e35e9132519b58aff3fff2d77",
@@ -115,7 +111,7 @@
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
     "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
     "app/world_condition_specs.py": "52b09042ed8fa2d2d4cdae4d4414c32e5ed98cbe3163fe3eb7e3997bbbf9c512",
-    "scripts/verify-portable-combat.py": "41058f7bbf7a5e9917f8b4fde96ef0312dab49f62425323e4713fcf86c68c186",
+    "scripts/verify-portable-combat.py": "a83e32b8fb644c27bd14a5a2002cc8168ce5636a506fb6125d41cf5d2889aae5",
     "tests/fixtures/portable-event-candidates.json": "cb4123da76547d1a684503d3a0bf990ad1e59f244739854fb7103221b41a1453",
     "tests/fixtures/portable-enemy-attack-ranks.json": "ca64cb99e6cc78c8d56a6ef852995cdbfd8c7038bc77011458a5c4f99fc0305a",
     "tests/fixtures/portable-enemy-spawn-order.json": "7c72c2ec3a76bba4bf0da1be6a8e1e32db6124ef37feb87cb72a5447c8010791",
@@ -148,11 +144,19 @@
     "tests/fixtures/portable-damage.json": "ab596e0f01bb9f94ee9813c6027d46a85415b77d5a72c36e06b32bf45b6ac5c7",
     "tests/fixtures/portable-triggers.json": "680d8d5e212f9604e23f895b141651114e8703a4051facd37deb5ac890a403ec",
     "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
-    "tests/fixtures/portable-combat-extensions.json": "aa7a171bf82bbc1d8700507a8d5bcc66a5f8ad60fe8be971d3fd00fa06eb115d",
+    "tests/fixtures/portable-combat-extensions.json": "2ea14dc26e0b3b3c6333b1adec9995bfa87bc5f4925ea544f02db8324cbd9552",
     "tests/fixtures/portable-autonomous.json": "0d97f8e8a848cfaf25d08e52414f1055d6a8807625f28bce3608a1726db6a5e9",
     "scripts/run-metal-probe.swift": "0f2b54212a600ae31a20930a3982e71d851b9951f63a2391d7bc1643c793a101"
   },
   "actual_statuses": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0,
     0,
@@ -2623,6 +2627,14 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     2,
     64,
     8,
@@ -2831,16 +2843,8 @@
     64
   ],
   "batch_layout": {
-    "positive_count": 1131,
+    "positive_count": 1139,
     "rejection_indices": [
-      1131,
-      1132,
-      1133,
-      1134,
-      1135,
-      1136,
-      1137,
-      1138,
       1139,
       1140,
       1141,
@@ -3038,7 +3042,15 @@
       1333,
       1334,
       1335,
-      1336
+      1336,
+      1337,
+      1338,
+      1339,
+      1340,
+      1341,
+      1342,
+      1343,
+      1344
     ]
   },
   "rejected_cases": [
@@ -5924,7 +5936,20 @@
     "life-down-attacker-no-revival"
   ],
   "mode_session_cpu_regressions": [
+    "mode-duration-restores-base",
+    "mode-round-limit-restores-magazine",
+    "reload-callback-selects-new-mode-before-fire",
+    "charge-mode-entry-and-round-exit",
+    "finite-timed-mode-stalls-on-empty",
     "mode-expiry-end-child-starts-fresh-session",
+    "continuous-return-mode-round-limit-restores-magazine-grid",
+    "continuous-return-mode-round-limit-restores-magazine-accumulated",
+    "continuous-return-reload-callback-selects-new-mode-before-fire-grid",
+    "continuous-return-reload-callback-selects-new-mode-before-fire-accumulated",
+    "continuous-return-charge-mode-entry-and-round-exit-grid",
+    "continuous-return-charge-mode-entry-and-round-exit-accumulated",
+    "continuous-return-finite-timed-mode-stalls-on-empty-grid",
+    "continuous-return-finite-timed-mode-stalls-on-empty-accumulated",
     "mode-entry-is-squad-broadcast",
     "mode-entry-state-is-installed-before-notice",
     "mode-refresh-notifies-without-refill",
@@ -6469,6 +6494,38 @@
     },
     {
       "name": "named-removal-charge-pellet-keeps-mode-magazine",
+      "passed": true
+    },
+    {
+      "name": "continuous-return-mode-round-limit-restores-magazine-grid",
+      "passed": true
+    },
+    {
+      "name": "continuous-return-mode-round-limit-restores-magazine-accumulated",
+      "passed": true
+    },
+    {
+      "name": "continuous-return-reload-callback-selects-new-mode-before-fire-grid",
+      "passed": true
+    },
+    {
+      "name": "continuous-return-reload-callback-selects-new-mode-before-fire-accumulated",
+      "passed": true
+    },
+    {
+      "name": "continuous-return-charge-mode-entry-and-round-exit-grid",
+      "passed": true
+    },
+    {
+      "name": "continuous-return-charge-mode-entry-and-round-exit-accumulated",
+      "passed": true
+    },
+    {
+      "name": "continuous-return-finite-timed-mode-stalls-on-empty-grid",
+      "passed": true
+    },
+    {
+      "name": "continuous-return-finite-timed-mode-stalls-on-empty-accumulated",
       "passed": true
     },
     {
@@ -10824,63 +10881,12 @@
       "passed": true
     }
   ],
-  "metal_generated_sha256": {
-    "cuda": "12b0f53e9410a051a01b978d8eaa2b67a17c8080770ee1f853335b4992ea6035",
-    "metal": "0ca1ce24294bbfb5978c62dd4f423e5272e2e06d4f5c97c2d1528baa5b9b845c"
-  },
-  "metal_comparison": {
-    "source_sha256": true,
-    "input_sha256": true,
-    "output_sha256": true,
-    "validation_sha256": true,
-    "actual_statuses": true,
-    "expected_statuses": true,
-    "batch_layout": true,
-    "rejected_cases": true,
-    "known_cpu_differences": true,
-    "known_health_cpu_differences": true,
-    "known_mode_cpu_differences": true,
-    "ammo_instant_cpu_regressions": true,
-    "bullet_cpu_regressions": true,
-    "burst_cpu_regressions": true,
-    "burst_duration_cpu_regressions": true,
-    "capacity_cpu_regressions": true,
-    "carrier_cpu_regressions": true,
-    "cover_cpu_regressions": true,
-    "damage_cpu_regressions": true,
-    "duration_extend_cpu_regressions": true,
-    "enemy_buff_cpu_regressions": true,
-    "enemy_component_cpu_regressions": true,
-    "health_cpu_regressions": true,
-    "hit_reference_cpu_regressions": true,
-    "landing_cpu_regressions": true,
-    "lazy_cpu_regressions": true,
-    "lifesteal_cpu_regressions": true,
-    "mode_session_cpu_regressions": true,
-    "named_buff_cpu_regressions": true,
-    "pending_controller_cpu_regressions": true,
-    "periodic_target_cpu_regressions": true,
-    "removal_cpu_regressions": true,
-    "resource_cpu_regressions": true,
-    "scale_reference_cpu_regressions": true,
-    "source_cpu_regressions": true,
-    "staged_cpu_regressions": true,
-    "trigger_cpu_regressions": true,
-    "weapon_cpu_regressions": true,
-    "generated_sha256": false,
-    "cases": true
-  },
-  "rejection_comparison": {
-    "source_sha256": true,
-    "input_sha256": true,
-    "output_sha256": true
-  },
   "execution": {
     "command": "python scripts/verify-portable-combat.py --backend cuda",
-    "commit": "b0f1cf335e61e3b61c820823b0c5578b176ebdcd",
+    "commit": "a7f478452f7d9c3dbdca97879a2efdf8634c38a9",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "36, 4867",
+    "gpu_before": "44, 4927",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -10898,8 +10904,8 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 65.98549829982221,
-    "stdout": "{\"passed\": true, \"cases\": 1131, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
+    "elapsed_seconds": 61.98892530007288,
+    "stdout": "{\"passed\": true, \"cases\": 1139, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
     "stderr": ""
   },
   "postcheck": {
@@ -10907,41 +10913,92 @@
     "original_head_after": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_after": []
   },
-  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-b0f1cf3\\research\\portable-combat-cuda.json",
-  "available": true,
-  "full_readback_available": true,
-  "compiler_success_log_saved": false,
+  "generated_sha256": {
+    "cuda": "9908f96dc13d404f9a99f96c7e47e8d0481a75f8fef02eae5e8c6c2eeaf0e3f1",
+    "metal": "5a2d00dc646992f983d4747d5d33fe555c46115b027189f30ddaefc15afbbb73"
+  },
   "generated_normalization": {
     "cuda": {
       "available": true,
-      "raw_sha256": "904521c2e1cfd20e125b8dbb22f05697067951f4bed497528cc3badeca62d748",
-      "lf_sha256": "07a0eb297e4ab545e61a9ee208bfdaacffbec5d6be028b5e598fc61a78c82082",
-      "no_line_directives_sha256": "2e57e716b755604ba9605c7c58c0766864711171c805ec1232ab528a8119b9ff",
-      "no_line_directives_portable_prelude_sha256": "fb31b6fd656e64ea3f78427a62ea1ff8e89b9defc4d7576db88cd2ff30f973cd",
-      "lines": 51577,
-      "no_line_directive_lines": 38142,
-      "line_directives": 13435
+      "raw_sha256": "9908f96dc13d404f9a99f96c7e47e8d0481a75f8fef02eae5e8c6c2eeaf0e3f1",
+      "lf_sha256": "f142aa833e0a7bf4bbe650414436efadc833c7ff54bff8b4b528dfcb3c939ca6",
+      "no_line_directives_sha256": "1aeac434e402878776058378d88f12beabc28b30fc95976909a87b7f8bfb3736",
+      "no_line_directives_portable_prelude_sha256": "3aaa5aee1193449dcfb1dba9ff35bcf6a2e8ab4190122df0122f053ae1a259a4",
+      "lines": 51603,
+      "no_line_directive_lines": 38162,
+      "line_directives": 13441
     },
     "metal": {
       "available": true,
-      "raw_sha256": "580bcdd4fc590dac16e882ff5f62b405f31dc305fcea405bedf002d4183970d1",
-      "lf_sha256": "6a5607871b4ba5e7d81a408f16f5f2c34076c1d0c26e75e81c56060685f56f14",
-      "no_line_directives_sha256": "62d7b1734d83a83b57cd9f7a98a25340a384034b900c9270a29b53797902e1ac",
-      "no_line_directives_portable_prelude_sha256": "62d7b1734d83a83b57cd9f7a98a25340a384034b900c9270a29b53797902e1ac",
-      "lines": 51904,
-      "no_line_directive_lines": 38416,
-      "line_directives": 13488
+      "raw_sha256": "5a2d00dc646992f983d4747d5d33fe555c46115b027189f30ddaefc15afbbb73",
+      "lf_sha256": "e696680f523afdecb15824245adb3c971211351f8c83ae5f2637d97edf707580",
+      "no_line_directives_sha256": "3be6be945a19818b04e21c7f5c85e348fa516324b7ff477185edc933bf71539c",
+      "no_line_directives_portable_prelude_sha256": "3be6be945a19818b04e21c7f5c85e348fa516324b7ff477185edc933bf71539c",
+      "lines": 51930,
+      "no_line_directive_lines": 38436,
+      "line_directives": 13494
     }
+  },
+  "rejection_execution": {
+    "passed": null,
+    "gpu_execution_verified": true,
+    "source_sha256": {
+      "gpu/event_runtime.slang": "60e5c0e55f31b28134db60a93babf2657c8aa5307a85581a372b1538475f4ee9",
+      "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+      "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+      "gpu/portable_schema.slang": "ff3234260d75365b8a7907ce3a3d1055de454e21315cf7e02ebfe57854ad98c3",
+      "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
+      "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
+      "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+      "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+      "gpu/reference_runtime.slang": "133be7a63ebd51120783cd1c51172092cf258db1b8998d156e914eb5c507d3e7",
+      "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+      "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
+      "gpu/rank_runtime.slang": "81cbe580f8ff5e80c4d4a88e26822747f25dec1bcb40c958ddded1f5bdaca863",
+      "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
+      "gpu/enemy_buff_runtime.slang": "d27ebbbaec782eb6ae855bf3dfa3dc6cd2857eb1e251a48c03c693622425904b",
+      "gpu/carrier_runtime.slang": "a403b892b876c1038307d1c9d96dcf0702c8fd277421c8500adf6180adf1e879",
+      "gpu/quantity_runtime.slang": "44d9e37a3c81f77dcea96406db0cafc797401e211d5f9b41903b27254f72587e",
+      "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
+      "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
+      "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
+      "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+      "gpu/recipient_runtime.slang": "c29f87bdc65479778b72949a0876b42bc1bef9791bd3bb922a7dff6360c65215",
+      "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+      "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+      "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
+      "gpu/incoming_runtime.slang": "bde3b172675e137dea190196aeeb2b81e2608115756da932e2642d410c57cf68",
+      "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
+      "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+      "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
+      "gpu/landing_runtime.slang": "763ee4080d8ec7191c6937c2c5a8e048ecc212cf2db07664ea26f6beb4aaff84",
+      "gpu/periodic_runtime.slang": "d294fe3855156acf4fb0d9d89d084ea54693e7bd2080c706d31de9cd27316883",
+      "gpu/removal_runtime.slang": "52a1642db17ad0a03ad92785d2a5ef50db12f1a2c289ec4b853b4f765b2968b6",
+      "gpu/duration_extend_runtime.slang": "2a8810be4130e3d3beb86ded42a7017a138f0c26b97c26b0720ff8062a62c8ef",
+      "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+      "gpu/pending_burst_runtime.slang": "c4b0ee8ded3c5922ce8370b12ebec0dbb86ad0bae9d530d615e4f498029f1758",
+      "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+      "gpu/combat_runtime.slang": "007857a4a49acddb59fd36935d5acd578d70af69815cf4f63647836837ee872b",
+      "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+      "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
+      "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+      "gpu/admission_runtime.slang": "9e27bc8bbc0ddfe4abe3ea4455069cc0067221326b6b6afa4b72434d0962485f"
+    },
+    "input_sha256": "825d76cccafe5593032bc8a55508d3bec9fea74b2311ef6249202ad6fb4a0060",
+    "output_sha256": "de062fda107789c6f2e04cefaf2f4e4a99fe84c4c5ed690fa4bf942b0afd8be8",
+    "actual_statuses": null,
+    "expected_statuses": null
   },
   "codec_verification": {
     "executed": false,
-    "reason": "Omitted as requested; codec read specification unchanged."
+    "reason": "Omitted as requested; codec unchanged."
   },
-  "normalized_generated_metal_comparison": {
-    "available": false,
-    "reason": "Committed Metal receipt contains raw generated hashes only; normalized hashes are saved for comparison on the Mac host."
+  "metal_comparison": {
+    "executed": false,
+    "reason": "Current Metal receipt is not committed; old Metal receipt intentionally not compared."
   },
+  "full_readback_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-a7f4784\\research\\portable-combat-cuda.json",
   "summary_only": true,
-  "summary_source": "windows-portable-combat-v45.json",
+  "summary_source": "windows-portable-combat-v47.json",
   "scope": "Shared event/combat mechanics, enemy packets, allied cover state and pending B3 bonuses; independent components are not full battle or catalog certification"
 }

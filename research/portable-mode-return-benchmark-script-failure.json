@@ -1,0 +1,11 @@
+{
+  "passed": false,
+  "stage": "prototype-parity-result-recording",
+  "exception": "TypeError: dict() got multiple values for keyword argument 'output_sha256'",
+  "completed_gpu_variants_before_script_failure": ["separate"],
+  "completed_variant_statuses_all_zero": true,
+  "timing_started": false,
+  "production_source_changed": false,
+  "windows_rerun": false,
+  "repair": "Use the output_sha256 already present in execution evidence and assert it against the returned bytes before saving."
+}
