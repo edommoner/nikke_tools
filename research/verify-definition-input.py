@@ -32,7 +32,7 @@ if scalar_control:
 if out_control:
  lines[2:2]=['[noinline]','void loadDefinitionOutControl(uint input,uint row,out Definition d)','{ loadDefinition(input,row,d); }']
  lines=[line.replace('Definition d=readDefinition(input,row);','Definition d;loadDefinitionOutControl(input,row,d);') for line in lines]
-source.write_text('\n'.join(lines)+'\n')
+source.write_text('\n'.join(lines)+'\n',newline='\n')
 backend=sys.argv[sys.argv.index('--backend')+1] if '--backend' in sys.argv else 'metal'
 rng=random.Random(711);count=4;words=array.array('I',[count]);words.extend([0]*L['INPUT_WORDS']);words.extend([0xffffffff]*L['INPUT_WORDS']);words.extend(rng.getrandbits(32) for _ in range(L['INPUT_WORDS']));patterns=[0,0x80000000,0x7ff00000,1];words.extend(patterns[i%4] for i in range(L['INPUT_WORDS']))
 packed=words.tobytes() if sys.byteorder=='little' else None
