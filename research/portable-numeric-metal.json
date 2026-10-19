@@ -7,11 +7,11 @@
   "source_sha256": {
     "gpu/numeric_probe.slang": "d71250e44525fb367912fe9cfbe445d1c5a6cafb0563b5d1db3bce76ad237b98",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
-    "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc"
+    "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366"
   },
   "validation_sha256": {
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
-    "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
+    "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/numeric_probe.slang": "d71250e44525fb367912fe9cfbe445d1c5a6cafb0563b5d1db3bce76ad237b98",
     "tests/fixtures/portable-numeric.json": "dfa3cc2c750b2a06eead99d05e3e785afd174a56fdb8337ae424de0ec7509c30",
     "scripts/verify-portable-numeric.py": "6f69e28e3de824899cc5e25320eb9ebfc2a5a4f44c5a3e5dc393a0ce7b664d9e",
@@ -62,12 +62,12 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.0216760000330396,
+    "gpu_seconds": 0.017541041655931622,
     "input_bytes": 697484,
-    "library_compile_seconds": 0.0025380849838256836,
+    "library_compile_seconds": 0.00046694278717041016,
     "output_bytes": 418488,
-    "pipeline_compile_seconds": 0.0020819902420043945,
-    "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
+    "pipeline_compile_seconds": 0.0004290342330932617,
+    "pipeline_lock_wait_seconds": 1.9073486328125e-06,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
     "threads_per_threadgroup": 1,
@@ -75,8 +75,8 @@
     "gpu_timeout_seconds": 120
   },
   "generated_sha256": {
-    "cuda": "e36edc3e6ae82d16bebb5ffda0007b0391a21dd3a46914fddbbd13149de66e3f",
-    "metal": "621703cb38edb8cb09626829ef4ddd0669439415730d294d15c2aec5eb5a5ffb"
+    "cuda": "49f636d81d911ec34c71a450f8aaaa54727ddd8b7df5061e4bc5396a91c7854c",
+    "metal": "f2940ec8f6278178964908129dd2b4ef77f97b3c4d5e50096404062164be61bf"
   },
   "input_sha256": "1b83a7699dff9fa527104ac666385a3085529384cce5a05bd540b7eb2a876f88",
   "output_sha256": "8994d32d07149b9b980e827d245a1adb025993b93901ccc317bb59423cdd5a68",

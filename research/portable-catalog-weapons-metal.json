@@ -110439,12 +110439,12 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.03801420837407932,
+    "gpu_seconds": 0.04806791665032506,
     "input_bytes": 63193092,
-    "library_compile_seconds": 0.0008729696273803711,
+    "library_compile_seconds": 0.0008609294891357422,
     "output_bytes": 73170944,
-    "pipeline_compile_seconds": 0.0018570423126220703,
-    "pipeline_lock_wait_seconds": 2.9802322387695312e-06,
+    "pipeline_compile_seconds": 0.001000046730041504,
+    "pipeline_lock_wait_seconds": 1.9073486328125e-06,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
     "threads_per_threadgroup": 1,
@@ -110452,48 +110452,51 @@
     "gpu_timeout_seconds": 120
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "16035f857393086f844d2d96bc232fdfde1a6fc58d58559effdc8e220f1c3405",
+    "gpu/event_runtime.slang": "3b71cefb7a57ea686e595d15bc98ac2098524462b35e67fefa08ad66e05fb2d3",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
-    "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "c25377905d2d3506b5828330ae2349bfe8ecaf63a3144ef9ff03c656f02519e0",
-    "gpu/runtime_init.slang": "9360ad094f972f0d252218ef3ab71d21b67c4cbc6354352611e95e06601b82b1",
-    "gpu/resource_runtime.slang": "5663120967beaf269c3928a7c581d4a9d009da7e1b36cf05b129f36df84ff2ab",
-    "gpu/source_runtime.slang": "53c5f6285f4e2bbc43f90ae0c0c436269456c1a88e70aea676dc5fd9a905c71c",
-    "gpu/reference_runtime.slang": "d4b97eb4fd07c38dcd990e1babe887c6d1ca6a4bb38e39db13c1c473c38ce417",
-    "gpu/staged_runtime.slang": "34dad1e5de97b3cf4acb2f1be37b1eb1559b179556d032397f5aba0241fd66c7",
+    "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+    "gpu/portable_schema.slang": "3621b3fbab2d2ce437a2e01358baa7cfc8481140e12a1f899ae87303d2141ffe",
+    "gpu/runtime_init.slang": "7860993263fe271e67e307f97d1e3d742d741d13cf0ffe15ff6e8afcf3aeada5",
+    "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
+    "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+    "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+    "gpu/reference_runtime.slang": "133be7a63ebd51120783cd1c51172092cf258db1b8998d156e914eb5c507d3e7",
+    "gpu/staged_runtime.slang": "8afd851e368fa16ee12ab5c95e645d1918f007679f6c6afee1740a5b6fa39088",
     "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
-    "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
+    "gpu/rank_runtime.slang": "81cbe580f8ff5e80c4d4a88e26822747f25dec1bcb40c958ddded1f5bdaca863",
     "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
     "gpu/enemy_buff_runtime.slang": "33a1a116cea23eb0f5e4223a1f1b7c59e811e994db6f871c0a65c56d8be067a9",
-    "gpu/carrier_runtime.slang": "dcbc75f3d88edda0227c68975087fc56c73ed938e6b3b72cd5d6246eace7a43c",
+    "gpu/carrier_runtime.slang": "ef354730d90fdf9108fcb8cc12be3b8460d38ab7a8d830bb557c0e42fc352866",
     "gpu/quantity_runtime.slang": "44d9e37a3c81f77dcea96406db0cafc797401e211d5f9b41903b27254f72587e",
     "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
     "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
     "gpu/cover_runtime.slang": "0f7bb8d3256b1efe74c1fb8e6074ea9cf8d155fca34067b028f30db7c9f5603b",
-    "gpu/hp_edge_runtime.slang": "4b50cfaa0e4448ff83764561d0e4001070b33f795f61fee1a8fac61c1fa1727e",
-    "gpu/recipient_runtime.slang": "e3dca124f523e4a28ec42e3bc915df6163dfeb2b071e0b25248ad6b0a4e85e0d",
+    "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+    "gpu/recipient_runtime.slang": "c29f87bdc65479778b72949a0876b42bc1bef9791bd3bb922a7dff6360c65215",
     "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
     "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
     "gpu/damage_runtime.slang": "b38ce85ba20fa0f25dae9e229c7256d57e8f61d17a011d87a4409f1f6c518161",
-    "gpu/incoming_runtime.slang": "72c36925c579e417300e8a0f30daa3f68c03a0778eae308e56e5c079432a91e1",
+    "gpu/incoming_runtime.slang": "bde3b172675e137dea190196aeeb2b81e2608115756da932e2642d410c57cf68",
     "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
     "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
     "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
-    "gpu/landing_runtime.slang": "8cca25a82a30a2e4afb787ed5885edae7182c3079c94733919b767ae6d2ddd30",
-    "gpu/periodic_runtime.slang": "78c594e573b27072615102916c7605440cbd5fbfb0b34cf19c57be4c47fb3d57",
-    "gpu/event_candidate_runtime.slang": "5b986d2d51b052186bedb820788460d009220a58e84d6a8803770b64287db356",
-    "gpu/pending_burst_runtime.slang": "5715cb906074a136b5db6fc23c5fc2c81009cd943ee32222ff2de65973425708",
+    "gpu/landing_runtime.slang": "763ee4080d8ec7191c6937c2c5a8e048ecc212cf2db07664ea26f6beb4aaff84",
+    "gpu/periodic_runtime.slang": "b6511c44f4207642eda10e82d07ba04457b997087e973a3ec26c95165a55859d",
+    "gpu/removal_runtime.slang": "f054dbec3546a6ddb2ac0aa2f7dcb60f63300df695278a7ad30e77dc611e2da4",
+    "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+    "gpu/pending_burst_runtime.slang": "c4b0ee8ded3c5922ce8370b12ebec0dbb86ad0bae9d530d615e4f498029f1758",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-    "gpu/combat_runtime.slang": "edac77a6c1b7fa6981fc181a43d7a1dc1b902d3c1bc4d8d3cea654bc5e879bf1",
+    "gpu/combat_runtime.slang": "002d9bee278fc77e761b957dc4ccf60dd0f35e1961d5eb99c739517ca3f1415f",
     "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
-    "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
+    "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+    "gpu/admission_runtime.slang": "e62ad1263bd418cfcb63b09a54aa9c2bc7e81c5d3b38dbe44cd69996891a475c"
   },
   "generated_sha256": {
-    "cuda": "119d2a5395807cec9bd61d28446fc39164f45ec87df6a054369d308da3f8555e",
-    "metal": "d60e1795029d1c467299a90101b74754a0480e244c5db429e53834ff4199e1ad"
+    "cuda": "2bff803ee932310c78af4506d8d908ad1dda6cd99b06ee954c335a06bcdc42f1",
+    "metal": "3254d325a61982ab5d3d75553d67d8f8b4e45cb400eecdabc972b3667e70caea"
   },
-  "input_sha256": "87ab3e9405e828c4efb75eef5c75d070101f034f3bb2a16f52874e50cf5e997f",
+  "input_sha256": "399256f66c53981732307563a4a3cc90f21ac6058cab4011b9d87174f34f2fa5",
   "output_sha256": "0702cddba2cce79a155a965beb30e349f61d34ea16f73bcdfdf01c919b56a3eb",
   "gpu_execution_verified": true,
   "backend": "metal",
@@ -110553,13 +110556,14 @@
     "app/portable_periodic_specs.py": "830b7b7bd25586ae568b210dd3583c3e7349bb0ac29226d0748ba77b7da3d9bf",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
     "app/portable_reference_specs.py": "de22b095242d7fd64ac1cdd362011fda0f48ea2f33e84be58dd348bc7400ff1a",
+    "app/portable_removal_specs.py": "65eeea6e89b54a4215ec93c6658d26231f4c8a656d3ac8b2ddd52ef5bcec0fcf",
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
     "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
     "app/portable_roster_input.py": "0a6c8c37bcf4e93af644769125a09535c618c4d601039fec440d473d84999121",
-    "app/portable_runtime.py": "7c3d5a11651d7d800977867b1626dd256487a6c5bc2b716704c03e0caf63214e",
-    "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
+    "app/portable_runtime.py": "095e5e1d9162d8a59375cabc5b32a2ef90166fadfbdac3bc623b5ad1a606df39",
+    "app/portable_runtime_layout.py": "1a882b22eef68f04633c2a0fcdc542b188669e50f283dc88bf241af33c7ca0f1",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "5dc1cb546563566749034a92c1002fa549d553e0e4b29e3928bb5a7cea0bb793",
+    "app/portable_specs.py": "e18705f0502d4c57dde0ffa852da7260b74c5d1ce613037834f1bd8b17dfc624",
     "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
     "app/portable_trigger_specs.py": "de8354e952352ce0e40bf3f8ddf97f36595500ea3e7436672ae4ba0934871040",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
@@ -110639,7 +110643,7 @@
     "scripts/audit-infinite-ammo.py": "25758f9741c30b79fc5bc000b26c83b2f0266d33e07492a2a983d9471afcf577",
     "scripts/audit-live-reach.py": "7d346bac4f9abfba4384feec42b831e7a824e07f8f48893b266505750f71ef4e",
     "scripts/audit-named-capacity.py": "e481ed09935747bfb0ec25f61df0ca6ceccff1e8b5f5a996b3662ffa55edba6f",
-    "scripts/audit-portable-catalog.py": "9ea2bf81cc21495edb750816203c21cf5173fe75f0ab0eb4cfd6e677b97cde23",
+    "scripts/audit-portable-catalog.py": "91c45a36e0df14bd969aef355e913f1cb1d819f7c002d4129ce1f5ddb22ababe",
     "scripts/audit-python-random.py": "c5c212e300b92d49e49177b7739e9ddec7157945ba4bf27dae129cfffd32abec",
     "scripts/audit-random-target-lifecycle.py": "b4c789e25b264123edadff3e9f1d3f8b96ef0ed7f87797a9f0bdcc6d83151c71",
     "scripts/audit-range-geometry.py": "ade73e98fa9aad91a00636542a4439952c500d8fdc60f679a0cc026156c8a0df",
@@ -110730,9 +110734,10 @@
     "scripts/portable_landing_oracle.py": "318d4436c3636724112025866cd8e21f692772b96a83450e7bf3fae020484b45",
     "scripts/portable_lifesteal_oracle.py": "082a9149627a837f0efd0ff966af6de8868be3a7b776bdc7b8b21dc13ae0d531",
     "scripts/portable_pending_oracle.py": "5919e9b30ef2b97cfeee24d19eb080c522df2fb6b98c1555be2efdf5c68e3359",
+    "scripts/portable_removal_oracle.py": "6f54afe8946bd4e9c43744ade97c971d0716e9f69971806d81a2ec1817baad77",
     "scripts/portable_resource_oracle.py": "6e8ab20b01c41618c554779f4f41eb6a693c14893da935e1cf2b382d7b6040d8",
     "scripts/portable_source_oracle.py": "97475bdc1a97ddb67281c08bbfb7ee95978826e3f834f271155933fc4e631970",
-    "scripts/portable_weapon_oracle.py": "f011a2e648b4a34eb4bc6db5053066fec4b236c472ca7cad2e92e5677ffcc1a1",
+    "scripts/portable_weapon_oracle.py": "f6de982a48e39b941dfead71d190d2b8d530b25a8aba37021f8692c7990a53a2",
     "scripts/prepare_metadata.py": "a3dbec2b9c635a2fefae3dfe7511cc1c2b9b7155b3cd77392fe3b771667fdf7c",
     "scripts/probe-revive-hp-passives.py": "a18a34d1461017e08d47d3713862ce330dd7f65a94b4a946e48c2ef383acf6d1",
     "scripts/resource_frame_capture.py": "9c381a25afce9c4ee1b1995e7a504a29248952959c5e077f1f66fa8e971ea33b",
@@ -110843,11 +110848,11 @@
     "scripts/verify-periodic-detail.py": "592431aefb6cbba77fc8b0ac925dbcbe342fa87e488d423cedfa270df0261e05",
     "scripts/verify-periodic-sources-detail.py": "bece3113347f76c55022591fb7308cc2bcd181ff56497cb17de691f791450dda",
     "scripts/verify-periodic-targets-detail.py": "e159b1a38c095cfedb489105ae2c90051f6cf34cdbc8a35acb351b1e9b835159",
-    "scripts/verify-portable-api.py": "95fb6ad9ad32c95296a737ff1670f0fd687d616d3d4fc14c016b2b1b003505a3",
+    "scripts/verify-portable-api.py": "de666b60bf84d16be46965a1980fd981a7b02f715b628b9b0eedad55b201cbe6",
     "scripts/verify-portable-attack-rank.py": "e80520e7baee2c21580548a020164bbf124a9524466621d208c3fe804ecc21a9",
     "scripts/verify-portable-auto-aim.py": "0e72357b8ff98edb8ff164450751be7a49cdd14125f3a027b598563e73e9f2bb",
     "scripts/verify-portable-catalog-weapons.py": "4986f71dc931d68ffad1bcdea2bf9be5e1dcb586e8d0c1a6001b5ca75799e3e6",
-    "scripts/verify-portable-combat.py": "15d02d3f51cdd390aad12acdd5ed46de3465052ab922d79b0b0426b6e987664d",
+    "scripts/verify-portable-combat.py": "ebb67e3763b1b3d3abf24c9144ed6bcd00c077f5596d4fef17be95ca8f79f71b",
     "scripts/verify-portable-event-index.py": "39777a51f8dc99d6f442a6a2f933f11316abaee3dbcf923bf154d78dc39df0de",
     "scripts/verify-portable-events.py": "a0c19364ccfbb0436268ca56a79457abbb588235c71a8e6d1565d8fe757cd6a7",
     "scripts/verify-portable-hit-references.py": "4b2516f9750ec2a746e8a60f4342ae4dee5f7fb1bbec84be3f0402ea1a6b2651",
@@ -111067,7 +111072,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -111287,7 +111292,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.0166666666666666,
               "reload_until": -1.0
             }
           ]
@@ -111342,7 +111347,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.0166666666666666,
               "reload_until": -1.0
             }
           ]
@@ -111397,7 +111402,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -111672,7 +111677,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -111837,7 +111842,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -111892,7 +111897,7 @@
             {
               "ammo": 5,
               "shots": 1,
-              "next": 0.0,
+              "next": 1.88,
               "reload_until": -1.0
             }
           ]
@@ -111947,7 +111952,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -112057,7 +112062,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -112387,7 +112392,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -112442,7 +112447,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -112607,7 +112612,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -112662,7 +112667,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -112772,7 +112777,7 @@
             {
               "ammo": 7,
               "shots": 1,
-              "next": 0.0,
+              "next": 2.0,
               "reload_until": -1.0
             }
           ]
@@ -112827,7 +112832,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -112882,7 +112887,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -112992,7 +112997,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -113047,7 +113052,7 @@
             {
               "ammo": 118,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.0166666666666666,
               "reload_until": -1.0
             }
           ]
@@ -113157,7 +113162,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -113267,7 +113272,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -113432,7 +113437,7 @@
             {
               "ammo": 5,
               "shots": 1,
-              "next": 0.0,
+              "next": 1.88,
               "reload_until": -1.0
             }
           ]
@@ -113487,7 +113492,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -113652,7 +113657,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -113762,7 +113767,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -113817,7 +113822,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -113872,7 +113877,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -113982,7 +113987,7 @@
             {
               "ammo": 5,
               "shots": 1,
-              "next": 0.0,
+              "next": 1.88,
               "reload_until": -1.0
             }
           ]
@@ -114202,7 +114207,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -114257,7 +114262,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -114477,7 +114482,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -114587,7 +114592,7 @@
             {
               "ammo": 5,
               "shots": 1,
-              "next": 0.0,
+              "next": 1.88,
               "reload_until": -1.0
             }
           ]
@@ -114917,7 +114922,7 @@
             {
               "ammo": 5,
               "shots": 1,
-              "next": 0.0,
+              "next": 1.88,
               "reload_until": -1.0
             }
           ]
@@ -114972,7 +114977,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -115082,7 +115087,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -115247,7 +115252,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -115467,7 +115472,7 @@
             {
               "ammo": 5,
               "shots": 4,
-              "next": 0.0,
+              "next": 3.0,
               "reload_until": -1.0
             }
           ]
@@ -115522,7 +115527,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -115577,7 +115582,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -115687,7 +115692,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -115852,7 +115857,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -116072,7 +116077,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -116127,7 +116132,7 @@
             {
               "ammo": 5,
               "shots": 1,
-              "next": 0.0,
+              "next": 1.5,
               "reload_until": -1.0
             }
           ]
@@ -116292,7 +116297,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -116457,7 +116462,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -116842,7 +116847,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -116952,7 +116957,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -117282,7 +117287,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -117502,7 +117507,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -117557,7 +117562,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -117887,7 +117892,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -117942,7 +117947,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -118107,7 +118112,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -118272,7 +118277,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -118437,7 +118442,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -118767,7 +118772,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -118822,7 +118827,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -118932,7 +118937,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -118987,7 +118992,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -119262,7 +119267,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -119317,7 +119322,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -119372,7 +119377,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 3.163333333333333,
               "reload_until": -1.0
             }
           ]
@@ -119482,7 +119487,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -119592,7 +119597,7 @@
             {
               "ammo": 22,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.0166666666666666,
               "reload_until": -1.0
             }
           ]
@@ -119812,7 +119817,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -119867,7 +119872,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -119922,7 +119927,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -119977,7 +119982,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -120197,7 +120202,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -120417,7 +120422,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -120472,7 +120477,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -120527,7 +120532,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -120637,7 +120642,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -120692,7 +120697,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -120802,7 +120807,7 @@
             {
               "ammo": 5,
               "shots": 1,
-              "next": 0.0,
+              "next": 2.06,
               "reload_until": -1.0
             }
           ]
@@ -120967,7 +120972,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -121022,7 +121027,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -121187,7 +121192,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -121462,7 +121467,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -121572,7 +121577,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]
@@ -121682,7 +121687,7 @@
             {
               "ammo": 5,
               "shots": 1,
-              "next": 0.0,
+              "next": 2.05,
               "reload_until": -1.0
             }
           ]
@@ -121847,7 +121852,7 @@
             {
               "ammo": 4,
               "shots": 2,
-              "next": 0.0,
+              "next": 2.763333333333333,
               "reload_until": -1.0
             }
           ]

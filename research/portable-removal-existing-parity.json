@@ -1111,5 +1111,8 @@
   "artifact_sha256": {
     "research/portable-combat-metal.json": "db8e747a854d18d67e3e532c7221d7b781c7e9ce455a1f894429719d9ff73807",
     "research/portable-combat-v41-metal.json": "0344ea4134628004dd36db712ad68112c7bb29ad6ba4e09d8451432c366b3dd1"
-  }
+  },
+  "unchanged_real_profiles": 58,
+  "profile_baseline_proof_commit": "272ed619c7504a603edd1f8e9d53ad51ad34a999",
+  "profile_report_sha256": "72af8f481a9c4abc2646b9bba516c3549c3158f0f0782f48566f1949d2dadc4d"
 }

@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "complete": true,
+  "gates": [
+    {
+      "name": "definition-input",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9994075830327347,
+      "log": "/tmp/nikke-v43-gate-definition-input.log"
+    },
+    {
+      "name": "definition-scalar",
+      "exit_code": 0,
+      "elapsed_seconds": 1.051386708044447,
+      "log": "/tmp/nikke-v43-gate-definition-scalar.log"
+    },
+    {
+      "name": "definition-out",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0402260000118986,
+      "log": "/tmp/nikke-v43-gate-definition-out.log"
+    },
+    {
+      "name": "removal-queue",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8596223749918863,
+      "log": "/tmp/nikke-v43-gate-removal-queue.log"
+    },
+    {
+      "name": "numeric",
+      "exit_code": 0,
+      "elapsed_seconds": 0.688269832986407,
+      "log": "/tmp/nikke-v43-gate-numeric.log"
+    },
+    {
+      "name": "probe",
+      "exit_code": 0,
+      "elapsed_seconds": 0.33572983398335055,
+      "log": "/tmp/nikke-v43-gate-probe.log"
+    },
+    {
+      "name": "events",
+      "exit_code": 0,
+      "elapsed_seconds": 3.421899000008125,
+      "log": "/tmp/nikke-v43-gate-events.log"
+    },
+    {
+      "name": "roster",
+      "exit_code": 0,
+      "elapsed_seconds": 333.14528299996164,
+      "log": "/tmp/nikke-v43-gate-roster.log"
+    },
+    {
+      "name": "catalog-weapons",
+      "exit_code": 0,
+      "elapsed_seconds": 3.2005339169991203,
+      "log": "/tmp/nikke-v43-gate-catalog-weapons.log"
+    },
+    {
+      "name": "equipment",
+      "exit_code": 0,
+      "elapsed_seconds": 3.9131888339761645,
+      "log": "/tmp/nikke-v43-gate-equipment.log"
+    },
+    {
+      "name": "real-battle",
+      "exit_code": 0,
+      "elapsed_seconds": 21.75365899997996,
+      "log": "/tmp/nikke-v43-gate-real-battle.log"
+    },
+    {
+      "name": "api",
+      "exit_code": 0,
+      "elapsed_seconds": 244.88460583298001,
+      "log": "/tmp/nikke-v43-gate-api.log"
+    },
+    {
+      "name": "pipeline-lock",
+      "exit_code": 0,
+      "elapsed_seconds": 1.2478030830388889,
+      "log": "/tmp/nikke-v43-gate-pipeline-lock.log"
+    },
+    {
+      "name": "catalog-audit",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9776079579605721,
+      "log": "/tmp/nikke-v43-gate-catalog-audit.log"
+    },
+    {
+      "name": "unit",
+      "exit_code": 0,
+      "elapsed_seconds": 4.633536292007193,
+      "log": "/tmp/nikke-v43-gate-unit.log"
+    }
+  ]
+}
