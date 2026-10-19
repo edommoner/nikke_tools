@@ -15,7 +15,7 @@ SIMPLE=r'event:cover_healed|event:cover_hit|received_hit|event:lethal_hit|event:
 COUNTERS=rf'(?:on_attack_count|hit_count|squad_ammo_consume|pellet_hit|pellet_hit_count|full_charge_fire_count|full_charge_count|full_charge_hit_count|burst_cast_count|full_burst_start_count|full_burst_end_count|full_burst_start_exact):{COUNT}'
 HP_NUMBER=r'[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
 HP_TIMING=rf'hp_below:{HP_NUMBER}|hp_below_count:{HP_NUMBER}:[1-9][0-9]*|event:(?:ally_hp_below|adjacent_hp_below):{HP_NUMBER}|event:adjacent_hp_max'
-TIMING=rf'{HP_TIMING}|{SIMPLE}|{COUNTERS}|burst_enter:[123]|burst_enter_count:[123]:{COUNT}|event:state_end:[^:]+|hit_count:[^:]+:{COUNT}|stack_reach:[^:]+:[1-9][0-9]*'
+TIMING=rf'event:[^:]+|{HP_TIMING}|{SIMPLE}|{COUNTERS}|burst_enter:[123]|burst_enter_count:[123]:{COUNT}|event:state_end:[^:]+|hit_count:[^:]+:{COUNT}|stack_reach:[^:]+:[1-9][0-9]*'
 CONDITION=r'self_cover_alive|not_self_cover_alive|not_self_caused_heal|self_hp_max|(?:self_hp_above|self_hp_below|ally_hp_below):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)|during_full_burst|not_during_full_burst|during_charge|burst_casted|burst_not_casted|has_burst1_ally|no_burst1_ally|has_defender_ally|no_defender_ally|squad_ally_exists|back_row|target_is_boss|target_is_add|(?:self_state|not_self_state):[^:]*|self_stack_above:[^:]+:[0-9]+|enemy_count_(?:above|below):[+-]?[0-9]+|self_stat_above:(?:atk_pct|crit_rate|crit_dmg):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
 
 
@@ -27,6 +27,9 @@ def validate_input(eff):
     if not isinstance(conditions,list) or len(conditions)>3:raise ValueError('Expected at most three predicates')
     for timing in timings:
         if not isinstance(timing,str):raise ValueError('Invalid timing')
+        if timing.startswith('event:'):
+            from detail_gpu import EVENT
+            if timing in EVENT and EVENT[timing] not in EVENTS:raise ValueError('Unported trigger timing: '+timing)
         if timing.startswith('every:'):
             try:period=float(timing[6:].removesuffix('s'))
             except ValueError:raise ValueError('Invalid periodic timing') from None

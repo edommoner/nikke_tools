@@ -264,3 +264,19 @@ class PortableDurationInputTests(unittest.TestCase):
 
 
 if __name__=='__main__':unittest.main()
+
+
+class PortableAmmoInputTests(unittest.TestCase):
+    def test_ammo_requires_controller_and_real_recipients(self):
+        from portable_runtime import validate_effect
+        for stat in ('ammo_charge_pct','ammo_charge_flat'):
+            e=dict(name='ammo',source='스킬1',type='instant',stat=stat,fixed_value=2,target='self',trigger=dict(timing=['on_attack'],condition=[]))
+            with self.assertRaises(UnsupportedPortable):validate_effect(e)
+            validate_effect(e,combat={})
+            with self.assertRaises(UnsupportedPortable):validate_effect(dict(e,target='enemy'),combat={})
+
+    def test_named_events_keep_reserved_builtin_semantics(self):
+        from portable_trigger_specs import validate_input
+        validate_input(dict(trigger=dict(timing=['event:custom cartridge completion'],condition=[])))
+        for value in ('event:', 'event:shield_applied', 'event:enemy_spawn', 'event:foo:bar'):
+            with self.subTest(value=value),self.assertRaises(ValueError):validate_input(dict(trigger=dict(timing=[value],condition=[])))

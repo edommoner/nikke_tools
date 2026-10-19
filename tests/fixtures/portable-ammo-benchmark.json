@@ -1,0 +1,4134 @@
+{
+  "name": "ammo-named-event-fixed-load",
+  "effects": [
+    {
+      "name": "charge-0",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-1",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-2",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-3",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-4",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-5",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-6",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-7",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-8",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-9",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-10",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-11",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-12",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-13",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-14",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-15",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-16",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-17",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-18",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-19",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-20",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-21",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-22",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-23",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-24",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-25",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-26",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-27",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-28",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-29",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-30",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-31",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-32",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-33",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-34",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-35",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-36",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-37",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-38",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-39",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-40",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-41",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-42",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-43",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-44",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-45",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-46",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-47",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-48",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-49",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-50",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-51",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-52",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-53",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-54",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-55",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-56",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-57",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-58",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-59",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-60",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-61",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-62",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-63",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-64",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-65",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-66",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-67",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-68",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-69",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-70",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-71",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-72",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-73",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-74",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-75",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-76",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-77",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-78",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-79",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-80",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-81",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-82",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-83",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-84",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-85",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-86",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-87",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-88",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-89",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-90",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-91",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-92",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-93",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-94",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-95",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-96",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-97",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-98",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-99",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-100",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-101",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-102",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-103",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-104",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-105",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-106",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-107",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-108",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-109",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-110",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-111",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-112",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-113",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-114",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-115",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-116",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-117",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-118",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-119",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-120",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-121",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-122",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-123",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-124",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-125",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-126",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-127",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-128",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-129",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-130",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-131",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-132",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-133",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-134",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-135",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-136",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-137",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-138",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-139",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-140",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-141",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-142",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-143",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-144",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-145",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-146",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-147",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-148",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-149",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-150",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-151",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-152",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-153",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-154",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-155",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-156",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-157",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-158",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-159",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-160",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-161",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-162",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-163",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-164",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-165",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-166",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-167",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-168",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-169",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-170",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-171",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-172",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-173",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-174",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-175",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-176",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-177",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-178",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-179",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-180",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-181",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-182",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-183",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-184",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-185",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-186",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-187",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-188",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-189",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-190",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-191",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-192",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-193",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-194",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-195",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-196",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-197",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-198",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-199",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-200",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-201",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-202",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-203",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-204",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-205",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-206",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-207",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-208",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-209",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-210",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-211",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-212",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-213",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-214",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-215",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-216",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-217",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-218",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-219",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-220",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-221",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-222",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-223",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-224",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-225",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-226",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-227",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-228",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-229",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-230",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-231",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-232",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-233",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-234",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-235",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-236",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-237",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-238",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-239",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-240",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-241",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-242",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-243",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-244",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-245",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-246",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-247",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-248",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-249",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-250",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-251",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-252",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-253",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-254",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    },
+    {
+      "name": "charge-255",
+      "source": "스킬1",
+      "type": "instant",
+      "stat": "ammo_charge_pct",
+      "fixed_value": 1,
+      "target": "all_allies",
+      "trigger": {
+        "timing": [
+          "event:cover_healed"
+        ],
+        "condition": []
+      }
+    }
+  ],
+  "owners": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "combat": {
+    "weapons": [
+      {
+        "enabled": false,
+        "capacity": 10000
+      },
+      {
+        "enabled": false,
+        "capacity": 10000
+      },
+      {
+        "enabled": false,
+        "capacity": 10000
+      },
+      {
+        "enabled": false,
+        "capacity": 10000
+      },
+      {
+        "enabled": false,
+        "capacity": 10000
+      }
+    ],
+    "targets": [
+      {
+        "hp": 1e+30
+      }
+    ],
+    "trace": "summary"
+  },
+  "script": [
+    [
+      0,
+      24,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      0.1,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      0.2,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      0.3,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      0.4,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      0.5,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      0.6,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      0.7,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      0.8,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      0.9,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      1.0,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      1.1,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      1.2,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      1.3,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      1.4,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      1.5,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      1.6,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      1.7,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      1.8,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      1.9,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      2.0,
+      0,
+      17,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      2,
+      2,
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0
+    ]
+  ],
+  "expected_queries": [
+    {
+      "damage": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "ammo": 10000,
+            "shots": 0
+          },
+          {
+            "ammo": 10000,
+            "shots": 0
+          },
+          {
+            "ammo": 10000,
+            "shots": 0
+          },
+          {
+            "ammo": 10000,
+            "shots": 0
+          },
+          {
+            "ammo": 10000,
+            "shots": 0
+          }
+        ]
+      }
+    }
+  ]
+}

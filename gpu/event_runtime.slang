@@ -77,8 +77,9 @@ struct Runtime
     uint64_t targetHP[8], targetMaxHP[8], targetDamage[8], targetDefense[8];
     uint64_t scoredDamage[5], addScoredDamage[5], addOverkill[5], targetScoredDamage[8], targetDealt[8];
     uint timerTarget[P_DEFINITIONS];
-    uint weaponEnabled[5], weaponMode[5], capacity[5], ammo[5], shots[5], stage[5], charging[5];
-    uint phase, castMask, traceMode, traceTotal, burstTraceTotal, nextFrame, frameCount, clockMode; uint64_t frameTime;
+    uint weaponEnabled[5], weaponMode[5], capacity[5], shots[5], stage[5], charging[5];
+    int ammo[5]; uint reloadCancelOnFull[5], modeCapacityEpoch[5];
+    uint namedEventOwners; uint phase, castMask, traceMode, traceTotal, burstTraceTotal, nextFrame, frameCount, clockMode; uint64_t frameTime;
     uint burstModifierMask, cooldownWaitMask, gaugeCharging; uint64_t cooldownApplied[5];
     uint64_t coefficient[5], interval[5], reloadTime[5], chargeTime[5], gain[5], cooldown[5];
     uint64_t nextShot[5], reloadUntil[5], ready[5], chargeUntil[5], gauge, action, fullEnd;
@@ -588,6 +589,12 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         { row = f.repeatRow; passive = f.repeatPassive; frames[depth].repeatLeft--; }
         else
         {
+#ifndef PORTABLE_NAMED_EVENT_SCAN_REFERENCE
+            // Keep the frame, health drains and work/depth accounting intact.
+            // With no named-event listener for this owner, no definition can match.
+            if (f.mode == 0 && f.event == 31 && (s.namedEventOwners & (1U << f.owner)) == 0)
+                frames[depth].cursor = s.count;
+#endif
             while (frames[depth].cursor < s.count)
             {
                 uint j = frames[depth].cursor++; Definition d = s.defs[j];
@@ -631,7 +638,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         { pushFrame(s,frames,depth,1,47,d.owner,int(row),f.time); continue; }
         if (f.mode == 0 && !activationConditions(s,row,f.time) && !(f.event == 0 && f64Less(d.duration,0) && passive != 0)) continue;
         uint recipientOrder = 0, recipientMask = d.recipients;
-        if (d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 24 || d.kind == 30)
+        if (d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 30)
         {
             if (d.lazyGroup == 0) recipientMask = selectRecipients(s,row,f.time,recipientOrder);
             else recipientMask = 0;
@@ -709,6 +716,13 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         }
         else if (d.kind == 5) reduceBurstReady(s,recipientMask,d.value,f.time);
         else if (d.kind == 24) { if (recipientMask != 0) addBurstGauge(s,d.value); }
+        else if (d.kind == 13 || d.kind == 14)
+        {
+            applyAmmoInstant(s,d,recipientMask,f.time);
+            // The percentage form emits its named completion even with no recipients.
+            if (d.kind == 13 && d.target != 0 && s.error == 0)
+                pushFrame(s,frames,depth,0,31,d.owner,int(d.name),f.time);
+        }
         else if (d.kind == 25) s.pendingReentry[d.owner] = 1;
         else if (d.kind == 2)
         {
@@ -869,12 +883,16 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         d.reentry = commands[at+D_REENTRY]; d.toggle = commands[at+D_TOGGLE];
         d.triggerCount = commands[at+D_TRIGGER_COUNT]; d.conditionCount = commands[at+D_CONDITION_COUNT];
         if (d.owner >= 5 || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; }
+        for (uint slot = 0; slot < d.triggerCount; slot++)
+            if (commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8] == 31) s.namedEventOwners |= 1U << d.owner;
         d.flags = commands[at+D_FLAGS]; d.period = loadNumber(at+D_PERIOD); d.damageFlags = commands[at+D_DAMAGE_FLAGS];
-        d.target = commands[at+D_TARGET]; d.recipients = commands[at+D_RECIPIENTS];
+        d.target = commands[at+D_TARGET];
+        if ((d.kind == 13 || d.kind == 14) && (d.target > 1 || !f64Finite(d.value))) { s.error = 64; break; }
+        d.recipients = commands[at+D_RECIPIENTS];
         d.mergeEligible = commands[input+P_RECIPIENT_BASE+j*8+7] & 3;
         d.queryResolve = (commands[input+P_RECIPIENT_BASE+j*8+7] >> 2) & 1;
         d.lazyGroup = commands[input+P_RECIPIENT_BASE+j*8+7] >> 4; s.lazyEnabled |= uint(d.lazyGroup != 0); d.statKey = commands[input+P_RECIPIENT_BASE+j*8+6];
-        if ((d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 24 || d.kind == 30) && !validRecipientPlan(input+P_RECIPIENT_BASE+j*8)) { s.error = 64; break; }
+        if ((d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 30) && !validRecipientPlan(input+P_RECIPIENT_BASE+j*8)) { s.error = 64; break; }
         if (d.lazyGroup != 0)
         {
             uint plan = input+P_RECIPIENT_BASE+j*8, selector = commands[plan];
@@ -928,7 +946,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         if (d.kind == 0 && d.stat == S_invincible) s.incomingMask |= 1;
         if (d.kind == 0 && d.stat == S_undying) s.incomingMask |= 2;
         if (d.kind == 0 && d.stat == S_received_dmg_pct) s.incomingMask |= 4;
-        if ((d.kind == 5 || d.kind == 24 || d.kind == 0 && d.stat == S_burst_cooldown) && s.combat == 0) { s.error = 64; break; }
+        if ((d.kind == 13 || d.kind == 14 || d.kind == 5 || d.kind == 24 || d.kind == 0 && d.stat == S_burst_cooldown) && s.combat == 0) { s.error = 64; break; }
         if (d.kind == 0 && d.stat == S_burst_cooldown) s.burstModifierMask |= 1;
         if (d.kind == 0 && d.stat == S_reload_speed_pct) s.quantityMask |= 64;
         if (d.kind == 0 && d.stat == S_max_ammo_flat) s.quantityMask |= 16;

@@ -5,6 +5,8 @@ static const uint64_t STAGE_DELAY = uint64_t(0x3fb99999) << 32 | 0x9999999a; // 
 static const uint64_t FULL_DELAY = uint64_t(0x3fd7ae14) << 32 | 0x7ae147ae; // .37
 static const uint64_t TEN = uint64_t(0x40240000) << 32;
 
+#include "ammo_instant_runtime.slang"
+
 void initializeCombat(inout Runtime s, uint input)
 {
     s.lastB3Caster = 0xffffffff; s.lastB3Time = F64_SIGN | ONE; s.lastFullStart = F64_SIGN | ONE;
@@ -30,6 +32,8 @@ void initializeCombat(inout Runtime s, uint input)
         s.rawRate[who] = commands[extra+20]; s.clipCount[who] = commands[extra+16]; s.geometry[who] = commands[extra+17]; s.postReloadDelay[who] = loadNumber(extra+18);
         s.rawCharge[who] = loadNumber(input+P_WEAPON_QUANTITY_BASE+who*P_WEAPON_QUANTITY_WORDS);
         s.delayCover[who] = commands[input+P_WEAPON_QUANTITY_BASE+who*P_WEAPON_QUANTITY_WORDS+2];
+        s.reloadCancelOnFull[who] = commands[input+P_WEAPON_QUANTITY_BASE+who*P_WEAPON_QUANTITY_WORDS+3];
+        if (s.reloadCancelOnFull[who] > 1) { s.error = 64; return; }
         s.minCycle[who] = loadNumber(extra+22); s.gaugeMultiplier[who] = f64Div(loadNumber(extra+24),HUNDRED);
         uint64_t coreMult = loadNumber(extra+26);
         s.coreDamageBonus[who] = f64Less(coreMult,0) ? s.coreBonus : f64Div(f64Add(coreMult,HUNDRED ^ F64_SIGN),HUNDRED);
@@ -85,7 +89,7 @@ Weapon selectWeapon(inout Runtime s, uint who, uint64_t when)
     if (s.appliedEpoch[who] != s.modeEpoch[who])
     {
         s.appliedEpoch[who] = s.modeEpoch[who]; s.modeShots[who] = 0; s.pendingAutoReload[who] = 0;
-        w.capacity = fullCapacity(s,who,w.capacity,w.ammoBuffs != 0,when); s.modeMagazine[who] = w.capacity;
+        w.capacity = ammoInstantCapacity(s,who,when); s.modeMagazine[who] = w.capacity;
         s.ammo[who] = w.capacity; s.nextShot[who] = when; s.charging[who] = 0; s.reloadUntil[who] = F64_SIGN | ONE; s.postReloadUntil[who] = F64_SIGN | ONE;
     }
     if (index >= 0) w.capacity = s.modeMagazine[who];
@@ -185,7 +189,7 @@ void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
     uint target = aimedTarget(s,who); if (target == 0xffffffff) return;
     s.target = target; Weapon w = selectWeapon(s,who,when);
     if (s.error != 0) return;
-    if (s.modeIndex[who] < 0 && f64Less(s.reloadUntil[who],0)) s.ammo[who] = min(s.ammo[who],w.capacity);
+    if (s.modeIndex[who] < 0 && f64Less(s.reloadUntil[who],0)) s.ammo[who] = min(s.ammo[who],int(w.capacity));
     if (!f64Less(s.reloadUntil[who],0))
     {
         if (f64Less(when,s.reloadUntil[who])) return;
@@ -212,7 +216,7 @@ void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
         if (s.error != 0 || s.modeEpoch[who] != epoch) return;
         // Automatic completion bypasses partial clips and post-reload delay.
     }
-    if (w.infinite == 0 && s.ammo[who] == 0)
+    if (w.infinite == 0 && s.ammo[who] <= 0)
     { if (w.reloadAllowed != 0) beginReload(s,w,who,when); return; }
     if (w.mode == 1)
     {

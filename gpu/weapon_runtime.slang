@@ -35,7 +35,7 @@ bool completeReload(inout Runtime s, Weapon w, uint who, uint64_t when, uint out
     uint rawCapacity = s.modeIndex[who] < 0 ? s.capacity[who] : commands[s.inputBase+P_MODE_BASE+uint(s.modeIndex[who])*P_MODE_WORDS+1];
     w.capacity = fullCapacity(s,who,rawCapacity,w.ammoBuffs != 0,when);
     if (s.error != 0) return false;
-    if (s.modeIndex[who] >= 0) s.modeMagazine[who] = w.capacity;
+    if (s.modeIndex[who] >= 0) { s.modeMagazine[who] = w.capacity; s.modeCapacityEpoch[who] = s.modeEpoch[who]; }
     uint64_t fraction = ONE;
     if (s.modeIndex[who] < 0)
         fraction = smaller(ONE,f64Mul(f64Div(ONE,f64FromI64(s.clipCount[who])),larger(0,f64Add(ONE,f64Div(readStat(s,who,S_reload_ratio_pct,when),HUNDRED)))));
@@ -43,8 +43,8 @@ bool completeReload(inout Runtime s, Weapon w, uint who, uint64_t when, uint out
     {
         uint status; uint64_t gain = f64ToI64(f64Add(f64Mul(f64FromI64(w.capacity),fraction),uint64_t(0x3fe00000) << 32),2,status);
         if (status != 0 || gain > 0x7fffffff) { s.error = 2; return false; }
-        s.ammo[who] = min(w.capacity,s.ammo[who]+max(1,uint(gain)));
-        if (s.ammo[who] < w.capacity) { beginReload(s,w,who,when); return false; }
+        s.ammo[who] = int(min(int64_t(w.capacity),int64_t(s.ammo[who])+int64_t(max(1,uint(gain)))));
+        if (s.ammo[who] < int(w.capacity)) { beginReload(s,w,who,when); return false; }
     }
     else s.ammo[who] = w.capacity;
     s.reloadUntil[who] = F64_SIGN | ONE; dispatch(s,0,19,who,0,when,output); s.nextShot[who] = when;

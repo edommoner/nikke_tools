@@ -22,7 +22,7 @@ class CombatBoundaryTests(unittest.TestCase):
     def test_unported_mechanics_and_invalid_target_identity_fail_closed(self):
         base=v.fixtures()[0]
         changes=[('combat',dict(clock='bad')),('combat',dict(clock=True)),('weapon',dict(mode='manual')),('weapon',dict(pellets=65)),('weapon',dict(toggle=True)),
-                 ('weapon',dict(stage=5)),('weapon',dict(cover_during_delay=1)),('weapon',dict(rate=3)),('weapon',dict(rate_max=3)),
+                 ('weapon',dict(stage=5)),('weapon',dict(reload_cancel_on_full=1)),('weapon',dict(cover_during_delay=1)),('weapon',dict(rate=3)),('weapon',dict(rate_max=3)),
                  ('weapon',dict(warmup=0)),('weapon',dict(clip_count=0)),('weapon',dict(clip_count=1.5)),
                  ('weapon',dict(core_diameter=1)),('weapon',dict(min_cycle=float('nan'))),
                  ('weapon',dict(gauge_mult=-1)),('weapon',dict(core_mult=True)),('weapon',dict(full_charge_mult=-1)),

@@ -26,7 +26,7 @@ def pack_combat(words, config, double_words):
     words[28:30]=double_words(number(config.get('initial_gauge',0),0,100))
     words[30:32]=double_words(number(config.get('reentry_delay',.5),0,180))
     for i,w in enumerate(weapons):
-        allowed={'enabled','mode','coefficient','capacity','interval','reload','charge','gauge','stage','cooldown','pellets','muzzles','full_charge_mult','optimal','element_match','rate','rate_max','warmup','cooldown_time','spread_start','spread_end','spread_shots','core_diameter','clip_count','post_reload_delay','min_cycle','gauge_mult','core_mult','raw_charge','cover_during_delay'}
+        allowed={'enabled','mode','coefficient','capacity','interval','reload','charge','gauge','stage','cooldown','pellets','muzzles','full_charge_mult','optimal','element_match','rate','rate_max','warmup','cooldown_time','spread_start','spread_end','spread_shots','core_diameter','clip_count','post_reload_delay','min_cycle','gauge_mult','core_mult','raw_charge','cover_during_delay','reload_cancel_on_full'}
         if not isinstance(w,dict) or set(w)-allowed or type(w.get('enabled',False)) is not bool:
             raise ValueError('Unsupported weapon fields')
         enabled=w.get('enabled',False);mode=w.get('mode','auto')
@@ -69,6 +69,9 @@ def pack_combat(words, config, double_words):
         cover=w.get('cover_during_delay',False)
         if type(cover) is not bool:raise ValueError('Charge delay cover policy must be boolean')
         words[at+2]=int(cover)
+        cancel=w.get('reload_cancel_on_full',False)
+        if type(cancel) is not bool:raise ValueError('Reload cancellation policy must be boolean')
+        words[at+3]=int(cancel)
 
     identities=set()
     for i,t in enumerate(targets):

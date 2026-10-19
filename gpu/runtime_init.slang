@@ -49,6 +49,7 @@ void initializeRuntime(inout Runtime s)
     s.combat = 0;
     s.targetCount = 0;
     s.target = 0;
+    s.namedEventOwners = 0;
     s.phase = 0;
     s.castMask = 0;
     s.traceMode = 0;
@@ -195,10 +196,12 @@ void initializeRuntime(inout Runtime s)
         s.weaponEnabled[index] = 0;
         s.weaponMode[index] = 0;
         s.capacity[index] = 0;
-        s.ammo[index] = 0;
         s.shots[index] = 0;
         s.stage[index] = 0;
         s.charging[index] = 0;
+        s.ammo[index] = 0;
+        s.reloadCancelOnFull[index] = 0;
+        s.modeCapacityEpoch[index] = 0;
         s.cooldownApplied[index] = 0;
         s.coefficient[index] = 0;
         s.interval[index] = 0;

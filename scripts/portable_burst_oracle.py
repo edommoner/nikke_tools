@@ -25,7 +25,8 @@ def _observe(case):
     enemy=dict(defense=0,core_px=0,code=None,optimal_range_weapons=[],**{'def':config['targets'][0].get('defense',0)})
     state['enemy']=enemy;bm=BM(chars,state=state)
     actors={n:authored_weapon_state(c,w,a) for n,c,w,a in zip(NAMES,chars,weapons,attacks)}
-    counts=[0]*5;casts=[]
+    counts=[0]*5;casts=[];shots=[0]*5;damage=[0]*5
+    for name,w in zip(NAMES,weapons):actors[name].reload_cancel_on_full=w.get('reload_cancel_on_full',False)
     class Controller(timeline.BurstController):
         def _cast_burst(self,name,stage,t,bm,state):
             counts[NAMES.index(name)]+=1;casts.append(dict(time=t,owner=NAMES.index(name),stage=int(stage)))
@@ -48,9 +49,10 @@ def _observe(case):
                 started=True
             bm.tick(t);ctrl.tick(t,bm,state)
             for n,w in zip(NAMES,weapons):
-                if w.get('enabled',False):actors[n].tick(t,bm,enemy,{'rng_mode':'expected'})
+                if w.get('enabled',False):
+                    hits=actors[n].tick(t,bm,enemy,{'rng_mode':'expected'});i=NAMES.index(n);shots[i]+=int(bool(hits));damage[i]+=sum(h.damage for h in hits)
         elif op==0:
-            bm.notify({7:'on_attack',8:'hit_count',14:'last_bullet',19:'event:full_reload'}[event],t,NAMES[who])
+            bm.notify({17:'event:cover_healed',3:'burst_cast',7:'on_attack',8:'hit_count',14:'last_bullet',19:'event:full_reload'}[event],t,NAMES[who])
         elif op==2:
             phase=ctrl._phase
             phase=0 if phase=='idle' else 4 if phase=='switching' else 5 if phase=='full_burst' else int(phase.split(':')[1])
@@ -59,6 +61,9 @@ def _observe(case):
                     cooldown_wait_mask=sum(1<<NAMES.index(n) for n in (ctrl._cd_wait_candidates or [])),
                     cooldown_applied=[ctrl._cd_applied_at_cast[n] for n in NAMES],
                     weapons=[dict(ready=ctrl.burst_ready_at[n]) for n in NAMES])))
+            if case.get('ammo_reference'):
+                queries[-1]['damage']=damage.copy()
+                queries[-1]['combat']['weapons']=[dict(ready=ctrl.burst_ready_at[n],ammo=actors[n].ammo,shots=shots[i],reload_until=actors[n].reloading_until,next=actors[n].next_fire_time) for i,n in enumerate(NAMES)]
             queries[-1]['attack_buffs']=[bm.get_buffs(n,'__enemy__',t)['atk_pct'] for n in NAMES]
             if 1<=phase<=4:queries[-1]['combat']['action']=ctrl._next_action_t if math.isfinite(ctrl._next_action_t) else 1e30
         else:raise ValueError('Burst oracle supports frames, notifications and queries')
