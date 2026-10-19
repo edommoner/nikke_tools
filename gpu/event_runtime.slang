@@ -29,6 +29,7 @@ struct Definition
     uint64_t fixedValue;
     uint damageRoute, damageCount, damageHits, damageNormal, damagePending, pendingHits; uint64_t damageGauge;
     uint bulletDuration, bulletBound;
+    uint durationGroup, durationCast;
     uint healthScaling, alliedFlags, mergeEligible, statKey, lazyGroup, queryResolve;
 };
 struct Frame
@@ -53,6 +54,7 @@ struct Runtime
     uint64_t receivedDamage[5];
     uint hpWatchCount, hpWatchSlots[P_DEFINITIONS*P_TRIGGERS], hpDirtyMask, hpPendingMask, hpEdgeGuard;
     uint64_t hpPrevious[5], hpNext[5];
+    uint durationEnabled, lastB3Caster, durationGroupFirst[P_DEFINITIONS]; uint64_t lastB3Time, lastFullStart;
     uint healthMask; int healSource;
     uint pendingCount, pendingEnqueued, pendingFired, damageExclusion;
     uint pendingRow[P_PENDING], pendingHits[P_PENDING]; uint64_t pendingCoefficient[P_PENDING], pendingCastTime[P_PENDING], pendingAmount[P_PENDING];
@@ -832,7 +834,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     Runtime s; initializeRuntime(s);
 #endif
     s.generation = 1; s.count = commands[input+1]; s.combat = commands[input+3]; s.inputBase = input; s.traceMode = commands[input+5];
-    if (commands[input] != PORTABLE_ABI || s.count == 0 || s.count > P_DEFINITIONS || commands[input+2] > P_COMMANDS || s.traceMode > 1)
+    if (commands[input] != PORTABLE_ABI || s.count == 0 || s.count > P_DEFINITIONS || commands[input+2] > P_COMMANDS || s.traceMode > 2)
     { results[output] = 64; return; }
     s.coverSync = commands[input+7];
     if (s.coverSync > 1) { results[output] = 64; return; }
@@ -866,6 +868,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         d.stageArg = commands[at+D_STAGE_ARG]; d.stageOverride = commands[at+D_STAGE_OVERRIDE];
         d.reentry = commands[at+D_REENTRY]; d.toggle = commands[at+D_TOGGLE];
         d.triggerCount = commands[at+D_TRIGGER_COUNT]; d.conditionCount = commands[at+D_CONDITION_COUNT];
+        if (d.owner >= 5 || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; }
         d.flags = commands[at+D_FLAGS]; d.period = loadNumber(at+D_PERIOD); d.damageFlags = commands[at+D_DAMAGE_FLAGS];
         d.target = commands[at+D_TARGET]; d.recipients = commands[at+D_RECIPIENTS];
         d.mergeEligible = commands[input+P_RECIPIENT_BASE+j*8+7] & 3;
@@ -898,6 +901,17 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         if (d.bulletDuration > 0x7fffffff || d.bulletBound > 1 || d.bulletDuration == 0 && d.bulletBound != 0 || d.bulletDuration != 0 && (s.combat == 0 || d.kind != 0 && d.kind != 4)) { s.error = 64; break; }
         uint extra = input+P_DEFINITION_EXTRA_BASE+j*P_DEFINITION_EXTRA_WORDS;
         uint health = input+P_HEALTH_DEFINITION_BASE+j*P_HEALTH_DEFINITION_WORDS;
+        uint duration = input+P_DURATION_DEFINITION_BASE+j*2;
+        d.durationGroup = commands[duration]; d.durationCast = commands[duration+1];
+        if (d.kind == 0 && d.stat == S_fullburst_duration)
+        {
+            if (s.combat == 0 || d.durationGroup == 0 || d.durationGroup > s.count || d.durationCast > 1) { s.error = 64; break; }
+            bool cast = false;
+            for (uint slot = 0; slot < d.triggerCount; slot++) if (commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8] == 3 && commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8+3] == 0) cast = true;
+            if (d.durationCast != uint(cast)) { s.error = 64; break; }
+            s.durationEnabled = 1;
+        }
+        else if (d.durationGroup != 0 || d.durationCast != 0) { s.error = 64; break; }
         d.healthScaling = commands[health];
         if (d.healthScaling > 1) { s.error = 64; break; }
         if (d.kind == 0 && d.stat == S_cover_hp_pct) s.coverMask |= 1;
@@ -923,10 +937,11 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         if (d.kind == 0 && (d.stat == S_charge_speed_pct || d.stat == S_charge_speed_caster_based_pct)) s.quantityMask |= 2;
         if ((d.quantityFlags & 64) != 0) s.quantityMask |= 4;
         if (d.kind == 0 && d.stat == S_charge_time_fixed) s.quantityMask |= 8;
-        if (d.owner >= 5 || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; } s.defs[j] = d;
+        s.defs[j] = d;
     }
     if (s.error != 0) { results[output] = s.error; return; }
     for (uint row = 0; row < s.count; row++) if (!validPendingDefinition(s,row)) { results[output] = 64; return; }
+    if (!validateDurationGroups(s)) { results[output] = 64; return; }
     initializeHPWatches(s);
     uint queries = 0;
     for (uint step = 0; step < commands[input+2] && s.error == 0; step++)

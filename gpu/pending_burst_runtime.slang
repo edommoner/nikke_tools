@@ -69,7 +69,7 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
             { uint encoded = (packedOrder >> (pass*4)) & 15; if (encoded == 0) break; land(s,d.owner,encoded-1,s.pendingAmount[index]); }
             uint trace = s.traceCount;
             logDamagePacket(s,d,row,mask,0,hit+1,s.pendingAmount[index],s.pendingAmount[index],packedOrder,when,1,output);
-            if (s.error == 0 && s.traceMode != 0)
+            if (s.error == 0 && s.traceMode == 1)
             { uint at = output+P_PENDING_TRACE_BASE+trace*4; results[at] = 1; storeNumber(at+1,s.pendingCastTime[index]); }
         }
         if (s.pendingFired == 0x7fffffff) { s.error = 2; break; }

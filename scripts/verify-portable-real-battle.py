@@ -33,7 +33,7 @@ def native_reference(body):
             code=int(match[2])+(6 if match[1]=='reenter' else 0) if match else 4 if event.event=='full_burst 시작' else 5 if event.event=='full_burst 종료' else 6 if event.event.startswith('게이지 만충') else None
             if code is not None:trace.append(dict(time=event.t,event=code,owner=names.index(event.caster) if event.caster else -1))
         final=dict(covers=[dict(hp=bm.state['cover_hp'][n],max_hp=bm.state['cover_max_hp'][n],effective_max_hp=bm.cover_max_hp(n,capture['time'])) for n in names],body_damage=[next(x['damage'] for x in payload['members'] if x['name']==n) for n in names],
-            combat=dict(phase=phase_id,cast_mask=sum(1<<i for i,n in enumerate(names) if state['burst_casted'].get(n)),gauge=state['burst_gauge'],
+            combat=dict(last_b3_caster=names.index(ctrl._fb_caster) if ctrl._fb_caster else -1,last_b3_cast_time=ctrl._fb_caster_t,last_full_start=ctrl._last_fb_start_t,phase=phase_id,cast_mask=sum(1<<i for i,n in enumerate(names) if state['burst_casted'].get(n)),gauge=state['burst_gauge'],
                 full_end=max(0,ctrl._full_burst_end_t),gauge_charging=state['burst_gauge_charging'],cooldown_applied=[ctrl._cd_applied_at_cast[n] for n in names],
                 weapons=[dict(ammo=observed[n].ammo,shots=counts[n],charge_until=observed[n]._charge_end_t,reload_until=observed[n].reloading_until,
                               ready=ctrl.burst_ready_at[n],charging=observed[n]._charge_phase=='charging') for n in names]),
@@ -63,6 +63,23 @@ def differences(actual,expected,path=''):
     return rows
 
 
+def compare_native_result(gpu,p,cpu):
+    query=gpu['queries'][0]
+    gates=[]
+    for w,extra,descriptor in zip(query['combat']['weapons'],gpu['weapons'],p['weapons']):
+        assert w['mode_index']==-1,'This fixed-profile oracle needs an explicit active-mode gate projection'
+        if w['reload_until']>=0:gate=dict(kind='reload',time=w['reload_until'])
+        elif extra['post_reload_until']>=0:gate=dict(kind='post_reload',time=extra['post_reload_until'])
+        elif w['charging']:gate=dict(kind='charge',time=w['charge_until'])
+        else:gate=dict(kind='charge_delay' if descriptor['mode']=='charge' else 'fire',time=w['next'])
+        gates.append(gate)
+    diff=differences(query,cpu['query'])+differences(gpu['burst_trace'],cpu['burst_trace'],'burst_trace')+differences(gpu['weapons'],cpu['weapon_states'],'weapon_states')+differences(gates,cpu['action_gates'],'action_gates')
+    for i,c in enumerate(p['chars']):
+        expected=dict(atk=p['base_atk'][i],hp=p['allies'][i]['base_hp'],**{'def':p['allies'][i]['base_defense']})
+        assert cpu['base_stats'][c['name']]==expected
+    return diff
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--backend',choices=('metal','cuda'),default='metal');args=parser.parse_args()
     path=ROOT/f'research/portable-real-battle-{args.backend}.json';path.write_text(json.dumps(dict(passed=False,stage='preparing'))+'\n')
@@ -86,18 +103,7 @@ def main():
     for index,gpu in zip(indices,result['results']):
         body,p=bodies[index],prepared[index]
         cpu=native_reference(body);query=gpu['queries'][0]
-        gates=[]
-        for w,extra,descriptor in zip(query['combat']['weapons'],gpu['weapons'],p['weapons']):
-            assert w['mode_index']==-1,'This fixed-profile oracle needs an explicit active-mode gate projection'
-            if w['reload_until']>=0:gate=dict(kind='reload',time=w['reload_until'])
-            elif extra['post_reload_until']>=0:gate=dict(kind='post_reload',time=extra['post_reload_until'])
-            elif w['charging']:gate=dict(kind='charge',time=w['charge_until'])
-            else:gate=dict(kind='charge_delay' if descriptor['mode']=='charge' else 'fire',time=w['next'])
-            gates.append(gate)
-        diff=differences(query,cpu['query'])+differences(gpu['burst_trace'],cpu['burst_trace'],'burst_trace')+differences(gpu['weapons'],cpu['weapon_states'],'weapon_states')+differences(gates,cpu['action_gates'],'action_gates')
-        for i,c in enumerate(p['chars']):
-            expected=dict(atk=p['base_atk'][i],hp=p['allies'][i]['base_hp'],**{'def':p['allies'][i]['base_defense']})
-            assert cpu['base_stats'][c['name']]==expected
+        diff=compare_native_result(gpu,p,cpu)
         cases.append(dict(squad=body['squad'],duration=body['duration'],grown=body['profile']['chars'][body['squad'][0]]['collection_stage']=='SR15',passed=not diff,
                           prepared_effects=len(p['effects']),cpu_battle_executed_for_gpu_input=p['cpu_battle_executed'],native_reference=cpu,differences=diff))
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in hashes}

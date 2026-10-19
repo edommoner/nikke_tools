@@ -50,7 +50,7 @@ def validate_effect(eff, *, combat=None):
         if bullets!=-1 and combat is None:raise UnsupportedPortable('Bullet lifetime requires combat-owned physical shots')
     if combat is None and isinstance(target,str) and ('burst_casted' in target or target=='all_allies_burst_not_casted'):
         raise UnsupportedPortable('Recipient selector requires combat-owned burst state')
-    if combat is None and stat in ('burst_cooldown','burst_cooldown_reduce','burst_charge_pct','attack_speed_pct','mg_warmup_speed_pct','reload_speed_pct','reload_ratio_pct','accuracy_pct','max_ammo_pct','max_ammo_flat','charge_speed_pct','charge_speed_caster_based_pct','charge_time_flat','charge_time_fixed','charge_speed_buff_immune','charge_speed_debuff_immune','charge_speed_overflow_conversion_pct'):
+    if combat is None and stat in ('fullburst_duration','burst_cooldown','burst_cooldown_reduce','burst_charge_pct','attack_speed_pct','mg_warmup_speed_pct','reload_speed_pct','reload_ratio_pct','accuracy_pct','max_ammo_pct','max_ammo_flat','charge_speed_pct','charge_speed_caster_based_pct','charge_time_flat','charge_time_fixed','charge_speed_buff_immune','charge_speed_debuff_immune','charge_speed_overflow_conversion_pct'):
         raise UnsupportedPortable('Weapon/burst modifier requires combat mechanics')
     if combat is None and set(eff.get('trigger',{}).get('condition',[])) & {'during_charge','burst_casted','burst_not_casted','has_burst1_ally','no_burst1_ally'}:
         raise UnsupportedPortable('Predicate requires combat-owned charge/burst state')
@@ -103,6 +103,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         if previous and (eff.get('type')!='buff' or any(effects[j][0].get('type')!='buff' for j in previous)):
             raise UnsupportedPortable('Multiple named non-buff carriers are not ported')
         seen_names.setdefault(key,[]).append(index)
+    duration_groups={key:i+1 for i,key in enumerate(dict.fromkeys((owner,e.get('source'),e.get('name')) for e,owner in effects if e.get('stat')=='fullburst_duration'))}
     stat_keys={key:i for i,key in enumerate(dict.fromkeys((e.get('type'),e.get('stat','')) for e,_ in effects))}
     if not 1<=len(script)<=L['COMMANDS'] or len(base_atk)!=5:
         raise ValueError('Invalid portable command/base-stat dimensions')
@@ -163,6 +164,9 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
                 for other,(e,n) in enumerate(effects):
                     if n==owner and e.get('name') in later_names:words[mask+other//32] |= 1<<(other%32)
         if int(row[1]) in (7,30) and (row[6]<0 or int(row[1])==30 and row[6]==0):raise UnsupportedPortable('Cover heal/revival requires nonnegative healing or positive revival')
+        duration=L['DURATION_DEFINITION_BASE']+index*2
+        eff,owner=effects[index]
+        if eff.get('stat')=='fullburst_duration':words[duration:duration+2]=[duration_groups[(owner,eff.get('source'),eff.get('name'))],int('burst_cast' in eff.get('trigger',{}).get('timing',[]))]
         bullet=L['BULLET_DEFINITION_BASE']+index*2
         lifetime=int(row[62]) if effects[index][0].get('type')=='buff' else -1
         words[bullet:bullet+2]=[lifetime if lifetime>0 else 0,int(row[63]) if lifetime>0 else 0]
@@ -289,7 +293,7 @@ def decode(words,metadata):
             for who,w in enumerate(q['combat']['weapons']):
                 at=states+64+who*8
                 w.update(ready=number(at),charge_until=number(at+2),charging=bool(words[at+4]),aim=words[at+5],mode_index=words[at+6]-1,mode_shots=words[at+7])
-            q['combat'].update(cooldown_applied=[number(states+112+2*k) for k in range(5)],cooldown_wait_mask=words[states+122],gauge_charging=bool(words[states+123]),reentry_slot=bool(words[states+104]),reentry_done=words[states+105],casts=list(words[states+106:states+111]))
+            q['combat'].update(last_b3_caster=words[states+111]-1,last_b3_cast_time=number(states+124),last_full_start=number(states+126),cooldown_applied=[number(states+112+2*k) for k in range(5)],cooldown_wait_mask=words[states+122],gauge_charging=bool(words[states+123]),reentry_slot=bool(words[states+104]),reentry_done=words[states+105],casts=list(words[states+106:states+111]))
     for index,q in enumerate(queries):
         at=L['HEALTH_QUERY_BASE']+index*L['HEALTH_QUERY_WORDS']
         q['allies']=[dict(hp=number(at+who*10),max_hp=number(at+who*10+2),hp_pct=number(at+who*10+4),defense=number(at+who*10+6),healing=number(at+who*10+8)) for who in range(5)]

@@ -1,5 +1,5 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721349U;
+static const uint PORTABLE_ABI = 1346721350U;
 static const uint P_BATCH = 1024U;
 static const uint P_PENDING = 512U;
 static const uint P_TRIGGERS = 8U;
@@ -56,6 +56,7 @@ static const uint P_RECIPIENT_BASE = 43704U;
 static const uint P_BULLET_DEFINITION_BASE = 45752U;
 static const uint P_DAMAGE_DEFINITION_BASE = 46264U;
 static const uint P_PENDING_EXCLUDE_BASE = 48312U;
+static const uint P_DURATION_DEFINITION_BASE = 50360U;
 static const uint P_INPUT_WORDS = 53248U;
 static const uint P_QUERY_BASE = 16U;
 static const uint P_TRACE_BASE = 2064U;
@@ -163,6 +164,7 @@ static const uint S_crit_rate_skill = 24U;
 static const uint S_crit_dmg_skill = 25U;
 static const uint S_atk_caster_based_pct = 26U;
 static const uint S_split_dmg_pct = 27U;
+static const uint S_fullburst_duration = 29U;
 static const uint S_attack_speed_pct = 30U;
 static const uint S_mg_warmup_speed_pct = 31U;
 static const uint S_burst_cooldown = 32U;

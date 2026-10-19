@@ -59,7 +59,7 @@ void logDamagePacket(inout Runtime s, Definition d, uint row, uint mask, uint ba
 {
     if (s.traceTotal == 0x7fffffff) { s.error = 2; return; }
     s.traceTotal++;
-    if (s.traceMode == 0) return;
+    if (s.traceMode != 1) return;
     if (s.traceCount == P_TRACE) { s.error = 8; return; }
     uint index = s.traceCount++, at = output+P_TRACE_BASE+index*P_TRACE_WORDS;
     results[at] = row; storeNumber(at+1,when); results[at+3] = s.timerEpoch[row];

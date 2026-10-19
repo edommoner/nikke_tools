@@ -7,6 +7,7 @@ static const uint64_t TEN = uint64_t(0x40240000) << 32;
 
 void initializeCombat(inout Runtime s, uint input)
 {
+    s.lastB3Caster = 0xffffffff; s.lastB3Time = F64_SIGN | ONE; s.lastFullStart = F64_SIGN | ONE;
     s.gaugeCharging = 1; s.clockMode = commands[input+6];
     if (s.clockMode > 1) { s.error = 64; return; }
     s.targetCount = commands[input+4]; s.gauge = loadNumber(input+28); s.reentryDelay = loadNumber(input+30);
@@ -119,6 +120,7 @@ uint effectiveStage(inout Runtime s, uint who, uint64_t when)
         { order = s.entryOrder[row]; stage = residentDefinition(s,row).stageOverride; }
     return stage;
 }
+#include "burst_duration_runtime.slang"
 [noinline]
 void burstFrame(inout Runtime s, uint64_t when, uint output)
 {
@@ -155,6 +157,7 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
             if (s.error != 0) return;
             uint target = s.target; s.target = 0;
             dispatch(s,0,3,picked,0,when,output); s.target = target;
+            if (stage == 3) { s.lastB3Caster = picked; s.lastB3Time = when; }
             logBurst(s,stage+(s.reentrySlot != 0 ? 6 : 0),picked,when,output);
             bool reentry = s.pendingReentry[picked] != 0; s.pendingReentry[picked] = 0;
             for (uint row = 0; row < s.carrierCount; row++)
@@ -170,7 +173,9 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
         }
     }
     if (s.phase == 4 && reached(when,s.action))
-    { s.phase = 5; s.fullEnd = f64Add(when,TEN); teamNotify(s,1,when,output); reconcileBurstCooldowns(s,when); firePendingBursts(s,when,output); logBurst(s,4,0xffffffff,when,output); }
+    { s.phase = 5; s.lastFullStart = when; s.fullEnd = f64Add(when,fullBurstLength(s,when));
+      if (s.error != 0) return;
+      teamNotify(s,1,when,output); reconcileBurstCooldowns(s,when); firePendingBursts(s,when,output); logBurst(s,4,0xffffffff,when,output); }
     s.gaugeCharging = uint(s.phase == 0);
 }
 [noinline]
@@ -300,6 +305,7 @@ void writeCombatQuery(inout Runtime s, uint output, uint states)
     }
     results[output+30] = s.phase; results[output+31] = s.castMask;
     storeNumber(output+32,s.gauge); storeNumber(output+34,s.action); storeNumber(output+36,s.fullEnd);
+    results[states+111] = s.lastB3Caster+1; storeNumber(states+124,s.lastB3Time); storeNumber(states+126,s.lastFullStart);
     results[output+38] = s.target; results[output+39] = s.clockMode;
     for (uint j = 0; j < s.targetCount; j++)
     {

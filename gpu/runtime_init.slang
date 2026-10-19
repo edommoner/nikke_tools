@@ -26,6 +26,10 @@ void initializeRuntime(inout Runtime s)
     s.hpDirtyMask = 0;
     s.hpPendingMask = 0;
     s.hpEdgeGuard = 0;
+    s.durationEnabled = 0;
+    s.lastB3Caster = 0;
+    s.lastB3Time = 0;
+    s.lastFullStart = 0;
     s.healthMask = 0;
     s.healSource = 0;
     s.pendingCount = 0;
@@ -106,6 +110,7 @@ void initializeRuntime(inout Runtime s)
         s.cacheSeen[index] = 0;
         s.lazyGroupDefinition[index] = 0;
         s.cacheNewestTime[index] = 0;
+        s.durationGroupFirst[index] = 0;
         s.timerTarget[index] = 0;
         s.activations[index] = 0;
         s.periodInitialized[index] = 0;

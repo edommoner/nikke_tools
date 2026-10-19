@@ -14,7 +14,7 @@ from portable_runtime import compile_program,run_programs,PortableExecutionError
 
 
 def fixtures():
-    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json','portable-quantities.json','portable-charge-control.json','portable-health.json','portable-hp-edges.json','portable-incoming.json','portable-capacity.json','portable-recipients.json','portable-carriers.json','portable-lazy.json','portable-bullets.json','portable-burst-resources.json','portable-enemy-damage.json','portable-cover.json','portable-pending-burst.json')),[])
+    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json','portable-quantities.json','portable-charge-control.json','portable-health.json','portable-hp-edges.json','portable-incoming.json','portable-capacity.json','portable-recipients.json','portable-carriers.json','portable-lazy.json','portable-bullets.json','portable-burst-resources.json','portable-enemy-damage.json','portable-cover.json','portable-pending-burst.json','portable-burst-duration.json')),[])
 
 
 def compile_case(case):
@@ -117,7 +117,7 @@ def main():
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n',encoding='utf-8')
     tracked=['app/portable_roster_input.py','app/portable_runtime_layout.py','app/portable_enemy_specs.py','app/portable_runtime.py','app/portable_combat.py','app/portable_specs.py','app/portable_backend.py',
              'app/portable_trigger_specs.py','app/portable_recipient_specs.py','app/portable_damage_specs.py','scripts/portable_pending_oracle.py','app/named_target_specs.py','scripts/portable_capacity_oracle.py','scripts/portable_health_oracle.py','scripts/portable_enemy_oracle.py','scripts/portable_burst_oracle.py','scripts/portable_bullet_oracle.py','scripts/portable_weapon_oracle.py','scripts/verify-detail.py','app/detail_gpu.py','app/effect_spec.py','app/impact_specs.py','app/world_condition_specs.py','scripts/verify-portable-combat.py',
-             'tests/fixtures/portable-pending-burst.json','tests/fixtures/portable-cover.json','tests/fixtures/portable-enemy-damage.json','tests/fixtures/portable-burst-resources.json','tests/fixtures/portable-bullets.json','tests/fixtures/portable-lazy.json','tests/fixtures/portable-lazy-capacity-rejection.json','tests/fixtures/portable-carriers.json','tests/fixtures/portable-recipients.json','tests/fixtures/portable-capacity.json','tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-triggers.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json','scripts/run-metal-probe.swift']
+             'tests/fixtures/portable-burst-duration.json','tests/fixtures/portable-pending-burst.json','tests/fixtures/portable-cover.json','tests/fixtures/portable-enemy-damage.json','tests/fixtures/portable-burst-resources.json','tests/fixtures/portable-bullets.json','tests/fixtures/portable-lazy.json','tests/fixtures/portable-lazy-capacity-rejection.json','tests/fixtures/portable-carriers.json','tests/fixtures/portable-recipients.json','tests/fixtures/portable-capacity.json','tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-triggers.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json','scripts/run-metal-probe.swift']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     cases=fixtures();programs=[compile_case(c) for c in cases]
     # The same identity may be re-used only with a new bounded generation.
@@ -185,6 +185,7 @@ def main():
     for name,offset,value in [('cover-policy',7,2),('cover-zero-base',L['COVER_BASE']+1,0),('cover-negative-current',L['COVER_BASE']+3,0xbff00000),('cover-nan-current',L['COVER_BASE']+3,0x7ff80000),('cover-scaling',L['HEALTH_DEFINITION_BASE'],2)]:
         words,meta=compile_case(cases[0]);words[offset]=value;enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-'+name,status=64))
     from portable_runtime import double_words
+    from portable_specs import FIELDS as F
     pending_fixture=next(c for c in cases if c['name']=='pending-later-burst-buff-excluded')
     words,meta=compile_case(pending_fixture);words[L['DAMAGE_DEFINITION_BASE']+L['DAMAGE_DEFINITION_WORDS']+6]=2
     enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-pending-flag',status=64))
@@ -203,6 +204,24 @@ def main():
     enemy_bad.append(compile_case(overflow));enemy_rejections.append(dict(name='pending-queue-capacity',status=64))
     full_pending=copy.deepcopy(next(c for c in cases if c['name']=='pending-512-captures-flush-with-identical-amounts'));full_pending['combat']['trace']='full'
     enemy_bad.append(compile_case(full_pending));enemy_rejections.append(dict(name='pending-full-trace-capacity',status=8))
+    duration_fixture=next(c for c in cases if c['name']=='duration-plus-two')
+    for name,offset,value in [('zero-group',L['DURATION_DEFINITION_BASE']+2,0),('group-capacity',L['DURATION_DEFINITION_BASE']+2,L['DEFINITIONS']+1),('cast-flag',L['DURATION_DEFINITION_BASE']+3,2),('cast-mismatch',L['DURATION_DEFINITION_BASE']+3,0)]:
+        words,meta=compile_case(duration_fixture);words[offset]=value
+        enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-duration-'+name,status=64))
+    words,meta=compile_case(duration_fixture);words[3]=0
+    enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-duration-without-controller',status=64))
+    words,meta=compile_case(cases[0]);words[L['DURATION_DEFINITION_BASE']]=1
+    enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-duration-on-other-stat',status=64))
+    words,meta=compile_case(cases[0]);words[5]=3
+    enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-trace-policy',status=64))
+    duration_overflow=copy.deepcopy(duration_fixture);duration_overflow['effects'] += [dict(e,name='overflow-'+str(i),fixed_value=1e308) for i,e in enumerate([duration_fixture['effects'][1]]*2)];duration_overflow['owners'] += [2,2]
+    enemy_bad.append(compile_case(duration_overflow));enemy_rejections.append(dict(name='duration-arithmetic-overflow',status=16))
+    group_fixture=next(c for c in cases if c['name']=='duration-independent-noncast-effects-add')
+    words,meta=compile_case(group_fixture);words[L['DURATION_DEFINITION_BASE']+4]=1
+    enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-duration-group-owner-conflict',status=64))
+    for name,field,value in [('trigger-capacity',F['TRIGGER_COUNT'],L['TRIGGERS']+1),('condition-capacity',F['CONDITION_COUNT'],L['CONDITIONS']+1)]:
+        words,meta=compile_case(duration_fixture);words[L['DEFINITION_BASE']+L['DEFINITION_WORDS']+field]=value
+        enemy_bad.append((words,meta));enemy_rejections.append(dict(name='wire-duration-'+name,status=64))
     rejections += enemy_rejections;negative_programs += enemy_bad
     indices=list(range(len(cases),len(cases)+len(rejections)))
     statuses=[0]*len(cases)+[c['status'] for c in rejections]
@@ -233,6 +252,10 @@ def main():
         if 'expected_target_scores' in c:contains(r['target_scored_damage'],c['expected_target_scores'],c['name']+'.target_scores')
         if 'expected_trace_total' in c:assert r['trace_total']==c['expected_trace_total'],c['name']
         if 'expected_targets' in c:contains(r['targets'],c['expected_targets'],c['name']+'.targets')
+        if 'equivalent_computation_to' in c:
+            reference=result['results'][next(i for i,x in enumerate(cases) if x['name']==c['equivalent_computation_to'])]
+            assert {k:v for k,v in r.items() if k not in ('trace','burst_trace')}=={k:v for k,v in reference.items() if k not in ('trace','burst_trace')},c['name']
+            assert r['trace']==[] and len(r['burst_trace'])>=c['minimum_burst_records'],c['name']
         if 'equivalent_final_to' in c:
             reference=result['results'][next(i for i,x in enumerate(cases) if x['name']==c['equivalent_final_to'])]
             assert {k:v for k,v in r.items() if k!='queries'}=={k:v for k,v in reference.items() if k!='queries'},c['name']
@@ -293,16 +316,17 @@ def main():
         bullet_reference.append(case['name'])
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     from portable_burst_oracle import observe as burst_observe
-    burst_reference=[]
+    burst_reference=[];duration_reference=[]
     for case,gpu in zip(cases,result['results']):
-        if not case.get('burst_reference'):continue
+        if not (case.get('burst_reference') or case.get('duration_reference')):continue
         cpu=burst_observe(case)
         contains(cpu['queries'],case['expected_queries'],case['name']+'.cpu')
         contains(gpu['queries'],cpu['queries'],case['name']+'.gpu_vs_cpu')
         if case['combat'].get('trace')!='summary':
             casts=[dict(time=b['time'],owner=b['owner'],stage=b['event'] if b['event']<7 else b['event']-6) for b in gpu['burst_trace'] if b['event'] in (1,2,3,7,8,9)]
             assert casts==cpu['casts'],(case['name'],casts,cpu['casts'])
-        burst_reference.append(case['name'])
+        if case.get('duration_reference'):duration_reference.append(case['name'])
+        else:burst_reference.append(case['name'])
     from portable_enemy_oracle import observe as enemy_observe
     enemy_reference=[]
     for case,gpu in zip(cases,result['results']):
@@ -311,7 +335,7 @@ def main():
         contains(cpu['queries'],case['expected_queries'],case['name']+'.cpu_components')
         contains(gpu['queries'],cpu['queries'],case['name']+'.gpu_vs_cpu_components')
         contains(gpu['target_scored_damage'],cpu['target_scored_damage'],case['name']+'.target_scores')
-        if case['combat'].get('trace')!='summary':
+        if case['combat'].get('trace','full')=='full':
             assert len(gpu['trace'])==len(cpu['packets']),case['name']+'.component_packets'
             contains(gpu['trace'],cpu['packets'],case['name']+'.component_packets')
         enemy_reference.append(case['name'])
@@ -330,11 +354,11 @@ def main():
         cpu=pending_observe(case)
         contains(cpu['queries'],case['expected_queries'],case['name']+'.cpu_pending')
         contains(gpu['queries'],cpu['queries'],case['name']+'.gpu_vs_cpu_pending')
-        if case['combat'].get('trace')!='summary':
+        if case['combat'].get('trace','full')=='full':
             assert len(gpu['trace'])==len(cpu['packets']),case['name']+'.pending_packets'
             contains(gpu['trace'],cpu['packets'],case['name']+'.pending_packets')
         pending_reference.append(case['name'])
-    result.update(pending_controller_cpu_regressions=pending_reference,cover_cpu_regressions=cover_reference,enemy_component_cpu_regressions=enemy_reference,burst_cpu_regressions=burst_reference,bullet_cpu_regressions=bullet_reference,lazy_cpu_regressions=[c['name'] for c in cases if c.get('lazy_reference')],carrier_cpu_regressions=carrier_reference,capacity_cpu_regressions=capacity_reference,health_cpu_regressions=health_reference,known_health_cpu_differences=health_differences,known_cpu_differences=cpu_differences,weapon_cpu_regressions=weapon_reference,damage_cpu_regressions=damage_reference,trigger_cpu_regressions=reference,passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
+    result.update(burst_duration_cpu_regressions=duration_reference,pending_controller_cpu_regressions=pending_reference,cover_cpu_regressions=cover_reference,enemy_component_cpu_regressions=enemy_reference,burst_cpu_regressions=burst_reference,bullet_cpu_regressions=bullet_reference,lazy_cpu_regressions=[c['name'] for c in cases if c.get('lazy_reference')],carrier_cpu_regressions=carrier_reference,capacity_cpu_regressions=capacity_reference,health_cpu_regressions=health_reference,known_health_cpu_differences=health_differences,known_cpu_differences=cpu_differences,weapon_cpu_regressions=weapon_reference,damage_cpu_regressions=damage_reference,trigger_cpu_regressions=reference,passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
                   rejection_execution=negative,rejected_cases=rejections,
                   scope='Shared event/combat mechanics, enemy packets, allied cover state and pending B3 bonuses; independent components are not full battle or catalog certification')
     path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

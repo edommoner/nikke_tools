@@ -250,4 +250,17 @@ class PortablePendingInputTests(unittest.TestCase):
             with self.subTest(patch=patch),self.assertRaises(ValueError):v.compile_case(bad)
 
 
+class PortableDurationInputTests(unittest.TestCase):
+    def test_duration_requires_controller_and_preserves_source_identity(self):
+        import importlib.util
+        from portable_specs import LIMITS as L
+        spec=importlib.util.spec_from_file_location('duration_verify',ROOT/'scripts/verify-portable-combat.py')
+        v=importlib.util.module_from_spec(spec);spec.loader.exec_module(v)
+        case=copy.deepcopy(next(c for c in v.fixtures() if c['name']=='duration-source-is-part-of-identity'))
+        words,_=v.compile_case(case);at=L['DURATION_DEFINITION_BASE']
+        self.assertEqual(words[at+2:at+6],[1,1,2,1])
+        case.pop('combat')
+        with self.assertRaises(UnsupportedPortable):v.compile_case(case)
+
+
 if __name__=='__main__':unittest.main()

@@ -32,11 +32,12 @@ def _observe(case):
             return super()._cast_burst(name,stage,t,bm,state)
     ctrl=Controller(chars,dict(burst_gauge_mode='accumulate'),actors,enemy)
     timeline._register_instant_handlers(bm,actors,ctrl)
-    commands=[];next_frame=0
+    commands=[];next_frame=0;clock=0.0;accumulated=config.get('clock')=='accumulated'
     for command in case['script']:
         if command[1]==24:
-            while next_frame<=10800 and next_frame/60<=command[0]:
-                commands.append([next_frame/60,4,0,0,0,-1,0,0]);next_frame+=1
+            while next_frame<=10800 and (clock if accumulated else next_frame/60)<=command[0]:
+                commands.append([clock if accumulated else next_frame/60,4,0,0,0,-1,0,0]);next_frame+=1
+                if accumulated:clock+=1/60
         else:commands.append(command)
     started=False;queries=[]
     for t,op,event,who,arg,index,extra,extra2 in commands:
@@ -53,7 +54,7 @@ def _observe(case):
         elif op==2:
             phase=ctrl._phase
             phase=0 if phase=='idle' else 4 if phase=='switching' else 5 if phase=='full_burst' else int(phase.split(':')[1])
-            queries.append(dict(combat=dict(phase=phase,gauge=state['burst_gauge'],gauge_charging=state['burst_gauge_charging'],
+            queries.append(dict(combat=dict(full_end=max(0,ctrl._full_burst_end_t),last_b3_caster=NAMES.index(ctrl._fb_caster) if ctrl._fb_caster else -1,last_b3_cast_time=ctrl._fb_caster_t,last_full_start=ctrl._last_fb_start_t,phase=phase,gauge=state['burst_gauge'],gauge_charging=state['burst_gauge_charging'],
                     cast_mask=sum(1<<i for i,n in enumerate(NAMES) if state['burst_casted'].get(n)),casts=counts.copy(),
                     cooldown_wait_mask=sum(1<<NAMES.index(n) for n in (ctrl._cd_wait_candidates or [])),
                     cooldown_applied=[ctrl._cd_applied_at_cast[n] for n in NAMES],

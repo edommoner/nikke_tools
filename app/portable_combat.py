@@ -17,11 +17,11 @@ def pack_combat(words, config, double_words):
         if not lo<=value<=hi:raise ValueError('Combat numeric range exceeded')
         return value
     trace=config.get('trace','full')
-    if trace not in ('full','summary'):raise ValueError('Invalid trace policy')
+    if trace not in ('full','summary','burst'):raise ValueError('Invalid trace policy')
     clock=config.get('clock','grid')
     if clock not in ('grid','accumulated'):raise ValueError('Invalid combat clock')
     words[6]=int(clock=='accumulated')
-    words[5]=int(trace=='full')
+    words[5]={'summary':0,'full':1,'burst':2}[trace]
     words[3]=1;words[4]=len(targets)
     words[28:30]=double_words(number(config.get('initial_gauge',0),0,100))
     words[30:32]=double_words(number(config.get('reentry_delay',.5),0,180))
