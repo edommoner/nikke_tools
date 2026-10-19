@@ -1,5 +1,5 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721376U;
+static const uint PORTABLE_ABI = 1346721377U;
 static const uint P_REMOVALS = 4096U;
 static const uint P_LANDINGS = 2048U;
 #ifdef PORTABLE_WIDE_LANDINGS
@@ -130,9 +130,14 @@ static const uint P_REMOVAL_QUEUE_BASE = 94216U;
 static const uint P_REMOVAL_QUEUE_BASE = 86024U;
 #endif
 #ifdef PORTABLE_WIDE_LANDINGS
-static const uint P_OUTPUT_WORDS = 98304U;
+static const uint P_STACK_NOTICE_VALUE_BASE = 96264U;
 #else
-static const uint P_OUTPUT_WORDS = 90112U;
+static const uint P_STACK_NOTICE_VALUE_BASE = 88072U;
+#endif
+#ifdef PORTABLE_WIDE_LANDINGS
+static const uint P_OUTPUT_WORDS = 102400U;
+#else
+static const uint P_OUTPUT_WORDS = 94208U;
 #endif
 static const uint D_OWNER = 0U;
 static const uint D_KIND = 1U;

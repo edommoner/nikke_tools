@@ -26,7 +26,7 @@ class ReferenceInputTests(unittest.TestCase):
         c=CS[0];words,meta=v.compile_case(c);at=L['REFERENCE_DEFINITION_BASE']+2*4
         self.assertEqual(words[at],1);self.assertEqual(words[at+3],0)
         self.assertEqual(words[L['RESOURCE_NAME_BASE']+words[at+1]-1],words[at+2])
-        self.assertEqual((L['INPUT_WORDS'],L['OUTPUT_WORDS']),(77824,90112))
+        self.assertEqual((L['INPUT_WORDS'],L['OUTPUT_WORDS']),(77824,94208))
     def test_external_dot_uses_separate_coefficient_reference(self):
         c=copy.deepcopy(CS[0]);c['effects'][2].update(stat='dot_damage',tick_interval=.25,duration=1,scaling='stack_count',scaling_ref='fuel')
         words,_=v.compile_case(c);at=L['REFERENCE_DEFINITION_BASE']+2*4

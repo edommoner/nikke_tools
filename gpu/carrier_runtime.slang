@@ -35,13 +35,25 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
     uint slot = s.carrierCount++; s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot;
 }
 
-// GPU-owned 16-bit payloads use existing output alignment padding. No
-// private queue array or extra dispatch-frame branch is needed for repeats.
+// One GPU-owned LIFO reservation pool for end/stack notices. Compact metadata
+// retains its old two-per-word layout; a parallel uint plane snapshots stacks.
 [noinline]
 uint loadRemovalNotice(inout Runtime s,uint index)
 {
     uint at=s.resourceOutput+P_REMOVAL_QUEUE_BASE+index/2;
     return (results[at]>>((index&1)*16))&65535;
+}
+[noinline]
+uint loadStackNoticeValue(inout Runtime s,uint index)
+{ return results[s.resourceOutput+P_STACK_NOTICE_VALUE_BASE+index]; }
+[noinline]
+void queueStackNotice(inout Runtime s,uint owner,uint name,uint stack)
+{
+    if(name>=P_DEFINITIONS) return;
+    if(owner>=5 || stack>0x7fffffff || s.removalCount==P_REMOVALS) { s.error=64;return; }
+    uint index=s.removalCount++,at=s.resourceOutput+P_REMOVAL_QUEUE_BASE+index/2,shift=(index&1)*16;
+    results[at]=(results[at]&~(65535U<<shift))|((owner|(name<<3)|32768U)<<shift);
+    results[s.resourceOutput+P_STACK_NOTICE_VALUE_BASE+index]=stack;
 }
 [noinline]
 void queueRemovalNotice(inout Runtime s,uint owner,uint name,uint repeats=1)
@@ -52,6 +64,7 @@ void queueRemovalNotice(inout Runtime s,uint owner,uint name,uint repeats=1)
     {
         uint index=s.removalCount++,at=s.resourceOutput+P_REMOVAL_QUEUE_BASE+index/2,shift=(index&1)*16;
         results[at]=(results[at]&~(65535U<<shift))|((owner|(name<<3))<<shift);
+        results[s.resourceOutput+P_STACK_NOTICE_VALUE_BASE+index]=0;
     }
 }
 [noinline]

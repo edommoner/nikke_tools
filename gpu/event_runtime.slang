@@ -1,6 +1,7 @@
 #include "binary64.slang"
 #include "core_probability.slang"
 #include "portable_schema.slang"
+#include "stack_numeric.slang"
 
 StructuredBuffer<uint> commands;
 RWStructuredBuffer<uint> results;
@@ -648,7 +649,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         {
             if (f.cursor == f.repeatLeft) { s.removalCount = f.value; depth--; continue; }
             uint payload=loadRemovalNotice(s,f.value+f.cursor);frames[depth].cursor++;
-            pushFrame(s,frames,depth,0,29,payload&7,int(payload>>3),f.time);continue;
+            uint index=f.value+f.cursor,stack=loadStackNoticeValue(s,index);
+            pushFrame(s,frames,depth,0,(payload&32768)!=0 ? 9 : 29,payload&7,int((payload>>3)&255),f.time,stack);continue;
         }
         if (f.mode == 8)
         {
@@ -878,7 +880,9 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 else if (s.lazyPending[row] != 0) unlinkLazyCache(s,row);
             }
             else { s.activeRecipients[row] = recipientMask; s.carrierRecipientOrder[row] = recipientOrder; }
-            s.stacks[row] = min(s.stacks[row]+1,d.maxStack); s.alive[row] = 1; s.activated[row] = f.time;
+            s.stacks[row] = checkedStackIncrement(s.stacks[row],d.maxStack,s.error);
+            if (s.error!=0) break;
+            s.alive[row] = 1; s.activated[row] = f.time;
             s.end[row] = f64Less(duration,0) ? F64_INF : f64Add(f.time,duration);
             if (d.enemyBuff != 0) s.enemyCaptureGeneration[row] = capturedGeneration;
             if (d.bulletDuration != 0) prepareBulletActivation(s,row,recipientMask,live,activationLazy,previousStack);

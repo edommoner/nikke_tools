@@ -82,7 +82,8 @@ void registerTimer(inout Runtime s, uint source, uint64_t when)
     {
         if (s.alive[row] == 0) markEntry(s,row);
         s.activated[row] = when;
-        if (!registerDotReference(s,row,resident)) s.stacks[row] = min(s.stacks[row]+1,d.maxStack);
+        if (!registerDotReference(s,row,resident)) s.stacks[row] = checkedStackIncrement(s.stacks[row],d.maxStack,s.error);
+        if (s.error!=0) return;
         s.end[row] = s.expiry[row]; s.alive[row] = 1;
     }
 }

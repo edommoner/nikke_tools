@@ -27,7 +27,8 @@ void prepareBulletActivation(inout Runtime s, uint row, uint mask, bool wasLive,
             bool had = wasLive && s.recipientBullets[at] != 0;
             uint stack = s.recipientStacks[at] != 0 ? s.recipientStacks[at] : previousStack;
             s.recipientBullets[at] = (mask & (1U << who)) != 0 ? d.bulletDuration : 0;
-            s.recipientStacks[at] = (mask & (1U << who)) != 0 && d.maxStack != 1 ? (had ? min(stack+1,d.maxStack) : 1) : 0;
+            s.recipientStacks[at] = (mask & (1U << who)) != 0 && d.maxStack != 1 ? (had ? checkedStackIncrement(stack,d.maxStack,s.error) : 1) : 0;
+            if (s.error!=0) return;
         }
         s.bulletLeft[row] = -1;
     }
