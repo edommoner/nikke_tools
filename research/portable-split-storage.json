@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "prior_proof_commit": "b8ae1c7",
+  "runtime_declaration_unchanged": true,
+  "runtime_sha256": "8991968ef48a8f28981a553477a80d6668a2b5d6df01ea8f696c990e780e634f",
+  "frame_fields_added": 0,
+  "frame_value_widened_from_bits": 32,
+  "frame_value_widened_to_bits": 64,
+  "frame_fields": {
+    "mode": "uint",
+    "event": "uint",
+    "owner": "uint",
+    "cursor": "uint",
+    "target": "uint",
+    "repeatRow": "uint",
+    "repeatLeft": "uint",
+    "repeatPassive": "uint",
+    "argument": "int",
+    "value": "uint64_t",
+    "time": "uint64_t",
+    "healthValue": "uint64_t",
+    "healthPrevious": "uint64_t",
+    "healthNext": "uint64_t"
+  },
+  "frame_layout_estimate": {
+    "assumptions": "4-byte uint/int,8-byte uint64 alignment, no compiler elimination",
+    "old_bytes": 72,
+    "new_bytes": 80,
+    "count": 32,
+    "estimated_growth_bytes": 256
+  },
+  "input_words": 86016,
+  "output_words": 159744,
+  "input_growth_bytes": 16384,
+  "output_growth_bytes": 98304,
+  "new_regions": {
+    "ordered_selector_nodes_bytes": 8192,
+    "additional_hit_trace_bytes": 81920,
+    "wide_carrier_orders_bytes": 4096
+  },
+  "max_ordered_deliveries": 21,
+  "scope": "Wide carrier orders live in output storage only for programs with composite targets; existing Runtime arrays remain unchanged. Frame byte figures are static layout estimates, not registers/spills, physical local storage or measured peak memory."
+}

@@ -4,6 +4,8 @@
 
 2026-10-19にMacBook Air・Apple M5（GPU 10コア）・24GB・macOS 26.6.2 arm64を実機確認しました。CPU起動（203体）とMetal実証4ケースは成功し、`research/portable-probe-metal.json` に実GPUの結果を保存しています。移行開始時点では本体のGPU計算はCUDA専用でした。現在は共通Metal本体を部分接続しており、全キャラ対応は未完了です。MacでCPUを使う作業環境と、共通GPUコアの小さな実証を先行して整備しています。
 
+均等分配と複合バフ対象は `d12b365` でMetal1773入力・Mac全25ゲート・82実編成が成功しました。Windows v59の結果取得と複合instant配送の接続が残り、効率化は未実行です。[継続中の引き継ぎ](mac-handoff.md) を参照してください。
+
 最新の保護膜・デコイ・被弾層は固定版 `c411ddc` でMetal／CUDA1433正例・276拒否、保護層CPU参照57件とMac全24ゲートが成功しました。Windowsは最適化後72.67秒の短い検証で全1709入力を実行し、Metalと一致しています。全変種認証0/203体・通常画面CPUを継続しています。[最新の引き継ぎ](mac-handoff.md) と [共通保護層](portable-protection.md) を参照してください。
 
 ## 移行時の問題と対処
