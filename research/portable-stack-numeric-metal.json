@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "cases": 19908,
+  "statuses": {
+    "0": 17739,
+    "2": 1633,
+    "64": 536
+  },
+  "cpu_trace_used_as_gpu_input": false,
+  "scope": "Integer update/default/sign/clamp before checked signed31-bit result; not effect-family admission",
+  "transport": {
+    "backend": "metal",
+    "cases": 19908,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "gpu_seconds": 0.0009742083493620157,
+    "input_bytes": 637060,
+    "library_compile_seconds": 0.0004029273986816406,
+    "output_bytes": 159264,
+    "pipeline_compile_seconds": 0.00041103363037109375,
+    "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "registry_id": "4294968313",
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "source_sha256": {
+    "gpu/stack_numeric_probe.slang": "7028641e99168172b9c6896b0926a4d02bbc21430417dad498189b8ae179f746",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/stack_numeric.slang": "db639cde6047760f2a7676725d354c4c1a2361e13303b16374033adf810bea94"
+  },
+  "generated_sha256": {
+    "cuda": "99ab709992b0b611d6aea6f1960763ae87091582d351580475214b86d9600d13",
+    "metal": "5d6e81e7e9a02b1b09eb11fcfac09ffc42c75aaa08e85952213ecfe03bdf6f26"
+  },
+  "input_sha256": "95002f41c40212d56b29fab376ad5a921d0df4340ade5a2c13a9273d6ec4bcca",
+  "output_sha256": "c3b6a0268cbe8244adb363f199b2ab69ebf69f46db7515c985b2572fae813cec",
+  "gpu_execution_verified": true,
+  "backend": "metal"
+}

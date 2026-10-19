@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "cases": 19908,
+  "statuses": {
+    "0": 17739,
+    "2": 1633,
+    "64": 536
+  },
+  "cpu_trace_used_as_gpu_input": false,
+  "scope": "Integer update/default/sign/clamp before checked signed31-bit result; not effect-family admission",
+  "transport": {
+    "backend": "cuda",
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "cases": 19908,
+    "command_status": "completed",
+    "host_dispatch_seconds": 0.0001276000402867794
+  },
+  "source_sha256": {
+    "gpu/stack_numeric_probe.slang": "7028641e99168172b9c6896b0926a4d02bbc21430417dad498189b8ae179f746",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/stack_numeric.slang": "db639cde6047760f2a7676725d354c4c1a2361e13303b16374033adf810bea94"
+  },
+  "generated_sha256": {
+    "cuda": "77b1939f373b38640598d4a0bf79761f6ecd0b71e346d5a4ed642f919d9eefdf",
+    "metal": "cbc7b70055a353d16e4d2b4dd643d108a5d1a83470f1e786e3a74d37afe95d9f"
+  },
+  "input_sha256": "95002f41c40212d56b29fab376ad5a921d0df4340ade5a2c13a9273d6ec4bcca",
+  "output_sha256": "c3b6a0268cbe8244adb363f199b2ab69ebf69f46db7515c985b2572fae813cec",
+  "gpu_execution_verified": true,
+  "backend": "cuda"
+}

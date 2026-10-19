@@ -1,0 +1,12 @@
+{
+  "source_commit": "851625603c9079008bedfb892b80ba36575daeeb",
+  "initial_request_tool_cell": "3304",
+  "initial_delivery_not_received_confirmed_by_remote_turn": "01a15569-534a-7ee0-8d9a-bfa899aa743f",
+  "initial_pending_cell_terminated": true,
+  "resend_tool_acknowledged": true,
+  "duplicate_execution_prohibited": true,
+  "max_gpu_runs": 1,
+  "below_normal": true,
+  "timeout_seconds": 120,
+  "request_sent_after_user_connection_confirmation": true
+}
