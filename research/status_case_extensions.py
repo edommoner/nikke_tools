@@ -61,4 +61,7 @@ def cases(buff,immune,cleanse,notify,query,case):
  e=immune(duration_bullets=1,max_stack=3)
  c=add('charge-uses-representative-not-bullet-override',[copy.deepcopy(no_crit),e,buff(trigger=dict(timing=['full_charge_fire'],condition=[]))],[notify(0),notify(0),notify(0),[0,4,0,0,0,-1,0,0],[.25,4,0,0,0,-1,0,0],notify(.3)]+[notify(.4,11) for _ in range(4)]+[query(.4)],stack_bullet_reference=True)
  c['combat']['weapons']=[dict(enabled=True,capacity=100,interval=.25,reload=1,coefficient=100)]+[dict(enabled=False) for _ in range(4)]
+ for value in (-10,10):
+  hp=buff('snapshot hp',stat='max_hp_from_max_hp_pct',fixed_value=value,target='self',max_stack=1)
+  add('cleanse-snapshot-health-'+str(value),[hp,cleanse(target='self')],[notify(0,7),query(0),notify(.1,8),query(.1,1)])
  return rows

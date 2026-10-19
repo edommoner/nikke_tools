@@ -6,7 +6,7 @@ jobs.insert(0,('stack-foundation',['research/verify-stack-foundation.py','--back
 jobs.insert(0,('status-native',['research/verify-status-native-contract.py']))
 rows=[]
 for name,args in jobs:
- start=time.monotonic();log=Path('/tmp/nikke-v53-gate-'+name+'.log')
+ start=time.monotonic();log=Path('/tmp/nikke-v54-gate-'+name+'.log')
  with log.open('w') as f:result=subprocess.run([python,*args],cwd=root,stdout=f,stderr=subprocess.STDOUT)
  rows.append(dict(name=name,exit_code=result.returncode,elapsed_seconds=time.monotonic()-start,log=str(log)))
  (root/'research/portable-status-global-gates.json').write_text(json.dumps(dict(passed=all(r['exit_code']==0 for r in rows),complete=len(rows)==len(jobs),gates=rows),indent=2)+'\n')

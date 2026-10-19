@@ -11548,6 +11548,228 @@
       "stack_bullet_reference": true
     },
     {
+      "name": "status-cleanse-snapshot-health--10",
+      "effects": [
+        {
+          "name": "snapshot hp",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_hp_from_max_hp_pct",
+          "fixed_value": -10,
+          "target": "self",
+          "duration": 2,
+          "max_stack": 1,
+          "polarity": "harmful",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "cleanse",
+          "source": "스킬2",
+          "type": "instant",
+          "stat": "debuff_cleanse",
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0
+        },
+        {
+          "time": 0.1
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000
+          }
+        ]
+      },
+      "stack_reference": true,
+      "status_reference": true
+    },
+    {
+      "name": "status-cleanse-snapshot-health-10",
+      "effects": [
+        {
+          "name": "snapshot hp",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "max_hp_from_max_hp_pct",
+          "fixed_value": 10,
+          "target": "self",
+          "duration": 2,
+          "max_stack": 1,
+          "polarity": "harmful",
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          }
+        },
+        {
+          "name": "cleanse",
+          "source": "스킬2",
+          "type": "instant",
+          "stat": "debuff_cleanse",
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "hit_count"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          8,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0
+        },
+        {
+          "time": 0.1
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          },
+          {
+            "enabled": false
+          }
+        ],
+        "targets": [
+          {
+            "hp": 100000
+          }
+        ]
+      },
+      "stack_reference": true,
+      "status_reference": true
+    },
+    {
       "name": "lazy-cache-capacity",
       "effects": [
         {

@@ -37,4 +37,9 @@ class StatusContracts(unittest.TestCase):
  def test_cleanse_publishes_changed_health_ratio_at_outer_boundary(self):
   hp=b.buff(stat='max_hp_pct',fixed_value=-10,target='self',max_stack=1);bm=manager([hp,b.cleanse(target='self')]);bm.state.update(hp={n:10000 for n in NAMES},hp_pct={n:100 for n in NAMES})
   bm.notify('on_attack',0,NAMES[0]);self.assertEqual(bm.state['hp_pct'][NAMES[0]],100);bm.notify('hit_count',.1,NAMES[0]);self.assertEqual(bm.state['hp_pct'][NAMES[0]],90)
+ def test_snapshot_hp_cleanse_clips_and_publishes_health(self):
+  for value,final in ((-10,9000),(10,10000)):
+   with self.subTest(value=value):
+    hp=b.buff(stat='max_hp_from_max_hp_pct',fixed_value=value,target='self',max_stack=1);bm=manager([hp,b.cleanse(target='self')]);bm.state.update(hp={n:10000 for n in NAMES},hp_pct={n:100 for n in NAMES})
+    bm.notify('on_attack',0,NAMES[0]);self.assertEqual(bm.state['hp_pct'][NAMES[0]],100);bm.notify('hit_count',.1,NAMES[0]);self.assertEqual(bm.state['hp'][NAMES[0]],final);self.assertEqual(bm.state['hp_pct'][NAMES[0]],final/100)
 if __name__=='__main__':unittest.main()
