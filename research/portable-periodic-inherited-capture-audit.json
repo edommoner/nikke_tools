@@ -884,5 +884,11 @@
   "fix": "For captured named groups, resolve inherited target with the same logical nearest selector before capture",
   "post_fix_focused_metal": "portable-periodic-targets-focused-metal.json",
   "post_fix_focused_cases": 29,
-  "global_revalidation_pending": true
+  "global_revalidation_pending": false,
+  "post_fix_positive_cases": 866,
+  "post_fix_rejections": 112,
+  "post_fix_control_all_output_words_equal": true,
+  "post_fix_real_roster_profiles": 52,
+  "post_fix_api_periodic_cases": 4,
+  "post_fix_fixed_shared_commit": "d520531c62f5b9fa77d663cb23f2c3fff61b8e3b"
 }

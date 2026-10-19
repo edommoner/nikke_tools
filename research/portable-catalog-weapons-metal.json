@@ -1,6 +1,23 @@
 {
   "results": [
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -506,6 +523,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -1011,6 +1045,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -1516,6 +1567,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -2021,6 +2089,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -2526,6 +2611,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -3031,6 +3133,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -3536,6 +3655,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -4041,6 +4177,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -4546,6 +4699,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -5051,6 +5221,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -5556,6 +5743,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -6061,6 +6265,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -6566,6 +6787,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -7071,6 +7309,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -7576,6 +7831,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -8081,6 +8353,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -8586,6 +8875,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -9091,6 +9397,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -9596,6 +9919,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -10101,6 +10441,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -10606,6 +10963,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -11111,6 +11485,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -11616,6 +12007,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -12121,6 +12529,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -12626,6 +13051,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -13131,6 +13573,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -13636,6 +14095,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -14141,6 +14617,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -14646,6 +15139,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -15151,6 +15661,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -15656,6 +16183,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -16161,6 +16705,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -16666,6 +17227,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -17171,6 +17749,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -17676,6 +18271,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -18181,6 +18793,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -18686,6 +19315,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -19191,6 +19837,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -19696,6 +20359,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -20201,6 +20881,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -20706,6 +21403,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -21211,6 +21925,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -21716,6 +22447,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -22221,6 +22969,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -22726,6 +23491,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -23231,6 +24013,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -23736,6 +24535,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -24241,6 +25057,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -24746,6 +25579,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -25251,6 +26101,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -25756,6 +26623,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -26261,6 +27145,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -26766,6 +27667,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -27271,6 +28189,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -27776,6 +28711,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -28281,6 +29233,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -28786,6 +29755,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -29291,6 +30277,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -29796,6 +30799,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -30301,6 +31321,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -30806,6 +31843,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -31311,6 +32365,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -31816,6 +32887,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -32321,6 +33409,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -32826,6 +33931,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -33331,6 +34453,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -33836,6 +34975,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -34341,6 +35497,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -34846,6 +36019,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -35351,6 +36541,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -35856,6 +37063,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -36361,6 +37585,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -36866,6 +38107,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -37371,6 +38629,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -37876,6 +39151,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -38381,6 +39673,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -38886,6 +40195,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -39391,6 +40717,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -39896,6 +41239,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -40401,6 +41761,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -40906,6 +42283,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -41411,6 +42805,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -41916,6 +43327,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -42421,6 +43849,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -42926,6 +44371,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -43431,6 +44893,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -43936,6 +45415,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -44441,6 +45937,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -44946,6 +46459,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -45451,6 +46981,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -45956,6 +47503,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -46461,6 +48025,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -46966,6 +48547,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -47471,6 +49069,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -47976,6 +49591,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -48481,6 +50113,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -48986,6 +50635,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -49491,6 +51157,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -49996,6 +51679,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -50501,6 +52201,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -51006,6 +52723,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -51511,6 +53245,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -52016,6 +53767,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -52521,6 +54289,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -53026,6 +54811,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -53531,6 +55333,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -54036,6 +55855,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -54541,6 +56377,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -55046,6 +56899,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -55551,6 +57421,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -56056,6 +57943,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -56561,6 +58465,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -57066,6 +58987,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -57571,6 +59509,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -58076,6 +60031,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -58581,6 +60553,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -59086,6 +61075,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -59591,6 +61597,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -60096,6 +62119,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -60601,6 +62641,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -61106,6 +63163,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -61611,6 +63685,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -62116,6 +64207,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -62621,6 +64729,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -63126,6 +65251,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -63631,6 +65773,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -64136,6 +66295,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -64641,6 +66817,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -65146,6 +67339,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -65651,6 +67861,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -66156,6 +68383,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -66661,6 +68905,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -67166,6 +69427,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -67671,6 +69949,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -68176,6 +70471,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -68681,6 +70993,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -69186,6 +71515,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -69691,6 +72037,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -70196,6 +72559,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -70701,6 +73081,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -71206,6 +73603,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -71711,6 +74125,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -72216,6 +74647,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -72721,6 +75169,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -73226,6 +75691,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -73731,6 +76213,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -74236,6 +76735,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -74741,6 +77257,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -75246,6 +77779,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -75751,6 +78301,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -76256,6 +78823,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -76761,6 +79345,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -77266,6 +79867,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -77771,6 +80389,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -78276,6 +80911,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -78781,6 +81433,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -79286,6 +81955,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -79791,6 +82477,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -80296,6 +82999,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -80801,6 +83521,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -81306,6 +84043,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -81811,6 +84565,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -82316,6 +85087,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -82821,6 +85609,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -83326,6 +86131,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -83831,6 +86653,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -84336,6 +87175,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -84841,6 +87697,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -85346,6 +88219,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -85851,6 +88741,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -86356,6 +89263,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -86861,6 +89785,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -87366,6 +90307,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -87871,6 +90829,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -88376,6 +91351,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -88881,6 +91873,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -89386,6 +92395,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -89891,6 +92917,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -90396,6 +93439,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -90901,6 +93961,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -91406,6 +94483,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -91911,6 +95005,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -92416,6 +95527,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -92921,6 +96049,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -93426,6 +96571,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -93931,6 +97093,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -94436,6 +97615,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -94941,6 +98137,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -95446,6 +98659,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -95951,6 +99181,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -96456,6 +99703,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -96961,6 +100225,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -97466,6 +100747,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -97971,6 +101269,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -98476,6 +101791,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -98981,6 +102313,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -99486,6 +102835,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -99991,6 +103357,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -100496,6 +103879,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -101001,6 +104401,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -101506,6 +104923,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -102011,6 +105445,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -102522,11 +105973,11 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.0367680000490509,
+    "gpu_seconds": 0.03619249997427687,
     "input_bytes": 43237380,
-    "library_compile_seconds": 0.0009750127792358398,
+    "library_compile_seconds": 0.0007520914077758789,
     "output_bytes": 43237376,
-    "pipeline_compile_seconds": 0.0024149417877197266,
+    "pipeline_compile_seconds": 0.0016919374465942383,
     "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
@@ -102535,11 +105986,11 @@
     "gpu_timeout_seconds": 120
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "9bca041805d23e6b458d4094f927477da5c29de7be59121a0337fd1f83e5dc68",
+    "gpu/event_runtime.slang": "1b9489d8c1d28d8879261fa92c6a26da61af7729c236c5516384d02131322b0b",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "44dbf118a5ed5a66c10cb47d0cb25bda80e86af422f9bc96d370b76a64c468b4",
-    "gpu/runtime_init.slang": "449948b29047788e7ed413f82083bc2e57f1c9813ae13c4aa46472b4371ab86f",
+    "gpu/portable_schema.slang": "74977cefb12aa9f672b5d70f8e87cfeb4a34bcd3463fed4189ce6c3d3239ca64",
+    "gpu/runtime_init.slang": "8b73cebdce8f9ce7cf8332ef4c89d274bd7b817469162d007c203598a45967fc",
     "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
     "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
     "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
@@ -102557,6 +106008,7 @@
     "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
     "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
     "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
+    "gpu/periodic_runtime.slang": "d0810fcc12c72ed8727988c31d98bf51268db084b955b597b46b0c3cd70a9d73",
     "gpu/event_candidate_runtime.slang": "5b986d2d51b052186bedb820788460d009220a58e84d6a8803770b64287db356",
     "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
@@ -102566,10 +106018,10 @@
     "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
   },
   "generated_sha256": {
-    "cuda": "0241708ccb46a6c287b6691d9c40c00de0df1ef5ea870f528dacdc063501e484",
-    "metal": "a1d954426e14643c61cae826e1a8eed4b86869f8536157d940500748d28bc3af"
+    "cuda": "9e119f4cfbf66472cbbb3a43ea557cc0b3cbaa381445d9d770855948c195b5e2",
+    "metal": "141425f496d4017a4030854206c5a7155d39c9d67b3d8aecc8ec9c2c7ab352fc"
   },
-  "input_sha256": "e30a31b4dd2dfa00fe0b611fed5ccdd6a1ce97ed78b01096b3b5559101bdf36a",
+  "input_sha256": "6dac662e1c2e77f5885de3005f136f12e3c4bc602f1ed034b39ee81a11556d86",
   "output_sha256": "accf1ef43720dcee1887380829547f3938e7fbcf2502cd2aa9e1581b27d394f1",
   "gpu_execution_verified": true,
   "backend": "metal",
@@ -102624,12 +106076,13 @@
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
     "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
     "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
-    "app/portable_enemy_specs.py": "4191596c60b2a5957abcb55566d7cb2891797ec32a24fcda8971e0eda28cad18",
+    "app/portable_enemy_specs.py": "027f575ec84a2f872d01622281971f1f97919c82e705f8a484208cfa811b1804",
+    "app/portable_periodic_specs.py": "830b7b7bd25586ae568b210dd3583c3e7349bb0ac29226d0748ba77b7da3d9bf",
     "app/portable_recipient_specs.py": "080e2b4a39770d70a44872cd64373bed6c9e684da747b304fbaa91af01d04cc3",
     "app/portable_roster_input.py": "7f65ee49d9688b59493ec958584ff157312e259eadf269b55fba6af813265593",
-    "app/portable_runtime.py": "5956e0e540238c9ecdfefd46eb2f449097127fad6beb66fe1dbc8c044022fdba",
+    "app/portable_runtime.py": "e36f818f6eb3e310049d9b163e451f03ddc0bf4718ee703e3f816a23a7f12604",
     "app/portable_runtime_layout.py": "3ec05cf08cfaa6267d96c2e06a03c05cab7ca13aa5697033a89b070cca7e5b94",
-    "app/portable_specs.py": "a83757882aa1931ac98dd3670195dc5576610154293e8396b735b9f3edd04670",
+    "app/portable_specs.py": "63c1e8a8a8aafbc158e92c7488cb726b29d107fa47eba9d049412802fcc20549",
     "app/portable_trigger_specs.py": "70d19d08eb1bb29674ed2c8360e7748556f0674775e180169e6f957b39607fc6",
     "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
     "app/protection_runtime.py": "a6909bbdd73ef24ebdd3136cc67932c7ab433f23ae9ecabfc2a5069a5db37c81",
@@ -102736,6 +106189,7 @@
     "scripts/benchmark-portable-lazy.py": "087b1640dc470d9a08201749d100a42be44c46a81d9b6db42ba3d19b1d24d130",
     "scripts/benchmark-portable-mode-entry.py": "3a9082ed22bb187a851df382516a1ec4f1d7b496860920f20af7aa540b79e775",
     "scripts/benchmark-portable-pending.py": "89b01a9ebc595ee067b0a69d16cedc78473cc7d5d233e4f0b3ff1a30b8823b69",
+    "scripts/benchmark-portable-periodic-owner.py": "e4d2175e7f82514624df67019a827f65fd5e3b638d0537b3ac0cb9b3891d8593",
     "scripts/benchmark-portable-quantities.py": "bd1c0e0e434c1200daa3dc1c557032c7733ae1e0e162f5a434878602aaa9c936",
     "scripts/benchmark-portable-spawn-order.py": "1039fe4ba34ba0e066768d3ede3c14bd9b07b41bbfdc4727bcc955b835da2c48",
     "scripts/benchmark-portable-stats.py": "b01ea801735c722ef4c4dc32dff3594bf24f5c15a111d214a2ec020df6b41abc",
@@ -102786,7 +106240,7 @@
     "scripts/portable_capacity_oracle.py": "4dc04416bca1350183540a12234ea9e90ab85c83919e8411317b642e077c1d6f",
     "scripts/portable_control_verifier.py": "13b4b525663b86cf2b0e565e361488ebe57d9eee8609c5642acde00b4038c22d",
     "scripts/portable_enemy_buff_oracle.py": "4811d1c4fb66c3bd8b49bfb2e170380e68bb77bab28d8d03d74b2c53ce437cee",
-    "scripts/portable_enemy_oracle.py": "ee7127ce633022940e4ddf2d1d0b4caf1677e0e7fc08ac161d28dd32e571ec5b",
+    "scripts/portable_enemy_oracle.py": "562c7614a8ecc358c581b5d289ffc60531901e00d7f988fa890d33386e3883d6",
     "scripts/portable_health_oracle.py": "3c8c66d0674675c3fbf884ed8ef53408a4ca74e2593ea3b1df3594b8176a5bfc",
     "scripts/portable_pending_oracle.py": "5919e9b30ef2b97cfeee24d19eb080c522df2fb6b98c1555be2efdf5c68e3359",
     "scripts/portable_weapon_oracle.py": "f011a2e648b4a34eb4bc6db5053066fec4b236c472ca7cad2e92e5677ffcc1a1",
@@ -102900,15 +106354,16 @@
     "scripts/verify-periodic-detail.py": "592431aefb6cbba77fc8b0ac925dbcbe342fa87e488d423cedfa270df0261e05",
     "scripts/verify-periodic-sources-detail.py": "bece3113347f76c55022591fb7308cc2bcd181ff56497cb17de691f791450dda",
     "scripts/verify-periodic-targets-detail.py": "e159b1a38c095cfedb489105ae2c90051f6cf34cdbc8a35acb351b1e9b835159",
-    "scripts/verify-portable-api.py": "6340e1dcfdd72f2dd43b80352898c615d5d8eb0ac68168af2389fd910ef1f604",
+    "scripts/verify-portable-api.py": "d05be40f51a07a87f3863697732c8d112cad10d4b3b695e8d7adc98516da8b13",
     "scripts/verify-portable-attack-rank.py": "e80520e7baee2c21580548a020164bbf124a9524466621d208c3fe804ecc21a9",
     "scripts/verify-portable-auto-aim.py": "0e72357b8ff98edb8ff164450751be7a49cdd14125f3a027b598563e73e9f2bb",
     "scripts/verify-portable-catalog-weapons.py": "4986f71dc931d68ffad1bcdea2bf9be5e1dcb586e8d0c1a6001b5ca75799e3e6",
-    "scripts/verify-portable-combat.py": "b1a292389c312e14b9dd6bfb458dcfb75dc3803cdd23993473bb8a10af161719",
+    "scripts/verify-portable-combat.py": "4c603189ac86333cbe6077d5e1f2248e39e6a20b242032bcce921d1b169c2a02",
     "scripts/verify-portable-event-index.py": "39777a51f8dc99d6f442a6a2f933f11316abaee3dbcf923bf154d78dc39df0de",
     "scripts/verify-portable-events.py": "a0c19364ccfbb0436268ca56a79457abbb588235c71a8e6d1565d8fe757cd6a7",
     "scripts/verify-portable-metal-lock.py": "1b61cb71e824881b0979abab06cfa614018222454b6f357013ba88be7f4646de",
     "scripts/verify-portable-numeric.py": "6f69e28e3de824899cc5e25320eb9ebfc2a5a4f44c5a3e5dc393a0ce7b664d9e",
+    "scripts/verify-portable-periodic-targets.py": "6f0c311ef2c599a617886935a6388da23e815da039de5dc529993fff10f3cb06",
     "scripts/verify-portable-probe.py": "e2bd6b6f9148a178477a3a11c83a4ac4387bc865b4d18b2252e989387917ff13",
     "scripts/verify-portable-real-battle.py": "ce02faebb45f07b5598bb3ad2c826868242c5c110dd94dd758f6c4c43c2367a5",
     "scripts/verify-portable-real-equipment.py": "a68165811420ad925714ac29ba5ed9a4b3b549910e78f0b5220959df57ca30af",

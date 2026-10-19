@@ -1,6 +1,38 @@
 {
   "results": [
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 4,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -1216,6 +1248,38 @@
       "max_stack_depth": 3
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 4,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -2431,6 +2495,53 @@
       "max_stack_depth": 3
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 4,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -3689,6 +3800,68 @@
       "max_stack_depth": 5
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 4,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 4,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -5060,6 +5233,68 @@
       "max_stack_depth": 5
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 4,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 4,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -6336,6 +6571,68 @@
       "max_stack_depth": 5
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 4,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 4,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -7688,6 +7985,83 @@
       "max_stack_depth": 5
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 4,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 4,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -9064,6 +9438,68 @@
       "max_stack_depth": 5
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 4,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 4,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -10391,6 +10827,38 @@
       "max_stack_depth": 3
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -11070,6 +11538,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -11559,6 +12044,38 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -11932,6 +12449,23 @@
       "max_stack_depth": 2
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -12268,6 +12802,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -12604,6 +13155,23 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -12940,6 +13508,38 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -13313,6 +13913,38 @@
       "max_stack_depth": 1
     },
     {
+      "periodic_bindings": [
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "flags": 0,
+          "group": 0,
+          "target_order": [],
+          "target_generations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
       "pending_burst": {
         "count": 0,
         "enqueued": 0,
@@ -13998,12 +14630,12 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.004725833307020366,
+    "gpu_seconds": 0.005137625033967197,
     "input_bytes": 3407876,
-    "library_compile_seconds": 0.000988006591796875,
+    "library_compile_seconds": 0.0007259845733642578,
     "output_bytes": 3407872,
-    "pipeline_compile_seconds": 0.0024570226669311523,
-    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_compile_seconds": 0.0016989707946777344,
+    "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
     "threads_per_threadgroup": 1,
@@ -14011,11 +14643,11 @@
     "gpu_timeout_seconds": 120
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "9bca041805d23e6b458d4094f927477da5c29de7be59121a0337fd1f83e5dc68",
+    "gpu/event_runtime.slang": "1b9489d8c1d28d8879261fa92c6a26da61af7729c236c5516384d02131322b0b",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-    "gpu/portable_schema.slang": "44dbf118a5ed5a66c10cb47d0cb25bda80e86af422f9bc96d370b76a64c468b4",
-    "gpu/runtime_init.slang": "449948b29047788e7ed413f82083bc2e57f1c9813ae13c4aa46472b4371ab86f",
+    "gpu/portable_schema.slang": "74977cefb12aa9f672b5d70f8e87cfeb4a34bcd3463fed4189ce6c3d3239ca64",
+    "gpu/runtime_init.slang": "8b73cebdce8f9ce7cf8332ef4c89d274bd7b817469162d007c203598a45967fc",
     "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
     "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
     "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
@@ -14033,6 +14665,7 @@
     "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
     "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
     "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
+    "gpu/periodic_runtime.slang": "d0810fcc12c72ed8727988c31d98bf51268db084b955b597b46b0c3cd70a9d73",
     "gpu/event_candidate_runtime.slang": "5b986d2d51b052186bedb820788460d009220a58e84d6a8803770b64287db356",
     "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
@@ -14042,11 +14675,11 @@
     "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
   },
   "generated_sha256": {
-    "cuda": "0241708ccb46a6c287b6691d9c40c00de0df1ef5ea870f528dacdc063501e484",
-    "metal": "a1d954426e14643c61cae826e1a8eed4b86869f8536157d940500748d28bc3af"
+    "cuda": "9e119f4cfbf66472cbbb3a43ea557cc0b3cbaa381445d9d770855948c195b5e2",
+    "metal": "141425f496d4017a4030854206c5a7155d39c9d67b3d8aecc8ec9c2c7ab352fc"
   },
-  "input_sha256": "1fe1850e67fb8ae7a22f1dc26d854098fab897d292ba7b4f9529b52043c8bb7b",
-  "output_sha256": "7bfb3607e20af387ca0278d689c92af4dcde64eb6b6799fca079e034f76a85fe",
+  "input_sha256": "a1a737851db2809e9a54ddd32d37aec8ed3664bd6060778903e7e59f285886d2",
+  "output_sha256": "21b716457b137ec023945765ab24b103f837cc690e414c131758081c6d4f3646",
   "gpu_execution_verified": true,
   "backend": "metal",
   "application_event_runtime_connected": true,
@@ -14067,6 +14700,38 @@
         4000
       ],
       "actual": {
+        "periodic_bindings": [
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 4,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
         "pending_burst": {
           "count": 0,
           "enqueued": 0,
@@ -15294,6 +15959,38 @@
         4000
       ],
       "actual": {
+        "periodic_bindings": [
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 4,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
         "pending_burst": {
           "count": 0,
           "enqueued": 0,
@@ -16521,6 +17218,53 @@
         5000
       ],
       "actual": {
+        "periodic_bindings": [
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 4,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
         "pending_burst": {
           "count": 0,
           "enqueued": 0,
@@ -17791,6 +18535,68 @@
         14000
       ],
       "actual": {
+        "periodic_bindings": [
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 4,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 4,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
         "pending_burst": {
           "count": 0,
           "enqueued": 0,
@@ -19174,6 +19980,68 @@
         4000
       ],
       "actual": {
+        "periodic_bindings": [
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 4,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 4,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
         "pending_burst": {
           "count": 0,
           "enqueued": 0,
@@ -20462,6 +21330,68 @@
         12000
       ],
       "actual": {
+        "periodic_bindings": [
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 4,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 4,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
         "pending_burst": {
           "count": 0,
           "enqueued": 0,
@@ -21826,6 +22756,83 @@
         12000
       ],
       "actual": {
+        "periodic_bindings": [
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 4,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 4,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
         "pending_burst": {
           "count": 0,
           "enqueued": 0,
@@ -23214,6 +24221,68 @@
         14000
       ],
       "actual": {
+        "periodic_bindings": [
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 4,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 4,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
         "pending_burst": {
           "count": 0,
           "enqueued": 0,
@@ -24550,6 +25619,38 @@
         3513
       ],
       "actual": {
+        "periodic_bindings": [
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
         "pending_burst": {
           "count": 0,
           "enqueued": 0,
@@ -25237,6 +26338,23 @@
         4
       ],
       "actual": {
+        "periodic_bindings": [
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
         "pending_burst": {
           "count": 0,
           "enqueued": 0,
@@ -25733,6 +26851,38 @@
         1000
       ],
       "actual": {
+        "periodic_bindings": [
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
         "pending_burst": {
           "count": 0,
           "enqueued": 0,
@@ -26113,6 +27263,23 @@
         1000
       ],
       "actual": {
+        "periodic_bindings": [
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
         "pending_burst": {
           "count": 0,
           "enqueued": 0,
@@ -26456,6 +27623,23 @@
         1000
       ],
       "actual": {
+        "periodic_bindings": [
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
         "pending_burst": {
           "count": 0,
           "enqueued": 0,
@@ -26799,6 +27983,23 @@
         1001
       ],
       "actual": {
+        "periodic_bindings": [
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
         "pending_burst": {
           "count": 0,
           "enqueued": 0,
@@ -27142,6 +28343,38 @@
         6000
       ],
       "actual": {
+        "periodic_bindings": [
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
         "pending_burst": {
           "count": 0,
           "enqueued": 0,
@@ -27524,6 +28757,38 @@
         3500
       ],
       "actual": {
+        "periodic_bindings": [
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "flags": 0,
+            "group": 0,
+            "target_order": [],
+            "target_generations": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
         "pending_burst": {
           "count": 0,
           "enqueued": 0,
@@ -28222,12 +29487,12 @@
       "command_status": "completed",
       "configured_max_threads_per_threadgroup": 1,
       "device": "Apple M5",
-      "gpu_seconds": 0.001220499980263412,
+      "gpu_seconds": 0.0013279999839141965,
       "input_bytes": 425988,
-      "library_compile_seconds": 0.0009750127792358398,
+      "library_compile_seconds": 0.0007289648056030273,
       "output_bytes": 425984,
-      "pipeline_compile_seconds": 0.0024350881576538086,
-      "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
+      "pipeline_compile_seconds": 0.0016700029373168945,
+      "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
       "pipeline_max_threads_per_threadgroup": 1,
       "registry_id": "4294968313",
       "threads_per_threadgroup": 1,
@@ -28235,11 +29500,11 @@
       "gpu_timeout_seconds": 120
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "9bca041805d23e6b458d4094f927477da5c29de7be59121a0337fd1f83e5dc68",
+      "gpu/event_runtime.slang": "1b9489d8c1d28d8879261fa92c6a26da61af7729c236c5516384d02131322b0b",
       "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
       "gpu/core_probability.slang": "012088d8b3e650d4904a7a2fa081692854fc49610ad8690a19e587468a84d5bc",
-      "gpu/portable_schema.slang": "44dbf118a5ed5a66c10cb47d0cb25bda80e86af422f9bc96d370b76a64c468b4",
-      "gpu/runtime_init.slang": "449948b29047788e7ed413f82083bc2e57f1c9813ae13c4aa46472b4371ab86f",
+      "gpu/portable_schema.slang": "74977cefb12aa9f672b5d70f8e87cfeb4a34bcd3463fed4189ce6c3d3239ca64",
+      "gpu/runtime_init.slang": "8b73cebdce8f9ce7cf8332ef4c89d274bd7b817469162d007c203598a45967fc",
       "gpu/bullet_runtime.slang": "ed8a1e5b6bbf0f53c5ce40e5ffd827dec6f7daf33170e826b07df200749c1e66",
       "gpu/rank_runtime.slang": "d96a7dd22c90fb4a2be59afcea2ec2266298fe7302eefd3b901e399958147804",
       "gpu/lazy_runtime.slang": "3edd52835d46f9b1863938071157ce39facea88a69d938b62991e4b5195565d6",
@@ -28257,6 +29522,7 @@
       "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
       "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
       "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
+      "gpu/periodic_runtime.slang": "d0810fcc12c72ed8727988c31d98bf51268db084b955b597b46b0c3cd70a9d73",
       "gpu/event_candidate_runtime.slang": "5b986d2d51b052186bedb820788460d009220a58e84d6a8803770b64287db356",
       "gpu/pending_burst_runtime.slang": "f4029aecbcf3983e9153590936ecefb48243296b485c57c84a6a9c15ef4f2eeb",
       "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
@@ -28266,19 +29532,19 @@
       "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
     },
     "generated_sha256": {
-      "cuda": "0241708ccb46a6c287b6691d9c40c00de0df1ef5ea870f528dacdc063501e484",
-      "metal": "a1d954426e14643c61cae826e1a8eed4b86869f8536157d940500748d28bc3af"
+      "cuda": "9e119f4cfbf66472cbbb3a43ea557cc0b3cbaa381445d9d770855948c195b5e2",
+      "metal": "141425f496d4017a4030854206c5a7155d39c9d67b3d8aecc8ec9c2c7ab352fc"
     },
-    "input_sha256": "2e4abc48f366ff5a81c5c7d6e93bc7bc6e7640b08534216935fe7c5a98d374d9",
+    "input_sha256": "a4e60b87e29c1ae96e755edd9946d8183ff9d50c7cafed4503ee012fda31b9d8",
     "output_sha256": "349c0dc790d26512d6e29950b452849dd175a1f2124614bd5237bb7726b61ab2",
     "gpu_execution_verified": true,
     "backend": "metal"
   },
   "adapter_sha256": {
-    "app/portable_runtime.py": "5956e0e540238c9ecdfefd46eb2f449097127fad6beb66fe1dbc8c044022fdba",
+    "app/portable_runtime.py": "e36f818f6eb3e310049d9b163e451f03ddc0bf4718ee703e3f816a23a7f12604",
     "app/portable_trigger_specs.py": "70d19d08eb1bb29674ed2c8360e7748556f0674775e180169e6f957b39607fc6",
     "app/portable_damage_specs.py": "64fcffc7233c1b5c0e7508ecf3d4dcd7ba5c84192e49da9eebd8fd687221a09c",
-    "app/portable_specs.py": "a83757882aa1931ac98dd3670195dc5576610154293e8396b735b9f3edd04670",
+    "app/portable_specs.py": "63c1e8a8a8aafbc158e92c7488cb726b29d107fa47eba9d049412802fcc20549",
     "app/portable_backend.py": "ab722934db2e3b7ae228990c7f0555dcea079c624675fa735b7328fa62889ec0",
     "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
     "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
