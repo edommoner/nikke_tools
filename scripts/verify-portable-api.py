@@ -357,7 +357,7 @@ def main():
         actual=request(body);assert actual['gpu_execution_verified']
         verifier.contains(actual['results'][0]['queries'],c['expected_queries'],name)
         result['enemy_buff_execution'].append(dict(name=name,execution=actual))
-    candidate_cases=json.loads((ROOT/'tests/fixtures/portable-event-candidates.json','tests/fixtures/portable-enemy-attack-ranks.json').read_text(encoding='utf-8'))['cases']
+    candidate_cases=json.loads((ROOT/'tests/fixtures/portable-event-candidates.json').read_text(encoding='utf-8'))['cases']
     result['event_candidate_execution']=[]
     for name in ('received-count-40','received-count-per-owner-credit','received-count-distinct-thresholds','event-candidate-word-boundaries','event-candidate-force-bypasses-notification-index'):
         c=next(c for c in candidate_cases if c['name']==name)

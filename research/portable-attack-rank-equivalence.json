@@ -67,7 +67,8 @@
     "gpu/burst_duration_runtime.slang": "2e461c74e3388f9bf89e19e28a2d866cbf39a0f4a6d03f3e4462df8482aeefc9"
   },
   "validation_sha256": {
-    "scripts/verify-portable-attack-rank.py": "fb8f7697c7c9df51ee1f58e0eb4e5e596b8f9eddd444869cffe926945d9f044c"
+    "scripts/portable_control_verifier.py": "13b4b525663b86cf2b0e565e361488ebe57d9eee8609c5642acde00b4038c22d",
+    "scripts/verify-portable-attack-rank.py": "e80520e7baee2c21580548a020164bbf124a9524466621d208c3fe804ecc21a9"
   },
   "reports": [
     "portable-combat-metal.json",
