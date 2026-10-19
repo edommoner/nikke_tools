@@ -55,6 +55,7 @@ def install():
     original_notify=BuffManager.notify;original_activate=BuffManager._activate
     original_dispatch=BuffManager._dispatch_instant;original_tick=BuffManager.tick
     original_damage=BuffManager.register_damage_handler;original_reset=BuffManager.reset
+    original_sync=BuffManager.sync_hp
     @wraps(original_notify)
     def notify(self,event,t,caster,*args,**kwargs):
         return execute(self,t,lambda:original_notify(self,event,t,caster,*args,**kwargs))
@@ -78,10 +79,19 @@ def install():
         def damage(effect,caster,t,*args,**kwargs):
             return execute(self,t,lambda:handler(effect,caster,t,*args,**kwargs))
         return original_damage(self,damage)
+    @wraps(original_sync)
+    def sync_hp(self,name):
+        hp=self.state.get('hp',{}).get(name)
+        seen=getattr(self,'_nikke_numeric_hp_seen',None)
+        if seen is None:seen={};self._nikke_numeric_hp_seen=seen
+        if hp is not None and (name not in seen or seen[name]!=hp):
+            seen[name]=hp;self._bump_value_version()
+        return original_sync(self,name)
     @wraps(original_reset)
     def reset(self,*args,**kwargs):
-        self._nikke_reference_health_defined=None;self._nikke_reference_health_depth=0
+        self._nikke_reference_health_defined=None;self._nikke_reference_health_depth=0;self._nikke_numeric_hp_seen={}
         return original_reset(self,*args,**kwargs)
     BuffManager.notify=notify;BuffManager._activate=activate;BuffManager._dispatch_instant=dispatch
     BuffManager.tick=tick;BuffManager.register_damage_handler=register_damage;BuffManager.reset=reset
+    BuffManager.sync_hp=sync_hp
     BuffManager._nikke_reference_health=True

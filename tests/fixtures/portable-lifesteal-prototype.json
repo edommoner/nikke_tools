@@ -116,7 +116,8 @@
             "base_hp": 1000,
             "hp": 1000
           }
-        ]
+        ],
+        "native_landing": true
       },
       "combat": {
         "weapons": [
@@ -171,6 +172,16 @@
         ],
         [
           0.1,
+          30,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
           2,
           0,
           0,
@@ -188,7 +199,8 @@
             }
           ]
         }
-      ]
+      ],
+      "lifesteal_reference": true
     },
     {
       "name": "life-full-hp-still-notifies",
@@ -305,7 +317,8 @@
             "base_hp": 1000,
             "hp": 1000
           }
-        ]
+        ],
+        "native_landing": true
       },
       "combat": {
         "weapons": [
@@ -360,6 +373,16 @@
         ],
         [
           0.1,
+          30,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
           2,
           0,
           0,
@@ -377,7 +400,8 @@
             }
           ]
         }
-      ]
+      ],
+      "lifesteal_reference": true
     },
     {
       "name": "life-zero-rate-no-notice",
@@ -494,7 +518,8 @@
             "base_hp": 1000,
             "hp": 1000
           }
-        ]
+        ],
+        "native_landing": true
       },
       "combat": {
         "weapons": [
@@ -549,6 +574,16 @@
         ],
         [
           0.1,
+          30,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
           2,
           0,
           0,
@@ -566,7 +601,8 @@
             }
           ]
         }
-      ]
+      ],
+      "lifesteal_reference": true
     },
     {
       "name": "life-negative-rate-no-notice",
@@ -683,7 +719,8 @@
             "base_hp": 1000,
             "hp": 1000
           }
-        ]
+        ],
+        "native_landing": true
       },
       "combat": {
         "weapons": [
@@ -738,6 +775,16 @@
         ],
         [
           0.1,
+          30,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
           2,
           0,
           0,
@@ -755,7 +802,8 @@
             }
           ]
         }
-      ]
+      ],
+      "lifesteal_reference": true
     },
     {
       "name": "life-negative-received-clamps-potency",
@@ -872,7 +920,8 @@
             "base_hp": 1000,
             "hp": 1000
           }
-        ]
+        ],
+        "native_landing": true
       },
       "combat": {
         "weapons": [
@@ -927,6 +976,16 @@
         ],
         [
           0.1,
+          30,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
           2,
           0,
           0,
@@ -944,7 +1003,8 @@
             }
           ]
         }
-      ]
+      ],
+      "lifesteal_reference": true
     },
     {
       "name": "life-outgoing-received-order",
@@ -1061,7 +1121,8 @@
             "base_hp": 1000,
             "hp": 1000
           }
-        ]
+        ],
+        "native_landing": true
       },
       "combat": {
         "weapons": [
@@ -1116,6 +1177,16 @@
         ],
         [
           0.1,
+          30,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
           2,
           0,
           0,
@@ -1133,7 +1204,8 @@
             }
           ]
         }
-      ]
+      ],
+      "lifesteal_reference": true
     },
     {
       "name": "life-rate-underflows-but-notifies",
@@ -1250,7 +1322,8 @@
             "base_hp": 1000,
             "hp": 1000
           }
-        ]
+        ],
+        "native_landing": true
       },
       "combat": {
         "weapons": [
@@ -1305,6 +1378,16 @@
         ],
         [
           0.1,
+          30,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
           2,
           0,
           0,
@@ -1322,7 +1405,8 @@
             }
           ]
         }
-      ]
+      ],
+      "lifesteal_reference": true
     },
     {
       "name": "life-fractional-quantity",
@@ -1439,7 +1523,8 @@
             "base_hp": 1000,
             "hp": 1000
           }
-        ]
+        ],
+        "native_landing": true
       },
       "combat": {
         "weapons": [
@@ -1494,6 +1579,16 @@
         ],
         [
           0.1,
+          30,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
           2,
           0,
           0,
@@ -1511,7 +1606,8 @@
             }
           ]
         }
-      ]
+      ],
+      "lifesteal_reference": true
     },
     {
       "name": "life-initial-zero-hp-is-live",
@@ -1628,7 +1724,8 @@
             "base_hp": 1000,
             "hp": 1000
           }
-        ]
+        ],
+        "native_landing": true
       },
       "combat": {
         "weapons": [
@@ -1683,6 +1780,16 @@
         ],
         [
           0.1,
+          30,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
           2,
           0,
           0,
@@ -1701,7 +1808,8 @@
             }
           ]
         }
-      ]
+      ],
+      "lifesteal_reference": true
     },
     {
       "name": "life-hit-notice-grants-before-recovery",
@@ -1818,7 +1926,8 @@
             "base_hp": 1000,
             "hp": 1000
           }
-        ]
+        ],
+        "native_landing": true
       },
       "combat": {
         "weapons": [
@@ -1873,6 +1982,16 @@
         ],
         [
           0.1,
+          30,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
           2,
           0,
           0,
@@ -1890,7 +2009,8 @@
             }
           ]
         }
-      ]
+      ],
+      "lifesteal_reference": true
     },
     {
       "name": "life-auto-attack-notice-grants-this-shot",
@@ -2007,7 +2127,8 @@
             "base_hp": 1000,
             "hp": 1000
           }
-        ]
+        ],
+        "native_landing": true
       },
       "combat": {
         "weapons": [
@@ -2059,6 +2180,16 @@
         ],
         [
           0.1,
+          30,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
           2,
           0,
           0,
@@ -2076,7 +2207,8 @@
             }
           ]
         }
-      ]
+      ],
+      "lifesteal_reference": true
     },
     {
       "name": "life-pellet-notice-grants-before-landing",
@@ -2193,7 +2325,8 @@
             "base_hp": 1000,
             "hp": 1000
           }
-        ]
+        ],
+        "native_landing": true
       },
       "combat": {
         "weapons": [
@@ -2245,6 +2378,16 @@
         ],
         [
           0.1,
+          30,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
           2,
           0,
           0,
@@ -2262,7 +2405,8 @@
             }
           ]
         }
-      ]
+      ],
+      "lifesteal_reference": true
     },
     {
       "name": "life-saturates-at-maximum",
@@ -2379,7 +2523,8 @@
             "base_hp": 1000,
             "hp": 1000
           }
-        ]
+        ],
+        "native_landing": true
       },
       "combat": {
         "weapons": [
@@ -2434,6 +2579,16 @@
         ],
         [
           0.1,
+          30,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
           2,
           0,
           0,
@@ -2451,7 +2606,8 @@
             }
           ]
         }
-      ]
+      ],
+      "lifesteal_reference": true
     },
     {
       "name": "life-notice-modifier-applies-to-later-pellet",
@@ -2584,7 +2740,8 @@
             "base_hp": 1000,
             "hp": 1000
           }
-        ]
+        ],
+        "native_landing": true
       },
       "combat": {
         "weapons": [
@@ -2636,6 +2793,16 @@
         ],
         [
           0.1,
+          30,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
           2,
           0,
           0,
@@ -2653,7 +2820,8 @@
             }
           ]
         }
-      ]
+      ],
+      "lifesteal_reference": true
     },
     {
       "name": "life-down-attacker-no-revival",
@@ -2770,7 +2938,8 @@
             "base_hp": 1000,
             "hp": 1000
           }
-        ]
+        ],
+        "native_landing": true
       },
       "combat": {
         "weapons": [
@@ -2835,6 +3004,16 @@
         ],
         [
           0.1,
+          30,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
           2,
           0,
           0,
@@ -2860,7 +3039,8 @@
             }
           ]
         }
-      ]
+      ],
+      "lifesteal_reference": true
     }
   ]
 }

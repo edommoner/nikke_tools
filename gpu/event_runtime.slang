@@ -59,6 +59,7 @@ struct Runtime
     uint hpWatchCount, hpWatchSlots[P_DEFINITIONS*P_TRIGGERS], hpDirtyMask, hpPendingMask, hpEdgeGuard;
     uint64_t hpPrevious[5], hpNext[5];
     uint durationEnabled, lastB3Caster, durationGroupFirst[P_DEFINITIONS]; uint64_t lastB3Time, lastFullStart;
+    uint landingPolicy;
     uint healthMask; int healSource;
     uint pendingCount, pendingEnqueued, pendingFired, damageExclusion;
     uint pendingRow[P_PENDING], pendingHits[P_PENDING]; uint64_t pendingCoefficient[P_PENDING], pendingCastTime[P_PENDING], pendingAmount[P_PENDING];
@@ -402,6 +403,7 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
 #include "burst_runtime.slang"
 #include "enemy_attack_rank_runtime.slang"
 #include "enemy_damage_runtime.slang"
+#include "landing_runtime.slang"
 #include "periodic_runtime.slang"
 #include "event_candidate_runtime.slang"
 #include "pending_burst_runtime.slang"
@@ -562,6 +564,21 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                     uint64_t gain = f64Less(damage.damageGauge,0) ? s.gain[damage.owner] : damage.damageGauge;
                     addBurstGauge(s,f64Mul(gain,f64FromI64(f.value)));
                 }
+                continue;
+            }
+            if (s.landingPolicy != 0)
+            {
+                if (f.cursor == 0)
+                {
+                    s.target=damage.damageRoute>=2 || damage.damageRoute==1 ? 0 : f.target;
+                    frames[depth].healthPrevious=damage.damageNormal!=0 ? damageValue(s,damage.owner,f.healthValue,f.time,true,s.combat!=0 ? s.coreDamageBonus[damage.owner] : s.coreBonus,damage.damageFlags,ONE,(s.attackContext[damage.owner]&1)!=0) : damageValue(s,damage.owner,f.healthValue,f.time,false,s.coreBonus,damage.damageFlags);
+                    uint order=0;frames[depth].repeatRow=(damage.periodicFlags&1)!=0 ? periodicDamageMask(s,uint(f.argument),order) : 0xffffffff;
+                    frames[depth].repeatPassive=order;frames[depth].healthNext=s.enemyEpoch;
+                }
+                if (s.error!=0) break;
+                enqueueLanding(s,uint(f.argument),f.target,frames[depth].repeatRow,frames[depth].repeatPassive,frames[depth].healthPrevious,f.time,f.cursor+1,damage.damageHits,uint(depth+1),uint(frames[depth].healthNext));
+                frames[depth].cursor++;frames[depth].value++;
+                if (s.error==0) pushFrame(s,frames,depth,0,49,damage.owner,int(damage.name),f.time);
                 continue;
             }
             uint packedOrder; uint mask = (damage.periodicFlags & 1) != 0 ? periodicDamageMask(s,uint(f.argument),packedOrder) : enemyDamageMask(s,damage,f.target,packedOrder);
@@ -1264,6 +1281,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if (!initializeResources(s) || !validateReferences(s)) { results[output] = 64; return; }
     if (!initializeSources(s)) { results[output]=64; return; }
     if(!initializeStaged(s)) { results[output]=64;return; }
+    if (!initializeLandings(s)) { results[output]=64;return; }
     initializeHPWatches(s);
     uint queries = 0;
     for (uint step = 0; step < commands[input+2] && s.error == 0; step++)
@@ -1332,9 +1350,15 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             s.target = target;
             uint64_t amount = damageValue(s,who,loadNumber(at+5),when,true,s.coreBonus,0,ONE,(s.attackContext[who] & 1) != 0);
             if (s.error != 0) break;
-            land(s,who,target,amount);
+            if (s.landingPolicy==0) land(s,who,target,amount);
             dispatch(s,0,8,who,0,when,output);
+            if (s.landingPolicy!=0) land(s,who,target,amount);
             if ((s.healthMask & 64) != 0 && s.error == 0) dispatch(s,17,0,who,0,when,output,amount);
+        }
+        else if (op == 30)
+        {
+            if (s.landingPolicy==0 || commands[at+3]!=0 || commands[at+4]!=0 || commands[at+5]!=0 || commands[at+6]!=0 || commands[at+7]!=0) { s.error=64;break; }
+            drainLandings(s,when,output);
         }
         else if (op == 28)
         {

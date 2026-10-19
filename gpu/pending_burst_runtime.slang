@@ -39,9 +39,17 @@ void enqueuePendingBurst(inout Runtime s, uint row, uint64_t when)
     s.pendingCastTime[index] = when; s.pendingHits[index] = d.pendingHits;
     s.pendingAmount[index] = 0;
 }
+void logPendingPacket(inout Runtime s,Definition d,uint row,uint index,uint hit,uint mask,uint order,uint64_t when,uint output)
+{
+    uint trace=s.traceCount;
+    logDamagePacket(s,d,row,mask,0,hit+1,s.pendingAmount[index],s.pendingAmount[index],order,when,1,output);
+    if(s.error==0 && s.traceMode==1)
+    { uint at=output+P_PENDING_TRACE_BASE+trace*4;results[at]=1;storeNumber(at+1,s.pendingCastTime[index]); }
+}
 [noinline]
 void firePendingBursts(inout Runtime s, uint64_t when, uint output)
 {
+    uint parentTarget=s.target;
     uint count = s.pendingCount;
     // Capture all amounts before routing/landing can change target state.
     for (uint index = 0; index < count && s.error == 0; index++)
@@ -65,18 +73,30 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
             uint packedOrder; uint inherited = aimedTarget(s,d.owner);
             uint mask = enemyDamageMask(s,d,inherited,packedOrder);
             if (mask == 0) break;
-            for (uint pass = 0; pass < 8; pass++)
-            { uint encoded = (packedOrder >> (pass*4)) & 15; if (encoded == 0) break; land(s,d.owner,encoded-1,s.pendingAmount[index]); }
-            uint trace = s.traceCount;
-            logDamagePacket(s,d,row,mask,0,hit+1,s.pendingAmount[index],s.pendingAmount[index],packedOrder,when,1,output);
-            if (s.error == 0 && s.traceMode == 1)
-            { uint at = output+P_PENDING_TRACE_BASE+trace*4; results[at] = 1; storeNumber(at+1,s.pendingCastTime[index]); }
+            bool recovery=(s.healthMask&64)!=0;
+            if(recovery) logPendingPacket(s,d,row,index,hit,mask,packedOrder,when,output);
+            for (uint pass = 0; pass < 8 && s.error==0; pass++)
+            {
+                uint encoded = (packedOrder >> (pass*4)) & 15; if (encoded == 0) break;
+                uint target=encoded-1;if(recovery && s.targetAlive[target]==0) continue;
+                if(recovery) s.target=target;land(s,d.owner,target,s.pendingAmount[index]);
+                if(recovery && s.error==0) dispatch(s,17,0,d.owner,0,when,output,s.pendingAmount[index]);
+            }
+            if(!recovery) logPendingPacket(s,d,row,index,hit,mask,packedOrder,when,output);
         }
         if (s.pendingFired == 0x7fffffff) { s.error = 2; break; }
         s.pendingFired++;
     }
-    s.damageExclusion = 0;
-    if (s.error == 0) s.pendingCount = 0;
+    s.damageExclusion = 0;s.target=parentTarget;
+    if (s.error == 0)
+    {
+        // Native clears its captured batch before landing. Children queued by
+        // recovery survive for the next B3 collection rather than being lost.
+        uint tail=s.pendingCount-count;
+        for(uint i=0;i<tail;i++)
+        { s.pendingRow[i]=s.pendingRow[count+i];s.pendingHits[i]=s.pendingHits[count+i];s.pendingCoefficient[i]=s.pendingCoefficient[count+i];s.pendingCastTime[i]=s.pendingCastTime[count+i];s.pendingAmount[i]=s.pendingAmount[count+i]; }
+        s.pendingCount=tail;
+    }
 }
 void writePendingBurst(inout Runtime s, uint output, bool entries)
 {

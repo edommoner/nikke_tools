@@ -42,6 +42,7 @@ void initializeRuntime(inout Runtime s)
     s.lastB3Caster = 0;
     s.lastB3Time = 0;
     s.lastFullStart = 0;
+    s.landingPolicy = 0;
     s.healthMask = 0;
     s.healSource = 0;
     s.pendingCount = 0;

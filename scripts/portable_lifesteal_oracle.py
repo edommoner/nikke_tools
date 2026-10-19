@@ -40,6 +40,7 @@ def observe(case):
             buffs=bm.get_buffs(NAMES[who],'__enemy__',t)
             amount=calc_damage(base_atk=attacks[who],buffs=buffs,weapon=chars[who]['_weapon'],hit_type=default_hit_type(is_normal_atk=True,coeff=extra,is_final_atk=True),enemy_def=0,expected=True)['damage']
             bm.notify('hit_count',t,NAMES[who]);land(HitEvent(t=t,caster=NAMES[who],damage=amount,is_crit=False,hit_tag='normal'),t)
+        elif op==30:pass
         elif op==25:
             from portable_health_oracle import apply_incoming
             for i,n in enumerate(NAMES):

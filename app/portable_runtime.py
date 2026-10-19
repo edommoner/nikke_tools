@@ -114,11 +114,12 @@ def validate_effect(eff, *, combat=None):
             raise ValueError('Invalid '+key)
 
 
-def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True):
+def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False):
     import detail_gpu as legacy
     check_schema()
     effects = list(effects)
     if not 1<=len(effects)<=L['DEFINITIONS']:raise UnsupportedPortable('Portable definition capacity exceeded')
+    if any(e.get('stat')=='lifesteal_pct' for e,_ in effects) and (not native_landing or combat is None):raise UnsupportedPortable('Lifesteal requires native landing phases')
     for eff, owner in effects:validate_effect(eff,combat=combat)
     from portable_source_specs import validate_sources,pack as pack_source
     validate_sources(effects)
@@ -155,6 +156,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     words=[0]*L['INPUT_WORDS'];words[0:3]=[ABI,len(effects),len(script)];words[5]=1
     if type(cover_sync) is not bool:raise ValueError('Cover synchronization policy must be boolean')
     words[7]=int(cover_sync)
+    if type(native_landing) is not bool or native_landing and combat is None:raise ValueError('Native landing phases require combat and a boolean policy')
+    words[L['LANDING_META_BASE']]=int(native_landing)
     words[L['RESOURCE_META_BASE']]=len(resource_keys)
     for name,key in resource_keys.items():words[L['RESOURCE_NAME_BASE']+key]=program['states'][name]
     for i,attack in enumerate(base_atk):
@@ -330,6 +333,10 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             at=L['COMMAND_BASE']+i*8
             words[at:at+8]=[op,*double_words(t),event,owner,arg,*(double_words(extra) if op==21 else [query & 0xffffffff,0])]
             continue
+        if op==30:
+            if not native_landing or any(type(v) is not int for v in (op,event,owner,arg,query,extra,extra2)) or event or owner or arg or query!=-1 or extra or extra2:raise ValueError('Invalid landing flush command')
+            at=L['COMMAND_BASE']+i*8;words[at:at+8]=[op,*double_words(t),0,0,0,0,0]
+            continue
         if op not in (0,2,18) or any(type(v) is not int for v in (op,event,owner,arg,query,extra2)):
             raise UnsupportedPortable('Only external notify, normal impact and query commands are connected')
         if op!=18 and (type(extra) is not int or extra):raise UnsupportedPortable('Unexpected stimulus payload')
@@ -346,7 +353,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     if words[6] and frame_mode!=24:raise UnsupportedPortable('Accumulated clock requires GPU-generated frames')
     from portable_trigger_specs import pack_event_candidates
     pack_event_candidates(words,L)
-    return words,dict(source_definitions=[dict(name=next((k for k,v in program['states'].items() if v==int(row[304])),None),owner=int(row[0]),legacy=bool(row[137])) if int(row[1])==35 else None for row in program['effects']],source_query_indices=source_query_indices,resource_names=list(resource_keys),resource_query_indices=sorted(resource_query_indices),states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
+    return words,dict(native_landing=native_landing,source_definitions=[dict(name=next((k for k,v in program['states'].items() if v==int(row[304])),None),owner=int(row[0]),legacy=bool(row[137])) if int(row[1])==35 else None for row in program['effects']],source_query_indices=source_query_indices,resource_names=list(resource_keys),resource_query_indices=sorted(resource_query_indices),states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
 
 
 def decode(words,metadata):
@@ -466,7 +473,12 @@ def decode(words,metadata):
     for row in range(len(metadata['effects'])):
         at=L['STAGED_STATE_BASE']+row*6
         if words[at]:staged_rows.append(dict(definition=row,active=row in active_slots,generation=words[at],sequence=words[at+1],total=words[at+2],index=words[at+3],start=number(at+4)))
-    return dict(staged_applications=staged_rows,periodic_sources=sources,source_queries=source_queries,reference_captures=captures,**resource_state,periodic_bindings=periodic,pending_burst=dict(count=count,enqueued=words[pending+1],fired=words[pending+2],entries=queue),covers=covers,body_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+20+2*k) for k in range(5)],add_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+30+2*k) for k in range(5)],scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+2*k) for k in range(5)],add_overkill=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+10+2*k) for k in range(5)],target_scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+40+2*k) for k in range(len((metadata.get('combat') or {}).get('targets',[])))],bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
+    landing=L['LANDING_HEADER_BASE'];pending_landings=[]
+    if not 0<=words[landing+1]<=words[landing]<=L['LANDINGS']:raise RuntimeError('Invalid landing queue dimensions')
+    for i in range(words[landing+1],words[landing]):
+        at=L['LANDING_STATE_BASE']+i*L['LANDING_WORDS']
+        pending_landings.append(dict(definition=words[at],target=words[at+1],retained_mask=words[at+2],retained_order=words[at+3],amount=number(at+4),time=number(at+6),hit=words[at+8],hits=words[at+9],depth=words[at+10],epoch=words[at+11]))
+    return dict(landing_queue=dict(native=bool(metadata.get('native_landing')),enqueued=words[landing+2],landed=words[landing+3],drains=words[landing+4],peak=words[landing+5],entries=pending_landings),staged_applications=staged_rows,periodic_sources=sources,source_queries=source_queries,reference_captures=captures,**resource_state,periodic_bindings=periodic,pending_burst=dict(count=count,enqueued=words[pending+1],fired=words[pending+2],entries=queue),covers=covers,body_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+20+2*k) for k in range(5)],add_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+30+2*k) for k in range(5)],scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+2*k) for k in range(5)],add_overkill=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+10+2*k) for k in range(5)],target_scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+40+2*k) for k in range(len((metadata.get('combat') or {}).get('targets',[])))],bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
 
 
 def run_programs(programs, *, backend='metal'):
@@ -495,4 +507,7 @@ def evaluate(body):
     if any(spec and spec['legacy'] for spec in compiled[1]['source_definitions']):
         from periodic_source_specs import LEGACY_WARNING
         result.setdefault('app_warnings',[]).append(LEGACY_WARNING)
+    if any(item['effect'].get('stat')=='lifesteal_pct' for item in body['effects']):
+        from portable_lifesteal_reference import MODEL_WARNING as LIFESTEAL_WARNING
+        result.setdefault('app_warnings',[]).append(LIFESTEAL_WARNING)
     return result

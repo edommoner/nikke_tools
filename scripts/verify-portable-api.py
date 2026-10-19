@@ -24,7 +24,7 @@ def main():
         parser.error('Use a loopback HTTP origin')
     path=ROOT/f'research/portable-api-{args.backend}.json'
     path.write_text(json.dumps(dict(passed=False,gpu_execution_verified=False,stage='execution-pending'))+'\n', encoding='utf-8')
-    tracked=['app/portable_staged_specs.py','app/staged_dot_specs.py','app/staged_dot_runtime.py','tests/fixtures/portable-staged.json','app/portable_source_specs.py','scripts/portable_source_oracle.py','app/periodic_source_specs.py','app/periodic_source_runtime.py','tests/fixtures/portable-sources.json','app/reference_count_runtime.py','app/reference_health_runtime.py','tests/fixtures/portable-reference-scales.json','app/portable_reference_specs.py','tests/fixtures/portable-hit-references.json','app/portable_resource_specs.py','app/portable_resource_decode.py','app/resource_specs.py','tests/fixtures/portable-resources.json','server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_backend.py',
+    tracked=['app/portable_lifesteal_reference.py','scripts/portable_lifesteal_oracle.py','scripts/portable_landing_oracle.py','tests/fixtures/portable-lifesteal-prototype.json','tests/fixtures/portable-landings.json','app/portable_staged_specs.py','app/staged_dot_specs.py','app/staged_dot_runtime.py','tests/fixtures/portable-staged.json','app/portable_source_specs.py','scripts/portable_source_oracle.py','app/periodic_source_specs.py','app/periodic_source_runtime.py','tests/fixtures/portable-sources.json','app/reference_count_runtime.py','app/reference_health_runtime.py','tests/fixtures/portable-reference-scales.json','app/portable_reference_specs.py','tests/fixtures/portable-hit-references.json','app/portable_resource_specs.py','app/portable_resource_decode.py','app/resource_specs.py','tests/fixtures/portable-resources.json','server.mjs','app/engine_worker.py','app/portable_runtime.py','app/portable_trigger_specs.py','app/portable_damage_specs.py','app/portable_backend.py',
              'scripts/verify-portable-api.py','tests/fixtures/portable-events.json',
              'tests/fixtures/portable-event-candidates.json','tests/fixtures/portable-enemy-attack-ranks.json','tests/fixtures/portable-enemy-spawn-order.json','tests/fixtures/portable-enemy-auto-aim.json','tests/fixtures/portable-periodic-targets.json','tests/fixtures/portable-enemy-buffs.json','tests/fixtures/portable-buff-notices.json','tests/fixtures/portable-mode-sessions.json','tests/fixtures/portable-ammo-modes.json','tests/fixtures/portable-ammo-instants.json','tests/fixtures/portable-burst-duration.json','tests/fixtures/portable-pending-burst.json','tests/fixtures/portable-cover.json','tests/fixtures/portable-enemy-damage.json','tests/fixtures/portable-burst-resources.json','tests/fixtures/portable-bullets.json','tests/fixtures/portable-lazy.json','tests/fixtures/portable-carriers.json','app/portable_recipient_specs.py','tests/fixtures/portable-recipients.json','app/portable_combat.py','app/portable_specs.py','app/portable_periodic_specs.py','app/world_condition_specs.py','app/impact_specs.py',
              'tests/fixtures/portable-capacity.json','tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
@@ -455,6 +455,22 @@ def main():
         from staged_dot_specs import MODEL_WARNING
         assert MODEL_WARNING in actual['app_warnings']
         result['staged_execution'].append(dict(name=name,execution=actual))
+    landing_cases=json.loads((ROOT/'tests/fixtures/portable-landings.json').read_text(encoding='utf-8'))['cases']
+    result['landing_execution']=[]
+    for name in ('landing-native-next-frame','landing-drain-includes-appended-child','landing-split-rounded-recovery','landing-b3-child-pending-survives-parent-drain'):
+        c=next(c for c in landing_cases if c['name']==name)
+        body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(c['effects'],c['owners'])],script=c['script'],base_atk=c.get('base_atk',[1000]*5),environment=c['environment'],combat=c['combat'],backend=args.backend)
+        actual=request(body);assert actual['gpu_execution_verified'];verifier.contains(actual['results'][0]['queries'],c['expected_queries'],name)
+        if 'expected_landing_queue' in c:verifier.contains(actual['results'][0]['landing_queue'],c['expected_landing_queue'],name+'.queue')
+        if 'expected_pending_burst' in c:verifier.contains(actual['results'][0]['pending_burst'],c['expected_pending_burst'],name+'.pending')
+        from portable_lifesteal_reference import MODEL_WARNING as LIFESTEAL_WARNING
+        assert LIFESTEAL_WARNING in actual['app_warnings']
+        result['landing_execution'].append(dict(name=name,execution=actual))
+    missing_phase=copy.deepcopy(body);missing_phase['environment']['native_landing']=False
+    try:request(missing_phase)
+    except urllib.error.HTTPError as error:
+        assert error.code==400;assert 'Lifesteal requires native landing phases' in json.load(error)['error']
+    else:raise AssertionError('Lifesteal without native receipts was accepted')
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in hashes}
     result.update(passed=True,api_status=200,unsupported_status=400,unsupported_error=detail['error'],adapter_sha256=hashes)
     path.write_text(json.dumps(result,indent=2)+'\n', encoding='utf-8')

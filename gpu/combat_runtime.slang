@@ -199,9 +199,9 @@ bool changedWeaponSession(inout Runtime s, uint who, uint epoch, int originalMod
     return !(originalMode < 0 && s.modeIndex[who] < 0 && s.physicalModeIndex[who] < 0);
 }
 [noinline]
-void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out uint64_t landedAmount, out uint landedCount)
+void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out uint64_t landedAmount, out uint landedCount, out uint landedTarget)
 {
-    landedAmount=0;landedCount=0;
+    landedAmount=0;landedCount=0;landedTarget=0;
     if (s.weaponEnabled[who] == 0 || (s.downMask & (1U << who)) != 0) return;
     uint target = aimedTarget(s,who); if (target == 0xffffffff) return;
     s.target = target; Weapon w = selectWeapon(s,who,when);
@@ -270,13 +270,13 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     uint64_t amount = damageValue(s,who,f64Div(coefficient,f64FromI64(w.pellets)),when,true,w.coreBonus,w.mode == 1 ? H_CHARGE : 0,w.fullChargeMult,w.optimal != 0);
     if (s.error != 0) return;
     uint count = w.pellets*w.muzzles;
-    landedAmount=amount;landedCount=count;
+    landedAmount=amount;landedCount=count;landedTarget=target;
     uint completedShots = s.shots[who]+1;
     // Capture the packet once. Child buffs and mode switches do not resample
     // later pellets, consume extra ammunition, or redirect this physical shot.
     for (uint hit = 0; hit < count && s.error == 0; hit++)
     {
-        land(s,who,target,amount);
+        if (s.landingPolicy==0) land(s,who,target,amount);
         if (w.mode != 1 || count > 1) dispatch(s,0,20,who,0,when,output);
     }
     s.shots[who] = completedShots;
@@ -302,15 +302,20 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
 void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
 {
     s.frameAmmoActive[who] = 0;
-    uint64_t landedAmount;uint landedCount;
-    weaponFrameBody(s,who,when,output,landedAmount,landedCount);
+    uint64_t landedAmount;uint landedCount,landedTarget;
+    weaponFrameBody(s,who,when,output,landedAmount,landedCount,landedTarget);
     s.frameAmmoActive[who] = 0;
-    if ((s.healthMask & 64) != 0) for (uint hit=0;hit<landedCount && s.error==0;hit++)
-        dispatch(s,17,0,who,0,when,output,landedAmount);
+    if (s.landingPolicy!=0 || (s.healthMask&64)!=0) for (uint hit=0;hit<landedCount && s.error==0;hit++)
+    {
+        if (s.landingPolicy!=0) land(s,who,landedTarget,landedAmount);
+        if ((s.healthMask&64)!=0 && s.error==0) dispatch(s,17,0,who,0,when,output,landedAmount);
+    }
 }
 [noinline]
 void squadFrame(inout Runtime s, uint64_t when, uint output)
 {
+    drainLandings(s,when,output);
+    if (s.error!=0) return;
     burstFrame(s,when,output);
     for (uint who = 0; who < 5 && s.error == 0; who++) weaponFrame(s,who,when,output);
 }

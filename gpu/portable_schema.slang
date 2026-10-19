@@ -1,5 +1,7 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721366U;
+static const uint PORTABLE_ABI = 1346721367U;
+static const uint P_LANDINGS = 2048U;
+static const uint P_LANDING_WORDS = 12U;
 static const uint P_SOURCES = 64U;
 static const uint P_SOURCE_SLOTS = 32U;
 static const uint P_SOURCE_DEFINITION_WORDS = 72U;
@@ -74,6 +76,7 @@ static const uint P_RESOURCE_NAME_BASE = 56792U;
 static const uint P_SOURCE_DEFINITION_BASE = 57048U;
 static const uint P_STAGED_DEFINITION_BASE = 75480U;
 static const uint P_STAGED_INDEX_BASE = 77528U;
+static const uint P_LANDING_META_BASE = 77792U;
 static const uint P_INPUT_WORDS = 77824U;
 static const uint P_QUERY_BASE = 16U;
 static const uint P_TRACE_BASE = 2064U;
@@ -114,7 +117,9 @@ static const uint P_SOURCE_LOOKUP_BASE = 66296U;
 static const uint P_SOURCE_QUERY_BASE = 67576U;
 static const uint P_STAGED_HEADER_BASE = 68088U;
 static const uint P_STAGED_STATE_BASE = 68096U;
-static const uint P_OUTPUT_WORDS = 69632U;
+static const uint P_LANDING_HEADER_BASE = 69632U;
+static const uint P_LANDING_STATE_BASE = 69640U;
+static const uint P_OUTPUT_WORDS = 98304U;
 static const uint D_OWNER = 0U;
 static const uint D_KIND = 1U;
 static const uint D_STAT = 2U;

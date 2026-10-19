@@ -9,15 +9,7 @@ cs=json.load(open('tests/fixtures/portable-lifesteal-prototype.json'))['cases'];
 for c in cs:
  n=observe(c);v.contains(n['queries'],c['expected_queries'],c['name']+'.hand-native');native.append(n)
  print('native',c['name'],n['queries'][0]['allies'][0]['hp'],flush=True)
- try:v.compile_case(c)
- except UnsupportedPortable as error:assert str(error)=='Unported buff or recipient selector'
- else:raise AssertionError('Incomplete lifesteal family must stay closed at the production host')
- candidate=copy.deepcopy(c);rows=[]
- for i,e in enumerate(candidate['effects']):
-  if e.get('stat')=='lifesteal_pct':rows.append(i);e['stat']='crit_dmg'
- words,meta=v.compile_case(candidate)
- for i in rows:words[L['DEFINITION_BASE']+i*L['DEFINITION_WORDS']+F['STAT']]=44
- programs.append((words,meta))
+ programs.append(v.compile_case(c))
 r=run_programs(programs,backend=args.backend);p=Path(f'research/portable-lifesteal-focused-{args.backend}.json');r['passed']=False;p.write_text(json.dumps(r,indent=2)+'\n')
 for c,n,g in zip(cs,native,r['results']):v.contains(g['queries'],n['queries'],c['name']+'.native');v.contains(g['queries'],c['expected_queries'],c['name']+'.hand')
 r.update(passed=True,cases=[dict(name=c['name'],passed=True,native=n) for c,n in zip(cs,native)],scope='Working wire-only normal landing/recovery prototype; production admission closed; queued skill/pending paths not connected; not full battle/catalog certification',validation_sha256={n:hashlib.sha256(Path(n).read_bytes()).hexdigest() for n in ['app/portable_lifesteal_reference.py','scripts/portable_lifesteal_oracle.py','tests/fixtures/portable-lifesteal-prototype.json']});p.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n');print('Lifesteal normal prototype passed',len(cs))

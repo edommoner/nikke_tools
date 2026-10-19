@@ -11,7 +11,7 @@ from portable_runtime import run_programs
 from portable_specs import LIMITS as L,FIELDS as F
 sp=importlib.util.spec_from_file_location('v','scripts/verify-portable-combat.py');v=importlib.util.module_from_spec(sp);sp.loader.exec_module(v)
 c=copy.deepcopy(json.load(open('tests/fixtures/portable-lifesteal-prototype.json'))['cases'][0]);c['name']='life-native-normal-then-next-frame-skill-landings';c['combat']['clock']='accumulated';c['combat']['weapons'][0]=dict(enabled=True,mode='auto',stage=0,capacity=20,coefficient=100,interval=1,reload=1,gauge=0)
-c['effects'].append(dict(name='on attack skill',type='damage',source='스킬2',stat='damage:2',fixed_value=100,target='enemy',trigger=dict(timing=['on_attack'],condition=[])));c['owners'].append(0);c['script']=[[.05,24,0,0,0,-1,0,0],[.05,2,0,0,-1,0,0,0]];c['expected_queries']=[dict(damage=[3000,0,0,0,0],allies=[dict(hp=250)])]
+c['effects'].append(dict(name='on attack skill',type='damage',source='스킬2',stat='damage:2',fixed_value=100,target='enemy',trigger=dict(timing=['on_attack'],condition=[])));c['owners'].append(0);c['script']=[[.05,24,0,0,0,-1,0,0],[.05,2,0,0,-1,0,0,0]];c['environment']['native_landing']=True;c['script'].insert(1,[.05,30,0,0,0,-1,0,0]);c['expected_queries']=[dict(damage=[3000,0,0,0,0],allies=[dict(hp=250)])]
 raw=[(copy.deepcopy(e),NAMES[o]) for e,o in zip(c['effects'],c['owners'])];history=[];capture={}
 original_bm,original_char=timeline.BuffManager,timeline.CharState
 class Manager(BuffManager):
@@ -35,10 +35,6 @@ try:
  native=dict(hp=capture['bm'].state['hp'][NAMES[0]],damage=sum(h.damage for h in result.hits),hits=[dict(time=h.t,damage=h.damage,tag=h.hit_tag) for h in result.hits],history=history)
 finally:timeline.BuffManager=original_bm;timeline.CharState=original_char
 assert native['hp']==250 and native['damage']==3000,native
-wire=copy.deepcopy(c);rows=[]
-for i,e in enumerate(wire['effects']):
- if e.get('stat')=='lifesteal_pct':rows.append(i);e['stat']='crit_dmg'
-words,meta=v.compile_case(wire)
-for i in rows:words[L['DEFINITION_BASE']+i*L['DEFINITION_WORDS']+F['STAT']]=44
-r=run_programs([(words,meta)],backend=args.backend);r.update(passed=False,stage='known-incomplete-skill-landing-path',case=c,native=native,scope='Working normal lifesteal path is verified separately. Actual native timeline exposes missing deferred skill landing recovery; production admission stays closed.')
-Path('research/portable-lifesteal-landing-phase-study'+('' if args.backend=='metal' else '-cuda')+'.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n');print('Native',native['hp'],native['damage'],'GPU',r['results'][0]['queries'][0]['allies'][0]['hp'],sum(r['results'][0]['queries'][0]['damage']))
+words,meta=v.compile_case(c)
+r=run_programs([(words,meta)],backend=args.backend);r.update(passed=r['results'][0]['queries'][0]['allies'][0]['hp']==native['hp'] and sum(r['results'][0]['queries'][0]['damage'])==native['damage'],stage='shared-landing-queue-study',case=c,native=native,scope='Working normal lifesteal path is verified separately. Actual native timeline exposes missing deferred skill landing recovery; production admission stays closed.')
+Path('research/portable-lifesteal-landing-queue-study'+('' if args.backend=='metal' else '-cuda')+'.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n');print('Native',native['hp'],native['damage'],'GPU',r['results'][0]['queries'][0]['allies'][0]['hp'],sum(r['results'][0]['queries'][0]['damage']))

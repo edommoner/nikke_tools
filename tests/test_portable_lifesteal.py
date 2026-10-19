@@ -27,7 +27,8 @@ class LifestealTests(unittest.TestCase):
         c=self.case('life-authored-single-packet');c['owners'][1]=1;c['effects'][1]['target']='all_allies';c['owners'][3]=1;c['effects'][3]['fixed_value']=300
         r=observe(c);self.assertEqual(r['queries'][0]['allies'][0]['hp'],150)
         self.assertEqual([e['source'] for e in r['events'] if e['event']=='event:heal_received'],[0])
-    def test_incomplete_skill_landing_family_is_not_opened_in_production(self):
+    def test_lifesteal_requires_native_landing_policy(self):
         for c in CASES:
-            with self.subTest(name=c['name']),self.assertRaisesRegex(UnsupportedPortable,'Unported buff or recipient selector'):v.compile_case(c)
+            candidate=copy.deepcopy(c);candidate['environment']['native_landing']=False
+            with self.subTest(name=c['name']),self.assertRaisesRegex(UnsupportedPortable,'Lifesteal requires native landing phases'):v.compile_case(candidate)
 if __name__=='__main__':unittest.main()
