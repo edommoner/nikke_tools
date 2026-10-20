@@ -123,11 +123,60 @@ def execute(source, entry, packed, input_words, output_words, backend='metal'):
                     gpu_execution_verified=True, backend=backend)
 
 
-def execute_cuda(source, entry, packed, output_size, count):
-    """Opt-in, single short dispatch. Never installs CUDA or starts a monitor.
-    The pinned Slang StructuredBuffer ABI is pointer + size_t; validate the
-    actual constant-symbol size before copying. NVIDIA execution pending.
+def execute_batches(source, entry, batches, input_words, output_words, backend='metal'):
+    """Sequential independent dispatches in one compiled GPU session.
+
+    Wire inputs and readbacks remain separate; a failure never returns a partial
+    success. Both adapters reuse their pipeline/context and two bounded buffers.
     """
+    if backend not in ('metal','cuda'):raise ValueError('Explicit metal or cuda backend required; no CPU fallback')
+    if type(input_words) is not int or type(output_words) is not int or not 1<=input_words<=MAX_INPUT_WORDS or not 1<=output_words<=MAX_OUTPUT_WORDS:raise ValueError('Invalid portable word strides')
+    batches=list(batches)
+    if not batches:raise ValueError('Empty portable dispatch sequence')
+    counts=[]
+    for packed in batches:
+        if len(packed)<4:raise ValueError('Missing portable batch header')
+        count,=struct.unpack_from('<I',packed)
+        if not 1<=count<=65536 or 1+count*input_words>0xffffffff or count*output_words>0xffffffff or len(packed)!=(1+count*input_words)*4:raise ValueError('Invalid portable wire dimensions')
+        counts.append(count)
+    outputs,hashes=build(source,entry)
+    if backend=='cuda':
+        raw,transports=execute_cuda_batches(outputs['cuda'],entry,batches,[n*output_words*4 for n in counts],counts)
+    else:
+        if platform.system()!='Darwin':raise RuntimeError('Metal requires macOS')
+        with tempfile.TemporaryDirectory(prefix='sequence-',dir=ROOT/'research/portable-build') as tmp:
+            paths=[]
+            for i,packed in enumerate(batches):
+                inp,out=Path(tmp)/f'{i}.in',Path(tmp)/f'{i}.out';inp.write_bytes(packed)
+                paths.append(dict(input=str(inp),output=str(out)))
+            manifest=Path(tmp)/'batches.json';manifest.write_text(json.dumps(paths))
+            process=run_metal_command(['swift',str(ROOT/'scripts/run-metal-probe.swift'),str(outputs['metal']),str(manifest),'--batches',entry,str(input_words),str(output_words)])
+            if process.returncode:raise RuntimeError(process.stderr or process.stdout)
+            status=json.loads(process.stdout);transports=status['batches'];raw=[Path(p['output']).read_bytes() for p in paths]
+            for t in transports:t.update(compile_timeout_seconds=300,gpu_timeout_seconds=120)
+    if len(raw)!=len(batches) or len(transports)!=len(batches) or hashes!=source_hashes(source):raise RuntimeError('Incomplete GPU dispatch sequence or source changed')
+    generated={k:hashlib.sha256(p.read_bytes()).hexdigest() for k,p in outputs.items()}
+    results=[]
+    for i,(packed,output,transport,count) in enumerate(zip(batches,raw,transports,counts)):
+        if len(output)!=count*output_words*4 or transport['cases']!=count or transport['command_status']!='completed':raise RuntimeError('Invalid GPU output stride or transport')
+        transport.update(session_dispatches=len(batches),session_dispatch_index=i,pipeline_instances=1,buffer_allocations=2)
+        results.append((output,dict(transport=transport,source_sha256=hashes,generated_sha256=generated,input_sha256=hashlib.sha256(packed).hexdigest(),output_sha256=hashlib.sha256(output).hexdigest(),gpu_execution_verified=True,backend=backend)))
+    return results
+
+
+def execute_cuda(source, entry, packed, output_size, count):
+    raw,transports=execute_cuda_batches(source,entry,[packed],[output_size],[count])
+    return raw[0],transports[0]
+
+
+def execute_cuda_batches(source, entry, batches, output_sizes, counts):
+    """Opt-in sequential dispatches sharing one NVRTC build and CUDA context.
+    The pinned Slang StructuredBuffer ABI is pointer + size_t; validate the
+    actual constant-symbol size before copying. No numeric/game logic here.
+    """
+    if not batches or len(batches)!=len(output_sizes) or len(batches)!=len(counts):raise ValueError('Invalid CUDA dispatch sequence')
+    for packed,size,count in zip(batches,output_sizes,counts):
+        if type(count) is not int or not 1<=count<=65536 or type(size) is not int or size<=0 or len(packed)<4 or struct.unpack_from('<I',packed)[0]!=count:raise ValueError('Invalid CUDA dispatch dimensions')
     if os.name != 'nt':
         raise RuntimeError('This CUDA NVRTC adapter currently requires Windows')
     cuda_bin = Path(os.environ.get('CUDA_PATH', r'C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.3'))/'bin'
@@ -173,17 +222,21 @@ def execute_cuda(source, entry, packed, output_size, count):
         call('cuCtxCreate_v2',C.byref(context),0,device)
         module=C.c_void_p();function=C.c_void_p();call('cuModuleLoadData',C.byref(module),C.cast(ptx,C.c_void_p))
         call('cuModuleGetFunction',C.byref(function),module,entry.encode())
-        inp=C.c_uint64();out=C.c_uint64();call('cuMemAlloc_v2',C.byref(inp),len(packed));call('cuMemAlloc_v2',C.byref(out),output_size)
-        call('cuMemcpyHtoD_v2',inp,C.cast(C.c_char_p(packed),C.c_void_p),len(packed))
-        zero=C.create_string_buffer(output_size);call('cuMemcpyHtoD_v2',out,C.cast(zero,C.c_void_p),output_size)
+        inp=C.c_uint64();out=C.c_uint64()
+        call('cuMemAlloc_v2',C.byref(inp),max(map(len,batches)));call('cuMemAlloc_v2',C.byref(out),max(output_sizes))
         global_ptr=C.c_uint64();global_size=C.c_size_t()
         call('cuModuleGetGlobal_v2',C.byref(global_ptr),C.byref(global_size),module,b'SLANG_globalParams')
-        params=struct.pack('<QQQQ',inp.value,len(packed)//4,out.value,output_size//4)
-        if global_size.value != len(params):raise RuntimeError('Unexpected Slang CUDA constant buffer ABI')
-        call('cuMemcpyHtoD_v2',global_ptr,C.cast(C.c_char_p(params),C.c_void_p),len(params))
-        started=time.perf_counter();call('cuLaunchKernel',function,count,1,1,1,1,1,0,None,None,None);call('cuCtxSynchronize')
-        elapsed=time.perf_counter()-started
-        output=C.create_string_buffer(output_size);call('cuMemcpyDtoH_v2',output,out,output_size)
-        return output.raw,dict(backend='cuda',device=name.value.decode(),cases=count,command_status='completed',host_dispatch_seconds=elapsed)
+        if global_size.value!=32:raise RuntimeError('Unexpected Slang CUDA constant buffer ABI')
+        results=[];transports=[]
+        for packed,output_size,count in zip(batches,output_sizes,counts):
+            call('cuMemcpyHtoD_v2',inp,C.cast(C.c_char_p(packed),C.c_void_p),len(packed))
+            zero=C.create_string_buffer(output_size);call('cuMemcpyHtoD_v2',out,C.cast(zero,C.c_void_p),output_size)
+            params=struct.pack('<QQQQ',inp.value,len(packed)//4,out.value,output_size//4)
+            call('cuMemcpyHtoD_v2',global_ptr,C.cast(C.c_char_p(params),C.c_void_p),len(params))
+            started=time.perf_counter();call('cuLaunchKernel',function,count,1,1,1,1,1,0,None,None,None);call('cuCtxSynchronize')
+            elapsed=time.perf_counter()-started
+            output=C.create_string_buffer(output_size);call('cuMemcpyDtoH_v2',output,out,output_size)
+            results.append(output.raw);transports.append(dict(backend='cuda',device=name.value.decode(),cases=count,command_status='completed',host_dispatch_seconds=elapsed))
+        return results,transports
     finally:
         if context:call('cuCtxDestroy_v2',context)

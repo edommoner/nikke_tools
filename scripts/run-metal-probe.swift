@@ -50,44 +50,66 @@ func run() throws {
     let outputWords = CommandLine.arguments.count == 7 ? Int(CommandLine.arguments[6]) ?? 0 : 7
     guard inputWords > 0 && inputWords <= 131072 && outputWords > 0 && outputWords <= 262144 else { throw ProbeError("Invalid wire layout") }
     guard let device = MTLCreateSystemDefaultDevice() else { throw ProbeError("No Metal device") }
-    let inputData = try Data(contentsOf: URL(fileURLWithPath: CommandLine.arguments[2]))
-    guard inputData.count >= 4 else { throw ProbeError("Missing input header") }
-    let count = inputData.withUnsafeBytes { UInt32(littleEndian: $0.loadUnaligned(as: UInt32.self)) }
-    guard count > 0 && count <= 65536 && inputData.count == (1 + Int(count) * inputWords) * 4 else { throw ProbeError("Invalid input dimensions") }
-    guard 1 + Int(count) * inputWords <= Int(UInt32.max), Int(count) * outputWords <= Int(UInt32.max) else { throw ProbeError("Wire addressing exceeds uint32") }
-    let outputSize = Int(count) * outputWords * 4
-    guard inputData.count <= device.maxBufferLength && outputSize <= device.maxBufferLength else { throw ProbeError("Wire buffer exceeds device limit") }
-    guard let input = device.makeBuffer(length: inputData.count, options: .storageModeShared),
-          let output = device.makeBuffer(length: outputSize, options: .storageModeShared),
+    let sequence = CommandLine.arguments[3] == "--batches"
+    let paths: [[String: String]]
+    if sequence {
+        let data = try Data(contentsOf: URL(fileURLWithPath: CommandLine.arguments[2]))
+        paths = try JSONDecoder().decode([[String: String]].self, from: data)
+        guard !paths.isEmpty else { throw ProbeError("Empty dispatch sequence") }
+    } else { paths = [["input": CommandLine.arguments[2], "output": CommandLine.arguments[3]]] }
+    func readInput(_ path: [String: String]) throws -> (Data, Int, Int) {
+        guard let name = path["input"], path["output"] != nil else { throw ProbeError("Missing dispatch path") }
+        let inputData = try Data(contentsOf: URL(fileURLWithPath: name))
+        guard inputData.count >= 4 else { throw ProbeError("Missing input header") }
+        let count = inputData.withUnsafeBytes { UInt32(littleEndian: $0.loadUnaligned(as: UInt32.self)) }
+        guard count > 0 && count <= 65536 && inputData.count == (1 + Int(count) * inputWords) * 4 else { throw ProbeError("Invalid input dimensions") }
+        guard 1 + Int(count) * inputWords <= Int(UInt32.max), Int(count) * outputWords <= Int(UInt32.max) else { throw ProbeError("Wire addressing exceeds uint32") }
+        let outputSize = Int(count) * outputWords * 4
+        guard inputData.count <= device.maxBufferLength && outputSize <= device.maxBufferLength else { throw ProbeError("Wire buffer exceeds device limit") }
+        return (inputData, Int(count), outputSize)
+    }
+    var maxInput = 0, maxOutput = 0
+    for path in paths {
+        let (data, _, size) = try readInput(path)
+        maxInput = max(maxInput, data.count); maxOutput = max(maxOutput, size)
+    }
+    guard let input = device.makeBuffer(length: maxInput, options: .storageModeShared),
+          let output = device.makeBuffer(length: maxOutput, options: .storageModeShared),
           let queue = device.makeCommandQueue() else { throw ProbeError("Metal allocation failed") }
-    inputData.withUnsafeBytes { bytes in input.contents().copyMemory(from: bytes.baseAddress!, byteCount: bytes.count) }
-    output.contents().initializeMemory(as: UInt8.self, repeating: 0, count: outputSize)
     let source = try String(contentsOfFile: CommandLine.arguments[1], encoding: .utf8)
     let shaderURL = URL(fileURLWithPath: CommandLine.arguments[1])
     let lockURL = shaderURL.deletingLastPathComponent().appendingPathComponent("metal-pipeline.lock")
     let compiled = try compilePipeline(device: device, source: source, entry: entry, lockURL: lockURL)
     let pipeline = compiled.pipeline
-    guard let command = queue.makeCommandBuffer(), let encoder = command.makeComputeCommandEncoder() else { throw ProbeError("Metal command creation failed") }
-    encoder.setComputePipelineState(pipeline)
-    encoder.setBuffer(input, offset: 0, index: 0)
-    encoder.setBuffer(output, offset: 0, index: 1)
-    encoder.dispatchThreadgroups(MTLSize(width: Int(count), height: 1, depth: 1), threadsPerThreadgroup: MTLSize(width: portableThreadsPerThreadgroup, height: 1, depth: 1))
-    encoder.endEncoding()
-    FileHandle.standardError.write(Data("portable_stage=gpu_dispatch\n".utf8))
-    command.commit()
-    command.waitUntilCompleted()
-    guard command.status == .completed else { throw ProbeError(command.error?.localizedDescription ?? "Metal execution failed") }
-    try Data(bytes: output.contents(), count: outputSize).write(to: URL(fileURLWithPath: CommandLine.arguments[3]), options: .atomic)
-    let status: [String: Any] = ["backend": "metal", "device": device.name, "cases": count,
-        "command_status": "completed", "registry_id": String(device.registryID),
-        "gpu_seconds": command.gpuEndTime - command.gpuStartTime,
-        "configured_max_threads_per_threadgroup": portableThreadsPerThreadgroup,
-        "threads_per_threadgroup": portableThreadsPerThreadgroup,
-        "pipeline_max_threads_per_threadgroup": pipeline.maxTotalThreadsPerThreadgroup,
-        "library_compile_seconds": compiled.librarySeconds, "pipeline_compile_seconds": compiled.pipelineSeconds,
-        "pipeline_lock_wait_seconds": compiled.lockWaitSeconds,
-        "input_bytes": inputData.count, "output_bytes": outputSize]
-    print(String(data: try JSONSerialization.data(withJSONObject: status, options: [.sortedKeys]), encoding: .utf8)!)
+    var statuses: [[String: Any]] = []
+    for path in paths {
+        let (inputData, count, outputSize) = try readInput(path)
+        inputData.withUnsafeBytes { bytes in input.contents().copyMemory(from: bytes.baseAddress!, byteCount: bytes.count) }
+        output.contents().initializeMemory(as: UInt8.self, repeating: 0, count: outputSize)
+        guard let command = queue.makeCommandBuffer(), let encoder = command.makeComputeCommandEncoder() else { throw ProbeError("Metal command creation failed") }
+        encoder.setComputePipelineState(pipeline)
+        encoder.setBuffer(input, offset: 0, index: 0)
+        encoder.setBuffer(output, offset: 0, index: 1)
+        encoder.dispatchThreadgroups(MTLSize(width: Int(count), height: 1, depth: 1), threadsPerThreadgroup: MTLSize(width: portableThreadsPerThreadgroup, height: 1, depth: 1))
+        encoder.endEncoding()
+        FileHandle.standardError.write(Data("portable_stage=gpu_dispatch\n".utf8))
+        command.commit()
+        command.waitUntilCompleted()
+        guard command.status == .completed else { throw ProbeError(command.error?.localizedDescription ?? "Metal execution failed") }
+        try Data(bytes: output.contents(), count: outputSize).write(to: URL(fileURLWithPath: path["output"]!), options: .atomic)
+        let status: [String: Any] = ["backend": "metal", "device": device.name, "cases": count,
+            "command_status": "completed", "registry_id": String(device.registryID),
+            "gpu_seconds": command.gpuEndTime - command.gpuStartTime,
+            "configured_max_threads_per_threadgroup": portableThreadsPerThreadgroup,
+            "threads_per_threadgroup": portableThreadsPerThreadgroup,
+            "pipeline_max_threads_per_threadgroup": pipeline.maxTotalThreadsPerThreadgroup,
+            "library_compile_seconds": compiled.librarySeconds, "pipeline_compile_seconds": compiled.pipelineSeconds,
+            "pipeline_lock_wait_seconds": compiled.lockWaitSeconds,
+            "input_bytes": inputData.count, "output_bytes": outputSize]
+        statuses.append(status)
+    }
+    let result: [String: Any] = sequence ? ["batches": statuses, "pipeline_instances": 1, "buffer_allocations": 2] : statuses[0]
+    print(String(data: try JSONSerialization.data(withJSONObject: result, options: [.sortedKeys]), encoding: .utf8)!)
 }
 
 do { try run() }
