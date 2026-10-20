@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "efficiency_evaluated": true,
+  "production_change_adopted": false,
+  "source_commit": "60a10b6",
+  "candidate": "32-bit Frame.value plus32 output scratch words for high ordered-recipient bits",
+  "all_1824_output_bytes_equal": true,
+  "decision": "Keep the verified64-bit Frame.value. The compact candidate is slower in one-group, composite-three and ordered instant healing. The21-recipient broadcast sample ranges overlap; its smaller median does not establish a speedup.",
+  "workloads": {
+    "ordinary": {
+      "median_gpu_ms": {
+        "control": 9.688374935649335,
+        "compact": 9.690874954685569
+      },
+      "compact_to_control_ratio": 1.0002580431757482,
+      "sample_ranges_overlap": true
+    },
+    "one-group": {
+      "median_gpu_ms": {
+        "control": 15.573875047266483,
+        "compact": 16.126708243973553
+      },
+      "compact_to_control_ratio": 1.035497472210945,
+      "sample_ranges_overlap": false
+    },
+    "composite-three": {
+      "median_gpu_ms": {
+        "control": 13.519791653379798,
+        "compact": 13.838124927133322
+      },
+      "compact_to_control_ratio": 1.0235457233302812,
+      "sample_ranges_overlap": false
+    },
+    "duplicate-audience-21": {
+      "median_gpu_ms": {
+        "control": 41.69370839372277,
+        "compact": 40.88799993041903
+      },
+      "compact_to_control_ratio": 0.9806755384842417,
+      "sample_ranges_overlap": true
+    },
+    "instant-heal-21": {
+      "median_gpu_ms": {
+        "control": 23.38999998755753,
+        "compact": 24.20500002335757
+      },
+      "compact_to_control_ratio": 1.0348439519552624,
+      "sample_ranges_overlap": false
+    }
+  },
+  "static_layout_estimate": {
+    "frame_bytes_before": 80,
+    "frame_bytes_candidate": 72,
+    "frames": 32,
+    "estimated_private_reduction_bytes": 256,
+    "output_scratch_words": 32,
+    "output_stride_growth_words": 0,
+    "physical_private_memory_measured": false
+  },
+  "benchmark_sha256": "5fbc458c7c70c509759fdd79af147128f734ccbf6371f3e8f3b3e6eb61f8be62",
+  "scope": "One warmup plus3 sequential samples per variant per workload on Apple M5. Not a full-roster, CUDA-speed or peak-memory measurement; desktop GPU activity is not excluded."
+}

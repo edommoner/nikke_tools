@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "checked_at": "2026-10-20T00:40:07.314596+00:00",
+  "source_commit": "60a10b694516c8f2fb7594911585326aebc14a56",
+  "positive_cases": 1524,
+  "rejections": 300,
+  "batched_inputs": 1824,
+  "unit_tests": 177,
+  "mac_gates": 26,
+  "real_profiles": 82,
+  "current_full_cuda_batch_executed": true,
+  "normal_ui_backend": "cpu",
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "efficiency_evaluated": true,
+  "efficiency_adopted": false,
+  "historical_mac_receipt": {
+    "proof_commit": "c72b529",
+    "path": "research/portable-instant-lists-metal-validation.json"
+  },
+  "scope": "Current common CUDA/Metal mechanics and26 Mac gates; historical Mac-only receipts retain their commit-specific provenance; full catalog remains incomplete.",
+  "artifact_sha256": {
+    "research/portable-combat-checkpoint.json": "2cfcff53030d9a8c601d43a6c39b378e63d3c6e40043171b839fa23973a337b6",
+    "research/portable-combat-v58-checkpoint.json": "854a4b59fa57b961f1efcc611cdf06ac25e0a0ea4fc5ac0e745d5f23c435f716",
+    "research/portable-combat-metal.json": "b1eefea6f582daf2409d3b50f0d5fa420c0711c05b31781bc4ad796829972216",
+    "research/portable-combat-cuda.json": "c0d584fdc5e6d17559485cf3a556fc45c436c33b5878c261cda95fadbf35a3cb",
+    "research/windows-portable-combat-v59.json": "830c048303878911d057bfffbf839cd0fb4e1bff24c1a0aae4476ad814bed918",
+    "research/windows-portable-combat-v60.json": "aea0812c5cdcac92ff9bf485057c69491632a30e4b95b1d4f5c13d7dc37633ef",
+    "research/portable-split-transfer-completed.json": "0a37f984e3d5ccd7b2932d4744e93c5b2f464547a35e25af1204ac5dee880196",
+    "research/portable-instant-lists-transfer-completed.json": "cc2aaf031d486f4b7c6a4a42ea53daac303266355c727902cae6d641304943ec",
+    "research/portable-instant-lists-generated-comparison.json": "723b8ba2093eb3f2395e3fb274d128fe67b9b518aaacd19b93c47e0e3d6daf09",
+    "research/portable-instant-lists-existing-metal-parity.json": "2f5d100252226a21c9f66567728ef57d5b658177d14ebef774dcad0720750486",
+    "research/portable-instant-lists-existing-cuda-parity.json": "98c80b5b1b27a4270cdbca06cff492e8f99a3833e8e90a2e28d91f0a059fb1e3",
+    "research/portable-instant-lists-global-gates.json": "5d7be19826f2be00e314ec73159d4707382d1ee8be87ae2b40c430aedee64c1f",
+    "research/portable-instant-lists-pre-optimization.json": "a41d5057f279680d07c75fe28dd9615a3660f4998093fa786b5e2ad81b842dc0",
+    "research/portable-instant-lists-timing-order.json": "4724ae4542e2cbf59a5a41c5bade66cb3bafa307db7c705278d6f2a676ffd882",
+    "research/portable-instant-lists-efficiency-decision.json": "ae027d1920607b62f6fa1c9fbc07410438b73257895edafa30ecef994574b60f",
+    "research/portable-instant-lists-roster-parity.json": "7f83bedcfaa6cec0fa344164d9fb3c452c1abf8b886ae27f2931c48f339f44b8",
+    "research/portable-instant-lists-unit-tests.json": "d1a284951db8075bc6f9af9beb65259eae4760cab55b19692cba60ddfdec7195",
+    "research/portable-instant-list-normal-fixed-metal.json": "2d80eda8d721a08f5986d1b4f6387467e20d67ac1d990e7f2e915ece242e72bd",
+    "research/portable-roster-battles-metal.json": "a630d488a4b85a98c1d473098825a088b7b563d6abecc5f9d977ef213c2553b7",
+    "research/portable-api-metal.json": "c4f5dc944851a9af787c4b490c878838d8542df1f1c5aa5169f468031dd49e88",
+    "research/portable-catalog-readiness.json": "e27b342b5b35f089da5a5e4d887c49021f1591258b5418641cc8030a9ad1f265",
+    "research/portable-instant-lists-candidate-parity.json": "deaa02a20916f58fe3eb11aa4066b48ad9fba7700f406162bd12a2c1271e0e70",
+    "research/portable-instant-lists-benchmark.json": "5fbc458c7c70c509759fdd79af147128f734ccbf6371f3e8f3b3e6eb61f8be62",
+    "research/portable-instant-lists-final-processes.json": "9e496943c2952cc71aaf2a2c7e8c5c6ed17b27fbb6835ebb84c8525054332978"
+  },
+  "tool_sha256": {
+    "research/seal-instant-list-cuda.py": "fbd3ee799e5acbc1e7f086a18ecc19745d366e964b7ae3ea4dfa90b0c52fca64",
+    "research/finalize-instant-list-proof.py": "f44fac37154f0419591e3b18f25ebab23e2584144d8e5c1da8a2a7f6eb340068",
+    "research/benchmark-instant-lists.py": "75269ee8b315a1fc3d91afbae4a2886fadac10b131661cde707799d4ef9a6819",
+    "research/verify-instant-list-regression.py": "e83336fffd443b0c8be5b50cda21f53187d1c5ee7fc643ac59a5c2a0f8e20238",
+    "research/run-instant-list-gates.py": "08e02d59e116d773d6706c8d19c31307b815456bee9e1df6b9ad4a25e68bc009"
+  },
+  "documentation_sha256": {
+    "docs/portable-instant-lists.md": "df111f97f1f60bbf7b742f3dd34116a6a7a59aea48a7c7b4e41e6c2a8a2cd1ae",
+    "docs/mac-handoff.md": "e1511d575c8fbb24631b1a5c6b6b3d157b40a74777e3e7215bc1df4819f4fac7",
+    "docs/mac-migration.md": "90a2769f77f519324b23dfcc986a9aabb59eabfeb5d2968df94ae3479fa64ab5",
+    "docs/portable-combat-runtime.md": "f5014eb4235935e7d485a0b486fc05eccd17f7bbecf31ec143bcef8aed8d62f9"
+  }
+}
