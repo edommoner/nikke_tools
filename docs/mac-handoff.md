@@ -1,5 +1,13 @@
 # Mac側で開発を続けるための引き継ぎ
 
+## 2026-10-21 128枠Actor識別を共通フレームへ接続
+
+実験ABI76でbody・parts・addsの型、設定内ID、出現世代、親参照を共通worldフレームの開始／終了へ接続しました。Metal242入力でnative BossScript/ActorRegistryとの12比較、不正入力22件、以前の208全出力byte保持が成功しました。128枠・全32node・未出現・再出現・古い世代・親rootを含みます。初回237の全blockも保持し、通常CUDA/MSL生成コードはv79と厳密同一、CPU portable303件が成功しました。
+
+最初の通常生成比較ではActor分岐による空行1つを検出しました。shellの後続処理が続いて初回237実証が行われた事実を保存し、比較規則を広げず配置を修正しました。最終242は通常生成物とCPU検査成功を確認後に実行しました。証拠は `research/portable-world-actor-registry-validation.json` と `research/portable-world-actors-metal.json`、設計は [Actor接続](portable-world-actors.md) です。
+
+このActor実証はlifecycle/識別の範囲です。HP・命中・敵数・対象集合・interruptはまだ未接続で、完全battleやキャラ対応として数えません。次に128枠を維持して共通HPと対象集合へ接続します。新ActorのCUDAは未依頼、Windowsは前回208成功後の待機状態です。通常受付CPU・全変種認証0/203を維持します。
+
 ## 2026-10-21 共通208入力のCUDA／Metal一致
 
 固定db8f4c8の共通実行器で、skill_damage武器モードとHeavyarms charge holdを含む208入力がCUDA／Metalで一致しました。全入力・全出力byte、125完全native／actual辞書、共有GPUソース、両生成コードのfingerprintを照合しています。WindowsはCPU11検査（終了処理5＋literal入力6）、GPU関数を禁止した全208入力生成とSHA一致の後、BelowNormal・180秒上限の実GPU1回で68.656秒、exit0でした。NVRTC・起動・同期・readbackの成功を50実測イベントで確認しました。

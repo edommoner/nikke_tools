@@ -1,0 +1,26 @@
+# 共通world Actorの接続
+
+## 現在の実証
+
+固定14fab08、実験ABI76。既存のevent/combat/world実行器を別コピーせず、world_frame_runtimeの開始・終了hookから128枠の型付き登録表を更新します。入力はworld_actor_specs.bindingsから得たkind・設定内identity・出現元node・slot・親参照だけです。生存とgenerationをCPUで入力しません。開始前のbodyはgeneration1、未出現sourceはgeneration0で、問い合わせ時は未出現として区別します。再出現時は既存スケジューラーのopensを世代として使い、古い世代や未知の対象をbodyへ読み替えません。
+
+Metal242入力が成功しました。native BossScript/ActorRegistryの識別・期限・世代・親rootとの12比較、raw拒否22件、以前のCUDA/Metal208入力の全出力byte保持です。body＋127adds、body＋127parts、全32nodeのbinding、宣言順とkind順の差、未出現、再開、期限後の同世代問い合わせ、古い世代、未知kind/identity、親rootを含みます。初回237入力の全入力・全出力blockも新242の中で保持しました。CPU portable単体303件が成功しています。
+
+通常生成物の最初の比較では、条件コンパイルの挿入でop26前に空行が1つ増えました。比較失敗後に同じshell内の後続commandが実行されたため、初回Actor237実証は通常版の同一性未確認の状態で行われました。この事実と失敗probeを保持しています。分岐を元statement位置のlayout macroへ移し、正規化規則を広げず通常CUDA/MSLの厳密一致を回復しました。最終242は通常生成物一致とCPU303成功を確認してから別途実行しています。
+
+証拠はportable-world-actors-metal.json、portable-world-actor-registry-validation.json、portable-world-actor-registry-fingerprints.json。seal-world-actor-registry-metal.pyはGPUなしで固定Git source、全input/readback、初回237と旧208の各block、完全なnative/actual辞書、CPU成功log、通常生成物を監査します。Actorの新しいCUDA実行はまだ依頼していません。HP・命中の接続後に必要な短い検証へまとめます。
+
+## 現在の境界
+
+これはsource lifecycleからActor識別への接続です。HP・hit制HP・攻撃の命中・敵数・対象集合・interrupt adapterは未接続です。診断ケースは味方武器を無効にし、実際のnative BossScriptとActorRegistryだけを参照します。完全なbattle simulateの認証へ読み替えません。HP由来targets_cleared、召喚sourceの攻撃/自爆、未定義のinterrupt Actor型は拒否します。通常受付CPU・全変種認証0/203・world公開受付無効を維持します。
+
+入力は90,536 words。従来overlay入力89,376 wordsの後にheader8、node mapping32×4、binding128×8を追加します。出力225,280 wordsは維持し、既存hold状態の後にregistry header8、state128×8、query64×8を置きます。旧208の入力はABIだけ76へ変え、追加入力を0にすると、全出力wordが以前と一致します。通常ABI73と8対象layoutは変更していません。
+
+## HP・対象集合への接続で守ること
+
+- registryの128枠を、既存Runtimeの8対象へ切り詰めたりbodyへaliasしたりしません。型・設定内identity・generationを保持したhandleを使います。
+- 既存の受領者13bit、敵mask8bit、順序の4bit packing、Frame内の8世代snapshotは128枠を表せません。Actor対象集合と順序・世代snapshotを共通定義から作り、味方5人のmaskと混同しません。単純にtargetCountだけ128へ増やす実装はしません。
+- partsの親bodyは所有関係です。敵数に数えるか、partsへの敵効果をbodyへ束縛するか、pierceでbodyとpartへ同時命中するかは、既存の明示的なscope/selector規約を使います。
+- HPとhit制HPの数量、世代を跨ぐpool再初期化、死亡通知と再出現する子効果、parts/interruptのcleared、召喚の攻撃/自爆をGPUが所有します。手動cleared maskやCPUで作った死亡予定表を実戦入力へ渡しません。
+- 味方の通常射撃・スキル・保留着弾・DoTと、Actorへの状態付与・解除・順位対象解決を同じ本体へ接続します。registry問い合わせだけの成功を命中対応やキャラ対応へ数えません。
+- 通常生成物と保存済み208/242入力の保持、native完全simulateとの新規battle比較、Metal、必要な短いCUDAを確認し、最終的に全203変種・全効果を認証します。その後に新規共通処理の効率を測定します。
