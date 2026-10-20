@@ -96,7 +96,7 @@ bool beginBuffQuery(inout Runtime s, uint who, uint64_t when)
         uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row); s.queryAllowed[row] = 0;
         if (excludedDamageBuff(s,row,who) || s.alive[row] == 0 || !f64Less(when,s.end[row])) continue;
         if (d.queryResolve != 0) ensureLazyRecipients(s,row,when);
-        if ((s.activeRecipients[row] & (1U << who)) != 0 && basicConditions(s,row,when,true,who)) s.queryAllowed[row] = 1;
+        if ((s.activeRecipients[row] & (1U << who)) != 0 && WORLD_STATE_NUMERIC_CONDITION(s,row,who,when,basicConditions(s,row,when,true,who))) s.queryAllowed[row] = 1;
     }
     return true;
 }
@@ -105,5 +105,5 @@ bool queryRecipient(inout Runtime s, uint row, uint who, uint64_t when)
     if (excludedDamageBuff(s,row,who) || s.alive[row] == 0 || !f64Less(when,s.end[row])) return false;
     if (s.queryActive != 0 && s.queryWho == who && f64Equal(s.queryWhen,when) && residentDefinition(s,row).queryResolve != 0) return s.queryAllowed[row] != 0;
     if (s.lazyPending[row] != 0) ensureLazyRecipients(s,row,when);
-    return (s.activeRecipients[row] & (1U << who)) != 0 && basicConditions(s,row,when,true,who);
+    return (s.activeRecipients[row] & (1U << who)) != 0 && WORLD_STATE_NUMERIC_CONDITION(s,row,who,when,basicConditions(s,row,when,true,who));
 }

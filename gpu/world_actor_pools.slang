@@ -40,7 +40,7 @@ bool initializeActorPools(inout Runtime s)
     if(commands[base]!=0x57485031 || !worldActorsEnabled(s) || commands[base+1]!=actorPoolCount(s)) return false;
     #ifdef PORTABLE_WORLD_ACTOR_FIELDS
     uint64_t bossAtk=loadNumber(base+2);if(!f64Finite(bossAtk)||f64Less(bossAtk,0)) return false;
-    for(uint i=4;i<8;i++) if(commands[base+i]!=0) return false;
+    for(uint i=4;i<8;i++) if(WORLD_STATE_HEADER_INVALID(s,base,i,commands[base+i]!=0)) return false;
 #else
     for(uint i=2;i<8;i++) if(commands[base+i]!=0) return false;
 #endif
@@ -89,13 +89,13 @@ void actorPoolsSync(inout Runtime s,uint64_t when)
         uint b=actorBinding(s,slot),p=actorPoolAt(s,slot),g=s.resourceOutput+P_WORLD_FRAME_OUTPUT_BASE+16+commands[b+3]*24,gen=results[g+1];
         if(gen!=results[p])
         {
-            for(uint i=0;i<16;i++) results[p+i]=0;
+            WORLD_STATE_BEFORE_RESET(s,b,p,slot) for(uint i=0;i<16;i++) results[p+i]=0;
             results[p]=gen;results[p+1]=results[g];storeNumber(p+8,actorNumber(g+2));
             if(commands[b]==5)
             { uint head=actorPoolHead(s);if(results[head+4]==0x7fffffff) { s.error=2;return; }results[p+10]=++results[head+4]; }
         }
         else if(results[g]==0 && results[p+1]!=0)
-        { results[p+1]=0;if(commands[b]==5) results[p+2]=2; }
+        { results[p+1]=0;if(commands[b]==5) { WORLD_STATE_GONE(s,slot) results[p+2]=2; } }
     }
     s.enemySnapshot=actorPoolsEnemyCount(s);
 }
@@ -152,7 +152,7 @@ void actorPoolLand(inout Runtime s,uint who,uint slot,uint64_t amount)
         {
             results[p+1]=0;results[p+2]=1;results[head+14]++;
             WorldSchedule w=frameSchedule(s);wsLog(w,5,commands[actorBinding(s,slot)+3],slot,when);s.error=w.error;
-            if(kind==5) actorPoolNotice(s,slot,gen,4);
+            if(kind==5) { WORLD_STATE_GONE(s,slot) actorPoolNotice(s,slot,gen,4); }
             else
             {
                 uint64_t score=actorNumber(head+8),next=score+uint64_t(commands[d+8]);if(next<score) { s.error=2;return; }storeNumber(head+8,next);

@@ -54,7 +54,7 @@ void worldFrameDeliver(inout Runtime s,uint64_t when,uint output)
         for(uint i=0;i<count && s.error==0;i++)
         { worldFrameNotice(s,(packed>>(i*3))&7,when,output);if(s.error==0) results[record+5]++; }
     }
-    while(cursor<end && s.error==0)
+    WORLD_STATE_DROP_GONE(s) while(cursor<end && s.error==0)
     {
         uint record=head+WS_LOG+cursor*6;cursor++;results[head+5]=cursor;
         if(results[record]!=3) continue;
