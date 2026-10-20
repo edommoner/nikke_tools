@@ -19,8 +19,8 @@ bool actorFieldConditions(inout Runtime s,uint row,uint target,uint64_t when)
 { WORLD_STATE_SCOPE_BEGIN(s,target) uint saved=s.target,slot=actorFieldLogicalSlot(s,target);s.target=slot==0 ? 0 : ACTOR_REF|slot;bool ok=basicConditions(s,row,when,true);s.target=saved; WORLD_STATE_SCOPE_END(s) return ok; }
 bool actorFieldContextAdd(inout Runtime s,uint who)
 {
-    if((s.target&ACTOR_REF)!=0) return commands[actorBinding(s,s.target&127U)]==5;
-    return (actorPhysicalTarget(s,who,0)&127U)!=0;
+    if((s.target&ACTOR_REF)!=0) return COUNTER_CONTEXT_ADD(s,commands[actorBinding(s,s.target&127U)]==5);
+    return COUNTER_CONTEXT_ADD(s,(actorPhysicalTarget(s,who,0)&127U)!=0);
 }
 bool actorFieldTargetMismatch(inout Runtime s,uint who,uint kind)
 { return kind==C_TARGET_BOSS && actorFieldContextAdd(s,who) || kind==C_TARGET_ADD && !actorFieldContextAdd(s,who); }

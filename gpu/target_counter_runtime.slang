@@ -97,7 +97,7 @@ void advanceTargetCounter(inout Runtime s,inout Frame frames[32],inout int depth
             results[h+2]++;uint out=s.resourceOutput+P_TARGET_COUNTER_TRACE_BASE+results[h+6]*24;results[h+6]++;
             for(uint j=0;j<20;j++) results[out+j]=results[src+j];storeNumber(out+20,f.time);results[out+22]=results[h+2];results[out+23]=s.alive[slot];
             // The immutable ready row survives refresh in the synchronous child.
-            pushFrame(s,frames,depth,0,58,definition_owner(s.inputBase,row),int(definition_name(s.inputBase,row)),f.time);
+            pushFrame(s,frames,depth,0,58,definition_owner(s.inputBase,row),int(definition_name(s.inputBase,row)),f.time); COUNTER_CONTEXT_READY(s,depth,src)
         }
         return;
     }
