@@ -9,4 +9,7 @@ def rejection_programs(cases,compile_case):
         words,meta=compile_case(case);at=L['HEALTH_DEFINITION_BASE']+index*L['HEALTH_DEFINITION_WORDS']+2
         words[at]=(words[at]&3)|(tag<<2)
         programs.append((words,meta));expected.append(dict(name='wire-stat-applied-'+name,status=64))
+    base=next(c for c in cases if c['name']=='named-state-base-RL-charge-50')
+    words,meta=compile_case(base);words[L['ATTACK_CONTEXT_BASE']]=8
+    programs.append((words,meta));expected.append(dict(name='wire-base-weapon-context-reserved-bit',status=64))
     return programs,expected

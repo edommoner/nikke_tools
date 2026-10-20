@@ -29,10 +29,12 @@ def pack_combat(words, config, double_words):
     words[28:30]=double_words(number(config.get('initial_gauge',0),0,100))
     words[30:32]=double_words(number(config.get('reentry_delay',.5),0,180))
     for i,w in enumerate(weapons):
-        allowed={'enabled','mode','coefficient','capacity','interval','reload','charge','gauge','stage','cooldown','pellets','muzzles','full_charge_mult','optimal','element_match','rate','rate_max','warmup','cooldown_time','spread_start','spread_end','spread_shots','core_diameter','clip_count','post_reload_delay','min_cycle','gauge_mult','core_mult','raw_charge','cover_during_delay','reload_cancel_on_full'}
+        allowed={'base_weapon_type','enabled','mode','coefficient','capacity','interval','reload','charge','gauge','stage','cooldown','pellets','muzzles','full_charge_mult','optimal','element_match','rate','rate_max','warmup','cooldown_time','spread_start','spread_end','spread_shots','core_diameter','clip_count','post_reload_delay','min_cycle','gauge_mult','core_mult','raw_charge','cover_during_delay','reload_cancel_on_full'}
         if not isinstance(w,dict) or set(w)-allowed or type(w.get('enabled',False)) is not bool:
             raise ValueError('Unsupported weapon fields')
         enabled=w.get('enabled',False);mode=w.get('mode','auto')
+        base_type=w.get('base_weapon_type','MG' if mode=='auto_warmup' else 'AR')
+        if base_type not in ('AR','SMG','MG','SG','SR','RL'):raise ValueError('Unknown base weapon type')
         if mode not in ('auto','auto_warmup','charge'):raise ValueError('Unsupported automatic firing mode')
         cap=w.get('capacity',1);stage=w.get('stage',0)
         if type(cap) is not int or not 1<=cap<=10000 or type(stage) is not int or stage not in (0,1,2,3,4):raise ValueError('Invalid magazine or burst stage')
@@ -42,7 +44,7 @@ def pack_combat(words, config, double_words):
         at=L['WEAPON_EXTRA_BASE']+i*4;words[at:at+2]=[pellets,muzzles]
         words[at+2:at+4]=double_words(number(w.get('full_charge_mult',100),0,1e6))
         if any(type(w.get(k,False)) is not bool for k in ('optimal','element_match')):raise ValueError('Attack context must be boolean')
-        words[L['ATTACK_CONTEXT_BASE']+i]=int(w.get('optimal',False)) | (int(w.get('element_match',False))<<1)
+        words[L['ATTACK_CONTEXT_BASE']+i]=int(w.get('optimal',False)) | (int(w.get('element_match',False))<<1) | (int(base_type=='RL')<<2)
         raw_rate=number(w['rate'],1/180,1e6) if 'rate' in w else None
         if raw_rate is not None and (mode=='charge' or 'interval' in w and w['interval']!=1/raw_rate):raise ValueError('Conflicting rate/interval or rate on a charge weapon')
         default_interval=1/raw_rate if raw_rate is not None else 1

@@ -10,7 +10,7 @@ import engine_worker
 
 def authored_weapon(char,w):
     weapon=char['_weapon']
-    weapon.update(weapon_type='MG' if w.get('mode')=='auto_warmup' else 'AR',damage_coeff=w.get('coefficient',100),
+    weapon.update(weapon_type=w.get('base_weapon_type','MG' if w.get('mode')=='auto_warmup' else 'AR'),damage_coeff=w.get('coefficient',100),
                   max_ammo=w.get('capacity',1),reload_time=w.get('reload',1),core_dmg_mult=w.get('core_mult',200),
                   fire_rate=w.get('rate',1/w.get('interval',1)),fire_rate_max=w.get('rate_max',w.get('rate',1/w.get('interval',1))),
                   pellets=w.get('pellets',1),muzzles=w.get('muzzles',1),full_charge_mult=w.get('full_charge_mult',100))

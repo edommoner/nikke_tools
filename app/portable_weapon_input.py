@@ -12,7 +12,7 @@ def normalize_static_weapon(char,base_atk,enemy,*,camera=False):
     if state.fire_mode not in ('auto','auto_warmup','charge'):raise UnsupportedPortable('Unported real firing mode')
     stage=char.get('burst_stage') or state.burst_stage
     if str(stage) not in ('1','2','3','A'):raise UnsupportedPortable('Unported real burst stage')
-    config=dict(enabled=True,mode=state.fire_mode,capacity=weapon['max_ammo'],coefficient=weapon['damage_coeff'],
+    config=dict(base_weapon_type=state.base_weapon_type,enabled=True,mode=state.fire_mode,capacity=weapon['max_ammo'],coefficient=weapon['damage_coeff'],
                 reload=weapon['reload_time'],raw_charge=weapon.get('charge_time') or 0,pellets=state.pellets,muzzles=state.muzzles,
                 full_charge_mult=weapon.get('full_charge_mult',100),gauge=state.burst_energy,
                 gauge_mult=weapon.get('full_charge_mult',100) if state.fire_mode=='charge' and camera else 100,

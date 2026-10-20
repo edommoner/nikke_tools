@@ -37,6 +37,18 @@ class NamedStateContracts(unittest.TestCase):
             self.assertEqual(buffs('stat-'+stat+'-unnamed')[0][0],10)
             self.assertEqual(buffs('stat-'+stat+'-lazy-stays-unresolved')[0][0],0)
             self.assertEqual(buffs('stat-'+stat+'-named-child-removes-parent')[0][0],210)
+    def test_eager_alias_after_lazy_resolution_uses_incoming_targets(self):
+        for stat in ('dot_dmg_pct','split_dmg_pct'):self.assertEqual([r[0] for r in buffs('alias-resolved-lazy-to-eager-'+stat)],[0,10])
+    def test_base_rl_charge_classification_applies_explosion_bonus(self):
+        from portable_burst_oracle import observe as weapon
+        damage=lambda name:weapon(case(name))['queries'][0]['damage'][0]
+        self.assertEqual(damage('base-RL-charge-50'),1500)
+        for name in ('base-SR-charge-50','base-AR-charge-50','base-RL-charge-0'):self.assertEqual(damage(name),1000)
+        self.assertEqual(damage('base-RL-charge--50'),500)
+        self.assertEqual(damage('base-RL-auto-50'),1000)
+    def test_unknown_base_weapon_type_is_rejected(self):
+        c=copy.deepcopy(case('base-RL-charge-50'));c['combat']['weapons'][0]['base_weapon_type']='unknown'
+        with self.assertRaises(ValueError):v.compile_case(c)
     def test_known_unsupported_and_malformed_events_remain_rejected(self):
         for timing in ('event:','event:state_end:','event:part_destroy','event:enemy_spawn','event:projectile_destroy','event:accum_full:A:B','event:target_counter_complete:A:B','event:ally_hp_below:abc','event:adjacent_hp_below:50:bad','stack_reach:A:B:1','every_stack:A:B:1','hit_count:A:B:1'):
             with self.subTest(timing=timing),self.assertRaises(ValueError):validate_input(dict(trigger=dict(timing=[timing],condition=[])))

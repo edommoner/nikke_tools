@@ -58,6 +58,25 @@ for stat in ('dot_dmg_pct','split_dmg_pct'):
     removal=dict(name='remove',source='스킬1',type='instant',stat='remove_named_buff',target='self',target_effect='mod:'+stat,trigger=dict(timing=['event:mod:'+stat],condition=[]))
     add('stat-'+stat+'-named-child-removes-parent',[effect('mod:'+stat,stat,target=['self']*21),removal,copy.deepcopy(observer)],[notify(),query(0,0)])
 
+for stat in ('dot_dmg_pct','split_dmg_pct'):
+    c=copy.deepcopy(next(c for c in rows if c['name']=='named-state-stat-'+stat+'-refresh-max-one'))
+    parent=c['effects'][0];parent['target']='allies_top_atk:1'
+    other=copy.deepcopy(parent);other['target']='self';other['trigger']['timing']=['event:full_reload'];c['effects'].insert(1,other)
+    c['name']='named-state-alias-resolved-lazy-to-eager-'+stat
+    c['script']=[notify(),query(0,0),notify(.1,19),query(.1,1)];c['expected_queries']=[dict(time=0),dict(time=.1)];rows.append(c)
+
+for base_type,mode,value in [('RL','charge',50),('SR','charge',50),('AR','charge',50),('RL','auto',50),('RL','charge',-50),('RL','charge',0)]:
+    name='named-state-base-'+base_type+'-'+mode+'-'+str(value)
+    effects=[effect('stage:voice','',timing='battle_start',duration=-1),effect('explosion:bonus','projectile_explosion_dmg_pct',timing='battle_start',conditions=['self_state:stage:voice'],fixed_value=value,duration=-1),effect('no critical','crit_rate',target='all_allies',timing='battle_start',fixed_value=-15,duration=-1)]
+    weapons=[dict(enabled=i==0,base_weapon_type=base_type if i==0 else 'AR',mode=mode if i==0 else 'auto',capacity=10,interval=1,charge=.5,full_charge_mult=100) for i in range(5)]
+    rows.append(dict(name=name,named_state_reference=True,mode_session_reference=True,effects=effects,combat=dict(weapons=weapons,targets=[dict(hp=1e30)]),script=[[.5,24,0,0,0,-1,0,0],[.5,2,0,0,0,0,0,0]],expected_queries=[dict(damage=[1000*(1+value/100) if base_type=='RL' and mode=='charge' else 1000])]))
+for replacement in ('AR','SR'):
+    c=copy.deepcopy(next(c for c in rows if c['name']=='named-state-base-RL-charge-50'))
+    c['name']='named-state-base-RL-mode-'+replacement
+    mode=dict(name='changed:weapon',source='스킬2',type='weapon_change',weapon_type=replacement,damage_coeff=100,max_ammo=10,fire_rate=1,fire_rate_max=1,charge=replacement=='SR',pellets=1,muzzles=1,post_fire_delay=0,burst_energy=0,core_dmg_mult=200,reload_time=1,duration=2,target='self',trigger=dict(timing=['event:cover_healed'],condition=[]))
+    if replacement=='SR':mode.update(charge_time=.5,full_charge_mult=100)
+    c['effects'].append(mode);c['script']=[[0,24,0,0,0,-1,0,0],notify(.1,17),[1,24,0,0,0,-1,0,0],query(1,0)];c['expected_queries']=[dict(attack_buffs=[0]*5)];rows.append(c)
+
 # Existing authored weapon scenarios exercise the actual native controller.
 source=json.loads((R/'tests/fixtures/portable-mode-sessions.json').read_text())['cases']
 for title in ('mode-entry-state-is-installed-before-notice','mode-entry-is-squad-broadcast','mode-toggle-exit-does-not-emit-entry','mode-nested-entry-finishes-before-parent-resumes'):

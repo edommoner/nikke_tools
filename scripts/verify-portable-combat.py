@@ -127,7 +127,7 @@ def main():
     tracked += ['tests/fixtures/portable-lazy-capacity-rejection.json','tests/fixtures/portable-lazy-cleanse-capacity-rejection.json','app/portable_status_specs.py','scripts/portable_status_oracle.py','scripts/portable_status_validation.py','tests/fixtures/portable-status.json','scripts/portable_bullet_oracle.py']
     tracked += ['scripts/portable_carrier_observer.py','app/weapon_mode_runtime.py','app/portable_stack_specs.py','scripts/portable_stack_oracle.py','scripts/portable_stack_validation.py','tests/fixtures/portable-stacks.json']
     tracked += ['app/portable_protection_specs.py','app/protection_runtime.py','scripts/portable_protection_oracle.py','scripts/portable_protection_validation.py','tests/fixtures/portable-protection.json','tests/fixtures/portable-split.json','scripts/portable_split_validation.py','scripts/portable_instant_list_oracle.py','scripts/portable_instant_list_validation.py','tests/fixtures/portable-instant-lists.json']
-    tracked += ['scripts/portable_named_state_oracle.py','scripts/portable_named_state_validation.py','tests/fixtures/portable-named-states.json']
+    tracked += ['app/portable_weapon_input.py','scripts/portable_named_state_oracle.py','scripts/portable_named_state_validation.py','tests/fixtures/portable-named-states.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     cases=fixtures();programs=[compile_case(c) for c in cases]
     # The same identity may be re-used only with a new bounded generation.

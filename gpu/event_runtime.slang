@@ -500,8 +500,9 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
                 frames[depth].event = 3;
                 // Native activation keeps its eagerly selected local target
                 // list across named/stack callbacks, even if they remove or
-                // replace the carrier. Lazy targets remain unresolved here.
-                if (buff.lazyGroup == 0 && f.value != 0)
+                // replace the carrier. Incoming lazy targets have a zero captured
+                // order; the resident may originate from a different selector.
+                if (f.value != 0)
                     pushFrame(s,frames,depth,12,31,buff.owner,int((buff.buffEvent >> 2)-1),f.time,f.value);
                 return;
             }

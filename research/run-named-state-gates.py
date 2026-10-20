@@ -11,7 +11,7 @@ jobs.insert(0,('named-state-native',['research/verify-named-states.py','--native
 source=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip();total=len(jobs);rows=[]
 for name,args in jobs:
  subprocess.run(['git','diff','--exit-code',source,'--','app','scripts','gpu','tests'],cwd=root,check=True,stdout=subprocess.DEVNULL)
- start=time.monotonic();log=Path('/tmp/nikke-v61-gate-'+name+'.log')
+ start=time.monotonic();log=Path('/tmp/nikke-v62-gate-'+name+'.log')
  with log.open('w') as f:result=subprocess.run([python,*args],cwd=root,stdout=f,stderr=subprocess.STDOUT)
  rows.append(dict(name=name,source_commit=source,exit_code=result.returncode,elapsed_seconds=time.monotonic()-start,log=str(log)))
  (root/'research/portable-named-states-global-gates.json').write_text(json.dumps(dict(passed=all(r['exit_code']==0 for r in rows),complete=len(rows)==total,gates=rows,source_commit=source),indent=2)+'\n')

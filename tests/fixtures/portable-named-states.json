@@ -5475,6 +5475,1472 @@
       }
     },
     {
+      "name": "named-state-alias-resolved-lazy-to-eager-dot_dmg_pct",
+      "named_state_reference": true,
+      "effects": [
+        {
+          "name": "mod:dot_dmg_pct",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "dot_dmg_pct",
+          "target": "allies_top_atk:1",
+          "duration": 0.5,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        },
+        {
+          "name": "mod:dot_dmg_pct",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "dot_dmg_pct",
+          "target": "self",
+          "duration": 0.5,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:full_reload"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        },
+        {
+          "name": "seen",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "target": "self",
+          "duration": 2,
+          "max_stack": 100,
+          "trigger": {
+            "timing": [
+              "event:stat_applied:dot_dmg_pct"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          19,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0
+        },
+        {
+          "time": 0.1
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000
+          },
+          {
+            "base_hp": 1000
+          },
+          {
+            "base_hp": 1000
+          },
+          {
+            "base_hp": 1000
+          },
+          {
+            "base_hp": 1000
+          }
+        ]
+      }
+    },
+    {
+      "name": "named-state-alias-resolved-lazy-to-eager-split_dmg_pct",
+      "named_state_reference": true,
+      "effects": [
+        {
+          "name": "mod:split_dmg_pct",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "split_dmg_pct",
+          "target": "allies_top_atk:1",
+          "duration": 0.5,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "on_attack"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        },
+        {
+          "name": "mod:split_dmg_pct",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "split_dmg_pct",
+          "target": "self",
+          "duration": 0.5,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "event:full_reload"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        },
+        {
+          "name": "seen",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "atk_pct",
+          "target": "self",
+          "duration": 2,
+          "max_stack": 100,
+          "trigger": {
+            "timing": [
+              "event:stat_applied:split_dmg_pct"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        }
+      ],
+      "script": [
+        [
+          0,
+          0,
+          7,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          19,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          2,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "time": 0
+        },
+        {
+          "time": 0.1
+        }
+      ],
+      "environment": {
+        "allies": [
+          {
+            "base_hp": 1000
+          },
+          {
+            "base_hp": 1000
+          },
+          {
+            "base_hp": 1000
+          },
+          {
+            "base_hp": 1000
+          },
+          {
+            "base_hp": 1000
+          }
+        ]
+      }
+    },
+    {
+      "name": "named-state-base-RL-charge-50",
+      "named_state_reference": true,
+      "mode_session_reference": true,
+      "effects": [
+        {
+          "name": "stage:voice",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        },
+        {
+          "name": "explosion:bonus",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "projectile_explosion_dmg_pct",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": [
+              "self_state:stage:voice"
+            ]
+          },
+          "fixed_value": 50
+        },
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": -15
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "base_weapon_type": "RL",
+            "mode": "charge",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.5,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1500.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "named-state-base-SR-charge-50",
+      "named_state_reference": true,
+      "mode_session_reference": true,
+      "effects": [
+        {
+          "name": "stage:voice",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        },
+        {
+          "name": "explosion:bonus",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "projectile_explosion_dmg_pct",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": [
+              "self_state:stage:voice"
+            ]
+          },
+          "fixed_value": 50
+        },
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": -15
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "base_weapon_type": "SR",
+            "mode": "charge",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.5,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "named-state-base-AR-charge-50",
+      "named_state_reference": true,
+      "mode_session_reference": true,
+      "effects": [
+        {
+          "name": "stage:voice",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        },
+        {
+          "name": "explosion:bonus",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "projectile_explosion_dmg_pct",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": [
+              "self_state:stage:voice"
+            ]
+          },
+          "fixed_value": 50
+        },
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": -15
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "base_weapon_type": "AR",
+            "mode": "charge",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.5,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "named-state-base-RL-auto-50",
+      "named_state_reference": true,
+      "mode_session_reference": true,
+      "effects": [
+        {
+          "name": "stage:voice",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        },
+        {
+          "name": "explosion:bonus",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "projectile_explosion_dmg_pct",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": [
+              "self_state:stage:voice"
+            ]
+          },
+          "fixed_value": 50
+        },
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": -15
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "base_weapon_type": "RL",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.5,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "named-state-base-RL-charge--50",
+      "named_state_reference": true,
+      "mode_session_reference": true,
+      "effects": [
+        {
+          "name": "stage:voice",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        },
+        {
+          "name": "explosion:bonus",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "projectile_explosion_dmg_pct",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": [
+              "self_state:stage:voice"
+            ]
+          },
+          "fixed_value": -50
+        },
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": -15
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "base_weapon_type": "RL",
+            "mode": "charge",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.5,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            500.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "named-state-base-RL-charge-0",
+      "named_state_reference": true,
+      "mode_session_reference": true,
+      "effects": [
+        {
+          "name": "stage:voice",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        },
+        {
+          "name": "explosion:bonus",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "projectile_explosion_dmg_pct",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": [
+              "self_state:stage:voice"
+            ]
+          },
+          "fixed_value": 0
+        },
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": -15
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "base_weapon_type": "RL",
+            "mode": "charge",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0.5,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.5,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "damage": [
+            1000.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "named-state-base-RL-mode-AR",
+      "named_state_reference": true,
+      "mode_session_reference": true,
+      "effects": [
+        {
+          "name": "stage:voice",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        },
+        {
+          "name": "explosion:bonus",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "projectile_explosion_dmg_pct",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": [
+              "self_state:stage:voice"
+            ]
+          },
+          "fixed_value": 50
+        },
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": -15
+        },
+        {
+          "name": "changed:weapon",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "AR",
+          "damage_coeff": 100,
+          "max_ammo": 10,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": false,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          }
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "base_weapon_type": "RL",
+            "mode": "charge",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "named-state-base-RL-mode-SR",
+      "named_state_reference": true,
+      "mode_session_reference": true,
+      "effects": [
+        {
+          "name": "stage:voice",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": 10
+        },
+        {
+          "name": "explosion:bonus",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "projectile_explosion_dmg_pct",
+          "target": "self",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": [
+              "self_state:stage:voice"
+            ]
+          },
+          "fixed_value": 50
+        },
+        {
+          "name": "no critical",
+          "source": "스킬1",
+          "type": "buff",
+          "stat": "crit_rate",
+          "target": "all_allies",
+          "duration": -1,
+          "max_stack": 1,
+          "trigger": {
+            "timing": [
+              "battle_start"
+            ],
+            "condition": []
+          },
+          "fixed_value": -15
+        },
+        {
+          "name": "changed:weapon",
+          "source": "스킬2",
+          "type": "weapon_change",
+          "weapon_type": "SR",
+          "damage_coeff": 100,
+          "max_ammo": 10,
+          "fire_rate": 1,
+          "fire_rate_max": 1,
+          "charge": true,
+          "pellets": 1,
+          "muzzles": 1,
+          "post_fire_delay": 0,
+          "burst_energy": 0,
+          "core_dmg_mult": 200,
+          "reload_time": 1,
+          "duration": 2,
+          "target": "self",
+          "trigger": {
+            "timing": [
+              "event:cover_healed"
+            ],
+            "condition": []
+          },
+          "charge_time": 0.5,
+          "full_charge_mult": 100
+        }
+      ],
+      "combat": {
+        "weapons": [
+          {
+            "enabled": true,
+            "base_weapon_type": "RL",
+            "mode": "charge",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          },
+          {
+            "enabled": false,
+            "base_weapon_type": "AR",
+            "mode": "auto",
+            "capacity": 10,
+            "interval": 1,
+            "charge": 0.5,
+            "full_charge_mult": 100
+          }
+        ],
+        "targets": [
+          {
+            "hp": 1e+30
+          }
+        ]
+      },
+      "script": [
+        [
+          0,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          17,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          24,
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected_queries": [
+        {
+          "attack_buffs": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
       "name": "named-state-mode-entry-state-is-installed-before-notice",
       "effects": [
         {
@@ -5493,7 +6959,7 @@
           }
         },
         {
-          "name": "바니 모드 : 인게이지",
+          "name": "named-state-base-RL-charge-0",
           "source": "스킬2",
           "type": "weapon_change",
           "weapon_type": "AR",
@@ -5528,10 +6994,10 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": [
-              "self_state:바니 모드 : 인게이지"
+              "self_state:named-state-base-RL-charge-0"
             ]
           }
         },
@@ -5546,10 +7012,10 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": [
-              "self_state:바니 모드 : 인게이지"
+              "self_state:named-state-base-RL-charge-0"
             ]
           }
         },
@@ -5564,10 +7030,10 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": [
-              "self_state:바니 모드 : 인게이지"
+              "self_state:named-state-base-RL-charge-0"
             ]
           }
         },
@@ -5582,10 +7048,10 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": [
-              "self_state:바니 모드 : 인게이지"
+              "self_state:named-state-base-RL-charge-0"
             ]
           }
         },
@@ -5600,10 +7066,10 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": [
-              "self_state:바니 모드 : 인게이지"
+              "self_state:named-state-base-RL-charge-0"
             ]
           }
         }
@@ -5723,7 +7189,7 @@
           }
         },
         {
-          "name": "바니 모드 : 인게이지",
+          "name": "named-state-base-RL-charge-0",
           "source": "스킬2",
           "type": "weapon_change",
           "weapon_type": "AR",
@@ -5758,7 +7224,7 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": []
           }
@@ -5774,7 +7240,7 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": []
           }
@@ -5790,7 +7256,7 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": []
           }
@@ -5806,7 +7272,7 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": []
           }
@@ -5822,7 +7288,7 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": []
           }
@@ -5943,7 +7409,7 @@
           }
         },
         {
-          "name": "바니 모드 : 인게이지",
+          "name": "named-state-base-RL-charge-0",
           "source": "스킬2",
           "type": "weapon_change",
           "weapon_type": "AR",
@@ -5979,7 +7445,7 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": []
           }
@@ -5995,7 +7461,7 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": []
           }
@@ -6011,7 +7477,7 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": []
           }
@@ -6027,7 +7493,7 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": []
           }
@@ -6043,7 +7509,7 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": []
           }
@@ -6059,7 +7525,7 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:state_end:바니 모드 : 인게이지"
+              "event:state_end:named-state-base-RL-charge-0"
             ],
             "condition": []
           }
@@ -6232,7 +7698,7 @@
           }
         },
         {
-          "name": "바니 모드 : 인게이지",
+          "name": "named-state-base-RL-charge-0",
           "source": "스킬2",
           "type": "weapon_change",
           "weapon_type": "AR",
@@ -6276,7 +7742,7 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": []
           }
@@ -6292,10 +7758,10 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": [
-              "self_state:바니 모드 : 인게이지"
+              "self_state:named-state-base-RL-charge-0"
             ]
           }
         },
@@ -6310,7 +7776,7 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": []
           }
@@ -6326,7 +7792,7 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": []
           }
@@ -6342,7 +7808,7 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": []
           }
@@ -6358,7 +7824,7 @@
           "target": "self",
           "trigger": {
             "timing": [
-              "event:바니 모드 : 인게이지"
+              "event:named-state-base-RL-charge-0"
             ],
             "condition": []
           }
