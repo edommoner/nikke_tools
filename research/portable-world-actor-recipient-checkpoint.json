@@ -11,7 +11,7 @@
   "source_input_words": 92336,
   "gpu_executions": 1,
   "gpu_retries": 0,
-  "windows_status": "not_dispatched;aggregate_with_wide_status_stage",
+  "windows_status": "completed/audited in combined v87",
   "short_golden_inputs": 23,
   "normal_ui": "CPU",
   "canonical_world_admission": false,
@@ -22,5 +22,8 @@
     "Connect128-target immunity capacity and recharge to existing loops",
     "Connect typed cleanse and stack mutations/counters",
     "Metal full native and old outputs before bounded new-only CUDA"
-  ]
+  ],
+  "windows_recipients_verified": true,
+  "cross_backend_proof": "portable-world-v87-cuda-validation.json",
+  "cuda_combined_source": "f988d15ceb36f8715981afc69cbe77e92612138c"
 }

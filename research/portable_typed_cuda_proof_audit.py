@@ -3,7 +3,7 @@ import hashlib,json,re,subprocess
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def sha(b):return hashlib.sha256(b).hexdigest()
-def audit(*,version,source,expected_file,inputs,native_oracles,test_counts,phase_suite,old_replays,payload_files,payload_bytes,single_suite_replay_names=(),single_suite_command=None):
+def audit(*,version,source,expected_file,inputs,native_oracles,test_counts,phase_suite,old_replays,payload_files,payload_bytes,single_suite_replay_names=(),single_suite_command=None,summary_omission_counts=None):
  def load(p):return json.loads((ROOT/'research'/p).read_text())
  def blob(p):return subprocess.check_output(['git','show',source+':'+p],cwd=ROOT)
  summary_name=f'windows-portable-world-v{version}-summary.json';execution_name=f'portable-world-v{version}-execution.json';receipt_name=f'portable-cross-v{version}-receipt.json'
@@ -21,9 +21,16 @@ def audit(*,version,source,expected_file,inputs,native_oracles,test_counts,phase
  assert e['passed'] and not e['timed_out'] and e['child_exit_code']==e['final_child_exit_code']==0 and e['error'] is None and e['cleanup_error'] is None and e['below_normal_priority'] and e['timeout_seconds']==180 and e['cleanup_wait_seconds']==5 and e['elapsed_seconds']<180
  assert r['passed'] and r['original_head_equal'] and r['original_status_equal'] and r['existing_gpu_service_preserved'] and r['residual_verification_process_count']==0 and r['actual_gpu_execution_count']==1
  assert r['gpu_retry_count']==e['gpu_retry_count']==0
- derived=[]
+ derived=[];summary_derived=[];allowed_summary_omissions=summary_omission_counts or {}
  for n in old_replays:
-  assert s[n+'_reexecutions']==0
+  if n+'_reexecutions' in s:assert s[n+'_reexecutions']==0
+  else:
+   # Omission is not zero:require an explicit receipt counter plus the fixed
+   # smaller input suite and its single-dispatch journal,verified below.
+   assert n in allowed_summary_omissions and type(allowed_summary_omissions[n]) is int and inputs<allowed_summary_omissions[n]
+   assert r[n+'_execution_count']==0 and single_suite_command is not None and r['bounded_driver']['shared_gpu_command']==single_suite_command
+   assert evidence['transport']['cases']==inputs and r['actual_gpu_execution_count']==1
+   summary_derived.append(n)
   if n+'_execution_count' in r:assert r[n+'_execution_count']==0
   else:
    # A missing redundant per-suite counter is never treated as zero. Require
@@ -44,4 +51,5 @@ def audit(*,version,source,expected_file,inputs,native_oracles,test_counts,phase
  result=dict(passed=True,source_commit=source,inputs=inputs,all_input_output_bytes_native_and_generated_fingerprints_equal=True,actual_cuda_executions=1,cuda_elapsed_seconds=e['elapsed_seconds'],cpu_tests=sum(n for _,n in test_counts),cpu_native_oracles=native_oracles,cpu_gpu_calls=0,phase_events=50,**{n+'_reexecutions':0 for n in old_replays},gpu_retries=0,residual_processes=0,original_windows_work_and_service_preserved=True,imported_bytes=sum(a['bytes'] for a in receipt['artifacts']),source_payload_bytes=payload_bytes,audit_gpu_calls=0,full_character_verified=0,canonical_world_admission=False,normal_ui='CPU',full_goal_complete=False)
 
  if derived:result['reexecution_absence_derived_from_single_dispatch']=derived
+ if summary_derived:result['summary_omissions_verified_from_receipt_and_frozen_dispatch']=summary_derived
  return result

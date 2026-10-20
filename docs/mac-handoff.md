@@ -6,7 +6,7 @@
 
 Metal529入力はnative37件・不正入力8件・旧484入力の全524288出力word保持で成功し、単体348件と通常/fields/state/mutation/recipientの生成CUDA・MSL厳密一致も確認しました。128個別プール、同名最大・別名独立、再補充、named免疫、irremovable、65対象、共有バフの部分解除、無通知での最後の受領者解除、再出現を含みます。初期コンパイラ比較はCUDAの空行1個で失敗し、読み取り式のproviderへ移して正規化を広げず回復しました。その修正までGPU実行0で、最終GPUは1回・再試行0です。
 
-証拠はportable-world-actor-status-validation.json、CPU監査器はseal-world-actor-status-metal.py。共有受領者の新23入力と今回の45入力をまとめた68入力/56 native参照の全fingerprintを保存し、GPU関数を禁止したCPU事前照合も成功しました。Windowsではこの68入力だけを低優先度・180秒上限で1回確認します。旧461/484・通常4682は再実行しません。スタック操作/target counter、skill/pending/DoT、mixed target、source攻撃/interrupt、操作/復活、容量/全203認証は残っており、通常画面CPU・world公開無効・全変種認証0/203・効率化未開始を維持します。
+証拠はportable-world-actor-status-validation.json、CPU監査器はseal-world-actor-status-metal.py。共有受領者の新23入力と今回の45入力をまとめた68入力/56 native参照の全fingerprintを保存し、GPU関数を禁止したCPU事前照合も成功しました。Windows v87は固定f988d15の共通driverで68入力/56 native参照を94.93秒、BelowNormal・180秒上限の1回で成功しました。CPU21検査・GPU禁止事前照合、NVRTC/launch/同期/readbackの50記録、全input/output/native/generated SHAをMacで監査しました。元checkout/サービス保持・残存0・retry0です。保存済み3JSON 70,487bytesだけを取得してSHA照合し、GPU再実行0です。summaryにold484のカウンターが無いため、明示receiptの0・固定68入力command・実測launch1回から確認し、欠落や矛盾を許さないCPU負例5件と旧v83〜v86監査結果保持も確認しました。証拠はportable-world-v87-cuda-validation.jsonです。旧461/484・通常4682を全件再実行していません。スタック操作/target counter、skill/pending/DoT、mixed target、source攻撃/interrupt、操作/復活、容量/全203認証は残っており、通常画面CPU・world公開無効・全変種認証0/203・効率化未開始を維持します。
 
 
 ## 2026-10-21 長寿命共有受領者をMetalへ接続

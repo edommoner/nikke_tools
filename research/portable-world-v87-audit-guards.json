@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "summary omission plus missing receipt is rejected",
+      "rejected": true
+    },
+    {
+      "name": "positive old484 execution count is rejected",
+      "rejected": true
+    },
+    {
+      "name": "different physical dispatch count is rejected",
+      "rejected": true
+    },
+    {
+      "name": "different fixed command is rejected",
+      "rejected": true
+    },
+    {
+      "name": "non-smaller suite cannot establish omission",
+      "rejected": true
+    }
+  ],
+  "original_gpu_json_modified": false,
+  "gpu_executions": 0
+}

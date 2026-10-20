@@ -15,7 +15,7 @@
   "combined_short_inputs": 68,
   "combined_native_oracles": 56,
   "combined_raw_rejections": 12,
-  "windows_status": "requested68_after_cpu21",
+  "windows_status": "completed/audited",
   "normal_ui": "CPU",
   "canonical_world_admission": false,
   "full_character_verified": 0,
@@ -32,5 +32,20 @@
     "Capacity/long simulations/full203 certification",
     "Efficiency after required validation"
   ],
-  "cuda_source": "f988d15ceb36f8715981afc69cbe77e92612138c"
+  "cuda_source": "f988d15ceb36f8715981afc69cbe77e92612138c",
+  "windows_cuda_inputs": 68,
+  "windows_native_oracles": 56,
+  "windows_cpu_tests": 21,
+  "windows_gpu_executions": 1,
+  "windows_gpu_seconds": 94.9333731001243,
+  "windows_imported_json_bytes": 70487,
+  "windows_recipients_verified": true,
+  "windows_status_verified": true,
+  "windows_idle": true,
+  "gpu_jobs_active": 0,
+  "proofs": [
+    "portable-world-actor-recipient-validation.json",
+    "portable-world-actor-status-validation.json",
+    "portable-world-v87-cuda-validation.json"
+  ]
 }
