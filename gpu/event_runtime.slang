@@ -182,10 +182,35 @@ struct Runtime
 #define WORLD_FIELDS_INIT(s,output)
 #define WORLD_FIELDS_COMMAND(s,at)
 #endif
+#ifdef PORTABLE_WORLD_ACTOR_RECIPIENTS
+#define WORLD_RECIPIENT_STATE(s,legacy) ((legacy)||actorRecipientsEnabled(s))
+#define WORLD_RECIPIENT_HEADER(value,legacy) ((legacy)&&value!=0x57523031)
+#define WORLD_RECIPIENT_KIND(s,d,legacy) ((legacy)&&!(actorRecipientsEnabled(s)&&d.kind==18))
+#define WORLD_RECIPIENT_RESET(s,row) resetActorRecipients(s,row);
+#define WORLD_RECIPIENT_BIND(s,row,target,gen) bindActorRecipient(s,row,target,gen);
+#define WORLD_RECIPIENT_MEMBER(s,row,target,legacy) (actorRecipientsEnabled(s) ? actorRecipientMember(s,row,target) : (legacy))
+#define WORLD_RECIPIENT_SAME(s,row,gen,legacy) (actorRecipientsEnabled(s) ? actorRecipientSame(s,row,gen) : (legacy))
+#define WORLD_RECIPIENT_GONE(s) if(actorRecipientsEnabled(s)) { actorRecipientsDropGone(s);return; }
+#define WORLD_RECIPIENT_SCOPE_MISS(s,row,bits,legacy) (actorRecipientsEnabled(s) ? !actorRecipientsStrip(s,row,bits) : (legacy))
+#define WORLD_RECIPIENT_INIT(s) initializeActorRecipients(s);
+#define WORLD_RECIPIENT_STACK_INIT(s,slot,d,target) if(actorRecipientsEnabled(s)) { captureActorRecipients(s,slot,d,target); } else
+#else
+#define WORLD_RECIPIENT_STATE(s,legacy) legacy
+#define WORLD_RECIPIENT_HEADER(value,legacy) legacy
+#define WORLD_RECIPIENT_KIND(s,d,legacy) legacy
+#define WORLD_RECIPIENT_RESET(s,row)
+#define WORLD_RECIPIENT_BIND(s,row,target,gen)
+#define WORLD_RECIPIENT_MEMBER(s,row,target,legacy) legacy
+#define WORLD_RECIPIENT_SAME(s,row,gen,legacy) legacy
+#define WORLD_RECIPIENT_GONE(s)
+#define WORLD_RECIPIENT_SCOPE_MISS(s,row,bits,legacy) legacy
+#define WORLD_RECIPIENT_INIT(s)
+#define WORLD_RECIPIENT_STACK_INIT(s,slot,d,target)
+#endif
 #ifdef PORTABLE_WORLD_ACTOR_MUTATION
-#define WORLD_MUTATION_STATE_ENABLED(s,legacy) ((legacy)||actorMutationEnabled(s))
-#define WORLD_MUTATION_HEADER_INVALID(s,value,legacy) ((legacy)&&value!=0x574D3031)
-#define WORLD_MUTATION_KIND_INVALID(s,d,legacy) ((legacy)&&!(actorMutationEnabled(s)&&d.kind==1))
+#define WORLD_MUTATION_STATE_ENABLED(s,legacy) WORLD_RECIPIENT_STATE(s,((legacy)||actorMutationEnabled(s)))
+#define WORLD_MUTATION_HEADER_INVALID(s,value,legacy) WORLD_RECIPIENT_HEADER(value,((legacy)&&value!=0x574D3031))
+#define WORLD_MUTATION_KIND_INVALID(s,d,legacy) WORLD_RECIPIENT_KIND(s,d,((legacy)&&!(actorMutationEnabled(s)&&d.kind==1)))
 #define WORLD_MUTATION_NAMED_REMOVE(s,row,target,when) if(actorMutationEnabled(s)) { actorMutationRemoveNamed(s,row,target,when);return; }
 #else
 #define WORLD_MUTATION_STATE_ENABLED(s,legacy) legacy
@@ -1574,6 +1599,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "world_actor_state.slang"
 #ifdef PORTABLE_WORLD_ACTOR_MUTATION
 #include "world_actor_mutation.slang"
+#ifdef PORTABLE_WORLD_ACTOR_RECIPIENTS
+#include "world_actor_recipients.slang"
+#endif
 #endif
 #endif
 #endif

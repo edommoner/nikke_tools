@@ -108,6 +108,11 @@ LIMITS['WORLD_ACTOR_STATE_BASE']=LIMITS['WORLD_OVERLAY_STATE_BASE']+LIMITS['WORL
 LIMITS['WORLD_ACTOR_QUERY_BASE']=LIMITS['WORLD_ACTOR_STATE_BASE']+8+LIMITS['WORLD_ACTORS']*8
 LIMITS['WORLD_ACTOR_STATE_WORDS']=8+LIMITS['WORLD_ACTORS']*8+LIMITS['COMMANDS']*8
 assert LIMITS['WORLD_ACTOR_QUERY_BASE']+LIMITS['COMMANDS']*8<=LIMITS['WORLD_FRAME_OUTPUT_WORDS']
+LIMITS['WORLD_ACTOR_RECIPIENT_ABI']=ABI+8
+LIMITS['WORLD_ACTOR_RECIPIENT_BASE']=262144
+LIMITS['WORLD_ACTOR_RECIPIENT_WORDS']=168
+LIMITS['WORLD_ACTOR_RECIPIENT_OUTPUT_WORDS']=524288
+LIMITS['WORLD_ACTOR_WIDE_IMMUNITY_BASE']=262144+16+512*168
 LIMITS['WORLD_ACTOR_MUTATION_ABI']=ABI+7
 LIMITS['WORLD_ACTOR_STATE_ABI']=ABI+6
 LIMITS['WORLD_ACTOR_STATE_INPUT_BASE']=92208
@@ -148,14 +153,14 @@ def shader_schema():
     lines = ['// Generated from app/portable_specs.py; do not hand-edit.',
              '#if defined(PORTABLE_WORLD_FRAME) && defined(PORTABLE_WIDE_LANDINGS)',
              '#error World and wide-landing diagnostic layouts cannot be combined.', '#endif',
-             '#ifdef PORTABLE_WORLD_ACTOR_MUTATION',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_ACTOR_MUTATION_ABI"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_STATE)',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_ACTOR_STATE_ABI"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_FIELDS)',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_ACTOR_FIELDS_ABI"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_POOLS)',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_ACTOR_POOL_ABI"]}U;','#elif defined(PORTABLE_WORLD_ACTORS)',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_ACTOR_ABI"]}U;','#elif defined(PORTABLE_WORLD_OVERLAYS)',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_OVERLAY_ABI"]}U;',
+             '#ifdef PORTABLE_WORLD_ACTOR_RECIPIENTS',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_ACTOR_RECIPIENT_ABI"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_MUTATION)',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_ACTOR_MUTATION_ABI"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_STATE)',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_ACTOR_STATE_ABI"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_FIELDS)',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_ACTOR_FIELDS_ABI"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_POOLS)',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_ACTOR_POOL_ABI"]}U;','#elif defined(PORTABLE_WORLD_ACTORS)',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_ACTOR_ABI"]}U;','#elif defined(PORTABLE_WORLD_OVERLAYS)',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_OVERLAY_ABI"]}U;',
              '#elif defined(PORTABLE_WORLD_FRAME)',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_FRAME_ABI"]}U;',
              '#else',f'static const uint PORTABLE_ABI = {ABI}U;','#endif']
     for prefix, mapping in [('P_', LIMITS), ('D_', FIELDS), ('C_', CONDITIONS), ('S_', STATS), ('H_', FLAGS)]:
         for name,value in mapping.items():
             variant=prefix=='P_' and name in ('INPUT_WORDS','OUTPUT_WORDS')
             if variant and name=='INPUT_WORDS':lines += ['#ifdef PORTABLE_WORLD_ACTOR_STATE',f'static const uint P_INPUT_WORDS = {LIMITS["WORLD_ACTOR_STATE_INPUT_WORDS"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_POOLS)',f'static const uint P_INPUT_WORDS = {LIMITS["WORLD_ACTOR_POOL_INPUT_WORDS"]}U;','#elif defined(PORTABLE_WORLD_ACTORS)',f'static const uint P_INPUT_WORDS = {LIMITS["WORLD_ACTOR_INPUT_WORDS"]}U;','#elif defined(PORTABLE_WORLD_OVERLAYS)',f'static const uint P_INPUT_WORDS = {LIMITS["WORLD_OVERLAY_INPUT_WORDS"]}U;','#elif defined(PORTABLE_WORLD_FRAME)']+[f'static const uint P_INPUT_WORDS = {LIMITS["WORLD_FRAME_INPUT_WORDS"]}U;','#else']
-            elif variant:lines += ['#ifdef PORTABLE_WORLD_ACTOR_FIELDS',f'static const uint P_OUTPUT_WORDS = {LIMITS["WORLD_ACTOR_FIELDS_OUTPUT_WORDS"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_POOLS)',f'static const uint P_OUTPUT_WORDS = {LIMITS["WORLD_ACTOR_POOL_OUTPUT_WORDS"]}U;','#elif defined(PORTABLE_WORLD_FRAME)',f'static const uint {prefix}{name} = {LIMITS["WORLD_FRAME_"+name]}U;','#else']
+            elif variant:lines += ['#ifdef PORTABLE_WORLD_ACTOR_RECIPIENTS',f'static const uint P_OUTPUT_WORDS = {LIMITS["WORLD_ACTOR_RECIPIENT_OUTPUT_WORDS"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_FIELDS)',f'static const uint P_OUTPUT_WORDS = {LIMITS["WORLD_ACTOR_FIELDS_OUTPUT_WORDS"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_POOLS)',f'static const uint P_OUTPUT_WORDS = {LIMITS["WORLD_ACTOR_POOL_OUTPUT_WORDS"]}U;','#elif defined(PORTABLE_WORLD_FRAME)',f'static const uint {prefix}{name} = {LIMITS["WORLD_FRAME_"+name]}U;','#else']
             if prefix=='P_' and name in ('LANDING_WORDS','OUTPUT_WORDS','REMOVAL_QUEUE_BASE','STACK_NOTICE_VALUE_BASE','PROBABILITY_STATE_BASE'):
                 delta=LIMITS['LANDINGS']*4
                 wide=12 if name=='LANDING_WORDS' else value+delta

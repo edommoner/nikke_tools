@@ -123,7 +123,7 @@ uint initializeStack(inout Runtime s,uint row,uint target,uint64_t when)
     s.end[slot]=duration==F64_INF ? F64_INF : f64Add(when,duration);
     s.stacks[slot]=stack;s.bulletLeft[slot]=-1;
     if(d.lazyGroup!=0) { s.lazyPending[slot]=1;s.lazyPendingCount++;s.lazyMappedPendingCount+=d.queryResolve; }
-    else if(d.enemyBuff!=0)
+    else if(d.enemyBuff!=0) WORLD_RECIPIENT_STACK_INIT(s,slot,d,target)
     {
         if(d.damageRoute==0) d.damageRoute=6;
         uint order;s.activeRecipients[slot]=enemyDamageMask(s,d,target,order)<<5;

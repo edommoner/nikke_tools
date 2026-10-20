@@ -2,7 +2,9 @@
 #if defined(PORTABLE_WORLD_FRAME) && defined(PORTABLE_WIDE_LANDINGS)
 #error World and wide-landing diagnostic layouts cannot be combined.
 #endif
-#ifdef PORTABLE_WORLD_ACTOR_MUTATION
+#ifdef PORTABLE_WORLD_ACTOR_RECIPIENTS
+static const uint PORTABLE_ABI = 1346721403U;
+#elif defined(PORTABLE_WORLD_ACTOR_MUTATION)
 static const uint PORTABLE_ABI = 1346721402U;
 #elif defined(PORTABLE_WORLD_ACTOR_STATE)
 static const uint PORTABLE_ABI = 1346721401U;
@@ -188,7 +190,9 @@ static const uint P_PROTECTION_MAP_BASE = 108224U;
 static const uint P_PROTECTION_SELECTION_BASE = 108736U;
 static const uint P_PROTECTION_OBJECT_BASE = 109248U;
 static const uint P_PROTECTION_BUILD_BASE = 133824U;
-#ifdef PORTABLE_WORLD_ACTOR_FIELDS
+#ifdef PORTABLE_WORLD_ACTOR_RECIPIENTS
+static const uint P_OUTPUT_WORDS = 524288U;
+#elif defined(PORTABLE_WORLD_ACTOR_FIELDS)
 static const uint P_OUTPUT_WORDS = 262144U;
 #elif defined(PORTABLE_WORLD_ACTOR_POOLS)
 static const uint P_OUTPUT_WORDS = 253952U;
@@ -241,6 +245,11 @@ static const uint P_WORLD_ACTOR_INPUT_WORDS = 90536U;
 static const uint P_WORLD_ACTOR_STATE_BASE = 216192U;
 static const uint P_WORLD_ACTOR_QUERY_BASE = 217224U;
 static const uint P_WORLD_ACTOR_STATE_WORDS = 1544U;
+static const uint P_WORLD_ACTOR_RECIPIENT_ABI = 1346721403U;
+static const uint P_WORLD_ACTOR_RECIPIENT_BASE = 262144U;
+static const uint P_WORLD_ACTOR_RECIPIENT_WORDS = 168U;
+static const uint P_WORLD_ACTOR_RECIPIENT_OUTPUT_WORDS = 524288U;
+static const uint P_WORLD_ACTOR_WIDE_IMMUNITY_BASE = 348176U;
 static const uint P_WORLD_ACTOR_MUTATION_ABI = 1346721402U;
 static const uint P_WORLD_ACTOR_STATE_ABI = 1346721401U;
 static const uint P_WORLD_ACTOR_STATE_INPUT_BASE = 92208U;

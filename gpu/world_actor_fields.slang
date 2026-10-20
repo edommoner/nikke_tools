@@ -4,17 +4,17 @@ bool actorFieldsEnabled(inout Runtime s) { return actorPoolsEnabled(s); }
 uint actorFieldKey(inout Runtime s,uint row) { return s.resourceOutput+P_WORLD_ACTOR_FIELD_KEY_BASE+row*4; }
 uint actorFieldHead(inout Runtime s) { return s.resourceOutput+P_WORLD_ACTOR_FIELDS_BASE; }
 void actorFieldReset(inout Runtime s,uint row)
-{ uint at=actorFieldKey(s,row);for(uint i=0;i<4;i++) results[at+i]=0; }
+{ uint at=actorFieldKey(s,row);for(uint i=0;i<4;i++) results[at+i]=0; WORLD_RECIPIENT_RESET(s,row) }
 void actorFieldBind(inout Runtime s,uint row,uint target,uint generation)
-{ uint at=actorFieldKey(s,row);results[at]=(target&127U)+1;results[at+1]=generation; }
+{ uint at=actorFieldKey(s,row);results[at]=(target&127U)+1;results[at+1]=generation; WORLD_RECIPIENT_BIND(s,row,target,generation) }
 bool actorFieldSame(inout Runtime s,uint row,uint generation)
-{ uint at=actorFieldKey(s,row);return results[at]==(s.target&127U)+1 && results[at+1]==generation; }
+{ uint at=actorFieldKey(s,row);return WORLD_RECIPIENT_SAME(s,row,generation,results[at]==(s.target&127U)+1 && results[at+1]==generation); }
 uint actorFieldLogicalSlot(inout Runtime s,uint target)
 { uint slot=(target&ACTOR_REF)!=0 ? target&127U : target;if(slot>=actorPoolCount(s)) return 128;return commands[actorBinding(s,slot)]==1 ? 0 : slot; }
 bool actorFieldQueryLive(inout Runtime s,uint target)
 { uint slot=actorFieldLogicalSlot(s,target);return slot<actorPoolCount(s) && results[actorPoolAt(s,slot)+1]!=0; }
 bool actorFieldMember(inout Runtime s,uint row,uint target)
-{ uint slot=actorFieldLogicalSlot(s,target),at=actorFieldKey(s,row);return WORLD_STATE_MEMBER(s,row,slot<128 && results[at]==slot+1 && results[at+1]==results[actorPoolAt(s,slot)]); }
+{ uint slot=actorFieldLogicalSlot(s,target),at=actorFieldKey(s,row);return WORLD_RECIPIENT_MEMBER(s,row,target,WORLD_STATE_MEMBER(s,row,slot<128 && results[at]==slot+1 && results[at+1]==results[actorPoolAt(s,slot)])); }
 bool actorFieldConditions(inout Runtime s,uint row,uint target,uint64_t when)
 { WORLD_STATE_SCOPE_BEGIN(s,target) uint saved=s.target,slot=actorFieldLogicalSlot(s,target);s.target=slot==0 ? 0 : ACTOR_REF|slot;bool ok=basicConditions(s,row,when,true);s.target=saved; WORLD_STATE_SCOPE_END(s) return ok; }
 bool actorFieldContextAdd(inout Runtime s,uint who)
@@ -44,7 +44,7 @@ bool actorFieldsDefinitionValid(inout Runtime s,uint row,Definition d)
 bool initializeActorFields(inout Runtime s)
 {
     uint head=actorFieldHead(s);for(uint i=0;i<P_WORLD_ACTOR_FIELDS_OUTPUT_WORDS-P_WORLD_ACTOR_POOL_OUTPUT_WORDS;i++) results[head+i]=0;
-    if(!actorFieldsEnabled(s)) return true;
+    WORLD_RECIPIENT_INIT(s) if(!actorFieldsEnabled(s)) return true;
     results[head]=0x57463031;return true;
 }
 uint64_t actorFieldRank(inout Runtime s,uint slot,uint route)
