@@ -47,8 +47,8 @@ def compile_case(case):
  tags={p.code:meta['states'][p.code]+1 for p in patterns if p.kind=='shield' and p.code in meta['states'] and words[L['WORLD_META_BASE']+1]!=0}
  payload=compile_payload(patterns,camera_mask=sum(1<<i for i,name in enumerate(f.NAMES) if name in case.get('camera',[])),element_codes=[CODES.get(code,0) for code in elements] if shield else (),code_tags=tags)
  words[L['WORLD_FRAME_INPUT_BASE']:L['WORLD_FRAME_PAYLOAD_BASE']]=graph;words[0]=L['WORLD_OVERLAY_ABI'];words.extend(payload)
- from portable_world_overlay_specs import pack_cleanse_flags
- pack_cleanse_flags(words,case['effects'],L)
+ from portable_world_overlay_specs import pack_cleanse_flags,pack_skill_mode_flags
+ pack_cleanse_flags(words,case['effects'],L);pack_skill_mode_flags(words,case['effects'],L)
  assert len(words)==L['WORLD_OVERLAY_INPUT_WORDS'];return words,meta
 
 def read_overlay_result(block,meta,case):
@@ -89,12 +89,19 @@ def negative_inputs(programs):
   assert cleanse[at+1]==26 and cleanse[header+8]&1
   words=list(cleanse);words[at+6:at+8]=number(float('nan'));rows.append(('cleanse-nonfinite-count',words))
   words=list(cleanse);words[at+21]=3;rows.append(('cleanse-invalid-recipient-domain',words))
+ if len(programs)>70:
+  mode=list(programs[70][0]);at=L['MODE_BASE']+31;assert mode[L['DEFINITION_BASE']+1]==2
+  words=list(mode);words[at]=2;rows.append(('weapon-mode-policy-nonboolean',words))
+  words=list(buff);words[at]=1;rows.append(('weapon-mode-policy-on-nonmode-definition',words))
+  words=list(mode);words[L['MODE_BASE']+255*L['MODE_WORDS']+31]=1;rows.append(('weapon-mode-policy-outside-definition-count',words))
+  words=list(mode);words[at]=1;words[header:header+528]=[0]*528;rows.append(('weapon-mode-policy-with-disabled-overlay',words))
  return rows
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--backend',choices=('metal','cuda'),default='metal');p.add_argument('--replay',type=Path);p.add_argument('--gates',action='store_true');p.add_argument('--reuse',type=Path);p.add_argument('--cleanse',action='store_true');args=p.parse_args();rows=cases();
- if args.gates or args.cleanse:rows+=module('overlay_gates','research/world_overlay_gate_cases.py').fixtures()
- if args.cleanse:rows+=module('overlay_cleanse','research/world_overlay_cleanse_cases.py').fixtures()
+ p=argparse.ArgumentParser();p.add_argument('--backend',choices=('metal','cuda'),default='metal');p.add_argument('--replay',type=Path);p.add_argument('--gates',action='store_true');p.add_argument('--reuse',type=Path);p.add_argument('--cleanse',action='store_true');p.add_argument('--skill-modes',action='store_true');args=p.parse_args();rows=cases();
+ if args.gates or args.cleanse or args.skill_modes:rows+=module('overlay_gates','research/world_overlay_gate_cases.py').fixtures()
+ if args.cleanse or args.skill_modes:rows+=module('overlay_cleanse','research/world_overlay_cleanse_cases.py').fixtures()
+ if args.skill_modes:rows+=module('overlay_skill_modes','research/world_overlay_skill_mode_cases.py').fixtures()
  programs=[compile_case(c) for c in rows]
  negative=negative_inputs(programs);suite=module('overlay_previous_suite','research/verify-world-suite.py');prior=suite.cases();golden=json.loads(suite.GOLDEN.read_text());assert len(prior)==len(golden['cases'])==49
  packed=array.array('I',[len(rows)+len(negative)+len(prior)])
@@ -148,7 +155,7 @@ def main():
  preserved=[]
  for i,expected in enumerate(golden['cases']):
   offset=(len(rows)+len(negative)+i)*L['WORLD_FRAME_OUTPUT_WORDS']*4;block=raw[offset:offset+L['WORLD_FRAME_OUTPUT_WORDS']*4];digest=hashlib.sha256(block).hexdigest();preserved.append(dict(name=expected['name'],passed=digest==expected['output_sha256'],output_sha256=digest,expected_sha256=expected['output_sha256']))
- report=dict(passed=all(r['passed'] for r in results+rejected+preserved),preserved_world49=preserved,rejected_cases=rejected,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),cases=results,captured=str(folder),evidence=evidence,gpu_execution_composed=bool(evidence.get('execution_composition')),scope='Shared executor frame->ordered overlay snapshot->defense/core/range/ordered boss+character enemy effects versus complete native simulate;gates are opt-in fixture coverage;skill_damage weapon mode/actors remain closed;cleanse is an explicit experimental definition flag',full_character_verified=0,canonical_world_admission=False,full_goal_complete=False)
- (ROOT/f'research/portable-world-overlay-{"cleanse" if args.cleanse else "gates" if args.gates else "body"}-{args.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[(r['name'],r.get('changed'),r.get('status',r.get('actual',{}).get('status'))) for r in results+rejected+preserved if not r['passed']]
+ report=dict(passed=all(r['passed'] for r in results+rejected+preserved),preserved_world49=preserved,rejected_cases=rejected,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),cases=results,captured=str(folder),evidence=evidence,gpu_execution_composed=bool(evidence.get('execution_composition')),scope='Shared executor frame->ordered overlay snapshot->defense/core/range/ordered boss+character enemy effects versus complete native simulate;gates are opt-in fixture coverage;skill_damage is an opt-in private ABI75 fixture only;actors remain closed;cleanse is an explicit experimental definition flag',full_character_verified=0,canonical_world_admission=False,full_goal_complete=False)
+ (ROOT/f'research/portable-world-overlay-{"skill-modes" if args.skill_modes else "cleanse" if args.cleanse else "gates" if args.gates else "body"}-{args.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[(r['name'],r.get('changed'),r.get('status',r.get('actual',{}).get('status'))) for r in results+rejected+preserved if not r['passed']]
  print(len(rows),'world overlay body cases match complete native simulate;',len(rejected),'raw descriptors rejected;49 old outputs preserved',args.backend)
 if __name__=='__main__':main()

@@ -105,11 +105,17 @@ struct Runtime
 #define WORLD_OVERLAY_INIT(s,output) if(!initializeWorldOverlays(s)) { results[output]=64;return; }
 #define WORLD_CLEANSE(s,row,scope,when) worldCleanseResidents(s,row,scope,when)
 #define WORLD_SKILL_BEGIN(s,who,target,amount) if(worldOverlayLand(s,who,target,amount,false)) {
-#define WORLD_PHYSICAL_BEGIN(s,who,target,amount) if(worldOverlayLand(s,who,target,amount,true)) {
+#define WORLD_PHYSICAL_BEGIN(s,who,target,amount) if(worldOverlayLand(s,who,target,amount,!worldPhysicalSkill(s,who))) {
 #define WORLD_GATE_END }
 #define WORLD_SKILL_GAUGE(s,who) if(worldSkillGauge(s,who))
-#define WORLD_PHYSICAL_GAUGE(s) if(!worldVanish(s))
+#define WORLD_PHYSICAL_GAUGE(s) if(worldPhysicalGauge(s))
 #define WORLD_PAUSE_WEAPON(s,w,who,when) if(worldPauseWeapon(s,w,who,when)) return;
+#define WORLD_MODE_POLICY_INVALID(s,value) worldModePolicyInvalid(s,value)
+#define WORLD_SAMPLE_SHOT_KIND(s,who,mode) worldSampleShotKind(s,who,mode);
+#define WORLD_PACKET_NORMAL(s,who) (!worldPhysicalSkill(s,who))
+#define WORLD_NORMAL_ONLY(s,who) if(!worldPhysicalSkill(s,who))
+#define WORLD_PACKET_FLAGS(s,who,value) ((value) | (worldPhysicalSkill(s,who) ? 32768U : 0U))
+#define WORLD_MODE_CORE(s,who,flags,accuracy) ((flags & 32768U)!=0 ? normalProbability(s,who,accuracy) : 0)
 #else
 #define WORLD_OVERLAY_INIT(s,output)
 #define WORLD_CLEANSE(s,row,scope,when) cleanseResidents(s,row,scope)
@@ -119,6 +125,12 @@ struct Runtime
 #define WORLD_SKILL_GAUGE(s,who)
 #define WORLD_PHYSICAL_GAUGE(s)
 #define WORLD_PAUSE_WEAPON(s,w,who,when)
+#define WORLD_MODE_POLICY_INVALID(s,value) (value!=0)
+#define WORLD_SAMPLE_SHOT_KIND(s,who,mode)
+#define WORLD_PACKET_NORMAL(s,who) true
+#define WORLD_NORMAL_ONLY(s,who)
+#define WORLD_PACKET_FLAGS(s,who,value) value
+#define WORLD_MODE_CORE(s,who,flags,accuracy) 0
 #endif
 #include "geometry_runtime.slang"
 

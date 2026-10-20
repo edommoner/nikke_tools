@@ -22,6 +22,8 @@ bool initializeWorldOverlays(inout Runtime s)
     if(commands[at+7]!=0) return false;
     for(uint row=0;row<P_DEFINITIONS;row++)
     {
+        uint policy=commands[s.inputBase+P_MODE_BASE+row*P_MODE_WORDS+31];
+        if(policy!=0 && (policy>1 || row>=s.count || definition_kind(s.inputBase,row)!=2)) return false;
         if((commands[at+8+row/32]&(1U<<(row%32)))==0) continue;
         if(row>=s.count || definition_kind(s.inputBase,row)!=26) return false;
     }
@@ -200,4 +202,20 @@ void worldDispel(inout Runtime s,uint row,uint scope,uint64_t when)
         // Do not change the sampled defense or resident contribution here.
         // The next distinct world frame owns release/application.
     }
+}
+
+// Snapshot the physical packet category before callbacks can clear/switch modes.
+bool worldPhysicalSkill(inout Runtime s,uint who)
+{ return results[s.resourceOutput+WO_OUT+288+who*8+7]!=0; }
+void worldSampleShotKind(inout Runtime s,uint who,int mode)
+{
+    uint flag=mode<0 ? 0 : commands[s.inputBase+P_MODE_BASE+uint(mode)*P_MODE_WORDS+31];
+    results[s.resourceOutput+WO_OUT+288+who*8+7]=flag;
+}
+bool worldModePolicyInvalid(inout Runtime s,uint policy)
+{ return policy>1 || policy!=0 && !worldOverlayEnabled(s); }
+bool worldPhysicalGauge(inout Runtime s)
+{
+    uint who=s.physicalGaugeOwner;
+    return who>0 && who<=5 && worldPhysicalSkill(s,who-1) ? worldSkillGauge(s,who-1) : !worldVanish(s);
 }

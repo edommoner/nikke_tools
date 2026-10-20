@@ -41,6 +41,9 @@ def compile_payload(patterns,*,camera_mask=0,element_codes=(),code_tags=None):
 
 def compiler_effect(effect):
  """Use the existing typed instant selector;the overlay flag owns semantics."""
+ if effect.get('type')=='weapon_change' and 'skill_damage' in effect:
+  if type(effect['skill_damage']) is not bool:raise ValueError('Weapon mode skill policy requires boolean')
+  result=dict(effect);result.pop('skill_damage');return result
  if effect.get('stat')!='enemy_buff_cleanse':return effect
  if effect.get('type')!='instant':raise ValueError('Enemy beneficial cleanse requires instant type')
  return dict(effect,stat='debuff_cleanse')
@@ -53,3 +56,10 @@ def pack_cleanse_flags(words,effects,limits):
   at=limits['DEFINITION_BASE']+row*limits['DEFINITION_WORDS']
   if words[at+1]!=26:raise ValueError('Unexpected compiled cleanse kind')
   words[header+8+row//32]|=1<<(row%32)
+
+def pack_skill_mode_flags(words,effects,limits):
+ for row,effect in enumerate(effects):
+  if effect.get('type')!='weapon_change' or not effect.get('skill_damage'):continue
+  compiler_effect(effect)
+  if words[limits['DEFINITION_BASE']+row*limits['DEFINITION_WORDS']+1]!=2:raise ValueError('Unexpected compiled weapon mode kind')
+  words[limits['MODE_BASE']+row*limits['MODE_WORDS']+31]=1
