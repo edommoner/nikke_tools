@@ -55,6 +55,16 @@
   },
   "next_cpu_characterizations": [
     "research/portable-world-notice-native-characterization.json",
-    "research/portable-world-notice-order-native.json"
-  ]
+    "research/portable-world-notice-order-native.json",
+    "research/portable-world-notice-catalog-impact.json",
+    "research/portable-world-notice-real-native.json"
+  ],
+  "next_real_notice_profiles": {
+    "cpu_only": true,
+    "characters": 14,
+    "cases": 28,
+    "passed": true,
+    "full_native_effects": true,
+    "gpu_verified": false
+  }
 }
