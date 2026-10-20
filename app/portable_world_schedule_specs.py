@@ -12,7 +12,7 @@ OUTCOMES={None:0,'cleared':1,'expired':2,'followed':3,'end':4}
 
 def number(value):return list(struct.unpack('<II',struct.pack('<d',float(value))))
 
-def compile_schedule(case):
+def compile_schedule(case,*,notice_payload=False):
  from calculator.boss_pattern import validate
  patterns=validate(copy.deepcopy(case['patterns']),squad_size=5)
  if not 1<=len(patterns)<=32:raise ValueError('World graph component supports1..32 nodes')
@@ -31,6 +31,12 @@ def compile_schedule(case):
   if hits>0x7fffffff:raise ValueError('World shot count exceeds exact integer descriptor range')
   at=NODE_BASE+p.idx*64
   words[at:at+12]=[p.repeat,int(p.until_time is not None)|int(p.until_cleared)<<1,*number(p.delay),*number(p.until_time or 0),hits,0,*number(interval),len(p.after),len(p.until_after)]
+  if notice_payload:
+   from calculator.boss_pattern import BOSS_EVENTS
+   for offset,events in enumerate((p.emit,p.emit_end)):
+    if len(events)>8:raise ValueError('World notice capacity exceeded')
+    words[at+12+offset]=len(events)
+    words[at+14+offset]=sum((BOSS_EVENTS.index(event)+1)<<(3*i) for i,event in enumerate(events))
   for i,(node,outcome) in enumerate(p.after):words[at+16+i*2:at+18+i*2]=[names[node],OUTCOMES[outcome]]
   for i,(node,delay) in enumerate(p.until_after):words[at+32+i*3:at+35+i*3]=[names[node],*number(delay)]
  previous=0

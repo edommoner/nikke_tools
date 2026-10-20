@@ -22,7 +22,16 @@ bool wsValidate(WorldSchedule w)
         if(n>=w.count) { for(uint j=0;j<64;j++) if(commands[d+j]!=0) return false;continue; }
         uint flags=commands[d+1],ac=commands[d+10],uc=commands[d+11];
         if(commands[d]>0x7fffffff || flags>3 || ac==0 || ac>8 || uc>8 || commands[d+6]>0x7fffffff || commands[d+7]!=0) return false;
+#ifdef PORTABLE_WORLD_FRAME
+        for(uint j=0;j<2;j++)
+        {
+            uint count=commands[d+12+j],packed=commands[d+14+j];
+            if(count>8 || (packed>>(count*3))!=0) return false;
+            for(uint i=0;i<count;i++) { uint event=(packed>>(i*3))&7;if(event==0 || event>4) return false; }
+        }
+#else
         for(uint j=12;j<16;j++) if(commands[d+j]!=0) return false;
+#endif
         for(uint j=56;j<64;j++) if(commands[d+j]!=0) return false;
         uint64_t delay=wsLoad(d+2),until=wsLoad(d+4),interval=wsLoad(d+8);
         if(!f64Finite(delay) || f64Less(delay,0) || !f64Finite(until) || !f64Finite(interval) || f64Less(interval,0)) return false;

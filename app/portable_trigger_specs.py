@@ -23,7 +23,7 @@ TIMING=rf'every_stack:[^:]+:[1-9][0-9]*|event:(?!(?:state_end|ally_hp_below|adja
 CONDITION=rf'(?:target_state|not_target_state):[\s\S]*|target_stack_above:[\s\S]*:[0-9]+|core_hit|optimal_range|prob:[\s\S]+|during_shield|gauge_(?:above|below|eq):[^:]+:{HP_NUMBER}|gauge_mod:[^:]+:[1-9][0-9]*:[+-]?[0-9]+|self_cover_alive|not_self_cover_alive|not_self_caused_heal|self_hp_max|(?:self_hp_above|self_hp_below|ally_hp_below):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)|during_full_burst|not_during_full_burst|during_charge|burst_casted|burst_not_casted|has_burst1_ally|no_burst1_ally|has_defender_ally|no_defender_ally|squad_ally_exists|back_row|target_is_boss|target_is_add|target_code:[\s\S]*|(?:self_state|not_self_state):[\s\S]*|self_stack_above:[^:]+:[0-9]+|enemy_count_(?:above|below):[+-]?[0-9]+|self_stat_above:(?:atk_pct|crit_rate|crit_dmg):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
 
 
-def validate_input(eff):
+def validate_input(eff,*,world_frame=False):
     from portable_probability_specs import validate as validate_probability
     trigger=eff.get('trigger',{})
     if not isinstance(trigger,dict) or set(trigger)-{'timing','condition'}:raise ValueError('Invalid trigger object')
@@ -38,23 +38,23 @@ def validate_input(eff):
         if not isinstance(timing,str):raise ValueError('Invalid timing')
         if timing.startswith('event:'):
             from detail_gpu import EVENT
-            if timing in EVENT and EVENT[timing] not in EVENTS:raise ValueError('Unported trigger timing: '+timing)
+            if timing in EVENT and EVENT[timing] not in (EVENTS|frozenset((33,34,35)) if world_frame else EVENTS):raise ValueError('Unported trigger timing: '+timing)
         if timing.startswith('every:'):
             if not timing.endswith('s'):raise ValueError('Periodic timing requires native seconds suffix')
             try:period=float(timing[6:].removesuffix('s'))
             except ValueError:raise ValueError('Invalid periodic timing') from None
             if not math.isfinite(period) or period<=0:raise ValueError('Periodic timing must be positive and finite')
-        elif not re.fullmatch(TIMING,timing):raise ValueError('Unported trigger timing: '+timing)
+        elif not re.fullmatch(TIMING,timing) and not (world_frame and timing=='enemy_death'):raise ValueError('Unported trigger timing: '+timing)
     for condition in conditions:
         if not isinstance(condition,str) or not re.fullmatch(CONDITION,condition):raise ValueError('Unported predicate: '+str(condition))
 
 
-def pack_descriptors(words,index,row,L,F,double_words,*,effect=None,states=None):
+def pack_descriptors(words,index,row,L,F,double_words,*,effect=None,states=None,world_frame=False):
     n=int(row[144]);nc=int(row[14])
     if not 1<=n<=8 or not 0<=nc<=3:raise ValueError('Descriptor capacity exceeded')
     for slot in range(n):
         event,threshold,mode,tag,value,passive,stage=row[145+slot*7:152+slot*7]
-        if event not in EVENTS or mode not in (0,1,2,3):raise ValueError('Unported compiled trigger')
+        if event not in (EVENTS|frozenset((33,34,35)) if world_frame else EVENTS) or mode not in (0,1,2,3):raise ValueError('Unported compiled trigger')
         if event!=6 and (threshold!=int(threshold) or not 0<=threshold<=2**31-1):raise ValueError('Invalid discrete trigger threshold')
         if (mode or event in (7,8,30)) and threshold<=0:raise ValueError('Trigger threshold must be positive')
         if event==6 and (not math.isfinite(threshold) or threshold<=0):raise ValueError('Invalid compiled period')

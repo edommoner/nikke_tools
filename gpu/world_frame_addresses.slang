@@ -33,9 +33,16 @@ bool initializeWorldFrame(inout Runtime s)
     if(commands[start]!=0x57533031 || s.combat==0 || commands[start+2]!=0 || commands[start+3]!=(s.clockMode!=0?1U:2U) || commands[start+4]!=1 || commands[start+5]!=0) return false;
     uint64_t through=wsLoad(start+6);
     if(!f64Finite(through) || f64Less(through,0) || f64Less(f64FromI64(180),through)) return false;
-    for(uint j=8;j<16;j++) if(commands[start+j]!=0) return false;
+    for(uint j=9;j<16;j++) if(commands[start+j]!=0) return false;
     for(uint j=2064;j<2320;j++) if(commands[start+j]!=0) return false;
     WorldSchedule w=frameSchedule(s);if(!wsValidate(w)) return false;
+    bool spawnNotice=false;
+    for(uint n=0;n<w.count;n++) for(uint end=0;end<2;end++)
+    {
+        uint d=start+16+n*64,count=commands[d+12+end],packed=commands[d+14+end];
+        for(uint i=0;i<count;i++) if(((packed>>(i*3))&7)==2) spawnNotice=true;
+    }
+    if(commands[start+8]>P_DEFINITIONS || (commands[start+8]!=0)!=spawnNotice) return false;
     bool reached=false;
     for(uint step=0;step<commands[s.inputBase+2];step++)
     {

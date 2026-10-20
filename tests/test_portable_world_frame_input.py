@@ -17,12 +17,22 @@ class WorldFrameInput(unittest.TestCase):
   variants=[]
   for kind,payload in [('core',dict(core_px=10)),('parts',dict(targets=[dict(name='part',hp=10)])),('summon',dict(spec=dict(hp=10))),('move',dict(weapons=['AR'])),('buff',dict(enemy=dict(def_mult=2))),('debuff',dict(spec=dict(target='all',debuffs=[dict(stat='atk_pct',value=-10)])))]:
    c=copy.deepcopy(f.fixtures()[0]);c['patterns']=[dict(id='a',kind=kind,**payload)];variants.append(c)
-  c=copy.deepcopy(f.fixtures()[0]);c['patterns'][0]['emit']=['event:part_destroy'];variants.append(c)
   c=copy.deepcopy(f.fixtures()[0]);c['patterns'][0]['spec']['debuffs']=[dict(stat='atk_pct',value=-10)];variants.append(c)
   for case in variants:
    with self.subTest(case=case['patterns']),self.assertRaisesRegex(ValueError,'World payload is not connected'):f.compile_case(case)
  def test_candidate_layout_does_not_mutate_canonical_abi_or_limits(self):
   before=copy.deepcopy(LIMITS);words,_=f.compile_case(f.fixtures()[0]);self.assertEqual(LIMITS,before);self.assertEqual((ABI,LIMITS['INPUT_WORDS'],LIMITS['OUTPUT_WORDS']),(0x50455673,86016,159744));self.assertEqual((words[0],len(words)),(0x50455674,88848))
+ def test_world_notices_keep_standard_trigger_admission_closed(self):
+  from portable_runtime import validate_effect,UnsupportedPortable
+  for timing in ('event:part_destroy','event:projectile_destroy','enemy_death'):
+   eff=f.effect('def_pct',10,trigger=dict(timing=[timing],condition=[]))
+   with self.subTest(timing=timing),self.assertRaises(UnsupportedPortable):validate_effect(eff)
+   validate_effect(eff,world_frame=True)
+ def test_world_notice_namespace_and_capacity_are_explicit(self):
+  c=copy.deepcopy(f.fixtures()[0]);c['patterns'][0]['emit']=['event:target_spawn']*8
+  words,meta=f.compile_case(c);self.assertEqual(words[f.WF_INPUT+8],meta['states']['target_spawn']+1)
+  c['patterns'][0]['emit'].append('event:target_spawn')
+  with self.assertRaisesRegex(ValueError,'World notice capacity exceeded'):f.compile_case(c)
  def test_world_entry_uses_identical_canonical_dependency_files(self):
   standard=source_hashes('gpu/event_runtime.slang');world=source_hashes('gpu/world_frame_entry.slang')
   self.assertEqual({k:v for k,v in world.items() if k!='gpu/world_frame_entry.slang'},standard)
