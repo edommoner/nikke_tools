@@ -514,6 +514,7 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
 #include "status_runtime.slang"
 #include "event_candidate_runtime.slang"
 #include "pending_burst_runtime.slang"
+#include "incoming_descriptor_runtime.slang"
 #include "protection_runtime.slang"
 
 [noinline]
@@ -821,13 +822,14 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if(s.error==0)
             {
                 frames[depth].healthValue=f.healthValue;frames[depth].repeatPassive=uint(member==f.owner);
-                frames[depth].repeatRow=f.cursor==0 ? P_PROTECTION_HIT_BASE+(uint(f.argument)*5+f.owner)*16 : P_SPLIT_HIT_BASE+(uint(f.argument)*20+f.owner*4+f.cursor-1)*16;
+                uint legacy=f.cursor==0 ? P_PROTECTION_HIT_BASE+(uint(f.argument)*5+f.owner)*16 : P_SPLIT_HIT_BASE+(uint(f.argument)*20+f.owner*4+f.cursor-1)*16;
+                frames[depth].repeatRow=incomingRecordAddress(s,uint(f.argument),f.owner,member,member==f.owner,legacy);
             }
             continue;
         }
         if (f.mode == 8 || f.mode == 23)
         {
-            uint at = s.inputBase+P_COMMAND_BASE+uint(f.argument)*8;
+            uint at = incomingCommandAddress(s,uint(f.argument));
             if(f.event==5) { depth--;continue; }
             if(f.event==6) { frames[depth].event=0;continue; }
             if(f.mode==23 && f.event==0)
@@ -849,7 +851,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 uint who;
                 if(commands[at]==32)
                 {
-                    uint order=results[s.resourceOutput+P_ENEMY_TARGET_QUERY_BASE+uint(f.argument)*8+1],cursor=frames[depth].cursor,encoded=0;
+                    uint order=results[enemyQueryAddress(s,uint(f.argument))+1],cursor=frames[depth].cursor,encoded=0;
                     while(cursor<5)
                     {
                         encoded=(order>>(3*cursor++))&7;
@@ -866,7 +868,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                     frames[depth].cursor=who+1;
                 }
                 frames[depth].owner=who;
-                uint input = s.inputBase+P_INCOMING_BASE+uint(f.argument)*P_INCOMING_WORDS;
+                uint input = incomingDamageAddress(s,uint(f.argument));
                 frames[depth].healthValue = incomingBodyDamage(s,who,loadNumber(input),loadNumber(input+2),f.time);
                 frames[depth].event = 1;
                 if((commands[at]==31 || commands[at]==32))
@@ -880,7 +882,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                         if(s.error==0) frames[depth].healthValue=f64Div(amount,f64FromI64(count));
                         continue;
                     }
-                    uint record=P_PROTECTION_HIT_BASE+(uint(f.argument)*5+who)*16;frames[depth].repeatRow=record;
+                    uint record=incomingRecordAddress(s,uint(f.argument),who,who,true,P_PROTECTION_HIT_BASE+(uint(f.argument)*5+who)*16);frames[depth].repeatRow=record;
                     pushFrame(s,frames,depth,20,0,who,f.argument,f.time);
                     if(s.error==0) { frames[depth].healthValue=amount;frames[depth].repeatPassive=record; }
                 }
@@ -1428,6 +1430,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 }
 
 #include "bullet_consume.slang"
+#ifdef PORTABLE_WORLD_FRAME
+#include "world_frame_runtime.slang"
+#endif
 #include "combat_runtime.slang"
 
 #include "admission_runtime.slang"
@@ -1477,6 +1482,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if(!validGeometry(s)) { results[output]=64;return; }
     admitDefinitions(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
+    if(!initializeWorldFrame(s)) { results[output]=64;return; }
     if(!validEnemyTargeting(s)) { results[output]=64;return; }
     if(!validProtection(s)) { results[output]=64;return; }
     if (!validStatusDefinitions(s)) { results[output]=64;return; }
@@ -1618,6 +1624,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         }
         else s.error = 64;
     }
+    worldFrameFinish(s);
     writeDamageAccounting(s,output+P_DAMAGE_ACCOUNTING_STATE_BASE,true);
     writePendingBurst(s,output+P_PENDING_STATE_BASE,true);
     writeCovers(s,commands[input+2] > 0 ? loadNumber(input+P_COMMAND_BASE+(commands[input+2]-1)*8+1) : 0,output+P_COVER_STATE_BASE);

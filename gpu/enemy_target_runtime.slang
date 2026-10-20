@@ -60,7 +60,7 @@ uint64_t bossTargetAttack(inout Runtime s,uint who,uint64_t when)
 [noinline]
 void chooseEnemyVictims(inout Runtime s,uint step,uint64_t when)
 {
-    uint spec=s.inputBase+P_ENEMY_TARGET_COMMAND_BASE+step*4,rule=commands[spec],seats=commands[spec+1],slots=commands[spec+2],flags=commands[spec+3];
+    uint spec=enemyRuleAddress(s,step),rule=commands[spec],seats=commands[spec+1],slots=commands[spec+2],flags=commands[spec+3];
     uint rng=s.resourceOutput+P_ENEMY_RNG_BASE,before=results[rng+1];
     uint alive=31U & ~s.downMask,mask=0,order=0,count=0,taunt=0,poolMask=0;
     if(rule==0)
@@ -112,7 +112,7 @@ void chooseEnemyVictims(inout Runtime s,uint step,uint64_t when)
             for(uint who=0;who<5;who++) if((picked&(1U<<who))!=0) { mask|=1U<<who;order|=(who+1)<<(3*count++); }
         }
     }
-    uint output=s.resourceOutput+P_ENEMY_TARGET_QUERY_BASE+step*8;
+    uint output=enemyQueryAddress(s,step);
     results[output]=mask;results[output+1]=order;results[output+2]=taunt;results[output+3]=poolMask;
     results[output+4]=before;results[output+5]=results[rng+1];results[output+6]=results[rng+3];results[output+7]=1;
 }
@@ -154,5 +154,5 @@ bool validEnemyTargeting(inout Runtime s)
             if((slots>>15)!=0) return false;
         }
     }
-    return (enabled!=0)==(features!=0);
+    return (enabled!=0)==(features!=0 || worldFrameEnabled(s));
 }

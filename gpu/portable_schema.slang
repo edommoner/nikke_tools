@@ -1,5 +1,12 @@
 // Generated from app/portable_specs.py; do not hand-edit.
+#if defined(PORTABLE_WORLD_FRAME) && defined(PORTABLE_WIDE_LANDINGS)
+#error World and wide-landing diagnostic layouts cannot be combined.
+#endif
+#ifdef PORTABLE_WORLD_FRAME
+static const uint PORTABLE_ABI = 1346721396U;
+#else
 static const uint PORTABLE_ABI = 1346721395U;
+#endif
 static const uint P_PROTECTION_OBJECTS = 1024U;
 static const uint P_PROTECTION_OBJECT_WORDS = 24U;
 static const uint P_REMOVALS = 4096U;
@@ -88,7 +95,11 @@ static const uint P_LANDING_META_BASE = 77792U;
 static const uint P_STATUS_META_BASE = 77800U;
 static const uint P_PROTECTION_META_BASE = 77808U;
 static const uint P_PROTECTION_DEFINITION_BASE = 77816U;
+#ifdef PORTABLE_WORLD_FRAME
+static const uint P_INPUT_WORDS = 88848U;
+#else
 static const uint P_INPUT_WORDS = 86016U;
+#endif
 static const uint P_RECIPIENT_META_BASE = 81920U;
 static const uint P_RECIPIENT_NODE_BASE = 81928U;
 static const uint P_WORLD_META_BASE = 51913U;
@@ -157,10 +168,14 @@ static const uint P_PROTECTION_MAP_BASE = 108224U;
 static const uint P_PROTECTION_SELECTION_BASE = 108736U;
 static const uint P_PROTECTION_OBJECT_BASE = 109248U;
 static const uint P_PROTECTION_BUILD_BASE = 133824U;
+#ifdef PORTABLE_WORLD_FRAME
+static const uint P_OUTPUT_WORDS = 225280U;
+#else
 #ifdef PORTABLE_WIDE_LANDINGS
 static const uint P_OUTPUT_WORDS = 167936U;
 #else
 static const uint P_OUTPUT_WORDS = 159744U;
+#endif
 #endif
 static const uint P_SPLIT_HIT_BASE = 135168U;
 static const uint P_RECIPIENT_ORDER_BASE = 155648U;
@@ -177,6 +192,14 @@ static const uint P_ENEMY_TARGET_COMMAND_BASE = 85608U;
 static const uint P_ENEMY_RNG_BASE = 133840U;
 static const uint P_ENEMY_RNG_WORDS = 632U;
 static const uint P_ENEMY_TARGET_QUERY_BASE = 134472U;
+static const uint P_WORLD_FRAME_ABI = 1346721396U;
+static const uint P_WORLD_FRAME_INPUT_BASE = 86016U;
+static const uint P_WORLD_FRAME_PAYLOAD_BASE = 88336U;
+static const uint P_WORLD_FRAME_INPUT_WORDS = 88848U;
+static const uint P_WORLD_FRAME_OUTPUT_BASE = 159744U;
+static const uint P_WORLD_FRAME_OUTPUT_WORDS = 225280U;
+static const uint P_WORLD_FRAME_TARGET_BASE = 174864U;
+static const uint P_WORLD_FRAME_HIT_BASE = 183056U;
 static const uint D_OWNER = 0U;
 static const uint D_KIND = 1U;
 static const uint D_STAT = 2U;

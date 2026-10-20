@@ -379,14 +379,16 @@ void advanceCombat(inout Runtime s, uint64_t through, uint output)
 {
     sampleWorld(s);
     if (s.combatStarted == 0)
-    { s.combatStarted = 1; teamNotify(s,0,0,output); initializeMagazines(s,0); }
+    { worldFrameBegin(s,0);if(s.error!=0) return;s.combatStarted = 1; teamNotify(s,0,0,output); initializeMagazines(s,0); }
     for (uint work = 0; work <= 10800 && s.error == 0; work++)
     {
         if (s.nextFrame > 10800) return;
         uint64_t when = s.clockMode != 0 ? s.frameTime : f64Div(f64FromI64(s.nextFrame),uint64_t(0x404e0000) << 32); // 60
         if (f64Less(through,when)) return;
         s.nextFrame++; s.frameCount++; beginLazyRoot(s,when); sampleWorld(s);
+        worldFrameBegin(s,when);if(s.error!=0) return;
         tick(s,when,output);
+        if(s.error==0) worldFrameDeliver(s,when,output);
         if (s.error == 0) squadFrame(s,when,output);
         if (s.clockMode != 0) s.frameTime = f64Add(when,uint64_t(0x3f911111) << 32 | 0x11111111);
     }
