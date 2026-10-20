@@ -1,0 +1,25 @@
+{
+  "source_commit": "ea1f8ddee06cc7c995307d5e110a60b6c696893c",
+  "artifacts": [
+    {
+      "source_name": "research/portable-world-actor-pools-short-summary.json",
+      "local_name": "windows-portable-world-v83-summary.json",
+      "bytes": 33910,
+      "sha256": "514d233d0e4b3a9e6e6b093a5eab9b067ef754dd0d0fe639bb0cbf4c9675e437"
+    },
+    {
+      "source_name": "research/portable-build/v83-cuda-once/execution.json",
+      "local_name": "portable-world-v83-execution.json",
+      "bytes": 902,
+      "sha256": "6f468c17b01d4c48e40d5e28cf22a61a4d8e93d54415a904407eb8112601b245"
+    },
+    {
+      "source_name": "research/portable-cross-v83-receipt.json",
+      "local_name": "portable-cross-v83-receipt.json",
+      "bytes": 21783,
+      "sha256": "3621102e5ea0365b51361fc6441bb2bdafdcdfa60660183f715708f9ad2b8b64"
+    }
+  ],
+  "gpu_reexecutions": 0,
+  "transport": "Existing authorized remote thread gzip/base64 capsule"
+}

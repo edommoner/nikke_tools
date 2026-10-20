@@ -38,3 +38,5 @@ HP制addは受け取った量だけ、hit制addはnative同様1発ずつ（0ダ�
 ABI77のinputは92,208 words、outputは253,952 words。pool inputは90,536、12word定義は90,544、命中量sidecarは92,080。output headerは225,280、16word poolは225,304、32×520word集合は227,352、queryは243,992、receiptは245,016、notice tripleは245,528から。通常ABI73とregistry ABI76のlayoutは変更しない。
 
 現時点で広いenemy効果carrier・skill packet・pending/DoT・Actor-bound callbackは未接続のため、このprivate入口はenemy buff・条件付き効果・未接続damage種を拒否する。interrupt・召喚自身の攻撃/自爆・dynamic control・復活も未完了。通常画面CPU、public world受付false、全変種認証0/203を維持する。Windowsは新しい43入力と前段registry34入力だけを共有driverで検証し、通常4682と旧208は再実行しない。
+
+Windows v83は固定ea1f8ddで77入力（新43＋registry34）を1回だけ実GPU検証し72.917秒で成功した。CPU15件・36 native oracle・GPU禁止packing SHAを先に照合し、全77出力byteと生成fingerprintをMetalから切り出した保存基準と比較した。結果3JSON計56,595 bytesの輸送SHA、固定Git blob、50実測phase、残存0をMacで監査した。旧208/通常4682再実行0。`portable-world-v83-cuda-validation.json` を参照。

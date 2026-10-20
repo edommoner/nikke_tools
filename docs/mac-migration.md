@@ -4,7 +4,7 @@
 
 固定822c559のprivate ABI77で、召喚のHP/hit制HP・通常武器からの命中・死亡通知・GPU targets_cleared再出現、部位の超過ダメージ/score、128bitと順序/世代付き対象集合を共通landへ接続しました。Metal285は実戦native14・型付きpool/set10・raw拒否19・旧242全出力保持で成功、portable CPU309件、通常CUDA/MSL生成コードの厳密一致、保存rawと固定Git blobの再監査も成功しています。`research/portable-world-actor-pools-validation.json` を参照してください。
 
-Windowsには最小24ファイル301,900 bytesを固定ea1f8dd、`codex/cuda-world-v83-source`へ共有し、新規43＋registry34の77入力だけをBelowNormal・180秒上限で1回依頼しました。全77input SHAと36 native oracleのCPU事前検査後に実行します。通常4682と旧208は再実行しません。現在CUDA結果待ちです。利用者はこのゴール達成までの今後のGitHub共有を許可済みで、個人設定/raw/巨大詳細は共有していません。
+Windows CUDA77も成功しました。最小24ファイル301,900 bytesを固定ea1f8dd、`codex/cuda-world-v83-source`へ共有し、CPU15件・全77入力/36 native oracle/SHA事前照合後、BelowNormal・180秒上限の実GPU1回で72.917秒、exit0でした。全input/output byte・native・CUDA/MSL生成fingerprintがMetal保存出力と一致し、NVRTC/launch/sync/readbackを実測50eventsで確認しました。3JSON計56,595 bytesを既存接続で取得し、固定Git blob・全SHA・事前検査・イベント順をMacで再監査しました。通常4682/旧208再実行0、GPU retry0、残存0、元Windows作業/サービス保持、Windowsは待機中です。証拠は `research/portable-world-v83-cuda-validation.json`。利用者はこのゴール達成までのGitHub共有を許可済みで、個人設定/raw/巨大詳細は送っていません。
 
 wide enemy効果・skill/pending/DoT・Actor-bound callback・interrupt・召喚自身の攻撃/自爆・dynamic control/復活・全変種認証・必要検証後の効率化は未完了です。通常画面CPU・public world受付false・全変種認証0/203を維持します。
 
