@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "old_cases": 468,
+  "current_cases": 540,
+  "old_readback_sha256": "0395a421bc46e76538423860d9f481f17e39651b8dd8ea14132963a3da7bdb25",
+  "projected_new_readback_sha256": "0395a421bc46e76538423860d9f481f17e39651b8dd8ea14132963a3da7bdb25",
+  "every_old_input_word_equal": true,
+  "all_old_output_words_equal": true,
+  "old_capture": "research/portable-build/enemy-target-component-20261020T115722960173Z",
+  "current_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-component-20261020T120044861944Z",
+  "no_output_normalization": true,
+  "scope": "Expanded candidate strengthens damage assertions and boundary coverage;old468 wire/output bytes preserved"
+}

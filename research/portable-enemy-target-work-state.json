@@ -1,0 +1,86 @@
+{
+  "stage": "Isolated candidate540 positive+40 raw rejects and prior4070 exact Metal parity passed;production adoption not started",
+  "updated_at": "2026-10-20T12:14:02.319045+00:00",
+  "production_source_commit": "39bce8aa5c9c5f29f0653e80fc69855f19ad5ad6",
+  "production_proof_commit": "89c19e3",
+  "production_abi": "0x50455672",
+  "candidate_abi": "0x50455673",
+  "candidate_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z",
+  "candidate_shader": "research/portable-build/enemy-target-candidate-20261020T115159399973Z/enemy_target_candidate_runtime.slang",
+  "candidate_host_sources": {
+    "app/portable_enemy_target_specs.py": {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/app/portable_enemy_target_specs.py",
+      "sha256": "0a046ccd73390e088f4afd86743c45c6bc0d5580e2b46a7908c73a42debfcb08"
+    },
+    "research/enemy_target_native.py": {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/enemy_target_native.py",
+      "sha256": "aa44e998a8ce276debcb249548e9f7351421b0243b6a897c970a5e22a519d9c9"
+    },
+    "research/verify-target-rng.py": {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/verify-target-rng.py",
+      "sha256": "18ab72334b32e62019cb243c5c2a3ca7052bcdde4d75d3766ae89504c1a3d691"
+    },
+    "research/verify-enemy-target-candidate.py": {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/verify-enemy-target-candidate.py",
+      "sha256": "1da0c555fde338b1006dfd4975389446adea146f612cd1e287668da4e3c72a3f"
+    },
+    "research/build-enemy-target-cases.py": {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/build-enemy-target-cases.py",
+      "sha256": "44db38877cc14b61c373e1b37c0621cb3a4b40d70d275d44cacfb0bd75f45384"
+    },
+    "research/portable-enemy-target-inputs.json": {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/portable-enemy-target-inputs.json",
+      "sha256": "4c0960593a28a395f9fd042573254616ed761a89c046f5badba85a927f973846"
+    },
+    "research/enemy_target_validation.py": {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/enemy_target_validation.py",
+      "sha256": "9bc50e9e5e713cf450bf6e27ee9b221d6a86e907b2f86d6cdfe1179c937a3326"
+    },
+    "research/verify-enemy-target-admission.py": {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/verify-enemy-target-admission.py",
+      "sha256": "2e1b2705ac49b40448c0d7256cec7ca3826d0a39787197a641f875941169c37f"
+    }
+  },
+  "production_adopted": false,
+  "metal_positive_cases": 540,
+  "metal_raw_rejections": 40,
+  "old4070_full_output_words_preserved": true,
+  "old468_inputs_and_output_words_preserved": true,
+  "mt19937_metal_cases": 31,
+  "mt19937_all624_state_words_and_counters_match": true,
+  "native_edge_cases": 25,
+  "native_target_rule_parser_cases": 51,
+  "windows_new_target_source_gpu_sessions": 0,
+  "cuda_current_candidate_verified": false,
+  "efficiency_started": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "normal_ui": "CPU",
+  "live_gpu_jobs": [],
+  "remaining_requirements": [
+    "Promote candidate hooks into canonical app/runtime/schema with seed and marker definitions shared;preserve protected CRLF files",
+    "Add canonical enemy target fixtures/oracle/admission helpers to same CUDA/Metal core verifier;preserve all prior4070 input/output/decoded/native groups",
+    "Add long63-attack programs using authored seeds190 and765:original CPython uses627 draws and crosses624-word MT boundary within64-command capacity",
+    "Support exact uint64 seed transfer via canonical decimal string for JSON/JavaScript;do not treat it as Python string-hashed seed",
+    "Keep all marker and target RNG fields outside64 numeric stat vector and inside current86016/159744 strides",
+    "Decode new ordered victim/protection hits from GPU target-order records;legacy31 decoded cases remain byte/field identical",
+    "Common default32 coverage derives from GPU reloadUntil and existing cover-disabled logic;CPU cover/target masks stay reserved0",
+    "Freeze canonical compute commit,run units and fresh full Metal regression,old4070 parity and broad suites/roster preservation",
+    "Use Windows only for one necessary short canonical CUDA verification after concrete source sharing authorization;include long-sequence MT cases in shared core",
+    "Compare artifacts after individual approval;only after all correctness/transfer/jobs terminal evaluate efficiency",
+    "Continue general GPU enemy-world scheduling,revive/control and remaining character/effect families;do not count simple-boss preflight as full character certification"
+  ],
+  "implementation_notes": [
+    "Native taunters skips unresolved target_chars=None;explicit live-stat query resolves ranked taunt,while stealth resolves on first pool query even for a nonmember",
+    "Revive of ranked passive creates unresolved target again;all-allies revival appends recipient to stored order,so first taunter can remain slot1 after slot0 revives. Revive is native characterization only;shared revive not connected",
+    "Enemy taunt skips runtime predicate but must observe target generation/departure and caster down state",
+    "Random/top attack build stealth pool even if taunt already fills all seats;final selected non-taunter membership returns in squad order",
+    "CPython small pool uses n.bit_length and rejection;singleton randbelow still consumes/rejects bits. MT state lives in GPU output scratch133840..134471",
+    "Candidate32 uses original ordered layered/split/notification executor;actual automatic reloading cover is GPU-derived",
+    "Enemy taunt must be excluded from numeric collectEnemyModifiers even for nonzero magnitude",
+    "Root production files remain untouched;candidate packer temporarily opens host marker admission and replaces32 with31 only internally,then final wire32 has mask fields0. Canonical integration must remove this temporary path",
+    "Current helper STATS literals65/66 should read canonical effect_spec.DETAIL_STAT upon adoption,avoiding circular import through portable_specs/portable_damage_specs",
+    "New core report may exceedGitHub100MiB if duplicate results kept;assert results==all cases.actual then store one canonical copy,as done for Windows artifacts",
+    "No current candidate CUDA or speed claim;initial unrelated Metal finding remains open"
+  ]
+}

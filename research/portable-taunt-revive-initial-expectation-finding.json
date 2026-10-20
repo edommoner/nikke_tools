@@ -1,0 +1,8 @@
+{
+  "stage": "CPU characterization expectation",
+  "gpu_execution": false,
+  "initial_assumption": "Revived ranked passive is already resolved to the former winner",
+  "observed": "Original revive recreates the passive with target_chars=None;taunters remains empty until a separate live-stat query resolves it",
+  "native_modified": false,
+  "fixture_expectation_corrected": true
+}
