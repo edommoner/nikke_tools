@@ -3,8 +3,8 @@
   "catalog_characters": 203,
   "audited_contexts": 812,
   "stage0_matches_current_audit": true,
-  "own_effect_preflight_contexts_passed": 198,
-  "all_four_stages_preflight_characters": 49,
+  "own_effect_preflight_contexts_passed": 202,
+  "all_four_stages_preflight_characters": 50,
   "all_four_stages_preflight_names": [
     "아니스",
     "네온 : 블루 오션",
@@ -33,6 +33,7 @@
     "노벨",
     "홍련",
     "이사벨",
+    "리버렐리오",
     "블랑",
     "누아르",
     "루주",
@@ -61,7 +62,7 @@
   "full_character_verified": 0,
   "scope": "Favorite stages0..3,default skill levels,no cube,same fixed five-member squad;preflight only;not GPU support certification",
   "issues": {
-    "Unported buff or recipient selector": 764,
+    "Unported buff or recipient selector": 752,
     "Unported trigger timing: event:part_destroy": 60,
     "Unported instant or recipient selector": 57,
     "Unported enemy damage selector": 49,
@@ -87,8 +88,6 @@
     "Unported effect fields: persist_on_revive": 8,
     "Unported effect fields: scaling, scaling_hp_pct": 8,
     "Unported damage family": 8,
-    "Unported predicate: core_hit": 8,
-    "Unported predicate: optimal_range": 8,
     "Unported trigger timing: squad_burst_cast:1": 8,
     "Unported predicate: target_state:붐 인스톨": 8,
     "Unported predicate: not_target_state:누적 폭발 스킬": 8,
@@ -135,9 +134,9 @@
     "Unported predicate: target_state:타겟 지정": 2
   },
   "missing_families": {
-    "damage_modifiers": 390,
-    "weapon": 273,
-    "damage": 191,
+    "damage_modifiers": 382,
+    "weapon": 257,
+    "damage": 187,
     "control_survival": 176,
     "effect_lifecycle": 148,
     "resource_accumulation": 64,
@@ -14879,117 +14878,45 @@
       "character": "리버렐리오",
       "favorite_stage": 0,
       "own_effects": 21,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "차분한 수심 2",
-          "type": "buff",
-          "stat": "atk_dmg_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "core_hit"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: core_hit",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: core_hit"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "리버렐리오",
       "favorite_stage": 1,
       "own_effects": 21,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "차분한 수심 2",
-          "type": "buff",
-          "stat": "atk_dmg_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "core_hit"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: core_hit",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: core_hit"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "리버렐리오",
       "favorite_stage": 2,
       "own_effects": 21,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "차분한 수심 2",
-          "type": "buff",
-          "stat": "atk_dmg_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "core_hit"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: core_hit",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: core_hit"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "리버렐리오",
       "favorite_stage": 3,
       "own_effects": 21,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "차분한 수심 2",
-          "type": "buff",
-          "stat": "atk_dmg_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "core_hit"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: core_hit",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: core_hit"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "블랑",
@@ -17711,55 +17638,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "요원의 시선",
-          "type": "buff",
-          "stat": "atk_caster_based_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "optimal_range"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: optimal_range",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: optimal_range"
-        },
-        {
-          "name": "스파이 렌즈",
-          "type": "buff",
-          "stat": "optimal_range_min",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "요원의 움직임",
-          "type": "buff",
-          "stat": "pierce_dmg_pct",
-          "family": "weapon",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "optimal_range"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: optimal_range",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: optimal_range"
-        },
-        {
           "name": "요원의 움직임 2",
           "type": "buff",
           "stat": "pierce_enabled",
@@ -17770,21 +17648,6 @@
           "conditions": [
             "self_stack_above:스파이 렌즈:10"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "최첨단 요원 장비",
-          "type": "buff",
-          "stat": "optimal_range_min",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
           "preflight_passed": false,
           "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
@@ -17804,55 +17667,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "요원의 시선",
-          "type": "buff",
-          "stat": "atk_caster_based_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "optimal_range"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: optimal_range",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: optimal_range"
-        },
-        {
-          "name": "스파이 렌즈",
-          "type": "buff",
-          "stat": "optimal_range_min",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "요원의 움직임",
-          "type": "buff",
-          "stat": "pierce_dmg_pct",
-          "family": "weapon",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "optimal_range"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: optimal_range",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: optimal_range"
-        },
-        {
           "name": "요원의 움직임 2",
           "type": "buff",
           "stat": "pierce_enabled",
@@ -17863,21 +17677,6 @@
           "conditions": [
             "self_stack_above:스파이 렌즈:10"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "최첨단 요원 장비",
-          "type": "buff",
-          "stat": "optimal_range_min",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
           "preflight_passed": false,
           "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
@@ -17897,55 +17696,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "요원의 시선",
-          "type": "buff",
-          "stat": "atk_caster_based_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "optimal_range"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: optimal_range",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: optimal_range"
-        },
-        {
-          "name": "스파이 렌즈",
-          "type": "buff",
-          "stat": "optimal_range_min",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "요원의 움직임",
-          "type": "buff",
-          "stat": "pierce_dmg_pct",
-          "family": "weapon",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "optimal_range"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: optimal_range",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: optimal_range"
-        },
-        {
           "name": "요원의 움직임 2",
           "type": "buff",
           "stat": "pierce_enabled",
@@ -17956,21 +17706,6 @@
           "conditions": [
             "self_stack_above:스파이 렌즈:10"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "최첨단 요원 장비",
-          "type": "buff",
-          "stat": "optimal_range_min",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
           "preflight_passed": false,
           "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
@@ -17990,55 +17725,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "요원의 시선",
-          "type": "buff",
-          "stat": "atk_caster_based_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "optimal_range"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: optimal_range",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: optimal_range"
-        },
-        {
-          "name": "스파이 렌즈",
-          "type": "buff",
-          "stat": "optimal_range_min",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "요원의 움직임",
-          "type": "buff",
-          "stat": "pierce_dmg_pct",
-          "family": "weapon",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "optimal_range"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: optimal_range",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: optimal_range"
-        },
-        {
           "name": "요원의 움직임 2",
           "type": "buff",
           "stat": "pierce_enabled",
@@ -18049,21 +17735,6 @@
           "conditions": [
             "self_stack_above:스파이 렌즈:10"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "최첨단 요원 장비",
-          "type": "buff",
-          "stat": "optimal_range_min",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
           "preflight_passed": false,
           "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
@@ -20331,21 +20002,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "우렁찬 포효",
-          "type": "buff",
-          "stat": "optimal_range_max_pct",
-          "family": "weapon",
-          "timings": [
-            "on_attack_count:15"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "용기있는 시선 2",
           "type": "buff",
           "stat": "pellet_count",
@@ -20372,21 +20028,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "우렁찬 포효",
-          "type": "buff",
-          "stat": "optimal_range_max_pct",
-          "family": "weapon",
-          "timings": [
-            "on_attack_count:15"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "용기있는 시선 2",
           "type": "buff",
@@ -20415,21 +20056,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "우렁찬 포효",
-          "type": "buff",
-          "stat": "optimal_range_max_pct",
-          "family": "weapon",
-          "timings": [
-            "on_attack_count:15"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "용기있는 시선 2",
           "type": "buff",
           "stat": "pellet_count",
@@ -20456,21 +20082,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "우렁찬 포효",
-          "type": "buff",
-          "stat": "optimal_range_max_pct",
-          "family": "weapon",
-          "timings": [
-            "on_attack_count:15"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "용기있는 시선 2",
           "type": "buff",
@@ -26592,27 +26203,6 @@
             "note"
           ],
           "issue": "Unported effect fields: hits_parts"
-        },
-        {
-          "name": "모드 스왑 3",
-          "type": "damage",
-          "stat": "core_damage",
-          "family": "damage",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [
-            "burst_casted",
-            "not_self_state:저격 모드",
-            "core_hit"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: core_hit",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: core_hit"
         }
       ]
     },
@@ -26698,27 +26288,6 @@
             "note"
           ],
           "issue": "Unported effect fields: hits_parts"
-        },
-        {
-          "name": "모드 스왑 3",
-          "type": "damage",
-          "stat": "core_damage",
-          "family": "damage",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [
-            "burst_casted",
-            "not_self_state:저격 모드",
-            "core_hit"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: core_hit",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: core_hit"
         }
       ]
     },
@@ -26804,27 +26373,6 @@
             "note"
           ],
           "issue": "Unported effect fields: hits_parts"
-        },
-        {
-          "name": "모드 스왑 3",
-          "type": "damage",
-          "stat": "core_damage",
-          "family": "damage",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [
-            "burst_casted",
-            "not_self_state:저격 모드",
-            "core_hit"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: core_hit",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: core_hit"
         }
       ]
     },
@@ -26910,27 +26458,6 @@
             "note"
           ],
           "issue": "Unported effect fields: hits_parts"
-        },
-        {
-          "name": "모드 스왑 3",
-          "type": "damage",
-          "stat": "core_damage",
-          "family": "damage",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [
-            "burst_casted",
-            "not_self_state:저격 모드",
-            "core_hit"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: core_hit",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: core_hit"
         }
       ]
     },
@@ -34992,13 +34519,13 @@
   ],
   "source_sha256": {
     "research/audit-portable-favorites.py": "e2e9a7d747f966b8805f29ad0307e5d8a5c376c1550614d3994b288a0216835b",
-    "research/portable-catalog-readiness.json": "3159af4046bb649e7677500827f12f1f0ceba829ef91900eb8aebc841840e403",
+    "research/portable-catalog-readiness.json": "2dbbe09c5ff624ab866239b182b490da914d31e502417ff0c7d17d8ee31ac778",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
-    "app/portable_runtime.py": "2c10e4a610569958183566f7385ad0b07a81f154ce5c36edea3ce2c73cb98c2c",
-    "app/portable_roster_input.py": "06e0dd350bef64a1355f14a93843f8698d7dfba2fcde3bcea7226bfcd31438ca",
-    "app/portable_trigger_specs.py": "7d4e9045da232fbe5579e35e5fe9635b129fbd865c2b736f7560a1cc63504e9f",
+    "app/portable_runtime.py": "9c711c2fa617ff28c0434b8cd5864cdd0b13feef9338c2fca1a88112157285f3",
+    "app/portable_roster_input.py": "cf569da9faababe07f9c1c16111da2f64936d5da562b123ea0ed67b7847bd024",
+    "app/portable_trigger_specs.py": "6711c6255bbf42251c0a658871297f9f35b34db4ffa8a5dde41ad89f7ee62263",
     "app/portable_probability_specs.py": "77becccd2a7cf2b046ad4422958952d843d76a4aa2800f9fcb6dd7ce35c75f61",
-    "app/portable_damage_specs.py": "8e2433b1720f24bf6d5e70e8a59e5230fac309977170356753506922da69243c",
+    "app/portable_damage_specs.py": "7515fd480d6abbc09f34c4543c8ccc597154b031ca029ada63e85d179a918197",
     "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
     "scripts/detail_coverage.py": "eef94f7675f270e8a4870323cb1e55e8506f2e5fe47e6fa4b1645d9aaf71dc40",
     "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",

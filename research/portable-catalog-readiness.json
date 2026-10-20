@@ -3,12 +3,12 @@
   "audited_characters": 203,
   "full_character_verified": 0,
   "weapon_input_preflight_passed": 203,
-  "own_effect_preflight_passed": 51,
+  "own_effect_preflight_passed": 52,
   "assumptions": "favorite stage 0, no cube, fixed five-member real roster; definition preflight only; not battle compatibility",
   "cpu_simulation_executed": false,
   "gpu_execution_performed": false,
   "issues": {
-    "Unported buff or recipient selector": 189,
+    "Unported buff or recipient selector": 186,
     "Unported trigger timing: event:part_destroy": 15,
     "Unported instant or recipient selector": 14,
     "Unported enemy damage selector": 12,
@@ -34,8 +34,6 @@
     "Unported effect fields: persist_on_revive": 2,
     "Unported effect fields: scaling, scaling_hp_pct": 2,
     "Unported damage family": 2,
-    "Unported predicate: core_hit": 2,
-    "Unported predicate: optimal_range": 2,
     "Unported trigger timing: squad_burst_cast:1": 2,
     "Unported predicate: target_state:붐 인스톨": 2,
     "Unported predicate: not_target_state:누적 폭발 스킬": 2,
@@ -77,7 +75,7 @@
     "Unported predicate: target_state:해킹": 1
   },
   "diagnostic_semantic_issues": {
-    "Unported buff or recipient selector": 189,
+    "Unported buff or recipient selector": 186,
     "Unported trigger timing: event:part_destroy": 15,
     "Unported instant or recipient selector": 14,
     "Unported enemy damage selector": 12,
@@ -103,8 +101,6 @@
     "Unported effect fields: persist_on_revive": 2,
     "Unported effect fields: scaling, scaling_hp_pct": 2,
     "Unported damage family": 2,
-    "Unported predicate: core_hit": 2,
-    "Unported predicate: optimal_range": 2,
     "Unported trigger timing: squad_burst_cast:1": 2,
     "Unported predicate: target_state:붐 인스톨": 2,
     "Unported predicate: not_target_state:누적 폭발 스킬": 2,
@@ -146,9 +142,9 @@
     "Unported predicate: target_state:해킹": 1
   },
   "missing_families": {
-    "damage_modifiers": 96,
-    "weapon": 67,
-    "damage": 46,
+    "damage_modifiers": 94,
+    "weapon": 63,
+    "damage": 45,
     "control_survival": 44,
     "effect_lifecycle": 37,
     "resource_accumulation": 16,
@@ -28379,11 +28375,10 @@
           "conditions": [
             "core_hit"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: core_hit",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: core_hit"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "차분한 수심 3",
@@ -28708,7 +28703,7 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 91,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
@@ -35348,11 +35343,10 @@
           "conditions": [
             "optimal_range"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: optimal_range",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: optimal_range"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "스파이 렌즈",
@@ -35363,11 +35357,10 @@
             "full_charge_fire"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "요원의 움직임",
@@ -35380,11 +35373,10 @@
           "conditions": [
             "optimal_range"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: optimal_range",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: optimal_range"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "요원의 움직임 2",
@@ -35428,11 +35420,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "최첨단 요원 장비 2",
@@ -40014,11 +40005,10 @@
             "on_attack_count:15"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "용기있는 시선",
@@ -49127,13 +49117,10 @@
             "not_self_state:저격 모드",
             "core_hit"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: core_hit",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: core_hit"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "유리 구두 풀 컨텍트 W",
@@ -62837,7 +62824,7 @@
     "app/periodic_target_runtime.py": "b2475507525e8f06b9139142fb662d831f73a72cbb8e99b087dd0c6a1ae3d188",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
     "app/portable_combat.py": "aeb209d1d7b05d1d7954e34c7d674b52157c0aff663cde951affaea023d8f98a",
-    "app/portable_damage_specs.py": "8e2433b1720f24bf6d5e70e8a59e5230fac309977170356753506922da69243c",
+    "app/portable_damage_specs.py": "7515fd480d6abbc09f34c4543c8ccc597154b031ca029ada63e85d179a918197",
     "app/portable_duration_extend_specs.py": "f3909d1ce0a448090fd853a8fbb44f64bf6acdbb1803742812a2fb84bd42f9a8",
     "app/portable_enemy_specs.py": "34cfe5234f5ed216af3cf3cbdde5c6b777a48eed2a81676294f2ed96d1ab6e49",
     "app/portable_lifesteal_reference.py": "eeb7dd998fce96afbc032e95b5f9b7454cb0f408d4472bfd6dae9f23a64a1104",
@@ -62847,11 +62834,11 @@
     "app/portable_removal_specs.py": "65eeea6e89b54a4215ec93c6658d26231f4c8a656d3ac8b2ddd52ef5bcec0fcf",
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
     "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
-    "app/portable_runtime.py": "2c10e4a610569958183566f7385ad0b07a81f154ce5c36edea3ce2c73cb98c2c",
+    "app/portable_runtime.py": "9c711c2fa617ff28c0434b8cd5864cdd0b13feef9338c2fca1a88112157285f3",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "b46538f0221b7205a0699d33c4ddaf7f6e6351922517c1d31a77ceef08d87281",
+    "app/portable_specs.py": "856988886857cb7cf678d3610bc3a28c0e7b511a960a0b24d07f8ee3b72b33ce",
     "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
-    "app/portable_trigger_specs.py": "7d4e9045da232fbe5579e35e5fe9635b129fbd865c2b736f7560a1cc63504e9f",
+    "app/portable_trigger_specs.py": "6711c6255bbf42251c0a658871297f9f35b34db4ffa8a5dde41ad89f7ee62263",
     "app/portable_weapon_input.py": "f5b6a332f60bde4382f7579eb32bbf8df2e93116de443c824b8826390136e43b",
     "app/protection_runtime.py": "1ddbb6134b1deea1e9fee295d0171b380098ca2211f109a20224f2d369a91f92",
     "app/reference_count_runtime.py": "009b8bbee5523994861860c6101416bc1ff1e72b04a7da46e78f6ce9a5d571ef",

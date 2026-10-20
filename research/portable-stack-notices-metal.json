@@ -73,11 +73,11 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.006894833291880786,
+    "gpu_seconds": 0.0069512499030679464,
     "input_bytes": 3096580,
-    "library_compile_seconds": 0.4610860347747803,
+    "library_compile_seconds": 0.46558499336242676,
     "output_bytes": 5750784,
-    "pipeline_compile_seconds": 1.8353389501571655,
+    "pipeline_compile_seconds": 1.8253960609436035,
     "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
@@ -87,13 +87,14 @@
   },
   "source_sha256": {
     "gpu/stack_notice_probe.slang": "371bf4bb9d3254068750a800113902adde69a98a7366546b005cee251a4215e0",
-    "gpu/event_runtime.slang": "d11e2c0acfbc2f8f05f4e270c1b422a65606a51dab874d7ca85e61b364f12452",
+    "gpu/event_runtime.slang": "6a28aa26b93001837c0133dce54ed91e367086397437e8136ac36c1584614775",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
-    "gpu/portable_schema.slang": "0784e46590ac095845c2c28f47e2b3018b485c695de6e63342a78f5b6d62a158",
+    "gpu/portable_schema.slang": "b79a1dc0f6aaa6e9075bb68b2f94d78b3e602114c032670390059bb00516843e",
     "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
     "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
     "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
+    "gpu/geometry_runtime.slang": "fc0b6202a75be21dfec22dc7e1c787d3f556fb68caf2c34c5b815d1d8591e33e",
     "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
     "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
     "gpu/reference_runtime.slang": "3ea6e2b3d617728568a4455097ae2f139466127729026b3011dbb3d930b72a05",
@@ -112,7 +113,7 @@
     "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
     "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
     "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
-    "gpu/damage_runtime.slang": "ba3d66138f9533b377ca67ee13a89fe16c0937ba325f378e77bcb5f3cc71dcd6",
+    "gpu/damage_runtime.slang": "259f4e8aa6dd64291d267188bf3806665a4b09cb4f375e0a152c46b93633aab3",
     "gpu/incoming_runtime.slang": "bde3b172675e137dea190196aeeb2b81e2608115756da932e2642d410c57cf68",
     "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
     "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
@@ -131,13 +132,13 @@
     "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
-    "gpu/admission_runtime.slang": "80024c2d33984fb6a51e9c62c1e6844a10c8d049138683a13f213269d85bf573"
+    "gpu/admission_runtime.slang": "e0a1c6d3c5931b747bb24ad02d77b57e280fe1c8c196765bd85400775a541e39"
   },
   "generated_sha256": {
-    "cuda": "cfc2e54ff1815976900839412d2c09e91dd99d6ca02af12b2f02d9381331015c",
-    "metal": "cf09f874334f0e2ab5633daf63355be2e3a8d69e9c1dce61b025e64e3c6cd926"
+    "cuda": "9dd0c31248b172f1e73efc6eb0f5abfbd83b5fa5f998b77c771e3903d7a60004",
+    "metal": "00e8d6b2556aff54d493eb564552d3c87be3a456d3e0cec176c3c5647c817d4e"
   },
-  "input_sha256": "7f25dc04107507c048d73a677285bdb200ad139fda481f7520e6daf6a970f0e7",
+  "input_sha256": "da0d5d326e8bd06af3de2dfd537bdc6b36b4708589d0ebbd21aa7d3797aa714d",
   "output_sha256": "a9c019be1bad02e73cbcd2b7d4bab1d5a64e690e5d82c355d9537df971e6835c",
   "gpu_execution_verified": true,
   "backend": "metal"

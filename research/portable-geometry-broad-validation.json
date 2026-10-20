@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "all_current_gates_passed": true,
+  "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+  "previous_proof_commit": "cd5762a8c95914a90d83d5e9552bf49414027a50",
+  "checked_at": "2026-10-20T06:01:14.277828+00:00",
+  "mac_gates": 34,
+  "core_programs": 2503,
+  "positive_cases": 2130,
+  "rejections": 373,
+  "geometry_native_cases": 190,
+  "probability_native_cases": 92,
+  "geometry_physical_cases": 8,
+  "probability_physical_4096_cases": 5,
+  "geometry_api_cases": 8,
+  "probability_api_cases": 8,
+  "unit_tests": 246,
+  "unit_groups": {
+    "unit": {
+      "tests": 246,
+      "output": "......................................................................................................................................................................................................................................................\n----------------------------------------------------------------------\nRan 246 tests in 6.895s\n\nOK\n"
+    },
+    "staged-native": {
+      "tests": 9,
+      "output": "../Users/edo/Documents/ChatGPT/nikke_tools/research/upstream/nikke-calc-master/scraper/profile_fetch.py:187: ResourceWarning: unclosed file <_io.TextIOWrapper name='/Users/edo/Documents/ChatGPT/nikke_tools/research/upstream/nikke-calc-master/scraper/nikke_scraped.json' mode='r' encoding='utf-8'>\n  d = json.load(open(os.path.join(HERE, \"nikke_scraped.json\"), encoding=\"utf-8\"))\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n.......\n----------------------------------------------------------------------\nRan 9 tests in 0.670s\n\nOK\n"
+    },
+    "source-native": {
+      "tests": 6,
+      "output": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n"
+    },
+    "native-mode-spec": {
+      "tests": 4,
+      "output": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.004s\n\nOK\n"
+    },
+    "native-mode-input": {
+      "tests": 3,
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.012s\n\nOK\n"
+    },
+    "reference-rewrite": {
+      "tests": 3,
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
+    }
+  },
+  "real_profiles": 104,
+  "old_profiles_preserved": 102,
+  "own_effect_preflight_passed": 52,
+  "initial_unlocalized_metal_finding_open": true,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "efficiency_evaluated": false,
+  "cuda_evidence_report": "portable-geometry-transfer-completed.json",
+  "scope": "Completed fixed-source Mac gates only;CUDA evidence is sealed separately"
+}

@@ -1,0 +1,107 @@
+{
+  "passed": true,
+  "source_commit": "17decef851fbea0a300e16706c63ff6702e6e83f",
+  "efficiency_evaluated": true,
+  "candidate": "OR-reduce zero-only input regions and validate unused mode tail as one region;all malformed inputs remain rejected",
+  "selected_for_adoption": false,
+  "production_change_adopted": false,
+  "adoption_stage": "Measured;keep current source",
+  "all_2503_input_output_bytes_equal": true,
+  "improved_nonoverlapping_workloads": [],
+  "worsened_nonoverlapping_workloads": [],
+  "workloads": {
+    "ordinary": {
+      "ratio": 1.0711383952123459,
+      "ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.007010124973021448,
+          0.007307458319701254
+        ],
+        "candidate": [
+          0.007052916684187949,
+          0.007830916671082377
+        ]
+      },
+      "median_gpu_seconds": {
+        "control": 0.00710762501694262,
+        "candidate": 0.007613250054419041
+      }
+    },
+    "core": {
+      "ratio": 0.9820044214740375,
+      "ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.0034172500018030405,
+          0.003812833339907229
+        ],
+        "candidate": [
+          0.003122208290733397,
+          0.003872916684485972
+        ]
+      },
+      "median_gpu_seconds": {
+        "control": 0.003547166590578854,
+        "candidate": 0.003483333275653422
+      }
+    },
+    "range": {
+      "ratio": 0.9880300124416601,
+      "ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.0017860833322629333,
+          0.004288583411835134
+        ],
+        "candidate": [
+          0.003830875037238002,
+          0.004009291646070778
+        ]
+      },
+      "median_gpu_seconds": {
+        "control": 0.004037874983623624,
+        "candidate": 0.003989541670307517
+      }
+    },
+    "changed-list": {
+      "ratio": 1.0193277644510774,
+      "ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.01021987502463162,
+          0.01244924997445196
+        ],
+        "candidate": [
+          0.01219949999358505,
+          0.01231704163365066
+        ]
+      },
+      "median_gpu_seconds": {
+        "control": 0.012053041718900204,
+        "candidate": 0.012286000070162117
+      }
+    },
+    "probability-chain": {
+      "ratio": 0.9614479208495947,
+      "ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.008405999979004264,
+          0.008914291625842452
+        ],
+        "candidate": [
+          0.004856750019825995,
+          0.008447874919511378
+        ]
+      },
+      "median_gpu_seconds": {
+        "control": 0.00877924996893853,
+        "candidate": 0.008440791629254818
+      }
+    }
+  },
+  "benchmark_sha256": "72ce6017ca44318a00308e1b528caca617d5474894cb17b8f48a1a5f0e5c9d54",
+  "initial_unlocalized_metal_finding_open": true,
+  "scope": "Five local workloads,warmup+3 samples on Apple M5;no full-roster,CUDA-speed or peak-memory claim"
+}
