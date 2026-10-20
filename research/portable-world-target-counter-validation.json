@@ -8,7 +8,7 @@
   "old590_all_output_words_preserved": true,
   "uid_epoch_credit_per_step_and_immutable_completion_exact": true,
   "all_siblings_latched_before_synchronous_children": true,
-  "preparation_before_activation_children": true,
+  "preparation_location_matches_native_activation_child_witness": true,
   "seven_prior_entries_cuda_msl_generated_exact": true,
   "portable_cpu_tests": 364,
   "unit_test_revision": "a27f308",

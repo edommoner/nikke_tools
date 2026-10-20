@@ -1,0 +1,81 @@
+{
+  "source_commit": "61c7a884c3d687c486017d71e84e560d6b0a46e9",
+  "branch": "codex/cuda-world-v89-source",
+  "base": "a106e1e69de91888abe3c175029f13028a616e1c",
+  "file_count": 13,
+  "files": [
+    {
+      "path": "app/portable_specs.py",
+      "bytes": 16602,
+      "sha256": "dcf8641255440ebc553e53e7ad39a69b28bc46b472181503a6795f777af97a33"
+    },
+    {
+      "path": "app/portable_target_counter_specs.py",
+      "bytes": 5987,
+      "sha256": "d5bae1f5a04b49f347e683fcec9a57e1b7072da8438e5b8d18beea29b615a01f"
+    },
+    {
+      "path": "gpu/event_runtime.slang",
+      "bytes": 117694,
+      "sha256": "265b76ff47fa3c86c649e3d470f99e4872029dce3dc8d34dd6f3d2bf5e7e246e"
+    },
+    {
+      "path": "gpu/portable_schema.slang",
+      "bytes": 19396,
+      "sha256": "05d9911d76b1a854a8a88f3f1cc7c36832cc48c51deee09b12fc51c61aee8121"
+    },
+    {
+      "path": "gpu/world_frame_addresses.slang",
+      "bytes": 4955,
+      "sha256": "d1606c64d97393118479cb0c4e75edb84d0a79c37e6f7dbbbdb80107915ec6ae"
+    },
+    {
+      "path": "gpu/target_counter_entry.slang",
+      "bytes": 411,
+      "sha256": "af78f0f0cc55734578c0a86f48d5cd36750dd3ae4589be405d81d962293a4666"
+    },
+    {
+      "path": "gpu/target_counter_runtime.slang",
+      "bytes": 12261,
+      "sha256": "7b3e6821d104bcea88f53ccfc358c303041701c53154bd984eb23eb24d1e4c42"
+    },
+    {
+      "path": "tests/test_portable_target_counters.py",
+      "bytes": 7101,
+      "sha256": "8e0821ec8cf9bb7b38a521689270a12c238cc951aa9bd558ff3b0369173fd9c3"
+    },
+    {
+      "path": "research/world_target_counter_native.py",
+      "bytes": 4089,
+      "sha256": "e8580cf9203db1092bae8ec50849781390709ac022fd47eeae873d6e918185ae"
+    },
+    {
+      "path": "research/verify-world-target-counters.py",
+      "bytes": 9430,
+      "sha256": "d591e0682ecfe9e6d3f16f64acff493b93a1310253933eb08a622ed3ada43c22"
+    },
+    {
+      "path": "research/verify-world-target-counter-short.py",
+      "bytes": 5320,
+      "sha256": "a46758dbab79e698c5ff858b0d540c259bfe6ea61267ccc3328d6fff4bbea2df"
+    },
+    {
+      "path": "research/portable-world-target-counter-short-expected.json",
+      "bytes": 17804,
+      "sha256": "b7648494a18dfc8c689a5120a8f84d021c8bb03c5faa19ba3c5d1ecda5866ece"
+    },
+    {
+      "path": "docs/portable-world-target-counters.md",
+      "bytes": 12021,
+      "sha256": "237b5e539973514dd3cf39c80e7b44ba1271402630dfc324832517effc3bc77d"
+    }
+  ],
+  "bytes": 233071,
+  "private_settings": false,
+  "raw": false,
+  "large_reports": false,
+  "authorization": "User permits GitHub sharing until current goal achieved",
+  "windows_input_count": 32,
+  "windows_native_oracles": 10,
+  "old590_reexecutions": 0
+}

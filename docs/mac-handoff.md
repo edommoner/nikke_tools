@@ -1,3 +1,13 @@
+## 2026-10-21 対象別counterの共通resource/event:Metal622成功、CUDA32依頼中
+
+計算source98427c0・private ABI7Eで、credit/UID/refresh epoch/expiry/dead Actor、immutable ready queue、全siblings先行latch、共通event58の同期子と同epochだけの終了処理を接続しました。正常10ケース・48段階のUID/epoch/credit/完了snapshot、不正22、旧590全524288word保持に成功し、保存rawのCPU再監査も成功しました。通常＋6旧private entryのCUDA/MSL生成物は厳密一致、portable CPU364（unit revision a27f308）も成功しています。
+
+初回a27f308の10正常入力は自律worldのop24完了条件で全受付拒否でした（raw22拒否/旧590保持は成功）。失敗rawを保持し、CPUで根因を確認後、sidecarあり・全op43・範囲内時刻のliteral rootをprivate providerで区別しました。別ソース98427c0で成功し、物理GPU実行は異なるソースで各1回、同一ソース/入力の再試行0です。Macは現在GPU job0です。
+
+source packet61c7a884c3d687c486017d71e84e560d6b0a46e9、codex/cuda-world-v89-source（13ファイル233071bytes）を共有し、既存Windowsチャットへ新32入力だけを依頼しました。2026-10-21の観測cursor123、turn01a15b67-4fba-7982-b0ad-033e5cf20c5aはinProgressでCPU事前段階です。CPU phase5＋target_counter8、GPU禁止の32入力/native10照合の後だけBelowNormal/JobObject/start gate/独立180秒/cleanup5秒でCUDA1回です。旧590/通常4682を再実行しません。返却はv89の3JSON gzip-base64 capsuleのみ、再実行/結果push不要です。結果未取得なら同じturnをwait/readし、再依頼しないでください。GitHub共有はゴール達成まで許可済みです。
+
+Mac証拠:portable-world-target-counter-validation.json、portable-world-target-counter-metal.json、初回失敗/root-finding、監査器seal-world-target-counter-metal.py。次は実武器/散弾/部位/召喚のImpact bridge（lifesteal後、致死credit先行）、型付き対象条件/子context、skill/pending/DoTへ接続します。このphaseはliteral resource/eventのみで、未接続のdamage子/runtime条件/通常enemy field子をcounter有効時に拒否します。通常画面CPU・world公開無効・全変種認証0/203、効率化は必要検証後です。
+
 ## 2026-10-21 対象別カウンター：入力とnative基準を固定（GPU未接続）
 
 前段のMetal590/CUDA61成功を保持し、CounterSpec/Impactを使う共通literal sidecarとCPU参照器を追加しました。既存10ケース・48段階、共通compilerの11 policy row、子イベント内のdamage0/credit1着弾で即完了する実CPU witnessが成功し、portable CPU363検査も成功しました。GPUソース・通常受付・実験ABI7Dは変更していません。今回GPU0・Windows追加依頼0、通常画面CPU・world公開無効・全変種認証0/203です。
