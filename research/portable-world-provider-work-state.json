@@ -1,5 +1,5 @@
 {
-  "stage": "Fixed-source global gates active;new distinct world-zero-once failure retained,next fix after gates",
+  "stage": "Root fixed-source global52 active;isolated initial-zero fix and closed notices Metal verified",
   "source_commit": "4c07f45356b561bdc64725b3e691731526ee04f2",
   "validation": "research/portable-world-provider-validation.json",
   "gpu_jobs": [
@@ -44,7 +44,7 @@
   "efficiency_started": false,
   "normal_ui": "CPU",
   "full_goal_complete": false,
-  "updated_at": "2026-10-20T16:27:56.680396+00:00",
+  "updated_at": "2026-10-20T16:46:43.912219+00:00",
   "new_finding": "research/portable-world-zero-once-finding.json",
   "new_witness_session": {
     "session_id": 95535,
@@ -66,5 +66,10 @@
     "passed": true,
     "full_native_effects": true,
     "gpu_verified": false
-  }
+  },
+  "isolated_worktree": "/Users/edo/.codex/worktrees/world-notices/nikke_tools",
+  "isolated_source_commit": "15bcbfe9ecf7484f0b53afdf2feec7e85c97b6ad",
+  "isolated_validation": "/Users/edo/.codex/worktrees/world-notices/nikke_tools/research/portable-world-notices-validation.json",
+  "root_initial_zero_fix_integrated": false,
+  "root_notices_integrated": false
 }
