@@ -13,19 +13,19 @@ uint woRangeMask(inout Runtime s) { return results[s.resourceOutput+WO_OUT+3]; }
 [noinline]
 bool initializeWorldOverlays(inout Runtime s)
 {
-    for(uint i=0;i<288;i++) results[s.resourceOutput+WO_OUT+i]=0;
+    for(uint i=0;i<328;i++) results[s.resourceOutput+WO_OUT+i]=0;
     uint at=s.inputBase+WO_IN;
     if(commands[at]==0) { for(uint i=0;i<528;i++) if(commands[at+i]!=0) return false;return true; }
-    if(commands[at]!=0x574f3031 || commands[s.inputBase+P_WORLD_FRAME_INPUT_BASE]!=0x57533031 || s.targetCount!=1 || commands[s.inputBase+P_GEOMETRY_BASE]==0) return false;
-    for(uint i=1;i<16;i++) if(commands[at+i]!=0) return false;
+    if(commands[at]!=0x574f3031 || commands[s.inputBase+P_WORLD_FRAME_INPUT_BASE]!=0x57533031 || s.targetCount!=1 || commands[s.inputBase+P_LANDING_META_BASE]!=1 || commands[s.inputBase+P_GEOMETRY_BASE]==0) return false;
+    if(commands[at+1]>31) return false;
+    for(uint i=2;i<7;i++) if(commands[at+i]>5) return false;
+    for(uint i=7;i<16;i++) if(commands[at+i]!=0) return false;
     uint count=commands[s.inputBase+P_WORLD_FRAME_INPUT_BASE+1];
     for(uint n=0;n<32;n++)
     {
         uint p=woNode(s,n),kind=commands[p],flags=commands[p+1];
         if(n>=count || kind==0) { for(uint i=0;i<16;i++) if(commands[p+i]!=0) return false;continue; }
-        // Shield/vanish and actor payloads are not silently accepted before
-        // their landing/gauge providers have been connected.
-        if(kind>4 || flags>1 || kind!=1 && flags!=0) return false;
+        if(kind>6 || flags>1 || kind!=1 && flags!=0) return false;
         for(uint i=11;i<16;i++) if(commands[p+i]!=0) return false;
         for(uint i=2;i<10;i+=2) if(!f64Finite(loadNumber(p+i))) return false;
         if(kind==1)
@@ -41,6 +41,8 @@ bool initializeWorldOverlays(inout Runtime s)
                 if(status!=0 || !f64Equal(loadNumber(p+8),f64FromI64(whole)) || f64Less(f64FromI64(100000000),loadNumber(p+8))) return false;
             }
             if(kind==4 && (!f64Zero(loadNumber(p+8)) || commands[p+10]>63)) return false;
+            if(kind==5 && (commands[p+8]>commands[s.inputBase+P_WORLD_META_BASE+1] || commands[p+9]!=0 || commands[p+10]==0 || commands[p+10]>5)) return false;
+            if(kind==6 && (!f64Zero(loadNumber(p+8)) || commands[p+10]!=0)) return false;
         }
         if(kind==3 && ((commands[s.inputBase+P_GEOMETRY_BASE]&2)==0) || kind==4 && (commands[s.inputBase+P_GEOMETRY_BASE]&2)!=0) return false;
     }
@@ -107,3 +109,55 @@ void applyWorldOverlays(inout Runtime s,uint64_t when)
     results[out+2]=flags;results[out+3]=mask;storeNumber(out+4,core);storeNumber(out+6,distance);storeNumber(out+8,defense);
     results[out+10]++;
 }
+
+// Selection is from this frame's ordered active set. A blocked packet is
+// charged to exactly one node;vanish has priority over every elemental shield.
+uint worldGateNode(inout Runtime s,uint who,bool normal)
+{
+    if(!worldOverlayEnabled(s)) return 32;
+    uint count=commands[s.inputBase+P_WORLD_FRAME_INPUT_BASE+1],visited=0;
+    for(uint phase=0;phase<2;phase++)
+    {
+        visited=0;
+        for(uint pass=0;pass<count;pass++)
+        {
+            uint selected=32;uint64_t earliest=0;
+            for(uint n=0;n<count;n++)
+            {
+                if((visited&(1U<<n))!=0 || results[woGraphState(s,n)]==0) continue;
+                uint kind=commands[woNode(s,n)];if(phase==0 ? kind!=6 : kind!=5) continue;
+                uint64_t start=woRead(woGraphState(s,n)+2);
+                if(selected==32 || f64Less(start,earliest)) { selected=n;earliest=start; }
+            }
+            if(selected==32) break;visited|=1U<<selected;
+            if(phase==0) { if(normal) return selected;continue; }
+            uint p=woNode(s,selected),own=commands[s.inputBase+WO_IN+2+who],wanted=commands[p+10];
+            uint superior=own==1?3U:own==2?1U:own==3?4U:own==4?5U:own==5?2U:0U;
+            if(superior==wanted) continue;
+            bool overrideMatch=false;uint tag=commands[p+8];
+            if(tag!=0) for(uint i=0;i<s.orderedCount;i++)
+            {
+                uint row=s.orderedRows[i];if(s.alive[row]==0 || (s.activeRecipients[row]&(1U<<who))==0) continue;
+                uint definition=s.carrierDefinition[row];
+                if(definition_kind(s.inputBase,definition)==0 && definition_stat(s.inputBase,definition)==S_element_code_override && definition_damageRoute(s.inputBase,definition)==tag) { overrideMatch=true;break; }
+            }
+            if(!overrideMatch) return selected;
+        }
+    }
+    return 32;
+}
+bool worldVanish(inout Runtime s)
+{
+    if(!worldOverlayEnabled(s)) return false;
+    for(uint n=0;n<commands[s.inputBase+P_WORLD_FRAME_INPUT_BASE+1];n++)
+        if(results[woGraphState(s,n)]!=0 && commands[woNode(s,n)]==6) return true;
+    return false;
+}
+bool worldOverlayLand(inout Runtime s,uint who,uint target,uint64_t amount,bool normal)
+{
+    if(target!=0) return true;
+    uint node=worldGateNode(s,who,normal);if(node==32) return true;
+    uint at=woState(s,node)+4;uint64_t blocked=f64Add(woRead(at),amount);
+    if(!f64Finite(blocked)) { s.error=16;return false; }storeNumber(at,blocked);return false;
+}
+bool worldSkillGauge(inout Runtime s,uint who) { return worldGateNode(s,who,false)==32; }

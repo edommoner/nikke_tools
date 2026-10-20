@@ -35,15 +35,21 @@ def compile_case(case):
  for weapon in auth['combat']['weapons']:weapon.update(spread_start=20,spread_end=10,spread_shots=5,core_diameter=geometry['core_px'])
  graph,patterns=compile_schedule(dict(patterns=case['patterns'],clock='accumulated',duration=case['duration']),notice_payload=True)
  BossScript(patterns,copy.deepcopy(enemy),lambda *_:False) # Same cross-domain constraints as native.
- payload=compile_payload(patterns)
+ payload=None
  auth['patterns']=[{k:v for k,v in p.items() if k not in ('enemy','irremovable','core_px','weapons','distance')} if p['kind'] in ('idle','groggy','attack') else dict({k:v for k,v in p.items() if k in ('id','after','delay','until','repeat','emit','emit_end')},kind='idle') for p in case['patterns']]
- words,meta=f.compile_case(auth);words[L['WORLD_FRAME_INPUT_BASE']:L['WORLD_FRAME_PAYLOAD_BASE']]=graph;words[0]=L['WORLD_OVERLAY_ABI'];words.extend(payload)
+ words,meta=f.compile_case(auth)
+ from portable_world_overlay_specs import CODES
+ shield=any(p.kind=='shield' for p in patterns)
+ elements=case.get('element_codes') or [case.get('weapon_metadata',{}).get('element_code',f.engine_worker.META[name].get('element_code','')) for name in f.NAMES]
+ tags={p.code:meta['states'][p.code]+1 for p in patterns if p.kind=='shield' and p.code in meta['states'] and words[L['WORLD_META_BASE']+1]!=0}
+ payload=compile_payload(patterns,camera_mask=sum(1<<i for i,name in enumerate(f.NAMES) if name in case.get('camera',[])),element_codes=[CODES.get(code,0) for code in elements] if shield else (),code_tags=tags)
+ words[L['WORLD_FRAME_INPUT_BASE']:L['WORLD_FRAME_PAYLOAD_BASE']]=graph;words[0]=L['WORLD_OVERLAY_ABI'];words.extend(payload)
  assert len(words)==L['WORLD_OVERLAY_INPUT_WORDS'];return words,meta
 
 def negative_inputs(programs):
  from portable_world_schedule_specs import number
  buff=list(programs[1][0]);core=list(programs[3][0]);header=L['WORLD_OVERLAY_INPUT_BASE'];node=L['WORLD_OVERLAY_NODE_BASE']+16
- edits=[('bad-magic',buff,header,0x574f3032),('reserved-header',buff,header+1,1),('unsupported-shield',buff,node,5),('unsupported-vanish',buff,node,6),('invalid-buff-flags',buff,node+1,2),('reserved-node',buff,node+15,1),('unused-node',buff,L['WORLD_OVERLAY_NODE_BASE']+31*16,1),('disabled-nonzero-payload',buff,header,0)]
+ edits=[('bad-magic',buff,header,0x574f3032),('reserved-header',buff,header+7,1),('unsupported-shield',buff,node,5),('unsupported-vanish',buff,node,6),('invalid-buff-flags',buff,node+1,2),('reserved-node',buff,node+15,1),('unused-node',buff,L['WORLD_OVERLAY_NODE_BASE']+31*16,1),('disabled-nonzero-payload',buff,header,0)]
  rows=[]
  for name,original,at,value in edits:
   words=list(original);words[at]=value;rows.append((name,words))
@@ -53,7 +59,9 @@ def negative_inputs(programs):
  return rows
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--backend',choices=('metal','cuda'),default='metal');p.add_argument('--replay',type=Path);args=p.parse_args();rows=cases();programs=[compile_case(c) for c in rows]
+ p=argparse.ArgumentParser();p.add_argument('--backend',choices=('metal','cuda'),default='metal');p.add_argument('--replay',type=Path);p.add_argument('--gates',action='store_true');args=p.parse_args();rows=cases();
+ if args.gates:rows+=module('overlay_gates','research/world_overlay_gate_cases.py').fixtures()
+ programs=[compile_case(c) for c in rows]
  negative=negative_inputs(programs);suite=module('overlay_previous_suite','research/verify-world-suite.py');prior=suite.cases();golden=json.loads(suite.GOLDEN.read_text());assert len(prior)==len(golden['cases'])==49
  packed=array.array('I',[len(rows)+len(negative)+len(prior)])
  for words,_ in programs:packed.extend(words)
@@ -77,13 +85,17 @@ def main():
  results=[]
  for i,(case,(_,meta)) in enumerate(zip(rows,programs)):
   actual=f.read_result(values[i*L['WORLD_FRAME_OUTPUT_WORDS']:(i+1)*L['WORLD_FRAME_OUTPUT_WORDS']],meta,case);native=observe(case)
+  if case.get('observe_overlay'):
+   block=values[i*L['WORLD_FRAME_OUTPUT_WORDS']:(i+1)*L['WORLD_FRAME_OUTPUT_WORDS']];head=L['WORLD_OVERLAY_STATE_BASE'];number=lambda at:struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
+   actual.update(gauge=actual['ordinary']['queries'][-1]['combat']['gauge'],world_nodes=[dict(blocked=number(head+32+j*8+4),opens=block[head+32+j*8]) for j in range(len(case['patterns']))])
   changed=[k for k in ('damage','allies','covers','shots','ammo','hits','boss_log','rng','graph_states','graph_history') if actual[k]!=native[k]]
+  if case.get('observe_overlay'):changed += [k for k in ('gauge','world_nodes') if actual[k]!=native[k]]
   results.append(dict(name=case['name'],passed=actual['status']==0 and not changed,changed=changed,actual=actual,native=native))
  rejected=[dict(name=name,status=values[(len(rows)+i)*L['WORLD_FRAME_OUTPUT_WORDS']],passed=values[(len(rows)+i)*L['WORLD_FRAME_OUTPUT_WORDS']]==64) for i,(name,_) in enumerate(negative)]
  preserved=[]
  for i,expected in enumerate(golden['cases']):
   offset=(len(rows)+len(negative)+i)*L['WORLD_FRAME_OUTPUT_WORDS']*4;block=raw[offset:offset+L['WORLD_FRAME_OUTPUT_WORDS']*4];digest=hashlib.sha256(block).hexdigest();preserved.append(dict(name=expected['name'],passed=digest==expected['output_sha256'],output_sha256=digest,expected_sha256=expected['output_sha256']))
- report=dict(passed=all(r['passed'] for r in results+rejected+preserved),preserved_world49=preserved,rejected_cases=rejected,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),cases=results,captured=str(folder),evidence=evidence,scope='Shared executor frame->ordered overlay snapshot->defense/core/range/ordered boss+character enemy effects versus complete native simulate;gates/cleanse/actors still closed',full_character_verified=0,canonical_world_admission=False,full_goal_complete=False)
- (ROOT/f'research/portable-world-overlay-body-{args.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[(r['name'],r.get('changed'),r.get('status',r.get('actual',{}).get('status'))) for r in results+rejected+preserved if not r['passed']]
+ report=dict(passed=all(r['passed'] for r in results+rejected+preserved),preserved_world49=preserved,rejected_cases=rejected,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),cases=results,captured=str(folder),evidence=evidence,scope='Shared executor frame->ordered overlay snapshot->defense/core/range/ordered boss+character enemy effects versus complete native simulate;gates are opt-in fixture coverage;skill_damage weapon mode/cleanse/actors remain closed',full_character_verified=0,canonical_world_admission=False,full_goal_complete=False)
+ (ROOT/f'research/portable-world-overlay-{"gates" if args.gates else "body"}-{args.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[(r['name'],r.get('changed'),r.get('status',r.get('actual',{}).get('status'))) for r in results+rejected+preserved if not r['passed']]
  print(len(rows),'world overlay body cases match complete native simulate;',len(rejected),'raw descriptors rejected;49 old outputs preserved',args.backend)
 if __name__=='__main__':main()

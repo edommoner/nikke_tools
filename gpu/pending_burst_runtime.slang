@@ -88,8 +88,8 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
             {
                 uint encoded = (packedOrder >> (pass*4)) & 15; if (encoded == 0) break;
                 uint target=encoded-1;if(recovery && s.targetAlive[target]==0) continue;
-                if(recovery) s.target=target;land(s,d.owner,target,s.pendingAmount[index]);
-                if(recovery && s.error==0) dispatch(s,17,0,d.owner,0,when,output,s.pendingAmount[index]);
+                WORLD_SKILL_BEGIN(s,d.owner,target,s.pendingAmount[index]) if(recovery) s.target=target;land(s,d.owner,target,s.pendingAmount[index]);
+                if(recovery && s.error==0) dispatch(s,17,0,d.owner,0,when,output,s.pendingAmount[index]); WORLD_GATE_END
             }
             if(!recovery) logPendingPacket(s,d,row,index,hit,mask,packedOrder,when,output);
         }

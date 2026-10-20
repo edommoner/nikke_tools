@@ -109,8 +109,8 @@ void drainLandings(inout Runtime s,uint64_t when,uint output)
         {
             uint encoded=(order>>(i*4))&15;if(encoded==0) break;uint target=encoded-1;
             if(s.targetAlive[target]==0) continue;
-            s.target=target;land(s,d.owner,target,share);
-            if((s.healthMask&64)!=0 && s.error==0) dispatch(s,17,0,d.owner,0,when,output,share);
+            WORLD_SKILL_BEGIN(s,d.owner,target,share) s.target=target;land(s,d.owner,target,share);
+            if((s.healthMask&64)!=0 && s.error==0) dispatch(s,17,0,d.owner,0,when,output,share); WORLD_GATE_END
         }
         if(results[header+3]==0x7fffffff) { s.error=2;break; }results[header+3]++;
     }

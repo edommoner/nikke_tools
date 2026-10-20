@@ -153,6 +153,9 @@ void selectWeapon(inout Runtime s,uint who,uint64_t when,out Weapon w)
     return;
 }
 #include "weapon_runtime.slang"
+#ifdef PORTABLE_WORLD_OVERLAYS
+#include "world_overlay_weapon.slang"
+#endif
 void initializeMagazines(inout Runtime s, uint64_t when)
 {
     for (uint who = 0; who < 5 && s.error == 0; who++)
@@ -272,7 +275,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     s.frameAmmoActive[who] = 1;
     s.physicalGaugeOwner=who+1;s.physicalGaugeGain=w.gain;
     s.frameAmmoBase[who] = s.modeIndex[who] < 0 ? s.capacity[who] : w.sentinelMode != 0 ? 999999 : commands[s.inputBase+P_MODE_BASE+uint(s.modeIndex[who])*P_MODE_WORDS+1];
-    coolWeapon(s,w,who,when);
+    WORLD_PAUSE_WEAPON(s,w,who,when) coolWeapon(s,w,who,when);
     uint epoch = s.modeEpoch[who], modeShots = s.modeShots[who]; int mode = s.modeIndex[who];
     if (f64Less(when,s.nextShot[who])) return;
     if (s.pendingAutoReload[who] != 0)
@@ -332,14 +335,14 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     s.shots[who] = completedShots;
     bool burstSpeed=(s.quantityMask & 128)!=0;
     if(burstSpeed && w.mode!=1) s.normalLandedMask|=1U<<who;
-    if(!burstSpeed || w.mode!=1) addBurstGauge(s,burstHitGain(s,who,w.gain,count,w.gaugeMultiplier,when));
+    if(!burstSpeed || w.mode!=1) WORLD_PHYSICAL_GAUGE(s) addBurstGauge(s,burstHitGain(s,who,w.gain,count,w.gaugeMultiplier,when));
     if (w.mode == 1 && w.infinite == 0) { if (!changedWeaponSession(s,who,epoch,mode)) s.ammo[who]--; dispatch(s,0,26,who,0,when,output); }
     dispatch(s,0,7,who,0,when,output);
     if (w.mode == 1) dispatch(s,0,11,who,0,when,output);
     for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,8,who,0,when,output);
     if (w.mode == 1) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,12,who,0,when,output);
     if(burstSpeed && w.mode==1)
-    { s.normalLandedMask|=1U<<who;addBurstGauge(s,burstHitGain(s,who,w.gain,count,w.gaugeMultiplier,when)); }
+    { s.normalLandedMask|=1U<<who;WORLD_PHYSICAL_GAUGE(s) addBurstGauge(s,burstHitGain(s,who,w.gain,count,w.gaugeMultiplier,when)); }
     if (s.bulletCount != 0) consumeBulletBuffs(s,who,when,output);
     if (last) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,14,who,0,when,output);
     if (changedWeaponSession(s,who,epoch,mode)) return; // Preserve a callback's new session.
@@ -361,8 +364,8 @@ void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
     s.frameAmmoActive[who] = 0;s.physicalGaugeOwner=0;
     if (s.landingPolicy!=0 || (s.healthMask&64)!=0) for (uint hit=0;hit<landedCount && s.error==0;hit++)
     {
-        if (s.landingPolicy!=0) land(s,who,landedTarget,landedAmount);
-        if ((s.healthMask&64)!=0 && s.error==0) dispatch(s,17,0,who,0,when,output,landedAmount);
+        WORLD_PHYSICAL_BEGIN(s,who,landedTarget,landedAmount) if (s.landingPolicy!=0) land(s,who,landedTarget,landedAmount);
+        if ((s.healthMask&64)!=0 && s.error==0) dispatch(s,17,0,who,0,when,output,landedAmount); WORLD_GATE_END
     }
 }
 [noinline]

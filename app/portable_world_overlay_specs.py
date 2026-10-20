@@ -3,6 +3,7 @@ import math,struct
 MAGIC=0x574f3031
 NODE_WORDS=16
 INPUT_WORDS=528
+CODES={name:i+1 for i,name in enumerate(('작열','수냉','풍압','철갑','전격'))}
 
 def number(value):
  if type(value) not in (int,float):raise ValueError('Overlay requires finite numeric input')
@@ -11,9 +12,13 @@ def number(value):
  if not valid:raise ValueError('Overlay requires finite numeric input')
  return list(struct.unpack('<II',struct.pack('<d',float(value))))
 
-def compile_payload(patterns):
+def compile_payload(patterns,*,camera_mask=0,element_codes=(),code_tags=None):
  if not 1<=len(patterns)<=32:raise ValueError('World overlay node capacity exceeded')
- words=[MAGIC]+[0]*527
+ if type(camera_mask) is not int or not 0<=camera_mask<=31:raise ValueError('Invalid static camera mask')
+ if element_codes and (len(element_codes)!=5 or any(x not in range(6) for x in element_codes)):raise ValueError('Invalid roster element codes')
+ words=[MAGIC]+[0]*527;words[1]=camera_mask
+ if element_codes:words[2:7]=element_codes
+ code_tags=code_tags or {}
  for p in patterns:
   at=16+p.idx*16
   if p.kind in ('idle','groggy','attack'):continue
@@ -28,5 +33,8 @@ def compile_payload(patterns):
    else:
     from portable_geometry_specs import WEAPONS
     words[at]=4;words[at+10]=sum(1<<(WEAPONS[w]-1) for w in p.weapons)
-  else:raise ValueError('World overlay payload still needs landing/gauge/actor connection: '+p.kind)
+  elif p.kind=='shield':
+   words[at]=5;words[at+8]=code_tags.get(p.code,0);words[at+10]=CODES[p.code]
+  elif p.kind=='vanish':words[at]=6
+  else:raise ValueError('World overlay payload still needs actor connection: '+p.kind)
  return words
