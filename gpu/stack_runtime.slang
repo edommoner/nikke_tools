@@ -20,7 +20,7 @@ uint stackImmunity(inout Runtime s)
     for(uint pass=0;pass<s.orderedCount;pass++)
     {
         uint slot=s.orderedRows[pass],definition=s.carrierDefinition[slot];
-        if(s.alive[slot]!=0 && s.lazyPending[slot]==0 && (definition_flags(s.inputBase,definition)&8)!=0) mask|=removalMembers(s,slot);
+        if(s.alive[slot]!=0 && s.lazyPending[slot]==0 && (definition_flags(s.inputBase,definition)&8)!=0) mask|=WORLD_STACK_IMMUNITY_MEMBERS(s,slot,removalMembers(s,slot));
     }
     return mask;
 }
@@ -58,7 +58,7 @@ void mutateStacks(inout Runtime s,uint row,uint scope,uint64_t when)
     uint numericStatus;uint64_t delta=stackIntegerDelta(value,policy,numericStatus);
     if(numericStatus!=0) { s.error=numericStatus;return; }
     if(maximum && !f64Less(0,delta)) return;
-    for(uint pass=0;pass<s.orderedCount && s.error==0;pass++)
+    WORLD_STACK_SCOPE_BEGIN(s,row,d,own,maximum) for(uint pass=0;pass<s.orderedCount && s.error==0;pass++)
     {
         uint slot=s.orderedRows[pass],definition=s.carrierDefinition[slot];
         if(s.alive[slot]==0) continue;
@@ -76,7 +76,7 @@ void mutateStacks(inout Runtime s,uint row,uint scope,uint64_t when)
         {
             if(d.targetName>=0) { if(carrier.name!=uint(d.targetName)) continue;floor=0; }
             else if(carrier.polarity!=2 || carrier.maxStack<=1 || carrier.maxStack==0xffffffff) continue;
-            if((members&scope)==0) continue;
+            if(WORLD_STACK_SCOPE_MISS(s,slot,scope,(members&scope)==0)) continue;
         }
         uint64_t previous=carrierStackValue(s,slot);
         uint next=checkedStackChange(previous,delta,carrier.maxStack,floor,0,s.error);
@@ -92,7 +92,7 @@ void mutateStacks(inout Runtime s,uint row,uint scope,uint64_t when)
         bool changed=!f64Equal(previous,f64FromI64(next));
         if((own && f64Less(0,delta)) || maximum && changed) refreshStackDuration(s,slot,when);
         if(changed && (maximum || own && f64Less(0,delta))) queueStackNotice(s,carrier.owner,carrier.name,next);
-    }
+    } WORLD_STACK_SCOPE_END(s)
 }
 [noinline]
 uint initializeStack(inout Runtime s,uint row,uint target,uint64_t when)
