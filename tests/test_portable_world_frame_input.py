@@ -5,6 +5,7 @@ ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/
 spec=importlib.util.spec_from_file_location('world_frame_input',ROOT/'research/verify-world-frame.py');f=importlib.util.module_from_spec(spec);spec.loader.exec_module(f)
 from calculator.boss_pattern import BossScript
 from portable_specs import ABI,LIMITS
+from portable_backend import source_hashes
 
 class WorldFrameInput(unittest.TestCase):
  def test_512_attacks_use_three_gpu_clock_commands_without_cpu_scheduler(self):
@@ -22,4 +23,8 @@ class WorldFrameInput(unittest.TestCase):
    with self.subTest(case=case['patterns']),self.assertRaisesRegex(ValueError,'World payload is not connected'):f.compile_case(case)
  def test_candidate_layout_does_not_mutate_canonical_abi_or_limits(self):
   before=copy.deepcopy(LIMITS);words,_=f.compile_case(f.fixtures()[0]);self.assertEqual(LIMITS,before);self.assertEqual((ABI,LIMITS['INPUT_WORDS'],LIMITS['OUTPUT_WORDS']),(0x50455673,86016,159744));self.assertEqual((words[0],len(words)),(0x50455674,88848))
+ def test_world_entry_uses_identical_canonical_dependency_files(self):
+  standard=source_hashes('gpu/event_runtime.slang');world=source_hashes('gpu/world_frame_entry.slang')
+  self.assertEqual({k:v for k,v in world.items() if k!='gpu/world_frame_entry.slang'},standard)
+  self.assertEqual([line for line in (ROOT/'gpu/world_frame_entry.slang').read_text().splitlines() if line.strip() and not line.startswith('//')],['#define PORTABLE_WORLD_FRAME','#include "event_runtime.slang"'])
 if __name__=='__main__':unittest.main()

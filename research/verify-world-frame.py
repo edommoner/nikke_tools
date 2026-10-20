@@ -10,7 +10,7 @@ from portable_world_schedule_specs import compile_schedule,number
 from portable_enemy_target_specs import target_rule
 from timer_registry_cases import NAMES
 from world_frame_native import observe
-WF_INPUT=86016;WF_PAYLOAD=88336;WF_OUTPUT=159744;WF_TARGETS=174864;WF_HITS=183056
+WF_INPUT=L['WORLD_FRAME_INPUT_BASE'];WF_PAYLOAD=L['WORLD_FRAME_PAYLOAD_BASE'];WF_OUTPUT=L['WORLD_FRAME_OUTPUT_BASE'];WF_TARGETS=L['WORLD_FRAME_TARGET_BASE'];WF_HITS=L['WORLD_FRAME_HIT_BASE']
 def effect(stat,value=0,**kw):
  return dict(name=kw.pop('name',stat or 'noop'),source='스킬1',type='buff',stat=stat,fixed_value=value,target=kw.pop('target','self'),duration=kw.pop('duration',-1),trigger=kw.pop('trigger',dict(timing=['battle_start'],condition=[])),**kw)
 def fixtures():
@@ -37,14 +37,14 @@ def compile_case(case):
  chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=dict(engine_worker.META[n],reload_time=case['combat']['weapons'][i]['reload'])) for i,n in enumerate(NAMES)]
  script=[[duration,24,0,0,0,-1,0,0],[duration,30,0,0,0,-1,0,0],[duration,2,0,0,-1,0,0,0]]
  words,meta=compile_program(chars,[(e,NAMES[o]) for e,o in zip(case['effects'],case['owners'])],script,case['base_atk'],combat=case['combat'],**case['environment'])
- assert len(words)==86016;words[0]=0x50455674;words.extend(graph);words.extend([0]*512)
+ assert len(words)==86016;words[0]=L['WORLD_FRAME_ABI'];words.extend(graph);words.extend([0]*512)
  words[L['ENEMY_TARGET_META_BASE']:L['ENEMY_TARGET_META_BASE']+8]=[1,0,0,0,0,0,0,0]
  meta['enemy_targeting']=dict(enabled=True,steps=[],seed=0)
  for p in patterns:
   if p.attack is None:continue
   raw=case['patterns'][p.idx]['spec'];at=WF_PAYLOAD+p.idx*16
   words[at:at+16]=[32,0,0,int(p.attack.pierce),0,0,0,0,*number(p.attack.atk or 114344),*number(p.attack.coeff),*target_rule({k:raw[k] for k in ('target','ignore_taunt') if k in raw})]
- assert len(words)==88848
+ assert len(words)==L['WORLD_FRAME_INPUT_WORDS']
  return words,meta
 def read_result(block,meta,case):
  ordinary=decode(block[:159744],meta);head=WF_OUTPUT
@@ -78,7 +78,7 @@ def main():
   folder=args.replay.resolve();prep=json.loads((folder/'candidate-preparation.json').read_text());evidence=json.loads((folder/'evidence.json').read_text());raw=(folder/'readback.bin').read_bytes();assert data==(folder/'input.bin').read_bytes();assert evidence['source_sha256']==source_hashes(prep['source']) and hashlib.sha256(raw).hexdigest()==evidence['output_sha256'] and evidence['backend']==args.backend
  else:
   spec=importlib.util.spec_from_file_location('world_frame_prepare',ROOT/'research/prepare-world-frame-candidate.py');module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);prep=module.prepare();folder=Path(prep['created']);(folder/'input.bin').write_bytes(data)
-  try:raw,evidence=execute(prep['source'],'portableEvents',data,88848,225280,args.backend)
+  try:raw,evidence=execute(prep['source'],'portableEvents',data,L['WORLD_FRAME_INPUT_WORDS'],L['WORLD_FRAME_OUTPUT_WORDS'],args.backend)
   except Exception as error:
    (folder/'execution-failure.json').write_text(json.dumps(dict(passed=False,error=repr(error),prepared=prep),indent=2)+'\n');raise
   (folder/'readback.bin').write_bytes(raw);(folder/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
@@ -88,7 +88,7 @@ def main():
  for i,(case,(_,meta)) in enumerate(zip(cases,compiled)):
   actual=None;native=None
   try:
-   actual=read_result(values[i*225280:(i+1)*225280],meta,case);assert actual['status']==0,actual['status'];native=observe(case)
+   actual=read_result(values[i*L['WORLD_FRAME_OUTPUT_WORDS']:(i+1)*L['WORLD_FRAME_OUTPUT_WORDS']],meta,case);assert actual['status']==0,actual['status'];native=observe(case)
    for key in ('damage','allies','covers','shots','ammo','hits','boss_log','rng','graph_states','graph_history'):assert actual[key]==native[key],key
    if case['name']=='lethal-before-own-zero-shot':assert actual['shots'][0]==0 and actual['allies'][0]['down']
    if case['name']=='expiry-cancels-pending':assert len(actual['hits'])==5

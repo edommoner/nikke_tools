@@ -167,11 +167,11 @@ void endProtectionObject(inout Runtime s,uint object)
 [noinline]
 void advanceProtectionHit(inout Runtime s,inout Frame frames[32],inout int depth)
 {
-    Frame f=frames[depth];uint command=s.inputBase+P_COMMAND_BASE+uint(f.argument)*8;
+    Frame f=frames[depth];uint command=incomingCommandAddress(s,uint(f.argument));
     if(f.event==0)
     {
         uint hit=s.resourceOutput+f.repeatPassive;
-        storeNumber(hit,f.time);results[hit+2]=1;storeNumber(hit+4,f.healthValue);
+        storeNumber(hit,f.time);results[hit+2]=scheduledArgument(uint(f.argument))?results[hit+2]|1U:1U;storeNumber(hit+4,f.healthValue);
         bool automaticCover=commands[command]==32 ? f64Less(0,s.reloadUntil[f.owner]) : (commands[command+4]&(1U<<f.owner))!=0;
         bool covered=automaticCover && f64Less(0,s.coverHP[f.owner]) && !protectionMarker(s,f.owner,7,f.time);
         frames[depth].value=commands[command+3]|(uint(covered)<<1);results[hit+3]=frames[depth].value|(f.repeatPassive>=P_SPLIT_HIT_BASE ? f.owner<<3 : 0);

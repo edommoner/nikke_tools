@@ -26,12 +26,12 @@ def main():
   folder=args.replay.resolve();evidence=json.loads((folder/'evidence.json').read_text());raw=(folder/'readback.bin').read_bytes();assert packed==(folder/'input.bin').read_bytes() and hashlib.sha256(packed).hexdigest()==evidence['input_sha256'];assert hashlib.sha256(raw).hexdigest()==evidence['output_sha256'] and source_hashes(prep['source'])==evidence['source_sha256'] and evidence['backend']==args.backend
  else:
   folder=ROOT/'research/portable-build'/('world-frame-extended-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ'));folder.mkdir();(folder/'input.bin').write_bytes(packed)
-  raw,evidence=execute(prep['source'],'portableEvents',packed,88848,225280,args.backend);(folder/'readback.bin').write_bytes(raw);(folder/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
+  raw,evidence=execute(prep['source'],'portableEvents',packed,f.L['WORLD_FRAME_INPUT_WORDS'],f.L['WORLD_FRAME_OUTPUT_WORDS'],args.backend);(folder/'readback.bin').write_bytes(raw);(folder/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
  words=array.array('I');words.frombytes(raw)
  if sys.byteorder!='little':words.byteswap()
  rows=[]
  for index,(case,(_,meta)) in enumerate(zip(cases,compiled)):
-  actual=None;native=None;block=words[index*225280:(index+1)*225280];status=case.get('expected_status',0)
+  actual=None;native=None;block=words[index*f.L['WORLD_FRAME_OUTPUT_WORDS']:(index+1)*f.L['WORLD_FRAME_OUTPUT_WORDS']];status=case.get('expected_status',0)
   try:
    assert block[0]==status,('status',block[0],status);actual=f.read_result(block,meta,case);native=f.observe(case)
    if status==0:

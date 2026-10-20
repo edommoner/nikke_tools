@@ -1,7 +1,7 @@
-// Isolated frame-coupling candidate. Not included by the canonical executor yet.
+// World descriptor provider selected by the common executor's layout variant.
 #include "world_schedule.slang"
-static const uint WF_INPUT=86016, WF_PAYLOAD=88336, WF_OUTPUT=159744;
-static const uint WF_TARGETS=WF_OUTPUT+WS_SNAP, WF_HITS=WF_TARGETS+8192;
+static const uint WF_INPUT=P_WORLD_FRAME_INPUT_BASE, WF_PAYLOAD=P_WORLD_FRAME_PAYLOAD_BASE, WF_OUTPUT=P_WORLD_FRAME_OUTPUT_BASE;
+static const uint WF_TARGETS=P_WORLD_FRAME_TARGET_BASE, WF_HITS=P_WORLD_FRAME_HIT_BASE;
 bool worldFrameEnabled(inout Runtime s) { return commands[s.inputBase+WF_INPUT]!=0; }
 bool scheduledArgument(uint arg) { return (arg&0x80000000U)!=0; }
 uint incomingCommandAddress(inout Runtime s,uint arg)

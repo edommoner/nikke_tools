@@ -77,6 +77,19 @@ LIMITS['ENEMY_TARGET_QUERY_BASE']=LIMITS['ENEMY_RNG_BASE']+LIMITS['ENEMY_RNG_WOR
 assert LIMITS['ENEMY_TARGET_COMMAND_BASE']+LIMITS['COMMANDS']*4<=LIMITS['INPUT_WORDS']
 assert LIMITS['ENEMY_TARGET_QUERY_BASE']+LIMITS['COMMANDS']*8<=LIMITS['SPLIT_HIT_BASE']
 
+# Experimental world layout selects providers for the same Slang executor.
+# Ordinary application packing and its ABI/strides remain unchanged.
+from portable_world_schedule_specs import INPUT_WORDS as _world_input,OUTPUT_WORDS as _world_output
+LIMITS['WORLD_FRAME_ABI']=ABI+1
+LIMITS['WORLD_FRAME_INPUT_BASE']=LIMITS['INPUT_WORDS']
+LIMITS['WORLD_FRAME_PAYLOAD_BASE']=LIMITS['INPUT_WORDS']+_world_input
+LIMITS['WORLD_FRAME_INPUT_WORDS']=LIMITS['WORLD_FRAME_PAYLOAD_BASE']+32*16
+LIMITS['WORLD_FRAME_OUTPUT_BASE']=LIMITS['OUTPUT_WORDS']
+LIMITS['WORLD_FRAME_OUTPUT_WORDS']=LIMITS['OUTPUT_WORDS']+_world_output
+LIMITS['WORLD_FRAME_TARGET_BASE']=LIMITS['WORLD_FRAME_OUTPUT_BASE']+15120
+LIMITS['WORLD_FRAME_HIT_BASE']=LIMITS['WORLD_FRAME_TARGET_BASE']+1024*8
+assert LIMITS['WORLD_FRAME_HIT_BASE']+2048*16<=LIMITS['WORLD_FRAME_OUTPUT_WORDS']<=262144
+
 FIELDS = dict(OWNER=0, KIND=1, STAT=2, NAME=3, MAX_STACK=4, BUDGET=5,
               VALUE=6, DURATION=8, INTERVAL=10, IMMEDIATE=12, PRESERVE=13,
               EVENT=14, THRESHOLD=15, COUNT_MODE=16, EVENT_NAME=17,
@@ -85,14 +98,20 @@ FIELDS = dict(OWNER=0, KIND=1, STAT=2, NAME=3, MAX_STACK=4, BUDGET=5,
 
 def shader_schema():
     lines = ['// Generated from app/portable_specs.py; do not hand-edit.',
-             f'static const uint PORTABLE_ABI = {ABI}U;']
+             '#if defined(PORTABLE_WORLD_FRAME) && defined(PORTABLE_WIDE_LANDINGS)',
+             '#error World and wide-landing diagnostic layouts cannot be combined.', '#endif',
+             '#ifdef PORTABLE_WORLD_FRAME',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_FRAME_ABI"]}U;',
+             '#else',f'static const uint PORTABLE_ABI = {ABI}U;','#endif']
     for prefix, mapping in [('P_', LIMITS), ('D_', FIELDS), ('C_', CONDITIONS), ('S_', STATS), ('H_', FLAGS)]:
         for name,value in mapping.items():
+            variant=prefix=='P_' and name in ('INPUT_WORDS','OUTPUT_WORDS')
+            if variant:lines += ['#ifdef PORTABLE_WORLD_FRAME',f'static const uint {prefix}{name} = {LIMITS["WORLD_FRAME_"+name]}U;','#else']
             if prefix=='P_' and name in ('LANDING_WORDS','OUTPUT_WORDS','REMOVAL_QUEUE_BASE','STACK_NOTICE_VALUE_BASE','PROBABILITY_STATE_BASE'):
                 delta=LIMITS['LANDINGS']*4
                 wide=12 if name=='LANDING_WORDS' else value+delta
                 lines += ['#ifdef PORTABLE_WIDE_LANDINGS',f'static const uint {prefix}{name} = {wide}U;','#else',f'static const uint {prefix}{name} = {value}U;','#endif']
             else:lines.append(f'static const uint {prefix}{name} = {value}U;')
+            if variant:lines.append('#endif')
     events=set(target_inheritance_events())
     # Named hit_count uses compact event 49; shared policy calls it hit_count (8).
     if 8 in events:events.add(49)
