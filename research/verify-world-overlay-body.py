@@ -54,9 +54,15 @@ def negative_inputs(programs):
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('--backend',choices=('metal','cuda'),default='metal');p.add_argument('--replay',type=Path);args=p.parse_args();rows=cases();programs=[compile_case(c) for c in rows]
- negative=negative_inputs(programs);packed=array.array('I',[len(rows)+len(negative)])
+ negative=negative_inputs(programs);suite=module('overlay_previous_suite','research/verify-world-suite.py');prior=suite.cases();golden=json.loads(suite.GOLDEN.read_text());assert len(prior)==len(golden['cases'])==49
+ packed=array.array('I',[len(rows)+len(negative)+len(prior)])
  for words,_ in programs:packed.extend(words)
  for _,words in negative:packed.extend(words)
+ for (name,words),expected in zip(prior,golden['cases']):
+  block=array.array('I',words)
+  if sys.byteorder!='little':block.byteswap()
+  assert name==expected['name'] and hashlib.sha256(block.tobytes()).hexdigest()==expected['input_sha256']
+  upgraded=list(words);upgraded[0]=L['WORLD_OVERLAY_ABI'];upgraded.extend([0]*528);packed.extend(upgraded)
  if sys.byteorder!='little':packed.byteswap()
  data=packed.tobytes()
  if args.replay:
@@ -74,7 +80,10 @@ def main():
   changed=[k for k in ('damage','allies','covers','shots','ammo','hits','boss_log','rng','graph_states','graph_history') if actual[k]!=native[k]]
   results.append(dict(name=case['name'],passed=actual['status']==0 and not changed,changed=changed,actual=actual,native=native))
  rejected=[dict(name=name,status=values[(len(rows)+i)*L['WORLD_FRAME_OUTPUT_WORDS']],passed=values[(len(rows)+i)*L['WORLD_FRAME_OUTPUT_WORDS']]==64) for i,(name,_) in enumerate(negative)]
- report=dict(passed=all(r['passed'] for r in results+rejected),rejected_cases=rejected,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),cases=results,captured=str(folder),evidence=evidence,scope='Shared executor frame->ordered overlay snapshot->defense/core/range/ordered boss+character enemy effects versus complete native simulate;gates/cleanse/actors still closed',full_character_verified=0,canonical_world_admission=False,full_goal_complete=False)
- (ROOT/f'research/portable-world-overlay-body-{args.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[(r['name'],r.get('changed'),r.get('status',r.get('actual',{}).get('status'))) for r in results+rejected if not r['passed']]
- print(len(rows),'world overlay body cases match complete native simulate;',len(rejected),'raw descriptors rejected',args.backend)
+ preserved=[]
+ for i,expected in enumerate(golden['cases']):
+  offset=(len(rows)+len(negative)+i)*L['WORLD_FRAME_OUTPUT_WORDS']*4;block=raw[offset:offset+L['WORLD_FRAME_OUTPUT_WORDS']*4];digest=hashlib.sha256(block).hexdigest();preserved.append(dict(name=expected['name'],passed=digest==expected['output_sha256'],output_sha256=digest,expected_sha256=expected['output_sha256']))
+ report=dict(passed=all(r['passed'] for r in results+rejected+preserved),preserved_world49=preserved,rejected_cases=rejected,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),cases=results,captured=str(folder),evidence=evidence,scope='Shared executor frame->ordered overlay snapshot->defense/core/range/ordered boss+character enemy effects versus complete native simulate;gates/cleanse/actors still closed',full_character_verified=0,canonical_world_admission=False,full_goal_complete=False)
+ (ROOT/f'research/portable-world-overlay-body-{args.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[(r['name'],r.get('changed'),r.get('status',r.get('actual',{}).get('status'))) for r in results+rejected+preserved if not r['passed']]
+ print(len(rows),'world overlay body cases match complete native simulate;',len(rejected),'raw descriptors rejected;49 old outputs preserved',args.backend)
 if __name__=='__main__':main()

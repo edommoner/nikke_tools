@@ -1,29 +1,28 @@
+// Only descriptor reads vary;the range arithmetic stays one common implementation.
+#ifdef PORTABLE_WORLD_OVERLAYS
+#define WG_CORE(s) (worldOverlayEnabled(s)?woCore(s):loadNumber(s.inputBase+P_GEOMETRY_BASE+2))
+#define WG_FLAGS(s,meta) (worldOverlayEnabled(s)?woRangeFlags(s):commands[meta])
+#define WG_MASK(s,meta) (worldOverlayEnabled(s)?woRangeMask(s):commands[meta+1])
+#define WG_DISTANCE(s,meta) (worldOverlayEnabled(s)?woDistance(s):loadNumber(meta+4))
+#else
+#define WG_CORE(s) loadNumber(s.inputBase+P_GEOMETRY_BASE+2)
+#define WG_FLAGS(s,meta) commands[meta]
+#define WG_MASK(s,meta) commands[meta+1]
+#define WG_DISTANCE(s,meta) loadNumber(meta+4)
+#endif
 // Immutable authored geometry,shared by CUDA and Metal;no Runtime arrays.
 bool hasRangeGeometry(inout Runtime s) { return (commands[s.inputBase+P_GEOMETRY_BASE]&1)!=0; }
-bool geometryCore(inout Runtime s)
-{
-#ifdef PORTABLE_WORLD_OVERLAYS
-    if(worldOverlayEnabled(s)) return f64Less(0,woCore(s));
-#endif
-    return !f64Less(loadNumber(s.inputBase+P_GEOMETRY_BASE+2),ONE);
-}
+bool geometryCore(inout Runtime s) { return !f64Less(WG_CORE(s),ONE); }
 bool geometryRange(inout Runtime s,uint who,bool activeMode,uint64_t minimumPct,uint64_t maximumPct)
 {
     uint meta=s.inputBase+P_GEOMETRY_BASE;
     int mode=activeMode && s.combat!=0 ? s.modeIndex[who] : -1;
     uint at=mode>=0 ? meta+56+uint(mode)*6 : meta+16+who*8;
-    uint flags=commands[meta],mask=commands[meta+1];
-#ifdef PORTABLE_WORLD_OVERLAYS
-    if(worldOverlayEnabled(s)) { flags=woRangeFlags(s);mask=woRangeMask(s); }
-#endif
-    if((flags&2)==0) return (mask&(1U<<(commands[at]-1)))!=0;
+    if((WG_FLAGS(s,meta)&2)==0) return (WG_MASK(s,meta)&(1U<<(commands[at]-1)))!=0;
     uint64_t lower=larger(0,f64Mul(loadNumber(at+2),f64Add(ONE,f64Div(minimumPct,HUNDRED)^F64_SIGN)));
     uint64_t upper=f64Mul(loadNumber(at+4),f64Add(ONE,f64Div(maximumPct,HUNDRED)));
     uint64_t epsilon=uint64_t(0x3e112e0b)<<32 | 0xe826d695; // binary64 1e-9
-    uint64_t distance=loadNumber(meta+4);
-#ifdef PORTABLE_WORLD_OVERLAYS
-    if(worldOverlayEnabled(s)) distance=woDistance(s);
-#endif
+    uint64_t distance=WG_DISTANCE(s,meta);
     return !f64Less(distance,f64Add(lower,epsilon^F64_SIGN)) && !f64Less(f64Add(upper,epsilon),distance);
 }
 bool validGeometry(inout Runtime s)
@@ -50,3 +49,8 @@ bool validGeometry(inout Runtime s)
     }
     return true;
 }
+
+#undef WG_CORE
+#undef WG_FLAGS
+#undef WG_MASK
+#undef WG_DISTANCE
