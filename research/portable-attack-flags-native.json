@@ -1,0 +1,1264 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "gpu_execution_performed": false,
+  "gpu_admission_enabled": false,
+  "presence": [
+    {
+      "owner": 0,
+      "stat": "pierce_enabled",
+      "literal_value": null,
+      "actual": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 0,
+      "stat": "pierce_enabled",
+      "literal_value": 0,
+      "actual": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 0,
+      "stat": "pierce_enabled",
+      "literal_value": -100,
+      "actual": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 0,
+      "stat": "pierce_enabled",
+      "literal_value": 100,
+      "actual": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 0,
+      "stat": "armor_break_enabled",
+      "literal_value": null,
+      "actual": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 0,
+      "stat": "armor_break_enabled",
+      "literal_value": 0,
+      "actual": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 0,
+      "stat": "armor_break_enabled",
+      "literal_value": -100,
+      "actual": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 0,
+      "stat": "armor_break_enabled",
+      "literal_value": 100,
+      "actual": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 1,
+      "stat": "pierce_enabled",
+      "literal_value": null,
+      "actual": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 1,
+      "stat": "pierce_enabled",
+      "literal_value": 0,
+      "actual": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 1,
+      "stat": "pierce_enabled",
+      "literal_value": -100,
+      "actual": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 1,
+      "stat": "pierce_enabled",
+      "literal_value": 100,
+      "actual": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 1,
+      "stat": "armor_break_enabled",
+      "literal_value": null,
+      "actual": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 1,
+      "stat": "armor_break_enabled",
+      "literal_value": 0,
+      "actual": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 1,
+      "stat": "armor_break_enabled",
+      "literal_value": -100,
+      "actual": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 1,
+      "stat": "armor_break_enabled",
+      "literal_value": 100,
+      "actual": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 2,
+      "stat": "pierce_enabled",
+      "literal_value": null,
+      "actual": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 2,
+      "stat": "pierce_enabled",
+      "literal_value": 0,
+      "actual": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 2,
+      "stat": "pierce_enabled",
+      "literal_value": -100,
+      "actual": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 2,
+      "stat": "pierce_enabled",
+      "literal_value": 100,
+      "actual": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 2,
+      "stat": "armor_break_enabled",
+      "literal_value": null,
+      "actual": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 2,
+      "stat": "armor_break_enabled",
+      "literal_value": 0,
+      "actual": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 2,
+      "stat": "armor_break_enabled",
+      "literal_value": -100,
+      "actual": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 2,
+      "stat": "armor_break_enabled",
+      "literal_value": 100,
+      "actual": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "owner": 3,
+      "stat": "pierce_enabled",
+      "literal_value": null,
+      "actual": [
+        false,
+        false,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "owner": 3,
+      "stat": "pierce_enabled",
+      "literal_value": 0,
+      "actual": [
+        false,
+        false,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "owner": 3,
+      "stat": "pierce_enabled",
+      "literal_value": -100,
+      "actual": [
+        false,
+        false,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "owner": 3,
+      "stat": "pierce_enabled",
+      "literal_value": 100,
+      "actual": [
+        false,
+        false,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "owner": 3,
+      "stat": "armor_break_enabled",
+      "literal_value": null,
+      "actual": [
+        false,
+        false,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "owner": 3,
+      "stat": "armor_break_enabled",
+      "literal_value": 0,
+      "actual": [
+        false,
+        false,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "owner": 3,
+      "stat": "armor_break_enabled",
+      "literal_value": -100,
+      "actual": [
+        false,
+        false,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "owner": 3,
+      "stat": "armor_break_enabled",
+      "literal_value": 100,
+      "actual": [
+        false,
+        false,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "owner": 4,
+      "stat": "pierce_enabled",
+      "literal_value": null,
+      "actual": [
+        false,
+        false,
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "owner": 4,
+      "stat": "pierce_enabled",
+      "literal_value": 0,
+      "actual": [
+        false,
+        false,
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "owner": 4,
+      "stat": "pierce_enabled",
+      "literal_value": -100,
+      "actual": [
+        false,
+        false,
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "owner": 4,
+      "stat": "pierce_enabled",
+      "literal_value": 100,
+      "actual": [
+        false,
+        false,
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "owner": 4,
+      "stat": "armor_break_enabled",
+      "literal_value": null,
+      "actual": [
+        false,
+        false,
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "owner": 4,
+      "stat": "armor_break_enabled",
+      "literal_value": 0,
+      "actual": [
+        false,
+        false,
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "owner": 4,
+      "stat": "armor_break_enabled",
+      "literal_value": -100,
+      "actual": [
+        false,
+        false,
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "owner": 4,
+      "stat": "armor_break_enabled",
+      "literal_value": 100,
+      "actual": [
+        false,
+        false,
+        false,
+        false,
+        true
+      ]
+    }
+  ],
+  "expiry": [
+    {
+      "owner": 0,
+      "stat": "pierce_enabled",
+      "time": 0.999999,
+      "actual": true
+    },
+    {
+      "owner": 0,
+      "stat": "pierce_enabled",
+      "time": 1.0,
+      "actual": false
+    },
+    {
+      "owner": 0,
+      "stat": "pierce_enabled",
+      "time": 1.000001,
+      "actual": false
+    },
+    {
+      "owner": 0,
+      "stat": "armor_break_enabled",
+      "time": 0.999999,
+      "actual": true
+    },
+    {
+      "owner": 0,
+      "stat": "armor_break_enabled",
+      "time": 1.0,
+      "actual": false
+    },
+    {
+      "owner": 0,
+      "stat": "armor_break_enabled",
+      "time": 1.000001,
+      "actual": false
+    },
+    {
+      "owner": 1,
+      "stat": "pierce_enabled",
+      "time": 0.999999,
+      "actual": true
+    },
+    {
+      "owner": 1,
+      "stat": "pierce_enabled",
+      "time": 1.0,
+      "actual": false
+    },
+    {
+      "owner": 1,
+      "stat": "pierce_enabled",
+      "time": 1.000001,
+      "actual": false
+    },
+    {
+      "owner": 1,
+      "stat": "armor_break_enabled",
+      "time": 0.999999,
+      "actual": true
+    },
+    {
+      "owner": 1,
+      "stat": "armor_break_enabled",
+      "time": 1.0,
+      "actual": false
+    },
+    {
+      "owner": 1,
+      "stat": "armor_break_enabled",
+      "time": 1.000001,
+      "actual": false
+    },
+    {
+      "owner": 2,
+      "stat": "pierce_enabled",
+      "time": 0.999999,
+      "actual": true
+    },
+    {
+      "owner": 2,
+      "stat": "pierce_enabled",
+      "time": 1.0,
+      "actual": false
+    },
+    {
+      "owner": 2,
+      "stat": "pierce_enabled",
+      "time": 1.000001,
+      "actual": false
+    },
+    {
+      "owner": 2,
+      "stat": "armor_break_enabled",
+      "time": 0.999999,
+      "actual": true
+    },
+    {
+      "owner": 2,
+      "stat": "armor_break_enabled",
+      "time": 1.0,
+      "actual": false
+    },
+    {
+      "owner": 2,
+      "stat": "armor_break_enabled",
+      "time": 1.000001,
+      "actual": false
+    },
+    {
+      "owner": 3,
+      "stat": "pierce_enabled",
+      "time": 0.999999,
+      "actual": true
+    },
+    {
+      "owner": 3,
+      "stat": "pierce_enabled",
+      "time": 1.0,
+      "actual": false
+    },
+    {
+      "owner": 3,
+      "stat": "pierce_enabled",
+      "time": 1.000001,
+      "actual": false
+    },
+    {
+      "owner": 3,
+      "stat": "armor_break_enabled",
+      "time": 0.999999,
+      "actual": true
+    },
+    {
+      "owner": 3,
+      "stat": "armor_break_enabled",
+      "time": 1.0,
+      "actual": false
+    },
+    {
+      "owner": 3,
+      "stat": "armor_break_enabled",
+      "time": 1.000001,
+      "actual": false
+    },
+    {
+      "owner": 4,
+      "stat": "pierce_enabled",
+      "time": 0.999999,
+      "actual": true
+    },
+    {
+      "owner": 4,
+      "stat": "pierce_enabled",
+      "time": 1.0,
+      "actual": false
+    },
+    {
+      "owner": 4,
+      "stat": "pierce_enabled",
+      "time": 1.000001,
+      "actual": false
+    },
+    {
+      "owner": 4,
+      "stat": "armor_break_enabled",
+      "time": 0.999999,
+      "actual": true
+    },
+    {
+      "owner": 4,
+      "stat": "armor_break_enabled",
+      "time": 1.0,
+      "actual": false
+    },
+    {
+      "owner": 4,
+      "stat": "armor_break_enabled",
+      "time": 1.000001,
+      "actual": false
+    }
+  ],
+  "runtime_conditions": [
+    {
+      "owner": 0,
+      "stat": "pierce_enabled",
+      "duration": -1,
+      "before": true,
+      "after": false
+    },
+    {
+      "owner": 0,
+      "stat": "pierce_enabled",
+      "duration": 2,
+      "before": true,
+      "after": true
+    },
+    {
+      "owner": 0,
+      "stat": "armor_break_enabled",
+      "duration": -1,
+      "before": true,
+      "after": false
+    },
+    {
+      "owner": 0,
+      "stat": "armor_break_enabled",
+      "duration": 2,
+      "before": true,
+      "after": true
+    },
+    {
+      "owner": 1,
+      "stat": "pierce_enabled",
+      "duration": -1,
+      "before": true,
+      "after": false
+    },
+    {
+      "owner": 1,
+      "stat": "pierce_enabled",
+      "duration": 2,
+      "before": true,
+      "after": true
+    },
+    {
+      "owner": 1,
+      "stat": "armor_break_enabled",
+      "duration": -1,
+      "before": true,
+      "after": false
+    },
+    {
+      "owner": 1,
+      "stat": "armor_break_enabled",
+      "duration": 2,
+      "before": true,
+      "after": true
+    },
+    {
+      "owner": 2,
+      "stat": "pierce_enabled",
+      "duration": -1,
+      "before": true,
+      "after": false
+    },
+    {
+      "owner": 2,
+      "stat": "pierce_enabled",
+      "duration": 2,
+      "before": true,
+      "after": true
+    },
+    {
+      "owner": 2,
+      "stat": "armor_break_enabled",
+      "duration": -1,
+      "before": true,
+      "after": false
+    },
+    {
+      "owner": 2,
+      "stat": "armor_break_enabled",
+      "duration": 2,
+      "before": true,
+      "after": true
+    },
+    {
+      "owner": 3,
+      "stat": "pierce_enabled",
+      "duration": -1,
+      "before": true,
+      "after": false
+    },
+    {
+      "owner": 3,
+      "stat": "pierce_enabled",
+      "duration": 2,
+      "before": true,
+      "after": true
+    },
+    {
+      "owner": 3,
+      "stat": "armor_break_enabled",
+      "duration": -1,
+      "before": true,
+      "after": false
+    },
+    {
+      "owner": 3,
+      "stat": "armor_break_enabled",
+      "duration": 2,
+      "before": true,
+      "after": true
+    },
+    {
+      "owner": 4,
+      "stat": "pierce_enabled",
+      "duration": -1,
+      "before": true,
+      "after": false
+    },
+    {
+      "owner": 4,
+      "stat": "pierce_enabled",
+      "duration": 2,
+      "before": true,
+      "after": true
+    },
+    {
+      "owner": 4,
+      "stat": "armor_break_enabled",
+      "duration": -1,
+      "before": true,
+      "after": false
+    },
+    {
+      "owner": 4,
+      "stat": "armor_break_enabled",
+      "duration": 2,
+      "before": true,
+      "after": true
+    }
+  ],
+  "physical_cases": [
+    {
+      "weapon": "AR",
+      "mode": "auto",
+      "pierce": false,
+      "armor": false,
+      "shots": 2,
+      "damage": 1800,
+      "expected_damage_per_shot": 900,
+      "native": [
+        {
+          "damage": [
+            1800,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
+            "weapons": [
+              {
+                "ammo": 98,
+                "shots": 2,
+                "next": 2.0,
+                "reload_until": -1.0
+              }
+            ]
+          }
+        }
+      ],
+      "weapon_state": {
+        "warm": 0.0,
+        "last_interval": 0.0
+      }
+    },
+    {
+      "weapon": "AR",
+      "mode": "auto",
+      "pierce": true,
+      "armor": false,
+      "shots": 2,
+      "damage": 2700,
+      "expected_damage_per_shot": 1350,
+      "native": [
+        {
+          "damage": [
+            2700,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
+            "weapons": [
+              {
+                "ammo": 98,
+                "shots": 2,
+                "next": 2.0,
+                "reload_until": -1.0
+              }
+            ]
+          }
+        }
+      ],
+      "weapon_state": {
+        "warm": 0.0,
+        "last_interval": 0.0
+      }
+    },
+    {
+      "weapon": "AR",
+      "mode": "auto",
+      "pierce": false,
+      "armor": true,
+      "shots": 2,
+      "damage": 2800,
+      "expected_damage_per_shot": 1400,
+      "native": [
+        {
+          "damage": [
+            2800,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
+            "weapons": [
+              {
+                "ammo": 98,
+                "shots": 2,
+                "next": 2.0,
+                "reload_until": -1.0
+              }
+            ]
+          }
+        }
+      ],
+      "weapon_state": {
+        "warm": 0.0,
+        "last_interval": 0.0
+      }
+    },
+    {
+      "weapon": "AR",
+      "mode": "auto",
+      "pierce": true,
+      "armor": true,
+      "shots": 2,
+      "damage": 3800,
+      "expected_damage_per_shot": 1900,
+      "native": [
+        {
+          "damage": [
+            3800,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
+            "weapons": [
+              {
+                "ammo": 98,
+                "shots": 2,
+                "next": 2.0,
+                "reload_until": -1.0
+              }
+            ]
+          }
+        }
+      ],
+      "weapon_state": {
+        "warm": 0.0,
+        "last_interval": 0.0
+      }
+    },
+    {
+      "weapon": "SR",
+      "mode": "charge",
+      "pierce": false,
+      "armor": false,
+      "shots": 2,
+      "damage": 1800,
+      "expected_damage_per_shot": 900,
+      "native": [
+        {
+          "damage": [
+            1800,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
+            "weapons": [
+              {
+                "ammo": 98,
+                "shots": 2,
+                "next": 2.0,
+                "reload_until": -1.0
+              }
+            ]
+          }
+        }
+      ],
+      "weapon_state": {
+        "warm": 0.0,
+        "last_interval": 0.0
+      }
+    },
+    {
+      "weapon": "SR",
+      "mode": "charge",
+      "pierce": true,
+      "armor": false,
+      "shots": 2,
+      "damage": 2700,
+      "expected_damage_per_shot": 1350,
+      "native": [
+        {
+          "damage": [
+            2700,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
+            "weapons": [
+              {
+                "ammo": 98,
+                "shots": 2,
+                "next": 2.0,
+                "reload_until": -1.0
+              }
+            ]
+          }
+        }
+      ],
+      "weapon_state": {
+        "warm": 0.0,
+        "last_interval": 0.0
+      }
+    },
+    {
+      "weapon": "SR",
+      "mode": "charge",
+      "pierce": false,
+      "armor": true,
+      "shots": 2,
+      "damage": 2800,
+      "expected_damage_per_shot": 1400,
+      "native": [
+        {
+          "damage": [
+            2800,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
+            "weapons": [
+              {
+                "ammo": 98,
+                "shots": 2,
+                "next": 2.0,
+                "reload_until": -1.0
+              }
+            ]
+          }
+        }
+      ],
+      "weapon_state": {
+        "warm": 0.0,
+        "last_interval": 0.0
+      }
+    },
+    {
+      "weapon": "SR",
+      "mode": "charge",
+      "pierce": true,
+      "armor": true,
+      "shots": 2,
+      "damage": 3800,
+      "expected_damage_per_shot": 1900,
+      "native": [
+        {
+          "damage": [
+            3800,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
+            "weapons": [
+              {
+                "ammo": 98,
+                "shots": 2,
+                "next": 2.0,
+                "reload_until": -1.0
+              }
+            ]
+          }
+        }
+      ],
+      "weapon_state": {
+        "warm": 0.0,
+        "last_interval": 0.0
+      }
+    },
+    {
+      "weapon": "RL",
+      "mode": "charge",
+      "pierce": false,
+      "armor": false,
+      "shots": 2,
+      "damage": 1800,
+      "expected_damage_per_shot": 900,
+      "native": [
+        {
+          "damage": [
+            1800,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
+            "weapons": [
+              {
+                "ammo": 98,
+                "shots": 2,
+                "next": 2.0,
+                "reload_until": -1.0
+              }
+            ]
+          }
+        }
+      ],
+      "weapon_state": {
+        "warm": 0.0,
+        "last_interval": 0.0
+      }
+    },
+    {
+      "weapon": "RL",
+      "mode": "charge",
+      "pierce": true,
+      "armor": false,
+      "shots": 2,
+      "damage": 2700,
+      "expected_damage_per_shot": 1350,
+      "native": [
+        {
+          "damage": [
+            2700,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
+            "weapons": [
+              {
+                "ammo": 98,
+                "shots": 2,
+                "next": 2.0,
+                "reload_until": -1.0
+              }
+            ]
+          }
+        }
+      ],
+      "weapon_state": {
+        "warm": 0.0,
+        "last_interval": 0.0
+      }
+    },
+    {
+      "weapon": "RL",
+      "mode": "charge",
+      "pierce": false,
+      "armor": true,
+      "shots": 2,
+      "damage": 2800,
+      "expected_damage_per_shot": 1400,
+      "native": [
+        {
+          "damage": [
+            2800,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
+            "weapons": [
+              {
+                "ammo": 98,
+                "shots": 2,
+                "next": 2.0,
+                "reload_until": -1.0
+              }
+            ]
+          }
+        }
+      ],
+      "weapon_state": {
+        "warm": 0.0,
+        "last_interval": 0.0
+      }
+    },
+    {
+      "weapon": "RL",
+      "mode": "charge",
+      "pierce": true,
+      "armor": true,
+      "shots": 2,
+      "damage": 3800,
+      "expected_damage_per_shot": 1900,
+      "native": [
+        {
+          "damage": [
+            3800,
+            0,
+            0,
+            0,
+            0
+          ],
+          "combat": {
+            "gauge": 0.0,
+            "clock": "grid",
+            "weapons": [
+              {
+                "ammo": 98,
+                "shots": 2,
+                "next": 2.0,
+                "reload_until": -1.0
+              }
+            ]
+          }
+        }
+      ],
+      "weapon_state": {
+        "warm": 0.0,
+        "last_interval": 0.0
+      }
+    }
+  ],
+  "physical_crit_rate_reduction_pct": -15,
+  "physical_expected_crit_rate": 0,
+  "rules": [
+    "Boolean buffs are presence markers:missing,zero and negative values still enable them",
+    "Finite/infinite conditions follow native query/expiry rules",
+    "Physical AR/SR/RL attacks receive pierce/armor classification and their distinct damage bonuses;crit_rate-15 removes the native15percent baseline",
+    "Armor flag removes defense before attack-minus-defense;both damage bonuses add in the same layer"
+  ],
+  "source_review_note": "Pinned timeline physical attacks read boolean buffs;skill handler5015/5016 sets flags from damage family. Do not apply physical flags to every normal-type skill. Skill routing is source review here,not a full native-handler execution proof.",
+  "scope": "40 presence+30 expiry+20 runtime gates and12 simple-boss physical cases;no coordinate piercing/parts/add geometry certification",
+  "source_sha256": {
+    "research/characterize-attack-flags.py": "dbe859a18fd4615b1e578b67c0801112603cf758c033d7faa520ef36f8e11346",
+    "tests/test_target_counter_runtime.py": "67aae222254b5e64d7b277dd9ba1336f1fabf08b4e9bd2a029d7bfdf72f3bacb",
+    "scripts/portable_weapon_oracle.py": "51f98ad5464fdff70e050eb9be4a973727c7ba13d27f3b5acb0f1b9e508330a6",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/calculator/damage.py": "7884a1aeb2d2d03dd192434e11f21bc1af5d61d7cdb7a65bf39185899c968e2b"
+  }
+}

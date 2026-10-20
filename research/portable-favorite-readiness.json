@@ -3,8 +3,8 @@
   "catalog_characters": 203,
   "audited_contexts": 812,
   "stage0_matches_current_audit": true,
-  "own_effect_preflight_contexts_passed": 202,
-  "all_four_stages_preflight_characters": 50,
+  "own_effect_preflight_contexts_passed": 210,
+  "all_four_stages_preflight_characters": 52,
   "all_four_stages_preflight_names": [
     "아니스",
     "네온 : 블루 오션",
@@ -51,27 +51,28 @@
     "퀀시 : 이스케이프 퀸",
     "플로라",
     "아리아",
+    "팬텀",
     "민트",
     "히메노",
     "파스칼",
     "사쿠라 (SR)",
-    "클레어"
+    "클레어",
+    "쿠루미"
   ],
   "cpu_simulation_executed": false,
   "gpu_execution_performed": false,
   "full_character_verified": 0,
   "scope": "Favorite stages0..3,default skill levels,no cube,same fixed five-member squad;preflight only;not GPU support certification",
   "issues": {
-    "Unported buff or recipient selector": 752,
+    "Unported buff or recipient selector": 767,
     "Unported trigger timing: event:part_destroy": 60,
     "Unported instant or recipient selector": 57,
-    "Unported enemy damage selector": 49,
+    "Unported enemy damage selector": 53,
     "Unported trigger timing: charge_hold:1": 44,
     "Unported trigger timing: event:enemy_spawn": 43,
     "Unported trigger timing: enemy_death": 36,
     "Unported trigger timing: charge_hold:0.5": 24,
     "Unported trigger timing: event:projectile_destroy": 16,
-    "Unported predicate: target_state:사슬 감기": 16,
     "Unported trigger timing: non_full_charge_fire_count:3": 16,
     "Unported trigger timing: charge_hold_count:1:3": 16,
     "Unported effect fields: hits_parts": 12,
@@ -80,8 +81,6 @@
     "Unported effect fields: copy_from": 12,
     "Unported trigger timing: squad_burst_cast:2": 12,
     "Unported trigger timing: squad_burst_cast:3": 12,
-    "Unported predicate: target_state:거품": 12,
-    "Unported predicate: target_state:예고장": 12,
     "Unported effect fields: damage_formula, weapon_type": 8,
     "Unported trigger timing: part_hit_count:1": 8,
     "Unported trigger timing: multi_hit:4": 8,
@@ -89,20 +88,15 @@
     "Unported effect fields: scaling, scaling_hp_pct": 8,
     "Unported damage family": 8,
     "Unported trigger timing: squad_burst_cast:1": 8,
-    "Unported predicate: target_state:붐 인스톨": 8,
-    "Unported predicate: not_target_state:누적 폭발 스킬": 8,
     "Unported trigger timing: event:accum_full:누적 폭발 스킬": 8,
     "Unported trigger timing: event:target_counter_complete:빙의": 8,
     "Unported effect fields: land_in_full_burst": 8,
-    "Unported predicate: not_target_state:예고장": 8,
     "Unported effect fields: duration_scaling, duration_scaling_ref": 8,
-    "Unported predicate: target_state:안티 AT 필드": 8,
     "Stack operation has the wrong effect kind": 4,
     "Unported trigger timing: weapon_hit:부착형 유탄 4": 4,
     "Unported predicate: self_stun_immune": 4,
     "Unported trigger timing: crit_hit_count:4": 4,
     "Unported trigger timing: body_hit_count:1": 4,
-    "Unported predicate: target_state:내부 폭발탄": 4,
     "Unported effect fields: entry_reload": 4,
     "Unported effect fields: max_ammo_scaling_ref": 4,
     "Unported predicate: not_core": 4,
@@ -116,29 +110,24 @@
     "Unported duration extension recipient selector": 4,
     "Unported cleanse recipient selector": 4,
     "Unported trigger timing: pellet_hit_in_shot:5": 4,
-    "Unported predicate: target_state:고위험 대상": 4,
     "Unported trigger timing: crit_hit_count:2": 4,
-    "Unported predicate: target_state:해풍": 4,
     "Unported effect fields: target_counter": 4,
     "Unported predicate: focusing": 4,
     "Unported predicate: self_undying": 4,
     "Unported trigger timing: core_hit_count:1": 4,
     "Unported trigger timing: crit_hit_count:44": 4,
     "Unported predicate: no_broken_cover_ally": 4,
-    "Unported predicate: target_state:해킹": 4,
-    "Unported predicate: target_stack_above:잠 옴:5": 3,
     "Unported trigger timing: crit_hit_count:6": 3,
     "Unported trigger timing: crit_hit_count:8": 3,
     "Unported predicate: trigger_hit_crit": 3,
-    "Unported predicate: target_stunned": 2,
-    "Unported predicate: target_state:타겟 지정": 2
+    "Unported predicate: target_stunned": 2
   },
   "missing_families": {
-    "damage_modifiers": 382,
-    "weapon": 257,
-    "damage": 187,
+    "damage_modifiers": 362,
+    "weapon": 253,
     "control_survival": 176,
-    "effect_lifecycle": 148,
+    "damage": 161,
+    "effect_lifecycle": 124,
     "resource_accumulation": 64,
     "burst_cooldown": 56,
     "charge": 48,
@@ -4989,25 +4978,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "몬스터 스테이지 3",
-          "type": "buff",
-          "stat": "projectile_explosion_dmg_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "target_state:내부 폭발탄"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:내부 폭발탄",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_state:내부 폭발탄"
-        },
-        {
           "name": "미사일 컨테이너 온라인",
           "type": "buff",
           "stat": "explosion_range",
@@ -5051,25 +5021,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "몬스터 스테이지 3",
-          "type": "buff",
-          "stat": "projectile_explosion_dmg_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "target_state:내부 폭발탄"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:내부 폭발탄",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_state:내부 폭발탄"
-        },
         {
           "name": "미사일 컨테이너 온라인",
           "type": "buff",
@@ -5115,25 +5066,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "몬스터 스테이지 3",
-          "type": "buff",
-          "stat": "projectile_explosion_dmg_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "target_state:내부 폭발탄"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:내부 폭발탄",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_state:내부 폭발탄"
-        },
-        {
           "name": "미사일 컨테이너 온라인",
           "type": "buff",
           "stat": "explosion_range",
@@ -5177,25 +5109,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "몬스터 스테이지 3",
-          "type": "buff",
-          "stat": "projectile_explosion_dmg_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "target_state:내부 폭발탄"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:내부 폭발탄",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_state:내부 폭발탄"
-        },
         {
           "name": "미사일 컨테이너 온라인",
           "type": "buff",
@@ -8160,13 +8073,13 @@
             "target_stack_above:잠 옴:5"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_stack_above:잠 옴:5",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note",
             "favorite"
           ],
-          "issue": "Unported predicate: target_stack_above:잠 옴:5"
+          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -8192,13 +8105,13 @@
             "target_stack_above:잠 옴:5"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_stack_above:잠 옴:5",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note",
             "favorite"
           ],
-          "issue": "Unported predicate: target_stack_above:잠 옴:5"
+          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -8224,13 +8137,13 @@
             "target_stack_above:잠 옴:5"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_stack_above:잠 옴:5",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note",
             "favorite"
           ],
-          "issue": "Unported predicate: target_stack_above:잠 옴:5"
+          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -9203,41 +9116,6 @@
           "issue": "Unported enemy damage selector"
         },
         {
-          "name": "타이트",
-          "type": "instant",
-          "stat": "debuff_stack_add",
-          "family": "effect_lifecycle",
-          "timings": [
-            "hit_count:40"
-          ],
-          "conditions": [
-            "during_full_burst",
-            "target_state:사슬 감기"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:사슬 감기"
-        },
-        {
-          "name": "타이트 2",
-          "type": "instant",
-          "stat": "debuff_stack_add",
-          "family": "effect_lifecycle",
-          "timings": [
-            "event:self_down"
-          ],
-          "conditions": [
-            "target_state:사슬 감기"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:사슬 감기"
-        },
-        {
           "name": "타이트 3",
           "type": "instant",
           "stat": "gauge_charge",
@@ -9253,40 +9131,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: enemy_death"
-        },
-        {
-          "name": "사슬 당기기",
-          "type": "damage",
-          "stat": "dot_damage",
-          "family": "damage",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [
-            "target_state:사슬 감기"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:사슬 감기"
-        },
-        {
-          "name": "사슬 당기기 2",
-          "type": "instant",
-          "stat": "remove_named_buff",
-          "family": "effect_lifecycle",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [
-            "target_state:사슬 감기"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:사슬 감기"
         }
       ]
     },
@@ -9320,41 +9164,6 @@
           "issue": "Unported enemy damage selector"
         },
         {
-          "name": "타이트",
-          "type": "instant",
-          "stat": "debuff_stack_add",
-          "family": "effect_lifecycle",
-          "timings": [
-            "hit_count:40"
-          ],
-          "conditions": [
-            "during_full_burst",
-            "target_state:사슬 감기"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:사슬 감기"
-        },
-        {
-          "name": "타이트 2",
-          "type": "instant",
-          "stat": "debuff_stack_add",
-          "family": "effect_lifecycle",
-          "timings": [
-            "event:self_down"
-          ],
-          "conditions": [
-            "target_state:사슬 감기"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:사슬 감기"
-        },
-        {
           "name": "타이트 3",
           "type": "instant",
           "stat": "gauge_charge",
@@ -9370,40 +9179,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: enemy_death"
-        },
-        {
-          "name": "사슬 당기기",
-          "type": "damage",
-          "stat": "dot_damage",
-          "family": "damage",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [
-            "target_state:사슬 감기"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:사슬 감기"
-        },
-        {
-          "name": "사슬 당기기 2",
-          "type": "instant",
-          "stat": "remove_named_buff",
-          "family": "effect_lifecycle",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [
-            "target_state:사슬 감기"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:사슬 감기"
         }
       ]
     },
@@ -9437,41 +9212,6 @@
           "issue": "Unported enemy damage selector"
         },
         {
-          "name": "타이트",
-          "type": "instant",
-          "stat": "debuff_stack_add",
-          "family": "effect_lifecycle",
-          "timings": [
-            "hit_count:40"
-          ],
-          "conditions": [
-            "during_full_burst",
-            "target_state:사슬 감기"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:사슬 감기"
-        },
-        {
-          "name": "타이트 2",
-          "type": "instant",
-          "stat": "debuff_stack_add",
-          "family": "effect_lifecycle",
-          "timings": [
-            "event:self_down"
-          ],
-          "conditions": [
-            "target_state:사슬 감기"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:사슬 감기"
-        },
-        {
           "name": "타이트 3",
           "type": "instant",
           "stat": "gauge_charge",
@@ -9487,40 +9227,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: enemy_death"
-        },
-        {
-          "name": "사슬 당기기",
-          "type": "damage",
-          "stat": "dot_damage",
-          "family": "damage",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [
-            "target_state:사슬 감기"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:사슬 감기"
-        },
-        {
-          "name": "사슬 당기기 2",
-          "type": "instant",
-          "stat": "remove_named_buff",
-          "family": "effect_lifecycle",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [
-            "target_state:사슬 감기"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:사슬 감기"
         }
       ]
     },
@@ -9554,41 +9260,6 @@
           "issue": "Unported enemy damage selector"
         },
         {
-          "name": "타이트",
-          "type": "instant",
-          "stat": "debuff_stack_add",
-          "family": "effect_lifecycle",
-          "timings": [
-            "hit_count:40"
-          ],
-          "conditions": [
-            "during_full_burst",
-            "target_state:사슬 감기"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:사슬 감기"
-        },
-        {
-          "name": "타이트 2",
-          "type": "instant",
-          "stat": "debuff_stack_add",
-          "family": "effect_lifecycle",
-          "timings": [
-            "event:self_down"
-          ],
-          "conditions": [
-            "target_state:사슬 감기"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:사슬 감기"
-        },
-        {
           "name": "타이트 3",
           "type": "instant",
           "stat": "gauge_charge",
@@ -9604,40 +9275,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: enemy_death"
-        },
-        {
-          "name": "사슬 당기기",
-          "type": "damage",
-          "stat": "dot_damage",
-          "family": "damage",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [
-            "target_state:사슬 감기"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:사슬 감기"
-        },
-        {
-          "name": "사슬 당기기 2",
-          "type": "instant",
-          "stat": "remove_named_buff",
-          "family": "effect_lifecycle",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [
-            "target_state:사슬 감기"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:사슬 감기",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:사슬 감기"
         }
       ]
     },
@@ -9763,25 +9400,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "LD 어설트 3",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "last_bullet"
-          ],
-          "conditions": [
-            "target_state:타겟 지정"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:타겟 지정",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported predicate: target_state:타겟 지정"
-        },
-        {
           "name": "AK 미사일 3",
           "type": "buff",
           "stat": "stun",
@@ -9827,25 +9445,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "LD 어설트 3",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "last_bullet"
-          ],
-          "conditions": [
-            "target_state:타겟 지정"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:타겟 지정",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported predicate: target_state:타겟 지정"
-        },
         {
           "name": "AK 미사일 3",
           "type": "buff",
@@ -18039,25 +17638,6 @@
           "issue": "Unported trigger timing: enemy_death"
         },
         {
-          "name": "이머전시 휘슬",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "hit_count:20"
-          ],
-          "conditions": [
-            "target_state:고위험 대상"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:고위험 대상",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_state:고위험 대상"
-        },
-        {
           "name": "펭군 긴급 출동 2",
           "type": "buff",
           "stat": "element_bonus_pct",
@@ -18164,25 +17744,6 @@
             "note"
           ],
           "issue": "Unported trigger timing: enemy_death"
-        },
-        {
-          "name": "이머전시 휘슬",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "hit_count:20"
-          ],
-          "conditions": [
-            "target_state:고위험 대상"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:고위험 대상",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_state:고위험 대상"
         },
         {
           "name": "펭군 긴급 출동 2",
@@ -18293,25 +17854,6 @@
           "issue": "Unported trigger timing: enemy_death"
         },
         {
-          "name": "이머전시 휘슬",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "hit_count:20"
-          ],
-          "conditions": [
-            "target_state:고위험 대상"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:고위험 대상",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_state:고위험 대상"
-        },
-        {
           "name": "펭군 긴급 출동 2",
           "type": "buff",
           "stat": "element_bonus_pct",
@@ -18420,25 +17962,6 @@
           "issue": "Unported trigger timing: enemy_death"
         },
         {
-          "name": "이머전시 휘슬",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "hit_count:20"
-          ],
-          "conditions": [
-            "target_state:고위험 대상"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:고위험 대상",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_state:고위험 대상"
-        },
-        {
           "name": "펭군 긴급 출동 2",
           "type": "buff",
           "stat": "element_bonus_pct",
@@ -18909,25 +18432,6 @@
             "note"
           ],
           "issue": "Unported trigger timing: crit_hit_count:2"
-        },
-        {
-          "name": "폭풍",
-          "type": "damage",
-          "stat": "damage",
-          "family": "damage",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [
-            "target_state:해풍"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:해풍",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_state:해풍"
         }
       ]
     },
@@ -18957,25 +18461,6 @@
             "note"
           ],
           "issue": "Unported trigger timing: crit_hit_count:2"
-        },
-        {
-          "name": "폭풍",
-          "type": "damage",
-          "stat": "damage",
-          "family": "damage",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [
-            "target_state:해풍"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:해풍",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_state:해풍"
         }
       ]
     },
@@ -19005,25 +18490,6 @@
             "note"
           ],
           "issue": "Unported trigger timing: crit_hit_count:2"
-        },
-        {
-          "name": "폭풍",
-          "type": "damage",
-          "stat": "damage",
-          "family": "damage",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [
-            "target_state:해풍"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:해풍",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_state:해풍"
         }
       ]
     },
@@ -19053,25 +18519,6 @@
             "note"
           ],
           "issue": "Unported trigger timing: crit_hit_count:2"
-        },
-        {
-          "name": "폭풍",
-          "type": "damage",
-          "stat": "damage",
-          "family": "damage",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [
-            "target_state:해풍"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:해풍",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_state:해풍"
         }
       ]
     },
@@ -24182,29 +23629,12 @@
             "target_state:붐 인스톨"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:붐 인스톨",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: target_state:붐 인스톨"
-        },
-        {
-          "name": "패스트 차지",
-          "type": "buff",
-          "stat": "atk_caster_based_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "hit_count:60"
-          ],
-          "conditions": [
-            "target_state:붐 인스톨"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:붐 인스톨",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:붐 인스톨"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "패스트 차지 2",
@@ -24262,29 +23692,12 @@
             "target_state:붐 인스톨"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:붐 인스톨",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: target_state:붐 인스톨"
-        },
-        {
-          "name": "패스트 차지",
-          "type": "buff",
-          "stat": "atk_caster_based_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "hit_count:60"
-          ],
-          "conditions": [
-            "target_state:붐 인스톨"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:붐 인스톨",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:붐 인스톨"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "패스트 차지 2",
@@ -24342,29 +23755,12 @@
             "target_state:붐 인스톨"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:붐 인스톨",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: target_state:붐 인스톨"
-        },
-        {
-          "name": "패스트 차지",
-          "type": "buff",
-          "stat": "atk_caster_based_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "hit_count:60"
-          ],
-          "conditions": [
-            "target_state:붐 인스톨"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:붐 인스톨",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:붐 인스톨"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "패스트 차지 2",
@@ -24422,29 +23818,12 @@
             "target_state:붐 인스톨"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:붐 인스톨",
+          "diagnostic_semantic_issue": "Unported enemy damage selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: target_state:붐 인스톨"
-        },
-        {
-          "name": "패스트 차지",
-          "type": "buff",
-          "stat": "atk_caster_based_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "hit_count:60"
-          ],
-          "conditions": [
-            "target_state:붐 인스톨"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:붐 인스톨",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:붐 인스톨"
+          "issue": "Unported enemy damage selector"
         },
         {
           "name": "패스트 차지 2",
@@ -24487,12 +23866,12 @@
             "not_target_state:누적 폭발 스킬"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: not_target_state:누적 폭발 스킬",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: not_target_state:누적 폭발 스킬"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "누적 폭발 스킬 3",
@@ -24540,12 +23919,12 @@
             "not_target_state:누적 폭발 스킬"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: not_target_state:누적 폭발 스킬",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: not_target_state:누적 폭발 스킬"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "메가 T.Rony 2",
@@ -24588,12 +23967,12 @@
             "not_target_state:누적 폭발 스킬"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: not_target_state:누적 폭발 스킬",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: not_target_state:누적 폭발 스킬"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "누적 폭발 스킬 3",
@@ -24641,12 +24020,12 @@
             "not_target_state:누적 폭발 스킬"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: not_target_state:누적 폭발 스킬",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: not_target_state:누적 폭발 스킬"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "메가 T.Rony 2",
@@ -24689,12 +24068,12 @@
             "not_target_state:누적 폭발 스킬"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: not_target_state:누적 폭발 스킬",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: not_target_state:누적 폭발 스킬"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "누적 폭발 스킬 3",
@@ -24742,12 +24121,12 @@
             "not_target_state:누적 폭발 스킬"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: not_target_state:누적 폭발 스킬",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: not_target_state:누적 폭발 스킬"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "메가 T.Rony 2",
@@ -24790,12 +24169,12 @@
             "not_target_state:누적 폭발 스킬"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: not_target_state:누적 폭발 스킬",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: not_target_state:누적 폭발 스킬"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "누적 폭발 스킬 3",
@@ -24843,12 +24222,12 @@
             "not_target_state:누적 폭발 스킬"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: not_target_state:누적 폭발 스킬",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: not_target_state:누적 폭발 스킬"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "메가 T.Rony 2",
@@ -25480,23 +24859,6 @@
           "issue": "Unported trigger timing: event:enemy_spawn"
         },
         {
-          "name": "터진 거품",
-          "type": "buff",
-          "stat": "received_dmg_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "hit_count:50"
-          ],
-          "conditions": [
-            "target_state:거품"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:거품",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:거품"
-        },
-        {
           "name": "터진 거품 2",
           "type": "buff",
           "stat": "stun",
@@ -25508,27 +24870,10 @@
             "target_state:거품"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:거품",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:거품"
-        },
-        {
-          "name": "터진 거품 3",
-          "type": "instant",
-          "stat": "remove_named_buff",
-          "family": "effect_lifecycle",
-          "timings": [
-            "hit_count:50"
-          ],
-          "conditions": [
-            "target_state:거품"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:거품",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:거품"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "버블 웨이브",
@@ -25607,23 +24952,6 @@
           "issue": "Unported trigger timing: event:enemy_spawn"
         },
         {
-          "name": "터진 거품",
-          "type": "buff",
-          "stat": "received_dmg_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "hit_count:50"
-          ],
-          "conditions": [
-            "target_state:거품"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:거품",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:거품"
-        },
-        {
           "name": "터진 거품 2",
           "type": "buff",
           "stat": "stun",
@@ -25635,27 +24963,10 @@
             "target_state:거품"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:거품",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:거품"
-        },
-        {
-          "name": "터진 거품 3",
-          "type": "instant",
-          "stat": "remove_named_buff",
-          "family": "effect_lifecycle",
-          "timings": [
-            "hit_count:50"
-          ],
-          "conditions": [
-            "target_state:거품"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:거품",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:거품"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "버블 웨이브",
@@ -25734,23 +25045,6 @@
           "issue": "Unported trigger timing: event:enemy_spawn"
         },
         {
-          "name": "터진 거품",
-          "type": "buff",
-          "stat": "received_dmg_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "hit_count:50"
-          ],
-          "conditions": [
-            "target_state:거품"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:거품",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:거품"
-        },
-        {
           "name": "터진 거품 2",
           "type": "buff",
           "stat": "stun",
@@ -25762,27 +25056,10 @@
             "target_state:거품"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:거품",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:거품"
-        },
-        {
-          "name": "터진 거품 3",
-          "type": "instant",
-          "stat": "remove_named_buff",
-          "family": "effect_lifecycle",
-          "timings": [
-            "hit_count:50"
-          ],
-          "conditions": [
-            "target_state:거품"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:거품",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:거품"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "버블 웨이브",
@@ -25861,23 +25138,6 @@
           "issue": "Unported trigger timing: event:enemy_spawn"
         },
         {
-          "name": "터진 거품",
-          "type": "buff",
-          "stat": "received_dmg_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "hit_count:50"
-          ],
-          "conditions": [
-            "target_state:거품"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:거품",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:거품"
-        },
-        {
           "name": "터진 거품 2",
           "type": "buff",
           "stat": "stun",
@@ -25889,27 +25149,10 @@
             "target_state:거품"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:거품",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:거품"
-        },
-        {
-          "name": "터진 거품 3",
-          "type": "instant",
-          "stat": "remove_named_buff",
-          "family": "effect_lifecycle",
-          "timings": [
-            "hit_count:50"
-          ],
-          "conditions": [
-            "target_state:거품"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:거품",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:거품"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "버블 웨이브",
@@ -28082,439 +27325,45 @@
       "character": "팬텀",
       "favorite_stage": 0,
       "own_effects": 20,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "괴도의 단검",
-          "type": "buff",
-          "stat": "accuracy_pct",
-          "family": "weapon",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "not_target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: not_target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: not_target_state:예고장"
-        },
-        {
-          "name": "예고장",
-          "type": "buff",
-          "stat": "def_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "not_target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: not_target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: not_target_state:예고장"
-        },
-        {
-          "name": "괴도의 예고장",
-          "type": "buff",
-          "stat": "atk_dmg_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:예고장"
-        },
-        {
-          "name": "괴도의 시선",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "self_stack_above:괴도의 단검:3",
-            "target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:예고장"
-        },
-        {
-          "name": "괴도의 시선 2",
-          "type": "instant",
-          "stat": "remove_named_buff",
-          "family": "effect_lifecycle",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "self_stack_above:괴도의 단검:3",
-            "target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_state:예고장"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "팬텀",
       "favorite_stage": 1,
       "own_effects": 21,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "괴도의 단검",
-          "type": "buff",
-          "stat": "accuracy_pct",
-          "family": "weapon",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "not_target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: not_target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported predicate: not_target_state:예고장"
-        },
-        {
-          "name": "예고장",
-          "type": "buff",
-          "stat": "def_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "not_target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: not_target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported predicate: not_target_state:예고장"
-        },
-        {
-          "name": "괴도의 예고장",
-          "type": "buff",
-          "stat": "atk_dmg_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported predicate: target_state:예고장"
-        },
-        {
-          "name": "괴도의 시선",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "self_stack_above:괴도의 단검:3",
-            "target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:예고장"
-        },
-        {
-          "name": "괴도의 시선 2",
-          "type": "instant",
-          "stat": "remove_named_buff",
-          "family": "effect_lifecycle",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "self_stack_above:괴도의 단검:3",
-            "target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_state:예고장"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "팬텀",
       "favorite_stage": 2,
       "own_effects": 22,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "괴도의 단검",
-          "type": "buff",
-          "stat": "accuracy_pct",
-          "family": "weapon",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "not_target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: not_target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported predicate: not_target_state:예고장"
-        },
-        {
-          "name": "예고장",
-          "type": "buff",
-          "stat": "def_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "not_target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: not_target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported predicate: not_target_state:예고장"
-        },
-        {
-          "name": "괴도의 예고장",
-          "type": "buff",
-          "stat": "atk_dmg_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported predicate: target_state:예고장"
-        },
-        {
-          "name": "괴도의 시선",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "self_stack_above:괴도의 단검:3",
-            "target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported predicate: target_state:예고장"
-        },
-        {
-          "name": "괴도의 시선 2",
-          "type": "instant",
-          "stat": "remove_named_buff",
-          "family": "effect_lifecycle",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "self_stack_above:괴도의 단검:3",
-            "target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported predicate: target_state:예고장"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "팬텀",
       "favorite_stage": 3,
       "own_effects": 24,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "괴도의 단검",
-          "type": "buff",
-          "stat": "accuracy_pct",
-          "family": "weapon",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "not_target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: not_target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported predicate: not_target_state:예고장"
-        },
-        {
-          "name": "예고장",
-          "type": "buff",
-          "stat": "def_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "not_target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: not_target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported predicate: not_target_state:예고장"
-        },
-        {
-          "name": "괴도의 예고장",
-          "type": "buff",
-          "stat": "atk_dmg_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported predicate: target_state:예고장"
-        },
-        {
-          "name": "괴도의 시선",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "self_stack_above:괴도의 단검:3",
-            "target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported predicate: target_state:예고장"
-        },
-        {
-          "name": "괴도의 시선 2",
-          "type": "instant",
-          "stat": "remove_named_buff",
-          "family": "effect_lifecycle",
-          "timings": [
-            "hit_count:1"
-          ],
-          "conditions": [
-            "self_stack_above:괴도의 단검:3",
-            "target_state:예고장"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:예고장",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported predicate: target_state:예고장"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "아르카나",
@@ -31627,40 +30476,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "섬멸 지원",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "hit_count:18"
-          ],
-          "conditions": [
-            "target_state:안티 AT 필드"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:안티 AT 필드",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:안티 AT 필드"
-        },
-        {
-          "name": "섬멸 지원 2",
-          "type": "instant",
-          "stat": "debuff_stack_add",
-          "family": "effect_lifecycle",
-          "timings": [
-            "hit_count:18"
-          ],
-          "conditions": [
-            "target_state:안티 AT 필드"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:안티 AT 필드",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:안티 AT 필드"
-        },
-        {
           "name": "섬멸 지원 4",
           "type": "buff",
           "stat": "effect_target_count_add",
@@ -31702,40 +30517,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "섬멸 지원",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "hit_count:18"
-          ],
-          "conditions": [
-            "target_state:안티 AT 필드"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:안티 AT 필드",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:안티 AT 필드"
-        },
-        {
-          "name": "섬멸 지원 2",
-          "type": "instant",
-          "stat": "debuff_stack_add",
-          "family": "effect_lifecycle",
-          "timings": [
-            "hit_count:18"
-          ],
-          "conditions": [
-            "target_state:안티 AT 필드"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:안티 AT 필드",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:안티 AT 필드"
-        },
         {
           "name": "섬멸 지원 4",
           "type": "buff",
@@ -31779,40 +30560,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "섬멸 지원",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "hit_count:18"
-          ],
-          "conditions": [
-            "target_state:안티 AT 필드"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:안티 AT 필드",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:안티 AT 필드"
-        },
-        {
-          "name": "섬멸 지원 2",
-          "type": "instant",
-          "stat": "debuff_stack_add",
-          "family": "effect_lifecycle",
-          "timings": [
-            "hit_count:18"
-          ],
-          "conditions": [
-            "target_state:안티 AT 필드"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:안티 AT 필드",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:안티 AT 필드"
-        },
-        {
           "name": "섬멸 지원 4",
           "type": "buff",
           "stat": "effect_target_count_add",
@@ -31855,40 +30602,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "섬멸 지원",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "hit_count:18"
-          ],
-          "conditions": [
-            "target_state:안티 AT 필드"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:안티 AT 필드",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:안티 AT 필드"
-        },
-        {
-          "name": "섬멸 지원 2",
-          "type": "instant",
-          "stat": "debuff_stack_add",
-          "family": "effect_lifecycle",
-          "timings": [
-            "hit_count:18"
-          ],
-          "conditions": [
-            "target_state:안티 AT 필드"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:안티 AT 필드",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:안티 AT 필드"
-        },
-        {
           "name": "섬멸 지원 4",
           "type": "buff",
           "stat": "effect_target_count_add",
@@ -33916,121 +32629,45 @@
       "character": "쿠루미",
       "favorite_stage": 0,
       "own_effects": 13,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "페이로드 확산",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "hit_count:36"
-          ],
-          "conditions": [
-            "during_full_burst",
-            "target_state:해킹"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:해킹",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:해킹"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "쿠루미",
       "favorite_stage": 1,
       "own_effects": 13,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "페이로드 확산",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "hit_count:36"
-          ],
-          "conditions": [
-            "during_full_burst",
-            "target_state:해킹"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:해킹",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:해킹"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "쿠루미",
       "favorite_stage": 2,
       "own_effects": 13,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "페이로드 확산",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "hit_count:36"
-          ],
-          "conditions": [
-            "during_full_burst",
-            "target_state:해킹"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:해킹",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:해킹"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "쿠루미",
       "favorite_stage": 3,
       "own_effects": 13,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "페이로드 확산",
-          "type": "damage",
-          "stat": "bonus_damage",
-          "family": "damage",
-          "timings": [
-            "hit_count:36"
-          ],
-          "conditions": [
-            "during_full_burst",
-            "target_state:해킹"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_state:해킹",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_state:해킹"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "퀸(마코토)",
@@ -34519,11 +33156,11 @@
   ],
   "source_sha256": {
     "research/audit-portable-favorites.py": "e2e9a7d747f966b8805f29ad0307e5d8a5c376c1550614d3994b288a0216835b",
-    "research/portable-catalog-readiness.json": "2dbbe09c5ff624ab866239b182b490da914d31e502417ff0c7d17d8ee31ac778",
+    "research/portable-catalog-readiness.json": "d050a1eca4e27dff05bd4905bb3670804986c4731e01b47562e988dc77c90212",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
-    "app/portable_runtime.py": "9c711c2fa617ff28c0434b8cd5864cdd0b13feef9338c2fca1a88112157285f3",
+    "app/portable_runtime.py": "2b4e1217386521eff487d6e62bdfa0319b6f45689440e30d75cbd1a7ab887d81",
     "app/portable_roster_input.py": "cf569da9faababe07f9c1c16111da2f64936d5da562b123ea0ed67b7847bd024",
-    "app/portable_trigger_specs.py": "6711c6255bbf42251c0a658871297f9f35b34db4ffa8a5dde41ad89f7ee62263",
+    "app/portable_trigger_specs.py": "cb51cde60865323c4f077687d8d2c8b8fac7d9572945ed0cf8f6f64034876b77",
     "app/portable_probability_specs.py": "77becccd2a7cf2b046ad4422958952d843d76a4aa2800f9fcb6dd7ce35c75f61",
     "app/portable_damage_specs.py": "7515fd480d6abbc09f34c4543c8ccc597154b031ca029ada63e85d179a918197",
     "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",

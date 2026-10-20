@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "all_current_gates_passed": true,
+  "source_commit": "795a9e5b684796b3b6a2fb9b59546e60401a5503",
+  "previous_proof_commit": "3f6342fcee8d5d2773a89307597dbd5bd184f01e",
+  "checked_at": "2026-10-20T06:55:35.688587+00:00",
+  "mac_gates": 35,
+  "core_programs": 2754,
+  "positive_cases": 2363,
+  "rejections": 391,
+  "target_state_native_cases": 233,
+  "geometry_native_cases": 190,
+  "probability_native_cases": 92,
+  "geometry_physical_cases": 8,
+  "probability_physical_4096_cases": 5,
+  "target_state_api_cases": 10,
+  "geometry_api_cases": 8,
+  "probability_api_cases": 8,
+  "unit_tests": 249,
+  "unit_groups": {
+    "unit": {
+      "tests": 249,
+      "output": ".........................................................................................................................................................................................................................................................\n----------------------------------------------------------------------\nRan 249 tests in 7.087s\n\nOK\n"
+    },
+    "staged-native": {
+      "tests": 9,
+      "output": "../Users/edo/Documents/ChatGPT/nikke_tools/research/upstream/nikke-calc-master/scraper/profile_fetch.py:187: ResourceWarning: unclosed file <_io.TextIOWrapper name='/Users/edo/Documents/ChatGPT/nikke_tools/research/upstream/nikke-calc-master/scraper/nikke_scraped.json' mode='r' encoding='utf-8'>\n  d = json.load(open(os.path.join(HERE, \"nikke_scraped.json\"), encoding=\"utf-8\"))\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n.......\n----------------------------------------------------------------------\nRan 9 tests in 0.657s\n\nOK\n"
+    },
+    "source-native": {
+      "tests": 6,
+      "output": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n"
+    },
+    "native-mode-spec": {
+      "tests": 4,
+      "output": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.004s\n\nOK\n"
+    },
+    "native-mode-input": {
+      "tests": 3,
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.013s\n\nOK\n"
+    },
+    "reference-rewrite": {
+      "tests": 3,
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
+    }
+  },
+  "real_profiles": 108,
+  "old_profiles_preserved": 104,
+  "own_effect_preflight_passed": 54,
+  "initial_unlocalized_metal_finding_open": true,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "efficiency_evaluated": false,
+  "cuda_evidence_report": "portable-target-states-transfer-completed.json",
+  "scope": "Completed fixed-source Mac gates only;CUDA evidence is sealed separately"
+}

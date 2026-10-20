@@ -144442,9 +144442,9 @@
   "cpu_trace_used_as_gpu_input": false,
   "validation_sha256": {
     "app/portable_probability_specs.py": "77becccd2a7cf2b046ad4422958952d843d76a4aa2800f9fcb6dd7ce35c75f61",
-    "app/portable_trigger_specs.py": "6711c6255bbf42251c0a658871297f9f35b34db4ffa8a5dde41ad89f7ee62263",
-    "app/portable_specs.py": "856988886857cb7cf678d3610bc3a28c0e7b511a960a0b24d07f8ee3b72b33ce",
-    "app/portable_runtime.py": "9c711c2fa617ff28c0434b8cd5864cdd0b13feef9338c2fca1a88112157285f3",
+    "app/portable_trigger_specs.py": "cb51cde60865323c4f077687d8d2c8b8fac7d9572945ed0cf8f6f64034876b77",
+    "app/portable_specs.py": "b7b50d8de4fcd973a48f76321faaae590b5807f56779b3a78732649720efcca4",
+    "app/portable_runtime.py": "2b4e1217386521eff487d6e62bdfa0319b6f45689440e30d75cbd1a7ab887d81",
     "scripts/portable_probability_oracle.py": "be3fd68b11ed61085248e71a385bb09b1b66777b78270aeb5b275a7b6ddb9892",
     "tests/fixtures/portable-probability.json": "5a93f6ac3f1658cbdb29c4b282067efa40c3d5d0eae2796d22872dc799718eae",
     "research/verify-probability.py": "d248eb66dc367f69b96fc213c48f50bb57f5dff3ef121df8c89452c7cf54f5fe"
