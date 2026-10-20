@@ -43400,11 +43400,11 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.05698300001677126,
+    "gpu_seconds": 0.05530529166571796,
     "input_bytes": 13418500,
-    "library_compile_seconds": 0.0009770393371582031,
+    "library_compile_seconds": 0.0010139942169189453,
     "output_bytes": 24920064,
-    "pipeline_compile_seconds": 0.0011659860610961914,
+    "pipeline_compile_seconds": 0.0010530948638916016,
     "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
@@ -43413,10 +43413,10 @@
     "gpu_timeout_seconds": 120
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "e3d62491a6aac7d9bc04e0e959de8585310d64eda15c51eee7d0e6edebc86c3f",
+    "gpu/event_runtime.slang": "44c68d97aa0481ed8b806865705b52c508bf8bc42687b282902d0c4da406c8e4",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
-    "gpu/portable_schema.slang": "44b9458e06bc6cf1bdb45abbedaee41b3e07e811b59e1da910ce5744587d618b",
+    "gpu/portable_schema.slang": "5623ffad7e35538d8eac1a022df411f7e26a9207939e3fdaa90ab3782f2c0693",
     "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
     "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
     "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
@@ -43459,10 +43459,10 @@
     "gpu/admission_runtime.slang": "486750c2a15cfe80a3addaa74c6c3c1d9cf93fd924016466c525e37ce2106e4b"
   },
   "generated_sha256": {
-    "cuda": "11ca28a95b5183b79c87c7832574a2fad3e9413412572290157f05f849cf267c",
-    "metal": "a7e04319ac9a930e39303fa799ed26a79d7404bc560c31f580958692d4ea626a"
+    "cuda": "5adc395f30d879f126e6c0940632b7dfa90d2c09f2900ffc5d1025e4ee5266b5",
+    "metal": "861cf850c24b964fa21b2de078020bd1430aa6673de1423d1fe3e849526ed3d5"
   },
-  "input_sha256": "5318eab260d3e83ee4fa0634277da86caed6fc62c7bd9a3e850e283fadc86c11",
+  "input_sha256": "867ce8cdce607c02ce7d88a21530c730bef57fba18c63b987f07318aa98824e1",
   "output_sha256": "10d4c15c092f512b872655b09a470406da9c3b6103ae9efb0d8f5b4d9e063e0d",
   "gpu_execution_verified": true,
   "backend": "metal",
