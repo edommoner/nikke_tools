@@ -6,14 +6,14 @@ uint currentTaunters(inout Runtime s,uint64_t when)
     uint mask=0;
     for(uint pass=0;pass<s.orderedCount;pass++)
     {
-        uint row=s.orderedRows[pass];Definition d=residentDefinition(s,row);
-        if(d.kind!=0 || d.stat!=S_taunt || s.alive[row]==0 || !f64Less(when,s.end[row])) continue;
-        if(d.enemyBuff!=0)
+        uint row=s.orderedRows[pass],definition=s.carrierDefinition[row];
+        if(definition_kind(s.inputBase,definition)!=0 || definition_stat(s.inputBase,definition)!=S_taunt || s.alive[row]==0 || !f64Less(when,s.end[row])) continue;
+        if(definition_enemyBuff(s.inputBase,definition)!=0)
         {
             bool member=false;
             for(uint enemy=0;enemy<s.targetCount;enemy++)
                 if((s.activeRecipients[row]&(1U<<(enemy+5)))!=0 && targetLive(s,enemy,enemyCarrierGeneration(s,row,enemy))) member=true;
-            if(member) mask|=1U<<d.owner;
+            if(member) mask|=1U<<definition_owner(s.inputBase,definition);
             // Native enemy branch never rechecks this carrier's runtime predicate.
             continue;
         }
@@ -33,8 +33,8 @@ bool targetStealth(inout Runtime s,uint who,uint64_t when)
 {
     for(uint pass=0;pass<s.orderedCount;pass++)
     {
-        uint row=s.orderedRows[pass];Definition d=residentDefinition(s,row);
-        if(d.kind==0 && d.stat==S_stealth && d.enemyBuff==0 && queryRecipient(s,row,who,when)) return true;
+        uint row=s.orderedRows[pass],definition=s.carrierDefinition[row];
+        if(definition_kind(s.inputBase,definition)==0 && definition_stat(s.inputBase,definition)==S_stealth && definition_enemyBuff(s.inputBase,definition)==0 && queryRecipient(s,row,who,when)) return true;
     }
     return false;
 }
@@ -46,13 +46,14 @@ uint64_t bossTargetAttack(inout Runtime s,uint who,uint64_t when)
     uint64_t percent=0,flat=0;
     for(uint pass=0;pass<s.orderedCount;pass++)
     {
-        uint row=s.orderedRows[pass];Definition d=residentDefinition(s,row);
-        if(d.kind!=0 || s.alive[row]==0 || !f64Less(when,s.end[row]) || (s.activeRecipients[row]&(1U<<who))==0) continue;
-        if(d.stat!=S_atk_pct && d.stat!=S_atk_flat && d.stat!=S_atk_caster_based_pct) continue;
+        uint row=s.orderedRows[pass],definition=s.carrierDefinition[row];
+        if(definition_kind(s.inputBase,definition)!=0 || s.alive[row]==0 || !f64Less(when,s.end[row]) || (s.activeRecipients[row]&(1U<<who))==0) continue;
+        uint stat=definition_stat(s.inputBase,definition);
+        if(stat!=S_atk_pct && stat!=S_atk_flat && stat!=S_atk_caster_based_pct) continue;
         uint64_t value=scalarValue(s,row,who);
-        if(d.stat==S_atk_pct) percent=f64Add(percent,value);
-        else if(d.stat==S_atk_flat) flat=f64Add(flat,value);
-        else flat=f64Add(flat,f64Mul(s.baseAttack[d.owner],f64Div(value,HUNDRED)));
+        if(stat==S_atk_pct) percent=f64Add(percent,value);
+        else if(stat==S_atk_flat) flat=f64Add(flat,value);
+        else flat=f64Add(flat,f64Mul(s.baseAttack[definition_owner(s.inputBase,definition)],f64Div(value,HUNDRED)));
     }
     return f64Add(f64Mul(s.baseAttack[who],f64Add(ONE,f64Div(percent,HUNDRED))),flat);
 }
@@ -124,8 +125,9 @@ bool validEnemyTargeting(inout Runtime s)
     if(enabled==0 && (commands[meta+1]!=0 || commands[meta+2]!=0)) return false;
     for(uint row=0;row<s.count;row++)
     {
+        uint stat=definition_stat(s.inputBase,row);
+        if(stat!=S_taunt && stat!=S_stealth) continue;
         Definition d=readDefinition(s.inputBase,row);
-        if(d.stat!=S_taunt && d.stat!=S_stealth) continue;
         features++;
         if(d.kind!=0 || !f64Finite(d.value) || d.alliedFlags!=0 || d.healthScaling!=0 || d.damageFlags!=0 || d.enemyBuff!=0 && d.stat!=S_taunt) return false;
         if(d.enemyBuff==0)

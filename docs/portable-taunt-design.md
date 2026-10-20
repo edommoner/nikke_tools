@@ -1,3 +1,11 @@
+## 敵対象選択のスカラ読取り候補
+
+全52 Mac検査・4682共通入力・実編成158条件、Windows v77の1回145.90秒、許可済み2ファイルの転送と全入出力照合・残存検証0を確認した後、別コピーで新しい敵対象モジュールだけを効率測定しました。非該当の効果でも71項目のDefinitionを読んでいた箇所を、既存の整数スカラアクセサーで先に判定します。挑発・隠密・攻撃力順位の意味、lazy解決と期限、RNG・Runtime・入出力配置は維持します。
+
+対照／候補とも4682＋実射撃80＋条件付きHP20入力の全ワードが一致しました。7負荷×1024入力、交互順・warmup後3標本では、ランダム対象選択の密な定義で中央値約7.6%、固定対象選択で約4.5%短縮し、事前の2%・範囲非重複の改善条件を満たしました。他の負荷で2%以上かつ範囲非重複の退行はありません。実編成全体・CUDA速度・物理ピークメモリの改善を主張するものではありません。
+
+候補を本体の共通Slangへ反映して新しい固定ソースを検証します。検証済みの基準版は782a13cです。候補の新しい全Metal検査・CUDA実行と照合が終わるまで、新ソースの認証完了とは扱いません。証拠は `portable-enemy-target-scalar-parity.json`、`portable-enemy-target-scalar-benchmark.json`、`portable-enemy-target-scalar-decision.json` です。
+
 ## 有限最大HPの同期で解消した既知差分
 
 修正版の共通4682入力はGPU読戻しが成功し、保存済み出力を使うCPU比較でも成功しました。旧4070および直前4658の入力・全出力・展開結果を維持しています。CPU有限HP同期により、既知例外だった `max-hp-expiry-clamps-to-current-maximum`、`maximum-hp-expiry-can-reach-adjacent-full`、`lazy-max-hp-first-consumption-and-derived-percentage` の3件が、既存GPUの正しいHP／派生割合と完全一致します。古い不正なCPU値を期待する例外記述を取り除き、各ケースでGPUとCPUの全HP観測値の完全一致を要求します。他の既知差分を緩和しません。

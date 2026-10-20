@@ -1,0 +1,137 @@
+{
+  "decision": "Promote isolated scalar-filter candidate for canonical Metal/CUDA validation;not fully adopted before both backends pass",
+  "baseline_source_commit": "782a13ca6249a52c30003b88870420cbd5b2f7ee",
+  "benchmark_passed": true,
+  "criteria_met": true,
+  "all4682_plus80_plus20_input_and_readback_words_equal": true,
+  "workloads": {
+    "ordinary": {
+      "candidate_to_control_ratio": 1.0018888177547238,
+      "improves": false,
+      "regresses": false,
+      "ranges": {
+        "control": [
+          0.0699195833876729,
+          0.07055787497665733
+        ],
+        "candidate": [
+          0.07005412504076958,
+          0.09173400001600385
+        ]
+      }
+    },
+    "long-rng": {
+      "candidate_to_control_ratio": 0.9811403254392997,
+      "improves": false,
+      "regresses": false,
+      "ranges": {
+        "control": [
+          0.14418162498623133,
+          0.1696259166346863
+        ],
+        "candidate": [
+          0.13981191662605852,
+          0.14974229165818542
+        ]
+      }
+    },
+    "mode-enemy-domain": {
+      "candidate_to_control_ratio": 0.9976039332714931,
+      "improves": false,
+      "regresses": false,
+      "ranges": {
+        "control": [
+          0.18636508332565427,
+          0.19479450001381338
+        ],
+        "candidate": [
+          0.18853779172059149,
+          0.1949843750335276
+        ]
+      }
+    },
+    "random-dense": {
+      "candidate_to_control_ratio": 0.9236115088480685,
+      "improves": true,
+      "regresses": false,
+      "ranges": {
+        "control": [
+          0.5084243749734014,
+          0.5184054166311398
+        ],
+        "candidate": [
+          0.4712666249834001,
+          0.4916870000306517
+        ]
+      }
+    },
+    "rank-dense": {
+      "candidate_to_control_ratio": 0.9545131627321233,
+      "improves": false,
+      "regresses": false,
+      "ranges": {
+        "control": [
+          0.22674458334222436,
+          0.25227491674013436
+        ],
+        "candidate": [
+          0.22166574990842491,
+          0.22733512497507036
+        ]
+      }
+    },
+    "slot-dense": {
+      "candidate_to_control_ratio": 0.9550795773765981,
+      "improves": true,
+      "regresses": false,
+      "ranges": {
+        "control": [
+          0.17127399996388704,
+          0.17343208333477378
+        ],
+        "candidate": [
+          0.1613612916553393,
+          0.1707997500197962
+        ]
+      }
+    },
+    "all-dense": {
+      "candidate_to_control_ratio": 0.9780873608020877,
+      "improves": false,
+      "regresses": false,
+      "ranges": {
+        "control": [
+          0.15778333332855254,
+          0.16173479170538485
+        ],
+        "candidate": [
+          0.15324412495829165,
+          0.16038479167036712
+        ]
+      }
+    }
+  },
+  "source_audit": {
+    "passed": true,
+    "changed_files": [
+      "gpu/enemy_target_runtime.slang"
+    ],
+    "runtime_layout_unchanged": true,
+    "input_words": 86016,
+    "output_words": 159744,
+    "candidate_module_sha256": "115e7f7f0dcef324f94a133b8c6646c27ec329d84cda8b12f9705289d2d895f7",
+    "tool_sha256": "c8e6f2b8a9640171bd94142f29d2a5f5ca8c43c063486127fb07dd1ce55e8802"
+  },
+  "candidate_module_sha256": "115e7f7f0dcef324f94a133b8c6646c27ec329d84cda8b12f9705289d2d895f7",
+  "runtime_and_io_layout_unchanged": true,
+  "input_words": 86016,
+  "output_words": 159744,
+  "abi": "0x50455673",
+  "benchmark_file": "research/portable-enemy-target-scalar-benchmark.json",
+  "baseline_proofs": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-782a13c-pre-scalar",
+  "fresh_canonical_broad_and_cuda_required": true,
+  "windows_extra_sessions_so_far": 0,
+  "full_goal_complete": false,
+  "normal_ui": "CPU",
+  "recorded_at": "2026-10-20T14:18:23.671144+00:00"
+}
