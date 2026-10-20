@@ -6,6 +6,13 @@ uint64_t counterPacketNumber(uint at)
 { return uint64_t(counterPacketWord(at))|(uint64_t(counterPacketWord(at+1))<<32); }
 bool counterLandingsEnabled(inout Runtime s)
 { return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==1; }
+bool counterExtraPart(inout Runtime s,uint kind)
+{ return kind==1&&counterLandingsEnabled(s)&&results[counterHead(s)+10]!=0; }
+void resetCounterPartExtra(inout Runtime s,uint slot)
+{
+    if(!counterLandingsEnabled(s)) return;
+    uint at=s.resourceOutput+P_COUNTER_LANDING_EXTRA_BASE+slot*4;for(uint j=0;j<4;j++) results[at+j]=0;
+}
 bool counterLandingDefinitionInvalid(inout Runtime s,uint row,Definition d,bool legacy)
 {
     if(!counterLandingsEnabled(s)) return legacy;
@@ -20,7 +27,11 @@ bool counterLandingDefinitionInvalid(inout Runtime s,uint row,Definition d,bool 
 bool validCounterLandingInput(inout Runtime s,uint base,uint step)
 {
     if(s.combat!=1||commands[s.inputBase+P_LANDING_META_BASE]!=1) return false;
-    if(step<commands[base+3]&&commands[s.inputBase+P_COMMAND_BASE+step*8]==43) return false;
+    if(step<commands[base+3])
+    {
+        uint op=commands[s.inputBase+P_COMMAND_BASE+step*8];
+        if(op!=2&&op!=24&&op!=30&&op!=33&&op!=37&&op!=39&&op!=40&&op!=41) return false;
+    }
     for(uint j=0;j<2;j++)
     {
         uint slot=step*2+j,at=base+4104+slot*8;
@@ -29,7 +40,7 @@ bool validCounterLandingInput(inout Runtime s,uint base,uint step)
         { if(commands[at]!=1||commands[at+1]>5) return false;for(uint k=2;k<8;k++) if(commands[at+k]!=0) return false; }
         else for(uint k=0;k<8;k++) if(commands[at+k]!=0) return false;
     }
-    if(step==0) for(uint i=P_COUNTER_LANDING_PACKET_BASE;i<P_COUNTER_LANDING_PART_BASE+128*8;i++) results[s.resourceOutput+i]=0;
+    if(step==0) for(uint i=P_COUNTER_LANDING_PACKET_BASE;i<P_COUNTER_LANDING_EXTRA_BASE+128*4;i++) results[s.resourceOutput+i]=0;
     return true;
 }
 void sampleCounterPartShot(inout Runtime s,uint who,uint64_t coefficient,bool normal,uint64_t coreBonus,uint flags,uint64_t charge,bool optimal,uint64_t when)
@@ -82,6 +93,7 @@ void deliverCounterParts(inout Runtime s,uint who,uint target,uint64_t when,uint
     uint shot=s.resourceOutput+P_COUNTER_LANDING_SHOT_BASE+who*8,reach=results[shot],count=0;
     if(reach==0) return;
     uint64_t amount=actorNumber(shot+2);storeNumber(actorPoolHead(s)+2,when);
+    results[counterHead(s)+10]=1;
     // Native Boss.part_hits applies every reached part before returning its
     // ordered packet list. Counter/HP children cannot change that captured list.
     for(uint slot=1;slot<actorPoolCount(s)&&s.error==0;slot++)
@@ -89,9 +101,15 @@ void deliverCounterParts(inout Runtime s,uint who,uint target,uint64_t when,uint
         uint input=s.inputBase+P_TARGET_COUNTER_INPUT_BASE+4104+slot*8,p=actorPoolAt(s,slot);
         if(commands[input]!=1||commands[input+1]==0||commands[input+1]>reach||results[p+1]==0) continue;
         uint gen=results[p],out=s.resourceOutput+P_COUNTER_LANDING_PART_BASE+count*8;
+        uint extra=s.resourceOutput+P_COUNTER_LANDING_EXTRA_BASE+slot*4;
+        if(results[extra]==0x7fffffff) { s.error=2;break; }
+        uint64_t extraDealt=f64Add(actorNumber(extra+2),amount);
+        if(!f64Finite(extraDealt)) { s.error=16;break; }
+        results[extra]++;storeNumber(extra+2,extraDealt);
         land(s,who,ACTOR_REF|slot,amount);uint receipt=actorPoolHead(s)+18;
         results[out]=slot;results[out+1]=gen;results[out+2]=results[receipt];results[out+3]=results[receipt+1];count++;
     }
+    results[counterHead(s)+10]=0;
     for(uint i=0;i<count&&s.error==0;i++)
     {
         uint at=s.resourceOutput+P_COUNTER_LANDING_PART_BASE+i*8;

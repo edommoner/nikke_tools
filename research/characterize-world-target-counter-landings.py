@@ -1,5 +1,5 @@
 """Actual full native battle baseline before connecting the shared GPU bridge."""
-import copy,hashlib,importlib.util,json,struct,subprocess,sys
+import argparse,copy,hashlib,importlib.util,json,struct,subprocess,sys
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research')]
@@ -7,6 +7,7 @@ s=importlib.util.spec_from_file_location('counter_battle_packer',ROOT/'research/
 from world_frame_native import observe
 
 def main():
+ parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,default=ROOT/'research/portable-world-target-counter-battle-native-contract.json');args=parser.parse_args()
  rows=p.fixtures();results=[]
  with patch('portable_backend.build',side_effect=AssertionError('GPU forbidden')),patch('portable_backend.execute',side_effect=AssertionError('GPU forbidden')),patch('portable_backend.execute_batches',side_effect=AssertionError('GPU forbidden')):
   for case in rows:
@@ -31,6 +32,6 @@ def main():
  old=json.loads((ROOT/'research/portable-world-actor-stack-metal.json').read_text());prior=[]
  for case,stored in zip(p.stack.fixtures(),old['cases']):
   actual=p.stack.status.recipient.state.fields.pool.observe(case);assert json.loads(json.dumps(actual))==stored['native'],case['name'];prior.append(case['name'])
- result=dict(passed=True,scope='Actual full native simulate plus literal-only physical-world input packing;GPU entry pending',source_parent=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),cases=results,old53_native_dictionaries_exact=prior,observer_preserves_all_battle_fields_for_all23=True,publish_and_synchronous_completion_before_lifesteal=True,parts_use_original_damage_adds_use_clipped_receipt=True,zero_base_attack_has_native_minimum_damage_one=True,physical_skill_mode_impact_family_remains_weapon=True,boss_sentinel_binding_explicit=True,gpu_executions=0,windows_additional_runs=0,cpu_state_used_as_gpu_input=False,normal_ui='CPU',canonical_world_admission=False,full_character_verified=0,full_goal_complete=False)
- (ROOT/'research/portable-world-target-counter-battle-native-contract.json').write_text(json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False)+'\n');print('Full native counter battles',len(rows),'old53 dictionaries exact;physical inputs packed;GPU0')
+ result=dict(passed=True,scope='Actual full native simulate plus literal-only physical-world input packing;GPU verification separate',source_parent=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),cases=results,old53_native_dictionaries_exact=prior,observer_preserves_all_battle_fields=True,observer_preserved_cases=len(rows),publish_and_synchronous_completion_before_lifesteal=True,parts_use_original_damage_adds_use_clipped_receipt=True,zero_base_attack_has_native_minimum_damage_one=True,physical_skill_mode_impact_family_remains_weapon=True,boss_sentinel_binding_explicit=True,gpu_executions=0,windows_additional_runs=0,cpu_state_used_as_gpu_input=False,normal_ui='CPU',canonical_world_admission=False,full_character_verified=0,full_goal_complete=False)
+ args.output.write_text(json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False)+'\n');print('Full native counter battles',len(rows),'old53 dictionaries exact;physical inputs packed;GPU0')
 if __name__=='__main__':main()

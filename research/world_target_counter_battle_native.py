@@ -47,4 +47,11 @@ def before_finish(manager,capture,names):
     for record in pool(manager,'target_hit_counter').values():
         if not any(ab is record.carrier for ab in manager._active):continue
         resources.append(dict(entry_ordinal=ids[record.carrier.uid],epoch=record.epoch,name=record.carrier.effect['name'],owner=names.index(record.caster),actor=dataclasses.asdict(record.spec.actor),credit=record.credit,done=record.done,expires=record.expires))
-    return dict(epoch=runtime.counter_epoch,completions=trace,resources=resources,dead_actors=[dataclasses.asdict(a) for a in sorted(runtime.dead_actors,key=lambda a:(int(a.kind),a.identity,a.generation))],events=capture['counter_events'])
+    from world_actor_pool_native import actor_bindings
+    boss=capture['boss'];parts=[]
+    for b in actor_bindings(boss):
+        if int(b.kind)!=1:continue
+        run=boss._runs[b.run]
+        if run.opens==0:continue
+        target=run.targets[b.slot];parts.append(dict(identity=b.identity,generation=run.opens,extra_hits=target.extra_hits,extra_dealt=target.extra_dealt))
+    return dict(epoch=runtime.counter_epoch,completions=trace,resources=resources,dead_actors=[dataclasses.asdict(a) for a in sorted(runtime.dead_actors,key=lambda a:(int(a.kind),a.identity,a.generation))],part_extra=parts,events=capture['counter_events'])

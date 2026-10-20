@@ -29,4 +29,9 @@ class PhysicalCounterContracts(unittest.TestCase):
   case=copy.deepcopy(driver.fixtures()[0]);case['effects'].append(dict(name='defense',type='buff',stat='def_pct',fixed_value=10,target='boss',duration=10,trigger=dict(timing=['battle_start'],condition=[])));case['owners'].append(0)
   words,_,_=driver.compile_case(case);base=L['RECIPIENT_BASE'];self.assertNotEqual(words[base+2*8+6],words[base+4*8+6])
   self.assertEqual([words[L['DEFINITION_BASE']+2*L['DEFINITION_WORDS']+F[k]] for k in ('KIND','STAT')],[4,0])
+ def test_unbreakable_extra_part_has_credit_without_direct_hit_or_hp_dealt(self):
+  case=next(c for c in driver.fixtures() if c['name']=='unbreakable-part-extra-hit-keeps-hp-dealt-zero');result=observe(case)
+  self.assertEqual(result['actor_pools']['pools'][1][3:8],[0,0,0,0,0])
+  self.assertEqual(result['target_counters']['part_extra'],[dict(identity=0,generation=1,extra_hits=1,extra_dealt=968)])
+  self.assertEqual(result['target_counters']['completions'][0]['impact']['damage'],968)
 if __name__=='__main__':unittest.main()

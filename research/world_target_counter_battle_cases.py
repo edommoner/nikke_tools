@@ -37,4 +37,7 @@ def fixtures(stack):
         mode=dict(name='counter-mode',source='스킬1',type='weapon_change',weapon_type='AR',damage_coeff=100,max_ammo=-1,fire_rate=10,fire_rate_max=10,charge=False,pellets=pellets,muzzles=1,post_fire_delay=0,burst_energy=.25,core_dmg_mult=200,target='self',duration=.3,skill_damage=True,trigger=dict(timing=['battle_start'],condition=[]))
         c['effects'][2]['target_counter'].update(threshold=1 if pellets==1 else 2,families=[family]);c['effects'].insert(2,mode);c['owners'].insert(2,0);rows.append(c)
     c=copy.deepcopy(rows[-2]);c['name']='skill-mode-single-physical-weapon-family-positive';c['effects'][3]['target_counter']['families']=['weapon'];rows.append(c)
+    c=copy.deepcopy(next(c for c in rows if c['name']=='part-100000-completion-versus-lifesteal-order'));c['name']='unbreakable-part-extra-hit-keeps-hp-dealt-zero';c['patterns'][0]['targets'][0]['hp']=0;rows.append(c)
+    c=copy.deepcopy(next(c for c in rows if c['name']=='part-50-completion-versus-lifesteal-order'));c['name']='part-reopen-resets-extra-counters-by-generation';c['duration']=.15;c['patterns'][0].update(after=['start','parts'],repeat=0,until=dict(targets_cleared=True));rows.append(c)
+    c=copy.deepcopy(next(c for c in rows if c['name']=='part-50-completion-versus-lifesteal-order'));c['name']='body-and127-parts-all-receipts-before-callbacks';c['patterns'][0]['targets']=[dict(name='part'+str(i),hp=50,reach=1) for i in range(127)];rows.append(c)
     return rows

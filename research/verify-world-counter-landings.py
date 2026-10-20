@@ -27,7 +27,12 @@ def counter_state(block,case):
 def expected_native(case):
  native=observe(case);native['target_counters'].pop('events');return native
 def decoded(block,meta,case,bindings):
- actual=pack.stack.decoded(block,meta,case,bindings);actual['target_counters']=counter_state(block,case);return actual
+ actual=pack.stack.decoded(block,meta,case,bindings);counter=counter_state(block,case);extra=[]
+ for slot,binding in enumerate(bindings):
+  gen=block[L['WORLD_ACTOR_POOL_STATE_BASE']+slot*16]
+  if int(binding.kind)!=1 or gen==0:continue
+  at=L['COUNTER_LANDING_EXTRA_BASE']+slot*4;amount=struct.unpack('<d',struct.pack('<II',*block[at+2:at+4]))[0];extra.append(dict(identity=binding.identity,generation=gen,extra_hits=block[at],extra_dealt=amount))
+ counter['part_extra']=extra;actual['target_counters']=counter;return actual
 def prepare():
  rows=fixtures();programs=[compile_case(c) for c in rows];bad=[];seed=programs[0][0];base=L['TARGET_COUNTER_INPUT_BASE'];policy=base+8+2*16
  for name,at,value in [('physical-unknown-mode',base+6,2),('physical-without-native-landing',L['LANDING_META_BASE'],0),('counter-current-target-not-sentinel',L['DAMAGE_DEFINITION_BASE']+2*8,0),('counter-zero-generation',policy+3,0),('counter-zero-family',policy+6,0),('counter-miss-policy',policy+7,1),('counter-threshold-nan',policy+5,0x7ff80000),('literal-root-in-physical-mode',L['COMMAND_BASE'],43),('body-forged-as-part',base+4104,1),('unused-part-descriptor',base+4104+127*8,1)]:
@@ -35,6 +40,7 @@ def prepare():
  part=next(p[0] for c,p in zip(rows,programs) if c['name']=='part-50-completion-versus-lifesteal-order')
  for name,at,value in [('part-reach-overflow',base+4104+8+1,6),('part-reserved-payload',base+4104+8+7,1)]:
   words=list(part);words[at]=value;bad.append((name,words))
+ words=list(seed);step=words[2]-1;at=L['COMMAND_BASE']+step*8;words[at]=34;words[at+3:at+8]=[0,0,0,1,0];words[L['WORLD_ACTOR_LAND_INPUT_BASE']+step*2:L['WORLD_ACTOR_LAND_INPUT_BASE']+step*2+2]=[0,0x3ff00000];bad.append(('manual-pool-command-cannot-bypass-physical-impact',words))
  case=copy.deepcopy(rows[0]);case['effects'][3]['trigger']['condition']=['target_state:marker'];bad.append(('typed-child-context-not-yet-admitted',compile_case(case)[0]))
  case=copy.deepcopy(rows[0]);case['effects'].append(dict(name='unported-damage-child',source='스킬1',type='damage',stat='bonus_damage',fixed_value=100,target='boss',trigger=dict(timing=['event:target_counter_complete:marker'],condition=[])));case['owners'].append(0);bad.append(('typed-damage-child-not-yet-admitted',compile_case(case)[0]))
  return rows,programs,bad

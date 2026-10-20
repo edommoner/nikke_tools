@@ -113,6 +113,9 @@ struct Runtime
 #define COUNTER_IMPACT(s,who,amount,when,output) if(counterLandingsEnabled(s)&&s.error==0) publishCounterLanding(s,who,counterLandingTarget,amount,when,output);
 #define COUNTER_PARTS(s,who,when,output) if(counterLandingsEnabled(s)&&s.error==0) deliverCounterParts(s,who,counterLandingTarget,when,output);
 #define COUNTER_PART_CORE(s,flags,legacy) (counterLandingsEnabled(s)&&(flags&H_PART)!=0 ? uint64_t(0) : (legacy))
+#define COUNTER_PART_DIRECT(s,kind,legacy) (counterExtraPart(s,kind) ? false : (legacy))
+#define COUNTER_PART_DEALT(s,kind,d,p,legacy) (counterExtraPart(s,kind)&&f64Zero(loadNumber(d+2)) ? actorNumber(p+4) : (legacy))
+#define COUNTER_EXTRA_RESET(s,slot) resetCounterPartExtra(s,slot);
 #else
 #define COUNTER_PACKET_WORD(at,legacy) legacy
 #define COUNTER_PACKET_NUMBER(at,legacy) legacy
@@ -126,6 +129,9 @@ struct Runtime
 #define COUNTER_IMPACT(s,who,amount,when,output)
 #define COUNTER_PARTS(s,who,when,output)
 #define COUNTER_PART_CORE(s,flags,legacy) legacy
+#define COUNTER_PART_DIRECT(s,kind,legacy) legacy
+#define COUNTER_PART_DEALT(s,kind,d,p,legacy) legacy
+#define COUNTER_EXTRA_RESET(s,slot)
 #endif
 #ifdef PORTABLE_TARGET_COUNTERS
 #define COUNTER_WORLD_LITERAL(s,through,legacy) targetCounterLiteralRoot(s,through,legacy)
