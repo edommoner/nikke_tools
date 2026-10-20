@@ -28,10 +28,8 @@ class SplitContracts(unittest.TestCase):
  def test_alias_identity_includes_order_and_multiplicity(self):
   self.assertEqual(len(native('alias-different-order-stays-separate')['carriers']),2)
   self.assertEqual(len(native('alias-identical-order-refreshes')['carriers']),1)
- def test_composite_leaves_keep_combat_and_instant_admission_guards(self):
+ def test_composite_leaves_keep_combat_admission_guard(self):
   c=copy.deepcopy(CASES[0]);c['effects'][0]['target']=['self',['all_allies_burst_not_casted']]
-  with self.assertRaises(ValueError):v.compile_case(c)
-  c['effects'][0].update(type='instant',stat='heal_hp_pct',fixed_value=10,target=['self','self'])
   with self.assertRaises(ValueError):v.compile_case(c)
  def test_union_is_static_metadata_not_cpu_selected_recipients(self):
   c=copy.deepcopy(next(c for c in CASES if c['name']=='split-nested-target-order'));original=copy.deepcopy(c);words,_=v.compile_case(c);self.assertEqual(c,original)

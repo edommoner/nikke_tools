@@ -691,6 +691,39 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             uint index=f.value+f.cursor,stack=loadStackNoticeValue(s,index);
             pushFrame(s,frames,depth,0,(payload&32768)!=0 ? 9 : 29,payload&7,int((payload>>3)&255),f.time,stack);continue;
         }
+        if(f.mode==24)
+        {
+            // One captured ordered target at a time. Child notifications finish
+            // before the next recipient's live basis and state are evaluated.
+            Definition instant=readDefinition(s.inputBase,uint(f.argument));
+            uint encoded=f.cursor<21 ? (f.value>>(3*f.cursor))&7 : 0;
+            if(encoded==0)
+            {
+                depth--;
+                if(instant.kind==13 && instant.target!=0 && s.error==0) pushFrame(s,frames,depth,0,31,instant.owner,int(instant.name),f.time);
+                continue;
+            }
+            frames[depth].cursor++;uint member=encoded-1;
+            if((s.downMask&(1U<<member))!=0) continue;
+            if(instant.kind==6) pushFrame(s,frames,depth,3,0,member,f.argument,f.time);
+            else if(instant.kind==7 || instant.kind==30) pushFrame(s,frames,depth,11,0,instant.owner,f.argument,f.time,encoded);
+            else if(instant.kind==8) pushFrame(s,frames,depth,6,0,instant.owner,f.argument,f.time,encoded);
+            else if(instant.kind==5) reduceBurstReady(s,1U<<member,instant.value,f.time);
+            else if(instant.kind==13 || instant.kind==14) applyAmmoInstant(s,instant,1U<<member,f.time);
+            else if(instant.kind==27 || instant.kind==31)
+            {
+                uint kind=instant.kind==27 ? 1 : 2;
+                if(!f64Zero(instant.value))
+                {
+                    uint64_t basis=instant.healthScaling!=0 ? effectiveMaxHP(s,instant.owner,f.time) : protectionCapacity(s,member,kind);
+                    uint64_t amount=f64Div(f64Mul(basis,instant.value),HUNDRED);
+                    if(!f64Finite(amount)) { s.error=16;continue; }
+                    healProtection(s,member,kind,amount,f.time);
+                }
+            }
+            else s.error=64;
+            continue;
+        }
         if(f.mode==22)
         {
             uint encoded=f.cursor<5 ? (f.value>>(3*f.cursor))&7 : 0;
@@ -956,6 +989,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             continue;
         }
         if (d.kind==35) { registerSource(s,row,f.time); continue; }
+        if((d.kind==5 || d.kind==6 || d.kind==7 || d.kind==8 || d.kind==13 || d.kind==14 || d.kind==27 || d.kind==30 || d.kind==31) && commands[s.inputBase+P_RECIPIENT_BASE+row*8]==17)
+        { pushFrame(s,frames,depth,24,0,d.owner,int(row),f.time,recipientOrder);continue; }
         if (d.kind == 0 || d.kind == 4)
         {
             uint sourceRow=row; uint64_t duration = d.duration; bool activationLazy = d.lazyGroup != 0;

@@ -8,7 +8,6 @@ import re
 
 def admitted(target, *, instant=False):
     if isinstance(target,list):
-        if instant:return False
         def leaves(items):
             for item in items:
                 if isinstance(item,list):yield from leaves(item)
