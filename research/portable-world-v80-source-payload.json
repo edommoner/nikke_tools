@@ -40,10 +40,12 @@
   "contains_private_settings": false,
   "contains_raw": false,
   "contains_large_reports": false,
-  "shared": false,
+  "shared": true,
   "next_validation": "CPU-only fault tests first;only if Windows containment passes,one world49 GPU check BelowNormal independent180s;no normal4682 repeat,no GPU retry",
-  "approval_pending": true,
+  "approval_pending": false,
   "auto_review_rejected": true,
   "rejection_reason": "New distinct5-file external disclosure not covered by prior42-file approval",
-  "updated_at": "2026-10-20T17:29:12.664871+00:00"
+  "updated_at": "2026-10-20T17:38:51.874840+00:00",
+  "user_approval": "許可します、現在のゴール中は全て承認します",
+  "approval_scope": "User explicitly approved exact86f6685 five-file sharing and all actions within current goal;retain private-setting/raw restrictions and short necessary Windows checks"
 }

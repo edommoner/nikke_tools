@@ -1,0 +1,246 @@
+{
+  "source_commit": "86f66858e24f051fe3a617ddb13661adc5af9614",
+  "cpu_only": true,
+  "actual_gpu_execution_count": 0,
+  "sentinel_names": [
+    "build",
+    "execute",
+    "execute_batches",
+    "execute_cuda",
+    "execute_cuda_batches"
+  ],
+  "sentinel_calls": [],
+  "expected_input_sha256": "5847f07fc130203b6233f916032b6f19438b1ac3a1ddfc43fb2f554fd3054fa9",
+  "PYTHONPATH": "C:/Users/owner/Documents/Codex/nikke-cuda-world-86f6685/app;C:/Users/owner/Documents/Codex/nikke-cuda-world-86f6685/scripts;C:/Users/owner/Documents/Codex/nikke-cuda-world-86f6685/research;C:/Users/owner/Documents/Codex/nikke-cuda-world-86f6685/research/upstream/nikke-calc-master",
+  "TEMP": "C:/Users/owner/Documents/Codex/nikke-cuda-world-86f6685/research/portable-build/v80-cpu-temp",
+  "TMP": "C:/Users/owner/Documents/Codex/nikke-cuda-world-86f6685/research/portable-build/v80-cpu-temp",
+  "fixes": [
+    "Local junction research/upstream/nikke-calc-master to existing pinned upstream",
+    "Local junction .tools/slang-2026.20-Windows-AMD64 to existing pinned Slang;not executed",
+    "Process PYTHONPATH includes app,scripts,research,pinned upstream"
+  ],
+  "original_error": "ModuleNotFoundError: runner;upstream runner is a package directory,not runner.py",
+  "existing_failure_artifacts": {
+    "windows-portable-cross-v80b-summary.json": {
+      "bytes": 465,
+      "sha256": "c03cd12c2efe8f601f5dca5948a1ea0852265b047acfae3639adb163c88efccb"
+    },
+    "portable-cross-v80b-execution.json": {
+      "bytes": 12024,
+      "sha256": "c515e5a7e75afe052cfbfd0990dba8f31ea101a54b4c9a893ba60b14a75cd47f"
+    },
+    "windows-v80b-capsule.b64": {
+      "bytes": 10140,
+      "sha256": "ee434b2a56d7296a409f2534b7a35ac9634a3d1e0eadc932d5b8d27b60c95de6"
+    }
+  },
+  "passed": true,
+  "case_count": 49,
+  "input_bytes": 17414212,
+  "input_sha256": "5847f07fc130203b6233f916032b6f19438b1ac3a1ddfc43fb2f554fd3054fa9",
+  "expected_equal": true,
+  "case_inputs": [
+    {
+      "name": "frame:initial-zero-before-own-shot",
+      "words": 88848
+    },
+    {
+      "name": "frame:taunt-slot:2-0",
+      "words": 88848
+    },
+    {
+      "name": "frame:taunt-slot:2-4",
+      "words": 88848
+    },
+    {
+      "name": "frame:taunt-top_atk:2-0",
+      "words": 88848
+    },
+    {
+      "name": "frame:taunt-top_atk:2-4",
+      "words": 88848
+    },
+    {
+      "name": "frame:taunt-random:2-0",
+      "words": 88848
+    },
+    {
+      "name": "frame:taunt-random:2-4",
+      "words": 88848
+    },
+    {
+      "name": "frame:layer-shield_from_max_hp_pct",
+      "words": 88848
+    },
+    {
+      "name": "frame:layer-decoy",
+      "words": 88848
+    },
+    {
+      "name": "frame:layer-received_dmg_split_even",
+      "words": 88848
+    },
+    {
+      "name": "frame:layer-invincible",
+      "words": 88848
+    },
+    {
+      "name": "frame:lethal-before-own-zero-shot",
+      "words": 88848
+    },
+    {
+      "name": "frame:automatic-reload-cover",
+      "words": 88848
+    },
+    {
+      "name": "frame:received-hit-buff-next-attacker-order",
+      "words": 88848
+    },
+    {
+      "name": "frame:expiry-cancels-pending",
+      "words": 88848
+    },
+    {
+      "name": "frame:cyclic-frame-attacks",
+      "words": 88848
+    },
+    {
+      "name": "frame:rank-before-exact-expiry-boundary",
+      "words": 88848
+    },
+    {
+      "name": "extended:beyond64-72-attacks",
+      "words": 88848
+    },
+    {
+      "name": "extended:same-frame-512-random3-mt-rollover",
+      "words": 88848
+    },
+    {
+      "name": "extended:target-query-capacity",
+      "words": 88848
+    },
+    {
+      "name": "extended:recipient-trace-capacity",
+      "words": 88848
+    },
+    {
+      "name": "extended:expiry-end-notice-before-target-selection",
+      "words": 88848
+    },
+    {
+      "name": "zero:initial-zero-once-sub-epsilon-expiry",
+      "words": 88848
+    },
+    {
+      "name": "zero:initial-zero-once-sub-epsilon-repeat",
+      "words": 88848
+    },
+    {
+      "name": "zero:initial-zero-once-sub-epsilon-follow",
+      "words": 88848
+    },
+    {
+      "name": "zero:initial-zero-once-zero-duration-finish",
+      "words": 88848
+    },
+    {
+      "name": "notices:later-node-notice-before-attack-event:part_destroy",
+      "words": 88848
+    },
+    {
+      "name": "notices:later-node-notice-before-attack-event:target_spawn",
+      "words": 88848
+    },
+    {
+      "name": "notices:later-node-notice-before-attack-event:projectile_destroy",
+      "words": 88848
+    },
+    {
+      "name": "notices:later-node-notice-before-attack-enemy_death",
+      "words": 88848
+    },
+    {
+      "name": "notices:all-four-open-close",
+      "words": 88848
+    },
+    {
+      "name": "notices:duplicate-order",
+      "words": 88848
+    },
+    {
+      "name": "notices:maximum-eight",
+      "words": 88848
+    },
+    {
+      "name": "notices:notice-after-expiry-tick",
+      "words": 88848
+    },
+    {
+      "name": "notices:notice-after-battle-start",
+      "words": 88848
+    },
+    {
+      "name": "notices:close-notice-before-following-attack",
+      "words": 88848
+    },
+    {
+      "name": "notices:finish-does-not-emit-end",
+      "words": 88848
+    },
+    {
+      "name": "notices:spawn-notice-does-not-match-other-named-event",
+      "words": 88848
+    },
+    {
+      "name": "notices:sub-epsilon-notice-once",
+      "words": 88848
+    },
+    {
+      "name": "notices:sub-epsilon-repeat-notice-once",
+      "words": 88848
+    },
+    {
+      "name": "notices-rejected:notice-count9",
+      "words": 88848
+    },
+    {
+      "name": "notices-rejected:notice-id0",
+      "words": 88848
+    },
+    {
+      "name": "notices-rejected:notice-id5",
+      "words": 88848
+    },
+    {
+      "name": "notices-rejected:notice-unused-bits",
+      "words": 88848
+    },
+    {
+      "name": "notices-rejected:end-count-without-id",
+      "words": 88848
+    },
+    {
+      "name": "notices-rejected:spawn-tag-without-spawn",
+      "words": 88848
+    },
+    {
+      "name": "notices-rejected:unused-node-notice",
+      "words": 88848
+    },
+    {
+      "name": "notices-rejected:spawn-tag-missing",
+      "words": 88848
+    },
+    {
+      "name": "notices-rejected:spawn-tag-over-capacity",
+      "words": 88848
+    }
+  ],
+  "sentinel_call_count": 0,
+  "source_unchanged": true,
+  "residual_verification_process_count": 0,
+  "existing_gpu_service_preserved": true,
+  "original_head_equal": true,
+  "original_status_equal": true
+}

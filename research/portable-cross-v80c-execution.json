@@ -1,0 +1,520 @@
+{
+  "source_commit": "86f66858e24f051fe3a617ddb13661adc5af9614",
+  "command": "python research/run-world-bounded.py --backend cuda --capture research/portable-build/world-phase-cuda-v80c --timeout 180",
+  "preflight_five_files": {
+    "research/run-world-bounded.py": {
+      "bytes": 7921,
+      "sha256": "f0ba2e20e1200d7a2875df5c9e9b5be218a36808241ff1e93ba5d0fa4a9a62fc"
+    },
+    "research/portable_phase_audit.py": {
+      "bytes": 3626,
+      "sha256": "20876dc410217473aa5a7cd9ad27368c41fcb2a9254b396ea1c53feaf205a727"
+    },
+    "tests/test_portable_phase_audit.py": {
+      "bytes": 6505,
+      "sha256": "e42c0a86805d51f563a6366ee373780ddc97e481b67880fa16bd9705a561b147"
+    },
+    "docs/portable-world-phase-audit.md": {
+      "bytes": 2732,
+      "sha256": "ae802ba0749b87913d60debfe0b69932b9f1129dd662affe073d1956643b2f68"
+    },
+    "research/portable-world-phase-validation.json": {
+      "bytes": 2183,
+      "sha256": "07568d6f8e47bebefb7b18686e8454efed74a3c842e44257c95a852ee4b23ef9"
+    }
+  },
+  "import_preflight_sha256": "1a8a4b61b3183eda89fe4a9c60ff9e0a09f9a6359b4831a17d11d922888eb333",
+  "cpu_environment_reference_sha256": "d9126d45041fa9db49d472d97cb3182b97d7e5313d630c310c631096146e9f0a",
+  "runner_manifest": {
+    "source_commit": "86f66858e24f051fe3a617ddb13661adc5af9614",
+    "backend": "cuda",
+    "world_inputs": 49,
+    "observer_and_driver_sha256": {
+      "research/run-world-bounded.py": "f0ba2e20e1200d7a2875df5c9e9b5be218a36808241ff1e93ba5d0fa4a9a62fc",
+      "research/portable_phase_audit.py": "20876dc410217473aa5a7cd9ad27368c41fcb2a9254b396ea1c53feaf205a727",
+      "research/verify-world-suite.py": "cf7ae22fbe8eca57acfd30db182776df58a5a2e1628a77d97e1c3895c0eed767",
+      "research/portable-world-suite-golden.json": "474c5518d0fb0c33fd6ae826eb93e8974da13364797c2e15ffd467a8af2b5bb3",
+      "app/portable_backend.py": "36bf3011697e943eaee668a806d6c38192d676fc49508c258ee67424d427eed8"
+    },
+    "gpu_source_sha256": {
+      "gpu/world_frame_entry.slang": "0f9f49c8225bada65d06b069f7eebbb316c72bbb00eab05fa679f9ceaf755269",
+      "gpu/event_runtime.slang": "b2b2afeb055be9b6dce6103dedb6395514c6f8ad135b18e799a7576469c24f7d",
+      "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+      "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+      "gpu/portable_schema.slang": "6915870da99061338204aa96cb9cebeb49091391f4608f170c20f633dcd1a055",
+      "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
+      "gpu/runtime_init.slang": "54ad60a47e8c25a48c9e3640d7610e34d5dc968b2136a4944a753d676423a123",
+      "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
+      "gpu/geometry_runtime.slang": "fc0b6202a75be21dfec22dc7e1c787d3f556fb68caf2c34c5b815d1d8591e33e",
+      "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+      "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+      "gpu/reference_runtime.slang": "3ea6e2b3d617728568a4455097ae2f139466127729026b3011dbb3d930b72a05",
+      "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+      "gpu/bullet_runtime.slang": "1b0f0ffb2eaff6778e0fcab801cb7d644b83af2cb9bc8a230b9d33502bc1c324",
+      "gpu/rank_runtime.slang": "6862c849997a111e228286b553b9043a6035fbf150b9c831130da6171d271526",
+      "gpu/lazy_runtime.slang": "cfea04c172c8ee5df11341cbdb746705f7fd99b05200d24ae9e2515aa30aade1",
+      "gpu/enemy_buff_runtime.slang": "f8785fb25f492b06d4fca0fc64f4e69ea3dfb2a754dd438c4209dae7ed8c31fb",
+      "gpu/carrier_runtime.slang": "d7a14d89cefa0e73fea1a7a096fc26947221b1862ec2a73ae7eab1043c179112",
+      "gpu/quantity_runtime.slang": "843dc4d8246dc2babe7a02db51eb365883551e6aa150cf4ea661b10eb3af5a5e",
+      "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
+      "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
+      "gpu/cover_runtime.slang": "eb1b4a4e7c9683b615a160f3010e0e50a5da9d9a7f0425b471c83b1d625dffe6",
+      "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+      "gpu/hp_attack_runtime.slang": "2bb2bdcca7a86353ad8cff2de5908037fd344e4091e07eb92abcaac9093e1a21",
+      "gpu/recipient_runtime.slang": "c9a5acde13e4a7f43dcb3b5ebebdafdce5c6b730e848eeb49e26e35d1cb051bf",
+      "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+      "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+      "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
+      "gpu/damage_runtime.slang": "b47310ceab078ccb38a5e1d0db8bebd6f08db0b3c66a9505e73abb19b5df8eaa",
+      "gpu/incoming_runtime.slang": "3d32bee084317b63a3c00e8b94a9397196f4a8a39efc6a78a8efd74d90f1985c",
+      "gpu/burst_runtime.slang": "0f924f0b48008d41979119ae61e5a3cb9432f8e862ff84532990d6b86d5301f4",
+      "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+      "gpu/enemy_damage_runtime.slang": "cc11957214a625a9f9877be1ca6b678cfca419a0b1fc568ef90da4ddaa0fe5be",
+      "gpu/landing_runtime.slang": "763ee4080d8ec7191c6937c2c5a8e048ecc212cf2db07664ea26f6beb4aaff84",
+      "gpu/periodic_runtime.slang": "574670587e48ff1bfc0498e2ba7b71a86c1285b2281649e46bd9e5ef877f21b9",
+      "gpu/removal_runtime.slang": "7f96937400b9cd9b59fe750a1cca05d4dd77d310eab2a03a81eb588b8e14832b",
+      "gpu/duration_extend_runtime.slang": "028445e661b12f54a8dc48da3b3438b0c4df7b1da833a4b63a54c84ac18a1081",
+      "gpu/stack_runtime.slang": "b46417666a422f4f9fcdfd15e78295394cc1b9571a6083e46ef18f4f300031e8",
+      "gpu/status_runtime.slang": "648f7355bb38092a53a45c608eb5a95f9dd2ca8b6dc6b906712a22f8fd54e3d4",
+      "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+      "gpu/pending_burst_runtime.slang": "ebc7b917f8ce3418d7f18de6c0c07e1c67a58d6cde04156cb52d50de2388c905",
+      "gpu/incoming_descriptor_runtime.slang": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
+      "gpu/world_frame_addresses.slang": "5f4f5bd1401b9db5b05a3f1b057fc1fabe72255aed612b552f3a5b4057a5cc80",
+      "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+      "gpu/protection_runtime.slang": "768eefaec94ee16a561a471c0400506f2b9c13ac3b8756693be1bbbcafc4bdd2",
+      "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+      "gpu/world_frame_runtime.slang": "705bb6a964271f70d7bb602dbfb14b190161b7bbd5901bd0630be5fefd5c1793",
+      "gpu/combat_runtime.slang": "de65fe8974c6e035a2611ed04eb5cf1e67fd3b4af532476bd355550d82cd281d",
+      "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+      "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
+      "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+      "gpu/admission_runtime.slang": "06a609cf2707955d8c186b2e3e28ae5cfaefd716782606698aefd54fa3e9d44e",
+      "gpu/portable_mt19937.slang": "116f6a7ee3cf8e069db171aace0c06a1b160c3d25b0975451125929b68dd3b61",
+      "gpu/enemy_target_runtime.slang": "bb88cf05d475109cf34e6fca4099ce71096cecc8ba03c72995cce8de15a0b730"
+    },
+    "strategy": "world-only independent budget; unchanged shared49 suite; durable native boundaries; contained process tree"
+  },
+  "runner_execution": {
+    "passed": true,
+    "timed_out": false,
+    "timeout_seconds": 180,
+    "elapsed_seconds": 61.13926349999383,
+    "child_exit_code": 0,
+    "final_child_exit_code": 0,
+    "error": null,
+    "cleanup_error": null,
+    "cleanup_wait_seconds": 5,
+    "below_normal_priority": true,
+    "phase": {
+      "events": 50,
+      "last_event": {
+        "monotonic_ns": 2347927484000000,
+        "pid": 71588,
+        "stage": "shared_world_suite",
+        "state": "returned",
+        "wall_time_ns": 1792518502697589000
+      },
+      "nvrtc_compile_returned_success": true,
+      "cuda_launch_returned_success": true,
+      "cuda_synchronize_returned_success": true,
+      "cuda_readback_returned_success": true,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retry_count": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false
+  },
+  "phases": [
+    {
+      "monotonic_ns": 2347866953000000,
+      "pid": 71588,
+      "stage": "shared_world_suite",
+      "state": "entered",
+      "wall_time_ns": 1792518442154260000
+    },
+    {
+      "monotonic_ns": 2347868984000000,
+      "pid": 71588,
+      "stage": "slang_build",
+      "state": "entered",
+      "wall_time_ns": 1792518444191524500
+    },
+    {
+      "monotonic_ns": 2347872031000000,
+      "pid": 71588,
+      "stage": "slang_build",
+      "state": "returned",
+      "wall_time_ns": 1792518447234040100
+    },
+    {
+      "monotonic_ns": 2347872062000000,
+      "pid": 71588,
+      "stage": "nvrtcCreateProgram",
+      "state": "entered",
+      "wall_time_ns": 1792518447267700600
+    },
+    {
+      "monotonic_ns": 2347872062000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "nvrtcCreateProgram",
+      "state": "returned",
+      "wall_time_ns": 1792518447269880300
+    },
+    {
+      "monotonic_ns": 2347872062000000,
+      "pid": 71588,
+      "stage": "nvrtcCompileProgram",
+      "state": "entered",
+      "wall_time_ns": 1792518447270883800
+    },
+    {
+      "monotonic_ns": 2347883125000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "nvrtcCompileProgram",
+      "state": "returned",
+      "wall_time_ns": 1792518458331225900
+    },
+    {
+      "monotonic_ns": 2347883125000000,
+      "pid": 71588,
+      "stage": "nvrtcGetProgramLogSize",
+      "state": "entered",
+      "wall_time_ns": 1792518458332279200
+    },
+    {
+      "monotonic_ns": 2347883125000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "nvrtcGetProgramLogSize",
+      "state": "returned",
+      "wall_time_ns": 1792518458332793400
+    },
+    {
+      "monotonic_ns": 2347883125000000,
+      "pid": 71588,
+      "stage": "nvrtcGetProgramLog",
+      "state": "entered",
+      "wall_time_ns": 1792518458332793400
+    },
+    {
+      "monotonic_ns": 2347883125000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "nvrtcGetProgramLog",
+      "state": "returned",
+      "wall_time_ns": 1792518458334328200
+    },
+    {
+      "monotonic_ns": 2347883125000000,
+      "pid": 71588,
+      "stage": "nvrtcGetPTXSize",
+      "state": "entered",
+      "wall_time_ns": 1792518458335927800
+    },
+    {
+      "monotonic_ns": 2347883125000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "nvrtcGetPTXSize",
+      "state": "returned",
+      "wall_time_ns": 1792518458337437900
+    },
+    {
+      "monotonic_ns": 2347883125000000,
+      "pid": 71588,
+      "stage": "nvrtcGetPTX",
+      "state": "entered",
+      "wall_time_ns": 1792518458338944400
+    },
+    {
+      "monotonic_ns": 2347883125000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "nvrtcGetPTX",
+      "state": "returned",
+      "wall_time_ns": 1792518458339446500
+    },
+    {
+      "monotonic_ns": 2347883140000000,
+      "pid": 71588,
+      "stage": "nvrtcDestroyProgram",
+      "state": "entered",
+      "wall_time_ns": 1792518458340452100
+    },
+    {
+      "monotonic_ns": 2347883140000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "nvrtcDestroyProgram",
+      "state": "returned",
+      "wall_time_ns": 1792518458340955300
+    },
+    {
+      "monotonic_ns": 2347883140000000,
+      "pid": 71588,
+      "stage": "cuInit",
+      "state": "entered",
+      "wall_time_ns": 1792518458344979800
+    },
+    {
+      "monotonic_ns": 2347883156000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "cuInit",
+      "state": "returned",
+      "wall_time_ns": 1792518458370471000
+    },
+    {
+      "monotonic_ns": 2347883171000000,
+      "pid": 71588,
+      "stage": "cuDeviceGet",
+      "state": "entered",
+      "wall_time_ns": 1792518458371981800
+    },
+    {
+      "monotonic_ns": 2347883171000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "cuDeviceGet",
+      "state": "returned",
+      "wall_time_ns": 1792518458373489400
+    },
+    {
+      "monotonic_ns": 2347883171000000,
+      "pid": 71588,
+      "stage": "cuDeviceGetName",
+      "state": "entered",
+      "wall_time_ns": 1792518458373489400
+    },
+    {
+      "monotonic_ns": 2347883171000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "cuDeviceGetName",
+      "state": "returned",
+      "wall_time_ns": 1792518458374996900
+    },
+    {
+      "monotonic_ns": 2347883171000000,
+      "pid": 71588,
+      "stage": "cuCtxCreate_v2",
+      "state": "entered",
+      "wall_time_ns": 1792518458374996900
+    },
+    {
+      "monotonic_ns": 2347883250000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "cuCtxCreate_v2",
+      "state": "returned",
+      "wall_time_ns": 1792518458455735500
+    },
+    {
+      "monotonic_ns": 2347883250000000,
+      "pid": 71588,
+      "stage": "cuModuleLoadData",
+      "state": "entered",
+      "wall_time_ns": 1792518458457293300
+    },
+    {
+      "monotonic_ns": 2347921453000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "cuModuleLoadData",
+      "state": "returned",
+      "wall_time_ns": 1792518496663698700
+    },
+    {
+      "monotonic_ns": 2347921453000000,
+      "pid": 71588,
+      "stage": "cuModuleGetFunction",
+      "state": "entered",
+      "wall_time_ns": 1792518496663698700
+    },
+    {
+      "monotonic_ns": 2347921453000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "cuModuleGetFunction",
+      "state": "returned",
+      "wall_time_ns": 1792518496666751800
+    },
+    {
+      "monotonic_ns": 2347921453000000,
+      "pid": 71588,
+      "stage": "cuMemAlloc_v2",
+      "state": "entered",
+      "wall_time_ns": 1792518496666751800
+    },
+    {
+      "monotonic_ns": 2347921468000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "cuMemAlloc_v2",
+      "state": "returned",
+      "wall_time_ns": 1792518496668280300
+    },
+    {
+      "monotonic_ns": 2347921468000000,
+      "pid": 71588,
+      "stage": "cuMemAlloc_v2",
+      "state": "entered",
+      "wall_time_ns": 1792518496668280300
+    },
+    {
+      "monotonic_ns": 2347921468000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "cuMemAlloc_v2",
+      "state": "returned",
+      "wall_time_ns": 1792518496669796000
+    },
+    {
+      "monotonic_ns": 2347921468000000,
+      "pid": 71588,
+      "stage": "cuModuleGetGlobal_v2",
+      "state": "entered",
+      "wall_time_ns": 1792518496669796000
+    },
+    {
+      "monotonic_ns": 2347921468000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "cuModuleGetGlobal_v2",
+      "state": "returned",
+      "wall_time_ns": 1792518496671325500
+    },
+    {
+      "monotonic_ns": 2347921468000000,
+      "pid": 71588,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "entered",
+      "wall_time_ns": 1792518496671325500
+    },
+    {
+      "monotonic_ns": 2347921468000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "returned",
+      "wall_time_ns": 1792518496674094400
+    },
+    {
+      "monotonic_ns": 2347921468000000,
+      "pid": 71588,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "entered",
+      "wall_time_ns": 1792518496682723700
+    },
+    {
+      "monotonic_ns": 2347921484000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "returned",
+      "wall_time_ns": 1792518496687247100
+    },
+    {
+      "monotonic_ns": 2347921484000000,
+      "pid": 71588,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "entered",
+      "wall_time_ns": 1792518496688250300
+    },
+    {
+      "monotonic_ns": 2347921484000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "returned",
+      "wall_time_ns": 1792518496689757200
+    },
+    {
+      "monotonic_ns": 2347921484000000,
+      "pid": 71588,
+      "stage": "cuLaunchKernel",
+      "state": "entered",
+      "wall_time_ns": 1792518496690263400
+    },
+    {
+      "monotonic_ns": 2347921500000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "cuLaunchKernel",
+      "state": "returned",
+      "wall_time_ns": 1792518496707687800
+    },
+    {
+      "monotonic_ns": 2347921500000000,
+      "pid": 71588,
+      "stage": "cuCtxSynchronize",
+      "state": "entered",
+      "wall_time_ns": 1792518496709192900
+    },
+    {
+      "monotonic_ns": 2347926046000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "cuCtxSynchronize",
+      "state": "returned",
+      "wall_time_ns": 1792518501247921500
+    },
+    {
+      "monotonic_ns": 2347926046000000,
+      "pid": 71588,
+      "stage": "cuMemcpyDtoH_v2",
+      "state": "entered",
+      "wall_time_ns": 1792518501260103400
+    },
+    {
+      "monotonic_ns": 2347926062000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "cuMemcpyDtoH_v2",
+      "state": "returned",
+      "wall_time_ns": 1792518501267239100
+    },
+    {
+      "monotonic_ns": 2347926078000000,
+      "pid": 71588,
+      "stage": "cuCtxDestroy_v2",
+      "state": "entered",
+      "wall_time_ns": 1792518501279684900
+    },
+    {
+      "monotonic_ns": 2347927078000000,
+      "pid": 71588,
+      "return_code": 0,
+      "stage": "cuCtxDestroy_v2",
+      "state": "returned",
+      "wall_time_ns": 1792518502277475500
+    },
+    {
+      "monotonic_ns": 2347927484000000,
+      "pid": 71588,
+      "stage": "shared_world_suite",
+      "state": "returned",
+      "wall_time_ns": 1792518502697589000
+    }
+  ],
+  "stdout": "All49 world programs match complete native-proved readback bytes cuda\n",
+  "stderr": "",
+  "runner_execution_count": 1,
+  "actual_world_gpu_execution_count": 1,
+  "actual_core_gpu_execution_count": 0,
+  "saved_core_reused": true,
+  "saved_core_path": "C:/Users/owner/Documents/Codex/nikke-cuda-combat-6f54193/research/portable-combat-cuda.json",
+  "original_head_equal": true,
+  "original_status_equal": true,
+  "existing_gpu_service_preserved": true,
+  "residual_verification_process_count": 0,
+  "TEMP": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-world-86f6685\\research\\portable-build\\v80-cpu-temp",
+  "TMP": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-world-86f6685\\research\\portable-build\\v80-cpu-temp",
+  "PYTHONPATH": "C:/Users/owner/Documents/Codex/nikke-cuda-world-86f6685/app;C:/Users/owner/Documents/Codex/nikke-cuda-world-86f6685/scripts;C:/Users/owner/Documents/Codex/nikke-cuda-world-86f6685/research;C:/Users/owner/Documents/Codex/nikke-cuda-world-86f6685/research/upstream/nikke-calc-master",
+  "capture_directory": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-world-86f6685\\research\\portable-build\\world-phase-cuda-v80c",
+  "full_world_report_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-world-86f6685\\research\\portable-build\\world-phase-cuda-v80c\\world-report.json",
+  "summary_comparison_passed": true,
+  "no_gpu_retry": true
+}

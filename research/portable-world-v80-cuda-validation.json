@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "source_commit": "86f66858e24f051fe3a617ddb13661adc5af9614",
+  "artifacts": {
+    "windows-portable-cross-v80-summary.json": {
+      "bytes": 325,
+      "sha256": "57d18c70260a172a94f8f458a1e6f268a4b8b33e48d852a665a7074e3813e0d6"
+    },
+    "portable-cross-v80-execution.json": {
+      "bytes": 24119,
+      "sha256": "71708daa88fa2d3924600d6162d9047b5692ae0fe155c1af45ecb5c309dfc33b"
+    },
+    "portable-cross-v80-cpu-environment.json": {
+      "bytes": 24801,
+      "sha256": "d9126d45041fa9db49d472d97cb3182b97d7e5313d630c310c631096146e9f0a"
+    },
+    "windows-portable-cross-v80b-summary.json": {
+      "bytes": 465,
+      "sha256": "c03cd12c2efe8f601f5dca5948a1ea0852265b047acfae3639adb163c88efccb"
+    },
+    "portable-cross-v80b-execution.json": {
+      "bytes": 12024,
+      "sha256": "c515e5a7e75afe052cfbfd0990dba8f31ea101a54b4c9a893ba60b14a75cd47f"
+    },
+    "portable-cross-v80-import-preflight.json": {
+      "bytes": 6393,
+      "sha256": "1a8a4b61b3183eda89fe4a9c60ff9e0a09f9a6359b4831a17d11d922888eb333"
+    },
+    "windows-portable-cross-v80c-summary.json": {
+      "bytes": 43793,
+      "sha256": "c9783f6882b56c27c30c2c135c772bf946279ec05b65a27c739707e60f0090d4"
+    },
+    "portable-cross-v80c-execution.json": {
+      "bytes": 19441,
+      "sha256": "6446bbe5523d14a707b12e6eb1a68ad991720f626458db0158d8db8e3628beb8"
+    }
+  },
+  "normal_core_inputs": 4682,
+  "normal_core_gpu_runs_this_phase": 0,
+  "normal_core_saved_v79_reused": true,
+  "world_inputs": 49,
+  "world_gpu_runs": 1,
+  "world_elapsed_seconds": 61.13926349999383,
+  "all_input_output_native_source_and_generated_fingerprints_equal": true,
+  "nvrtc_launch_sync_readback_observed_success": true,
+  "original_cpu_temp_and_import_failures_retained": true,
+  "gpu_retries": 0,
+  "windows_execution_and_transfer_terminal": true,
+  "residual_verification_process_count": 0,
+  "normal_ui": "CPU",
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "scope": "Shared frame/target/attack/closed-notice world49 and saved normal4682. This does not certify new ABI75 overlays,actors or the complete catalog.",
+  "updated_at": "2026-10-20T17:51:47.718745+00:00"
+}
