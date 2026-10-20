@@ -151,16 +151,16 @@ bool stateMember(inout Runtime s, uint who, int name, uint flags)
 [noinline]
 bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uint recipient = 0xffffffff, uint conditionSlot = 0xffffffff)
 {
-    uint definition = s.carrierDefinition[row]; Definition d = readDefinition(s.inputBase,definition);
-    if (runtime && (referenceCaptureFlags(s,row)&4)==0 && (!f64Less(d.duration,0) || (d.flags & 2) == 0)) return true;
+    uint definition = s.carrierDefinition[row], owner = definition_owner(s.inputBase,definition);
+    if (runtime && (referenceCaptureFlags(s,row)&4)==0 && (!f64Less(definition_duration(s.inputBase,definition),0) || (definition_flags(s.inputBase,definition) & 2) == 0)) return true;
     uint first=conditionSlot==0xffffffff ? 0 : conditionSlot;
-    uint last=conditionSlot==0xffffffff ? d.conditionCount : conditionSlot+1;
+    uint last=conditionSlot==0xffffffff ? definition_conditionCount(s.inputBase,definition) : conditionSlot+1;
     for (uint i = first; i < last; i++)
     {
         uint at = s.inputBase+P_CONDITION_BASE+definition*P_CONDITION_WORDS+i*4;
         uint kind = commands[at]; int name = int(commands[at+1]); uint64_t arg = loadNumber(at+2);
         if (runtime && kind != C_GAUGE_ABOVE && kind != C_GAUGE_BELOW && kind != C_FULL && kind != C_NOT_FULL && kind != C_SELF_STATE && kind != C_NOT_SELF_STATE && kind != C_SELF_STACK && kind != C_CAST && kind != C_NOT_CAST && kind != C_CHARGING && kind != C_ENEMIES_ABOVE && kind != C_ENEMIES_BELOW && kind != C_HP_ABOVE && kind != C_HP_BELOW && kind != C_HP_MAX && kind != C_ALLY_HP_BELOW && kind != C_COVER_ALIVE && kind != C_COVER_BROKEN && kind != C_SHIELD && kind != C_TARGET_CODE) continue;
-        if (kind >= C_GAUGE_ABOVE && kind <= C_GAUGE_MOD && !resourceCondition(s,d.owner,kind,uint(name),arg,int(commands[s.inputBase+P_RESOURCE_CONDITION_BASE+definition*3+i]))) return false;
+        if (kind >= C_GAUGE_ABOVE && kind <= C_GAUGE_MOD && !resourceCondition(s,owner,kind,uint(name),arg,int(commands[s.inputBase+P_RESOURCE_CONDITION_BASE+definition*3+i]))) return false;
         if (kind == C_TARGET_CODE)
         {
             uint code=commands[s.inputBase+P_WORLD_META_BASE];
@@ -170,7 +170,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
         if (kind == C_SELF_STATE || kind == C_NOT_SELF_STATE)
         {
             uint flags = f64Equal(arg,ONE) ? 1 : f64Equal(arg,f64FromI64(2)) ? 2 : 0;
-            bool present = stateMember(s,d.owner,name,flags);
+            bool present = stateMember(s,owner,name,flags);
             if (kind == C_SELF_STATE && !present || kind == C_NOT_SELF_STATE && present) return false;
         }
         if (kind == C_SELF_STACK)
@@ -179,20 +179,20 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
             for (uint pass = 0; pass < s.orderedCount; pass++)
             {
                 uint j = s.orderedRows[pass]; Definition carrier = residentDefinition(s,j);
-                bool member=(s.activeRecipients[j]&(1U<<d.owner))!=0;
+                bool member=(s.activeRecipients[j]&(1U<<owner))!=0;
                 if (carrier.enemyBuff!=0) for (uint enemy=0; enemy<s.targetCount; enemy++)
                     if ((s.activeRecipients[j]&(1U<<(enemy+5)))!=0 && s.targetAlive[enemy]!=0 && s.targetGeneration[enemy]==enemyCarrierGeneration(s,j,enemy)) member=true;
                 if (carrier.kind==3)
                 { uint packed; member=(carrier.periodicFlags&1)!=0 ? periodicDamageMask(s,s.carrierDefinition[j],packed)!=0 : targetLive(s,s.timerTarget[s.carrierDefinition[j]],s.timerGeneration[s.carrierDefinition[j]]); }
-                if (carrier.owner == d.owner && int(carrier.name) == name && s.alive[j] != 0 && member) { count = carrierStackValue(s,j); break; }
+                if (carrier.owner == owner && int(carrier.name) == name && s.alive[j] != 0 && member) { count = carrierStackValue(s,j); break; }
             }
-            if (s.combat != 0 && s.modeIndex[d.owner] >= 0 && int(definition_name(s.inputBase,s.modeIndex[d.owner])) == name) count = ONE;
+            if (s.combat != 0 && s.modeIndex[owner] >= 0 && int(definition_name(s.inputBase,s.modeIndex[owner])) == name) count = ONE;
             if (f64Less(count,arg)) return false;
         }
-        if (kind == C_HP_ABOVE && f64Less(s.hpPct[d.owner],arg) || kind == C_HP_BELOW && f64Less(arg,s.hpPct[d.owner]) || kind == C_HP_MAX && f64Less(s.hpPct[d.owner],HUNDRED)) return false;
-        if (kind == C_SHIELD && !hasProtection(s,d.owner,1)) return false;
-        if (kind == C_COVER_ALIVE && f64Zero(s.coverHP[d.owner]) || kind == C_COVER_BROKEN && !f64Zero(s.coverHP[d.owner])) return false;
-        if (kind == C_NOT_SELF_HEAL && (s.healSource < 0 || uint(s.healSource) == d.owner)) return false;
+        if (kind == C_HP_ABOVE && f64Less(s.hpPct[owner],arg) || kind == C_HP_BELOW && f64Less(arg,s.hpPct[owner]) || kind == C_HP_MAX && f64Less(s.hpPct[owner],HUNDRED)) return false;
+        if (kind == C_SHIELD && !hasProtection(s,owner,1)) return false;
+        if (kind == C_COVER_ALIVE && f64Zero(s.coverHP[owner]) || kind == C_COVER_BROKEN && !f64Zero(s.coverHP[owner])) return false;
+        if (kind == C_NOT_SELF_HEAL && (s.healSource < 0 || uint(s.healSource) == owner)) return false;
         if (kind == C_ALLY_HP_BELOW)
         {
             bool present = false;
@@ -200,12 +200,12 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
             else for (uint who = 0; who < 5; who++) if (!f64Less(arg,s.hpPct[who])) present = true;
             if (!present) return false;
         }
-        if (kind == C_BACK_ROW && d.owner != 1 && d.owner != 3) return false;
-        if (kind == C_CAST && (s.castMask & (1U << d.owner)) == 0 || kind == C_NOT_CAST && (s.castMask & (1U << d.owner)) != 0) return false;
-        if (kind == C_STATIC && f64Zero(arg) || kind == C_CHARGING && s.charging[d.owner] == 0) return false;
+        if (kind == C_BACK_ROW && owner != 1 && owner != 3) return false;
+        if (kind == C_CAST && (s.castMask & (1U << owner)) == 0 || kind == C_NOT_CAST && (s.castMask & (1U << owner)) != 0) return false;
+        if (kind == C_STATIC && f64Zero(arg) || kind == C_CHARGING && s.charging[owner] == 0) return false;
         if (kind == C_BURST1_ALLY || kind == C_NO_BURST1_ALLY)
         {
-            bool has = false; for (uint who = 0; who < 5; who++) if (who != d.owner && s.currentStage[who] == 1) has = true;
+            bool has = false; for (uint who = 0; who < 5; who++) if (who != owner && s.currentStage[who] == 1) has = true;
             if (kind == C_BURST1_ALLY && !has || kind == C_NO_BURST1_ALLY && has) return false;
         }
         if (kind == C_ENEMIES_ABOVE && f64Less(f64FromI64(s.enemySnapshot),arg) || kind == C_ENEMIES_BELOW && f64Less(arg,f64FromI64(s.enemySnapshot))) return false;
