@@ -61,16 +61,24 @@ def compile_case(case):
 
 def decoded(block,case):
     def number(at): return struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
-    result=[]
+    result=[];resources=[]
     for step,_ in enumerate(case['actions']):
         at=L['TARGET_COUNTER_QUERY_BASE']+step*16
         result.append([block[at],number(at+1),block[at+3],block[at+4]])
+        assert block[at]<=2  # This table has at most two simultaneous carriers.
+        resources.append([dict(uid_ordinal=block[at+8+i*4],epoch=block[at+9+i*4],credit=number(at+10+i*4)) for i in range(block[at])])
     trace=[]
     for i in range(block[L['TARGET_COUNTER_HEAD']+6]):
         at=L['TARGET_COUNTER_TRACE_BASE']+i*24;row=block[at+3];actor=dict(kind=block[at+5],identity=block[at+6],generation=block[at+7]);impact=None
         if block[at+18]: impact=dict(attacker=NAMES[block[at+10]],target=actor,family=block[at+11],outcome=block[at+12],damage=number(at+14),credit=number(at+16),attack_id=block[at+13])
         trace.append(dict(uid_ordinal=block[at+1],epoch=block[at+2],owner=NAMES[0],name=case['effects'][row]['name'],actor=actor,credit=number(at+8),reason={1:'threshold',2:'death'}[block[at+4]],impact=impact,time=number(at+20)))
-    return dict(steps=result,completions=trace)
+    return dict(steps=result,resource_steps=resources,completions=trace)
+
+
+def expected_observation(native):
+    return dict(steps=[r['summary'] for r in native['steps']],
+        resource_steps=[[{k:r[k] for k in ('uid_ordinal','epoch','credit')} for r in step['resources']] for step in native['steps']],
+        completions=native['steps'][-1]['completions'])
 
 
 def prepare():
@@ -108,7 +116,7 @@ def main():
     for i,(case,expected) in enumerate(zip(rows,native)):
         block=blocks[i*524288:(i+1)*524288]
         try:
-            actual=decoded(block,case);wanted=dict(steps=[r['summary'] for r in expected['steps']],completions=expected['steps'][-1]['completions']);passed=block[0]==0 and actual==wanted
+            actual=decoded(block,case);wanted=expected_observation(expected);passed=block[0]==0 and actual==wanted
         except Exception as error: actual=dict(error=repr(error));wanted=expected;passed=False
         checked.append(dict(name=case['name'],passed=passed,status=block[0],actual=actual,native=wanted))
     rejected=[dict(name=name,status=blocks[(len(rows)+j)*524288],passed=blocks[(len(rows)+j)*524288]==64) for j,(name,_) in enumerate(bad)]

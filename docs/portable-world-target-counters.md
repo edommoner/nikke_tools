@@ -2,7 +2,7 @@
 
 ## 現在の状態
 
-共有スタック/免疫/解除は別途検証済みですが、`target_hit_counter` と完了通知の共通Slang接続はまだありません。通常画面CPU、world公開無効、全変種認証0/203を維持します。この文書は移植前に実装上の契約を固定するもので、GPU対応の証拠ではありません。
+共有スタック/免疫/解除は別途検証済みですが、`target_hit_counter` と完了通知をprivate literal入力から共通Slangへ接続し、Metal622で検証しました。実着弾bridge・型付き対象条件を持つ子は未接続です。通常画面CPU、world公開無効、全変種認証0/203を維持します。この文書は移植前に実装上の契約を固定するもので、GPU対応の証拠ではありません。
 
 ## 参照する定義と実装
 
@@ -52,3 +52,17 @@ WC01/version1のsidecarは5,128 wordsです。8-word header、256定義×16 word
 追加の実CPU witnessでは、最初のevent:marker子でepoch1・credit0・done=falseのresourceが既に存在し、その子のdamage0/credit1の着弾だけで完了しました。`effect_runtime.ActivationPreparation`は新carrierのappend直後、refreshのtrigger_count更新直後にprepareを挿入します。したがってSlangのprepareをadvanceBuffActivationの終了側へ置くと遅すぎます。carrierの登録/expiry更新後、named/stack子frameをpushする前に準備する必要があります。旧expiryを別resourceに保持してpreserveを判定し、全readyをlatchしてから子を回す設計を維持します。
 
 portable CPU363検査が成功しました。最初のsandbox内検査は終了確認のpsだけがPermissionErrorで失敗したため、process確認を許可した環境で全検査を再実行しています。今回GPU実行0、Windows追加依頼0です。次はこのsidecarを新private entryへ結合し、resource/epoch/dead registry/immutable ready queueと共通event58の継続frameを実装します。実武器/部位/召喚の着弾順、lifesteal後の通知、skill/pending/DoT、新Actor種、全変種認証は未完了です。
+
+## 2026-10-21 private resource/event phase:Metal622
+
+固定98427c0、private ABI7Eで、既存resident登録の直後へprepareを置き、GPU所有のcredit/UID/refresh epoch/expiry/done、正確なActor死亡集合、immutable ready queue、同期event58継続frameを接続しました。全readyを先にラッチし、子から戻った時にUID/epochが同じ場合だけ旧carrierを終了します。計算は既存binary64 add/min、状態登録/expiry/名前merge/通知queue/子イベントは既存実行器を使います。CUDA/Metalで別実装を持ちません。
+
+入力97,464 words、出力524,288 words。資源512×16、ready4096×20、死亡Actor512×3、完了trace128×24を未使用領域413,712以後に配置しました。epochとentry UIDの桁あふれ、queue/traceの容量を検査します。literal actionはop43から既存tick→既存dispatchへ渡し、自律world/武器を進めません。counterのpolicy/作用時刻を全てGPU側でも検査し、disabled sidecarは全word 0を要求します。
+
+Metal622は正常10ケース・48段階のlive数/credit/epoch/UID同一性と完了snapshot、不正22入力、以前の590入力の全出力word保持で成功しました。名前付き完了子による自己refresh、siblingsの先行latch、期限境界、fractional credit、death/cancel、owner限定、blocked明示policyを含みます。per-step resource観測はこのtableの最大2 carrierを比較するものです。全キャラ/全物理Actor/全特殊効果の認証ではありません。
+
+初回a27f308は旧590保持とraw22拒否に成功し、新10入力は自律world rootのop24完了条件で全て受付拒否でした。失敗raw/reportを保存し、CPUで原因を確認後、counter sidecar付き・全op43・時刻範囲内のliteral rootを明示するprivate providerを追加しました。修正版で検証し、物理実行は別ソースで各1回、同一ソース/入力の再試行0です。7つの旧entryのCUDA/MSL生成物が厳密一致し、共通portable CPU364件が成功しています。CPU単体revisionはa27f308、root修正後の生成物比較と実Metal検証が最終ソースに対応します。
+
+`research/seal-world-target-counter-metal.py` が保存入力/出力、Git source blob、全48段階、ready snapshot、旧590の全wordをGPUなしで再監査します。証拠はportable-world-target-counter-validation.json、初回失敗はportable-world-target-counter-initial-metal.json、根因はportable-world-target-counter-root-finding.jsonです。Windowsは保存Metalの先頭32入力だけを共通short driverで検証する準備中で、旧590/通常4682は再実行しません。
+
+実物理着弾、lifesteal前後/致死着弾、通常武器/散弾/部位/召喚、skill/pending/DoT、型付きtarget条件とdamage子のcontextはまだ未接続です。counter有効入力では、この段階で未接続のdamage子、runtime条件、通常enemy field子をGPU側で拒否します。通常画面CPU・world公開無効・全変種認証0/203を維持し、効率化は必要検証後です。
