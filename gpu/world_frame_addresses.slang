@@ -37,6 +37,9 @@ bool initializeWorldFrame(inout Runtime s)
     for(uint j=2064;j<2320;j++) if(commands[start+j]!=0) return false;
     WorldSchedule w=frameSchedule(s);if(!wsValidate(w)) return false;
     bool spawnNotice=false;
+#ifdef PORTABLE_WORLD_ACTOR_POOLS
+    spawnNotice=actorPoolsTargetSpawn(s);
+#endif
     for(uint n=0;n<w.count;n++) for(uint end=0;end<2;end++)
     {
         uint d=start+16+n*64,count=commands[d+12+end],packed=commands[d+14+end];
@@ -71,6 +74,13 @@ bool initializeWorldFrame(inout Runtime s)
         }
     }
     // No actor-cleared input is accepted by this direct-attack coupling stage.
-    for(uint n=0;n<w.count;n++) if((commands[start+16+n*64+1]&2)!=0) return false;
+    for(uint n=0;n<w.count;n++) if((commands[start+16+n*64+1]&2)!=0)
+    {
+#ifdef PORTABLE_WORLD_ACTOR_POOLS
+        if(!actorPoolsClearedAllowed(s,n)) return false;
+#else
+        return false;
+#endif
+    }
     return commands[s.inputBase+P_ENEMY_TARGET_META_BASE]==1;
 }

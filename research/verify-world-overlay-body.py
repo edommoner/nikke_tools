@@ -26,7 +26,7 @@ def cases():
  c=copy.deepcopy(base);c['name']='core-condition-at-battle-start';c['patterns']=[dict(id='core',kind='core',core_px=52)];c['effects']=[f.effect('atk_pct',20,trigger=dict(timing=['battle_start'],condition=['core_hit']))];rows.append(c)
  return rows
 
-def compile_case(case):
+def compile_case(case,*,actor_pools=False):
  from calculator.boss_pattern import BossScript
  from portable_geometry_specs import validate
  names=roster_names(case);enemy=case['enemy'];auth=copy.deepcopy(case);auth['effects']=[__import__('portable_world_overlay_specs').compiler_effect(e) for e in auth['effects']];auth['combat']['targets'][0]['defense']=enemy.get('def',0)
@@ -37,6 +37,11 @@ def compile_case(case):
  BossScript(patterns,copy.deepcopy(enemy),lambda *_:False) # Same cross-domain constraints as native.
  payload=None
  auth['patterns']=[{k:v for k,v in p.items() if k not in ('enemy','irremovable','core_px','weapons','distance')} if p['kind'] in ('idle','groggy','attack') else dict({k:v for k,v in p.items() if k in ('id','after','delay','until','repeat','emit','emit_end')},kind='idle') for p in case['patterns']]
+ if actor_pools:
+  from calculator.boss_pattern import BOSS_EVENTS
+  target_spawn=any('event:target_spawn' in (*p.emit,*p.emit_end,*(e for x in p.targets for e in x.emits)) for p in patterns)
+  auth['patterns']=[dict(id=p.id,kind='idle') for p in patterns]
+  if target_spawn:auth['patterns'][0]['emit']=['event:target_spawn']
  if case.get('observe_overlay'):
   from unittest.mock import patch
   with patch.dict(f.engine_worker.META,authored_metadata(case)),patch.object(f,'NAMES',names):words,meta=f.compile_case(auth)
@@ -45,7 +50,8 @@ def compile_case(case):
  shield=any(p.kind=='shield' for p in patterns)
  elements=case.get('element_codes') or [case.get('weapon_metadata',{}).get('element_code',f.engine_worker.META[name].get('element_code','')) for name in names]
  tags={p.code:meta['states'][p.code]+1 for p in patterns if p.kind=='shield' and p.code in meta['states'] and words[L['WORLD_META_BASE']+1]!=0}
- payload=compile_payload(patterns,camera_mask=sum(1<<i for i,name in enumerate(names) if name in case.get('camera',[])),element_codes=[CODES.get(code,0) for code in elements] if shield else (),code_tags=tags,charge_hold_mask=sum(1<<i for i,name in enumerate(names) if name=='스노우 화이트 : 헤비암즈'))
+ payload=compile_payload(patterns,camera_mask=sum(1<<i for i,name in enumerate(names) if name in case.get('camera',[])),element_codes=[CODES.get(code,0) for code in elements] if shield else (),code_tags=tags,charge_hold_mask=sum(1<<i for i,name in enumerate(names) if name=='스노우 화이트 : 헤비암즈'),actor_pools=actor_pools)
+ if actor_pools and target_spawn:graph[8]=meta['states']['target_spawn']+1
  words[L['WORLD_FRAME_INPUT_BASE']:L['WORLD_FRAME_PAYLOAD_BASE']]=graph;words[0]=L['WORLD_OVERLAY_ABI'];words.extend(payload)
  from portable_world_overlay_specs import pack_cleanse_flags,pack_skill_mode_flags
  pack_cleanse_flags(words,case['effects'],L);pack_skill_mode_flags(words,case['effects'],L)
