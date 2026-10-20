@@ -2,7 +2,7 @@
 
 ## 現在の状態
 
-共有スタック/免疫/解除は別途検証済みですが、`target_hit_counter` と完了通知をprivate literal入力から共通Slangへ接続し、Metal622で検証しました。実着弾bridge・型付き対象条件を持つ子は未接続です。通常画面CPU、world公開無効、全変種認証0/203を維持します。この文書には契約と段階別の検証を記録します。literal resource/eventの成功は、実着弾bridgeや全キャラの認証を意味しません。
+共通Slangのtarget_hit_counter resource/eventに加え、実武器・散弾・武器変更・body/part/addの物理receiptをprivate ABI7Fへ接続し、Metal663で実証しました。CPU369、旧8entry生成厳密一致、旧622全出力保持も成功しています。Windows v90は新規41入力のみ依頼済みで結果待ちです。型付き対象条件を持つ子・damage子とskill/pending/DoTは未接続です。通常画面CPU、world公開無効、全変種認証0/203を維持します。以下の段階別記録では、最新の実証範囲と過去の未実装状態を区別してください。
 
 ## 参照する定義と実装
 
@@ -94,3 +94,13 @@ Windows v89は固定61c7a884の共通short driverで新規32入力（native10/ra
 型付き子context、damage子、skill/pending/DoT、source攻撃、操作/復活、容量/長時間と全203変種認証は未完了で、public world false・通常CPU・全変種0/203を維持します。
 
 観測器ON/OFFでも23ケース全ての戦闘出力（追加したcounter観測欄以外）が完全一致しました。致死receiptではActor poolのaliveが既にfalseでも着弾creditを配る必要があります。counterのdead Actor集合への登録はImpactと同期完了子の後です。
+
+## 2026-10-21 実武器・部位・召喚のcounterをMetal663で実証
+
+計算source e758630、private ABI7Fの共通Slangで、実際のActor着弾receiptから既存counter collect/latch/frame26/event58へ接続しました。body/partは元damage、addはclipped took、致死着弾も捕捉したkind/ID/generationを保持し、credit→同期完了子→死亡登録→lifestealの順で動きます。武器変更のskill式もcredit familyはWEAPONです。part damage/reachを射撃callback前に捕捉し、body回復後に全partのHP/死亡を更新してから個別callbackを回します。
+
+Metal663入力＝完全native26実戦＋不正15＋旧622全524288word保持が成功しました。散弾・武器変更・召喚・部位・致死・世代・expiry・遮断、body+127partsを含みます。partのdirect hits/landedとextra hits/dealtを分け、unbreakable partのHP damage0とextra damage968、再出現gen3のextraリセットも一致しました。CPU369検査、旧8entryのCUDA/MSL生成物厳密一致、保存raw/Git source/全nativeのGPU禁止監査も成功しました。
+
+初回0ae8c2dはcurrent_hp_reduceのkind8受付漏れで23実戦を拒否、次の1f07dbdは21/23一致でpartのdirect/extra会計だけ差がありました。各失敗rawを保持し、CPUで根因確認後に別ソースへ修正しています。異なるソースのMetal実行3回、同一ソース/入力retry0です。証拠はportable-world-counter-landing-validation.json、監査器seal-world-counter-landing-metal.py。新規41入力だけのMetal fingerprintとCPU26実戦照合を固定し、Windows v90を03383d90d5eda28c4eb8c15529365b33add0190e（21ファイル310092bytes）で依頼済みです。CPU18検査後、BelowNormal/JobObject/start gate/180秒/cleanup5秒で1回、通常4682と旧622の再実行0を指定しました。結果はまだ未照合です。
+
+型付きtarget/Impact子context・runtime条件・damage子、skill/pending/DoT/source攻撃/interrupt、動的操作/復活、容量/長時間/全203変種認証は未完了です。未接続のcounter子はprivate受付でも拒否します。通常画面CPU・public world false・全変種認証0/203・legacy unexplained Metal14c8e2e OPEN、効率化は必要検証後です。GitHub共有は利用者がゴール達成まで許可しています。

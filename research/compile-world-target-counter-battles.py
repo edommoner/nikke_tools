@@ -1,4 +1,4 @@
-"""Literal definitions/metadata for the pending physical counter entry; GPU0."""
+"""Literal definitions/metadata for the private physical counter entry; GPU0."""
 import copy,importlib.util,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','scripts','research')]
@@ -9,7 +9,7 @@ from portable_world_schedule_specs import compile_schedule
 from world_frame_native import authored_metadata,roster_names
 s=importlib.util.spec_from_file_location('counter_battle_stack','research/verify-world-actor-stacks.py');stack=importlib.util.module_from_spec(s);s.loader.exec_module(stack)
 import world_target_counter_battle_cases as cases
-PENDING_ABI=ABI+12
+PHYSICAL_ABI=L['COUNTER_LANDING_ABI'];PENDING_ABI=PHYSICAL_ABI
 def fixtures():return cases.fixtures(stack)
 def compile_case(case):
  c=copy.deepcopy(case);c['effects']=compiler_effects(case['effects']);words,meta,bindings=stack.compile_case(c)
@@ -20,4 +20,4 @@ def compile_case(case):
  assert len(words)==97464;return words,meta,bindings
 if __name__=='__main__':
  for c in fixtures():compile_case(c)
- print('Physical counter definitions/part reach packed',len(fixtures()),'private entry pending;GPU0')
+ print('Physical counter definitions/part reach packed',len(fixtures()),'private entry input;GPU0')

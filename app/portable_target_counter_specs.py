@@ -127,7 +127,7 @@ def pack(effects, actions, names, state_names):
 
 
 def pack_battle(effects, command_count, names, state_names, bindings, patterns):
-    """Pending physical-world sidecar: authored policies and static part reach.
+    """Physical-world sidecar: authored policies and static part reach.
 
     Mode1 is rejected by the existing literal-only GPU entry. This encoder
     cannot enable that entry or the public application adapter.

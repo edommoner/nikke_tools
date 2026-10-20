@@ -1,0 +1,121 @@
+{
+  "source_commit": "03383d90d5eda28c4eb8c15529365b33add0190e",
+  "branch": "codex/cuda-world-v90-source",
+  "base": "61c7a884c3d687c486017d71e84e560d6b0a46e9",
+  "file_count": 21,
+  "files": [
+    {
+      "path": "app/portable_specs.py",
+      "bytes": 16985,
+      "sha256": "4d84586f018d38f9340b2392b63d99549c6b35b22a187573f0af79cefebb0698"
+    },
+    {
+      "path": "app/portable_target_counter_program.py",
+      "bytes": 2404,
+      "sha256": "e4e16b9a5bdf01f3e2bfb64ae2777fc70ca36760993c66db6f1f491f5c298083"
+    },
+    {
+      "path": "app/portable_target_counter_specs.py",
+      "bytes": 7297,
+      "sha256": "0da1560fdf52e456716623bde990015cd21621e83e16b8c279777226e5f2a0fa"
+    },
+    {
+      "path": "gpu/combat_runtime.slang",
+      "bytes": 25340,
+      "sha256": "3e6f0cfbf7be5545441ab6fa6a32256cd8a7c95fd552511209867d62341d9d32"
+    },
+    {
+      "path": "gpu/counter_landing_entry.slang",
+      "bytes": 72,
+      "sha256": "695560a33534df60e9f31359622f6a197d14d2eb4b072371520955c9eacde7bf"
+    },
+    {
+      "path": "gpu/counter_landing_runtime.slang",
+      "bytes": 6563,
+      "sha256": "b9654360eeff25e6fb22623821a604178608bbb87613056f0a14591ef26ef053"
+    },
+    {
+      "path": "gpu/damage_runtime.slang",
+      "bytes": 5640,
+      "sha256": "4eddaa1ce1041839a8d54fc89375a386562c3ac3065daa72aa3035b81899adc5"
+    },
+    {
+      "path": "gpu/event_runtime.slang",
+      "bytes": 120250,
+      "sha256": "0a5e607c394ec30ea8405ae7f2602ca6159c3a77c39665cfaf9d5710a1a715cf"
+    },
+    {
+      "path": "gpu/portable_schema.slang",
+      "bytes": 19769,
+      "sha256": "276d05235e2ef730c9e69fcfec20fd78a760a6f0d647d559b1a0a2f6229aebef"
+    },
+    {
+      "path": "gpu/target_counter_runtime.slang",
+      "bytes": 12785,
+      "sha256": "2dd4c576a2dc32de2fa799e73a6d64fed323a09cbf098e745f54eb0f82e5f47a"
+    },
+    {
+      "path": "gpu/world_actor_fields.slang",
+      "bytes": 9169,
+      "sha256": "5189a3391f75c192689fd7def6759084b390c9805cc8b117cbbccf8e5157b992"
+    },
+    {
+      "path": "gpu/world_actor_pools.slang",
+      "bytes": 17424,
+      "sha256": "854ac5e7485113d385f9fc086449f74f4a6228c63426fe12c4bda43c8d6a98f0"
+    },
+    {
+      "path": "tests/test_portable_counter_landings.py",
+      "bytes": 3550,
+      "sha256": "e9fadf89a8d1f724663c49757fa58c27ccdea457456b9a1427c121cfe6bf362e"
+    },
+    {
+      "path": "research/world_frame_native.py",
+      "bytes": 8719,
+      "sha256": "2538893ac7b98a6ff60accb19ea9f6a17c996bb4677219ff7c3ba012b12676e1"
+    },
+    {
+      "path": "research/world_target_counter_battle_native.py",
+      "bytes": 3355,
+      "sha256": "1561e462c8ef21e38647ab3bf5677c27fb4d5ef4a7b172aaaa083f999643a2fd"
+    },
+    {
+      "path": "research/world_target_counter_battle_cases.py",
+      "bytes": 5149,
+      "sha256": "9e58996abedef7748f9e08698bc000608cb5fead15968a72bf6660d7e0db74b7"
+    },
+    {
+      "path": "research/compile-world-target-counter-battles.py",
+      "bytes": 1744,
+      "sha256": "ce2a66ca9c9664bc2d5e7c41ee952ddb2d6c6014e9232bdd2c8f184b46ecc2d2"
+    },
+    {
+      "path": "research/verify-world-target-counters.py",
+      "bytes": 8643,
+      "sha256": "084dfe00a8bd6e9f324b5bb90615d6977e39d7890ae223099fd006a77b472081"
+    },
+    {
+      "path": "research/verify-world-counter-landings.py",
+      "bytes": 8207,
+      "sha256": "b1c18b216bda04c131b0235a69c452e09cade81d5711f6498fb6aa5e39531fff"
+    },
+    {
+      "path": "research/verify-world-counter-landing-short.py",
+      "bytes": 5460,
+      "sha256": "9e2466707298d9b81ce2bf71815d21a0d58eb568a3cc26d17a5979d8d127f369"
+    },
+    {
+      "path": "research/portable-world-counter-landing-short-expected.json",
+      "bytes": 21567,
+      "sha256": "6fe36e0ce4d63588b25fc6b384ca9cd297d861e2aa71e7b532b725934b7647ef"
+    }
+  ],
+  "bytes": 310092,
+  "private_settings": false,
+  "raw": false,
+  "large_reports": false,
+  "authorization": "User permits GitHub sharing until current goal achieved",
+  "windows_input_count": 41,
+  "windows_native_oracles": 26,
+  "old622_reexecutions": 0
+}
