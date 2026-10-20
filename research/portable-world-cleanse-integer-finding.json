@@ -1,0 +1,96 @@
+{
+  "source_commit": "3247e7111212cc43c5b299887ee6b663f22c9269",
+  "captured": "/Users/edo/.codex/worktrees/world-overlays/nikke_tools/research/portable-build/world-overlay-body-20261020T182647090731Z",
+  "passed": false,
+  "failed": [
+    {
+      "name": "cleanse-count-0.9999999999999999",
+      "changed": [
+        "damage",
+        "boss_log",
+        "world_nodes"
+      ],
+      "native_dispels": [],
+      "actual_dispels": [
+        "a"
+      ]
+    },
+    {
+      "name": "cleanse32-nodes-31.999999999999996",
+      "changed": [
+        "damage",
+        "boss_log",
+        "world_nodes"
+      ],
+      "native_dispels": [
+        "node31",
+        "node30",
+        "node29",
+        "node28",
+        "node27",
+        "node26",
+        "node25",
+        "node24",
+        "node23",
+        "node22",
+        "node21",
+        "node20",
+        "node19",
+        "node18",
+        "node17",
+        "node16",
+        "node15",
+        "node14",
+        "node13",
+        "node12",
+        "node11",
+        "node10",
+        "node9",
+        "node8",
+        "node7",
+        "node6",
+        "node5",
+        "node4",
+        "node3",
+        "node2",
+        "node1"
+      ],
+      "actual_dispels": [
+        "node31",
+        "node30",
+        "node29",
+        "node28",
+        "node27",
+        "node26",
+        "node25",
+        "node24",
+        "node23",
+        "node22",
+        "node21",
+        "node20",
+        "node19",
+        "node18",
+        "node17",
+        "node16",
+        "node15",
+        "node14",
+        "node13",
+        "node12",
+        "node11",
+        "node10",
+        "node9",
+        "node8",
+        "node7",
+        "node6",
+        "node5",
+        "node4",
+        "node3",
+        "node2",
+        "node1",
+        "node0"
+      ]
+    }
+  ],
+  "cause": "worldDispel used f64ToI64 mode0 nearest/even instead of mode1 toward zero required by native int(value or 1). Shared binary64 conversion was correct; caller mode was wrong.",
+  "unchanged_gpu_retry": false
+}

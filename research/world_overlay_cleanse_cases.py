@@ -23,7 +23,7 @@ def fixtures():
  for target in ('self','all_allies',['self']*21):add('cleanse-ally-target-no-body-'+str(target),[effect(2,target=target)])
  for target in ('boss','enemy','target','enemies_top_atk:1'):add('cleanse-enemy-selector-'+target,[effect(2,target=target)])
  e=effect(32);e['stat']='debuff_cleanse';add('ordinary-enemy-debuff-cleanse-does-not-dispel-world-buffs',[e])
- for value in (31.999999999999996,32):
+ for value in (1.5,2.5,31.999999999999996,32):
   c=add('cleanse32-nodes-'+repr(value),[effect(value)]);c['duration']=.2;c['patterns']=[dict(id='node'+str(i),kind='buff',enemy=dict(def_add=1)) for i in range(32)]
  c=add('cleanse-all-irremovable-no-change',[effect(1e308)])
  for p in c['patterns']:p['irremovable']=True

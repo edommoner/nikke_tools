@@ -181,7 +181,7 @@ void worldDispel(inout Runtime s,uint row,uint scope,uint64_t when)
     else if(f64Less(0,value))
     {
         if(!f64Less(value,f64FromI64(32))) limit=32;
-        else { uint status;limit=uint(f64ToI64(value,0,status));if(status!=0) { s.error=16;return; } }
+        else { uint status;limit=uint(f64ToI64(value,1,status));if(status!=0) { s.error=16;return; } }
     }
     uint count=commands[s.inputBase+P_WORLD_FRAME_INPUT_BASE+1];
     for(uint pass=0;pass<limit && s.error==0;pass++)
