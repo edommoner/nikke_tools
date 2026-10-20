@@ -1,12 +1,12 @@
-## 2026-10-21 対象別counterの共通resource/event:Metal622成功、CUDA32依頼中
+## 2026-10-21 対象別counterの共通resource/event:Metal622／CUDA32一致
 
 計算source98427c0・private ABI7Eで、credit/UID/refresh epoch/expiry/dead Actor、immutable ready queue、全siblings先行latch、共通event58の同期子と同epochだけの終了処理を接続しました。正常10ケース・48段階のUID/epoch/credit/完了snapshot、不正22、旧590全524288word保持に成功し、保存rawのCPU再監査も成功しました。通常＋6旧private entryのCUDA/MSL生成物は厳密一致、portable CPU364（unit revision a27f308）も成功しています。
 
 初回a27f308の10正常入力は自律worldのop24完了条件で全受付拒否でした（raw22拒否/旧590保持は成功）。失敗rawを保持し、CPUで根因を確認後、sidecarあり・全op43・範囲内時刻のliteral rootをprivate providerで区別しました。別ソース98427c0で成功し、物理GPU実行は異なるソースで各1回、同一ソース/入力の再試行0です。Macは現在GPU job0です。
 
-source packet61c7a884c3d687c486017d71e84e560d6b0a46e9、codex/cuda-world-v89-source（13ファイル233071bytes）を共有し、既存Windowsチャットへ新32入力だけを依頼しました。2026-10-21の観測cursor123、turn01a15b67-4fba-7982-b0ad-033e5cf20c5aはinProgressでCPU事前段階です。CPU phase5＋target_counter8、GPU禁止の32入力/native10照合の後だけBelowNormal/JobObject/start gate/独立180秒/cleanup5秒でCUDA1回です。旧590/通常4682を再実行しません。返却はv89の3JSON gzip-base64 capsuleのみ、再実行/結果push不要です。結果未取得なら同じturnをwait/readし、再依頼しないでください。GitHub共有はゴール達成まで許可済みです。
+source packet61c7a884c3d687c486017d71e84e560d6b0a46e9、codex/cuda-world-v89-source（13ファイル233071bytes）でWindows新32入力だけを検証し、Mac監査まで成功しました。CPU phase5＋target_counter8、GPU禁止の32入力/native10照合後、BelowNormal/JobObject/start gate/独立180秒/cleanup5秒でCUDA1回・92.3588146秒・exit0。3JSON計50092bytesのsource/name/bytes/SHA、全input/output/native/generated fingerprint、50 phase、元checkout/service保持・残存0を確認しました。旧590/通常4682/旧各suite再実行0、GPU retry0です。Windows turn01a15b67-4fba-7982-b0ad-033e5cf20c5aはcompleted、cursor130、idle。再実行依頼は不要です。GitHub共有はゴール達成まで許可済みです。
 
-Mac証拠:portable-world-target-counter-validation.json、portable-world-target-counter-metal.json、初回失敗/root-finding、監査器seal-world-target-counter-metal.py。次は実武器/散弾/部位/召喚のImpact bridge（lifesteal後、致死credit先行）、型付き対象条件/子context、skill/pending/DoTへ接続します。このphaseはliteral resource/eventのみで、未接続のdamage子/runtime条件/通常enemy field子をcounter有効時に拒否します。通常画面CPU・world公開無効・全変種認証0/203、効率化は必要検証後です。
+Mac証拠:portable-world-target-counter-validation.json、portable-world-target-counter-metal.json、初回失敗/root-finding、監査器seal-world-target-counter-metal.py。次は実武器/散弾/部位/召喚のImpact bridge（body/partはlifesteal後、addはlifesteal前のreceipt callback、致死credit先行）、型付き対象条件/子context、skill/pending/DoTへ接続します。このphaseはliteral resource/eventのみで、未接続のdamage子/runtime条件/通常enemy field子をcounter有効時に拒否します。通常画面CPU・world公開無効・全変種認証0/203、効率化は必要検証後です。
 
 ## 2026-10-21 対象別カウンター：入力とnative基準を固定（GPU未接続）
 
@@ -705,3 +705,9 @@ v81の時計の索引拡張案は、状態領域を1,016バイト減らしまし
 
 Windows PCは他作業に影響が出ているため、常時のCUDAテストや自動フルビルドは設定せず、必要な短い検証を明示的に実行してください。Metal実証の成功だけを、本体移植や全キャラ対応の完了として扱わないでください。
 ```
+
+## 2026-10-21 v89完了追記
+
+上記v89依頼は完了・Mac監査成功です。固定61c7a884のCUDA32はCPU13＋GPU禁止のnative10/48段階照合後、独立180秒/BelowNormalの1回で92.3588146秒、exit0。3JSON計50092bytesを取得し、source/name/bytes/SHAと共通監査器の全fingerprint・50 phase・元環境保持・残存0を確認しました。旧590/通常4682再実行0、GPU retry0です。Windows turn01a15b67-4fba-7982-b0ad-033e5cf20c5aはcompleted、cursor130、idle。再実行依頼は不要です。
+
+現在の10ケースはbody0/gen1にcounterをbindするliteral resource/event検証です。他Actorへのbind、実着弾、target条件/child contextは次の段階で実証します。addはnative Boss.hit_add内のreceiptでcounter→death通知、その後にlifestealが動き、body/partのlifesteal後と順序が異なります。次の実戦witnessではこの違いとclipped damageを検証してください。全変種0/203・通常CPU/public false・legacy unexplained Metal14c8e2e finding OPENを維持します。

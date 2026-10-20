@@ -2,7 +2,7 @@
 
 ## 現在の状態
 
-共有スタック/免疫/解除は別途検証済みですが、`target_hit_counter` と完了通知をprivate literal入力から共通Slangへ接続し、Metal622で検証しました。実着弾bridge・型付き対象条件を持つ子は未接続です。通常画面CPU、world公開無効、全変種認証0/203を維持します。この文書は移植前に実装上の契約を固定するもので、GPU対応の証拠ではありません。
+共有スタック/免疫/解除は別途検証済みですが、`target_hit_counter` と完了通知をprivate literal入力から共通Slangへ接続し、Metal622で検証しました。実着弾bridge・型付き対象条件を持つ子は未接続です。通常画面CPU、world公開無効、全変種認証0/203を維持します。この文書には契約と段階別の検証を記録します。literal resource/eventの成功は、実着弾bridgeや全キャラの認証を意味しません。
 
 ## 参照する定義と実装
 
@@ -63,6 +63,12 @@ Metal622は正常10ケース・48段階のlive数/credit/epoch/UID同一性と�
 
 初回a27f308は旧590保持とraw22拒否に成功し、新10入力は自律world rootのop24完了条件で全て受付拒否でした。失敗raw/reportを保存し、CPUで原因を確認後、counter sidecar付き・全op43・時刻範囲内のliteral rootを明示するprivate providerを追加しました。修正版で検証し、物理実行は別ソースで各1回、同一ソース/入力の再試行0です。7つの旧entryのCUDA/MSL生成物が厳密一致し、共通portable CPU364件が成功しています。CPU単体revisionはa27f308、root修正後の生成物比較と実Metal検証が最終ソースに対応します。
 
-`research/seal-world-target-counter-metal.py` が保存入力/出力、Git source blob、全48段階、ready snapshot、旧590の全wordをGPUなしで再監査します。証拠はportable-world-target-counter-validation.json、初回失敗はportable-world-target-counter-initial-metal.json、根因はportable-world-target-counter-root-finding.jsonです。Windowsは保存Metalの先頭32入力だけを共通short driverで検証する準備中で、旧590/通常4682は再実行しません。
+`research/seal-world-target-counter-metal.py` が保存入力/出力、Git source blob、全48段階、ready snapshot、旧590の全wordをGPUなしで再監査します。証拠はportable-world-target-counter-validation.json、初回失敗はportable-world-target-counter-initial-metal.json、根因はportable-world-target-counter-root-finding.jsonです。Windowsは保存Metalの先頭32入力だけを共通short driverで検証し、下記v89で成功しました。旧590/通常4682の再実行は0です。
 
 実物理着弾、lifesteal前後/致死着弾、通常武器/散弾/部位/召喚、skill/pending/DoT、型付きtarget条件とdamage子のcontextはまだ未接続です。counter有効入力では、この段階で未接続のdamage子、runtime条件、通常enemy field子をGPU側で拒否します。通常画面CPU・world公開無効・全変種認証0/203を維持し、効率化は必要検証後です。
+
+Windows v89は固定61c7a884の共通short driverで新規32入力（native10/raw22）に成功しました。CPU13検査とGPU禁止の入力/native照合後、BelowNormal・JobObject/start gate・独立180秒・cleanup5秒のCUDA1回で92.359秒、exit0。input/output/native/generated fingerprintと50 API phaseがMetal基準に一致し、元checkout/service保持、GPU retry0、残存0、旧590/通常4682/旧各suite再実行0を確認しました。保存3JSON計50,092bytesをカプセルで取得し、bytes/SHA・固定Git source・CPU事前結果・全fingerprint・phaseを共通監査器で検査しました。証拠はportable-world-v89-cuda-validation.json、監査器seal-world-v89-cuda.pyです。
+
+この10ケースのcounter bindingは固定body0/gen1です。不一致Actor/family/outcome/genの無視、明示blocked credit、death登録は検証しましたが、他Actorにbindしたcounterと実Actor poolによる着弾/死亡は今後の検証です。入力encoderの最大ID/世代テストを、全ActorのGPU動作証明には読み替えません。
+
+次の着弾bridgeでは順序を分ける必要があります。実CPUソースの_land_boss/_land_targetはlifesteal直後にpublish_landingを挿入します。一方、addはBossScript.hit_add内のreceipt callbackでpublish_impact/deathを通知し、その呼出しが返った後に_landがlifestealします。addのcounter完了子は同じ着弾のlifestealより先に動きます。body/partは元event.damage、addはreceiptのclipped tookをImpactに持つため、共通landの一律な後処理へ接続するだけでは一致しません。次のCPU実戦witnessとGPU fixtureでこの差を固定してください。

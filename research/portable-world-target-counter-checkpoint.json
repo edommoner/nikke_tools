@@ -1,5 +1,5 @@
 {
-  "stage": "Private target-counter resource/event Metal622 sealed; CUDA32 CPU preflight active",
+  "stage": "Private target-counter resource/event Metal622 and CUDA32 sealed",
   "calculation_source": "98427c056db45a53ccbc23c8186ed12ee92eb768",
   "metal_inputs": 622,
   "native_literal_cases": 10,
@@ -16,11 +16,11 @@
   "typed_target_child_conditions": false,
   "cuda_source": "61c7a884c3d687c486017d71e84e560d6b0a46e9",
   "cuda_inputs": 32,
-  "windows_status": "inProgress;CPU preflight stage observed",
+  "windows_status": "completed/audited;idle",
   "windows_thread": "01a140bc-5f3b-7661-b720-50c945596eaa",
   "windows_host": "remote-control:env_e_6ac12920046c8331afb50b0234aeba48",
   "windows_turn": "01a15b67-4fba-7982-b0ad-033e5cf20c5a",
-  "windows_cursor": "09b5d983-892a-4318-b2cf-37e3aa661d1e:123",
+  "windows_cursor": "09b5d983-892a-4318-b2cf-37e3aa661d1e:130",
   "normal_ui": "CPU",
   "canonical_world_admission": false,
   "full_character_verified": 0,
@@ -36,5 +36,12 @@
     "Hit-only max-HP rank native TypeError",
     "Capacity/long simulations/full203 certification",
     "Efficiency after required validation"
-  ]
+  ],
+  "windows_counters_verified": true,
+  "windows_cpu_tests": 13,
+  "windows_cuda_elapsed_seconds": 92.35881459992379,
+  "windows_gpu_executions": 1,
+  "windows_imported_json_bytes": 50092,
+  "gpu_jobs_active": 0,
+  "counter_binding_scope": "Literal body0/gen1;other bound Actors and real landing bridge pending"
 }

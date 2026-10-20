@@ -1,0 +1,726 @@
+{
+  "source_commit": "61c7a884c3d687c486017d71e84e560d6b0a46e9",
+  "passed": true,
+  "cpu_preflight": {
+    "source_commit": "61c7a884c3d687c486017d71e84e560d6b0a46e9",
+    "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
+    "original_status_before": [],
+    "existing_gpu_service_preserved": true,
+    "environment": {
+      "PYTHONPATH": "C:/Users/owner/Documents/Codex/nikke-cuda-world-61c7a88/app;C:/Users/owner/Documents/Codex/nikke-cuda-world-61c7a88/scripts;C:/Users/owner/Documents/Codex/nikke-cuda-world-61c7a88/research;C:/Users/owner/Documents/Codex/nikke-cuda-world-61c7a88/research/upstream/nikke-calc-master",
+      "TEMP": "C:/Users/owner/Documents/Codex/nikke-cuda-world-61c7a88/research/portable-build/v89-cpu-temp",
+      "TMP": "C:/Users/owner/Documents/Codex/nikke-cuda-world-61c7a88/research/portable-build/v89-cpu-temp",
+      "PYTHONUTF8": "1",
+      "PYTHONIOENCODING": "utf-8",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "cpu_tests": [
+      {
+        "pattern": "test_portable_phase_audit.py",
+        "expected_count": 5,
+        "exit_code": 0,
+        "elapsed_seconds": 1.5810814001597464,
+        "stdout": "",
+        "stderr": "test_containment_failure_never_releases_gpu_gate (test_portable_phase_audit.AuditTests.test_containment_failure_never_releases_gpu_gate) ... ok\ntest_exception_keeps_last_actual_stage_and_observer_restores_backend (test_portable_phase_audit.AuditTests.test_exception_keeps_last_actual_stage_and_observer_restores_backend) ... ok\ntest_native_proxy_preserves_signature_arguments_result_and_failed_launch (test_portable_phase_audit.AuditTests.test_native_proxy_preserves_signature_arguments_result_and_failed_launch) ... ok\ntest_successful_launch_alone_does_not_prove_sync_or_readback (test_portable_phase_audit.AuditTests.test_successful_launch_alone_does_not_prove_sync_or_readback) ... ok\ntest_timeout_preserves_phase_and_elapsed_and_terminates_descendants (test_portable_phase_audit.AuditTests.test_timeout_preserves_phase_and_elapsed_and_terminates_descendants) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 1.086s\n\nOK\n",
+        "log_sha256": "ec0de0ec4ada46fae1093fb4d3deca299c1b9d4daf665a8a0ec85d0666dade2d"
+      },
+      {
+        "pattern": "test_portable_target_counters.py",
+        "expected_count": 8,
+        "exit_code": 0,
+        "elapsed_seconds": 4.666148299816996,
+        "stdout": "",
+        "stderr": "test_all_shared_stimuli_have_lossless_canonical_impact_encoding (test_portable_target_counters.CounterInputContracts.test_all_shared_stimuli_have_lossless_canonical_impact_encoding) ... ok\ntest_exact_unknown_actor_and_fractional_credit_are_not_body_or_damage (test_portable_target_counters.CounterInputContracts.test_exact_unknown_actor_and_fractional_credit_are_not_body_or_damage) ... ok\ntest_invalid_literal_time_quantity_enum_and_capacity_rejected_before_gpu (test_portable_target_counters.CounterInputContracts.test_invalid_literal_time_quantity_enum_and_capacity_rejected_before_gpu) ... ok\ntest_named_policy_conflicts_and_all_stack_operations_fail_closed (test_portable_target_counters.CounterInputContracts.test_named_policy_conflicts_and_all_stack_operations_fail_closed) ... ok\ntest_private_compiler_uses_literal_table_and_separate_nonnumeric_carriers (test_portable_target_counters.CounterInputContracts.test_private_compiler_uses_literal_table_and_separate_nonnumeric_carriers) ... ok\ntest_public_gpu_admission_remains_closed (test_portable_target_counters.CounterInputContracts.test_public_gpu_admission_remains_closed) ... ok\ntest_resource_is_ready_before_named_activation_children (test_portable_target_counters.CounterInputContracts.test_resource_is_ready_before_named_activation_children) ... ok\ntest_symbol_aliases_and_wrong_carrier_scope_cannot_merge_progress (test_portable_target_counters.CounterInputContracts.test_symbol_aliases_and_wrong_carrier_scope_cannot_merge_progress) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 2.333s\n\nOK\n",
+        "log_sha256": "5e7f40f66c55c4aaebbb2df6f69b2c9a2e3cf24be5e5a2345b8a9e43e393d921"
+      }
+    ],
+    "cpu_short": {
+      "exit_code": 0,
+      "elapsed_seconds": 4.77884369995445,
+      "stdout": "CPU32 inputs/native10/48 steps exact;GPU build/execute0\n",
+      "stderr": ""
+    },
+    "passed": true,
+    "existing_processes_before": [
+      {
+        "ProcessId": 50280,
+        "ParentProcessId": 37152,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Program Files\\Adobe\\Adobe Creative Cloud Experience\\libs\\node.exe"
+      },
+      {
+        "ProcessId": 22352,
+        "ParentProcessId": 49432,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 52368,
+        "ParentProcessId": 38128,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 48552,
+        "ParentProcessId": 38128,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 88460,
+        "ParentProcessId": 52368,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "ProcessId": 78480,
+        "ParentProcessId": 21248,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 82656,
+        "ParentProcessId": 16548,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 79388,
+        "ParentProcessId": 43740,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 30948,
+        "ParentProcessId": 79388,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe"
+      },
+      {
+        "ProcessId": 85912,
+        "ParentProcessId": 38128,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 41916,
+        "ParentProcessId": 38128,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 81864,
+        "ParentProcessId": 85912,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "ProcessId": 49332,
+        "ParentProcessId": 89372,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 52272,
+        "ParentProcessId": 82076,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 34260,
+        "ParentProcessId": 38076,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 65636,
+        "ParentProcessId": 34260,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe"
+      }
+    ],
+    "cpu_short_report": {
+      "passed": true,
+      "input_count": 32,
+      "native_oracles": 10,
+      "input_sha256": "4b633b9c9b94d8b5a604ff375f9d17ee6812a59e5cdb612f23763c087e2e3ac2",
+      "source_sha256": {
+        "gpu/target_counter_entry.slang": "af78f0f0cc55734578c0a86f48d5cd36750dd3ae4589be405d81d962293a4666",
+        "gpu/event_runtime.slang": "265b76ff47fa3c86c649e3d470f99e4872029dce3dc8d34dd6f3d2bf5e7e246e",
+        "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+        "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+        "gpu/portable_schema.slang": "05d9911d76b1a854a8a88f3f1cc7c36832cc48c51deee09b12fc51c61aee8121",
+        "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
+        "gpu/runtime_init.slang": "54ad60a47e8c25a48c9e3640d7610e34d5dc968b2136a4944a753d676423a123",
+        "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
+        "gpu/world_overlay_runtime.slang": "c212ded55ab5047ffbb7c30b2e6195c467482eb82109b37373b7f483a3fcac6b",
+        "gpu/geometry_runtime.slang": "8e8018af3959fde2f794c147aff2387464d4f486be17088cf260da41d48f8ef5",
+        "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+        "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+        "gpu/reference_runtime.slang": "3ea6e2b3d617728568a4455097ae2f139466127729026b3011dbb3d930b72a05",
+        "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+        "gpu/bullet_runtime.slang": "2cda4cfed0e7ffd31076ea48050b7be71cd8312779483b13d7c150c4ccd5d23a",
+        "gpu/rank_runtime.slang": "6862c849997a111e228286b553b9043a6035fbf150b9c831130da6171d271526",
+        "gpu/lazy_runtime.slang": "b85b0adbd024b0284e9d87528e353456cb02edcc92ee2b39fb0f50193bd21310",
+        "gpu/enemy_buff_runtime.slang": "2792634ce3d474f994842c0b9307270fad52bfb2f3b1c1ada7a30649c383bc9c",
+        "gpu/carrier_runtime.slang": "d9c747c32c02bc1cd4acce3a1fdc648dc1060f9edc16607146e06ae7b279da09",
+        "gpu/quantity_runtime.slang": "273b41c41a1ba5600f2bbe996e620089354d12fd861a6e0df15a57cd8788549e",
+        "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
+        "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
+        "gpu/cover_runtime.slang": "eb1b4a4e7c9683b615a160f3010e0e50a5da9d9a7f0425b471c83b1d625dffe6",
+        "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+        "gpu/hp_attack_runtime.slang": "2bb2bdcca7a86353ad8cff2de5908037fd344e4091e07eb92abcaac9093e1a21",
+        "gpu/recipient_runtime.slang": "c9a5acde13e4a7f43dcb3b5ebebdafdce5c6b730e848eeb49e26e35d1cb051bf",
+        "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+        "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+        "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
+        "gpu/damage_runtime.slang": "732187295c6d98090c213dae755442a598b8a16d817272ce371817da8fdac7e7",
+        "gpu/incoming_runtime.slang": "3d32bee084317b63a3c00e8b94a9397196f4a8a39efc6a78a8efd74d90f1985c",
+        "gpu/burst_runtime.slang": "0f924f0b48008d41979119ae61e5a3cb9432f8e862ff84532990d6b86d5301f4",
+        "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+        "gpu/enemy_damage_runtime.slang": "94110711ef4f94cf0590b3ac097daaa6f3a8cc5a16ddfc92607a37234b95f82d",
+        "gpu/landing_runtime.slang": "dcb05d654e47a38980a2d72b9ae056d7d3ec84484fd0cfb72778f205a2cccad6",
+        "gpu/periodic_runtime.slang": "574670587e48ff1bfc0498e2ba7b71a86c1285b2281649e46bd9e5ef877f21b9",
+        "gpu/removal_runtime.slang": "3ceef53de6428a10ac764a5d65e6f3ea9f9fdee12003a0f4d7a9a4189d73381b",
+        "gpu/duration_extend_runtime.slang": "028445e661b12f54a8dc48da3b3438b0c4df7b1da833a4b63a54c84ac18a1081",
+        "gpu/stack_runtime.slang": "6fc751bf2eed141b8ef99beb1e38d923a3e2f29dd0c33320ab9857c9cdcd5fc0",
+        "gpu/status_runtime.slang": "6646639edfbfda07d2ef4d2b32183aa617d447621b1b17bf548f3e2b3233b6f7",
+        "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+        "gpu/pending_burst_runtime.slang": "1b3822579499e2641d5296764c133bbbf55df64bf7f4fa3b0b34c00e0315a484",
+        "gpu/incoming_descriptor_runtime.slang": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
+        "gpu/world_frame_addresses.slang": "d1606c64d97393118479cb0c4e75edb84d0a79c37e6f7dbbbdb80107915ec6ae",
+        "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+        "gpu/protection_runtime.slang": "768eefaec94ee16a561a471c0400506f2b9c13ac3b8756693be1bbbcafc4bdd2",
+        "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+        "gpu/world_actor_pools.slang": "cd2b1436b6a2c332e1c1f5077a5e24bc291defce8536cf4a55306b9b7a4b4861",
+        "gpu/world_actor_fields.slang": "cb13ff9f0f4c29554c70dc61552a489296dd81711b1e5fbdfbefd5cbb5faef90",
+        "gpu/world_actor_state.slang": "85306f42ff6e057e7d82c5a0fa86d1790eee547abc438567762b4c9302ecebc9",
+        "gpu/world_actor_mutation.slang": "e866d0145e275dffd0ec17577d04177471c2d360bed0d493f6c93a2d9c12151c",
+        "gpu/world_actor_recipients.slang": "f7eb33cbe737cd6e6c729f6ca8c15d015256c2844f9d9a44fd1f6c646e34cab7",
+        "gpu/world_actor_status.slang": "296fac14e47b7ee42668d3fd2d044d05bef18fe7e4c68441d0eb0333ad5eb1b8",
+        "gpu/world_actor_stacks.slang": "38864ac1f81c3f9591f8273b318e37ee31b76a5ddf2de8a2c2a711db29323e8f",
+        "gpu/target_counter_runtime.slang": "7b3e6821d104bcea88f53ccfc358c303041701c53154bd984eb23eb24d1e4c42",
+        "gpu/world_actor_registry.slang": "f803ee00db756eed3edd48586e3fcc94b4f750f0990f97c9ff8732da07f08477",
+        "gpu/world_frame_runtime.slang": "8738d3d4b1dc75ac918c608e8320ed62e5afe979bc4f152a4856d7dc1c5c496f",
+        "gpu/combat_runtime.slang": "adee81338b7816e4f4f3a1dd28755886622e56decfb884dac416c4ccf5f756ca",
+        "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+        "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
+        "gpu/world_overlay_weapon.slang": "111d2f3569a5347e8c61752591fe0e3081be5050a521e549d1956c61e0c056f7",
+        "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+        "gpu/admission_runtime.slang": "c9f16fd54e0c81b4a5de0bbe8d44bf2ef1718d7d0e4a1306d0bc6be3ed4a9b47",
+        "gpu/portable_mt19937.slang": "116f6a7ee3cf8e069db171aace0c06a1b160c3d25b0975451125929b68dd3b61",
+        "gpu/enemy_target_runtime.slang": "bb88cf05d475109cf34e6fca4099ce71096cecc8ba03c72995cce8de15a0b730"
+      },
+      "gpu_calls": {
+        "build": 0,
+        "execute": 0
+      }
+    }
+  },
+  "original_head_equal": true,
+  "original_status_equal": true,
+  "existing_gpu_service_preserved": true,
+  "residual_verification_process_count": 0,
+  "actual_gpu_execution_count": 1,
+  "normal4682_execution_count": 0,
+  "old208_execution_count": 0,
+  "old285_execution_count": 0,
+  "old357_execution_count": 0,
+  "old424_execution_count": 0,
+  "old461_execution_count": 0,
+  "old484_execution_count": 0,
+  "old529_execution_count": 0,
+  "old590_execution_count": 0,
+  "gpu_retry_count": 0,
+  "phase_rows": [
+    {
+      "monotonic_ns": 2364338968000000,
+      "pid": 32220,
+      "stage": "shared_world_target_counter_short",
+      "state": "entered",
+      "wall_time_ns": 1792534914176044100
+    },
+    {
+      "monotonic_ns": 2364341937000000,
+      "pid": 32220,
+      "stage": "slang_build",
+      "state": "entered",
+      "wall_time_ns": 1792534917139323200
+    },
+    {
+      "monotonic_ns": 2364346218000000,
+      "pid": 32220,
+      "stage": "slang_build",
+      "state": "returned",
+      "wall_time_ns": 1792534921425550200
+    },
+    {
+      "monotonic_ns": 2364346234000000,
+      "pid": 32220,
+      "stage": "nvrtcCreateProgram",
+      "state": "entered",
+      "wall_time_ns": 1792534921446287700
+    },
+    {
+      "monotonic_ns": 2364346234000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "nvrtcCreateProgram",
+      "state": "returned",
+      "wall_time_ns": 1792534921448890900
+    },
+    {
+      "monotonic_ns": 2364346250000000,
+      "pid": 32220,
+      "stage": "nvrtcCompileProgram",
+      "state": "entered",
+      "wall_time_ns": 1792534921449970100
+    },
+    {
+      "monotonic_ns": 2364362265000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "nvrtcCompileProgram",
+      "state": "returned",
+      "wall_time_ns": 1792534937472645000
+    },
+    {
+      "monotonic_ns": 2364362265000000,
+      "pid": 32220,
+      "stage": "nvrtcGetProgramLogSize",
+      "state": "entered",
+      "wall_time_ns": 1792534937473161000
+    },
+    {
+      "monotonic_ns": 2364362265000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "nvrtcGetProgramLogSize",
+      "state": "returned",
+      "wall_time_ns": 1792534937474684100
+    },
+    {
+      "monotonic_ns": 2364362265000000,
+      "pid": 32220,
+      "stage": "nvrtcGetProgramLog",
+      "state": "entered",
+      "wall_time_ns": 1792534937474684100
+    },
+    {
+      "monotonic_ns": 2364362265000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "nvrtcGetProgramLog",
+      "state": "returned",
+      "wall_time_ns": 1792534937476210700
+    },
+    {
+      "monotonic_ns": 2364362265000000,
+      "pid": 32220,
+      "stage": "nvrtcGetPTXSize",
+      "state": "entered",
+      "wall_time_ns": 1792534937476210700
+    },
+    {
+      "monotonic_ns": 2364362265000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "nvrtcGetPTXSize",
+      "state": "returned",
+      "wall_time_ns": 1792534937476210700
+    },
+    {
+      "monotonic_ns": 2364362265000000,
+      "pid": 32220,
+      "stage": "nvrtcGetPTX",
+      "state": "entered",
+      "wall_time_ns": 1792534937479253500
+    },
+    {
+      "monotonic_ns": 2364362281000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "nvrtcGetPTX",
+      "state": "returned",
+      "wall_time_ns": 1792534937480257400
+    },
+    {
+      "monotonic_ns": 2364362281000000,
+      "pid": 32220,
+      "stage": "nvrtcDestroyProgram",
+      "state": "entered",
+      "wall_time_ns": 1792534937480761700
+    },
+    {
+      "monotonic_ns": 2364362281000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "nvrtcDestroyProgram",
+      "state": "returned",
+      "wall_time_ns": 1792534937482271800
+    },
+    {
+      "monotonic_ns": 2364362281000000,
+      "pid": 32220,
+      "stage": "cuInit",
+      "state": "entered",
+      "wall_time_ns": 1792534937484737100
+    },
+    {
+      "monotonic_ns": 2364362296000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "cuInit",
+      "state": "returned",
+      "wall_time_ns": 1792534937509068700
+    },
+    {
+      "monotonic_ns": 2364362296000000,
+      "pid": 32220,
+      "stage": "cuDeviceGet",
+      "state": "entered",
+      "wall_time_ns": 1792534937509572300
+    },
+    {
+      "monotonic_ns": 2364362296000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "cuDeviceGet",
+      "state": "returned",
+      "wall_time_ns": 1792534937510577700
+    },
+    {
+      "monotonic_ns": 2364362296000000,
+      "pid": 32220,
+      "stage": "cuDeviceGetName",
+      "state": "entered",
+      "wall_time_ns": 1792534937511082100
+    },
+    {
+      "monotonic_ns": 2364362312000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "cuDeviceGetName",
+      "state": "returned",
+      "wall_time_ns": 1792534937512087400
+    },
+    {
+      "monotonic_ns": 2364362312000000,
+      "pid": 32220,
+      "stage": "cuCtxCreate_v2",
+      "state": "entered",
+      "wall_time_ns": 1792534937512592700
+    },
+    {
+      "monotonic_ns": 2364362375000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "cuCtxCreate_v2",
+      "state": "returned",
+      "wall_time_ns": 1792534937583517100
+    },
+    {
+      "monotonic_ns": 2364362375000000,
+      "pid": 32220,
+      "stage": "cuModuleLoadData",
+      "state": "entered",
+      "wall_time_ns": 1792534937585028800
+    },
+    {
+      "monotonic_ns": 2364422828000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "cuModuleLoadData",
+      "state": "returned",
+      "wall_time_ns": 1792534998037894700
+    },
+    {
+      "monotonic_ns": 2364422828000000,
+      "pid": 32220,
+      "stage": "cuModuleGetFunction",
+      "state": "entered",
+      "wall_time_ns": 1792534998041409500
+    },
+    {
+      "monotonic_ns": 2364422843000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "cuModuleGetFunction",
+      "state": "returned",
+      "wall_time_ns": 1792534998044160800
+    },
+    {
+      "monotonic_ns": 2364422843000000,
+      "pid": 32220,
+      "stage": "cuMemAlloc_v2",
+      "state": "entered",
+      "wall_time_ns": 1792534998044160800
+    },
+    {
+      "monotonic_ns": 2364422843000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "cuMemAlloc_v2",
+      "state": "returned",
+      "wall_time_ns": 1792534998046311400
+    },
+    {
+      "monotonic_ns": 2364422843000000,
+      "pid": 32220,
+      "stage": "cuMemAlloc_v2",
+      "state": "entered",
+      "wall_time_ns": 1792534998046819000
+    },
+    {
+      "monotonic_ns": 2364422843000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "cuMemAlloc_v2",
+      "state": "returned",
+      "wall_time_ns": 1792534998047325500
+    },
+    {
+      "monotonic_ns": 2364422843000000,
+      "pid": 32220,
+      "stage": "cuModuleGetGlobal_v2",
+      "state": "entered",
+      "wall_time_ns": 1792534998048410000
+    },
+    {
+      "monotonic_ns": 2364422843000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "cuModuleGetGlobal_v2",
+      "state": "returned",
+      "wall_time_ns": 1792534998049103100
+    },
+    {
+      "monotonic_ns": 2364422843000000,
+      "pid": 32220,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "entered",
+      "wall_time_ns": 1792534998049613500
+    },
+    {
+      "monotonic_ns": 2364422843000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "returned",
+      "wall_time_ns": 1792534998051701100
+    },
+    {
+      "monotonic_ns": 2364422859000000,
+      "pid": 32220,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "entered",
+      "wall_time_ns": 1792534998064680900
+    },
+    {
+      "monotonic_ns": 2364422859000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "returned",
+      "wall_time_ns": 1792534998070704000
+    },
+    {
+      "monotonic_ns": 2364422859000000,
+      "pid": 32220,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "entered",
+      "wall_time_ns": 1792534998071206500
+    },
+    {
+      "monotonic_ns": 2364422859000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "returned",
+      "wall_time_ns": 1792534998072209900
+    },
+    {
+      "monotonic_ns": 2364422859000000,
+      "pid": 32220,
+      "stage": "cuLaunchKernel",
+      "state": "entered",
+      "wall_time_ns": 1792534998072712800
+    },
+    {
+      "monotonic_ns": 2364422875000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "cuLaunchKernel",
+      "state": "returned",
+      "wall_time_ns": 1792534998089420200
+    },
+    {
+      "monotonic_ns": 2364422890000000,
+      "pid": 32220,
+      "stage": "cuCtxSynchronize",
+      "state": "entered",
+      "wall_time_ns": 1792534998090691900
+    },
+    {
+      "monotonic_ns": 2364429281000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "cuCtxSynchronize",
+      "state": "returned",
+      "wall_time_ns": 1792535004489165700
+    },
+    {
+      "monotonic_ns": 2364429296000000,
+      "pid": 32220,
+      "stage": "cuMemcpyDtoH_v2",
+      "state": "entered",
+      "wall_time_ns": 1792535004507493400
+    },
+    {
+      "monotonic_ns": 2364429312000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "cuMemcpyDtoH_v2",
+      "state": "returned",
+      "wall_time_ns": 1792535004513952300
+    },
+    {
+      "monotonic_ns": 2364429328000000,
+      "pid": 32220,
+      "stage": "cuCtxDestroy_v2",
+      "state": "entered",
+      "wall_time_ns": 1792535004530805100
+    },
+    {
+      "monotonic_ns": 2364430281000000,
+      "pid": 32220,
+      "return_code": 0,
+      "stage": "cuCtxDestroy_v2",
+      "state": "returned",
+      "wall_time_ns": 1792535005482178800
+    },
+    {
+      "monotonic_ns": 2364430765000000,
+      "pid": 32220,
+      "stage": "shared_world_target_counter_short",
+      "state": "returned",
+      "wall_time_ns": 1792535005978529200
+    }
+  ],
+  "stdout": "CUDA/Metal32 input/output/native10/generated exact\n",
+  "stderr": "",
+  "capture_directory": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-world-61c7a88\\research\\portable-build\\v89-cuda-once",
+  "raw_directory": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-world-61c7a88\\research\\portable-build\\world-target-counter-cuda-short",
+  "bounded_driver": {
+    "path": "C:/Users/owner/Documents/Codex/v89-bounded-local.py",
+    "sha256": "e12b6b5dddba8884d20e8073ab0de5c74d9fc246b7c36383cc60c2a49c7db59d",
+    "shared_containment": "research/run-world-bounded.py",
+    "shared_phase_audit": "research/portable_phase_audit.py",
+    "shared_gpu_command": "python research/verify-world-target-counter-short.py --backend cuda"
+  },
+  "postcheck": {
+    "residual_verification_process_count": 0,
+    "existing_gpu_service_preserved": true,
+    "original_head": "61a43e91301841c272badce519e4d8984bb5efae",
+    "original_status": [],
+    "existing_processes_missing": [],
+    "existing_processes_after": [
+      {
+        "ProcessId": 50280,
+        "ParentProcessId": 37152,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Program Files\\Adobe\\Adobe Creative Cloud Experience\\libs\\node.exe"
+      },
+      {
+        "ProcessId": 22352,
+        "ParentProcessId": 49432,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 52368,
+        "ParentProcessId": 38128,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 48552,
+        "ParentProcessId": 38128,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 88460,
+        "ParentProcessId": 52368,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "ProcessId": 78480,
+        "ParentProcessId": 21248,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 82656,
+        "ParentProcessId": 16548,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 79388,
+        "ParentProcessId": 43740,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 30948,
+        "ParentProcessId": 79388,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe"
+      },
+      {
+        "ProcessId": 85912,
+        "ParentProcessId": 38128,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 41916,
+        "ParentProcessId": 38128,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 81864,
+        "ParentProcessId": 85912,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "ProcessId": 49332,
+        "ParentProcessId": 89372,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 52272,
+        "ParentProcessId": 82076,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 34260,
+        "ParentProcessId": 38076,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 65636,
+        "ParentProcessId": 34260,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe"
+      }
+    ]
+  }
+}
