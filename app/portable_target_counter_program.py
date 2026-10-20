@@ -26,7 +26,9 @@ def patch_program(words, metadata, chars, effects):
     import detail_gpu
     from portable_specs import LIMITS as L, FIELDS as F
     from portable_trigger_specs import pack_event_candidates
-    original = detail_gpu.compile_effects(chars, effects)
+    from portable_target_state_specs import compiler_effect, allocate_names
+    original = detail_gpu.compile_effects(chars, [(compiler_effect(e), owner) for e, owner in effects])
+    allocate_names(effects, original['states'])
     if original['states'] != metadata['states']:
         raise ValueError('Private counter compiler name symbols changed')
     def identity(effect):

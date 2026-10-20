@@ -100,6 +100,29 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_COUNTER_CONTEXT
+#define COUNTER_CONTEXT_MODE(s,legacy) ((legacy)||counterContextEnabled(s))
+#define COUNTER_CONTEXT_CONDITIONS(s,row,d,legacy) ((legacy)&&!counterContextEnabled(s))
+#define COUNTER_CONTEXT_BEGIN(s) if(!beginCounterContext(s)) return;
+#define COUNTER_CONTEXT_PUSH(s,depth,mode,event) pushCounterContext(s,uint(depth),mode,event);
+#define COUNTER_CONTEXT_READY(s,depth,src) setCounterCompletionContext(s,uint(depth),src);
+#define COUNTER_CONTEXT_SAMPLE(s,depth) sampleCounterContext(s,uint(depth));
+#define COUNTER_CONTEXT_END(s) endCounterContext(s);
+#define COUNTER_CONTEXT_ADD(s,legacy) counterContextAdd(s,legacy)
+#define COUNTER_CONTEXT_TARGET(s,legacy) counterContextTarget(s,legacy)
+#define COUNTER_CONTEXT_INIT(s) if(counterContextEnabled(s)) for(uint i=0;i<1096;i++) results[counterContextHead(s)+i]=0;
+#else
+#define COUNTER_CONTEXT_MODE(s,legacy) legacy
+#define COUNTER_CONTEXT_CONDITIONS(s,row,d,legacy) legacy
+#define COUNTER_CONTEXT_BEGIN(s)
+#define COUNTER_CONTEXT_PUSH(s,depth,mode,event)
+#define COUNTER_CONTEXT_READY(s,depth,src)
+#define COUNTER_CONTEXT_SAMPLE(s,depth)
+#define COUNTER_CONTEXT_END(s)
+#define COUNTER_CONTEXT_ADD(s,legacy) legacy
+#define COUNTER_CONTEXT_TARGET(s,legacy) legacy
+#define COUNTER_CONTEXT_INIT(s)
+#endif
 #ifdef PORTABLE_COUNTER_LANDINGS
 #define COUNTER_PACKET_WORD(at,legacy) counterPacketWord(at)
 #define COUNTER_PACKET_NUMBER(at,legacy) counterPacketNumber(at)
@@ -764,7 +787,7 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
     f.mode = mode; f.event = event; f.owner = owner; f.argument = argument; f.time = when; f.value = mode == 9 ? uint(argument) : value;
     uint inherited = event < 32 ? P_TARGET_INHERIT_0 : P_TARGET_INHERIT_1;
     f.target = s.combat == 0 || mode != 0 || (event < 64 && (inherited & (1U << (event%32))) != 0) ? s.target : 0;
-    frames[depth] = f; s.maxDepth = max(s.maxDepth,uint(depth+1));
+    frames[depth] = f; COUNTER_CONTEXT_PUSH(s,depth,mode,event) s.maxDepth = max(s.maxDepth,uint(depth+1));
 }
 
 #include "element_runtime.slang"
@@ -890,7 +913,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
 {
     if (owner >= 5) { s.error = 64; return; }
     s.sourceTime=when; syncHealth(s,when);
-    WORLD_STATE_DISPATCH_BEGIN(s) uint entryTarget = s.target;
+    COUNTER_CONTEXT_BEGIN(s) WORLD_STATE_DISPATCH_BEGIN(s) uint entryTarget = s.target;
     Frame frames[32]; int depth = -1;
     if ((s.healthMask&32)!=0) pushFrame(s,frames,depth,16,0,0,0,when);
     pushFrame(s,frames,depth,mode,event,owner,argument,when);
@@ -913,7 +936,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             uint who = 0; while ((s.hpDirtyMask & (1U << who)) == 0) who++;
             s.hpDirtyMask &= ~(1U << who); syncHealthActor(s,who,frames[depth].time); continue;
         }
-        COUNTER_FRAME(s,frames,depth) WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = frames[depth]; s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; uint row = s.count, passive = 0;
+        COUNTER_FRAME(s,frames,depth) COUNTER_CONTEXT_SAMPLE(s,depth) WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = frames[depth]; s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; uint row = s.count, passive = 0;
         if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
             (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
         { depth--; continue; }
@@ -1570,7 +1593,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (d.kind == 1 && (s.healthMask&32)==0) syncHealth(s,f.time);
 #endif
     }
-    WORLD_STATE_DISPATCH_END(s) s.target = entryTarget;
+    COUNTER_CONTEXT_END(s) WORLD_STATE_DISPATCH_END(s) s.target = entryTarget;
 }
 
 void timerPass(inout Runtime s, uint64_t when, bool damagePass, uint output)
@@ -1719,6 +1742,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "target_counter_runtime.slang"
 #ifdef PORTABLE_COUNTER_LANDINGS
 #include "counter_landing_runtime.slang"
+#ifdef PORTABLE_COUNTER_CONTEXT
+#include "counter_context_runtime.slang"
+#endif
 #endif
 #endif
 #endif

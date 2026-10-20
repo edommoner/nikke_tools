@@ -18,8 +18,8 @@ void actorStateEvent(inout Runtime s,Frame frames[32],int depth,uint entryOwner,
 uint actorStateCurrentTarget(inout Runtime s)
 {
     uint head=actorFieldHead(s),scope=results[head+3];if(scope!=0) return scope-1;
-    uint target=results[head+5];if((target&ACTOR_REF)!=0) return actorFieldLogicalSlot(s,target);
-    return actorPhysicalTarget(s,results[head+4],0)&127U;
+    uint target=results[head+5];if((target&ACTOR_REF)!=0) return COUNTER_CONTEXT_TARGET(s,actorFieldLogicalSlot(s,target));
+    return COUNTER_CONTEXT_TARGET(s,actorPhysicalTarget(s,results[head+4],0)&127U);
 }
 uint64_t actorNamedTargetStack(inout Runtime s,int name,out bool present)
 {
