@@ -23,6 +23,7 @@ def fixtures():
  add('delayed-vanish',[v(.5,delay=.3)],1.3)
  add('repeat-generation',[v(.25,after=['start','v'],repeat=0)],1.2)
  c=add('unobserved',[v(.5)],1);c['camera']=[];c['camera_mode']='single'
+ for w in c['combat']['weapons']:w['gauge_mult']=100
  c=add('full-latch-survives-speed-expiry',[v(.15)],.18);c['effects']=[dict(name='temporary-charge-speed',source='스킬1',type='buff',stat='charge_speed_pct',fixed_value=100,target='self',duration=.12,trigger=dict(timing=['battle_start'],condition=[]))];c['owners']=[0]
  c=add('weapon-switch-while-holding',[v()],1);c['effects']=[dict(name='temporary-mode',source='스킬1',type='weapon_change',weapon_type='AR',damage_coeff=100,max_ammo=-1,fire_rate=10,fire_rate_max=10,charge=False,pellets=1,muzzles=1,post_fire_delay=0,burst_energy=.25,core_dmg_mult=200,target='self',duration=.2,max_trigger=1,trigger=dict(timing=['every:0.3s'],condition=[]))];c['owners']=[0]
  c=add('regular-character-does-not-hold',[v(.5)]);c['names']=['리타',*c['names'][1:]];c['camera']=list(c['names'])
