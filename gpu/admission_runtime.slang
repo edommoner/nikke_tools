@@ -42,6 +42,14 @@ void admitDefinitions(inout Runtime s,uint input)
             if(s.error!=0) break;
             s.quantityMask|=256;
         }
+        uint entry=s.inputBase+P_MODE_BASE+j*P_MODE_WORDS+28;
+        uint64_t entryDelay=loadNumber(entry);
+        if(d.kind==2)
+        {
+            if(s.combat==0 || !f64Finite(entryDelay) || f64Less(entryDelay,0) || f64Less(f64FromI64(180),entryDelay) || (commands[entry+2]>1 || commands[entry+2]==0 && !f64Zero(entryDelay)) || commands[entry+3]!=0) { s.error=64;break; }
+            if(commands[entry+2]!=0) s.quantityMask|=512;
+        }
+        else if(commands[entry]!=0 || commands[entry+1]!=0 || commands[entry+2]!=0 || commands[entry+3]!=0) { s.error=64;break; }
         if (d.owner >= 5 || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; }
         for(uint slot=0;slot<d.conditionCount;slot++)
         {

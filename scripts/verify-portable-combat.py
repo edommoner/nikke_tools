@@ -14,10 +14,23 @@ from portable_runtime import compile_program,run_programs,PortableExecutionError
 
 
 def fixtures():
-    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json','portable-quantities.json','portable-charge-control.json','portable-health.json','portable-hp-edges.json','portable-incoming.json','portable-capacity.json','portable-recipients.json','portable-carriers.json','portable-lazy.json','portable-bullets.json','portable-burst-resources.json','portable-enemy-damage.json','portable-cover.json','portable-pending-burst.json','portable-burst-duration.json','portable-ammo-instants.json','portable-ammo-modes.json','portable-mode-sessions.json','portable-buff-notices.json','portable-enemy-buffs.json','portable-event-candidates.json','portable-enemy-attack-ranks.json','portable-enemy-spawn-order.json','portable-enemy-auto-aim.json','portable-periodic-targets.json','portable-resources.json','portable-hit-references.json','portable-reference-scales.json','portable-sources.json','portable-staged.json','portable-lifesteal-prototype.json','portable-landings.json','portable-removal.json','portable-duration-extend.json','portable-stacks.json','portable-status.json','portable-protection.json','portable-split.json','portable-instant-lists.json','portable-named-states.json','portable-enemy-codes.json','portable-element-overrides.json','portable-probability.json','portable-geometry.json','portable-target-states.json','portable-attack-flags.json','portable-burst-charge-speed.json','portable-burst-charge-skills.json','portable-hp-attack.json')),[])
+    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json','portable-quantities.json','portable-charge-control.json','portable-health.json','portable-hp-edges.json','portable-incoming.json','portable-capacity.json','portable-recipients.json','portable-carriers.json','portable-lazy.json','portable-bullets.json','portable-burst-resources.json','portable-enemy-damage.json','portable-cover.json','portable-pending-burst.json','portable-burst-duration.json','portable-ammo-instants.json','portable-ammo-modes.json','portable-mode-sessions.json','portable-buff-notices.json','portable-enemy-buffs.json','portable-event-candidates.json','portable-enemy-attack-ranks.json','portable-enemy-spawn-order.json','portable-enemy-auto-aim.json','portable-periodic-targets.json','portable-resources.json','portable-hit-references.json','portable-reference-scales.json','portable-sources.json','portable-staged.json','portable-lifesteal-prototype.json','portable-landings.json','portable-removal.json','portable-duration-extend.json','portable-stacks.json','portable-status.json','portable-protection.json','portable-split.json','portable-instant-lists.json','portable-named-states.json','portable-enemy-codes.json','portable-element-overrides.json','portable-probability.json','portable-geometry.json','portable-target-states.json','portable-attack-flags.json','portable-burst-charge-speed.json','portable-burst-charge-skills.json','portable-hp-attack.json','portable-mode-entry.json','portable-pending-reference.json')),[])
 
 
 def compile_case(case):
+    if not case.get('mode_entry_reference') and not case.get('pending_scale_reference'):return _compile_case(case)
+    from contextlib import ExitStack
+    with ExitStack() as stack:
+        if case.get('mode_entry_reference'):
+            from portable_mode_entry_oracle import data_context
+            stack.enter_context(data_context(case))
+        if case.get('pending_scale_reference'):
+            from portable_pending_reference_context import data_context
+            stack.enter_context(data_context(case))
+        return _compile_case(case)
+
+
+def _compile_case(case):
     # A mode without reload_time inherits its authored base weapon, just as
     # the independent native observer does; never borrow catalog timing from
     # the arbitrary names used to identify these mechanical test actors.
@@ -136,6 +149,7 @@ def main():
     tracked += ['app/portable_geometry_specs.py','scripts/portable_geometry_oracle.py','scripts/portable_geometry_validation.py','tests/fixtures/portable-geometry.json']
     tracked += ['app/portable_probability_specs.py','scripts/portable_probability_oracle.py','scripts/portable_probability_validation.py','tests/fixtures/portable-probability.json']
     tracked += ['app/portable_hp_attack_specs.py','scripts/portable_hp_attack_oracle.py','scripts/portable_hp_attack_validation.py','tests/fixtures/portable-hp-attack.json','app/portable_burst_charge_specs.py','scripts/portable_burst_charge_oracle.py','scripts/portable_burst_charge_skill_oracle.py','scripts/portable_burst_charge_validation.py','tests/fixtures/portable-burst-charge-speed.json','tests/fixtures/portable-burst-charge-skills.json']
+    tracked += ['scripts/portable_mode_entry_oracle.py','scripts/portable_mode_entry_validation.py','scripts/portable_pending_reference_oracle.py','scripts/portable_pending_reference_context.py','tests/fixtures/portable-mode-entry.json','tests/fixtures/portable-pending-reference.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     cases=fixtures();programs=[compile_case(c) for c in cases]
     # The same identity may be re-used only with a new bounded generation.
@@ -431,6 +445,9 @@ def main():
     from portable_hp_attack_validation import rejection_programs as hp_attack_rejections
     hp_bad,hp_rejected=hp_attack_rejections(cases,compile_case)
     rejections += hp_rejected;negative_programs += hp_bad
+    from portable_mode_entry_validation import rejection_programs as mode_entry_rejections
+    entry_bad,entry_rejected=mode_entry_rejections(cases,compile_case)
+    rejections += entry_rejected;negative_programs += entry_bad
     indices=list(range(len(cases),len(cases)+len(rejections)))
     statuses=[0]*len(cases)+[c['status'] for c in rejections]
     try:
@@ -748,7 +765,25 @@ def main():
             contains(native['queries'],case['expected_queries'],case['name']+'.native')
             contains(gpu['queries'],native['queries'],case['name']+'.native_gpu')
             hp_attack_reference.append(case['name'])
-    result.update(hp_attack_cpu_regressions=hp_attack_reference,burst_charge_cpu_regressions=burst_charge_reference,attack_flag_cpu_regressions=attack_flag_reference,target_state_cpu_regressions=target_state_reference,geometry_cpu_regressions=geometry_reference,probability_cpu_regressions=probability_reference,element_override_cpu_regressions=element_reference,enemy_code_cpu_regressions=code_reference,named_state_cpu_regressions=named_state_reference,instant_list_cpu_regressions=instant_reference,protection_cpu_regressions=protection_reference,status_cpu_regressions=status_reference,stack_cpu_regressions=stack_reference,duration_extend_cpu_regressions=duration_extend_reference,removal_cpu_regressions=removal_reference,landing_cpu_regressions=landing_reference,lifesteal_cpu_regressions=lifesteal_reference,staged_cpu_regressions=staged_reference,source_cpu_regressions=source_reference,scale_reference_cpu_regressions=scale_reference,hit_reference_cpu_regressions=[c['name'] for c in cases if c.get('hit_reference')],resource_cpu_regressions=resource_reference,periodic_target_cpu_regressions=[c['name'] for c in cases if c.get('periodic_reference')],enemy_buff_cpu_regressions=enemy_buff_reference,named_buff_cpu_regressions=named_buff_reference,mode_session_cpu_regressions=mode_reference,known_mode_cpu_differences=mode_differences,ammo_instant_cpu_regressions=ammo_reference,burst_duration_cpu_regressions=duration_reference,pending_controller_cpu_regressions=pending_reference,cover_cpu_regressions=cover_reference,enemy_component_cpu_regressions=enemy_reference,burst_cpu_regressions=burst_reference,bullet_cpu_regressions=bullet_reference,lazy_cpu_regressions=[c['name'] for c in cases if c.get('lazy_reference')],carrier_cpu_regressions=carrier_reference,capacity_cpu_regressions=capacity_reference,health_cpu_regressions=health_reference,known_health_cpu_differences=health_differences,known_cpu_differences=cpu_differences,weapon_cpu_regressions=weapon_reference,damage_cpu_regressions=damage_reference,trigger_cpu_regressions=reference,passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
+    from portable_mode_entry_oracle import observe as observe_mode_entry
+    from portable_pending_reference_oracle import observe as observe_pending_reference
+    from portable_pending_reference_context import data_context as pending_reference_data
+    mode_entry_reference=[];pending_scale_reference=[]
+    for case,gpu in zip(cases,result['results']):
+        if case.get('mode_entry_reference'):
+            native=observe_mode_entry(case)
+            contains(native['queries'],case['expected_queries'],case['name']+'.authored')
+            contains(gpu['queries'],native['queries'],case['name']+'.native')
+            contains(gpu['weapons'],native['weapons'],case['name']+'.native-physical-clock')
+            if 'mode_entry_wait_until' in gpu:contains(gpu['mode_entry_wait_until'],native['mode_entry_wait_until'],case['name']+'.entry-clock')
+            mode_entry_reference.append(case['name'])
+        if case.get('pending_scale_reference'):
+            with pending_reference_data(case):native=observe_pending_reference(case)
+            contains(native['queries'],case['expected_queries'],case['name']+'.authored')
+            contains(gpu['queries'],native['queries'],case['name']+'.native')
+            contains(gpu['trace'],native['packets'],case['name']+'.native-packets')
+            pending_scale_reference.append(case['name'])
+    result.update(mode_entry_cpu_regressions=mode_entry_reference,pending_reference_cpu_regressions=pending_scale_reference,hp_attack_cpu_regressions=hp_attack_reference,burst_charge_cpu_regressions=burst_charge_reference,attack_flag_cpu_regressions=attack_flag_reference,target_state_cpu_regressions=target_state_reference,geometry_cpu_regressions=geometry_reference,probability_cpu_regressions=probability_reference,element_override_cpu_regressions=element_reference,enemy_code_cpu_regressions=code_reference,named_state_cpu_regressions=named_state_reference,instant_list_cpu_regressions=instant_reference,protection_cpu_regressions=protection_reference,status_cpu_regressions=status_reference,stack_cpu_regressions=stack_reference,duration_extend_cpu_regressions=duration_extend_reference,removal_cpu_regressions=removal_reference,landing_cpu_regressions=landing_reference,lifesteal_cpu_regressions=lifesteal_reference,staged_cpu_regressions=staged_reference,source_cpu_regressions=source_reference,scale_reference_cpu_regressions=scale_reference,hit_reference_cpu_regressions=[c['name'] for c in cases if c.get('hit_reference')],resource_cpu_regressions=resource_reference,periodic_target_cpu_regressions=[c['name'] for c in cases if c.get('periodic_reference')],enemy_buff_cpu_regressions=enemy_buff_reference,named_buff_cpu_regressions=named_buff_reference,mode_session_cpu_regressions=mode_reference,known_mode_cpu_differences=mode_differences,ammo_instant_cpu_regressions=ammo_reference,burst_duration_cpu_regressions=duration_reference,pending_controller_cpu_regressions=pending_reference,cover_cpu_regressions=cover_reference,enemy_component_cpu_regressions=enemy_reference,burst_cpu_regressions=burst_reference,bullet_cpu_regressions=bullet_reference,lazy_cpu_regressions=[c['name'] for c in cases if c.get('lazy_reference')],carrier_cpu_regressions=carrier_reference,capacity_cpu_regressions=capacity_reference,health_cpu_regressions=health_reference,known_health_cpu_differences=health_differences,known_cpu_differences=cpu_differences,weapon_cpu_regressions=weapon_reference,damage_cpu_regressions=damage_reference,trigger_cpu_regressions=reference,passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
                   rejection_execution=negative,rejected_cases=rejections,
                   scope='Shared event/combat mechanics, enemy packets, allied cover state and pending B3 bonuses; independent components are not full battle or catalog certification')
     path.write_text(json.dumps(result,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')

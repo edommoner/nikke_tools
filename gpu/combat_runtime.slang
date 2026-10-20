@@ -42,7 +42,7 @@ void initializeCombat(inout Runtime s, uint input)
         s.minCycle[who] = loadNumber(extra+22); s.gaugeMultiplier[who] = f64Div(loadNumber(extra+24),HUNDRED);
         uint64_t coreMult = loadNumber(extra+26);
         s.coreDamageBonus[who] = f64Less(coreMult,0) ? s.coreBonus : f64Div(f64Add(coreMult,HUNDRED ^ F64_SIGN),HUNDRED);
-        s.lastFire[who] = f64FromI64(uint64_t(-999)); s.postReloadUntil[who] = F64_SIGN | ONE;
+        s.lastFire[who] = f64FromI64(uint64_t(-999)); s.postReloadUntil[who] = F64_SIGN | ONE; s.modeEntryUntil[who] = F64_SIGN | ONE;
 
     }
     for (uint j = 0; j < s.targetCount; j++)
@@ -128,8 +128,23 @@ void selectWeapon(inout Runtime s,uint who,uint64_t when,out Weapon w)
         s.appliedEpoch[who] = s.modeEpoch[who]; s.physicalModeIndex[who] = index; s.modeShots[who] = 0; s.pendingAutoReload[who] = 0;
         // CharState resets its pre-entry capacity memo when the mode is entered.
         s.modeCapacityEpoch[who] = 0;
-        w.capacity = w.sentinelMode != 0 ? 999999 : ammoInstantCapacity(s,who,when); s.modeMagazine[who] = w.capacity;
-        s.ammo[who] = w.capacity; s.nextShot[who] = when; s.charging[who] = 0; s.reloadUntil[who] = F64_SIGN | ONE; s.postReloadUntil[who] = F64_SIGN | ONE;
+        uint64_t entryDelay=index>=0 ? loadNumber(s.inputBase+P_MODE_BASE+uint(index)*P_MODE_WORDS+28) : 0;
+        bool hasEntry=index>=0 && commands[s.inputBase+P_MODE_BASE+uint(index)*P_MODE_WORDS+30]!=0;
+        s.modeEntryUntil[who]=hasEntry ? f64Add(when,entryDelay) : F64_SIGN | ONE;
+        if(!hasEntry)
+        {
+            w.capacity = w.sentinelMode != 0 ? 999999 : ammoInstantCapacity(s,who,when); s.modeMagazine[who] = w.capacity;
+            s.ammo[who] = w.capacity;
+        }
+        s.nextShot[who] = when; s.charging[who] = 0; s.reloadUntil[who] = F64_SIGN | ONE; s.postReloadUntil[who] = F64_SIGN | ONE;
+    }
+    if(index>=0 && !f64Less(s.modeEntryUntil[who],0) && !f64Less(when,s.modeEntryUntil[who]))
+    {
+        s.modeEntryUntil[who]=F64_SIGN | ONE;
+        // Native samples the magazine after entry wait. A prior instant may
+        // already have captured its capacity;do not invalidate that capture.
+        w.capacity=w.sentinelMode!=0 ? 999999 : ammoInstantCapacity(s,who,when);s.modeMagazine[who]=w.capacity;
+        s.ammo[who]=w.capacity;if(w.mode!=1) s.nextShot[who]=when;s.charging[who]=0;s.chargeStartedAt[who]=when;
     }
     if (index >= 0) w.capacity = s.modeMagazine[who];
     else w.capacity = fullCapacity(s,who,s.capacity[who],true,when);
@@ -239,6 +254,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     uint target = aimedTarget(s,who); if (target == 0xffffffff) return;
     s.target = target; Weapon w;selectWeapon(s,who,when,w);
     if (s.error != 0) return;
+    if(s.modeIndex[who]>=0 && !f64Less(s.modeEntryUntil[who],0)) return;
     if (s.modeIndex[who] < 0 && f64Less(0,s.reloadUntil[who]) && hasInfiniteAmmo(s,who,when))
     { s.reloadUntil[who] = F64_SIGN | ONE; s.nextShot[who] = larger(s.nextShot[who],when); }
     if (s.modeIndex[who] < 0 && f64Less(s.reloadUntil[who],0)) s.ammo[who] = min(s.ammo[who],int(w.capacity));

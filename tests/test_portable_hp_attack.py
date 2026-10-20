@@ -13,7 +13,7 @@ class HPAttackContracts(unittest.TestCase):
   c=self.cases[0];before=copy.deepcopy(c);words,_=self.v.compile_case(c);d=L['DEFINITION_BASE']
   self.assertEqual((words[d+F['KIND']],words[d+F['STAT']]),(0,STAT));self.assertGreaterEqual(STAT,64)
   self.assertEqual([k for k,v in STATS.items() if v==STAT],['atk_from_hp_pct']);self.assertEqual(c,before)
-  self.assertEqual((ABI,L['INPUT_WORDS'],L['OUTPUT_WORDS']),(0x50455671,86016,159744))
+  self.assertEqual((ABI,L['INPUT_WORDS'],L['OUTPUT_WORDS']),(0x50455672,86016,159744))
  def test_late_ranked_targets_do_not_join_mapped_query_cache(self):
   c=next(c for c in self.cases if c['name'].startswith('hp-attack-fresh-rank-'));w,_=self.v.compile_case(c);flag=w[L['RECIPIENT_BASE']+7]
   self.assertNotEqual(flag>>4,0);self.assertEqual(flag&4,0)

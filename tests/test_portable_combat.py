@@ -43,10 +43,11 @@ class CombatBoundaryTests(unittest.TestCase):
     def test_unported_mode_mechanics_fail_before_gpu(self):
         base=next(c for c in v.fixtures() if c['name']=='mode-duration-restores-base')
         for patch in (dict(full_charge_mult=float('nan')),dict(fire_rate_max=8),dict(entry_reload=True),
-                      dict(tick_interval=.1),
-                      dict(duration=-1,trigger=dict(timing=['passive'],condition=['during_full_burst']))):
+                      dict(tick_interval=.1)):
             c=copy.deepcopy(base);c['effects'][1].update(patch)
             with self.subTest(patch=patch),self.assertRaises(ValueError):v.compile_case(c)
+        c=copy.deepcopy(base);c['effects'][1].update(duration=-1,trigger=dict(timing=['passive'],condition=['during_full_burst']))
+        words,_=v.compile_case(c);self.assertEqual(words[L['DEFINITION_BASE']+L['DEFINITION_WORDS']+1],2)
 
     def test_wire_regions_do_not_overlap_or_exceed_transport_capacity(self):
         inputs=[(L['DURATION_DEFINITION_BASE'],L['DEFINITIONS']*2),(L['PENDING_EXCLUDE_BASE'],L['DEFINITIONS']*L['MASK_WORDS']),(L['COVER_BASE'],5*4),(L['DAMAGE_DEFINITION_BASE'],L['DEFINITIONS']*L['DAMAGE_DEFINITION_WORDS']),(L['BULLET_DEFINITION_BASE'],L['DEFINITIONS']*2),(L['RECIPIENT_BASE'],L['DEFINITIONS']*8),(L['FORCE_BASE'],L['DEFINITIONS']*L['MASK_WORDS']),(0,32),(L['DEFINITION_BASE'],L['DEFINITIONS']*L['DEFINITION_WORDS']),

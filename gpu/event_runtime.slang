@@ -77,7 +77,7 @@ struct Runtime
     uint64_t fullChargeMult[5];
     uint modeEpoch[5], appliedEpoch[5], modeShots[5], pendingReentry[5], reentrySlot, reentryDone, casts[5], burstTraceCount;
     uint pellets[5], muzzles[5], inputBase;
-    uint64_t modeEnd[5], reentryDelay;
+    uint64_t modeEnd[5], reentryDelay, modeEntryUntil[5];
     uint automaticAddAim, enemyAttackOrder, enemySpawnOrder, combatStarted, combat, targetCount, target, aim[5], targetAlive[8], targetGeneration[8], targetHits[8];
     uint64_t targetHP[8], targetMaxHP[8], targetDamage[8], targetDefense[8];
     uint64_t scoredDamage[5], addScoredDamage[5], addOverkill[5], targetScoredDamage[8], targetDealt[8];
@@ -474,7 +474,7 @@ void writeDamageAccounting(inout Runtime s, uint output, bool targets = false)
 // End the old session before callbacks. A child may install a new session.
 void clearMode(inout Runtime s, uint who, uint64_t when)
 {
-    s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who]; s.modeShots[who] = 0;
+    s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who]; s.modeShots[who] = 0; s.modeEntryUntil[who] = F64_SIGN | ONE;
     // A logical mode cancelled before any physical entry never replaced the gun.
     if (s.physicalModeIndex[who] < 0) return;
     // End callbacks operate on the restored base magazine, not the capacity
@@ -1630,6 +1630,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     results[output+P_RESOURCE_HEADER_BASE] = s.resourceTraceCount; results[output+P_RESOURCE_HEADER_BASE+1] = s.resourceTraceTotal;
     results[output+9] = s.orderedCount;
     results[output+10] = s.cacheCount; results[output+11] = s.cacheEvaluations; results[output+12] = s.cacheReuses; results[output+13] = s.lazyPendingCount; results[output+14] = s.lazyMappedPendingCount; results[output+15] = s.bulletCount;
+    if((s.quantityMask & 512)!=0) for(uint who=0;who<5;who++) storeNumber(output+P_MODE_ENTRY_STATE_BASE+who*2,s.modeEntryUntil[who]);
     results[output] = s.error; results[output+1] = queries; results[output+2] = s.traceCount; results[output+3] = s.maxDepth; results[output+4] = s.burstTraceCount; results[output+6] = s.traceTotal;
     results[output+7] = s.burstTraceTotal; results[output+8] = s.frameCount;
 }

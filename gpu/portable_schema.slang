@@ -1,5 +1,5 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721393U;
+static const uint PORTABLE_ABI = 1346721394U;
 static const uint P_PROTECTION_OBJECTS = 1024U;
 static const uint P_PROTECTION_OBJECT_WORDS = 24U;
 static const uint P_REMOVALS = 4096U;
@@ -170,6 +170,8 @@ static const uint P_PROBABILITY_STATE_BASE = 164864U;
 static const uint P_PROBABILITY_STATE_BASE = 156672U;
 #endif
 static const uint P_PROBABILITY_STATE_WORDS = 2560U;
+static const uint P_MODE_ENTRY_STATE_BASE = 159232U;
+static const uint P_MODE_ENTRY_STATE_WORDS = 10U;
 static const uint D_OWNER = 0U;
 static const uint D_KIND = 1U;
 static const uint D_STAT = 2U;

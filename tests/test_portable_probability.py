@@ -26,7 +26,7 @@ class ProbabilityInput(unittest.TestCase):
 
     def test_existing_strides_and_explicit_output_tail(self):
         check_schema()
-        self.assertEqual(ABI, 0x50455671)
+        self.assertEqual(ABI, 0x50455672)
         self.assertEqual((L['INPUT_WORDS'], L['OUTPUT_WORDS']), (86016, 159744))
         self.assertEqual(L['PROBABILITY_STATE_BASE'], L['RECIPIENT_ORDER_BASE'] + L['CARRIERS'] * 2)
         self.assertEqual(L['OUTPUT_WORDS'] - L['PROBABILITY_STATE_BASE'] - L['PROBABILITY_STATE_WORDS'], 512)

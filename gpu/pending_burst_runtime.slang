@@ -61,14 +61,23 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
         if (index != 0 && row == s.pendingRow[index-1] && f64Equal(s.pendingCoefficient[index],s.pendingCoefficient[index-1]))
         { s.pendingAmount[index] = s.pendingAmount[index-1]; continue; }
 #endif
+        uint64_t coefficient=s.pendingCoefficient[index];
+        uint reference=s.inputBase+P_REFERENCE_DEFINITION_BASE+row*4;
+        if((commands[reference]&3)==1)
+        {
+            bool present;uint64_t scale=referenceCount(s,d.owner,(commands[reference+1]&511)-1,commands[reference+2]&255,false,present);
+            coefficient=f64Mul(coefficient,present ? scale : 0);
+            if(!f64Finite(coefficient)) { s.error=16;return; }
+            if(f64Zero(coefficient)) { s.pendingAmount[index]=0;continue; }
+        }
         uint target = s.target; s.target = 0; s.damageExclusion = row+1;
-        s.pendingAmount[index] = damageValue(s,d.owner,s.pendingCoefficient[index],when,false,s.coreBonus);
+        s.pendingAmount[index] = damageValue(s,d.owner,coefficient,when,false,s.coreBonus);
         s.damageExclusion = 0; s.target = target;
     }
     for (uint index = 0; index < count && s.error == 0; index++)
     {
         uint row = s.pendingRow[index]; Definition d = readDefinition(s.inputBase,row); d.damageHits = s.pendingHits[index];
-        for (uint hit = 0; hit < d.damageHits && s.error == 0; hit++)
+        for (uint hit = 0; hit < d.damageHits && s.error == 0 && !f64Zero(s.pendingAmount[index]); hit++)
         {
             uint packedOrder; uint inherited = aimedTarget(s,d.owner);
             uint mask = enemyDamageMask(s,d,inherited,packedOrder);

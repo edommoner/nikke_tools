@@ -53,7 +53,7 @@ void knockDown(inout Runtime s, uint who, uint64_t when)
             if (event != 26) s.counters[row*8+slot] = 0;
         }
     }
-    s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who];
+    s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who]; s.modeEntryUntil[who] = F64_SIGN | ONE;
     s.charging[who] = 0; s.reloadUntil[who] = F64_SIGN | ONE; s.postReloadUntil[who] = F64_SIGN | ONE; s.pendingAutoReload[who] = 0;
     syncHealth(s,when);
 }

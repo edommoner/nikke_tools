@@ -218,6 +218,7 @@ void initializeRuntime(inout Runtime s)
         s.pellets[index] = 0;
         s.muzzles[index] = 0;
         s.modeEnd[index] = 0;
+        s.modeEntryUntil[index] = 0;
         s.aim[index] = 0;
         s.scoredDamage[index] = 0;
         s.addScoredDamage[index] = 0;
