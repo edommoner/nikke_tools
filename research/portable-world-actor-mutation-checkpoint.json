@@ -10,11 +10,13 @@
   "normal_fields_state_generated_exact": true,
   "physical_metal_sessions": 2,
   "unchanged_gpu_retries": 0,
-  "windows_status": "not_dispatched_yet",
+  "windows_status": "requested37_after_cpu13",
   "windows_new_inputs": 37,
   "normal_ui": "CPU",
   "canonical_world_admission": false,
   "full_character_verified": 0,
   "full_goal_complete": false,
-  "efficiency_started": false
+  "efficiency_started": false,
+  "cuda_source": "4271202f6b39e7c27b6de250141b506178ecd1b0",
+  "windows_cpu_tests": 13
 }
