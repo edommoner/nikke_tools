@@ -6,7 +6,7 @@
 
 Metal590入力はnative53件・拒否8件・旧529入力の全524288出力word保持で成功しました。単体356件と、通常/fields/state/mutation/recipient/statusのCUDA・MSL生成物厳密一致を確認しました。小数・正負ゼロ・正負巨大値、named/unnamedの0/1下限、無限上限、2147483647の最終許容値、参照stack、所有者の違い、共有対象・免疫・再出現、期限更新とstack_reach子通知を含みます。31bit保持域を超える結果はstatus2で拒否し、許容範囲と混同しません。GPU実行1回・再試行0です。
 
-証拠はportable-world-actor-stack-validation.json、CPU監査器はseal-world-actor-stacks-metal.py。新規61入力/53 native参照の全fingerprintを保存し、GPU関数禁止のCPU照合も成功しました。Windowsではこの61入力だけを低優先度・180秒上限で1回確認します。通常4682・旧529全件は再実行しません。target_hit_counterと完了/死亡/refresh epoch、skill/pending/DoT、mixed target、source攻撃/interrupt、操作/復活、容量/全203認証は未完了で、通常画面CPU・world公開無効・全変種認証0/203・効率化未開始を維持します。
+証拠はportable-world-actor-stack-validation.json、CPU監査器はseal-world-actor-stacks-metal.py。新規61入力/53 native参照の全fingerprintを保存し、GPU関数禁止のCPU照合も成功しました。Windows v88は固定a106e1eの共通driverで61入力/53 native参照を94.76秒、BelowNormal・180秒上限の1回で成功しました。CPU13検査・GPU禁止事前照合、全input/output/native/generated SHA、NVRTC/launch/同期/readbackの50記録をMacで監査しました。31bit超過のstatus2も一致しています。保存済み3JSON 66,312bytesを取得してbytes/SHAと固定Git sourceを照合し、元checkout/サービス保持・残存0・retry0を確認しました。証拠はportable-world-v88-cuda-validation.jsonです。通常4682・旧529全件の再実行はありません。target_hit_counterと完了/死亡/refresh epoch、skill/pending/DoT、mixed target、source攻撃/interrupt、操作/復活、容量/全203認証は未完了で、通常画面CPU・world公開無効・全変種認証0/203・効率化未開始を維持します。
 
 
 ## 2026-10-21 128対象の免疫・回数プール・解除をMetalへ接続
