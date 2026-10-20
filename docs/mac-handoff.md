@@ -1,5 +1,15 @@
 # Mac側で開発を続けるための引き継ぎ
 
+## 2026-10-21 Metal357:128対象の敵バフと敵数条件
+
+private ABI78の共通実行器へ、def_pct・def_caster_based_pct・received_dmg_pctの型/世代付き受取先と、敵数/target_is_boss/add条件を接続しました。発動条件と回数は1回だけ処理し、既存owned setで親の対象順・世代を固定して各受取先を既存resident executorへ渡します。計算式・保持領域・名前merge・expiry・同期子イベントは共用です。Metal357の新52実戦・raw20・旧285既存全出力保持が成功し、最終の各Actor modifierと保持領域の型/ID/世代/stack/時刻/順序までnative完全一致です。128対象・512 resident・死亡/再出現・有限latch/永続runtime敵数条件・武器変更/散弾を含み、通常CUDA/MSL生成コードの厳密一致、CPU315、旧125 native辞書保持も成功しました。
+
+初回保持verifierは、初期化後のコマンド拒否6件でも新領域zeroを期待したため失敗しました。旧285の既存領域と新72は全成功しており、初回report/rawを残して、固定旧GPUのpool-ready markerに従う期待値へ修正し、同じ読み戻しをCPUで再監査しました。GPU retry0です。通常生成差もCPU段階で式/行位置を修正し、厳密一致と314件成功を確認後にGPUへ進みました。後続typed query入力テストを含む315件も成功しています。計算source c2425e5、証拠 `research/portable-world-actor-fields-validation.json` と各findingを参照。
+
+Windowsへ最小18ファイル250,128 bytesを固定8be669d、`codex/cuda-world-v84-source`へ共有し、CPU11件＋GPU禁止の全72入力/52 native事前照合後、新72入力だけをBelowNormal・180秒上限で1回依頼しました。現在結果待ちです。旧285/旧208/通常4682を繰り返しません。個人設定/raw/巨大詳細は共有せず、利用者のゴール達成までのGitHub共有許可を反映しています。
+
+wide enemyのその他条件、immunity/cleanse/counter、skill/pending/DoT、mixed target、interrupt/source attacks、自動制御/復活、容量/長時間条件、全変種認証と必要検証後の効率化は未完了です。pure hit-HP召喚のmax-HP順位は元nativeでTypeErrorになることをCPU実証して保存し、この組み合わせはまだ受け付けません。通常画面CPU/public受付false/全変種0/203を維持します。
+
 ## 2026-10-21 Metal285: ActorのHP・命中・128対象集合
 
 固定822c559のprivate ABI77で、召喚のHP/hit制HP・通常武器からの命中・死亡通知・GPU targets_cleared再出現、部位の超過ダメージ/score、128bitと順序/世代付き対象集合を共通landへ接続しました。Metal285は実戦native14・型付きpool/set10・raw拒否19・旧242全出力保持で成功、portable CPU309件、通常CUDA/MSL生成コードの厳密一致、保存rawと固定Git blobの再監査も成功しています。`research/portable-world-actor-pools-validation.json` を参照してください。

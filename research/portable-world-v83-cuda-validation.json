@@ -2,10 +2,6 @@
   "passed": true,
   "source_commit": "ea1f8ddee06cc7c995307d5e110a60b6c696893c",
   "inputs": 77,
-  "complete_native_battles": 14,
-  "typed_pool_set_cases": 10,
-  "registry_native_cases": 12,
-  "raw_rejections": 41,
   "all_input_output_bytes_native_and_generated_fingerprints_equal": true,
   "actual_cuda_executions": 1,
   "cuda_elapsed_seconds": 72.91668639983982,
@@ -24,5 +20,9 @@
   "full_character_verified": 0,
   "canonical_world_admission": false,
   "normal_ui": "CPU",
-  "full_goal_complete": false
+  "full_goal_complete": false,
+  "complete_native_battles": 14,
+  "typed_pool_set_cases": 10,
+  "registry_native_cases": 12,
+  "raw_rejections": 41
 }
