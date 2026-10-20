@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "efficiency_evaluated": true,
+  "production_change_adopted": false,
+  "source_commit": "ed68e6847fe8e7f0d13ed81a6af6dec6837ca915",
+  "candidate": "Skip the no-op stat-notice continuation when the captured recipient order is empty",
+  "all_1893_input_and_output_bytes_equal": true,
+  "decision": "Keep the verified source. All five sample ranges overlap, and neither the lazy nor empty recipient workload shows a median improvement. These samples do not establish a speedup.",
+  "workloads": {
+    "ordinary": {
+      "median_gpu_ms": {
+        "control": 8.654416655190289,
+        "skip-empty": 8.690833230502903
+      },
+      "skip_to_control_ratio": 1.004207860190181,
+      "sample_ranges_overlap": true
+    },
+    "observed-one": {
+      "median_gpu_ms": {
+        "control": 12.927875039167702,
+        "skip-empty": 13.155749998986721
+      },
+      "skip_to_control_ratio": 1.0176266369475744,
+      "sample_ranges_overlap": true
+    },
+    "lazy-no-notice": {
+      "median_gpu_ms": {
+        "control": 9.149583289399743,
+        "skip-empty": 9.309250046499074
+      },
+      "skip_to_control_ratio": 1.0174507135515465,
+      "sample_ranges_overlap": true
+    },
+    "empty-no-notice": {
+      "median_gpu_ms": {
+        "control": 7.328875013627112,
+        "skip-empty": 9.774000034667552
+      },
+      "skip_to_control_ratio": 1.3336289698615462,
+      "sample_ranges_overlap": true
+    },
+    "observed-twenty-one": {
+      "median_gpu_ms": {
+        "control": 37.77291672304273,
+        "skip-empty": 37.773750023916364
+      },
+      "skip_to_control_ratio": 1.0000220608029755,
+      "sample_ranges_overlap": true
+    }
+  },
+  "added_private_arrays": 0,
+  "added_runtime_scalars": 0,
+  "added_frame_fields": 0,
+  "wire_stride_growth_words": 0,
+  "benchmark_sha256": "06dc25d9dac366aaa09a15c47019812f7a86c2917572ed71998b0210e5e65b0c",
+  "scope": "Sequential warmup and3 measured samples per variant, Apple M5. No full-roster/CUDA-speed/peak-memory claim. Desktop GPU activity not excluded."
+}

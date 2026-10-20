@@ -110439,12 +110439,12 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.046941875014454126,
+    "gpu_seconds": 0.0465601667528972,
     "input_bytes": 69844996,
-    "library_compile_seconds": 0.0009989738464355469,
+    "library_compile_seconds": 0.0010110139846801758,
     "output_bytes": 129712128,
-    "pipeline_compile_seconds": 0.0011129379272460938,
-    "pipeline_lock_wait_seconds": 2.9802322387695312e-06,
+    "pipeline_compile_seconds": 0.001085042953491211,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
     "threads_per_threadgroup": 1,
@@ -110452,10 +110452,10 @@
     "gpu_timeout_seconds": 120
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "44c68d97aa0481ed8b806865705b52c508bf8bc42687b282902d0c4da406c8e4",
+    "gpu/event_runtime.slang": "a54f235085f56b8d2e43a1db394a702b093bec371cf89320d5e268eb80e795d7",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
-    "gpu/portable_schema.slang": "5623ffad7e35538d8eac1a022df411f7e26a9207939e3fdaa90ab3782f2c0693",
+    "gpu/portable_schema.slang": "0d9e468b7d6b6f43ac5901611f295d500f98cb07ae046c7606be360ce78125cb",
     "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
     "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
     "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
@@ -110491,17 +110491,17 @@
     "gpu/pending_burst_runtime.slang": "c4b0ee8ded3c5922ce8370b12ebec0dbb86ad0bae9d530d615e4f498029f1758",
     "gpu/protection_runtime.slang": "3a7aab02bba76134fd41ea47b2698c0a6ba70a9d86d3a563aa90acfefb19ae82",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-    "gpu/combat_runtime.slang": "007857a4a49acddb59fd36935d5acd578d70af69815cf4f63647836837ee872b",
+    "gpu/combat_runtime.slang": "4a536cfde98a7108bd0a61560af4812bf2ab6a54f93695292951d771e824131c",
     "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
-    "gpu/admission_runtime.slang": "486750c2a15cfe80a3addaa74c6c3c1d9cf93fd924016466c525e37ce2106e4b"
+    "gpu/admission_runtime.slang": "aa7b39dd00ea8e55284ccdf4c81fabed8af623694f555d0a447f1f010361bbf7"
   },
   "generated_sha256": {
-    "cuda": "5adc395f30d879f126e6c0940632b7dfa90d2c09f2900ffc5d1025e4ee5266b5",
-    "metal": "861cf850c24b964fa21b2de078020bd1430aa6673de1423d1fe3e849526ed3d5"
+    "cuda": "600b4232a83a25916a614e040e8021351dc3c1f16c36879f70588184d8931c7c",
+    "metal": "dd2b693eae5dfc0703a411fbc7b5c15b271bf63145afbdbaa37ac8f145ccd61e"
   },
-  "input_sha256": "dc3c871002b6a5db5b6aded27152f5223bc23d4f98ac954afb5c890d09fe94c1",
+  "input_sha256": "ccfa7ed4e5b2e3c84747e71edcf8679990696d79e9a808fc0bcca11bf06ad149",
   "output_sha256": "63a64d6bd083f1744f2df5574decc14574faabe810d8cd1639c4060f61f1b035",
   "gpu_execution_verified": true,
   "backend": "metal",
@@ -110554,7 +110554,7 @@
     "app/periodic_target_specs.py": "862326be4fa971aa0837180f8b184a80dac4706472cb7e8af7a9c5cb3c4d1540",
     "app/portable_backend.py": "ff77334356c509d4b5bdd21602c97bbaf24706b7c5885ed5a9ec9ec7745bb338",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
-    "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
+    "app/portable_combat.py": "aeb209d1d7b05d1d7954e34c7d674b52157c0aff663cde951affaea023d8f98a",
     "app/portable_damage_specs.py": "62d322155e688a5e428b4cf56550216c6d050c0605487d39331d4306d47b14bb",
     "app/portable_duration_extend_specs.py": "f3909d1ce0a448090fd853a8fbb44f64bf6acdbb1803742812a2fb84bd42f9a8",
     "app/portable_enemy_specs.py": "34cfe5234f5ed216af3cf3cbdde5c6b777a48eed2a81676294f2ed96d1ab6e49",
@@ -110567,15 +110567,15 @@
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
     "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
     "app/portable_roster_input.py": "0a6c8c37bcf4e93af644769125a09535c618c4d601039fec440d473d84999121",
-    "app/portable_runtime.py": "c4afa0361eb51c332661cea2aa53d8419abe11a9d7a6aa907a0c14a8543a9912",
+    "app/portable_runtime.py": "77970ae0a5f25183b66cf046ac2df8f8c6f933d8603df7a88052f371f8f1687a",
     "app/portable_runtime_layout.py": "1a882b22eef68f04633c2a0fcdc542b188669e50f283dc88bf241af33c7ca0f1",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "96855912e3a79f3177e4588016840f4f781d6baea0b19b3be50287af58c9212b",
+    "app/portable_specs.py": "8492d6efe9c114133b67b750bb087390f14272d46eeee05da9043a5617ecc6f3",
     "app/portable_stack_specs.py": "c2aae86773e268fbd375217028f140af335bb8d4704c8567881464e650c7bc32",
     "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
     "app/portable_status_specs.py": "387618cb8e46f8db81be2b9f83e7a70c167abc877868aefa21d0ebccb5d2fc2a",
-    "app/portable_trigger_specs.py": "4e56419d8ca5a6454ecd00c9300c7a166b5bd695c1244155afa11eb59ddacd7b",
-    "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
+    "app/portable_trigger_specs.py": "c7c71372d6c6316554a108ae53fc2e13b663a950967f03c63b05d6b03a4f3dc5",
+    "app/portable_weapon_input.py": "f5b6a332f60bde4382f7579eb32bbf8df2e93116de443c824b8826390136e43b",
     "app/protection_runtime.py": "1ddbb6134b1deea1e9fee295d0171b380098ca2211f109a20224f2d369a91f92",
     "app/quantity_specs.py": "e8a638101b1db68e7fdcaf43867ddabd51c8dc32d09e285d1c334b8ed6674457",
     "app/reference_count_runtime.py": "009b8bbee5523994861860c6101416bc1ff1e72b04a7da46e78f6ce9a5d571ef",
@@ -110746,6 +110746,8 @@
     "scripts/portable_instant_list_validation.py": "03f78be57e990c9ca9fe29e87cb21ec32209aa0cee4893317ca1cec4e8b78cb1",
     "scripts/portable_landing_oracle.py": "318d4436c3636724112025866cd8e21f692772b96a83450e7bf3fae020484b45",
     "scripts/portable_lifesteal_oracle.py": "082a9149627a837f0efd0ff966af6de8868be3a7b776bdc7b8b21dc13ae0d531",
+    "scripts/portable_named_state_oracle.py": "c64b2e18eea75070357a719fb9162915898f926c6277a4c298c240926fb9a751",
+    "scripts/portable_named_state_validation.py": "f66cf70d27cef1bfcfa4a63a4c099fe1cb81d3e303f685511b37ce43fb40ee95",
     "scripts/portable_pending_oracle.py": "ece6a9c87fc4bbfdbabf0dd57071c51ffaf6122688c8990e0293c224cc80de54",
     "scripts/portable_protection_oracle.py": "5586434d5575a0e702cd6f0e526334b5c78314628e396a5481bb1811dfe7228a",
     "scripts/portable_protection_validation.py": "508687394ab8b3c93885088568e6ec651cd20e9a6ff5cd107d384bb14604027b",
@@ -110757,7 +110759,7 @@
     "scripts/portable_stack_validation.py": "e26299ee1feeb50774647e7cb55564b9fc4ada4685945d30e37da3b459f2c150",
     "scripts/portable_status_oracle.py": "916860a08df128bd05096dc015e6240c0a04e2f2aee314a9704aecdfc4b753e8",
     "scripts/portable_status_validation.py": "8de8009fd409a5db1178311446f3a4d2eb65f194e24bab483d4604db64b27c3a",
-    "scripts/portable_weapon_oracle.py": "f6de982a48e39b941dfead71d190d2b8d530b25a8aba37021f8692c7990a53a2",
+    "scripts/portable_weapon_oracle.py": "68280fe8ba0c73521d3c9a1ec0c982ed37b1c6d357d6999005b5c3497ac16396",
     "scripts/prepare_metadata.py": "a3dbec2b9c635a2fefae3dfe7511cc1c2b9b7155b3cd77392fe3b771667fdf7c",
     "scripts/probe-revive-hp-passives.py": "a18a34d1461017e08d47d3713862ce330dd7f65a94b4a946e48c2ef383acf6d1",
     "scripts/resource_frame_capture.py": "9c381a25afce9c4ee1b1995e7a504a29248952959c5e077f1f66fa8e971ea33b",
@@ -110872,7 +110874,7 @@
     "scripts/verify-portable-attack-rank.py": "e80520e7baee2c21580548a020164bbf124a9524466621d208c3fe804ecc21a9",
     "scripts/verify-portable-auto-aim.py": "0e72357b8ff98edb8ff164450751be7a49cdd14125f3a027b598563e73e9f2bb",
     "scripts/verify-portable-catalog-weapons.py": "4986f71dc931d68ffad1bcdea2bf9be5e1dcb586e8d0c1a6001b5ca75799e3e6",
-    "scripts/verify-portable-combat.py": "0d8f10553499435bee0d385088639d0063e86bb98be0dca2254c2c2f949c188a",
+    "scripts/verify-portable-combat.py": "88da6162eff493215254347e58d5e91b17b5e0750c6a9ffaf63faa94631905be",
     "scripts/verify-portable-event-index.py": "39777a51f8dc99d6f442a6a2f933f11316abaee3dbcf923bf154d78dc39df0de",
     "scripts/verify-portable-events.py": "a0c19364ccfbb0436268ca56a79457abbb588235c71a8e6d1565d8fe757cd6a7",
     "scripts/verify-portable-hit-references.py": "4b2516f9750ec2a746e8a60f4342ae4dee5f7fb1bbec84be3f0402ea1a6b2651",
@@ -110938,6 +110940,7 @@
       "character": "라피",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -110993,6 +110996,7 @@
       "character": "네온",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -111048,6 +111052,7 @@
       "character": "아니스",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -111103,6 +111108,7 @@
       "character": "네온 : 블루 오션",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -111158,6 +111164,7 @@
       "character": "아니스 : 스파클링 서머",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 5,
@@ -111213,6 +111220,7 @@
       "character": "라피 : 레드 후드",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -111268,6 +111276,7 @@
       "character": "아니스 : 스타",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -111323,6 +111332,7 @@
       "character": "네온 : 비전 아이",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -111378,6 +111388,7 @@
       "character": "델타",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -111433,6 +111444,7 @@
       "character": "시그널",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -111488,6 +111500,7 @@
       "character": "델타 : 닌자 시프",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -111543,6 +111556,7 @@
       "character": "폴리",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -111598,6 +111612,7 @@
       "character": "미란다",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -111653,6 +111668,7 @@
       "character": "키리",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -111708,6 +111724,7 @@
       "character": "D",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -111763,6 +111780,7 @@
       "character": "K",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -111818,6 +111836,7 @@
       "character": "D : 킬러 와이프",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -111873,6 +111892,7 @@
       "character": "벨로타",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -111928,6 +111948,7 @@
       "character": "미카",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -111983,6 +112004,7 @@
       "character": "미카 : 스노우 버디",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -112038,6 +112060,7 @@
       "character": "벨로타 : 펌킨 위치",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -112093,6 +112116,7 @@
       "character": "브리드",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -112148,6 +112172,7 @@
       "character": "솔린",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -112203,6 +112228,7 @@
       "character": "디젤",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -112258,6 +112284,7 @@
       "character": "브리드 : 사일런트 트랙",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -112313,6 +112340,7 @@
       "character": "솔린 : 프로스트 티켓",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -112368,6 +112396,7 @@
       "character": "디젤 : 윈터 스위츠",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -112423,6 +112452,7 @@
       "character": "센티",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -112478,6 +112508,7 @@
       "character": "리타",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -112533,6 +112564,7 @@
       "character": "엠마",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -112588,6 +112620,7 @@
       "character": "베스티",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -112643,6 +112676,7 @@
       "character": "은화",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -112698,6 +112732,7 @@
       "character": "엠마 : 택티컬 업",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -112753,6 +112788,7 @@
       "character": "베스티 : 택티컬 업",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 8,
@@ -112808,6 +112844,7 @@
       "character": "은화 : 택티컬 업",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -112863,6 +112900,7 @@
       "character": "라플라스",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -112918,6 +112956,7 @@
       "character": "드레이크",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -112973,6 +113012,7 @@
       "character": "맥스웰",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -113028,6 +113068,7 @@
       "character": "라플라스 : 얼티밋 히어로",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 120,
@@ -113083,6 +113124,7 @@
       "character": "드레이크 : 그레이트 빌런",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -113138,6 +113180,7 @@
       "character": "맥스웰 : 오디너리 미케닉",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -113193,6 +113236,7 @@
       "character": "크로우",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -113248,6 +113292,7 @@
       "character": "자칼",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -113303,6 +113348,7 @@
       "character": "바이퍼",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -113358,6 +113404,7 @@
       "character": "E.H.",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -113413,6 +113460,7 @@
       "character": "N102",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -113468,6 +113516,7 @@
       "character": "앤 : 미라클 페어리",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -113523,6 +113572,7 @@
       "character": "메어리",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -113578,6 +113628,7 @@
       "character": "페퍼",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -113633,6 +113684,7 @@
       "character": "메어리 : 베이 갓데스",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -113688,6 +113740,7 @@
       "character": "슈가",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -113743,6 +113796,7 @@
       "character": "밀크",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -113798,6 +113852,7 @@
       "character": "프림",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -113853,6 +113908,7 @@
       "character": "밀크 : 블루밍 바니",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -113908,6 +113964,7 @@
       "character": "율리아",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -113963,6 +114020,7 @@
       "character": "유니",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -114018,6 +114076,7 @@
       "character": "미하라",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -114073,6 +114132,7 @@
       "character": "미하라 : 본딩 체인",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -114128,6 +114188,7 @@
       "character": "프리바티",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -114183,6 +114244,7 @@
       "character": "율하",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -114238,6 +114300,7 @@
       "character": "애드미",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -114293,6 +114356,7 @@
       "character": "길로틴",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -114348,6 +114412,7 @@
       "character": "메이든",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -114403,6 +114468,7 @@
       "character": "길로틴 : 윈터 슬레이어",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -114458,6 +114524,7 @@
       "character": "메이든 : 아이스 로즈",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -114513,6 +114580,7 @@
       "character": "루드밀라",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -114568,6 +114636,7 @@
       "character": "앨리스",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -114623,6 +114692,7 @@
       "character": "토브",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -114678,6 +114748,7 @@
       "character": "네베",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -114733,6 +114804,7 @@
       "character": "루드밀라 : 윈터 오너",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -114788,6 +114860,7 @@
       "character": "앨리스 : 원더랜드 바니",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -114843,6 +114916,7 @@
       "character": "루피",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -114898,6 +114972,7 @@
       "character": "얀",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -114953,6 +115028,7 @@
       "character": "도라",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -115008,6 +115084,7 @@
       "character": "루피 : 윈터 쇼퍼",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -115063,6 +115140,7 @@
       "character": "엑시아",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -115118,6 +115196,7 @@
       "character": "노벨",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -115173,6 +115252,7 @@
       "character": "스노우 화이트",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -115228,6 +115308,7 @@
       "character": "라푼젤",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -115283,6 +115364,7 @@
       "character": "홍련",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 20,
@@ -115338,6 +115420,7 @@
       "character": "나유타",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -115393,6 +115476,7 @@
       "character": "스노우 화이트 : 이노센트 데이즈",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -115448,6 +115532,7 @@
       "character": "홍련 : 흑영",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 9,
@@ -115503,6 +115588,7 @@
       "character": "라푼젤 : 퓨어 그레이스",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -115558,6 +115644,7 @@
       "character": "하란",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -115613,6 +115700,7 @@
       "character": "이사벨",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -115668,6 +115756,7 @@
       "character": "노아",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -115723,6 +115812,7 @@
       "character": "도로시",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -115778,6 +115868,7 @@
       "character": "도로시 : 세렌디피티",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -115833,6 +115924,7 @@
       "character": "루마니",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -115888,6 +115980,7 @@
       "character": "에피넬",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -115943,6 +116036,7 @@
       "character": "폴크방",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -115998,6 +116092,7 @@
       "character": "모더니아",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -116053,6 +116148,7 @@
       "character": "니힐리스타",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -116108,6 +116204,7 @@
       "character": "리버렐리오",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -116163,6 +116260,7 @@
       "character": "블랑",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -116218,6 +116316,7 @@
       "character": "누아르",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -116273,6 +116372,7 @@
       "character": "루주",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -116328,6 +116428,7 @@
       "character": "로산나",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -116383,6 +116484,7 @@
       "character": "목단",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -116438,6 +116540,7 @@
       "character": "사쿠라",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -116493,6 +116596,7 @@
       "character": "로산나 : 시크 오션",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -116548,6 +116652,7 @@
       "character": "사쿠라 : 블룸 인 서머",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -116603,6 +116708,7 @@
       "character": "마나",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -116658,6 +116764,7 @@
       "character": "에테르",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -116713,6 +116820,7 @@
       "character": "솔져 E.G.",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -116768,6 +116876,7 @@
       "character": "솔져 F.A.",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -116823,6 +116932,7 @@
       "character": "프로덕트 08",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -116878,6 +116988,7 @@
       "character": "프로덕트 12",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -116933,6 +117044,7 @@
       "character": "iDoll 플라워",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -116988,6 +117100,7 @@
       "character": "iDoll 오션",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -117043,6 +117156,7 @@
       "character": "솔져 O.W.",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -117098,6 +117212,7 @@
       "character": "프로덕트 23",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -117153,6 +117268,7 @@
       "character": "iDoll 썬",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -117208,6 +117324,7 @@
       "character": "에이드",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -117263,6 +117380,7 @@
       "character": "코코아",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -117318,6 +117436,7 @@
       "character": "소다",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -117373,6 +117492,7 @@
       "character": "프리바티 : 언카인드 메이드",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -117428,6 +117548,7 @@
       "character": "소다 : 트윙클링 바니",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -117483,6 +117604,7 @@
       "character": "에이드 : 에이전트 바니",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -117538,6 +117660,7 @@
       "character": "벨벳",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -117593,6 +117716,7 @@
       "character": "마르차나",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -117648,6 +117772,7 @@
       "character": "마르차나 : 마린 스터디",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -117703,6 +117828,7 @@
       "character": "크라운",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -117758,6 +117884,7 @@
       "character": "차임",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -117813,6 +117940,7 @@
       "character": "마스트",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -117868,6 +117996,7 @@
       "character": "앵커",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -117923,6 +118052,7 @@
       "character": "헬름",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -117978,6 +118108,7 @@
       "character": "헬름 : 아쿠아마린",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -118033,6 +118164,7 @@
       "character": "마스트 : 로망틱 메이드",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -118088,6 +118220,7 @@
       "character": "앵커 : 이노센트 메이드",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -118143,6 +118276,7 @@
       "character": "킬로",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -118198,6 +118332,7 @@
       "character": "네로",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -118253,6 +118388,7 @@
       "character": "비스킷",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -118308,6 +118444,7 @@
       "character": "레오나",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -118363,6 +118500,7 @@
       "character": "츠바이",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -118418,6 +118556,7 @@
       "character": "아인",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -118473,6 +118612,7 @@
       "character": "라이",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -118528,6 +118668,7 @@
       "character": "길티",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -118583,6 +118724,7 @@
       "character": "신",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -118638,6 +118780,7 @@
       "character": "퀀시",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -118693,6 +118836,7 @@
       "character": "퀀시 : 이스케이프 퀸",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -118748,6 +118892,7 @@
       "character": "길티 : 마이티 바니",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -118803,6 +118948,7 @@
       "character": "신 : 스위프트 바니",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -118858,6 +119004,7 @@
       "character": "플로라",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -118913,6 +119060,7 @@
       "character": "트리나",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -118968,6 +119116,7 @@
       "character": "노이즈",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -119023,6 +119172,7 @@
       "character": "볼륨",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -119078,6 +119228,7 @@
       "character": "아리아",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -119133,6 +119284,7 @@
       "character": "아비스타",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -119188,6 +119340,7 @@
       "character": "나가",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -119243,6 +119396,7 @@
       "character": "티아",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -119298,6 +119452,7 @@
       "character": "레드 후드",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -119353,6 +119508,7 @@
       "character": "스노우 화이트 : 헤비암즈",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -119408,6 +119564,7 @@
       "character": "일레그",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -119463,6 +119620,7 @@
       "character": "트로니",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -119518,6 +119676,7 @@
       "character": "일레그 : 붐 앤 쇼크",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -119573,6 +119732,7 @@
       "character": "신데렐라",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 24,
@@ -119628,6 +119788,7 @@
       "character": "리틀 머메이드",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -119683,6 +119844,7 @@
       "character": "그레이브",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -119738,6 +119900,7 @@
       "character": "신데렐라 : 크리스탈 웨이브",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -119793,6 +119956,7 @@
       "character": "브래디",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -119848,6 +120012,7 @@
       "character": "크러스트",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -119903,6 +120068,7 @@
       "character": "소라",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -119958,6 +120124,7 @@
       "character": "베이",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -120013,6 +120180,7 @@
       "character": "클레이",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -120068,6 +120236,7 @@
       "character": "아크레인저 블랙",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -120123,6 +120292,7 @@
       "character": "팬텀",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -120178,6 +120348,7 @@
       "character": "아르카나",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -120233,6 +120404,7 @@
       "character": "레이블",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -120288,6 +120460,7 @@
       "character": "아르카나 : 포츈 메이트",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -120343,6 +120516,7 @@
       "character": "모리",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -120398,6 +120572,7 @@
       "character": "민트",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -120453,6 +120628,7 @@
       "character": "프리카",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -120508,6 +120684,7 @@
       "character": "백학",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -120563,6 +120740,7 @@
       "character": "마키마",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -120618,6 +120796,7 @@
       "character": "파워",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -120673,6 +120852,7 @@
       "character": "히메노",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -120728,6 +120908,7 @@
       "character": "2B",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 90,
@@ -120783,6 +120964,7 @@
       "character": "A2",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -120838,6 +121020,7 @@
       "character": "파스칼",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "auto",
         "capacity": 6,
@@ -120893,6 +121076,7 @@
       "character": "렘",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -120948,6 +121132,7 @@
       "character": "에밀리아",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -121003,6 +121188,7 @@
       "character": "람",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -121058,6 +121244,7 @@
       "character": "아스카",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 20,
@@ -121113,6 +121300,7 @@
       "character": "레이",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -121168,6 +121356,7 @@
       "character": "마리",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -121223,6 +121412,7 @@
       "character": "미사토",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -121278,6 +121468,7 @@
       "character": "레이 (가칭)",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -121333,6 +121524,7 @@
       "character": "아스카 : WILLE",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -121388,6 +121580,7 @@
       "character": "사쿠라 (SR)",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -121443,6 +121636,7 @@
       "character": "에이다",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -121498,6 +121692,7 @@
       "character": "질",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -121553,6 +121748,7 @@
       "character": "클레어",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -121608,6 +121804,7 @@
       "character": "이브",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -121663,6 +121860,7 @@
       "character": "레이븐",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -121718,6 +121916,7 @@
       "character": "릴리",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -121773,6 +121972,7 @@
       "character": "치사토",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -121828,6 +122028,7 @@
       "character": "타키나",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -121883,6 +122084,7 @@
       "character": "쿠루미",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -121938,6 +122140,7 @@
       "character": "퀸(마코토)",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -121993,6 +122196,7 @@
       "character": "유키코",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -122048,6 +122252,7 @@
       "character": "아이기스",
       "passed": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,

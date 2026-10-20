@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "wire_abi": "0x50455669",
+  "source_commit": "ed68e6847fe8e7f0d13ed81a6af6dec6837ca915",
+  "prior_source": "6be8eb5",
+  "input_words": 86016,
+  "output_words": 159744,
+  "input_stride_growth_words": 0,
+  "output_stride_growth_words": 0,
+  "added_runtime_arrays": 0,
+  "added_runtime_scalars": 0,
+  "added_definition_fields": 0,
+  "added_frame_fields": 0,
+  "declarations": {
+    "Runtime": {
+      "declaration_unchanged": true,
+      "sha256": "8991968ef48a8f28981a553477a80d6668a2b5d6df01ea8f696c990e780e634f"
+    },
+    "Definition": {
+      "declaration_unchanged": true,
+      "sha256": "62c71302cf671be33e07d6a1b8fab6396b06df1fd73a0f7fdaa2c22b0893a42b"
+    },
+    "Frame": {
+      "declaration_unchanged": true,
+      "sha256": "ab0f26842b4a418733bb8be106a1b763882fba614b06beb1d21dc7fd1e0d8616"
+    }
+  },
+  "base_weapon_rl_bit": {
+    "existing_field": "attackContext",
+    "mask": 4,
+    "scope": "Explosion classification on charge path only; immutable base type survives mode changes"
+  },
+  "stat_notice_tag": {
+    "existing_field": "buffEvent",
+    "low_policy_bits": 2,
+    "tag_shift": 2,
+    "zero_means_disabled": true,
+    "maximum_tag_plus_one": 256
+  },
+  "scope": "Static shared declarations and wire layout. Does not measure compiler registers, spills, physical private storage or peak GPU memory."
+}

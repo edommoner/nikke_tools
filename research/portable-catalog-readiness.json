@@ -3,12 +3,12 @@
   "audited_characters": 203,
   "full_character_verified": 0,
   "weapon_input_preflight_passed": 203,
-  "own_effect_preflight_passed": 41,
+  "own_effect_preflight_passed": 42,
   "assumptions": "favorite stage 0, no cube, fixed five-member real roster; definition preflight only; not battle compatibility",
   "cpu_simulation_executed": false,
   "gpu_execution_performed": false,
   "issues": {
-    "Unported buff or recipient selector": 181,
+    "Unported buff or recipient selector": 185,
     "Unported trigger timing: event:part_destroy": 15,
     "Unported instant or recipient selector": 14,
     "Unported enemy damage selector": 12,
@@ -17,17 +17,12 @@
     "Unported trigger timing: enemy_death": 9,
     "Unported predicate: target_code:전격": 7,
     "Unported trigger timing: charge_hold:0.5": 6,
-    "Unported predicate: self_state:바니 모드 : 인게이지": 6,
-    "Unported predicate: self_state:바니 모드 : 스탠스": 6,
     "Unported predicate: target_code:풍압": 5,
     "Unported trigger timing: event:projectile_destroy": 4,
     "Unported predicate: prob:20": 4,
     "Unported predicate: target_state:사슬 감기": 4,
-    "Unported trigger timing: event:바니 모드 : 인게이지": 4,
-    "Unported trigger timing: event:바니 모드 : 스탠스": 4,
     "Unported trigger timing: non_full_charge_fire_count:3": 4,
     "Unported trigger timing: charge_hold_count:1:3": 4,
-    "Unported predicate: self_state:무대 파트 : 보컬": 4,
     "Unported effect fields: hits_parts": 3,
     "Unported effect fields: scaling": 3,
     "Unported predicate: prob:30": 3,
@@ -53,8 +48,6 @@
     "Unported trigger timing: event:accum_full:누적 폭발 스킬": 2,
     "Unported trigger timing: event:target_counter_complete:빙의": 2,
     "Unported effect fields: land_in_full_burst": 2,
-    "Unported trigger timing: event:stat_applied:dot_dmg_pct": 2,
-    "Unported trigger timing: event:stat_applied:split_dmg_pct": 2,
     "Unported predicate: not_target_state:예고장": 2,
     "Unported effect fields: duration_scaling, duration_scaling_ref": 2,
     "Unported predicate: target_state:안티 AT 필드": 2,
@@ -87,7 +80,6 @@
     "Unported predicate: target_state:해풍": 1,
     "Unported effect fields: target_counter": 1,
     "Unported predicate: focusing": 1,
-    "Unported predicate: self_state:무대 파트 : 댄스": 1,
     "Unported predicate: self_undying": 1,
     "Unported trigger timing: core_hit_count:1": 1,
     "Unported trigger timing: crit_hit_count:44": 1,
@@ -96,7 +88,7 @@
     "Unported predicate: target_code:수냉": 1
   },
   "diagnostic_semantic_issues": {
-    "Unported buff or recipient selector": 181,
+    "Unported buff or recipient selector": 185,
     "Unported trigger timing: event:part_destroy": 15,
     "Unported instant or recipient selector": 14,
     "Unported enemy damage selector": 12,
@@ -105,17 +97,12 @@
     "Unported trigger timing: enemy_death": 9,
     "Unported predicate: target_code:전격": 7,
     "Unported trigger timing: charge_hold:0.5": 6,
-    "Unported predicate: self_state:바니 모드 : 인게이지": 6,
-    "Unported predicate: self_state:바니 모드 : 스탠스": 6,
     "Unported predicate: target_code:풍압": 5,
     "Unported trigger timing: event:projectile_destroy": 4,
     "Unported predicate: prob:20": 4,
     "Unported predicate: target_state:사슬 감기": 4,
-    "Unported trigger timing: event:바니 모드 : 인게이지": 4,
-    "Unported trigger timing: event:바니 모드 : 스탠스": 4,
     "Unported trigger timing: non_full_charge_fire_count:3": 4,
     "Unported trigger timing: charge_hold_count:1:3": 4,
-    "Unported predicate: self_state:무대 파트 : 보컬": 4,
     "Unported effect fields: hits_parts": 3,
     "Unported effect fields: scaling": 3,
     "Unported predicate: prob:30": 3,
@@ -141,8 +128,6 @@
     "Unported trigger timing: event:accum_full:누적 폭발 스킬": 2,
     "Unported trigger timing: event:target_counter_complete:빙의": 2,
     "Unported effect fields: land_in_full_burst": 2,
-    "Unported trigger timing: event:stat_applied:dot_dmg_pct": 2,
-    "Unported trigger timing: event:stat_applied:split_dmg_pct": 2,
     "Unported predicate: not_target_state:예고장": 2,
     "Unported effect fields: duration_scaling, duration_scaling_ref": 2,
     "Unported predicate: target_state:안티 AT 필드": 2,
@@ -175,7 +160,6 @@
     "Unported predicate: target_state:해풍": 1,
     "Unported effect fields: target_counter": 1,
     "Unported predicate: focusing": 1,
-    "Unported predicate: self_state:무대 파트 : 댄스": 1,
     "Unported predicate: self_undying": 1,
     "Unported trigger timing: core_hit_count:1": 1,
     "Unported trigger timing: crit_hit_count:44": 1,
@@ -184,19 +168,19 @@
     "Unported predicate: target_code:수냉": 1
   },
   "missing_families": {
-    "damage_modifiers": 116,
-    "weapon": 69,
-    "damage": 56,
-    "effect_lifecycle": 47,
+    "damage_modifiers": 110,
+    "weapon": 68,
+    "damage": 52,
     "control_survival": 44,
+    "effect_lifecycle": 37,
     "resource_accumulation": 16,
-    "charge": 15,
     "ammo_reload": 14,
     "burst_cooldown": 13,
+    "charge": 12,
     "healing_buffers": 9,
-    "healing": 6,
     "hp": 6,
     "protection": 6,
+    "healing": 5,
     "character_state": 3
   },
   "weapon_gaps": {
@@ -422,6 +406,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -664,6 +649,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -919,6 +905,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -1221,6 +1208,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -1504,6 +1492,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 5,
@@ -2026,6 +2015,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -2478,6 +2468,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -2928,6 +2919,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -3172,6 +3164,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -3428,6 +3421,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -3860,6 +3854,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -4115,6 +4110,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -4370,6 +4366,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -4628,6 +4625,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -4947,6 +4945,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -5289,6 +5288,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -5597,6 +5597,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -5857,6 +5858,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -6112,6 +6114,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -6384,6 +6387,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -6686,6 +6690,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -6929,6 +6934,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -7190,6 +7196,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -7482,6 +7489,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -7743,6 +7751,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -8048,6 +8057,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -8431,6 +8441,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -8673,6 +8684,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -8970,6 +8982,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -9216,6 +9229,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -9534,6 +9548,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -9803,6 +9818,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -10234,6 +10250,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -10560,6 +10577,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 8,
@@ -10965,6 +10983,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -11264,6 +11283,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -11519,6 +11539,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -11793,6 +11814,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -12244,6 +12266,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 120,
@@ -12547,6 +12570,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -12940,6 +12964,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -13182,6 +13207,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -13454,6 +13480,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -13760,6 +13787,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -14111,6 +14139,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -14352,6 +14381,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -14631,6 +14661,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -14874,6 +14905,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -15160,6 +15192,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -15457,6 +15490,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -15734,6 +15768,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -15977,6 +16012,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -16232,6 +16268,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -16660,6 +16697,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -16903,6 +16941,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -17173,6 +17212,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -17444,6 +17484,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -17814,6 +17855,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -18103,6 +18145,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -18360,6 +18403,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -18601,6 +18645,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -18877,6 +18922,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -19137,6 +19183,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -19512,6 +19559,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -19851,6 +19899,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -20126,6 +20175,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -20400,6 +20450,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -20692,6 +20743,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -20948,6 +21000,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -21232,6 +21285,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -21549,6 +21603,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -21806,6 +21861,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -22062,6 +22118,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -22359,6 +22416,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -22654,6 +22712,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -22930,6 +22989,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -23187,6 +23247,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -23459,6 +23520,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -23734,6 +23796,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -24010,6 +24073,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 20,
@@ -24459,6 +24523,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -24745,6 +24810,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -25079,6 +25145,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 9,
@@ -25372,6 +25439,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -25655,6 +25723,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -25972,6 +26041,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -26247,6 +26317,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -26542,6 +26613,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -26889,6 +26961,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -27166,6 +27239,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -27424,6 +27498,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -27696,6 +27771,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -27982,6 +28058,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -28274,6 +28351,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -28638,6 +28716,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -28923,6 +29002,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -29226,6 +29306,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -29549,6 +29630,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -29879,6 +29961,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -30239,6 +30322,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -30518,6 +30602,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -30788,6 +30873,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -31091,6 +31177,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -31463,6 +31550,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -31706,6 +31794,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -31936,6 +32025,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -32166,6 +32256,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -32396,6 +32487,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -32623,6 +32715,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -32871,6 +32964,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -33098,6 +33192,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -33331,6 +33426,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -33558,6 +33654,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -33788,6 +33885,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -34059,6 +34157,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -34320,6 +34419,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -34593,6 +34693,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -34883,6 +34984,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -35240,6 +35342,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -35550,6 +35653,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -35940,6 +36044,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -36196,6 +36301,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -36616,6 +36722,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -36956,6 +37063,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -37217,6 +37325,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -37496,6 +37605,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -37743,6 +37853,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -37998,6 +38109,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -38302,6 +38414,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -38642,6 +38755,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -38970,6 +39084,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -39284,6 +39399,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -39595,6 +39711,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -39885,6 +40002,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -40158,6 +40276,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -40442,6 +40561,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -40742,6 +40862,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -41016,6 +41137,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -41292,6 +41414,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -41598,6 +41721,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -41842,6 +41966,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -42209,6 +42334,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -42357,13 +42483,10 @@
             "event:바니 모드 : 인게이지"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:바니 모드 : 인게이지",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported trigger timing: event:바니 모드 : 인게이지"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "바니 모드 : 인게이지",
@@ -42374,13 +42497,10 @@
             "event:바니 모드 : 인게이지"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:바니 모드 : 인게이지",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported trigger timing: event:바니 모드 : 인게이지"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "어떻게 하는 게 좋아…? (동기화 인게이지 해제)",
@@ -42391,11 +42511,10 @@
             "event:바니 모드 : 스탠스"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:바니 모드 : 스탠스",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: event:바니 모드 : 스탠스"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "바니 모드 : 스탠스",
@@ -42406,13 +42525,10 @@
             "event:바니 모드 : 스탠스"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:바니 모드 : 스탠스",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported trigger timing: event:바니 모드 : 스탠스"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "체인 릴리즈",
@@ -42426,12 +42542,12 @@
             "self_state:바니 모드 : 인게이지"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:바니 모드 : 인게이지",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: self_state:바니 모드 : 인게이지"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "체인 릴리즈 2",
@@ -42445,12 +42561,12 @@
             "self_state:바니 모드 : 인게이지"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:바니 모드 : 인게이지",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: self_state:바니 모드 : 인게이지"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "체인 릴리즈 3",
@@ -42463,13 +42579,10 @@
           "conditions": [
             "self_state:바니 모드 : 인게이지"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:바니 모드 : 인게이지",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: self_state:바니 모드 : 인게이지"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "체인 인헨스",
@@ -42482,11 +42595,10 @@
           "conditions": [
             "self_state:바니 모드 : 스탠스"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:바니 모드 : 스탠스",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: self_state:바니 모드 : 스탠스"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "체인 인헨스 2",
@@ -42499,11 +42611,10 @@
           "conditions": [
             "self_state:바니 모드 : 스탠스"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:바니 모드 : 스탠스",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: self_state:바니 모드 : 스탠스"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "체인 인헨스 3",
@@ -42516,13 +42627,10 @@
           "conditions": [
             "self_state:바니 모드 : 스탠스"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:바니 모드 : 스탠스",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: self_state:바니 모드 : 스탠스"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "마이티 스톰프",
@@ -42722,6 +42830,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -42898,13 +43007,10 @@
             "event:바니 모드 : 인게이지"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:바니 모드 : 인게이지",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported trigger timing: event:바니 모드 : 인게이지"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "바니 모드 : 인게이지",
@@ -42915,13 +43021,10 @@
             "event:바니 모드 : 인게이지"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:바니 모드 : 인게이지",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported trigger timing: event:바니 모드 : 인게이지"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "바니 시프트 (동기화 인게이지 해제)",
@@ -42932,11 +43035,10 @@
             "event:바니 모드 : 스탠스"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:바니 모드 : 스탠스",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: event:바니 모드 : 스탠스"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "바니 모드 : 스탠스",
@@ -42947,13 +43049,10 @@
             "event:바니 모드 : 스탠스"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:바니 모드 : 스탠스",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported trigger timing: event:바니 모드 : 스탠스"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "노이즈 불렛",
@@ -42967,12 +43066,12 @@
             "self_state:바니 모드 : 인게이지"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:바니 모드 : 인게이지",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: self_state:바니 모드 : 인게이지"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "노이즈 불렛 2",
@@ -42986,12 +43085,12 @@
             "self_state:바니 모드 : 인게이지"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:바니 모드 : 인게이지",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: self_state:바니 모드 : 인게이지"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "인헨스 불렛",
@@ -43004,11 +43103,10 @@
           "conditions": [
             "self_state:바니 모드 : 스탠스"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:바니 모드 : 스탠스",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: self_state:바니 모드 : 스탠스"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "인헨스 불렛 2",
@@ -43021,11 +43119,10 @@
           "conditions": [
             "self_state:바니 모드 : 스탠스"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:바니 모드 : 스탠스",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: self_state:바니 모드 : 스탠스"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "스위프트 캐럿",
@@ -43108,13 +43205,10 @@
           "conditions": [
             "self_state:바니 모드 : 스탠스"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:바니 모드 : 스탠스",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: self_state:바니 모드 : 스탠스"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "스위프트 피어싱 4",
@@ -43127,11 +43221,10 @@
           "conditions": [
             "self_state:바니 모드 : 인게이지"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:바니 모드 : 인게이지",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: self_state:바니 모드 : 인게이지"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -43275,6 +43368,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -43558,6 +43652,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -43936,6 +44031,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -44192,6 +44288,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -44490,6 +44587,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -44731,6 +44829,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -45055,6 +45154,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -45341,6 +45441,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -45656,6 +45757,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -46046,6 +46148,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -46603,6 +46706,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -46898,6 +47002,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -47214,6 +47319,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -47565,6 +47671,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -47869,6 +47976,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 24,
@@ -48253,6 +48361,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -48740,6 +48849,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -49264,6 +49374,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -49330,11 +49441,10 @@
             "event:stat_applied:dot_dmg_pct"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:stat_applied:dot_dmg_pct",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: event:stat_applied:dot_dmg_pct"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "머물고 싶은 맛 2",
@@ -49345,11 +49455,10 @@
             "event:stat_applied:dot_dmg_pct"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:stat_applied:dot_dmg_pct",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: event:stat_applied:dot_dmg_pct"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "나누고 싶은 맛",
@@ -49362,11 +49471,10 @@
           "conditions": [
             "not_self_state:머물고 싶은 맛"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:stat_applied:split_dmg_pct",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: event:stat_applied:split_dmg_pct"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "나누고 싶은 맛 2",
@@ -49379,11 +49487,10 @@
           "conditions": [
             "not_self_state:머물고 싶은 맛"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported trigger timing: event:stat_applied:split_dmg_pct",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported trigger timing: event:stat_applied:split_dmg_pct"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "페이버릿 캔디",
@@ -49638,6 +49745,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -50049,6 +50157,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -50308,6 +50417,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -50583,6 +50693,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -50864,6 +50975,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -51275,6 +51387,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -51639,6 +51752,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -51980,6 +52094,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -52387,6 +52502,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -52822,6 +52938,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -53150,6 +53267,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -53204,11 +53322,10 @@
           "conditions": [
             "self_state:무대 파트 : 보컬"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:무대 파트 : 보컬",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: self_state:무대 파트 : 보컬"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "댄스 효과",
@@ -53221,11 +53338,10 @@
           "conditions": [
             "self_state:무대 파트 : 댄스"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:무대 파트 : 댄스",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: self_state:무대 파트 : 댄스"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "멋진 무대였어요!",
@@ -53270,11 +53386,10 @@
           "conditions": [
             "self_state:무대 파트 : 보컬"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:무대 파트 : 보컬",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: self_state:무대 파트 : 보컬"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "멋진 무대였어요! 4",
@@ -53287,11 +53402,10 @@
           "conditions": [
             "self_state:무대 파트 : 보컬"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:무대 파트 : 보컬",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: self_state:무대 파트 : 보컬"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "멋진 무대였어요! 5",
@@ -53304,11 +53418,10 @@
           "conditions": [
             "self_state:무대 파트 : 보컬"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: self_state:무대 파트 : 보컬",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: self_state:무대 파트 : 보컬"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "무대 카운트",
@@ -53568,6 +53681,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -53600,7 +53714,7 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 94,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
@@ -53965,6 +54079,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -54267,6 +54382,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -54573,6 +54689,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -54837,6 +54954,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -55092,6 +55210,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -55378,6 +55497,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 90,
@@ -55698,6 +55818,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -55925,6 +56046,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "auto",
         "capacity": 6,
@@ -56212,6 +56334,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -56504,6 +56627,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -56762,6 +56886,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -57063,6 +57188,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 20,
@@ -57347,6 +57473,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -57639,6 +57766,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -57901,6 +58029,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -58250,6 +58379,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -58639,6 +58769,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -58880,6 +59011,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -59197,6 +59329,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -59563,6 +59696,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -59804,6 +59938,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -60125,6 +60260,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -60445,6 +60581,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "RL",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -60712,6 +60849,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -61046,6 +61184,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -61348,6 +61487,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SR",
         "enabled": true,
         "mode": "charge",
         "capacity": 6,
@@ -61593,6 +61733,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "AR",
         "enabled": true,
         "mode": "auto",
         "capacity": 60,
@@ -62000,6 +62141,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SG",
         "enabled": true,
         "mode": "auto",
         "capacity": 9,
@@ -62400,6 +62542,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "MG",
         "enabled": true,
         "mode": "auto_warmup",
         "capacity": 300,
@@ -62700,6 +62843,7 @@
       ],
       "scalar_charge_multiplier_input_available": true,
       "normalized_weapon": {
+        "base_weapon_type": "SMG",
         "enabled": true,
         "mode": "auto",
         "capacity": 120,
@@ -62759,7 +62903,7 @@
     "app/periodic_source_specs.py": "4c96a26ce0d0ca987c1e057d95d9a88055e706c7bf2cadde70df6b58ec9f2444",
     "app/periodic_target_runtime.py": "b2475507525e8f06b9139142fb662d831f73a72cbb8e99b087dd0c6a1ae3d188",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
-    "app/portable_combat.py": "5c3076de4126292edc06fbf88c16aa93f99c34cebc89ed620315926de9962d10",
+    "app/portable_combat.py": "aeb209d1d7b05d1d7954e34c7d674b52157c0aff663cde951affaea023d8f98a",
     "app/portable_damage_specs.py": "62d322155e688a5e428b4cf56550216c6d050c0605487d39331d4306d47b14bb",
     "app/portable_duration_extend_specs.py": "f3909d1ce0a448090fd853a8fbb44f64bf6acdbb1803742812a2fb84bd42f9a8",
     "app/portable_enemy_specs.py": "34cfe5234f5ed216af3cf3cbdde5c6b777a48eed2a81676294f2ed96d1ab6e49",
@@ -62770,12 +62914,12 @@
     "app/portable_removal_specs.py": "65eeea6e89b54a4215ec93c6658d26231f4c8a656d3ac8b2ddd52ef5bcec0fcf",
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
     "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
-    "app/portable_runtime.py": "c4afa0361eb51c332661cea2aa53d8419abe11a9d7a6aa907a0c14a8543a9912",
+    "app/portable_runtime.py": "77970ae0a5f25183b66cf046ac2df8f8c6f933d8603df7a88052f371f8f1687a",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "96855912e3a79f3177e4588016840f4f781d6baea0b19b3be50287af58c9212b",
+    "app/portable_specs.py": "8492d6efe9c114133b67b750bb087390f14272d46eeee05da9043a5617ecc6f3",
     "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
-    "app/portable_trigger_specs.py": "4e56419d8ca5a6454ecd00c9300c7a166b5bd695c1244155afa11eb59ddacd7b",
-    "app/portable_weapon_input.py": "ee2ab671246a841444db127abc30c8785ce09343fe0d10fc4972e4a35150e767",
+    "app/portable_trigger_specs.py": "c7c71372d6c6316554a108ae53fc2e13b663a950967f03c63b05d6b03a4f3dc5",
+    "app/portable_weapon_input.py": "f5b6a332f60bde4382f7579eb32bbf8df2e93116de443c824b8826390136e43b",
     "app/protection_runtime.py": "1ddbb6134b1deea1e9fee295d0171b380098ca2211f109a20224f2d369a91f92",
     "app/reference_count_runtime.py": "009b8bbee5523994861860c6101416bc1ff1e72b04a7da46e78f6ce9a5d571ef",
     "app/reference_health_runtime.py": "fb028c974a10f80821336fb3f2bcf235ee6d300538a61afa829b536dc9ba1e44",

@@ -7704,9 +7704,9 @@
     }
   ],
   "validation_sha256": {
-    "app/portable_runtime.py": "c4afa0361eb51c332661cea2aa53d8419abe11a9d7a6aa907a0c14a8543a9912",
+    "app/portable_runtime.py": "77970ae0a5f25183b66cf046ac2df8f8c6f933d8603df7a88052f371f8f1687a",
     "app/portable_recipient_specs.py": "6bd29a3e5bab623bdd3a49706395864fe9bdf0fb9e1e78dd2060487d75f9d8fd",
-    "app/portable_specs.py": "96855912e3a79f3177e4588016840f4f781d6baea0b19b3be50287af58c9212b",
+    "app/portable_specs.py": "8492d6efe9c114133b67b750bb087390f14272d46eeee05da9043a5617ecc6f3",
     "scripts/portable_instant_list_oracle.py": "942fe66cbfe2b0e8f53600922f6c42f68651d1dee9a0c05c026ecff43d316296",
     "tests/fixtures/portable-instant-lists.json": "9347dd203f8938d7fd571d23d05c989ef819a23e736d68a8b0cc5b219c658ac0",
     "research/verify-instant-lists.py": "67113254ed6393df671b1f816770546dd6b33774aa8c06340805c9e9848b4d84"
