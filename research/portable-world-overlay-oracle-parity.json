@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "source_commit": "7cb875adf319d3c48da78259ed7a0eb75e411617",
+  "source_commit": "4bd848bc3be59b259fc729c272a9e3310f323e16",
   "source_sha256": {
     "research/world_frame_native.py": "c3a24a3e6fc0ddd5ffb8395dd8903a7e459229e37ab6a0698f3ff37ab0111634",
     "research/verify-world-overlay-oracle.py": "333536781777ee80a599c94e6f362c633dc044aafb3bbcb41b0e146905078e17",

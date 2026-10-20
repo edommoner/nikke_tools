@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "source_commit": "4bd848b",
+  "metal_inputs": 208,
+  "native_complete_cases": 125,
+  "new_heavyarms_cases": 26,
+  "raw_rejections": 34,
+  "prior_world_full_outputs": 49,
+  "prior179_and206_input_output_bytes_unchanged": true,
+  "prior99_and123_complete_native_actual_dictionaries_unchanged": true,
+  "native_oracle_unchanged": true,
+  "full_charge_latch_deadline_and_charging_compared": true,
+  "initial_non_camera_input_error_retained": true,
+  "normal_cuda_msl_generated_exact": true,
+  "input_sha256": "70b3c1b5cbe8bf6b4d9d409c462489e9fafff6d13b2edff8295955f6e21e7bf1",
+  "output_sha256": "ddcc2a2e5c8014e0079d12bc71864d6ffcb9c646049b4a49f2471b5daaed9a90",
+  "audit_gpu_executions": 0,
+  "windows_hold_verified": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "normal_ui": "CPU",
+  "canonical_world_admission": false
+}

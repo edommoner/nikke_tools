@@ -26,4 +26,13 @@ class OverlayInput(unittest.TestCase):
   with self.assertRaises(UnsupportedPortable):validate_effect(case['effects'][0],combat=case['combat'],world_frame=True)
  def test_cleanse_stat_requires_instant_type(self):
   with self.assertRaises(ValueError):compiler_effect(dict(type='buff',stat='enemy_buff_cleanse',fixed_value=1))
+ def test_heavyarms_roster_and_hold_policy_are_literal_inputs(self):
+  case=body.module('hold_input_cases','research/world_overlay_charge_hold_cases.py').fixtures()[4];before=copy.deepcopy(case)
+  with patch.object(BossScript,'begin_frame',side_effect=AssertionError('No CPU timeline in input')):words,_=body.compile_case(case)
+  self.assertEqual(case,before);self.assertEqual(words[L['WORLD_OVERLAY_INPUT_BASE']+7],0x48410001)
+  self.assertEqual(len(words),L['WORLD_OVERLAY_INPUT_WORDS']);self.assertLessEqual(L['WORLD_OVERLAY_CHARGE_BASE']+5*8,L['WORLD_FRAME_OUTPUT_WORDS'])
+ def test_native_roster_cannot_silently_alias_missing_or_duplicate_characters(self):
+  from world_frame_native import roster_names
+  for names in (['unknown']*5,['리타']*5,['리타'],None):
+   with self.subTest(names=names),self.assertRaises(ValueError):roster_names(dict(names=names))
 if __name__=='__main__':unittest.main()
