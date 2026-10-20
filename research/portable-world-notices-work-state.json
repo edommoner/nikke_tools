@@ -21,5 +21,13 @@
     "Prepare a shared single-session world test bundle for necessary short CUDA verification",
     "Continue overlays,world actors,DoT/control/revive and full character variants"
   ],
-  "updated_at": "2026-10-20T16:46:33.281051+00:00"
+  "updated_at": "2026-10-20T16:50:51.214530+00:00",
+  "shared_suite": {
+    "inputs": 49,
+    "physical_sessions": 1,
+    "passed": true,
+    "report": "research/portable-world-suite-metal.json",
+    "golden": "research/portable-world-suite-golden.json",
+    "complete_word_readback_preserved": true
+  }
 }
