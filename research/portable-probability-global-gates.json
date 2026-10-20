@@ -1,0 +1,231 @@
+{
+  "passed": true,
+  "complete": true,
+  "gates": [
+    {
+      "name": "probability-native",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 1.6767120000440627,
+      "log": "/tmp/nikke-probability-gate-probability-native.log"
+    },
+    {
+      "name": "element-native",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7928024169523269,
+      "log": "/tmp/nikke-probability-gate-element-native.log"
+    },
+    {
+      "name": "core",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 17.14678654097952,
+      "log": "/tmp/nikke-probability-gate-core.log"
+    },
+    {
+      "name": "enemy-code-real",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 71.57002629199997,
+      "log": "/tmp/nikke-probability-gate-enemy-code-real.log"
+    },
+    {
+      "name": "enemy-code-native",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7568692499771714,
+      "log": "/tmp/nikke-probability-gate-enemy-code-native.log"
+    },
+    {
+      "name": "named-state-native",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7875608330359682,
+      "log": "/tmp/nikke-probability-gate-named-state-native.log"
+    },
+    {
+      "name": "instant-list-native",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7599250000203028,
+      "log": "/tmp/nikke-probability-gate-instant-list-native.log"
+    },
+    {
+      "name": "split-native",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7621260000159964,
+      "log": "/tmp/nikke-probability-gate-split-native.log"
+    },
+    {
+      "name": "protection-native",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8025911250151694,
+      "log": "/tmp/nikke-probability-gate-protection-native.log"
+    },
+    {
+      "name": "status-native",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7784239160828292,
+      "log": "/tmp/nikke-probability-gate-status-native.log"
+    },
+    {
+      "name": "stack-foundation",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 5.133488374995068,
+      "log": "/tmp/nikke-probability-gate-stack-foundation.log"
+    },
+    {
+      "name": "staged-native",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7856854581041262,
+      "log": "/tmp/nikke-probability-gate-staged-native.log"
+    },
+    {
+      "name": "source-native",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 0.03641466598492116,
+      "log": "/tmp/nikke-probability-gate-source-native.log"
+    },
+    {
+      "name": "native-mode-spec",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 1.1384260000195354,
+      "log": "/tmp/nikke-probability-gate-native-mode-spec.log"
+    },
+    {
+      "name": "native-mode-input",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9116001249058172,
+      "log": "/tmp/nikke-probability-gate-native-mode-input.log"
+    },
+    {
+      "name": "reference-rewrite",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 0.030306249973364174,
+      "log": "/tmp/nikke-probability-gate-reference-rewrite.log"
+    },
+    {
+      "name": "duration-native",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 2.5413795829517767,
+      "log": "/tmp/nikke-probability-gate-duration-native.log"
+    },
+    {
+      "name": "definition-input",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0487571250414476,
+      "log": "/tmp/nikke-probability-gate-definition-input.log"
+    },
+    {
+      "name": "definition-scalar",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0688530000625178,
+      "log": "/tmp/nikke-probability-gate-definition-scalar.log"
+    },
+    {
+      "name": "definition-out",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0916152090067044,
+      "log": "/tmp/nikke-probability-gate-definition-out.log"
+    },
+    {
+      "name": "removal-queue",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 0.950723750051111,
+      "log": "/tmp/nikke-probability-gate-removal-queue.log"
+    },
+    {
+      "name": "numeric",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 0.767402375000529,
+      "log": "/tmp/nikke-probability-gate-numeric.log"
+    },
+    {
+      "name": "probe",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 0.34911683399695903,
+      "log": "/tmp/nikke-probability-gate-probe.log"
+    },
+    {
+      "name": "events",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 3.8268188340589404,
+      "log": "/tmp/nikke-probability-gate-events.log"
+    },
+    {
+      "name": "roster",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 738.2821599999443,
+      "log": "/tmp/nikke-probability-gate-roster.log"
+    },
+    {
+      "name": "catalog-weapons",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 3.5848252080613747,
+      "log": "/tmp/nikke-probability-gate-catalog-weapons.log"
+    },
+    {
+      "name": "equipment",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 4.440411832998507,
+      "log": "/tmp/nikke-probability-gate-equipment.log"
+    },
+    {
+      "name": "real-battle",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 22.37827325006947,
+      "log": "/tmp/nikke-probability-gate-real-battle.log"
+    },
+    {
+      "name": "api",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 395.35235199995805,
+      "log": "/tmp/nikke-probability-gate-api.log"
+    },
+    {
+      "name": "pipeline-lock",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 1.3346619579242542,
+      "log": "/tmp/nikke-probability-gate-pipeline-lock.log"
+    },
+    {
+      "name": "catalog-audit",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0211477089906111,
+      "log": "/tmp/nikke-probability-gate-catalog-audit.log"
+    },
+    {
+      "name": "unit",
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "exit_code": 0,
+      "elapsed_seconds": 7.518816083087586,
+      "log": "/tmp/nikke-probability-gate-unit.log"
+    }
+  ],
+  "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3"
+}

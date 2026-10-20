@@ -29,7 +29,7 @@ def main():
         raw, evidence = original(programs, **kwargs)
         stamp = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
         directory = ROOT / 'research/portable-build' / ('probability-component-' + stamp)
-        directory.mkdir()
+        directory.mkdir(parents=True)
         (directory / 'readback.bin').write_bytes(raw)
         (directory / 'input.bin').write_bytes(portable_runtime.pack_programs(programs))
         captured.update(raw_path=str(directory / 'readback.bin'), input_path=str(directory / 'input.bin'), evidence=evidence)

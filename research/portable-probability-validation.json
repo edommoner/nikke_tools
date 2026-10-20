@@ -1,0 +1,261 @@
+{
+  "passed": true,
+  "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+  "previous_proof_commit": "f2206ef4a32fb89ad9c4f2381bb9dbfa5ec711d1",
+  "checked_at": "2026-10-20T05:00:15.769259+00:00",
+  "wire_abi": "0x5045566C",
+  "mac_gates": 32,
+  "unit_tests": 243,
+  "core_programs": 2280,
+  "positive_cases": 1940,
+  "rejections": 340,
+  "probability_native_cases": 92,
+  "probability_physical_4096_cases": 5,
+  "probability_api_cases": 8,
+  "real_profiles": 102,
+  "old_profiles_preserved": 86,
+  "previous_2182_output_words_preserved": true,
+  "transfer": {
+    "passed": true,
+    "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+    "artifact_commit": "a14c02be184dd57a7e9ff822424f2891915883eb",
+    "windows_report": "research/windows-portable-probability-v67.json",
+    "windows_report_sha256": "243c4e70f232febc1a545f5fb4b939732d403bf04701ad49e5cf8aa75447d065",
+    "parity_report_sha256": "964788c8978bf3574fa51e131d54f26817d1d84077207374d1dc002f1e6f1642",
+    "checked_at": "2026-10-20T04:58:17.234989+00:00",
+    "artifact_transfer_complete": true,
+    "remote_turn": "01a1579f-8aa1-7002-8c5e-2ea22b2f072b",
+    "remote_turn_status": "completed",
+    "windows_execution_terminal": true,
+    "remaining_verification_processes": 0,
+    "core_programs": 2280,
+    "probability_native_cases": 92,
+    "positive_cases": 1940,
+    "rejections": 340,
+    "compared_keys": [
+      "source_sha256",
+      "validation_sha256",
+      "input_sha256",
+      "output_sha256",
+      "cases",
+      "rejected_cases",
+      "actual_statuses",
+      "expected_statuses",
+      "batch_layout",
+      "probability_cpu_regressions",
+      "element_override_cpu_regressions",
+      "enemy_code_cpu_regressions",
+      "named_state_cpu_regressions",
+      "instant_list_cpu_regressions",
+      "protection_cpu_regressions",
+      "status_cpu_regressions",
+      "stack_cpu_regressions",
+      "duration_extend_cpu_regressions",
+      "removal_cpu_regressions",
+      "landing_cpu_regressions",
+      "lifesteal_cpu_regressions",
+      "staged_cpu_regressions",
+      "source_cpu_regressions",
+      "scale_reference_cpu_regressions",
+      "hit_reference_cpu_regressions",
+      "resource_cpu_regressions",
+      "periodic_target_cpu_regressions",
+      "enemy_buff_cpu_regressions",
+      "named_buff_cpu_regressions",
+      "mode_session_cpu_regressions",
+      "known_mode_cpu_differences",
+      "ammo_instant_cpu_regressions",
+      "burst_duration_cpu_regressions",
+      "pending_controller_cpu_regressions",
+      "cover_cpu_regressions",
+      "enemy_component_cpu_regressions",
+      "burst_cpu_regressions",
+      "bullet_cpu_regressions",
+      "lazy_cpu_regressions",
+      "carrier_cpu_regressions",
+      "capacity_cpu_regressions",
+      "health_cpu_regressions",
+      "known_health_cpu_differences",
+      "known_cpu_differences",
+      "weapon_cpu_regressions",
+      "damage_cpu_regressions",
+      "trigger_cpu_regressions"
+    ],
+    "normalized_generated_sha256": {
+      "cuda": "f640b7c2c5fc283366f07afee9ee63a5e54791611ab6d8a6b25f1ac8ece47a6e",
+      "metal": "2a48651335c034e38db808d46b660ab6653954621a04b2e0daf130d3644924ac"
+    },
+    "input_sha256": "5a9a4b3062107630c0060d8c555be0b3b9bd1711975fa22500764e1ec6d1e152",
+    "output_sha256": "6db7acffb26327498ead7c5375ff80652ab9d092cfa9e98aa7b261d155b8423a",
+    "cuda_dispatch_counts": [
+      1024,
+      1024,
+      232
+    ],
+    "metal_dispatch_counts": [
+      2048,
+      232
+    ],
+    "initial_unlocalized_metal_finding_open": true,
+    "full_goal_complete": false
+  },
+  "windows_gpu_executions": 1,
+  "windows_pre_gpu_setup_failures": 1,
+  "windows_execution": {
+    "command": "python research/verify-probability-regression.py --backend cuda --batch-size 1024",
+    "commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+    "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
+    "original_status_before": [],
+    "gpu_before": "30, 4082",
+    "below_normal_priority": true,
+    "python_utf8": true,
+    "python_dontwritebytecode": true,
+    "trace_preflight": {
+      "trace_is_none": true,
+      "profile_is_none": true,
+      "sitecustomize_loaded": false,
+      "pythonpath_removed": true,
+      "exit_code": 0
+    },
+    "pythonpath_removed": true,
+    "diagnostic_hook_enabled": false,
+    "timeout_seconds": 120,
+    "existing_gpu_service_preserved": true,
+    "busy_skip_disabled_by_explicit_instruction": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 90.38449299987406,
+    "stdout": "{\"passed\": true, \"cases\": 1940, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\nAll2182 prior input bytes,output words,decoded cases and native groups preserved\n",
+    "stderr": ""
+  },
+  "windows_postcheck": {
+    "original_head_after": "61a43e91301841c272badce519e4d8984bb5efae",
+    "original_status_after": [],
+    "residual_verification_processes": [],
+    "residual_verification_process_count": 0,
+    "existing_gpu_service_preserved": true
+  },
+  "efficiency_decision": {
+    "passed": true,
+    "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+    "efficiency_evaluated": true,
+    "candidate": "Read only immutable owner/duration/flags/conditionCount in the shared basic condition helper",
+    "selected_for_adoption": true,
+    "production_change_adopted": false,
+    "adoption_stage": "Selected;optimized-source validation still required",
+    "all_2280_input_output_bytes_equal": true,
+    "improved_nonoverlapping_workloads": [
+      "physical4096"
+    ],
+    "worsened_nonoverlapping_workloads": [],
+    "workloads": {
+      "ordinary": {
+        "ratio": 0.9656524935176188,
+        "ranges_overlap": true,
+        "ranges": {
+          "control": [
+            0.006699291639961302,
+            0.00712049996946007
+          ],
+          "accessors": [
+            0.005788541748188436,
+            0.007598291616886854
+          ]
+        },
+        "median_gpu_seconds": {
+          "control": 0.006830916623584926,
+          "accessors": 0.006596291670575738
+        }
+      },
+      "probability": {
+        "ratio": 0.9828505936760488,
+        "ranges_overlap": true,
+        "ranges": {
+          "control": [
+            0.00717550003901124,
+            0.009911875007674098
+          ],
+          "accessors": [
+            0.007493750075809658,
+            0.009548458270728588
+          ]
+        },
+        "median_gpu_seconds": {
+          "control": 0.00964562501758337,
+          "accessors": 0.009480208274908364
+        }
+      },
+      "ordered-stat": {
+        "ratio": 0.9952232190369236,
+        "ranges_overlap": true,
+        "ranges": {
+          "control": [
+            0.008742875070311129,
+            0.009028875036165118
+          ],
+          "accessors": [
+            0.0031976249301806092,
+            0.008911999990232289
+          ]
+        },
+        "median_gpu_seconds": {
+          "control": 0.0088448750320822,
+          "accessors": 0.00880262500140816
+        }
+      },
+      "rank-query": {
+        "ratio": 1.1035118547171152,
+        "ranges_overlap": true,
+        "ranges": {
+          "control": [
+            0.0024537499994039536,
+            0.0033621666952967644
+          ],
+          "accessors": [
+            0.0028975000604987144,
+            0.003805833403021097
+          ]
+        },
+        "median_gpu_seconds": {
+          "control": 0.003253250033594668,
+          "accessors": 0.003589999978430569
+        }
+      },
+      "physical4096": {
+        "ratio": 0.9728680537617548,
+        "ranges_overlap": false,
+        "ranges": {
+          "control": [
+            0.4773588333046064,
+            0.4851655000820756
+          ],
+          "accessors": [
+            0.4603643750306219,
+            0.469387041637674
+          ]
+        },
+        "median_gpu_seconds": {
+          "control": 0.4774691249476746,
+          "accessors": 0.46451445831917226
+        }
+      }
+    },
+    "benchmark_sha256": "f2bc06988586fbbf228ef780534e22d821266d9233399345a74e808b2fa1ca65",
+    "initial_unlocalized_metal_finding_open": true,
+    "scope": "Five local workloads,warmup+3 samples on Apple M5;no full-roster,CUDA-speed or peak-memory claim"
+  },
+  "production_change_adopted": false,
+  "own_effect_preflight_passed": 51,
+  "unadmitted_effects": 370,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "normal_ui_backend": "cpu",
+  "initial_unlocalized_metal_finding_open": true,
+  "future_cpu_studies_not_gpu_validated": [
+    "core/range conditions",
+    "probability endpoint chains"
+  ],
+  "report_directory_parent_fix": "Research IO only after execution;both executed drivers are Git27a3751",
+  "input_sha256": "5a9a4b3062107630c0060d8c555be0b3b9bd1711975fa22500764e1ec6d1e152",
+  "output_sha256": "6db7acffb26327498ead7c5375ff80652ab9d092cfa9e98aa7b261d155b8423a"
+}

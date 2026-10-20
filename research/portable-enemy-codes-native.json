@@ -19956,12 +19956,12 @@
     }
   ],
   "validation_sha256": {
-    "gpu/event_runtime.slang": "4279b88d9d093bd7e33dbcd978f18a8051379d5113f4bac08b6c1d47f8ad69c2",
-    "gpu/admission_runtime.slang": "e0b458871570b27d01cb359c86455e5f995f04e14f810add9a46369b20063db0",
-    "app/portable_specs.py": "b7c3352ce5d8eb57529aed4e43461e841bf3a98ed07af816fa7ee49f93d2aee0",
+    "gpu/event_runtime.slang": "ed400ff51d49e253b2a03a419dcdde5d5a8a8a11a1927bdf11641e8186daa662",
+    "gpu/admission_runtime.slang": "80024c2d33984fb6a51e9c62c1e6844a10c8d049138683a13f213269d85bf573",
+    "app/portable_specs.py": "b46538f0221b7205a0699d33c4ddaf7f6e6351922517c1d31a77ceef08d87281",
     "app/portable_code_specs.py": "b53cd9cee83bf1cf6442c72db6a1fd65cc4408f2471c9fd504de54cb42cd86ab",
-    "app/portable_trigger_specs.py": "cb331314acba871bc8a66b18829d75fac459373c4af75a770c30284727b8f6c9",
-    "app/portable_runtime.py": "a1af4682b8155d4aa9e25ce5bdd8e8930a8a795c898734704906602a2dfa89e9",
+    "app/portable_trigger_specs.py": "7d4e9045da232fbe5579e35e5fe9635b129fbd865c2b736f7560a1cc63504e9f",
+    "app/portable_runtime.py": "2c10e4a610569958183566f7385ad0b07a81f154ce5c36edea3ce2c73cb98c2c",
     "app/portable_recipient_specs.py": "6bd29a3e5bab623bdd3a49706395864fe9bdf0fb9e1e78dd2060487d75f9d8fd",
     "scripts/portable_code_oracle.py": "8a8f989e8c4431fc52f0bf56104b7f852603a97ae3002865af5ee9a9913ef98c",
     "tests/fixtures/portable-enemy-codes.json": "04e1b4450cb8426d04aa156b71d7f2e946c55c3ec6310a2654e1d6de4782394b",

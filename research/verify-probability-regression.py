@@ -66,7 +66,7 @@ def main():
         assert calls == 1
         stamp = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
         directory = ROOT / 'research/portable-build' / ('probability-core-' + stamp)
-        directory.mkdir()
+        directory.mkdir(parents=True)
         with (directory / 'input.bin').open('wb') as stream:
             stream.write(struct.pack('<I', len(programs)))
             for words, _ in programs:

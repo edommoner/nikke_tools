@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+  "artifact_sha256": {
+    "research/portable-probability-validation.json": "b4b681619c7d892ba98e2c45c484cf89959cfe3a78df498a5ef1c97ac27a0cbc",
+    "research/portable-combat-checkpoint.json": "5c157d566f7a9d2b0d8cdc6250cb65d4b7d295ad6c3637570804d9db6cf0386a",
+    "research/portable-probability-broad-validation.json": "73a472e19d155bf1a762daa47d7063d32d7619bbf6a1780401c3de58e23645f1",
+    "research/portable-probability-global-gates.json": "1b81f21f8092fdf9fcd5fb7827f8e78b2fbbe9b4461486c15c7a1d7ac7cf16a2",
+    "research/portable-probability-transfer-completed.json": "ff893d3c2bacb6afb1a319b3224554b0b92279aaf0c366d6e3a4470c381530ee",
+    "research/portable-probability-timing-order.json": "67975954e84957f953768463f55242e26fc7b00f0bb1ecd6068125b203df55cc",
+    "research/portable-probability-candidate-parity.json": "7286673867edbae6a0a90953c039e63b917e4f89bd530da490830132a0eb5a27",
+    "research/portable-probability-benchmark.json": "f2bc06988586fbbf228ef780534e22d821266d9233399345a74e808b2fa1ca65",
+    "research/portable-probability-efficiency-decision.json": "0e62b112535a73c38e88bc3999901d6877085ff09aaae62371c72df9cb3a1302",
+    "research/portable-probability-existing-metal-parity.json": "6ad63c8c3a60dca8f3af49f41df03380f6a87a20242aabf37db6f56ca9e097d1",
+    "research/portable-probability-existing-cuda-parity.json": "964788c8978bf3574fa51e131d54f26817d1d84077207374d1dc002f1e6f1642",
+    "research/portable-combat-metal.json": "8436f5b9fe94ffaefcbbaeb2bd34598a8dcc0e342c66ef12c4b89562fa84e8bf",
+    "research/portable-combat-cuda.json": "55da0979caec80fb7d14c242703b957f1175fcb9f3f639a619d1be5167ee3a29",
+    "research/windows-portable-probability-v67.json": "243c4e70f232febc1a545f5fb4b939732d403bf04701ad49e5cf8aa75447d065",
+    "research/seal-probability-gates.py": "557f269f246971b8e31453b4067e67e6dff6a9be34bb30f0639f7cada52e4d92",
+    "research/seal-probability-cuda.py": "285d8231dd2b788319945e7e3d71ea3bcec6749f041292e8d4537be27664ed15",
+    "research/seal-probability-validation.py": "67f20857106c33712f76e9d6511a81b7365d96e9f3cdcb4ac06b74952641ea3e",
+    "research/benchmark-probability.py": "718c44dccd9142daf713644504fd6f0ca58d9e60d829a691cc0821643a25fca5",
+    "research/decide-probability-efficiency.py": "c994b3a03d21df9bf7d36aaa3271dd48823ebdb2bc7814ccfa15cb5d13abc929",
+    "docs/mac-handoff.md": "d9a19cb40a3d407e4c8c0eca726cd5edeb183c7861819c63f1c5022e51a7b145",
+    "docs/mac-migration.md": "c9dd9ad734dea12dac79b3d37f42e96be530e2d88e85693676cb566ef96a9a8a",
+    "docs/portable-combat-runtime.md": "892f4728b037588156eb23ce516c15c9842f488ae9432def5fa6279f7010c71a",
+    "docs/portable-probability-design.md": "86af2d2390cbeaa58aa12381af1b7c457079ed2a6620aa37fd2f0f9180f02091"
+  }
+}

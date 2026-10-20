@@ -13,12 +13,12 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.001122875022701919,
+    "gpu_seconds": 0.0011477499501779675,
     "input_bytes": 1376260,
-    "library_compile_seconds": 0.00040793418884277344,
+    "library_compile_seconds": 0.0003889799118041992,
     "output_bytes": 249856,
-    "pipeline_compile_seconds": 0.0004210472106933594,
-    "pipeline_lock_wait_seconds": 9.5367431640625e-07,
+    "pipeline_compile_seconds": 0.0003980398178100586,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
     "threads_per_threadgroup": 1,
@@ -27,10 +27,10 @@
   },
   "source_sha256": {
     "gpu/definition_scalar_probe.slang": "208c75502a80d859102b3b9e7cce1712ec15b505a3842f93aebd02bff5671c74",
-    "gpu/event_runtime.slang": "4279b88d9d093bd7e33dbcd978f18a8051379d5113f4bac08b6c1d47f8ad69c2",
+    "gpu/event_runtime.slang": "ed400ff51d49e253b2a03a419dcdde5d5a8a8a11a1927bdf11641e8186daa662",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
-    "gpu/portable_schema.slang": "6a24b5fc143189ed7ac4098c36b9371fd970b7f27373b63b18c856a64b6dfb08",
+    "gpu/portable_schema.slang": "0784e46590ac095845c2c28f47e2b3018b485c695de6e63342a78f5b6d62a158",
     "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
     "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d",
     "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
@@ -71,7 +71,7 @@
     "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
     "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
-    "gpu/admission_runtime.slang": "e0b458871570b27d01cb359c86455e5f995f04e14f810add9a46369b20063db0"
+    "gpu/admission_runtime.slang": "80024c2d33984fb6a51e9c62c1e6844a10c8d049138683a13f213269d85bf573"
   },
   "generated_sha256": {
     "cuda": "55f3cc6a6bae61b53c0e45ce4fd8d061d54638aace6b2b45bae434bdf7423c17",

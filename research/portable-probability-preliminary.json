@@ -1,20 +1,20 @@
 {
   "passed": true,
-  "scope": "Partial Metal component evidence;not a completed all-gates or CUDA proof",
+  "scope": "Fixed-source Mac32 gates and CUDA2280 parity complete;efficiency candidate measured but not adopted",
   "wire_abi": "0x5045566C",
   "metal_components": 92,
   "unit_tests": 243,
   "core_current_positive": 1940,
   "core_current_rejections": 340,
   "current_inputs": 2280,
-  "current_full_core_verified": false,
+  "current_full_core_verified": true,
   "previous_84_component_core_inputs": 2272,
   "previous_2182_output_words_preserved": true,
   "mac_gates_required": 32,
-  "mac_all_gates_complete": false,
+  "mac_all_gates_complete": true,
   "real_roster_profiles_required": 102,
-  "cuda_current_source_executed": false,
-  "efficiency_evaluated": false,
+  "cuda_current_source_executed": true,
+  "efficiency_evaluated": true,
   "own_effect_preflight_passed": 51,
   "unadmitted_effects": 370,
   "previous_full_proof_commit": "f2206ef4a32fb89ad9c4f2381bb9dbfa5ec711d1",
@@ -25,10 +25,42 @@
   "artifact_sha256": {
     "research/portable-probability-metal.json": "2abf6b283597c8384a785a65729a3f4c66212dda8a4e4bb98e09d2655e3034c4",
     "research/portable-probability-native.json": "60e7ff70f154875591e6df154f8ff2be11dee157ede2e22419b3e420432c98a6",
-    "research/portable-probability-existing-metal-parity.json": "75a543fa31a0838c6ba56bc724daf705b06ed976fe098b56466f80a175f85537",
+    "research/portable-probability-existing-metal-parity.json": "6ad63c8c3a60dca8f3af49f41df03380f6a87a20242aabf37db6f56ca9e097d1",
     "research/portable-probability-first-core-readback.json": "4ab7470ccb34cf2af1ea8045c331e83282c740ce185ba5d61865d5cef25eaefd",
     "research/portable-probability-initial-fixture-finding.json": "aa4dbb541792815f822c4e0bb56c2e4e28960791218255ecd1b58f144fa69adf",
-    "research/portable-combat-metal.json": "3aa872326eabf98a545849fd46e5a027df4123a264e9857c125e5fc5e2b80770",
+    "research/portable-combat-metal.json": "8436f5b9fe94ffaefcbbaeb2bd34598a8dcc0e342c66ef12c4b89562fa84e8bf",
     "research/portable-catalog-readiness.json": "3159af4046bb649e7677500827f12f1f0ceba829ef91900eb8aebc841840e403"
-  }
+  },
+  "fixed_source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+  "current_core_gpu_replayed": false,
+  "mac_live_runner_session": 1449,
+  "mac_progress_report": "portable-probability-global-gates.json",
+  "mac_gates_passed": 32,
+  "real_roster_profiles_verified": 102,
+  "old_profiles_preserved": 86,
+  "cuda_current_source_reported_success": true,
+  "cuda_reported_elapsed_seconds": 90.38,
+  "windows_gpu_executions": 1,
+  "windows_pre_gpu_setup_failures": 1,
+  "cuda_saved_report_transferred": true,
+  "cuda_metal_saved_report_compared": true,
+  "publication_auto_review_rejected": true,
+  "publication_confirmation_pending": false,
+  "windows_saved_files_reported": [
+    {
+      "path": "research/windows-portable-probability-v67.json",
+      "bytes": 22872845,
+      "sha256": "243c4e70f232febc1a545f5fb4b939732d403bf04701ad49e5cf8aa75447d065"
+    },
+    {
+      "path": "research/portable-probability-existing-cuda-parity.json",
+      "bytes": 24620,
+      "sha256": "964788c8978bf3574fa51e131d54f26817d1d84077207374d1dc002f1e6f1642"
+    }
+  ],
+  "publication_human_permission_received": true,
+  "publication_completed": true,
+  "transfer_receipt": "portable-probability-transfer-completed.json",
+  "efficiency_candidate_selected": true,
+  "production_change_adopted": false
 }

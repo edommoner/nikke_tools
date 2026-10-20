@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "all_current_gates_passed": true,
+  "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+  "previous_proof_commit": "f2206ef4a32fb89ad9c4f2381bb9dbfa5ec711d1",
+  "checked_at": "2026-10-20T04:46:09.122977+00:00",
+  "mac_gates": 32,
+  "core_programs": 2280,
+  "positive_cases": 1940,
+  "rejections": 340,
+  "probability_native_cases": 92,
+  "probability_physical_4096_cases": 5,
+  "probability_api_cases": 8,
+  "unit_tests": 243,
+  "unit_groups": {
+    "unit": {
+      "tests": 243,
+      "output": "...................................................................................................................................................................................................................................................\n----------------------------------------------------------------------\nRan 243 tests in 6.677s\n\nOK\n"
+    },
+    "staged-native": {
+      "tests": 9,
+      "output": "../Users/edo/Documents/ChatGPT/nikke_tools/research/upstream/nikke-calc-master/scraper/profile_fetch.py:187: ResourceWarning: unclosed file <_io.TextIOWrapper name='/Users/edo/Documents/ChatGPT/nikke_tools/research/upstream/nikke-calc-master/scraper/nikke_scraped.json' mode='r' encoding='utf-8'>\n  d = json.load(open(os.path.join(HERE, \"nikke_scraped.json\"), encoding=\"utf-8\"))\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n.......\n----------------------------------------------------------------------\nRan 9 tests in 0.725s\n\nOK\n"
+    },
+    "source-native": {
+      "tests": 6,
+      "output": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n"
+    },
+    "native-mode-spec": {
+      "tests": 4,
+      "output": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.009s\n\nOK\n"
+    },
+    "native-mode-input": {
+      "tests": 3,
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.013s\n\nOK\n"
+    },
+    "reference-rewrite": {
+      "tests": 3,
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
+    }
+  },
+  "real_profiles": 102,
+  "old_profiles_preserved": 86,
+  "own_effect_preflight_passed": 51,
+  "initial_unlocalized_metal_finding_open": true,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "efficiency_evaluated": false,
+  "cuda_current_source_executed": false,
+  "scope": "Completed fixed-source Mac gates only;CUDA transfer and efficiency still pending"
+}
