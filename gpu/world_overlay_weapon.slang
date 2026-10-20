@@ -4,7 +4,7 @@
 bool worldPauseWeapon(inout Runtime s,Weapon w,uint who,uint64_t when)
 {
     if(!worldOverlayEnabled(s)) return false;
-    uint at=s.resourceOutput+WO_OUT+288+who*8;
+    uint at=s.resourceOutput+P_WORLD_OVERLAY_PAUSE_BASE+who*8;
     if(!worldVanish(s) || w.mode==1 || (commands[s.inputBase+WO_IN+1]&(1U<<who))!=0)
     { results[at+6]=0;return false; }
     if(w.mode==2)
@@ -29,7 +29,7 @@ bool worldChargePolicy(inout Runtime s,uint who)
 void worldChargeReset(inout Runtime s,uint who)
 {
     if(!worldChargePolicy(s,who)) return;
-    uint at=s.resourceOutput+WO_OUT+328+who*8;
+    uint at=s.resourceOutput+P_WORLD_OVERLAY_CHARGE_BASE+who*8;
     for(uint i=0;i<8;i++) results[at+i]=0;
 }
 bool worldVanishReturn(inout Runtime s,out uint64_t returnAt)
@@ -47,7 +47,7 @@ bool worldVanishReturn(inout Runtime s,out uint64_t returnAt)
 bool worldChargeHold(inout Runtime s,Weapon w,uint who,uint64_t when)
 {
     if(!worldChargePolicy(s,who) || s.error!=0) return false;
-    uint at=s.resourceOutput+WO_OUT+328+who*8;
+    uint at=s.resourceOutput+P_WORLD_OVERLAY_CHARGE_BASE+who*8;
     if((results[at]&1)==0)
     {
         if(f64Less(when,s.chargeUntil[who])) return false;
@@ -64,4 +64,13 @@ bool worldChargeHold(inout Runtime s,Weapon w,uint who,uint64_t when)
         }
     }
     results[at]&=~2U;return false;
+}
+
+void worldChargeCancel(inout Runtime s,uint who)
+{
+    if(!worldChargePolicy(s,who)) return;
+    // Native mode entry invalidates the completed charge,while its old
+    // vanish deadline remains until the next physical charge starts.
+    uint at=s.resourceOutput+P_WORLD_OVERLAY_CHARGE_BASE+who*8;
+    results[at]&=~1U;storeNumber(at+2,0);storeNumber(at+6,0);
 }

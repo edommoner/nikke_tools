@@ -116,6 +116,7 @@ struct Runtime
 #define WORLD_NORMAL_ONLY(s,who) if(!worldPhysicalSkill(s,who))
 #define WORLD_PACKET_FLAGS(s,who,value) ((value) | (worldPhysicalSkill(s,who) ? 32768U : 0U))
 #define WORLD_MODE_CORE(s,who,flags,accuracy) ((flags & 32768U)!=0 ? normalProbability(s,who,accuracy) : 0)
+#define WORLD_MODE_CHARGE_CANCEL(s,who) worldChargeCancel(s,who);
 #define WORLD_CHARGE_START(s,who) worldChargeReset(s,who);
 #define WORLD_CHARGE_HOLD(s,w,who,when) if(worldChargeHold(s,w,who,when)) return;
 #define WORLD_CHARGE_FINISH(s,w,who) if(w.mode==1) worldChargeReset(s,who);
@@ -136,6 +137,7 @@ struct Runtime
 #define WORLD_PACKET_FLAGS(s,who,value) value
 #define WORLD_MODE_CORE(s,who,flags,accuracy) 0
 #define WORLD_MODE_GAUGE(s,w,who,index)
+#define WORLD_MODE_CHARGE_CANCEL(s,who)
 #define WORLD_CHARGE_START(s,who)
 #define WORLD_CHARGE_HOLD(s,w,who,when)
 #define WORLD_CHARGE_FINISH(s,w,who)

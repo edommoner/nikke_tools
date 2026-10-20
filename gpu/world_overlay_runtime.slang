@@ -13,7 +13,7 @@ uint woRangeMask(inout Runtime s) { return results[s.resourceOutput+WO_OUT+3]; }
 [noinline]
 bool initializeWorldOverlays(inout Runtime s)
 {
-    for(uint i=0;i<368;i++) results[s.resourceOutput+WO_OUT+i]=0;
+    for(uint i=0;i<P_WORLD_OVERLAY_STATE_WORDS;i++) results[s.resourceOutput+WO_OUT+i]=0;
     uint at=s.inputBase+WO_IN;
     if(commands[at]==0) { for(uint i=0;i<528;i++) if(commands[at+i]!=0) return false;return true; }
     if(commands[at]!=0x574f3031 || commands[s.inputBase+P_WORLD_FRAME_INPUT_BASE]!=0x57533031 || s.targetCount!=1 || commands[s.inputBase+P_LANDING_META_BASE]!=1 || commands[s.inputBase+P_GEOMETRY_BASE]==0) return false;
@@ -206,11 +206,11 @@ void worldDispel(inout Runtime s,uint row,uint scope,uint64_t when)
 
 // Snapshot the physical packet category before callbacks can clear/switch modes.
 bool worldPhysicalSkill(inout Runtime s,uint who)
-{ return (results[s.resourceOutput+WO_OUT+288+who*8+7]&1)!=0; }
+{ return (results[s.resourceOutput+P_WORLD_OVERLAY_PAUSE_BASE+who*8+7]&1)!=0; }
 void worldSampleShotKind(inout Runtime s,uint who,int mode,uint hitCount)
 {
     uint flag=mode<0 ? 0 : commands[s.inputBase+P_MODE_BASE+uint(mode)*P_MODE_WORDS+31];
-    results[s.resourceOutput+WO_OUT+288+who*8+7]=flag!=0 ? 1U | (hitCount>1 ? 2U : 0U) : 0U;
+    results[s.resourceOutput+P_WORLD_OVERLAY_PAUSE_BASE+who*8+7]=flag!=0 ? 1U | (hitCount>1 ? 2U : 0U) : 0U;
 }
 bool worldModePolicyInvalid(inout Runtime s,uint policy)
 { return policy>1 || policy!=0 && !worldOverlayEnabled(s); }
@@ -223,4 +223,4 @@ bool worldPhysicalGauge(inout Runtime s)
 // Preserve native _is_normal: named pellet/core:pellet packets retain the
 // normal landing category,independently from their skill formula and gauge.
 bool worldPhysicalNormal(inout Runtime s,uint who)
-{ uint flags=results[s.resourceOutput+WO_OUT+288+who*8+7];return (flags&1)==0 || (flags&2)!=0; }
+{ uint flags=results[s.resourceOutput+P_WORLD_OVERLAY_PAUSE_BASE+who*8+7];return (flags&1)==0 || (flags&2)!=0; }

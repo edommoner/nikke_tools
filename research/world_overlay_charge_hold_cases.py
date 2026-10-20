@@ -26,5 +26,7 @@ def fixtures():
  for w in c['combat']['weapons']:w['gauge_mult']=100
  c=add('full-latch-survives-speed-expiry',[v(.15)],.18);c['effects']=[dict(name='temporary-charge-speed',source='스킬1',type='buff',stat='charge_speed_pct',fixed_value=100,target='self',duration=.12,trigger=dict(timing=['battle_start'],condition=[]))];c['owners']=[0]
  c=add('weapon-switch-while-holding',[v()],1);c['effects']=[dict(name='temporary-mode',source='스킬1',type='weapon_change',weapon_type='AR',damage_coeff=100,max_ammo=-1,fire_rate=10,fire_rate_max=10,charge=False,pellets=1,muzzles=1,post_fire_delay=0,burst_energy=.25,core_dmg_mult=200,target='self',duration=.2,max_trigger=1,trigger=dict(timing=['every:0.3s'],condition=[]))];c['owners']=[0]
+ for duration in (.4,.7):
+  c=copy.deepcopy(next(c for c in rows if c['name']=='charge-hold-weapon-switch-while-holding'));c['name']='charge-hold-weapon-switch-snapshot-'+str(duration);c['duration']=duration;rows.append(c)
  c=add('regular-character-does-not-hold',[v(.5)]);c['names']=['리타',*c['names'][1:]];c['camera']=list(c['names'])
  return rows

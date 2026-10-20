@@ -154,7 +154,8 @@ def main():
    actual.update(gauge=actual['ordinary']['queries'][-1]['combat']['gauge'],world_nodes=[dict(blocked=number(head+32+j*8+4),opens=block[head+32+j*8],**(dict(dispelled=bool(block[head+32+j*8+1]),dispels=block[head+32+j*8+6]) if case.get('observe_cleanse') else {})) for j in range(len(case['patterns']))])
   if case.get('observe_charge_hold'):
    weapons=actual['ordinary']['queries'][-1]['combat']['weapons']
-   actual['charge_hold']=[dict(owner=i,charging=weapons[i]['charging'],full_time=number(head+328+i*8+6) if block[head+328+i*8]&1 else -1.,deadline=number(head+328+i*8+4) if block[head+328+i*8]&2 else -1.) for i,name in enumerate(roster_names(case)) if name=='스노우 화이트 : 헤비암즈']
+   charge=L['WORLD_OVERLAY_CHARGE_BASE']
+   actual['charge_hold']=[dict(owner=i,charging=weapons[i]['charging'],full_time=number(charge+i*8+6) if block[charge+i*8]&1 else -1.,deadline=number(charge+i*8+4) if block[charge+i*8]&2 else -1.) for i,name in enumerate(roster_names(case)) if name=='스노우 화이트 : 헤비암즈']
   changed=[k for k in ('damage','allies','covers','shots','ammo','hits','boss_log','rng','graph_states','graph_history') if actual[k]!=native[k]]
   if case.get('observe_overlay'):changed += [k for k in ('gauge','world_nodes') if actual[k]!=native[k]]
   if case.get('observe_charge_hold'):changed += [k for k in ('charge_hold',) if actual[k]!=native[k]]
