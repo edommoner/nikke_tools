@@ -1,6 +1,6 @@
 // Named predicates consume canonical carrier keys;lifetimes/scalars remain shared.
 bool actorStateEnabled(inout Runtime s)
-{ return actorFieldsEnabled(s) && commands[s.inputBase+P_WORLD_ACTOR_POOL_INPUT_BASE+4]==0x57533031; }
+{ return WORLD_MUTATION_STATE_ENABLED(s,actorFieldsEnabled(s) && commands[s.inputBase+P_WORLD_ACTOR_POOL_INPUT_BASE+4]==0x57533031); }
 uint actorStatePushQuery(inout Runtime s,uint target)
 {
     if(!actorStateEnabled(s)) return 0;
@@ -107,7 +107,7 @@ bool actorNamedNumericCondition(inout Runtime s,uint row,uint who,uint64_t when)
 }
 
 bool actorStateHeaderInvalid(inout Runtime s,uint base,uint index)
-{ uint value=commands[base+index];return index==4 ? value!=0&&value!=0x57533031 : value!=0; }
+{ uint value=commands[base+index];return index==4 ? WORLD_MUTATION_HEADER_INVALID(s,value,value!=0&&value!=0x57533031) : value!=0; }
 
 bool actorStateHealthContract(Definition d)
 {
