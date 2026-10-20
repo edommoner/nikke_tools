@@ -1,140 +1,152 @@
 {
-  "stage": "Scalar filter candidate met criteria with exact4682+80+20 parity;promoted locally for fresh canonical Metal52 and short CUDA validation",
-  "updated_at": "2026-10-20T14:11:38.074253+00:00",
-  "production_source_commit": "39bce8aa5c9c5f29f0653e80fc69855f19ad5ad6",
-  "production_proof_commit": "89c19e3",
-  "production_abi": "0x50455673",
-  "candidate_abi": "0x50455673",
-  "candidate_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z",
-  "candidate_shader": "research/portable-build/enemy-target-candidate-20261020T115159399973Z/enemy_target_candidate_runtime.slang",
-  "candidate_host_sources": {
-    "app/portable_enemy_target_specs.py": {
-      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/app/portable_enemy_target_specs.py",
-      "sha256": "0a046ccd73390e088f4afd86743c45c6bc0d5580e2b46a7908c73a42debfcb08"
-    },
-    "research/enemy_target_native.py": {
-      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/enemy_target_native.py",
-      "sha256": "aa44e998a8ce276debcb249548e9f7351421b0243b6a897c970a5e22a519d9c9"
-    },
-    "research/verify-target-rng.py": {
-      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/verify-target-rng.py",
-      "sha256": "18ab72334b32e62019cb243c5c2a3ca7052bcdde4d75d3766ae89504c1a3d691"
-    },
-    "research/verify-enemy-target-candidate.py": {
-      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/verify-enemy-target-candidate.py",
-      "sha256": "1da0c555fde338b1006dfd4975389446adea146f612cd1e287668da4e3c72a3f"
-    },
-    "research/build-enemy-target-cases.py": {
-      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/build-enemy-target-cases.py",
-      "sha256": "44db38877cc14b61c373e1b37c0621cb3a4b40d70d275d44cacfb0bd75f45384"
-    },
-    "research/portable-enemy-target-inputs.json": {
-      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/portable-enemy-target-inputs.json",
-      "sha256": "4c0960593a28a395f9fd042573254616ed761a89c046f5badba85a927f973846"
-    },
-    "research/enemy_target_validation.py": {
-      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/enemy_target_validation.py",
-      "sha256": "9bc50e9e5e713cf450bf6e27ee9b221d6a86e907b2f86d6cdfe1179c937a3326"
-    },
-    "research/verify-enemy-target-admission.py": {
-      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/verify-enemy-target-admission.py",
-      "sha256": "2e1b2705ac49b40448c0d7256cec7ca3826d0a39787197a641f875941169c37f"
-    }
+  "schema_version": 2,
+  "updated_at": "2026-10-20T15:04:53.468634+00:00",
+  "stage": "Canonical Metal52/CUDA4682 exact parity complete;measured scalar optimization adopted",
+  "current_fixed_source_commit": "73570451569dce424667e37f4729e475ea6b0a86",
+  "last_fully_verified_source_commit": "73570451569dce424667e37f4729e475ea6b0a86",
+  "abi": "0x50455673",
+  "code_shared_through": "73570451569dce424667e37f4729e475ea6b0a86",
+  "source_export": {
+    "approved": true,
+    "files": 8,
+    "bytes": 974713,
+    "manifest": "research/portable-enemy-target-scalar-source-inventory.json"
   },
-  "production_adopted": true,
-  "metal_positive_cases": 4112,
-  "metal_raw_rejections": 570,
-  "old4070_full_output_words_preserved": true,
-  "old468_inputs_and_output_words_preserved": true,
-  "mt19937_metal_cases": 31,
-  "mt19937_all624_state_words_and_counters_match": true,
-  "native_edge_cases": 25,
-  "native_target_rule_parser_cases": 51,
-  "windows_new_target_source_gpu_sessions": 1,
-  "cuda_current_candidate_verified": true,
-  "efficiency_started": true,
+  "normal_ui": "CPU",
   "full_character_verified": 0,
   "full_goal_complete": false,
-  "normal_ui": "CPU",
-  "live_gpu_jobs": [],
+  "own_effect_preflight_passed": 79,
+  "favorite_preflight_contexts": 313,
+  "favorite_audited_contexts": 812,
+  "all_four_stages_preflight_characters": 78,
+  "unadmitted_effects": 264,
+  "canonical_metal": {
+    "passed": true,
+    "mac_gates": 52,
+    "python_units": 278,
+    "node_tests": 4,
+    "inputs": 4682,
+    "positive_cases": 4112,
+    "rejections": 570,
+    "enemy_target_native_cases": 548,
+    "mode_enemy_name_native_cases": 24,
+    "resolved_finite_hp_cpu_exceptions": 3,
+    "roster_conditions": 158,
+    "native_projection_exact_profiles": 156,
+    "known_native_hp_gap_profiles": 2,
+    "all158_input_and_readback_words_preserved": true,
+    "last_capture": "research/portable-build/enemy-target-core-20261020T141834234332Z",
+    "receipt": "research/portable-enemy-target-scalar-broad-validation.json",
+    "roster_parity": "research/portable-enemy-target-scalar-roster-parity.json",
+    "baseline4682_input_and_output_preserved": true
+  },
+  "windows": {
+    "thread": "01a140bc-5f3b-7661-b720-50c945596eaa",
+    "execution_turn": "01a159d0-9bc0-75a1-b545-0cc16f354183",
+    "cursor": "09b5d983-892a-4318-b2cf-37e3aa661d1e:53",
+    "version": "v78",
+    "source_commit": "73570451569dce424667e37f4729e475ea6b0a86",
+    "status": "completed",
+    "fresh_gpu_execution_started": true,
+    "maximum_gpu_invocations": 1,
+    "below_normal": true,
+    "timeout_seconds": 180,
+    "artifact_sharing_approved": true,
+    "comparison_complete": true,
+    "passed": true,
+    "actual_gpu_invocations": 1,
+    "elapsed_seconds": 145.19343340024352,
+    "residual_verification_processes": 0,
+    "publication_requested": true,
+    "publication_turn": "01a159d4-7a93-7e10-a297-265de3075ea4",
+    "publication_terminal": true,
+    "transfer_complete": true,
+    "artifact_commit": "39fbfc4a3197fbfe6cdf666df9589d34eb985c6d"
+  },
+  "baseline": {
+    "source_commit": "782a13ca6249a52c30003b88870420cbd5b2f7ee",
+    "mac52_and_roster158_passed": true,
+    "cuda4682_passed": true,
+    "windows_version": "v77",
+    "actual_gpu_invocations": 1,
+    "elapsed_seconds": 145.90352279972285,
+    "artifact_commit": "7f318768fad2a68bac3e204ddab8d879dc54afd7",
+    "result_files": 2,
+    "result_bytes": 52532755,
+    "result_sharing_approved": true,
+    "transfer_complete": true,
+    "full_input_and_readback_equal": true,
+    "transfer_receipt": "research/portable-enemy-target-transfer-completed.json",
+    "timing_barrier": "research/portable-enemy-target-timing-order.json"
+  },
+  "efficiency": {
+    "process_terminal": true,
+    "started_only_after_baseline_all_verification_and_transfer_terminal": true,
+    "criteria_met": true,
+    "candidate_promoted_for_canonical_verification": true,
+    "fully_adopted": true,
+    "plan": "research/portable-enemy-target-efficiency-plan.json",
+    "benchmark": "research/portable-enemy-target-scalar-benchmark.json",
+    "decision": "research/portable-enemy-target-scalar-decision.json",
+    "canonical_and_benchmark_generated_bodies_identical": true,
+    "scope": "M5 local synthetic enemy-selection workloads only;no CUDA speed or full-roster speed claim",
+    "adoption_receipt": "research/portable-enemy-target-scalar-adoption.json"
+  },
+  "initial_findings": {
+    "source_commit": "1db1a3f46e594eca59284b0c0b32d42628fc4ee7",
+    "gates": 52,
+    "passed_gates": 50,
+    "roster_passed": 152,
+    "roster_conditions": 158,
+    "resolved_host_cpu_api_findings": true,
+    "raw_and_initial_failure_reports_retained": true,
+    "source_time_boundary_finding": "research/portable-enemy-target-time-initial-finding.json",
+    "unlocalized_metal_14c8e2e_finding_open": true
+  },
   "remaining_requirements": [
-    "Promote candidate hooks into canonical app/runtime/schema with seed and marker definitions shared;preserve protected CRLF files",
-    "Add canonical enemy target fixtures/oracle/admission helpers to same CUDA/Metal core verifier;preserve all prior4070 input/output/decoded/native groups",
-    "Add long63-attack programs using authored seeds190 and765:original CPython uses627 draws and crosses624-word MT boundary within64-command capacity",
-    "Support exact uint64 seed transfer via canonical decimal string for JSON/JavaScript;do not treat it as Python string-hashed seed",
-    "Keep all marker and target RNG fields outside64 numeric stat vector and inside current86016/159744 strides",
-    "Decode new ordered victim/protection hits from GPU target-order records;legacy31 decoded cases remain byte/field identical",
-    "Common default32 coverage derives from GPU reloadUntil and existing cover-disabled logic;CPU cover/target masks stay reserved0",
-    "Freeze canonical compute commit,run units and fresh full Metal regression,old4070 parity and broad suites/roster preservation",
-    "Use Windows only for one necessary short canonical CUDA verification after concrete source sharing authorization;include long-sequence MT cases in shared core",
-    "Compare artifacts after individual approval;only after all correctness/transfer/jobs terminal evaluate efficiency",
-    "Continue general GPU enemy-world scheduling,revive/control and remaining character/effect families;do not count simple-boss preflight as full character certification"
+    "Continue general GPU enemy-world scheduling,manual controls,revive and remaining character/effect families;keep full character certification0/203 and normal UI CPU until all variant gates pass",
+    "Preserve old unresolved Metal14c8e2e finding and strict White Crane2 known HP gaps;do not widen exceptions"
   ],
-  "implementation_notes": [
-    "Native taunters skips unresolved target_chars=None;explicit live-stat query resolves ranked taunt,while stealth resolves on first pool query even for a nonmember",
-    "Revive of ranked passive creates unresolved target again;all-allies revival appends recipient to stored order,so first taunter can remain slot1 after slot0 revives. Revive is native characterization only;shared revive not connected",
-    "Enemy taunt skips runtime predicate but must observe target generation/departure and caster down state",
-    "Random/top attack build stealth pool even if taunt already fills all seats;final selected non-taunter membership returns in squad order",
-    "CPython small pool uses n.bit_length and rejection;singleton randbelow still consumes/rejects bits. MT state lives in GPU output scratch133840..134471",
-    "Candidate32 uses original ordered layered/split/notification executor;actual automatic reloading cover is GPU-derived",
-    "Enemy taunt must be excluded from numeric collectEnemyModifiers even for nonzero magnitude",
-    "New core report may exceedGitHub100MiB if duplicate results kept;assert results==all cases.actual then store one canonical copy,as done for Windows artifacts",
-    "No current candidate CUDA or speed claim;initial unrelated Metal finding remains open"
-  ],
-  "adoption_verified": false,
-  "last_complete_source_commit": "39bce8aa5c9c5f29f0653e80fc69855f19ad5ad6",
-  "canonical_positive_cases": 4112,
-  "canonical_raw_rejections": 570,
-  "canonical_enemy_target_cases": 548,
-  "source_time_boundary_finding": "research/portable-enemy-target-time-initial-finding.json",
-  "source_time_boundary_fix": "Select victims inside event dispatch after sourceTime and HP-edge updates;fresh full verification required",
-  "initial_adopted_source_commit": "1db1a3f46e594eca59284b0c0b32d42628fc4ee7",
-  "initial_gates": 52,
-  "initial_passed_gates": 50,
-  "initial_roster_passed": 152,
-  "initial_roster_conditions": 158,
-  "old136_profiles_exactly_preserved": true,
-  "mode_enemy_name_cases": 24,
-  "python_units": 278,
-  "resolved_finite_hp_cpu_exceptions": 3,
-  "last_metal_capture": "research/portable-build/enemy-target-core-20261020T131543904262Z",
-  "current_fixed_source_commit": "782a13ca6249a52c30003b88870420cbd5b2f7ee",
-  "enemy_target_native_cases": 548,
-  "roster_conditions": 158,
-  "roster_passed": 158,
-  "current_roster_known_hp_gaps": 2,
-  "all158_roster_input_and_readback_words_preserved": true,
-  "code_shared_through": "782a13ca6249a52c30003b88870420cbd5b2f7ee",
-  "next_source_export_files": 8,
-  "next_source_export_bytes": 205321,
-  "next_source_export_manifest": "/tmp/nikke-enemy-target-final-source-export.json",
-  "source782_shared": true,
-  "mac_gates": 52,
-  "all_mac_gates_passed": true,
-  "adoption_verified_metal": true,
-  "mac_broad_receipt": "research/portable-enemy-target-broad-validation.json",
-  "mac_process_receipt": "research/portable-enemy-target-mac-process-completion.json",
-  "windows_request_sent": true,
-  "windows_thread": "01a140bc-5f3b-7661-b720-50c945596eaa",
-  "windows_execution_turn": "01a1599a-3629-7be1-89ec-ae23a25a7614",
-  "windows_wait_cursor": "09b5d983-892a-4318-b2cf-37e3aa661d1e:41",
-  "windows_turn_status": "completed",
-  "windows_cuda_reported_passed": true,
-  "windows_gpu_elapsed_seconds": 145.90352279972285,
-  "windows_remaining_verification_processes": 0,
-  "windows_publication_turn": "01a1599e-e0e0-7963-91e4-11a2a7ac3c49",
-  "v77_result_sharing_approved": true,
-  "artifact_commit": "7f318768fad2a68bac3e204ddab8d879dc54afd7",
-  "full_metal_comparison_completed": true,
-  "transfer_receipt": "research/portable-enemy-target-transfer-completed.json",
-  "timing_barrier": "research/portable-enemy-target-timing-order.json",
-  "efficiency_plan": "research/portable-enemy-target-efficiency-plan.json",
-  "efficiency_process_session": 95684,
-  "production_adopted_efficiency": false,
-  "last_fully_verified_source_commit": "782a13ca6249a52c30003b88870420cbd5b2f7ee",
-  "efficiency_process_terminal": true,
-  "efficiency_criteria_met": true,
-  "efficiency_candidate_promoted": true,
-  "efficiency_decision": "research/portable-enemy-target-scalar-decision.json",
-  "current_source_full_validation_complete": false
+  "retained_prototype": {
+    "directory": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z",
+    "shader": "research/portable-build/enemy-target-candidate-20261020T115159399973Z/enemy_target_candidate_runtime.slang",
+    "host_sources": {
+      "app/portable_enemy_target_specs.py": {
+        "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/app/portable_enemy_target_specs.py",
+        "sha256": "0a046ccd73390e088f4afd86743c45c6bc0d5580e2b46a7908c73a42debfcb08"
+      },
+      "research/enemy_target_native.py": {
+        "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/enemy_target_native.py",
+        "sha256": "aa44e998a8ce276debcb249548e9f7351421b0243b6a897c970a5e22a519d9c9"
+      },
+      "research/verify-target-rng.py": {
+        "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/verify-target-rng.py",
+        "sha256": "18ab72334b32e62019cb243c5c2a3ca7052bcdde4d75d3766ae89504c1a3d691"
+      },
+      "research/verify-enemy-target-candidate.py": {
+        "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/verify-enemy-target-candidate.py",
+        "sha256": "1da0c555fde338b1006dfd4975389446adea146f612cd1e287668da4e3c72a3f"
+      },
+      "research/build-enemy-target-cases.py": {
+        "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/build-enemy-target-cases.py",
+        "sha256": "44db38877cc14b61c373e1b37c0621cb3a4b40d70d275d44cacfb0bd75f45384"
+      },
+      "research/portable-enemy-target-inputs.json": {
+        "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/portable-enemy-target-inputs.json",
+        "sha256": "4c0960593a28a395f9fd042573254616ed761a89c046f5badba85a927f973846"
+      },
+      "research/enemy_target_validation.py": {
+        "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/enemy_target_validation.py",
+        "sha256": "9bc50e9e5e713cf450bf6e27ee9b221d6a86e907b2f86d6cdfe1179c937a3326"
+      },
+      "research/verify-enemy-target-admission.py": {
+        "path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z/host-sources/research/verify-enemy-target-admission.py",
+        "sha256": "2e1b2705ac49b40448c0d7256cec7ca3826d0a39787197a641f875941169c37f"
+      }
+    },
+    "native_mt19937_probe_cases": 31,
+    "native_edge_cases": 25,
+    "native_target_rule_parser_cases": 51,
+    "scope": "Historical isolated characterization and initial candidate;current canonical proofs are separate"
+  }
 }

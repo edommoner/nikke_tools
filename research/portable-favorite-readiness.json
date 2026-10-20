@@ -3,22 +3,27 @@
   "catalog_characters": 203,
   "audited_contexts": 812,
   "stage0_matches_current_audit": true,
-  "own_effect_preflight_contexts_passed": 269,
-  "all_four_stages_preflight_characters": 67,
+  "own_effect_preflight_contexts_passed": 313,
+  "all_four_stages_preflight_characters": 78,
   "all_four_stages_preflight_names": [
+    "라피",
     "아니스",
     "네온 : 블루 오션",
     "아니스 : 스파클링 서머",
+    "델타",
     "폴리",
     "미란다",
     "미카",
     "미카 : 스노우 버디",
+    "벨로타 : 펌킨 위치",
     "브리드",
     "솔린",
+    "디젤",
     "솔린 : 프로스트 티켓",
     "리타",
     "엠마",
     "은화",
+    "은화 : 택티컬 업",
     "드레이크",
     "맥스웰",
     "라플라스 : 얼티밋 히어로",
@@ -32,6 +37,7 @@
     "미하라",
     "율하",
     "애드미",
+    "메이든",
     "앨리스",
     "토브",
     "네베",
@@ -41,6 +47,7 @@
     "스노우 화이트",
     "홍련",
     "이사벨",
+    "폴크방",
     "리버렐리오",
     "블랑",
     "누아르",
@@ -56,10 +63,14 @@
     "에이드",
     "소다 : 트윙클링 바니",
     "에이드 : 에이전트 바니",
+    "크라운",
     "헬름",
+    "네로",
     "츠바이",
+    "라이",
     "퀀시 : 이스케이프 퀸",
     "플로라",
+    "노이즈",
     "아리아",
     "나가",
     "그레이브",
@@ -79,7 +90,7 @@
   "full_character_verified": 0,
   "scope": "Favorite stages0..3,default skill levels,no cube,same fixed five-member squad;preflight only;not GPU support certification",
   "issues": {
-    "Unported buff or recipient selector": 558,
+    "Unported buff or recipient selector": 438,
     "Unported trigger timing: event:part_destroy": 60,
     "Unported instant or recipient selector": 57,
     "Unported enemy damage selector": 53,
@@ -139,12 +150,12 @@
   },
   "missing_families": {
     "damage_modifiers": 338,
-    "control_survival": 176,
     "damage": 161,
     "effect_lifecycle": 124,
     "weapon": 108,
     "resource_accumulation": 64,
     "burst_cooldown": 56,
+    "control_survival": 56,
     "ammo_reload": 45,
     "healing_buffers": 38,
     "hp": 24,
@@ -158,117 +169,45 @@
       "character": "라피",
       "favorite_stage": 0,
       "own_effects": 14,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "미사일 2",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "every:20.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "라피",
       "favorite_stage": 1,
       "own_effects": 14,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "미사일 2",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "every:20.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "라피",
       "favorite_stage": 2,
       "own_effects": 14,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "미사일 2",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "every:20.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "라피",
       "favorite_stage": 3,
       "own_effects": 14,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "미사일 2",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "every:20.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "네온",
@@ -1306,117 +1245,45 @@
       "character": "델타",
       "favorite_stage": 0,
       "own_effects": 13,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "델타",
       "favorite_stage": 1,
       "own_effects": 13,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "델타",
       "favorite_stage": 2,
       "own_effects": 13,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "델타",
       "favorite_stage": 3,
       "own_effects": 13,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "시그널",
@@ -1536,42 +1403,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [
-            "no_defender_ally"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "인법 카모플라쥬 2",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [
-            "has_defender_ally"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "인법 IFAK",
           "type": "buff",
@@ -1634,42 +1465,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [
-            "no_defender_ally"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "인법 카모플라쥬 2",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [
-            "has_defender_ally"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "인법 IFAK",
           "type": "buff",
           "stat": "heal_overcharge_store_atk_pct",
@@ -1731,42 +1526,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [
-            "no_defender_ally"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "인법 카모플라쥬 2",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [
-            "has_defender_ally"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "인법 IFAK",
           "type": "buff",
           "stat": "heal_overcharge_store_atk_pct",
@@ -1827,42 +1586,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [
-            "no_defender_ally"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "인법 카모플라쥬 2",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [
-            "has_defender_ally"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "인법 IFAK",
           "type": "buff",
@@ -3066,117 +2789,45 @@
       "character": "벨로타 : 펌킨 위치",
       "favorite_stage": 0,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "유령 분장",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "벨로타 : 펌킨 위치",
       "favorite_stage": 1,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "유령 분장",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "벨로타 : 펌킨 위치",
       "favorite_stage": 2,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "유령 분장",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "벨로타 : 펌킨 위치",
       "favorite_stage": 3,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "유령 분장",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "브리드",
@@ -3270,119 +2921,45 @@
       "character": "디젤",
       "favorite_stage": 0,
       "own_effects": 16,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "스트로베리 쇼크 3",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "디젤",
       "favorite_stage": 1,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "스트로베리 쇼크 3",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "디젤",
       "favorite_stage": 2,
       "own_effects": 18,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "디젤",
       "favorite_stage": 3,
       "own_effects": 19,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "브리드 : 사일런트 트랙",
@@ -4910,193 +4487,45 @@
       "character": "은화 : 택티컬 업",
       "favorite_stage": 0,
       "own_effects": 23,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "카모플라쥬",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "카모플라쥬",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [
-            "during_full_burst"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "은화 : 택티컬 업",
       "favorite_stage": 1,
       "own_effects": 23,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "카모플라쥬",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "카모플라쥬",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [
-            "during_full_burst"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "은화 : 택티컬 업",
       "favorite_stage": 2,
       "own_effects": 23,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "카모플라쥬",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "카모플라쥬",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [
-            "during_full_burst"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "은화 : 택티컬 업",
       "favorite_stage": 3,
       "own_effects": 23,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "카모플라쥬",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "카모플라쥬",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [
-            "during_full_burst"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "라플라스",
@@ -5843,23 +5272,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: event:enemy_spawn"
-        },
-        {
-          "name": "애교",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -5873,23 +5285,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "애교",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "스네이크 센스",
           "type": "buff",
@@ -5936,23 +5331,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "애교",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "스네이크 센스",
           "type": "buff",
@@ -6032,24 +5410,6 @@
             "favorite"
           ],
           "issue": "Unported trigger timing: event:enemy_spawn"
-        },
-        {
-          "name": "애교",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "스네이크 스케일 3",
@@ -8669,117 +8029,45 @@
       "character": "메이든",
       "favorite_stage": 0,
       "own_effects": 14,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "언령 : 필중의 언",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "every:30.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "메이든",
       "favorite_stage": 1,
       "own_effects": 14,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "언령 : 필중의 언",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "every:30.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "메이든",
       "favorite_stage": 2,
       "own_effects": 14,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "언령 : 필중의 언",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "every:30.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "메이든",
       "favorite_stage": 3,
       "own_effects": 14,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "언령 : 필중의 언",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "every:30.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "길로틴 : 윈터 슬레이어",
@@ -9097,23 +8385,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -9140,23 +8411,6 @@
           "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
           "issue": "Unported buff or recipient selector"
         }
       ]
@@ -9185,23 +8439,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -9228,23 +8465,6 @@
           "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
           "issue": "Unported buff or recipient selector"
         }
       ]
@@ -9825,23 +9045,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: event:ally_burst_cast"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "쇼퍼홀릭 데이트 3",
@@ -9888,23 +9091,6 @@
           "issue": "Unported trigger timing: event:ally_burst_cast"
         },
         {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "쇼퍼홀릭 데이트 3",
           "type": "instant",
           "stat": "burst_reentry",
@@ -9949,23 +9135,6 @@
           "issue": "Unported trigger timing: event:ally_burst_cast"
         },
         {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "쇼퍼홀릭 데이트 3",
           "type": "instant",
           "stat": "burst_reentry",
@@ -10008,23 +9177,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: event:ally_burst_cast"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "쇼퍼홀릭 데이트 3",
@@ -11380,42 +10532,12 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "때려볼래?",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "때려볼래? 2",
           "type": "buff",
           "stat": "atk_pct",
           "family": "damage_modifiers",
           "timings": [
             "full_charge_hit"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
           ],
           "conditions": [],
           "preflight_passed": false,
@@ -11437,42 +10559,12 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "때려볼래?",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "때려볼래? 2",
           "type": "buff",
           "stat": "atk_pct",
           "family": "damage_modifiers",
           "timings": [
             "full_charge_hit"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
           ],
           "conditions": [],
           "preflight_passed": false,
@@ -11494,42 +10586,12 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "때려볼래?",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "때려볼래? 2",
           "type": "buff",
           "stat": "atk_pct",
           "family": "damage_modifiers",
           "timings": [
             "full_charge_hit"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
           ],
           "conditions": [],
           "preflight_passed": false,
@@ -11551,21 +10613,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "때려볼래?",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "때려볼래? 2",
           "type": "buff",
           "stat": "atk_pct",
@@ -11579,21 +10626,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -12088,23 +11120,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "머슬 업 2",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "during_full_burst"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "머슬 타임",
           "type": "buff",
           "stat": "part_dmg_pct",
@@ -12133,23 +11148,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "머슬 업 2",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "during_full_burst"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "머슬 타임",
           "type": "buff",
@@ -12180,23 +11178,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "머슬 업 2",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "during_full_burst"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "머슬 타임",
           "type": "buff",
           "stat": "part_dmg_pct",
@@ -12225,23 +11206,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "머슬 업 2",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [
-            "during_full_burst"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "머슬 타임",
           "type": "buff",
@@ -12373,117 +11337,45 @@
       "character": "폴크방",
       "favorite_stage": 0,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "페이스 다운",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "every:20.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "폴크방",
       "favorite_stage": 1,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "페이스 다운",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "every:20.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "폴크방",
       "favorite_stage": 2,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "페이스 다운",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "every:20.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "폴크방",
       "favorite_stage": 3,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "페이스 다운",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "every:20.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "모더니아",
@@ -12972,21 +11864,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "은신",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "hit_count:120"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "온 더 렘 2",
           "type": "instant",
           "stat": "enemy_buff_cleanse",
@@ -13000,21 +11877,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported instant or recipient selector"
-        },
-        {
-          "name": "은신",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -13029,21 +11891,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "은신",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "hit_count:120"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "온 더 렘 2",
           "type": "instant",
           "stat": "enemy_buff_cleanse",
@@ -13057,23 +11904,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported instant or recipient selector"
-        },
-        {
-          "name": "은신",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -13088,21 +11918,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "은신",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "hit_count:120"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "온 더 렘 2",
           "type": "instant",
           "stat": "enemy_buff_cleanse",
@@ -13116,23 +11931,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported instant or recipient selector"
-        },
-        {
-          "name": "은신",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -13147,23 +11945,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "은신",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "hit_count:120"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "온 더 렘 2",
           "type": "instant",
           "stat": "enemy_buff_cleanse",
@@ -13179,23 +11960,6 @@
             "favorite"
           ],
           "issue": "Unported instant or recipient selector"
-        },
-        {
-          "name": "은신",
-          "type": "buff",
-          "stat": "stealth",
-          "family": "control_survival",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -13223,36 +11987,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported effect fields: scaling"
-        },
-        {
-          "name": "여긴 내가 맡는다!",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "last_bullet_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -13299,36 +12033,6 @@
             "favorite"
           ],
           "issue": "Unported trigger timing: event:enemy_spawn"
-        },
-        {
-          "name": "여긴 내가 맡는다!",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "last_bullet_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -13375,38 +12079,6 @@
             "favorite"
           ],
           "issue": "Unported trigger timing: event:enemy_spawn"
-        },
-        {
-          "name": "여긴 내가 맡는다!",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "last_bullet_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -13453,40 +12125,6 @@
             "favorite"
           ],
           "issue": "Unported trigger timing: event:enemy_spawn"
-        },
-        {
-          "name": "여긴 내가 맡는다!",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "last_bullet_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -14395,23 +13033,6 @@
             "note"
           ],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "플라워 퍼퓸 2",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -14447,23 +13068,6 @@
           "family": "damage_modifiers",
           "timings": [
             "every:15.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "플라워 퍼퓸 2",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
           ],
           "conditions": [],
           "preflight_passed": false,
@@ -14517,23 +13121,6 @@
             "note"
           ],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "플라워 퍼퓸 2",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -14569,23 +13156,6 @@
           "family": "damage_modifiers",
           "timings": [
             "every:15.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "플라워 퍼퓸 2",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
           ],
           "conditions": [],
           "preflight_passed": false,
@@ -16110,109 +14680,45 @@
       "character": "크라운",
       "favorite_stage": 0,
       "own_effects": 20,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "stack_reach:릴렉스:20"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "크라운",
       "favorite_stage": 1,
       "own_effects": 20,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "stack_reach:릴렉스:20"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "크라운",
       "favorite_stage": 2,
       "own_effects": 20,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "stack_reach:릴렉스:20"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "크라운",
       "favorite_stage": 3,
       "own_effects": 20,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "stack_reach:릴렉스:20"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "차임",
@@ -16636,23 +15142,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "GS",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "last_bullet"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "MDS",
           "type": "buff",
@@ -16683,23 +15172,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "GS",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "last_bullet"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "MDS",
           "type": "buff",
           "stat": "projectile_dmg_pct",
@@ -16729,23 +15201,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "GS",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "last_bullet"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "MDS",
           "type": "buff",
           "stat": "projectile_dmg_pct",
@@ -16774,23 +15229,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "GS",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "last_bullet"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "MDS",
           "type": "buff",
@@ -17314,117 +15752,45 @@
       "character": "네로",
       "favorite_stage": 0,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "네로",
       "favorite_stage": 1,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "네로",
       "favorite_stage": 2,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "네로",
       "favorite_stage": 3,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "비스킷",
@@ -17814,109 +16180,45 @@
       "character": "라이",
       "favorite_stage": 0,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "라이",
       "favorite_stage": 1,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "라이",
       "favorite_stage": 2,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "라이",
       "favorite_stage": 3,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "길티",
@@ -18060,23 +16362,6 @@
             "note"
           ],
           "issue": "Unported effect fields: copy_from"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "last_bullet_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -18106,23 +16391,6 @@
             "note"
           ],
           "issue": "Unported effect fields: copy_from"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "last_bullet_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -18152,23 +16420,6 @@
             "note"
           ],
           "issue": "Unported effect fields: copy_from"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "last_bullet_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -18198,23 +16449,6 @@
             "note"
           ],
           "issue": "Unported effect fields: copy_from"
-        },
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "last_bullet_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -19390,109 +17624,45 @@
       "character": "노이즈",
       "favorite_stage": 0,
       "own_effects": 14,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "싱잉 투게더",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "노이즈",
       "favorite_stage": 1,
       "own_effects": 14,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "싱잉 투게더",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "노이즈",
       "favorite_stage": 2,
       "own_effects": 14,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "싱잉 투게더",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "노이즈",
       "favorite_stage": 3,
       "own_effects": 14,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "싱잉 투게더",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "full_charge_hit"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "볼륨",
@@ -20012,21 +18182,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "hit_count:5"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "도마뱀의 보호 3",
           "type": "instant",
@@ -20057,21 +18212,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "hit_count:5"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "도마뱀의 보호 3",
           "type": "instant",
           "stat": "burst_reentry",
@@ -20101,21 +18241,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "hit_count:5"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "도마뱀의 보호 3",
           "type": "instant",
           "stat": "burst_reentry",
@@ -20144,21 +18269,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "hit_count:5"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "도마뱀의 보호 3",
           "type": "instant",
@@ -25094,25 +23204,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "필사의 지원",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "hit_count:60"
-          ],
-          "conditions": [
-            "self_state:발버둥"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "필사의 지원 2",
           "type": "buff",
           "stat": "dot_dmg_pct",
@@ -25158,25 +23249,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "필사의 지원",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "hit_count:60"
-          ],
-          "conditions": [
-            "self_state:발버둥"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "필사의 지원 2",
           "type": "buff",
@@ -25224,25 +23296,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "필사의 지원",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "hit_count:60"
-          ],
-          "conditions": [
-            "self_state:발버둥"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "필사의 지원 2",
           "type": "buff",
           "stat": "dot_dmg_pct",
@@ -25288,25 +23341,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "필사의 지원",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "hit_count:60"
-          ],
-          "conditions": [
-            "self_state:발버둥"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "필사의 지원 2",
           "type": "buff",
@@ -25557,23 +23591,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "on_attack_count:120"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "조용히 해주겠니? 3",
           "type": "buff",
@@ -25606,23 +23623,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "on_attack_count:120"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "조용히 해주겠니? 3",
           "type": "buff",
           "stat": "heal_received_pct",
@@ -25654,23 +23654,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "on_attack_count:120"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "조용히 해주겠니? 3",
           "type": "buff",
           "stat": "heal_received_pct",
@@ -25701,23 +23684,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "주목",
-          "type": "buff",
-          "stat": "taunt",
-          "family": "control_survival",
-          "timings": [
-            "on_attack_count:120"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "조용히 해주겠니? 3",
           "type": "buff",
@@ -29662,13 +27628,13 @@
   ],
   "source_sha256": {
     "research/audit-portable-favorites.py": "e2e9a7d747f966b8805f29ad0307e5d8a5c376c1550614d3994b288a0216835b",
-    "research/portable-catalog-readiness.json": "d268c6fcdb9582f1dd8230ad878a6aab84d9882f37ad486975eebbdf4a3ca812",
+    "research/portable-catalog-readiness.json": "2a06acc4340b5f64038f466bf10416612c7d055cf33706880532b9aae81b036b",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
-    "app/portable_runtime.py": "d27e1daef25679113769d43999973de54223eac7f8816faf76af93239b099303",
+    "app/portable_runtime.py": "91b80a5a83860d42e1b8998c2360e783fa87c0b905122cb5293755b36ad530b0",
     "app/portable_roster_input.py": "cf569da9faababe07f9c1c16111da2f64936d5da562b123ea0ed67b7847bd024",
     "app/portable_trigger_specs.py": "cb51cde60865323c4f077687d8d2c8b8fac7d9572945ed0cf8f6f64034876b77",
     "app/portable_probability_specs.py": "77becccd2a7cf2b046ad4422958952d843d76a4aa2800f9fcb6dd7ce35c75f61",
-    "app/portable_damage_specs.py": "4d43bf86347ecb62e04254e3318318559bf440539ec34d7c300edafd30855610",
+    "app/portable_damage_specs.py": "d969bbf4e827e098b07df8a7813f6a9804d7f578a1009bc15b9849f730ab9546",
     "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
     "scripts/detail_coverage.py": "eef94f7675f270e8a4870323cb1e55e8506f2e5fe47e6fa4b1645d9aaf71dc40",
     "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",

@@ -1,0 +1,3210 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "production_source_unchanged": true,
+  "cases": [
+    {
+      "character": "벨로타 : 펌킨 위치",
+      "grown": false,
+      "passed": true,
+      "before": [
+        {
+          "path": ".allies[0].hp",
+          "gpu": 3000314.0,
+          "cpu": 3475563.7375999996
+        }
+      ],
+      "after": [],
+      "original_native": {
+        "query": {
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            }
+          ],
+          "body_damage": [
+            38433362,
+            192819281,
+            256670358,
+            35796290,
+            73940780
+          ],
+          "combat": {
+            "last_b3_caster": 2,
+            "last_b3_cast_time": 163.56666666668897,
+            "last_full_start": 163.9500000000226,
+            "phase": 2,
+            "cast_mask": 2,
+            "gauge": 0.0,
+            "full_end": 173.9500000000226,
+            "gauge_charging": false,
+            "cooldown_applied": [
+              0,
+              0.0,
+              0,
+              0,
+              0
+            ],
+            "weapons": [
+              {
+                "ammo": 9,
+                "shots": 117,
+                "charge_until": 180.21666666670143,
+                "reload_until": -1.0,
+                "ready": 203.4666666666889,
+                "charging": true
+              },
+              {
+                "ammo": 0,
+                "shots": 3864,
+                "charge_until": 0.0,
+                "reload_until": 181.1800000000352,
+                "ready": 197.48333333336672,
+                "charging": false
+              },
+              {
+                "ammo": 10,
+                "shots": 250,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 203.56666666668897,
+                "charging": false
+              },
+              {
+                "ammo": 10,
+                "shots": 88,
+                "charge_until": 180.26666666670107,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charging": true
+              },
+              {
+                "ammo": 7,
+                "shots": 245,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charging": false
+              }
+            ]
+          },
+          "allies": [
+            {
+              "hp": 3475563.7375999996,
+              "max_hp": 3000314.0,
+              "hp_pct": 100.0,
+              "defense": 19625.0
+            },
+            {
+              "hp": 3000314.0,
+              "max_hp": 3000314.0,
+              "hp_pct": 100.0,
+              "defense": 17799.0
+            },
+            {
+              "hp": 2715916.0,
+              "max_hp": 2715916.0,
+              "hp_pct": 100.0,
+              "defense": 17544.0
+            },
+            {
+              "hp": 2441844.0,
+              "max_hp": 2441844.0,
+              "hp_pct": 100.0,
+              "defense": 18072.0
+            },
+            {
+              "hp": 3000314.0,
+              "max_hp": 3000314.0,
+              "hp_pct": 100.0,
+              "defense": 19377.0
+            }
+          ]
+        },
+        "action_gates": [
+          {
+            "kind": "charge",
+            "time": 180.21666666670143
+          },
+          {
+            "kind": "reload",
+            "time": 181.1800000000352
+          },
+          {
+            "kind": "fire",
+            "time": 180.55000000002502
+          },
+          {
+            "kind": "charge",
+            "time": 180.26666666670107
+          },
+          {
+            "kind": "fire",
+            "time": 180.06666666669454
+          }
+        ],
+        "inactive_cpu_timestamps": [
+          {
+            "next_fire_time": 172.30000000002926,
+            "post_delay_end": 179.21333333336779
+          },
+          {
+            "next_fire_time": 179.75000000002342,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 180.55000000002502,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 171.23333333336174,
+            "post_delay_end": 178.76333333336743
+          },
+          {
+            "next_fire_time": 180.06666666669454,
+            "post_delay_end": 0.0
+          }
+        ],
+        "weapon_states": [
+          {
+            "charge_started_at": 179.21666666670143,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 178.76666666670107,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          }
+        ],
+        "state_projection": "Compare the active reload/post-reload/charge/fire gate; inactive implementation timestamps are diagnostic only",
+        "burst_trace": [
+          {
+            "time": 3.3666666666666596,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 3.3666666666666596,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 3.4666666666666592,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 3.566666666666659,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 3.949999999999991,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 13.950000000000273,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 18.333333333333574,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 23.36666666666662,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 43.46666666666548,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 43.566666666665476,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 43.94999999999879,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 53.94999999999822,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 57.44999999999802,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 57.44999999999802,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 83.46666666666322,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 83.56666666666321,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 83.94999999999652,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 93.94999999999595,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 97.79999999999573,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 97.79999999999573,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 123.46666666666094,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 123.56666666666094,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 123.94999999999425,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 133.94999999999874,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 137.56666666666828,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 137.56666666666828,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 163.4666666666889,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 163.56666666668897,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 163.9500000000226,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 173.95000000003057,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 177.48333333336672,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 177.48333333336672,
+            "event": 1,
+            "owner": 1
+          }
+        ],
+        "base_stats": {
+          "벨로타 : 펌킨 위치": {
+            "atk": 97376,
+            "def": 19625,
+            "hp": 3000314
+          },
+          "미란다": {
+            "atk": 97376,
+            "def": 17799,
+            "hp": 3000314
+          },
+          "드레이크": {
+            "atk": 116338,
+            "def": 17544,
+            "hp": 2715916
+          },
+          "N102": {
+            "atk": 89399,
+            "def": 18072,
+            "hp": 2441844
+          },
+          "메어리": {
+            "atk": 97376,
+            "def": 19377,
+            "hp": 3000314
+          }
+        },
+        "total_damage": 597660071,
+        "last_frame": 179.9833333333687,
+        "cpu_engine_revision": "23164e4a88fe46af609cc99b0de38a98313a5f4d"
+      },
+      "candidate_native": {
+        "query": {
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            }
+          ],
+          "body_damage": [
+            38433362,
+            192819281,
+            256670358,
+            35796290,
+            73940780
+          ],
+          "combat": {
+            "last_b3_caster": 2,
+            "last_b3_cast_time": 163.56666666668897,
+            "last_full_start": 163.9500000000226,
+            "phase": 2,
+            "cast_mask": 2,
+            "gauge": 0.0,
+            "full_end": 173.9500000000226,
+            "gauge_charging": false,
+            "cooldown_applied": [
+              0,
+              0.0,
+              0,
+              0,
+              0
+            ],
+            "weapons": [
+              {
+                "ammo": 9,
+                "shots": 117,
+                "charge_until": 180.21666666670143,
+                "reload_until": -1.0,
+                "ready": 203.4666666666889,
+                "charging": true
+              },
+              {
+                "ammo": 0,
+                "shots": 3864,
+                "charge_until": 0.0,
+                "reload_until": 181.1800000000352,
+                "ready": 197.48333333336672,
+                "charging": false
+              },
+              {
+                "ammo": 10,
+                "shots": 250,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 203.56666666668897,
+                "charging": false
+              },
+              {
+                "ammo": 10,
+                "shots": 88,
+                "charge_until": 180.26666666670107,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charging": true
+              },
+              {
+                "ammo": 7,
+                "shots": 245,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charging": false
+              }
+            ]
+          },
+          "allies": [
+            {
+              "hp": 3000314.0,
+              "max_hp": 3000314.0,
+              "hp_pct": 100.0,
+              "defense": 19625.0
+            },
+            {
+              "hp": 3000314.0,
+              "max_hp": 3000314.0,
+              "hp_pct": 100.0,
+              "defense": 17799.0
+            },
+            {
+              "hp": 2715916.0,
+              "max_hp": 2715916.0,
+              "hp_pct": 100.0,
+              "defense": 17544.0
+            },
+            {
+              "hp": 2441844.0,
+              "max_hp": 2441844.0,
+              "hp_pct": 100.0,
+              "defense": 18072.0
+            },
+            {
+              "hp": 3000314.0,
+              "max_hp": 3000314.0,
+              "hp_pct": 100.0,
+              "defense": 19377.0
+            }
+          ]
+        },
+        "action_gates": [
+          {
+            "kind": "charge",
+            "time": 180.21666666670143
+          },
+          {
+            "kind": "reload",
+            "time": 181.1800000000352
+          },
+          {
+            "kind": "fire",
+            "time": 180.55000000002502
+          },
+          {
+            "kind": "charge",
+            "time": 180.26666666670107
+          },
+          {
+            "kind": "fire",
+            "time": 180.06666666669454
+          }
+        ],
+        "inactive_cpu_timestamps": [
+          {
+            "next_fire_time": 172.30000000002926,
+            "post_delay_end": 179.21333333336779
+          },
+          {
+            "next_fire_time": 179.75000000002342,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 180.55000000002502,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 171.23333333336174,
+            "post_delay_end": 178.76333333336743
+          },
+          {
+            "next_fire_time": 180.06666666669454,
+            "post_delay_end": 0.0
+          }
+        ],
+        "weapon_states": [
+          {
+            "charge_started_at": 179.21666666670143,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 178.76666666670107,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          }
+        ],
+        "state_projection": "Compare the active reload/post-reload/charge/fire gate; inactive implementation timestamps are diagnostic only",
+        "burst_trace": [
+          {
+            "time": 3.3666666666666596,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 3.3666666666666596,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 3.4666666666666592,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 3.566666666666659,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 3.949999999999991,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 13.950000000000273,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 18.333333333333574,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 23.36666666666662,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 43.46666666666548,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 43.566666666665476,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 43.94999999999879,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 53.94999999999822,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 57.44999999999802,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 57.44999999999802,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 83.46666666666322,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 83.56666666666321,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 83.94999999999652,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 93.94999999999595,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 97.79999999999573,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 97.79999999999573,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 123.46666666666094,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 123.56666666666094,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 123.94999999999425,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 133.94999999999874,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 137.56666666666828,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 137.56666666666828,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 163.4666666666889,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 163.56666666668897,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 163.9500000000226,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 173.95000000003057,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 177.48333333336672,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 177.48333333336672,
+            "event": 1,
+            "owner": 1
+          }
+        ],
+        "base_stats": {
+          "벨로타 : 펌킨 위치": {
+            "atk": 97376,
+            "def": 19625,
+            "hp": 3000314
+          },
+          "미란다": {
+            "atk": 97376,
+            "def": 17799,
+            "hp": 3000314
+          },
+          "드레이크": {
+            "atk": 116338,
+            "def": 17544,
+            "hp": 2715916
+          },
+          "N102": {
+            "atk": 89399,
+            "def": 18072,
+            "hp": 2441844
+          },
+          "메어리": {
+            "atk": 97376,
+            "def": 19377,
+            "hp": 3000314
+          }
+        },
+        "total_damage": 597660071,
+        "last_frame": 179.9833333333687,
+        "cpu_engine_revision": "23164e4a88fe46af609cc99b0de38a98313a5f4d"
+      },
+      "gpu_readback_reused": true
+    },
+    {
+      "character": "벨로타 : 펌킨 위치",
+      "grown": true,
+      "passed": true,
+      "before": [
+        {
+          "path": ".allies[0].hp",
+          "gpu": 3261117.0,
+          "cpu": 3613317.6360000004
+        }
+      ],
+      "after": [],
+      "original_native": {
+        "query": {
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            }
+          ],
+          "body_damage": [
+            46330017,
+            219173339,
+            298416489,
+            44184156,
+            90162460
+          ],
+          "combat": {
+            "last_b3_caster": 2,
+            "last_b3_cast_time": 163.56666666668897,
+            "last_full_start": 163.9500000000226,
+            "phase": 2,
+            "cast_mask": 2,
+            "gauge": 0.0,
+            "full_end": 173.9500000000226,
+            "gauge_charging": false,
+            "cooldown_applied": [
+              0,
+              0.0,
+              0,
+              0,
+              0
+            ],
+            "weapons": [
+              {
+                "ammo": 9,
+                "shots": 117,
+                "charge_until": 180.21666666670143,
+                "reload_until": -1.0,
+                "ready": 203.4666666666889,
+                "charging": true
+              },
+              {
+                "ammo": 0,
+                "shots": 3864,
+                "charge_until": 0.0,
+                "reload_until": 181.1800000000352,
+                "ready": 197.48333333336672,
+                "charging": false
+              },
+              {
+                "ammo": 10,
+                "shots": 250,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 203.56666666668897,
+                "charging": false
+              },
+              {
+                "ammo": 10,
+                "shots": 88,
+                "charge_until": 180.26666666670107,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charging": true
+              },
+              {
+                "ammo": 7,
+                "shots": 245,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charging": false
+              }
+            ]
+          },
+          "allies": [
+            {
+              "hp": 3613317.6360000004,
+              "max_hp": 3261117.0,
+              "hp_pct": 100.0,
+              "defense": 29331.7
+            },
+            {
+              "hp": 3267307.0,
+              "max_hp": 3267307.0,
+              "hp_pct": 100.0,
+              "defense": 26886.250000000004
+            },
+            {
+              "hp": 2993617.0,
+              "max_hp": 2993617.0,
+              "hp_pct": 100.0,
+              "defense": 26635.54
+            },
+            {
+              "hp": 2725779.0,
+              "max_hp": 2725779.0,
+              "hp_pct": 100.0,
+              "defense": 27415.070000000003
+            },
+            {
+              "hp": 3293786.0,
+              "max_hp": 3293786.0,
+              "hp_pct": 100.0,
+              "defense": 29290.600000000002
+            }
+          ]
+        },
+        "action_gates": [
+          {
+            "kind": "charge",
+            "time": 180.21666666670143
+          },
+          {
+            "kind": "reload",
+            "time": 181.1800000000352
+          },
+          {
+            "kind": "fire",
+            "time": 180.55000000002502
+          },
+          {
+            "kind": "charge",
+            "time": 180.26666666670107
+          },
+          {
+            "kind": "fire",
+            "time": 180.06666666669454
+          }
+        ],
+        "inactive_cpu_timestamps": [
+          {
+            "next_fire_time": 172.30000000002926,
+            "post_delay_end": 179.21333333336779
+          },
+          {
+            "next_fire_time": 179.75000000002342,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 180.55000000002502,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 171.23333333336174,
+            "post_delay_end": 178.76333333336743
+          },
+          {
+            "next_fire_time": 180.06666666669454,
+            "post_delay_end": 0.0
+          }
+        ],
+        "weapon_states": [
+          {
+            "charge_started_at": 179.21666666670143,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 178.76666666670107,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          }
+        ],
+        "state_projection": "Compare the active reload/post-reload/charge/fire gate; inactive implementation timestamps are diagnostic only",
+        "burst_trace": [
+          {
+            "time": 3.3666666666666596,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 3.3666666666666596,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 3.4666666666666592,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 3.566666666666659,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 3.949999999999991,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 13.950000000000273,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 18.333333333333574,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 23.36666666666662,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 43.46666666666548,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 43.566666666665476,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 43.94999999999879,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 53.94999999999822,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 57.44999999999802,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 57.44999999999802,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 83.46666666666322,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 83.56666666666321,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 83.94999999999652,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 93.94999999999595,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 97.79999999999573,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 97.79999999999573,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 123.46666666666094,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 123.56666666666094,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 123.94999999999425,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 133.94999999999874,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 137.56666666666828,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 137.56666666666828,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 163.4666666666889,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 163.56666666668897,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 163.9500000000226,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 173.95000000003057,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 177.48333333336672,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 177.48333333336672,
+            "event": 1,
+            "owner": 1
+          }
+        ],
+        "base_stats": {
+          "벨로타 : 펌킨 위치": {
+            "atk": 105697,
+            "def": 21410,
+            "hp": 3261117
+          },
+          "미란다": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "드레이크": {
+            "atk": 124955,
+            "def": 19442,
+            "hp": 2993617
+          },
+          "N102": {
+            "atk": 98491,
+            "def": 20011,
+            "hp": 2725779
+          },
+          "메어리": {
+            "atk": 106786,
+            "def": 21380,
+            "hp": 3293786
+          }
+        },
+        "total_damage": 698266461,
+        "last_frame": 179.9833333333687,
+        "cpu_engine_revision": "23164e4a88fe46af609cc99b0de38a98313a5f4d"
+      },
+      "candidate_native": {
+        "query": {
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            }
+          ],
+          "body_damage": [
+            46330017,
+            219173339,
+            298416489,
+            44184156,
+            90162460
+          ],
+          "combat": {
+            "last_b3_caster": 2,
+            "last_b3_cast_time": 163.56666666668897,
+            "last_full_start": 163.9500000000226,
+            "phase": 2,
+            "cast_mask": 2,
+            "gauge": 0.0,
+            "full_end": 173.9500000000226,
+            "gauge_charging": false,
+            "cooldown_applied": [
+              0,
+              0.0,
+              0,
+              0,
+              0
+            ],
+            "weapons": [
+              {
+                "ammo": 9,
+                "shots": 117,
+                "charge_until": 180.21666666670143,
+                "reload_until": -1.0,
+                "ready": 203.4666666666889,
+                "charging": true
+              },
+              {
+                "ammo": 0,
+                "shots": 3864,
+                "charge_until": 0.0,
+                "reload_until": 181.1800000000352,
+                "ready": 197.48333333336672,
+                "charging": false
+              },
+              {
+                "ammo": 10,
+                "shots": 250,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 203.56666666668897,
+                "charging": false
+              },
+              {
+                "ammo": 10,
+                "shots": 88,
+                "charge_until": 180.26666666670107,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charging": true
+              },
+              {
+                "ammo": 7,
+                "shots": 245,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charging": false
+              }
+            ]
+          },
+          "allies": [
+            {
+              "hp": 3261117.0,
+              "max_hp": 3261117.0,
+              "hp_pct": 100.0,
+              "defense": 29331.7
+            },
+            {
+              "hp": 3267307.0,
+              "max_hp": 3267307.0,
+              "hp_pct": 100.0,
+              "defense": 26886.250000000004
+            },
+            {
+              "hp": 2993617.0,
+              "max_hp": 2993617.0,
+              "hp_pct": 100.0,
+              "defense": 26635.54
+            },
+            {
+              "hp": 2725779.0,
+              "max_hp": 2725779.0,
+              "hp_pct": 100.0,
+              "defense": 27415.070000000003
+            },
+            {
+              "hp": 3293786.0,
+              "max_hp": 3293786.0,
+              "hp_pct": 100.0,
+              "defense": 29290.600000000002
+            }
+          ]
+        },
+        "action_gates": [
+          {
+            "kind": "charge",
+            "time": 180.21666666670143
+          },
+          {
+            "kind": "reload",
+            "time": 181.1800000000352
+          },
+          {
+            "kind": "fire",
+            "time": 180.55000000002502
+          },
+          {
+            "kind": "charge",
+            "time": 180.26666666670107
+          },
+          {
+            "kind": "fire",
+            "time": 180.06666666669454
+          }
+        ],
+        "inactive_cpu_timestamps": [
+          {
+            "next_fire_time": 172.30000000002926,
+            "post_delay_end": 179.21333333336779
+          },
+          {
+            "next_fire_time": 179.75000000002342,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 180.55000000002502,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 171.23333333336174,
+            "post_delay_end": 178.76333333336743
+          },
+          {
+            "next_fire_time": 180.06666666669454,
+            "post_delay_end": 0.0
+          }
+        ],
+        "weapon_states": [
+          {
+            "charge_started_at": 179.21666666670143,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 178.76666666670107,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          }
+        ],
+        "state_projection": "Compare the active reload/post-reload/charge/fire gate; inactive implementation timestamps are diagnostic only",
+        "burst_trace": [
+          {
+            "time": 3.3666666666666596,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 3.3666666666666596,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 3.4666666666666592,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 3.566666666666659,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 3.949999999999991,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 13.950000000000273,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 18.333333333333574,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 23.36666666666662,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 43.46666666666548,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 43.566666666665476,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 43.94999999999879,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 53.94999999999822,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 57.44999999999802,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 57.44999999999802,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 83.46666666666322,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 83.56666666666321,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 83.94999999999652,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 93.94999999999595,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 97.79999999999573,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 97.79999999999573,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 123.46666666666094,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 123.56666666666094,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 123.94999999999425,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 133.94999999999874,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 137.56666666666828,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 137.56666666666828,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 163.4666666666889,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 163.56666666668897,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 163.9500000000226,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 173.95000000003057,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 177.48333333336672,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 177.48333333336672,
+            "event": 1,
+            "owner": 1
+          }
+        ],
+        "base_stats": {
+          "벨로타 : 펌킨 위치": {
+            "atk": 105697,
+            "def": 21410,
+            "hp": 3261117
+          },
+          "미란다": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "드레이크": {
+            "atk": 124955,
+            "def": 19442,
+            "hp": 2993617
+          },
+          "N102": {
+            "atk": 98491,
+            "def": 20011,
+            "hp": 2725779
+          },
+          "메어리": {
+            "atk": 106786,
+            "def": 21380,
+            "hp": 3293786
+          }
+        },
+        "total_damage": 698266461,
+        "last_frame": 179.9833333333687,
+        "cpu_engine_revision": "23164e4a88fe46af609cc99b0de38a98313a5f4d"
+      },
+      "gpu_readback_reused": true
+    },
+    {
+      "character": "폴크방",
+      "grown": false,
+      "passed": true,
+      "before": [
+        {
+          "path": ".allies[0].hp",
+          "gpu": 3284775.0,
+          "cpu": 4761609.84
+        }
+      ],
+      "after": [],
+      "original_native": {
+        "query": {
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            }
+          ],
+          "body_damage": [
+            36627586,
+            135691684,
+            243097752,
+            33826878,
+            69750100
+          ],
+          "combat": {
+            "last_b3_caster": 2,
+            "last_b3_cast_time": 163.56666666668897,
+            "last_full_start": 163.9500000000226,
+            "phase": 2,
+            "cast_mask": 2,
+            "gauge": 0.0,
+            "full_end": 173.9500000000226,
+            "gauge_charging": false,
+            "cooldown_applied": [
+              0,
+              0.0,
+              0,
+              0,
+              0
+            ],
+            "weapons": [
+              {
+                "ammo": 130,
+                "shots": 1940,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 203.4666666666889,
+                "charging": false
+              },
+              {
+                "ammo": 0,
+                "shots": 3864,
+                "charge_until": 0.0,
+                "reload_until": 181.1800000000352,
+                "ready": 197.23333333336652,
+                "charging": false
+              },
+              {
+                "ammo": 10,
+                "shots": 250,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 203.56666666668897,
+                "charging": false
+              },
+              {
+                "ammo": 10,
+                "shots": 88,
+                "charge_until": 180.26666666670107,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charging": true
+              },
+              {
+                "ammo": 7,
+                "shots": 245,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charging": false
+              }
+            ]
+          },
+          "allies": [
+            {
+              "hp": 4761609.84,
+              "max_hp": 3284775.0,
+              "hp_pct": 100.0,
+              "defense": 21910.0
+            },
+            {
+              "hp": 3000314.0,
+              "max_hp": 3000314.0,
+              "hp_pct": 100.0,
+              "defense": 17799.0
+            },
+            {
+              "hp": 2715916.0,
+              "max_hp": 2715916.0,
+              "hp_pct": 100.0,
+              "defense": 17544.0
+            },
+            {
+              "hp": 2441844.0,
+              "max_hp": 2441844.0,
+              "hp_pct": 100.0,
+              "defense": 18072.0
+            },
+            {
+              "hp": 3000314.0,
+              "max_hp": 3000314.0,
+              "hp_pct": 100.0,
+              "defense": 19377.0
+            }
+          ]
+        },
+        "action_gates": [
+          {
+            "kind": "fire",
+            "time": 180.06666666670165
+          },
+          {
+            "kind": "reload",
+            "time": 181.1800000000352
+          },
+          {
+            "kind": "fire",
+            "time": 180.55000000002502
+          },
+          {
+            "kind": "charge",
+            "time": 180.26666666670107
+          },
+          {
+            "kind": "fire",
+            "time": 180.06666666669454
+          }
+        ],
+        "inactive_cpu_timestamps": [
+          {
+            "next_fire_time": 180.06666666670165,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 179.75000000002342,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 180.55000000002502,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 171.23333333336174,
+            "post_delay_end": 178.76333333336743
+          },
+          {
+            "next_fire_time": 180.06666666669454,
+            "post_delay_end": 0.0
+          }
+        ],
+        "weapon_states": [
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 178.76666666670107,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          }
+        ],
+        "state_projection": "Compare the active reload/post-reload/charge/fire gate; inactive implementation timestamps are diagnostic only",
+        "burst_trace": [
+          {
+            "time": 3.3666666666666596,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 3.3666666666666596,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 3.4666666666666592,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 3.566666666666659,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 3.949999999999991,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 13.950000000000273,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 18.200000000000248,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 23.36666666666662,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 43.46666666666548,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 43.566666666665476,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 43.94999999999879,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 53.94999999999822,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 57.33333333333136,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 57.33333333333136,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 83.46666666666322,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 83.56666666666321,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 83.94999999999652,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 93.94999999999595,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 97.19999999999577,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 97.19999999999577,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 123.46666666666094,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 123.56666666666094,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 123.94999999999425,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 133.94999999999874,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 136.91666666666777,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 136.91666666666777,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 163.4666666666889,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 163.56666666668897,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 163.9500000000226,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 173.95000000003057,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 177.23333333336652,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 177.23333333336652,
+            "event": 1,
+            "owner": 1
+          }
+        ],
+        "base_stats": {
+          "폴크방": {
+            "atk": 78414,
+            "def": 21910,
+            "hp": 3284775
+          },
+          "미란다": {
+            "atk": 97376,
+            "def": 17799,
+            "hp": 3000314
+          },
+          "드레이크": {
+            "atk": 116338,
+            "def": 17544,
+            "hp": 2715916
+          },
+          "N102": {
+            "atk": 89399,
+            "def": 18072,
+            "hp": 2441844
+          },
+          "메어리": {
+            "atk": 97376,
+            "def": 19377,
+            "hp": 3000314
+          }
+        },
+        "total_damage": 518994000,
+        "last_frame": 179.9833333333687,
+        "cpu_engine_revision": "23164e4a88fe46af609cc99b0de38a98313a5f4d"
+      },
+      "candidate_native": {
+        "query": {
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2000000.0
+            }
+          ],
+          "body_damage": [
+            36627586,
+            135691684,
+            243097752,
+            33826878,
+            69750100
+          ],
+          "combat": {
+            "last_b3_caster": 2,
+            "last_b3_cast_time": 163.56666666668897,
+            "last_full_start": 163.9500000000226,
+            "phase": 2,
+            "cast_mask": 2,
+            "gauge": 0.0,
+            "full_end": 173.9500000000226,
+            "gauge_charging": false,
+            "cooldown_applied": [
+              0,
+              0.0,
+              0,
+              0,
+              0
+            ],
+            "weapons": [
+              {
+                "ammo": 130,
+                "shots": 1940,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 203.4666666666889,
+                "charging": false
+              },
+              {
+                "ammo": 0,
+                "shots": 3864,
+                "charge_until": 0.0,
+                "reload_until": 181.1800000000352,
+                "ready": 197.23333333336652,
+                "charging": false
+              },
+              {
+                "ammo": 10,
+                "shots": 250,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 203.56666666668897,
+                "charging": false
+              },
+              {
+                "ammo": 10,
+                "shots": 88,
+                "charge_until": 180.26666666670107,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charging": true
+              },
+              {
+                "ammo": 7,
+                "shots": 245,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charging": false
+              }
+            ]
+          },
+          "allies": [
+            {
+              "hp": 3284775.0,
+              "max_hp": 3284775.0,
+              "hp_pct": 100.0,
+              "defense": 21910.0
+            },
+            {
+              "hp": 3000314.0,
+              "max_hp": 3000314.0,
+              "hp_pct": 100.0,
+              "defense": 17799.0
+            },
+            {
+              "hp": 2715916.0,
+              "max_hp": 2715916.0,
+              "hp_pct": 100.0,
+              "defense": 17544.0
+            },
+            {
+              "hp": 2441844.0,
+              "max_hp": 2441844.0,
+              "hp_pct": 100.0,
+              "defense": 18072.0
+            },
+            {
+              "hp": 3000314.0,
+              "max_hp": 3000314.0,
+              "hp_pct": 100.0,
+              "defense": 19377.0
+            }
+          ]
+        },
+        "action_gates": [
+          {
+            "kind": "fire",
+            "time": 180.06666666670165
+          },
+          {
+            "kind": "reload",
+            "time": 181.1800000000352
+          },
+          {
+            "kind": "fire",
+            "time": 180.55000000002502
+          },
+          {
+            "kind": "charge",
+            "time": 180.26666666670107
+          },
+          {
+            "kind": "fire",
+            "time": 180.06666666669454
+          }
+        ],
+        "inactive_cpu_timestamps": [
+          {
+            "next_fire_time": 180.06666666670165,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 179.75000000002342,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 180.55000000002502,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 171.23333333336174,
+            "post_delay_end": 178.76333333336743
+          },
+          {
+            "next_fire_time": 180.06666666669454,
+            "post_delay_end": 0.0
+          }
+        ],
+        "weapon_states": [
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 178.76666666670107,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          }
+        ],
+        "state_projection": "Compare the active reload/post-reload/charge/fire gate; inactive implementation timestamps are diagnostic only",
+        "burst_trace": [
+          {
+            "time": 3.3666666666666596,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 3.3666666666666596,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 3.4666666666666592,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 3.566666666666659,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 3.949999999999991,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 13.950000000000273,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 18.200000000000248,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 23.36666666666662,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 43.46666666666548,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 43.566666666665476,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 43.94999999999879,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 53.94999999999822,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 57.33333333333136,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 57.33333333333136,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 83.46666666666322,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 83.56666666666321,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 83.94999999999652,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 93.94999999999595,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 97.19999999999577,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 97.19999999999577,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 123.46666666666094,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 123.56666666666094,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 123.94999999999425,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 133.94999999999874,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 136.91666666666777,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 136.91666666666777,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 163.4666666666889,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 163.56666666668897,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 163.9500000000226,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 173.95000000003057,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 177.23333333336652,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 177.23333333336652,
+            "event": 1,
+            "owner": 1
+          }
+        ],
+        "base_stats": {
+          "폴크방": {
+            "atk": 78414,
+            "def": 21910,
+            "hp": 3284775
+          },
+          "미란다": {
+            "atk": 97376,
+            "def": 17799,
+            "hp": 3000314
+          },
+          "드레이크": {
+            "atk": 116338,
+            "def": 17544,
+            "hp": 2715916
+          },
+          "N102": {
+            "atk": 89399,
+            "def": 18072,
+            "hp": 2441844
+          },
+          "메어리": {
+            "atk": 97376,
+            "def": 19377,
+            "hp": 3000314
+          }
+        },
+        "total_damage": 518994000,
+        "last_frame": 179.9833333333687,
+        "cpu_engine_revision": "23164e4a88fe46af609cc99b0de38a98313a5f4d"
+      },
+      "gpu_readback_reused": true
+    },
+    {
+      "character": "폴크방",
+      "grown": true,
+      "passed": true,
+      "before": [
+        {
+          "path": ".allies[0].hp",
+          "gpu": 3541478.0,
+          "cpu": 5046960.2978
+        }
+      ],
+      "after": [],
+      "original_native": {
+        "query": {
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            }
+          ],
+          "body_damage": [
+            43042817,
+            162173168,
+            283346894,
+            41877772,
+            85311690
+          ],
+          "combat": {
+            "last_b3_caster": 2,
+            "last_b3_cast_time": 163.56666666668897,
+            "last_full_start": 163.9500000000226,
+            "phase": 2,
+            "cast_mask": 2,
+            "gauge": 0.0,
+            "full_end": 173.9500000000226,
+            "gauge_charging": false,
+            "cooldown_applied": [
+              0,
+              0.0,
+              0,
+              0,
+              0
+            ],
+            "weapons": [
+              {
+                "ammo": 130,
+                "shots": 1940,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 203.4666666666889,
+                "charging": false
+              },
+              {
+                "ammo": 0,
+                "shots": 3864,
+                "charge_until": 0.0,
+                "reload_until": 181.1800000000352,
+                "ready": 197.23333333336652,
+                "charging": false
+              },
+              {
+                "ammo": 10,
+                "shots": 250,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 203.56666666668897,
+                "charging": false
+              },
+              {
+                "ammo": 10,
+                "shots": 88,
+                "charge_until": 180.26666666670107,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charging": true
+              },
+              {
+                "ammo": 7,
+                "shots": 245,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charging": false
+              }
+            ]
+          },
+          "allies": [
+            {
+              "hp": 5046960.2978,
+              "max_hp": 3541478.0,
+              "hp_pct": 100.0,
+              "defense": 32425.160000000003
+            },
+            {
+              "hp": 3267307.0,
+              "max_hp": 3267307.0,
+              "hp_pct": 100.0,
+              "defense": 26886.250000000004
+            },
+            {
+              "hp": 2993617.0,
+              "max_hp": 2993617.0,
+              "hp_pct": 100.0,
+              "defense": 26635.54
+            },
+            {
+              "hp": 2725779.0,
+              "max_hp": 2725779.0,
+              "hp_pct": 100.0,
+              "defense": 27415.070000000003
+            },
+            {
+              "hp": 3293786.0,
+              "max_hp": 3293786.0,
+              "hp_pct": 100.0,
+              "defense": 29290.600000000002
+            }
+          ]
+        },
+        "action_gates": [
+          {
+            "kind": "fire",
+            "time": 180.06666666670165
+          },
+          {
+            "kind": "reload",
+            "time": 181.1800000000352
+          },
+          {
+            "kind": "fire",
+            "time": 180.55000000002502
+          },
+          {
+            "kind": "charge",
+            "time": 180.26666666670107
+          },
+          {
+            "kind": "fire",
+            "time": 180.06666666669454
+          }
+        ],
+        "inactive_cpu_timestamps": [
+          {
+            "next_fire_time": 180.06666666670165,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 179.75000000002342,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 180.55000000002502,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 171.23333333336174,
+            "post_delay_end": 178.76333333336743
+          },
+          {
+            "next_fire_time": 180.06666666669454,
+            "post_delay_end": 0.0
+          }
+        ],
+        "weapon_states": [
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 178.76666666670107,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          }
+        ],
+        "state_projection": "Compare the active reload/post-reload/charge/fire gate; inactive implementation timestamps are diagnostic only",
+        "burst_trace": [
+          {
+            "time": 3.3666666666666596,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 3.3666666666666596,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 3.4666666666666592,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 3.566666666666659,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 3.949999999999991,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 13.950000000000273,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 18.200000000000248,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 23.36666666666662,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 43.46666666666548,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 43.566666666665476,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 43.94999999999879,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 53.94999999999822,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 57.33333333333136,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 57.33333333333136,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 83.46666666666322,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 83.56666666666321,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 83.94999999999652,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 93.94999999999595,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 97.19999999999577,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 97.19999999999577,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 123.46666666666094,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 123.56666666666094,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 123.94999999999425,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 133.94999999999874,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 136.91666666666777,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 136.91666666666777,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 163.4666666666889,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 163.56666666668897,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 163.9500000000226,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 173.95000000003057,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 177.23333333336652,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 177.23333333336652,
+            "event": 1,
+            "owner": 1
+          }
+        ],
+        "base_stats": {
+          "폴크방": {
+            "atk": 87008,
+            "def": 23668,
+            "hp": 3541478
+          },
+          "미란다": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "드레이크": {
+            "atk": 124955,
+            "def": 19442,
+            "hp": 2993617
+          },
+          "N102": {
+            "atk": 98491,
+            "def": 20011,
+            "hp": 2725779
+          },
+          "메어리": {
+            "atk": 106786,
+            "def": 21380,
+            "hp": 3293786
+          }
+        },
+        "total_damage": 615752341,
+        "last_frame": 179.9833333333687,
+        "cpu_engine_revision": "23164e4a88fe46af609cc99b0de38a98313a5f4d"
+      },
+      "candidate_native": {
+        "query": {
+          "covers": [
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            },
+            {
+              "hp": 2000000.0,
+              "max_hp": 2000000.0,
+              "effective_max_hp": 2600000.0
+            }
+          ],
+          "body_damage": [
+            43042817,
+            162173168,
+            283346894,
+            41877772,
+            85311690
+          ],
+          "combat": {
+            "last_b3_caster": 2,
+            "last_b3_cast_time": 163.56666666668897,
+            "last_full_start": 163.9500000000226,
+            "phase": 2,
+            "cast_mask": 2,
+            "gauge": 0.0,
+            "full_end": 173.9500000000226,
+            "gauge_charging": false,
+            "cooldown_applied": [
+              0,
+              0.0,
+              0,
+              0,
+              0
+            ],
+            "weapons": [
+              {
+                "ammo": 130,
+                "shots": 1940,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 203.4666666666889,
+                "charging": false
+              },
+              {
+                "ammo": 0,
+                "shots": 3864,
+                "charge_until": 0.0,
+                "reload_until": 181.1800000000352,
+                "ready": 197.23333333336652,
+                "charging": false
+              },
+              {
+                "ammo": 10,
+                "shots": 250,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 203.56666666668897,
+                "charging": false
+              },
+              {
+                "ammo": 10,
+                "shots": 88,
+                "charge_until": 180.26666666670107,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charging": true
+              },
+              {
+                "ammo": 7,
+                "shots": 245,
+                "charge_until": 0.0,
+                "reload_until": -1.0,
+                "ready": 0.0,
+                "charging": false
+              }
+            ]
+          },
+          "allies": [
+            {
+              "hp": 3541478.0,
+              "max_hp": 3541478.0,
+              "hp_pct": 100.0,
+              "defense": 32425.160000000003
+            },
+            {
+              "hp": 3267307.0,
+              "max_hp": 3267307.0,
+              "hp_pct": 100.0,
+              "defense": 26886.250000000004
+            },
+            {
+              "hp": 2993617.0,
+              "max_hp": 2993617.0,
+              "hp_pct": 100.0,
+              "defense": 26635.54
+            },
+            {
+              "hp": 2725779.0,
+              "max_hp": 2725779.0,
+              "hp_pct": 100.0,
+              "defense": 27415.070000000003
+            },
+            {
+              "hp": 3293786.0,
+              "max_hp": 3293786.0,
+              "hp_pct": 100.0,
+              "defense": 29290.600000000002
+            }
+          ]
+        },
+        "action_gates": [
+          {
+            "kind": "fire",
+            "time": 180.06666666670165
+          },
+          {
+            "kind": "reload",
+            "time": 181.1800000000352
+          },
+          {
+            "kind": "fire",
+            "time": 180.55000000002502
+          },
+          {
+            "kind": "charge",
+            "time": 180.26666666670107
+          },
+          {
+            "kind": "fire",
+            "time": 180.06666666669454
+          }
+        ],
+        "inactive_cpu_timestamps": [
+          {
+            "next_fire_time": 180.06666666670165,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 179.75000000002342,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 180.55000000002502,
+            "post_delay_end": 0.0
+          },
+          {
+            "next_fire_time": 171.23333333336174,
+            "post_delay_end": 178.76333333336743
+          },
+          {
+            "next_fire_time": 180.06666666669454,
+            "post_delay_end": 0.0
+          }
+        ],
+        "weapon_states": [
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 178.76666666670107,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          },
+          {
+            "charge_started_at": 0.0,
+            "post_reload_until": -1.0,
+            "pending_auto_reload": false
+          }
+        ],
+        "state_projection": "Compare the active reload/post-reload/charge/fire gate; inactive implementation timestamps are diagnostic only",
+        "burst_trace": [
+          {
+            "time": 3.3666666666666596,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 3.3666666666666596,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 3.4666666666666592,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 3.566666666666659,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 3.949999999999991,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 13.950000000000273,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 18.200000000000248,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 23.36666666666662,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 43.46666666666548,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 43.566666666665476,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 43.94999999999879,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 53.94999999999822,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 57.33333333333136,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 57.33333333333136,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 83.46666666666322,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 83.56666666666321,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 83.94999999999652,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 93.94999999999595,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 97.19999999999577,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 97.19999999999577,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 123.46666666666094,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 123.56666666666094,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 123.94999999999425,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 133.94999999999874,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 136.91666666666777,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 136.91666666666777,
+            "event": 1,
+            "owner": 1
+          },
+          {
+            "time": 163.4666666666889,
+            "event": 2,
+            "owner": 0
+          },
+          {
+            "time": 163.56666666668897,
+            "event": 3,
+            "owner": 2
+          },
+          {
+            "time": 163.9500000000226,
+            "event": 4,
+            "owner": -1
+          },
+          {
+            "time": 173.95000000003057,
+            "event": 5,
+            "owner": -1
+          },
+          {
+            "time": 177.23333333336652,
+            "event": 6,
+            "owner": -1
+          },
+          {
+            "time": 177.23333333336652,
+            "event": 1,
+            "owner": 1
+          }
+        ],
+        "base_stats": {
+          "폴크방": {
+            "atk": 87008,
+            "def": 23668,
+            "hp": 3541478
+          },
+          "미란다": {
+            "atk": 105903,
+            "def": 19625,
+            "hp": 3267307
+          },
+          "드레이크": {
+            "atk": 124955,
+            "def": 19442,
+            "hp": 2993617
+          },
+          "N102": {
+            "atk": 98491,
+            "def": 20011,
+            "hp": 2725779
+          },
+          "메어리": {
+            "atk": 106786,
+            "def": 21380,
+            "hp": 3293786
+          }
+        },
+        "total_damage": 615752341,
+        "last_frame": 179.9833333333687,
+        "cpu_engine_revision": "23164e4a88fe46af609cc99b0de38a98313a5f4d"
+      },
+      "gpu_readback_reused": true
+    }
+  ],
+  "probe_script": "import copy,datetime,hashlib,importlib.util,json,sys\nfrom pathlib import Path\nR=Path('/Users/edo/Documents/ChatGPT/nikke_tools');sys.path[:0]=[str(R/'app'),str(R/'scripts')]\nimport engine_worker as engine,reference_health_runtime as health\nfrom detail_coverage import body_for\nfrom portable_roster_input import compile_static_battle\ns=importlib.util.spec_from_file_location('v',R/'scripts/verify-portable-roster-battles.py');v=importlib.util.module_from_spec(s);s.loader.exec_module(v)\noriginal=health.enabled\n\ndef enabled(manager):\n return original(manager) or any(e.get('type')=='buff' and e.get('stat') in health.HP_STATS and e.get('duration',-1) not in (-1,None) for e,_ in manager._effects)\nhealth.enabled=enabled\nroster=json.loads((R/'research/portable-roster-battles-metal.json').read_text());selected=[c for c in roster['cases'] if c['character'] in ('벨로타 : 펌킨 위치','폴크방') and 'gpu_result' in c];assert len(selected)==4\nrows=[]\nfor c in selected:\n body={**body_for(v.roster_for(c['character']),duration=180,grown=c['grown']),'burst_gauge_mode':'accumulate'};prepared=engine.evaluate({**body,'_portable_static_inputs':True});program=compile_static_battle(prepared,trace='burst');native=v.reference.native_reference(copy.deepcopy(body));diff=v.reference.compare_native_result(c['gpu_result'],prepared,native,program=program)\n rows.append(dict(character=c['character'],grown=c['grown'],passed=not diff,before=c['differences'],after=diff,original_native=c['native_reference'],candidate_native=native,gpu_readback_reused=True))\nresult=dict(passed=all(c['passed'] for c in rows),cpu_only=True,production_source_unchanged=True,cases=rows,probe_script=Path(__file__).read_text(),probe_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),scope='Isolated CPU compatibility candidate enables existing maximum-HP synchronization for plain finite HP effects;no GPU changes and no fresh GPU execution. This does not certify unrelated original HP gaps.')\n(R/'research/portable-finite-hp-sync-candidate-native.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\\n');print('finite HP sync CPU candidate',result['passed'],[(c['character'],c['grown'],c['after']) for c in rows]);assert result['passed']\n",
+  "probe_sha256": "cc042f3fb1cba2eab091218dba3bd31100e6c3eb06f967467bb2f42bb8832d68",
+  "scope": "Isolated CPU compatibility candidate enables existing maximum-HP synchronization for plain finite HP effects;no GPU changes and no fresh GPU execution. This does not certify unrelated original HP gaps."
+}

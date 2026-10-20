@@ -1,5 +1,5 @@
 {
-  "decision": "Promote isolated scalar-filter candidate for canonical Metal/CUDA validation;not fully adopted before both backends pass",
+  "decision": "Adopt scalar-filter optimization after canonical Metal52 and fresh CUDA4682 exact parity",
   "baseline_source_commit": "782a13ca6249a52c30003b88870420cbd5b2f7ee",
   "benchmark_passed": true,
   "criteria_met": true,
@@ -133,5 +133,10 @@
   "windows_extra_sessions_so_far": 0,
   "full_goal_complete": false,
   "normal_ui": "CPU",
-  "recorded_at": "2026-10-20T14:18:23.671144+00:00"
+  "recorded_at": "2026-10-20T14:18:23.671144+00:00",
+  "production_adopted": true,
+  "canonical_source_commit": "73570451569dce424667e37f4729e475ea6b0a86",
+  "canonical_metal_full_validation_complete": true,
+  "canonical_cuda_full_input_output_comparison_complete": true,
+  "adoption_receipt": "research/portable-enemy-target-scalar-adoption.json"
 }

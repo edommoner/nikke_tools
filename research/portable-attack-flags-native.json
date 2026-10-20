@@ -6655,9 +6655,9 @@
   "captured": null,
   "cpu_trace_used_as_gpu_input": false,
   "validation_sha256": {
-    "app/portable_damage_specs.py": "4d43bf86347ecb62e04254e3318318559bf440539ec34d7c300edafd30855610",
-    "app/portable_runtime.py": "d27e1daef25679113769d43999973de54223eac7f8816faf76af93239b099303",
-    "app/portable_specs.py": "258aa154f63de4f864a2e965fb571eb7cf6d5d9ae4cd125032b2b5cc2257f78d",
+    "app/portable_damage_specs.py": "d969bbf4e827e098b07df8a7813f6a9804d7f578a1009bc15b9849f730ab9546",
+    "app/portable_runtime.py": "91b80a5a83860d42e1b8998c2360e783fa87c0b905122cb5293755b36ad530b0",
+    "app/portable_specs.py": "3854ebc9d0f7c67845ad8bb7fab33fc9a8b8eaddbb13ffa059e2b2aa887c14b6",
     "scripts/portable_attack_flag_oracle.py": "8f082add07ad031ce18b2a1a3f0b305e3aa2e7147d3870b97ae1bcb4c50f7757",
     "scripts/portable_attack_flag_validation.py": "d22c093f605f95d83d63b09c7406b392df2ab875750e4bf460cf30d8c1a77c10",
     "tests/fixtures/portable-attack-flags.json": "aa195e95de6f84c7969e6cd54bf76e7470078ae10e8ab716ea3c74bfca30b185",

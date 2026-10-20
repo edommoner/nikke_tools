@@ -134,5 +134,7 @@
   "archive": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-1db1a3f-initial",
   "full_goal_complete": false,
   "no_tolerance_change": true,
-  "no_unchanged_gpu_retry": true
+  "no_unchanged_gpu_retry": true,
+  "original_api_failure_log": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-1db1a3f-initial/initial-api-failure.log",
+  "initial_roster_full_matrix_retained": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-1db1a3f-initial/portable-roster-battles-metal.json"
 }

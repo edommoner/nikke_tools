@@ -1,0 +1,811 @@
+{
+  "base_commit": "39bce8aa5c9c5f29f0653e80fc69855f19ad5ad6",
+  "target_commit": "1db1a3f46e594eca59284b0c0b32d42628fc4ee7",
+  "repository": "edommoner/nikke_tools",
+  "branch": "codex/mac-metal",
+  "files": 159,
+  "total_file_bytes": 324752488,
+  "payload": [
+    {
+      "path": "app/portable_damage_specs.py",
+      "bytes": 2822,
+      "sha256": "d969bbf4e827e098b07df8a7813f6a9804d7f578a1009bc15b9849f730ab9546"
+    },
+    {
+      "path": "app/portable_enemy_specs.py",
+      "bytes": 2664,
+      "sha256": "8155ac37162d3790d86944696849e479ab8b7ddc8aad9db28e1f1c36d080c930"
+    },
+    {
+      "path": "app/portable_enemy_target_specs.py",
+      "bytes": 3303,
+      "sha256": "d0720e461f9b8bf2ce8a353c5da05a53d6b73f1aed9276c3124a0601b2a61b2e"
+    },
+    {
+      "path": "app/portable_http_policy.mjs",
+      "bytes": 434,
+      "sha256": "2699c8fc00422c5c14668fafe2d7f7a760247fda88fbefe8f00c90f9b3d74c5e"
+    },
+    {
+      "path": "app/portable_runtime.py",
+      "bytes": 63311,
+      "sha256": "d52d07a25082f068739560df7aa0dc75cc486614c7e41053a0a2c1099a083bcf"
+    },
+    {
+      "path": "app/portable_specs.py",
+      "bytes": 8941,
+      "sha256": "3854ebc9d0f7c67845ad8bb7fab33fc9a8b8eaddbb13ffa059e2b2aa887c14b6"
+    },
+    {
+      "path": "docs/mac-handoff.md",
+      "bytes": 112200,
+      "sha256": "2aff27eae69cee258ae6010f1907c2a02d05139586d5f1b9b5631edd54d501ed"
+    },
+    {
+      "path": "docs/mac-migration.md",
+      "bytes": 21705,
+      "sha256": "8477c48978709332d38fcf5bbbc2207723cbbd1516fcc84322276054cc59a5b2"
+    },
+    {
+      "path": "docs/portable-atk-from-hp-design.md",
+      "bytes": 6610,
+      "sha256": "e6444817a40fb587a0cbc6995a4943c356b365284efdc777bb47d85387ef95e1"
+    },
+    {
+      "path": "docs/portable-combat-runtime.md",
+      "bytes": 121792,
+      "sha256": "6367cd1978ed3fbb7f6db348c5536c0d02e1b40aad2d073e85e128a0bd2efe95"
+    },
+    {
+      "path": "docs/portable-mode-entry-delay-design.md",
+      "bytes": 5665,
+      "sha256": "a55ce5f547f00741b32af588a4eb5304cf249075e6ad8389d691c4522db50473"
+    },
+    {
+      "path": "docs/portable-taunt-design.md",
+      "bytes": 10003,
+      "sha256": "5ec139d916dc04ba087ac4518156a986db133c579887d90cf7a12be794b75125"
+    },
+    {
+      "path": "gpu/admission_runtime.slang",
+      "bytes": 12527,
+      "sha256": "06a609cf2707955d8c186b2e3e28ae5cfaefd716782606698aefd54fa3e9d44e"
+    },
+    {
+      "path": "gpu/enemy_buff_runtime.slang",
+      "bytes": 2213,
+      "sha256": "f8785fb25f492b06d4fca0fc64f4e69ea3dfb2a754dd438c4209dae7ed8c31fb"
+    },
+    {
+      "path": "gpu/enemy_target_runtime.slang",
+      "bytes": 7490,
+      "sha256": "bf1aa97be723aa2e4c950a77cd51d6f4591b492ce54ede0abfc7bca1556b9de0"
+    },
+    {
+      "path": "gpu/event_runtime.slang",
+      "bytes": 98132,
+      "sha256": "0a0148c8c2108a56692f4281a92a92aafc5104ac9b9d12247e08d3d02cbbbb26"
+    },
+    {
+      "path": "gpu/mt19937_probe.slang",
+      "bytes": 1305,
+      "sha256": "2069231d7fa9d5516d796662ef410dd0f3f81c75dd37fba45cd727110d677bee"
+    },
+    {
+      "path": "gpu/portable_mt19937.slang",
+      "bytes": 2591,
+      "sha256": "116f6a7ee3cf8e069db171aace0c06a1b160c3d25b0975451125929b68dd3b61"
+    },
+    {
+      "path": "gpu/portable_schema.slang",
+      "bytes": 13759,
+      "sha256": "dcd91b8ffd2dd7176f11e2a3fd672311e0e575ad392403552bb1f6eba673657e"
+    },
+    {
+      "path": "gpu/protection_runtime.slang",
+      "bytes": 17070,
+      "sha256": "33a9fedcea408103fd22cc4e7cc51445d8114d9fe02c6207c5f05bac94d5e682"
+    },
+    {
+      "path": "research/benchmark-mode-entry-hp.py",
+      "bytes": 7514,
+      "sha256": "90bf9517aecd3474f005eadd08019319b6161a8be0347a202c4a18bf81d0063c"
+    },
+    {
+      "path": "research/build-enemy-target-cases.py",
+      "bytes": 9519,
+      "sha256": "22fb6b2002a3a17f933500a145c479ebd08f49dffb8ff19f54ab589dffde1573"
+    },
+    {
+      "path": "research/build-enemy-target-prior-blocks.py",
+      "bytes": 1602,
+      "sha256": "85d677c7ab7944450430d84947fdf2743660d7cfd6fed3531995571aa6848d90"
+    },
+    {
+      "path": "research/capture-enemy-target-http-worker.py",
+      "bytes": 1145,
+      "sha256": "b09b28d39436b238174274744d69502c18952dfe88f16d3802370e16b59ef8c7"
+    },
+    {
+      "path": "research/characterize-taunt-edges.py",
+      "bytes": 4067,
+      "sha256": "5c7039c7046a4e5522ae9172ff6df9d9c233576741b441b7ce7181944d90e7eb"
+    },
+    {
+      "path": "research/diagnose-enemy-target-time.py",
+      "bytes": 2029,
+      "sha256": "c0dedefa6d5e9d426b1d21972ca2363fea57b3c007294fab8ef14939af709252"
+    },
+    {
+      "path": "research/diagnose-mode-entry-native-state.py",
+      "bytes": 2919,
+      "sha256": "49a505020ecdabf705bb66548118529215fe17d21e2e2264cfbe706ca3d753cd"
+    },
+    {
+      "path": "research/diagnose-mode-entry-real.py",
+      "bytes": 4653,
+      "sha256": "329ed0f004018699e4c8ab5748728ca99e4486861162b5764ec2821bb21a5c95"
+    },
+    {
+      "path": "research/enemy_target_native.py",
+      "bytes": 7155,
+      "sha256": "aa44e998a8ce276debcb249548e9f7351421b0243b6a897c970a5e22a519d9c9"
+    },
+    {
+      "path": "research/enemy_target_validation.py",
+      "bytes": 2080,
+      "sha256": "9bc50e9e5e713cf450bf6e27ee9b221d6a86e907b2f86d6cdfe1179c937a3326"
+    },
+    {
+      "path": "research/mode_entry_native.py",
+      "bytes": 3441,
+      "sha256": "02e15dbacf302e4b798307b9b32ac483c98479e1cf38f2fdd1159e8779bdfad3"
+    },
+    {
+      "path": "research/pending_reference_context.py",
+      "bytes": 667,
+      "sha256": "82374d1f7fc6dc32059b7152ea2fbe0675c9a0966ba8f6d6d1238e468ae8fdb8"
+    },
+    {
+      "path": "research/pending_reference_native.py",
+      "bytes": 8601,
+      "sha256": "eb008720dd5ba2b59adf101064b5d8c3ead333577996c200c541c9100073cb3a"
+    },
+    {
+      "path": "research/portable-api-metal.json",
+      "bytes": 7953256,
+      "sha256": "146d0b611cb900140ad26034c0b26503e8f5b8db0953e4f08464db2392c7f7ef"
+    },
+    {
+      "path": "research/portable-attack-flags-native.json",
+      "bytes": 136915,
+      "sha256": "0bd4b1bc6c4deef644148088828060c43479581c246a84dc242c180d21229e0a"
+    },
+    {
+      "path": "research/portable-catalog-readiness.json",
+      "bytes": 1870922,
+      "sha256": "d268c6fcdb9582f1dd8230ad878a6aab84d9882f37ad486975eebbdf4a3ca812"
+    },
+    {
+      "path": "research/portable-catalog-weapons-metal.json",
+      "bytes": 2946488,
+      "sha256": "303ccb138c013bad45b5141af6b1ae5a38b1b0ce2c1b8b0bff6e6294e7cc5b57"
+    },
+    {
+      "path": "research/portable-combat-checkpoint.json",
+      "bytes": 5210,
+      "sha256": "eaccc327169fb7a14b593051f9d9f6505c6cf097cc54183939375895b482397d"
+    },
+    {
+      "path": "research/portable-combat-metal.json",
+      "bytes": 83787090,
+      "sha256": "d27a7daedefc716f4ce733d621a9c38e6103a72bc5ca092b2bedbd82c6ec9013"
+    },
+    {
+      "path": "research/portable-definition-input-metal.json",
+      "bytes": 6447,
+      "sha256": "389ad7b2016f24c97bd5b88b6b11c3b5f05c23f79e2402bf7cde8bf1972a6657"
+    },
+    {
+      "path": "research/portable-definition-out-metal.json",
+      "bytes": 6440,
+      "sha256": "a23766d57ef0399831baac08da715db1168a34e3ec232f0496216c14010a934f"
+    },
+    {
+      "path": "research/portable-definition-scalar-metal.json",
+      "bytes": 6452,
+      "sha256": "a3e89d7ce2fd426414c51acf1858227d28d9b494d060bbe16b016214db5bb10f"
+    },
+    {
+      "path": "research/portable-duration-extend-metal.json",
+      "bytes": 1104002,
+      "sha256": "86002c3e75b02ca52f4beef6275035658d049e1956b2d77812c22e3f3b94397f"
+    },
+    {
+      "path": "research/portable-element-overrides-native.json",
+      "bytes": 590477,
+      "sha256": "1751e33ce42e063fd46a7e10258d2bfed23fe19d4e2f76968710d15dccc88941"
+    },
+    {
+      "path": "research/portable-enemy-code-real-metal.json",
+      "bytes": 824718,
+      "sha256": "2e12219d286862079bb18fdaa308d64abda614ff6e1cdaceb0dd4ea437402769"
+    },
+    {
+      "path": "research/portable-enemy-codes-native.json",
+      "bytes": 541384,
+      "sha256": "53cbcc82ce293ad6a998e735cbd8ec163cc2f561faa74efce635371cbd67171e"
+    },
+    {
+      "path": "research/portable-enemy-target-admission-metal.json",
+      "bytes": 30065,
+      "sha256": "2415ab9c72a69c42dce2b2193a7a07ab2a364e74dbefbc6189163f1eb16e16e4"
+    },
+    {
+      "path": "research/portable-enemy-target-candidate-metal.json",
+      "bytes": 35220498,
+      "sha256": "84e5a16e4e2ad3a14a381118b2503f95262b32e04cb50aff2f2c5e83b8480a4d"
+    },
+    {
+      "path": "research/portable-enemy-target-candidate-native.json",
+      "bytes": 10660176,
+      "sha256": "6688abe61ae65cc1781f59c63ff78509e486ca125df1790051d631e23087df9a"
+    },
+    {
+      "path": "research/portable-enemy-target-candidate-preparation.json",
+      "bytes": 16229,
+      "sha256": "94c341016097ba0b5a1672c5b8f47e15a159ad3ec477ab4c9c302797ce2e52f0"
+    },
+    {
+      "path": "research/portable-enemy-target-candidate-receipt.json",
+      "bytes": 6103,
+      "sha256": "b329404ff2508c9a5002115960392825f50f272961398e46d2b53acf018cb291"
+    },
+    {
+      "path": "research/portable-enemy-target-expanded-prior-parity.json",
+      "bytes": 717,
+      "sha256": "f1b5a128cdad7e537b601789201ef05bbe784ab917953f660d27b99a2931c37d"
+    },
+    {
+      "path": "research/portable-enemy-target-host-adoption-wire-parity.json",
+      "bytes": 507,
+      "sha256": "9463a6998e34667688c04314bab42eac784f4faa8e705eedf14f22fded788ad3"
+    },
+    {
+      "path": "research/portable-enemy-target-inputs.json",
+      "bytes": 2024065,
+      "sha256": "4c0960593a28a395f9fd042573254616ed761a89c046f5badba85a927f973846"
+    },
+    {
+      "path": "research/portable-enemy-target-prior-blocks.json",
+      "bytes": 824139,
+      "sha256": "5c7f59477718170f202f0845c36da69e2615550fa5fdac1b2be95f363fcc8ec5"
+    },
+    {
+      "path": "research/portable-enemy-target-prior-metal-parity.json",
+      "bytes": 47432,
+      "sha256": "5e585fd808278f91ad87e681894bd8a829e21b6fe4f4b469526ff449f8925d91"
+    },
+    {
+      "path": "research/portable-enemy-target-process-completion.json",
+      "bytes": 220,
+      "sha256": "a289201efb7f0d4c43053ae99fa897a2df43bc1171f9d0627ddf13bba3487946"
+    },
+    {
+      "path": "research/portable-enemy-target-spec-native.json",
+      "bytes": 14033,
+      "sha256": "127747479a2597f0e3514e4202c32e30ff201681bc1cc9debf083994f7446ce3"
+    },
+    {
+      "path": "research/portable-enemy-target-time-initial-finding.json",
+      "bytes": 66535,
+      "sha256": "5cb59b21cda0a57fac534649e4d3b2498a06160162eecf95cdf273b0ac1bb008"
+    },
+    {
+      "path": "research/portable-enemy-target-work-state.json",
+      "bytes": 7117,
+      "sha256": "2bd7a96b7ebc61435c634c5d0d7779dfcd83fe91f68e1460d71d52cd37fa688d"
+    },
+    {
+      "path": "research/portable-events-metal.json",
+      "bytes": 737643,
+      "sha256": "46a9c99d4c31aecff9c82e029bc6c1ba825e35c5b27c617172079acb88b90a8a"
+    },
+    {
+      "path": "research/portable-favorite-readiness.json",
+      "bytes": 923435,
+      "sha256": "836a3d4503ff5122aa0fb16942b24601ac216bfbbd3d50203b2f47b559e92a9d"
+    },
+    {
+      "path": "research/portable-geometry-native.json",
+      "bytes": 73204,
+      "sha256": "f446b2307e08288d3ceddfc511487850396b44db195c827a396f28ceab0fb978"
+    },
+    {
+      "path": "research/portable-health-runtime-metal.json",
+      "bytes": 373465,
+      "sha256": "30535cb3d71c1c45d5567dddc23d8a60db41776b2bfabf9b5014bc3f8ca5da54"
+    },
+    {
+      "path": "research/portable-hp-attack-physical-metal.json",
+      "bytes": 1233560,
+      "sha256": "6a9b90a4965635fe06d0fbe5f270879827f041b1ba4f6cb4ddee5e51116a058a"
+    },
+    {
+      "path": "research/portable-instant-lists-native.json",
+      "bytes": 205279,
+      "sha256": "17c0c5fd6825d80d98a624968db362dba6ea47679f434119bcb8368bca6dfe15"
+    },
+    {
+      "path": "research/portable-metal-pipeline-lock.json",
+      "bytes": 6396,
+      "sha256": "19e803feeb27079c336aa2fdf08036f8c82a5f3c143019cb47b748b0b213ee57"
+    },
+    {
+      "path": "research/portable-mode-entry-360-candidate-metal.json",
+      "bytes": 21900611,
+      "sha256": "5950b87d1ccbf6f70e98a26fa1fa971e3b573993a6ce763e29ef32e098fa0e0f"
+    },
+    {
+      "path": "research/portable-mode-entry-adoption-state.json",
+      "bytes": 14510,
+      "sha256": "12d6d22a076c0952856a030864a89c1a5d17b114ada5d5c336799b57f4d0b76b"
+    },
+    {
+      "path": "research/portable-mode-entry-broad-validation.json",
+      "bytes": 89607,
+      "sha256": "9ca0f2a0f3a40f0562fcdc2c6fe3738a09b9b75d0efa867cd3c79f9e18529bf5"
+    },
+    {
+      "path": "research/portable-mode-entry-candidate-metal.json",
+      "bytes": 24457425,
+      "sha256": "6e116135829713f43caaf375ddff9a411edced899e4ec11c211c024a698cc67c"
+    },
+    {
+      "path": "research/portable-mode-entry-candidate-preparation.json",
+      "bytes": 9821,
+      "sha256": "cd6bf9895c46ecf1a6edc768b2410a8910f27ab7108b843e57e2df15a2c990d5"
+    },
+    {
+      "path": "research/portable-mode-entry-candidate-prior-parity.json",
+      "bytes": 30432,
+      "sha256": "ffeddb10c2806962e1d12b1f58fdf919522103cb806ee1ec1f28645574c9eaa6"
+    },
+    {
+      "path": "research/portable-mode-entry-clock-finding.json",
+      "bytes": 1216,
+      "sha256": "7bccf02f240953967b1daaf69c1dd0416cc28ffc53ceb4d2453d14ab48d7b44d"
+    },
+    {
+      "path": "research/portable-mode-entry-diagnostic-format-note.json",
+      "bytes": 733,
+      "sha256": "a8d16b4d643e4c23bc6e152b38f6426c7cca5e2879d9765da13ff85ce8525868"
+    },
+    {
+      "path": "research/portable-mode-entry-efficiency-decision.json",
+      "bytes": 2917,
+      "sha256": "1852e95d9824ed7b5959feaed32b3d651e31993dc862cc95fc940b1b59a4b173"
+    },
+    {
+      "path": "research/portable-mode-entry-efficiency-plan.json",
+      "bytes": 5041,
+      "sha256": "127611802b262048ab98848bf44d61c2f2a35114730be3d866bc8126009a92e9"
+    },
+    {
+      "path": "research/portable-mode-entry-entry-native.json",
+      "bytes": 2316063,
+      "sha256": "019574cba52a4875b934d1f5fcf8fb1385104072fbb0b504cb706b4e59de2674"
+    },
+    {
+      "path": "research/portable-mode-entry-existing-metal-parity.json",
+      "bytes": 20646,
+      "sha256": "fe41d0dc84ddb25c3b038d85e7ca19766e93b09cb504f8b6cece15ea2bb5b014"
+    },
+    {
+      "path": "research/portable-mode-entry-first-candidate-metal.json",
+      "bytes": 21801758,
+      "sha256": "57c913b615477546ee5d65d323ccf836d5a32562c736542c58ce851894d0bd0f"
+    },
+    {
+      "path": "research/portable-mode-entry-first-fixed-real-candidate-metal.json",
+      "bytes": 298863,
+      "sha256": "d6f9dd309acacdbd918fc72881f4bc14619ba1c6787fcd7cfcd146ece0125465"
+    },
+    {
+      "path": "research/portable-mode-entry-first-native-study.json",
+      "bytes": 1971355,
+      "sha256": "ffe4195f45b57573b6057b62408c5e2909cc259d0da54236ecbd6d81d60c7ef7"
+    },
+    {
+      "path": "research/portable-mode-entry-first-real-candidate-metal.json",
+      "bytes": 294059,
+      "sha256": "6638b90d20a7e0f2cb86872dab4d0b6e5e223902a13acc4bd932143e8429314e"
+    },
+    {
+      "path": "research/portable-mode-entry-global-gates.json",
+      "bytes": 11468,
+      "sha256": "c4b25e651c83df9c9da97e915eecad4f5f0d21087d107485b02f95eb30ee373e"
+    },
+    {
+      "path": "research/portable-mode-entry-hp-cache-benchmark-progress.json",
+      "bytes": 594092,
+      "sha256": "9ef3c09880a0d82eaf7da3f15a3ab1f748533703985d8ef819d89e438ec0c53d"
+    },
+    {
+      "path": "research/portable-mode-entry-hp-cache-benchmark.json",
+      "bytes": 702573,
+      "sha256": "2b77ca8a1c3f79948fde274e46a86727a267208cff84ea18a9b351a96af775e4"
+    },
+    {
+      "path": "research/portable-mode-entry-hp-cache-parity.json",
+      "bytes": 104004,
+      "sha256": "fc6dd49b11a24ffae3d2907901732867e536aff2e706d426e2d0996a3cc6ed1a"
+    },
+    {
+      "path": "research/portable-mode-entry-inputs.json",
+      "bytes": 1900830,
+      "sha256": "cf253e04a906e64bd4ca6fcc41abbc85959abcaabdf8ffdc4fd1f16fef4c2bf3"
+    },
+    {
+      "path": "research/portable-mode-entry-local-completion-receipt.json",
+      "bytes": 17616,
+      "sha256": "6e9e08b70a5620931692033a6ca8c8f32b3505250c8e2da894fc34986ec96b46"
+    },
+    {
+      "path": "research/portable-mode-entry-native-state-diagnosis.json",
+      "bytes": 2624185,
+      "sha256": "2d3dc8e402f97e64f8eb650d8915475ba74d36e7a22f9c20630a38f2836a4d5d"
+    },
+    {
+      "path": "research/portable-mode-entry-native-study.json",
+      "bytes": 1971355,
+      "sha256": "ffe4195f45b57573b6057b62408c5e2909cc259d0da54236ecbd6d81d60c7ef7"
+    },
+    {
+      "path": "research/portable-mode-entry-pending-native.json",
+      "bytes": 208356,
+      "sha256": "fdb39d189e2f6b7d03d3b584069d5f87fda89aa38ce481305710a40c39716248"
+    },
+    {
+      "path": "research/portable-mode-entry-pending-reference-finding.json",
+      "bytes": 1278,
+      "sha256": "b3e7363cfeeedc436b3233dd79b6836ad9f59dc8c7a20bae6b8266a1ccbf2d29"
+    },
+    {
+      "path": "research/portable-mode-entry-process-completion.json",
+      "bytes": 430,
+      "sha256": "b70bb7d404a6326598f45c1f9e3e0de50b61a7f8e86b578cbc86042bceb63861"
+    },
+    {
+      "path": "research/portable-mode-entry-real-candidate-metal.json",
+      "bytes": 293518,
+      "sha256": "a3518dc5f70e4f159eed8f32a6f54bd92df61e7fd283b497a9dac63d2d9786b7"
+    },
+    {
+      "path": "research/portable-mode-entry-real-diagnosis.json",
+      "bytes": 693489,
+      "sha256": "7c35393a0058c88437ad9776d77344afaaa779044bac3c6f67cb21bc99677e88"
+    },
+    {
+      "path": "research/portable-mode-entry-source-share-inventory.json",
+      "bytes": 10293,
+      "sha256": "428e682596187bdc3361c12079a277192d7c4747ed11d648008f280751c93bc5"
+    },
+    {
+      "path": "research/portable-mode-entry-startup-fixture-finding.json",
+      "bytes": 1976,
+      "sha256": "08543ddaa1bf46e8abfa6f40a2b991d513b7751329a7f8c1e4a5aa06505dd0e1"
+    },
+    {
+      "path": "research/portable-mode-entry-timing-order.json",
+      "bytes": 4149,
+      "sha256": "63a43a3b65ccd45b7645fa24fb4a660c631735346c86411465690fb68aef8603"
+    },
+    {
+      "path": "research/portable-mode-entry-transfer-completed.json",
+      "bytes": 3604,
+      "sha256": "4053b2d20e905f404d4c859324c54229b70adbf8d7ac9893302e30c3658d4836"
+    },
+    {
+      "path": "research/portable-mode-entry-v76-execution.json",
+      "bytes": 20365,
+      "sha256": "9a98dcd8651f562f1d6e26f0023359f4b05db75770bfbf948ce3492cf266168e"
+    },
+    {
+      "path": "research/portable-mode-entry-validation.json",
+      "bytes": 5210,
+      "sha256": "eaccc327169fb7a14b593051f9d9f6505c6cf097cc54183939375895b482397d"
+    },
+    {
+      "path": "research/portable-mode-entry-work-state.json",
+      "bytes": 2957,
+      "sha256": "8989f607905b2a9f53449d6cae957d9449b93bbf08cce54374b8d575fc8a8ea1"
+    },
+    {
+      "path": "research/portable-named-states-native.json",
+      "bytes": 459382,
+      "sha256": "0badab6a80555ba3df87394fa9d8dac27b0f3efe05937fcd6b1901ced7271330"
+    },
+    {
+      "path": "research/portable-numeric-metal.json",
+      "bytes": 3605,
+      "sha256": "3688a6c36db17716eebcb79957e037b4824b17aa28fd5c13ded0eacc9319dd1b"
+    },
+    {
+      "path": "research/portable-pending-reference-candidate-metal.json",
+      "bytes": 3205130,
+      "sha256": "e1f51c0b1f8ac923783e1f5ba6f7454ba0099d44575ec6d1a0daccce99c2fa26"
+    },
+    {
+      "path": "research/portable-pending-reference-first-inputs.json",
+      "bytes": 412735,
+      "sha256": "4e63c5b315959b10b5d8b4a56723e6aaa5faa0841b569ae75532422feb115e4d"
+    },
+    {
+      "path": "research/portable-pending-reference-inputs.json",
+      "bytes": 413455,
+      "sha256": "5fdaba380c7bf32ae73c637d630cd6103bc635086b40a51bc12e1d2e9f42abea"
+    },
+    {
+      "path": "research/portable-pending-reference-native-study.json",
+      "bytes": 202173,
+      "sha256": "3ce18b7f8ea75acd0823db75b41e7d906173614a7fc73a489c99e804e95d39a0"
+    },
+    {
+      "path": "research/portable-probability-native.json",
+      "bytes": 3129072,
+      "sha256": "94e5e7464eb3af4085e9ec4b66746efa3247e6d01cdf9d5c16348fd87d7645bb"
+    },
+    {
+      "path": "research/portable-probe-metal.json",
+      "bytes": 2907,
+      "sha256": "918623440a153be86c86f1fb3d1e51756ef0b809f6cb2ff9ab2b9b1d9bf695a7"
+    },
+    {
+      "path": "research/portable-protection-native.json",
+      "bytes": 602416,
+      "sha256": "0fe46c9db0157da387be9426cdf8a89dd0266a537a7178d0eaa9fefd11b4fad4"
+    },
+    {
+      "path": "research/portable-real-battle-metal.json",
+      "bytes": 947130,
+      "sha256": "a97c91a1d072520e8eebf9e44a6079753f57bd0bef92197daf67efb74a11c558"
+    },
+    {
+      "path": "research/portable-real-equipment-metal.json",
+      "bytes": 12630849,
+      "sha256": "e7752f621310e465fa010818e18e7d77d1cf8c25467ed3e05243c2115e720dfe"
+    },
+    {
+      "path": "research/portable-removal-queue-metal.json",
+      "bytes": 6621,
+      "sha256": "2ab14a86c7c90cf56052eafd4f98327103dc8e144c13cfb418bb2ea47fac2aa2"
+    },
+    {
+      "path": "research/portable-roster-battles-metal.json",
+      "bytes": 17159196,
+      "sha256": "96994c9f2b9115ff47d7dbdf8f7d5c61eb49b23f2ab17e8f07378939834e03c9"
+    },
+    {
+      "path": "research/portable-split-native.json",
+      "bytes": 362682,
+      "sha256": "3cc3f69d86a93f59fc51e2f81d6e8633b0700fc17da13a1f2796519c0e9234ae"
+    },
+    {
+      "path": "research/portable-stack-notices-metal.json",
+      "bytes": 7202,
+      "sha256": "1d3a192f25b4f8c19c02479112dbad41be2f14ab6e9d477a86046fb5ee153e7e"
+    },
+    {
+      "path": "research/portable-stack-numeric-metal.json",
+      "bytes": 1617,
+      "sha256": "d4468ca027a9248a62fc0030bc2a576ceca43ba302035c0150723155cd8fafd7"
+    },
+    {
+      "path": "research/portable-target-rng-first-compile-finding.json",
+      "bytes": 1673,
+      "sha256": "7be26814085a68b9967e6b4bfe52b41e62a6119c14900df7ba9739e33ede95af"
+    },
+    {
+      "path": "research/portable-target-rng-metal.json",
+      "bytes": 3434666,
+      "sha256": "6aed6ce6ad41d6033cef7edcb95d08e14486a27b578fbac1f714355a5c028d70"
+    },
+    {
+      "path": "research/portable-target-rng-native.json",
+      "bytes": 1718811,
+      "sha256": "a55eadd6dd3ef0622362ae05fedc22f0a5da25c34a18de5c9580068af95eb908"
+    },
+    {
+      "path": "research/portable-target-states-native.json",
+      "bytes": 311365,
+      "sha256": "84754ed3d35a752f2392cb35b918c7a5d76ff833a3f65e7281cdfdf2ddf77e30"
+    },
+    {
+      "path": "research/portable-taunt-edge-native-study.json",
+      "bytes": 24526,
+      "sha256": "c262ae07b440cd935a975804f5b0a117240e85f5e59311b44c302ddbce6beb55"
+    },
+    {
+      "path": "research/portable-taunt-revive-initial-expectation-finding.json",
+      "bytes": 382,
+      "sha256": "afc68ce251b8410121be55e1c661e015a4b40fb1dfe0e6f2535cefd800a28e3e"
+    },
+    {
+      "path": "research/prepare-enemy-target-candidate.py",
+      "bytes": 5793,
+      "sha256": "c30a076096c7e33f230eb5c0ceff5eceed30934657f6dab8d1a8c5f7026d0e8a"
+    },
+    {
+      "path": "research/prepare-mode-entry-candidate.py",
+      "bytes": 8320,
+      "sha256": "ead278dd0827019912808c6e82d1510eaca6ce48d23a9158933ab5060211c709"
+    },
+    {
+      "path": "research/run-enemy-target-gates.py",
+      "bytes": 5740,
+      "sha256": "f8a0bb448335d8a95c8935fbb0b5143215443a1c585d51fa041253f9b5ea8ba3"
+    },
+    {
+      "path": "research/seal-mode-entry-cuda.py",
+      "bytes": 7260,
+      "sha256": "b70d3217ae243978912765dbb7467b2c8262c1dc2a2ac91e7be001a30b3b7a38"
+    },
+    {
+      "path": "research/seal-mode-entry-gates.py",
+      "bytes": 6847,
+      "sha256": "27b4adc22dee0fda6826d25212e9c60d5ae7b93b91f4bbed2775beb82b6ff52a"
+    },
+    {
+      "path": "research/seal-mode-entry-validation.py",
+      "bytes": 5154,
+      "sha256": "4879b233983b48fd9c0e4bcf44767bf0dc6879c2950dc72b33aa5eebd7d076b5"
+    },
+    {
+      "path": "research/verify-enemy-target-admission.py",
+      "bytes": 2335,
+      "sha256": "2e1b2705ac49b40448c0d7256cec7ca3826d0a39787197a641f875941169c37f"
+    },
+    {
+      "path": "research/verify-enemy-target-candidate.py",
+      "bytes": 6436,
+      "sha256": "1da0c555fde338b1006dfd4975389446adea146f612cd1e287668da4e3c72a3f"
+    },
+    {
+      "path": "research/verify-enemy-target-http.py",
+      "bytes": 5871,
+      "sha256": "61bfb30a22ea564c6c31d8820ddc78d0180ddb3aafe2c8128df7d701f7f05373"
+    },
+    {
+      "path": "research/verify-enemy-target-prior.py",
+      "bytes": 3245,
+      "sha256": "76e2b01af4d9b227899af28e9227bad76b133d12376bafc9482b9037a6109067"
+    },
+    {
+      "path": "research/verify-enemy-target-regression.py",
+      "bytes": 7565,
+      "sha256": "b912296819ee3666470ab78a644ef7773bf10af3f76dbc9fd78e4569b0f92fc7"
+    },
+    {
+      "path": "research/verify-enemy-target-spec.py",
+      "bytes": 1973,
+      "sha256": "cb971020128bcaf4efd6948bd9af6540dc6103471e1436ab325ad081665223e5"
+    },
+    {
+      "path": "research/verify-enemy-targets.py",
+      "bytes": 3354,
+      "sha256": "b68de502beb759bac32b3db39a136923e76e21cc4f8fc3b4752925cf1215fd65"
+    },
+    {
+      "path": "research/verify-mode-entry-candidate-prior.py",
+      "bytes": 3418,
+      "sha256": "3c8681eb552ed3063ce56e872a382d065e9fb0aec6482c447736bb90207f3b0a"
+    },
+    {
+      "path": "research/verify-mode-entry-candidate.py",
+      "bytes": 4100,
+      "sha256": "4f832fb0211171371e89c6fae6af576108e57d1dca9a3d441f3ff27a1d316367"
+    },
+    {
+      "path": "research/verify-mode-entry-real-candidate.py",
+      "bytes": 3845,
+      "sha256": "1a711336e9e7708fb36cf3e1db919f68d03f5c2e63b16597bb88a50703a47605"
+    },
+    {
+      "path": "research/verify-pending-reference-candidate.py",
+      "bytes": 4868,
+      "sha256": "c6e2a25d5083ce04cb862f52e8b284ad1d57856b7b32c4e5eb3f3a0c9db9bc45"
+    },
+    {
+      "path": "research/verify-target-rng.py",
+      "bytes": 4509,
+      "sha256": "18ab72334b32e62019cb243c5c2a3ca7052bcdde4d75d3766ae89504c1a3d691"
+    },
+    {
+      "path": "research/windows-hp-attack-check.md",
+      "bytes": 2756,
+      "sha256": "8382140d6cc8c7765a1d59b4ffdad7090bff2c913db8de80c09e03e194e23955"
+    },
+    {
+      "path": "research/windows-mode-entry-check.md",
+      "bytes": 2692,
+      "sha256": "c38f743fd13a2373a3ed68aabc1bba48289fb0d49e362a46b14205e6bbf70338"
+    },
+    {
+      "path": "research/windows-portable-mode-entry-v76.json",
+      "bytes": 42153218,
+      "sha256": "7f482bec05c7e54d00cbc11e758a64d45e8a64228b75f173ccb2525ace92704e"
+    },
+    {
+      "path": "scripts/portable_enemy_target_oracle.py",
+      "bytes": 7842,
+      "sha256": "4eb157de1ea01234e392c3d406ae09580a3b669bf58994c32e41cd017ce5eb9e"
+    },
+    {
+      "path": "scripts/portable_enemy_target_validation.py",
+      "bytes": 2080,
+      "sha256": "9bc50e9e5e713cf450bf6e27ee9b221d6a86e907b2f86d6cdfe1179c937a3326"
+    },
+    {
+      "path": "scripts/portable_target_rng_oracle.py",
+      "bytes": 435,
+      "sha256": "10f2f195683752ef156af8dd39cbcfed9e07bb6a55617be74b6b48e0d6f549d8"
+    },
+    {
+      "path": "scripts/verify-portable-combat.py",
+      "bytes": 75892,
+      "sha256": "9a801dc986ddfc49a5a58883b53a3d7377303d0b4f025c42345be6b44ee9d4a6"
+    },
+    {
+      "path": "server.mjs",
+      "bytes": 20298,
+      "sha256": "9abb04bbdf2456f98f10aafdeda9fe461acb639374bd5aad6a831a3bdceb5545"
+    },
+    {
+      "path": "tests/fixtures/portable-enemy-targets.json",
+      "bytes": 2128662,
+      "sha256": "4df423928e53ec7f38b7cdcf692afcdd5627f567ba33721418918f3a4e0f4047"
+    },
+    {
+      "path": "tests/portable-http-policy.test.mjs",
+      "bytes": 2126,
+      "sha256": "84af6ce521a0ed37c26d876374ff7bfab14a034797662f717c3e7939fc5c817a"
+    },
+    {
+      "path": "tests/test_portable_duration_extend.py",
+      "bytes": 3708,
+      "sha256": "f2c50e19b98fa9a69040c1a5d73a7c13cbf0b8b03693d0794813a0ba8473baa5"
+    },
+    {
+      "path": "tests/test_portable_enemy_targets.py",
+      "bytes": 4705,
+      "sha256": "3861143a33fc90599b6478154b2c634ead5c5b3552953ab284f34a54ced57d72"
+    },
+    {
+      "path": "tests/test_portable_hp_attack.py",
+      "bytes": 2184,
+      "sha256": "2807d294b386b1a25410bd377881e97262982a430349ae059e8c4986f609309f"
+    },
+    {
+      "path": "tests/test_portable_mode_entry.py",
+      "bytes": 3063,
+      "sha256": "10af4d5d0efe4dcb4327b26d2c4210c6862fc95b31f2b1624e1d74f267619bda"
+    },
+    {
+      "path": "tests/test_portable_probability.py",
+      "bytes": 3372,
+      "sha256": "a4f2924c948004ea5aaa8ddc17b71077b7892121f8942f00fd18e8b4279c43df"
+    },
+    {
+      "path": "tests/test_portable_removal.py",
+      "bytes": 3874,
+      "sha256": "dc3fcdd6b3cc7f3bb918f31580918bf4cf2c91976774a96a0b40054e19ac733e"
+    }
+  ],
+  "scope": "Frozen shared enemy-target/RNG compute and common tests plus unshared prior Mac/CUDA proof records;no personal settings or raw binaries;Windows execution deferred until Mac gates finish",
+  "shared": true,
+  "explicit_user_approval": "159ファイルのGitHub共有を許可",
+  "published_at": "2026-10-20T12:56:16.040794+00:00",
+  "tracking_branch_commit": "1db1a3f46e594eca59284b0c0b32d42628fc4ee7",
+  "windows_gpu_execution_started": false
+}

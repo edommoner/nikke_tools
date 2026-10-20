@@ -2,8 +2,8 @@
   "validation_sha256": {
     "app/portable_protection_specs.py": "9fee0cc9f4fcdd8383545db69c9e1e9dc43f97ea2a5865c6f45353b052a3b4af",
     "app/protection_runtime.py": "1ddbb6134b1deea1e9fee295d0171b380098ca2211f109a20224f2d369a91f92",
-    "app/reference_health_runtime.py": "fb028c974a10f80821336fb3f2bcf235ee6d300538a61afa829b536dc9ba1e44",
-    "app/portable_runtime.py": "d27e1daef25679113769d43999973de54223eac7f8816faf76af93239b099303",
+    "app/reference_health_runtime.py": "762ff6161a87f99d34619095264115d0f39b07efd559ae293226e31d838b7fd9",
+    "app/portable_runtime.py": "91b80a5a83860d42e1b8998c2360e783fa87c0b905122cb5293755b36ad530b0",
     "scripts/portable_protection_oracle.py": "23f38a9340a621a738bc5f58d030489bc9c1b5c18c01fcc0f54408e8731ef70d",
     "tests/fixtures/portable-protection.json": "51e8b658f5ba027795cb88c8f1c524aacd6aec1e41a50fa2ac211362025d5ae0",
     "research/verify-protection.py": "07638db7e58e2af59feb79ac49b52f1f0c90edabc655e897574f50ee0cd5a56a"

@@ -30107,8 +30107,8 @@
   "validation_sha256": {
     "app/portable_element_specs.py": "b46475dbf9ba590a8b031814b2f008224a9079aad87caff93b2ec49eab1c0af8",
     "app/portable_code_specs.py": "b53cd9cee83bf1cf6442c72db6a1fd65cc4408f2471c9fd504de54cb42cd86ab",
-    "app/portable_runtime.py": "d27e1daef25679113769d43999973de54223eac7f8816faf76af93239b099303",
-    "app/portable_damage_specs.py": "4d43bf86347ecb62e04254e3318318559bf440539ec34d7c300edafd30855610",
+    "app/portable_runtime.py": "91b80a5a83860d42e1b8998c2360e783fa87c0b905122cb5293755b36ad530b0",
+    "app/portable_damage_specs.py": "d969bbf4e827e098b07df8a7813f6a9804d7f578a1009bc15b9849f730ab9546",
     "scripts/portable_element_oracle.py": "20e90d9f97e9a16a45d6857ea041bf8a45d3cab328d9c92e36a94518aaebd0c6",
     "scripts/portable_enemy_oracle.py": "7b86436e89e946960f843c50e646802cae494502f269fbb5290b2fee806f5ba7",
     "scripts/portable_weapon_oracle.py": "51f98ad5464fdff70e050eb9be4a973727c7ba13d27f3b5acb0f1b9e508330a6",

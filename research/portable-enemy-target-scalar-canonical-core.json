@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "source_commit": "73570451569dce424667e37f4729e475ea6b0a86",
+  "baseline_source_commit": "782a13ca6249a52c30003b88870420cbd5b2f7ee",
+  "full4682_input_words_equal": true,
+  "full4682_output_words_equal": true,
+  "input_sha256": "3e27031e3a5f2d3da03c48cba7bc5b785ad8d3af71d5511a141530f1a6d434e0",
+  "output_sha256": "61a3cc458ae24a897606bbcf8d3197dc88517111c17b510ccb1cefd6737ee9f4",
+  "canonical_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-core-20261020T141834234332Z/readback.bin",
+  "generated_body_comparison": {
+    "cuda": {
+      "canonical_normalized": "e1099d39d1720539e49d1ecde4e954a964427ccdd60353d0e70aa584f2144145",
+      "isolated_normalized": "e1099d39d1720539e49d1ecde4e954a964427ccdd60353d0e70aa584f2144145",
+      "equal": true
+    },
+    "metal": {
+      "canonical_normalized": "ff3d4819e6afc9503deed77b5f0e81c129ee4e51ae8f18101efeac1eada70038",
+      "isolated_normalized": "ff3d4819e6afc9503deed77b5f0e81c129ee4e51ae8f18101efeac1eada70038",
+      "equal": true
+    }
+  }
+}
