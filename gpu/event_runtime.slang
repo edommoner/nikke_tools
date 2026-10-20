@@ -182,6 +182,17 @@ struct Runtime
 #define WORLD_FIELDS_INIT(s,output)
 #define WORLD_FIELDS_COMMAND(s,at)
 #endif
+#ifdef PORTABLE_WORLD_ACTOR_MUTATION
+#define WORLD_MUTATION_STATE_ENABLED(s,legacy) ((legacy)||actorMutationEnabled(s))
+#define WORLD_MUTATION_HEADER_INVALID(s,value,legacy) ((legacy)&&value!=0x574D3031)
+#define WORLD_MUTATION_KIND_INVALID(s,d,legacy) ((legacy)&&!(actorMutationEnabled(s)&&d.kind==1))
+#define WORLD_MUTATION_NAMED_REMOVE(s,row,target,when) if(actorMutationEnabled(s)) { actorMutationRemoveNamed(s,row,target,when);return; }
+#else
+#define WORLD_MUTATION_STATE_ENABLED(s,legacy) legacy
+#define WORLD_MUTATION_HEADER_INVALID(s,value,legacy) legacy
+#define WORLD_MUTATION_KIND_INVALID(s,d,legacy) legacy
+#define WORLD_MUTATION_NAMED_REMOVE(s,row,target,when)
+#endif
 #ifdef PORTABLE_WORLD_ACTOR_STATE
 #define WORLD_STATE_TARGET_STACK(s,name,when,present,legacy) (actorStateEnabled(s) ? actorNamedTargetStack(s,name,present) : (legacy))
 #define WORLD_STATE_SELF_STACK(s,owner,name,arg) if(kind==C_SELF_STACK&&actorStateEnabled(s)) { if(f64Less(actorNamedSelfStack(s,owner,name),arg)) return false;continue; }
@@ -1561,6 +1572,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "world_actor_fields.slang"
 #ifdef PORTABLE_WORLD_ACTOR_STATE
 #include "world_actor_state.slang"
+#ifdef PORTABLE_WORLD_ACTOR_MUTATION
+#include "world_actor_mutation.slang"
+#endif
 #endif
 #endif
 #define WORLD_POOL_INIT(s,output) if(!initializeActorPools(s)) { results[output]=64;return; }

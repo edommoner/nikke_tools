@@ -33,7 +33,7 @@ uint removalMembers(inout Runtime s,uint slot)
 [noinline]
 void removeNamedResidents(inout Runtime s,uint row,uint target,uint64_t when)
 {
-    uint policy=definition_target(s.inputBase,row),name=uint(definition_targetName(s.inputBase,row)),scope=0xffffffff;
+    WORLD_MUTATION_NAMED_REMOVE(s,row,target,when) uint policy=definition_target(s.inputBase,row),name=uint(definition_targetName(s.inputBase,row)),scope=0xffffffff;
     if(policy==1) { uint64_t order;scope=selectRecipients(s,row,when,order); }
     else if(policy==2) { uint order;scope=enemyDamageMask(s,readDefinition(s.inputBase,row),target,order)<<5; }
     if(scope==0) return;
