@@ -30,6 +30,11 @@ class StateInput(unittest.TestCase):
   for generation in (0,-1,True,2**31):
    w,m,_=d.compile_case(self.case)
    with self.subTest(generation=generation),self.assertRaises(ValueError):append_queries(w,m,[(0,5,0,generation,'mark')],.5)
+ def test_actor_graph_preserves_direct_enemy_attack_payload(self):
+  c=next(c for c in d.fixtures() if c['name']=='direct-incoming-and-body-query-have-different-context')
+  with patch.object(BossScript,'begin_frame',side_effect=AssertionError('Literal attacks only')):w,_,_=d.compile_case(c)
+  import struct
+  at=L['WORLD_FRAME_PAYLOAD_BASE']+16;self.assertEqual(w[at:at+8],[32,0,0,0,0,0,0,0]);self.assertEqual(w[at+8:at+12],list(struct.unpack('<IIII',struct.pack('<dd',200,100))))
  def test_layout_preserves_every_normal_and_field_output_word(self):
   self.assertEqual((L['INPUT_WORDS'],L['OUTPUT_WORDS'],L['WORLD_ACTOR_FIELDS_OUTPUT_WORDS']),(86016,159744,262144));self.assertEqual(L['WORLD_ACTOR_STATE_INPUT_BASE'],92208);self.assertEqual(L['WORLD_ACTOR_STATE_INPUT_WORDS'],92336);self.assertEqual(L['WORLD_ACTOR_STATE_ABI'],0x50455679)
  def test_unused_sidecar_remains_zero_and_named_queries_follow_fields(self):

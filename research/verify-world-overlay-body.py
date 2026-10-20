@@ -53,6 +53,9 @@ def compile_case(case,*,actor_pools=False):
  payload=compile_payload(patterns,camera_mask=sum(1<<i for i,name in enumerate(names) if name in case.get('camera',[])),element_codes=[CODES.get(code,0) for code in elements] if shield else (),code_tags=tags,charge_hold_mask=sum(1<<i for i,name in enumerate(names) if name=='스노우 화이트 : 헤비암즈'),actor_pools=actor_pools)
  if actor_pools and target_spawn:graph[8]=meta['states']['target_spawn']+1
  words[L['WORLD_FRAME_INPUT_BASE']:L['WORLD_FRAME_PAYLOAD_BASE']]=graph;words[0]=L['WORLD_OVERLAY_ABI'];words.extend(payload)
+ if actor_pools:
+  from portable_world_attack_specs import pack_attacks
+  pack_attacks(words,patterns,case['patterns'],L)
  from portable_world_overlay_specs import pack_cleanse_flags,pack_skill_mode_flags
  pack_cleanse_flags(words,case['effects'],L);pack_skill_mode_flags(words,case['effects'],L)
  assert len(words)==L['WORLD_OVERLAY_INPUT_WORDS'];return words,meta

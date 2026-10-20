@@ -43,7 +43,7 @@ def negative_inputs(programs):
 def prepare():
  rows=fixtures();programs=[compile_case(c) for c in rows];return rows,programs,negative_inputs(programs)
 def main():
- ap=argparse.ArgumentParser();ap.add_argument('--backend',choices=('metal','cuda'),default='metal');ap.add_argument('--cpu-only',action='store_true');ap.add_argument('--replay',type=Path);a=ap.parse_args();rows,programs,bad=prepare();native=[fields.pool.observe(c) for c in rows]
+ ap=argparse.ArgumentParser();ap.add_argument('--backend',choices=('metal','cuda'),default='metal');ap.add_argument('--cpu-only',action='store_true');ap.add_argument('--replay',type=Path);ap.add_argument('--reuse',type=Path);a=ap.parse_args();rows,programs,bad=prepare();native=[fields.pool.observe(c) for c in rows]
  if a.cpu_only:
   (ROOT/'research/portable-build/world-actor-state-native.json').write_text(json.dumps(dict(names=[c['name'] for c in rows],cases=native),ensure_ascii=False,indent=2)+'\n');print('CPU full native named state',len(rows),'raw',len(bad),'literal inputs;GPU calls0');return
  old=json.loads((ROOT/'research/portable-world-actor-fields-metal.json').read_text());p=Path(old['captured']);olddata=(p/'input.bin').read_bytes();oldraw=(p/'readback.bin').read_bytes();assert int.from_bytes(olddata[:4],'little')==357
@@ -56,6 +56,20 @@ def main():
  data=packed.tobytes();ow=262144*4
  if a.replay:
   folder=a.replay;raw=(folder/'readback.bin').read_bytes();evidence=json.loads((folder/'evidence.json').read_text());assert (folder/'input.bin').read_bytes()==data and evidence['source_sha256']==source_hashes(SOURCE)
+ elif a.reuse:
+  previous=a.reuse.resolve();old_input=(previous/'input.bin').read_bytes();old_output=(previous/'readback.bin').read_bytes();old_evidence=json.loads((previous/'evidence.json').read_text())
+  assert old_evidence['backend']==a.backend and old_evidence['source_sha256']==source_hashes(SOURCE) and hashlib.sha256(old_input).hexdigest()==old_evidence['input_sha256'] and hashlib.sha256(old_output).hexdigest()==old_evidence['output_sha256']
+  iw=L['WORLD_ACTOR_STATE_INPUT_WORDS']*4;count=int.from_bytes(data[:4],'little');assert len(old_input)==len(data) and old_input[:4]==data[:4] and len(old_output)==count*ow
+  changed=[i for i in range(count) if data[4+i*iw:4+(i+1)*iw]!=old_input[4+i*iw:4+(i+1)*iw]];assert changed==[37],changed
+  dispatch_data=struct.pack('<I',len(changed))+b''.join(data[4+i*iw:4+(i+1)*iw] for i in changed)
+  folder=ROOT/'research/portable-build'/('world-actor-state-incremental-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ'));folder.mkdir(parents=True);(folder/'input.bin').write_bytes(data);(folder/'dispatch-input.bin').write_bytes(dispatch_data)
+  try:fresh,fresh_evidence=execute(SOURCE,'portableEvents',dispatch_data,L['WORLD_ACTOR_STATE_INPUT_WORDS'],262144,a.backend)
+  except Exception as error:(folder/'failure.json').write_text(json.dumps(dict(error=repr(error),source_sha256=source_hashes(SOURCE)),indent=2)+'\n');raise
+  (folder/'dispatch-readback.bin').write_bytes(fresh);(folder/'dispatch-evidence.json').write_text(json.dumps(fresh_evidence,indent=2)+'\n');assert fresh_evidence['source_sha256']==old_evidence['source_sha256'] and fresh_evidence['generated_sha256']==old_evidence['generated_sha256']
+  assembled=bytearray(old_output)
+  for j,i in enumerate(changed):assembled[i*ow:(i+1)*ow]=fresh[j*ow:(j+1)*ow]
+  raw=bytes(assembled);evidence=dict(backend=a.backend,gpu_execution_verified=True,source_sha256=fresh_evidence['source_sha256'],generated_sha256=fresh_evidence['generated_sha256'],input_sha256=hashlib.sha256(data).hexdigest(),output_sha256=hashlib.sha256(raw).hexdigest(),transport=dict(backend=a.backend,cases=count,command_status='completed',composed=True,reused_inputs=count-len(changed),fresh_inputs=len(changed)),execution_composition=dict(prior_capture=str(previous),prior_input_sha256=old_evidence['input_sha256'],prior_output_sha256=old_evidence['output_sha256'],fresh_input_sha256=fresh_evidence['input_sha256'],fresh_output_sha256=fresh_evidence['output_sha256'],changed_indices=changed,physical_gpu_sessions_this_invocation=1,source_identical=True,no_cpu_output_substitution=True))
+  (folder/'readback.bin').write_bytes(raw);(folder/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
  else:
   folder=ROOT/'research/portable-build'/('world-actor-state-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ'));folder.mkdir(parents=True);(folder/'input.bin').write_bytes(data)
   try:raw,evidence=execute(SOURCE,'portableEvents',data,L['WORLD_ACTOR_STATE_INPUT_WORDS'],262144,a.backend)
@@ -73,6 +87,6 @@ def main():
  prior=[]
  for j in range(357):
   i=len(rows)+len(bad)+j;now=raw[i*ow:(i+1)*ow];before=oldraw[j*ow:(j+1)*ow];prior.append(dict(index=j,passed=now==before,output_sha256=hashlib.sha256(now).hexdigest()))
- report=dict(passed=all(x['passed'] for x in results+rejected+prior),cases=results,rejected_cases=rejected,preserved357=prior,captured=str(folder),evidence=evidence,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),cpu_state_used_as_input=False,normal_ui='CPU',canonical_world_admission=False,full_character_verified=0,full_goal_complete=False)
+ report=dict(passed=all(x['passed'] for x in results+rejected+prior),cases=results,rejected_cases=rejected,preserved357=prior,captured=str(folder),evidence=evidence,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),gpu_readback_reused=a.replay is not None or a.reuse is not None,cpu_state_used_as_input=False,normal_ui='CPU',canonical_world_admission=False,full_character_verified=0,full_goal_complete=False)
  (ROOT/f'research/portable-world-actor-state-{a.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[x.get('name',x.get('index')) for x in results+rejected+prior if not x['passed']];print('Named state',len(rows),'native/raw',len(bad),'old357 exact',a.backend)
 if __name__=='__main__':main()

@@ -41,10 +41,8 @@ def compile_case(case):
  words[L['ENEMY_TARGET_META_BASE']:L['ENEMY_TARGET_META_BASE']+8]=[1,0,0,0,0,0,0,0]
  meta['enemy_targeting']=dict(enabled=True,steps=[],seed=0)
  if any('event:target_spawn' in (*p.emit,*p.emit_end) for p in patterns):words[WF_INPUT+8]=meta['states']['target_spawn']+1
- for p in patterns:
-  if p.attack is None:continue
-  raw=case['patterns'][p.idx]['spec'];at=WF_PAYLOAD+p.idx*16
-  words[at:at+16]=[32,0,0,int(p.attack.pierce),0,0,0,0,*number(p.attack.atk or 114344),*number(p.attack.coeff),*target_rule({k:raw[k] for k in ('target','ignore_taunt') if k in raw})]
+ from portable_world_attack_specs import pack_attacks
+ pack_attacks(words,patterns,case['patterns'],L)
  assert len(words)==L['WORLD_FRAME_INPUT_WORDS']
  return words,meta
 def read_result(block,meta,case):
