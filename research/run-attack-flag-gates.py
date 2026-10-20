@@ -17,6 +17,7 @@ jobs.insert(0,('geometry-native',['research/verify-geometry.py','--native-only']
 jobs.append(('favorite-audit',['research/audit-portable-favorites.py']))
 jobs.insert(0,('target-state-native',['research/verify-target-states.py','--native-only']))
 jobs.insert(0,('attack-flag-native',['research/verify-attack-flags.py','--native-only']))
+jobs.insert(0,('health-runtime',['research/verify-health-runtime.py','--backend','metal']))
 source=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip();total=len(jobs);rows=[]
 for name,args in jobs:
  subprocess.run(['git','diff','--exit-code',source,'--','app','scripts','gpu','tests'],cwd=root,check=True,stdout=subprocess.DEVNULL)

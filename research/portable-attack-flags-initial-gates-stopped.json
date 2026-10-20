@@ -1,0 +1,203 @@
+{
+  "passed": false,
+  "complete": false,
+  "gates": [
+    {
+      "name": "attack-flag-native",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9733010830823332,
+      "log": "/tmp/nikke-attack-flag-gate-attack-flag-native.log"
+    },
+    {
+      "name": "target-state-native",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9357530829729512,
+      "log": "/tmp/nikke-attack-flag-gate-target-state-native.log"
+    },
+    {
+      "name": "geometry-native",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9032759999390692,
+      "log": "/tmp/nikke-attack-flag-gate-geometry-native.log"
+    },
+    {
+      "name": "probability-native",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 1.7427048339741305,
+      "log": "/tmp/nikke-attack-flag-gate-probability-native.log"
+    },
+    {
+      "name": "element-native",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8419870829675347,
+      "log": "/tmp/nikke-attack-flag-gate-element-native.log"
+    },
+    {
+      "name": "core",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 21.686104999971576,
+      "log": "/tmp/nikke-attack-flag-gate-core.log"
+    },
+    {
+      "name": "enemy-code-real",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 70.52610104193445,
+      "log": "/tmp/nikke-attack-flag-gate-enemy-code-real.log"
+    },
+    {
+      "name": "enemy-code-native",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7478280420182273,
+      "log": "/tmp/nikke-attack-flag-gate-enemy-code-native.log"
+    },
+    {
+      "name": "named-state-native",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7643807089189067,
+      "log": "/tmp/nikke-attack-flag-gate-named-state-native.log"
+    },
+    {
+      "name": "instant-list-native",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7532165829325095,
+      "log": "/tmp/nikke-attack-flag-gate-instant-list-native.log"
+    },
+    {
+      "name": "split-native",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7422939169919118,
+      "log": "/tmp/nikke-attack-flag-gate-split-native.log"
+    },
+    {
+      "name": "protection-native",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8130347920814529,
+      "log": "/tmp/nikke-attack-flag-gate-protection-native.log"
+    },
+    {
+      "name": "status-native",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7843742499826476,
+      "log": "/tmp/nikke-attack-flag-gate-status-native.log"
+    },
+    {
+      "name": "stack-foundation",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 5.0962990410625935,
+      "log": "/tmp/nikke-attack-flag-gate-stack-foundation.log"
+    },
+    {
+      "name": "staged-native",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7181056248955429,
+      "log": "/tmp/nikke-attack-flag-gate-staged-native.log"
+    },
+    {
+      "name": "source-native",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.03303445805795491,
+      "log": "/tmp/nikke-attack-flag-gate-source-native.log"
+    },
+    {
+      "name": "native-mode-spec",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7491997909964994,
+      "log": "/tmp/nikke-attack-flag-gate-native-mode-spec.log"
+    },
+    {
+      "name": "native-mode-input",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7469747920986265,
+      "log": "/tmp/nikke-attack-flag-gate-native-mode-input.log"
+    },
+    {
+      "name": "reference-rewrite",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.029842416057363153,
+      "log": "/tmp/nikke-attack-flag-gate-reference-rewrite.log"
+    },
+    {
+      "name": "duration-native",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 2.568326083011925,
+      "log": "/tmp/nikke-attack-flag-gate-duration-native.log"
+    },
+    {
+      "name": "definition-input",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0595767920603976,
+      "log": "/tmp/nikke-attack-flag-gate-definition-input.log"
+    },
+    {
+      "name": "definition-scalar",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0642982081044465,
+      "log": "/tmp/nikke-attack-flag-gate-definition-scalar.log"
+    },
+    {
+      "name": "definition-out",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 1.064492249977775,
+      "log": "/tmp/nikke-attack-flag-gate-definition-out.log"
+    },
+    {
+      "name": "removal-queue",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8969034170731902,
+      "log": "/tmp/nikke-attack-flag-gate-removal-queue.log"
+    },
+    {
+      "name": "numeric",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.6988236249890178,
+      "log": "/tmp/nikke-attack-flag-gate-numeric.log"
+    },
+    {
+      "name": "probe",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 0.351047582924366,
+      "log": "/tmp/nikke-attack-flag-gate-probe.log"
+    },
+    {
+      "name": "events",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 0,
+      "elapsed_seconds": 3.7802072920603678,
+      "log": "/tmp/nikke-attack-flag-gate-events.log"
+    },
+    {
+      "name": "roster",
+      "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808",
+      "exit_code": 1,
+      "elapsed_seconds": 904.9814202080015,
+      "log": "/tmp/nikke-attack-flag-gate-roster.log"
+    }
+  ],
+  "source_commit": "5a3ee26039dc031f98ccd34a9c3245ff606a8808"
+}
