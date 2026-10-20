@@ -2,7 +2,7 @@
 
 ## 現在の状態
 
-共通Slangのtarget_hit_counter resource/eventに加え、実武器・散弾・武器変更・body/part/addの物理receiptをprivate ABI7Fへ接続し、Metal663で実証しました。CPU369、旧8entry生成厳密一致、旧622全出力保持も成功しています。Windows v90は新規41入力のみ依頼済みで結果待ちです。型付き対象条件を持つ子・damage子とskill/pending/DoTは未接続です。通常画面CPU、world公開無効、全変種認証0/203を維持します。以下の段階別記録では、最新の実証範囲と過去の未実装状態を区別してください。
+共通Slangのtarget_hit_counter resource/event、実武器/body/part/addの着弾、完了子の型付き対象条件をprivate ABI80へ接続し、Metal721で実証しました。CPU374、旧9entry生成厳密一致、旧663全出力保持が成功しています。前段CUDA41も監査済みです。今回のCUDA58は依頼済みで結果待ちです。damage子/任意の敵field子とskill/pending/DoTは未接続です。通常画面CPU、world公開無効、全変種認証0/203を維持します。以下の段階別記録では、最新の実証範囲と過去の未実装状態を区別してください。
 
 ## 参照する定義と実装
 
@@ -106,3 +106,15 @@ Metal663入力＝完全native26実戦＋不正15＋旧622全524288word保持が�
 Windows v90のCPU18検査・41入力/native26・全67 source SHA照合とGPU呼び出し0はremote commentaryで確認しました（turn01a15b9e-ae4f-7693-9f09-9263cc3a83e0、cursor133）。CUDA実行依頼後にremote hostがunavailableとなり、実行結果と3JSONは未取得・未監査です。成功/失敗を推測しません。接続復帰後は既存検証の保存済み3JSONだけを取得し、再実行は依頼しないでください。seal-world-v90-cuda.pyとfingerprint/source manifestは保存済みです。
 
 型付きtarget/Impact子context・runtime条件・damage子、skill/pending/DoT/source攻撃/interrupt、動的操作/復活、容量/長時間/全203変種認証は未完了です。未接続のcounter子はprivate受付でも拒否します。通常画面CPU・public world false・全変種認証0/203・legacy unexplained Metal14c8e2e OPEN、効率化は必要検証後です。GitHub共有は利用者がゴール達成まで許可しています。
+
+## 2026-10-21 counter完了子の対象条件をMetal721で実証
+
+計算source6348577・private ABI80/context mode3で、immutable ready rowのActor型/ID/世代を完了子のイベント文脈へ接続しました。target_is_boss/add、target_state/not_target_state/target_stack、self_state/not_self_state/self_stackは既存の共通条件評価器を使います。致死addの再aim後も元addを判定し、death completionはimpactなしでもcompletion.actorを保持します。generic named子イベントは対象を継承せず、現在のaimへ戻ります。有限条件は発動時にlatch、永続条件はcounter終了後の吸血照会で再評価し、同じものにしません。敵sentinelのcounterはself_stateに含まれず、ownerのself_stackには含まれるnative契約を保持しました。
+
+完全native49実戦＋不正9＋旧663全524288word保持＝Metal721入力が成功しました。単体374、旧9entryのCUDA/MSL生成物厳密一致、保存入力/readback/source/nativeのGPU禁止監査も成功しました。contextは既存ready bankへのpointerを32 dispatch×32 frameのGPU所有bank1096words（511080以後）へ保持し、終了時は全word 0へ復元します。数値・resident・同期子実行器の別コピーはありません。新しい共有compiler adapterは既存target_stack placeholder/name allocationを使い、旧41 literal入力はSHA完全一致です。
+
+初回db568d3は新49/不正9成功・旧662保持でしたが、旧「unknown mode2」負例1件が新mode2と衝突しました。失敗rawを保持し、CPU診断後、mode3へ移して旧mode2拒否を保持しました。異なるソース/入力でMetal2回、同一条件retry0です。証拠はportable-world-counter-context-validation.json、監査器seal-world-counter-context-metal.py、mode-finding.jsonです。
+
+前段Windows v90は接続復帰後に保存済み3JSON計55749bytesだけを取得し、CUDA41/native26・CPU18・source67・50 API phase・94.982143秒/実行1回・残存0・元checkout/service保持まで監査しました。v90の再実行0です。今回のWindows v91は固定a9bb64216cce80e813a4a18e524f8b178ba6cc2c、16ファイル250508bytesで新規58入力/native49のみ依頼済みです。CPU23検査後、BelowNormal/JobObject/start gate/180秒/cleanup5秒の1回、通常4682と旧663以下の再実行0を指定しています。v91結果はまだ未照合です。
+
+通常画面CPU・public world false・全203変種認証0、legacy unexplained Metal14c8e2e OPENを維持します。damage子/任意の敵field子、typed skill/pending/DoT/source攻撃/interrupt、動的操作/復活、容量/長時間/全変種の認証は未完了です。nativeの永続条件付き味方HP/防御とhit-only max-HP rankの不整合も未解消です。効率化は必要検証後。GitHub共有は利用者がゴール達成まで許可しています。
