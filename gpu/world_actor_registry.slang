@@ -36,10 +36,10 @@ bool initializeWorldActors(inout Runtime s)
         seen[node]++;previousKind=kind;previousNode=node;
     }
     for(uint n=0;n<32;n++) if(seen[n]!=commands[s.inputBase+P_WORLD_ACTOR_NODE_BASE+n*4+1]) return false;
-    results[s.resourceOutput+P_WORLD_ACTOR_STATE_BASE]=count;worldActorsApply(s);return true;
+    results[s.resourceOutput+P_WORLD_ACTOR_STATE_BASE]=count;worldActorsApply(s,false);return true;
 }
 [noinline]
-void worldActorsApply(inout Runtime s)
+void worldActorsApply(inout Runtime s,bool pools=true)
 {
     if(!worldActorsEnabled(s)) return;
     uint count=commands[s.inputBase+P_WORLD_ACTOR_INPUT_BASE+1];
@@ -49,19 +49,24 @@ void worldActorsApply(inout Runtime s)
         results[o]=kind;results[o+1]=commands[b+1];
         if(slot==0) { results[o+2]=1;results[o+3]=1; }
         else { uint graph=s.resourceOutput+P_WORLD_FRAME_OUTPUT_BASE+16+commands[b+3]*24;results[o+2]=results[graph+1];results[o+3]=results[graph]; }
+#ifdef PORTABLE_WORLD_ACTOR_POOLS
+        if(pools && actorPoolsEnabled(s)) { uint p=actorPoolAt(s,slot);results[o+2]=results[p];results[o+3]=results[p+1]; }
+#endif
         results[o+4]=commands[b+5];results[o+5]=commands[b+6];results[o+6]=kind==1?1U:0U;results[o+7]=commands[b+3];
     }
+}
+uint worldActorResolve(inout Runtime s,uint kind,uint identity,uint generation,out uint found)
+{
+    uint count=commands[s.inputBase+P_WORLD_ACTOR_INPUT_BASE+1];found=P_WORLD_ACTORS;
+    for(uint slot=0;slot<count;slot++) { uint b=actorBinding(s,slot);if(commands[b]==kind && commands[b+1]==identity) { found=slot;break; } }
+    if(found==P_WORLD_ACTORS) return 1;
+    uint state=actorState(s,found);if(results[state+2]==0) return 2;if(results[state+2]!=generation) return 3;return 0;
 }
 [noinline]
 void worldActorQuery(inout Runtime s,uint kind,uint identity,uint generation,uint root,uint query)
 {
-    uint out=s.resourceOutput+P_WORLD_ACTOR_QUERY_BASE+query*8,count=commands[s.inputBase+P_WORLD_ACTOR_INPUT_BASE+1],found=P_WORLD_ACTORS;
-    for(uint i=0;i<8;i++) results[out+i]=0;
-    for(uint slot=0;slot<count;slot++) { uint b=actorBinding(s,slot);if(commands[b]==kind && commands[b+1]==identity) { found=slot;break; } }
-    if(found==P_WORLD_ACTORS) { results[out]=1;return; }
-    uint state=actorState(s,found);
-    if(results[state+2]==0) { results[out]=2;return; }
-    if(results[state+2]!=generation) { results[out]=3;return; }
-    if(root!=0 && kind==1) state=actorState(s,0);
+    uint out=s.resourceOutput+P_WORLD_ACTOR_QUERY_BASE+query*8,found,status=worldActorResolve(s,kind,identity,generation,found);
+    for(uint i=0;i<8;i++) results[out+i]=0;results[out]=status;if(status!=0) return;
+    uint state=actorState(s,found);if(root!=0 && kind==1) state=actorState(s,0);
     for(uint i=0;i<7;i++) results[out+1+i]=results[state+i];
 }

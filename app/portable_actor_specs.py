@@ -4,12 +4,12 @@ from world_actor_specs import bindings,MAX_ACTORS
 MAGIC=0x57413031
 NONE=0xffffffff
 
-def compile_registry(patterns):
+def compile_registry(patterns,*,pools=False):
  count=1+sum(len(p.targets) if p.kind=='parts' else 0 for p in patterns)+sum(p.summon.count if p.summon else 0 for p in patterns)
  if not 1<=count<=MAX_ACTORS:raise ValueError('World actor capacity exceeded')
  if any(p.kind=='interrupt' for p in patterns):raise ValueError('Interrupt actor adapter is not connected')
  if any(p.summon and (p.summon.attack or p.summon.self_destruct) for p in patterns):raise ValueError('Actor attack/HP landing must be connected before source attacks')
- if any(p.until_cleared for p in patterns):raise ValueError('Actor HP-owned cleared state is not connected')
+ if not pools and any(p.until_cleared for p in patterns):raise ValueError('Actor HP-owned cleared state is not connected')
  rows=sorted(bindings(patterns),key=lambda b:(int(b.kind),b.identity));assert len(rows)==count
  if len({(r.kind,r.label) for r in rows})!=count:raise ValueError('Duplicate native actor labels')
  words=[0]*(L['WORLD_ACTOR_INPUT_WORDS']-L['WORLD_ACTOR_INPUT_BASE']);words[:3]=[MAGIC,count,len(patterns)]

@@ -142,6 +142,19 @@ struct Runtime
 #define WORLD_CHARGE_HOLD(s,w,who,when)
 #define WORLD_CHARGE_FINISH(s,w,who)
 #endif
+#ifdef PORTABLE_WORLD_ACTOR_POOLS
+#define WORLD_POOL_LAND(s,who,target,amount) if((target&0x80000000U)!=0) { actorPoolLand(s,who,target&127U,amount);return; }
+#define WORLD_POOL_SAMPLE(s) if(actorPoolsEnabled(s)) { s.enemySnapshot=actorPoolsEnemyCount(s);return; }
+#define WORLD_POOL_ACCOUNTING(s,legacy) (actorPoolsEnabled(s) || (legacy))
+#define WORLD_POOL_PHYSICAL_TARGET(s,who,target) actorPhysicalTarget(s,who,target)
+#undef WORLD_PHYSICAL_BEGIN
+#define WORLD_PHYSICAL_BEGIN(s,who,target,amount) if(actorPhysicalGate(s,who,target,amount,when)) {
+#else
+#define WORLD_POOL_LAND(s,who,target,amount)
+#define WORLD_POOL_SAMPLE(s)
+#define WORLD_POOL_ACCOUNTING(s,legacy) legacy
+#define WORLD_POOL_PHYSICAL_TARGET(s,who,target) target
+#endif
 #include "geometry_runtime.slang"
 
 bool hasProtection(inout Runtime s,uint who,uint kind);
@@ -445,7 +458,7 @@ bool activationConditions(inout Runtime s, uint row, uint64_t when)
 
 void sampleWorld(inout Runtime s)
 {
-    s.enemySnapshot = s.combat == 0 ? 1 : 0;
+    WORLD_POOL_SAMPLE(s) s.enemySnapshot = s.combat == 0 ? 1 : 0;
     if (s.combat != 0) for (uint j = 0; j < s.targetCount; j++) if (s.targetAlive[j] != 0) s.enemySnapshot++;
 }
 
@@ -467,11 +480,11 @@ uint aimedTarget(inout Runtime s, uint who)
 [noinline]
 void land(inout Runtime s, uint who, uint target, uint64_t amount)
 {
-    if (s.combat != 0 && s.targetHits[target] == 0x7fffffff) { s.error = 2; return; }
+    WORLD_POOL_LAND(s,who,target,amount) if (s.combat != 0 && s.targetHits[target] == 0x7fffffff) { s.error = 2; return; }
 #ifdef PORTABLE_ACCOUNTING_REFERENCE
     bool separate = true;
 #else
-    bool separate = s.combat != 0 && s.targetCount > 1;
+    bool separate = WORLD_POOL_ACCOUNTING(s,s.combat != 0 && s.targetCount > 1);
 #endif
     if (separate)
     {
@@ -501,7 +514,7 @@ void writeDamageAccounting(inout Runtime s, uint output, bool targets = false)
 #ifdef PORTABLE_ACCOUNTING_REFERENCE
     bool separate = true;
 #else
-    bool separate = s.combat != 0 && s.targetCount > 1;
+    bool separate = WORLD_POOL_ACCOUNTING(s,s.combat != 0 && s.targetCount > 1);
 #endif
     for (uint who = 0; who < 5; who++)
     {
@@ -1476,6 +1489,14 @@ void tick(inout Runtime s, uint64_t when, uint output)
 }
 
 #include "bullet_consume.slang"
+#ifdef PORTABLE_WORLD_ACTOR_POOLS
+#include "world_actor_pools.slang"
+#define WORLD_POOL_INIT(s,output) if(!initializeActorPools(s)) { results[output]=64;return; }
+#define WORLD_POOL_COMMAND(s,at) else if(op>=34 && op<=38) { if(!actorPoolCommand(s,op,step,when)) { s.error=64;break; } }
+#else
+#define WORLD_POOL_INIT(s,output)
+#define WORLD_POOL_COMMAND(s,at)
+#endif
 #ifdef PORTABLE_WORLD_ACTORS
 #include "world_actor_registry.slang"
 #define WORLD_ACTORS_INIT(s,output) if(!initializeWorldActors(s)) { results[output]=64;return; }
@@ -1536,7 +1557,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if(!validGeometry(s)) { results[output]=64;return; }
     admitDefinitions(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
-    if(!initializeWorldFrame(s)) { results[output]=64;return; } WORLD_OVERLAY_INIT(s,output) WORLD_ACTORS_INIT(s,output)
+    if(!initializeWorldFrame(s)) { results[output]=64;return; } WORLD_OVERLAY_INIT(s,output) WORLD_ACTORS_INIT(s,output) WORLD_POOL_INIT(s,output)
     if(!validEnemyTargeting(s)) { results[output]=64;return; }
     if(!validProtection(s)) { results[output]=64;return; }
     if (!validStatusDefinitions(s)) { results[output]=64;return; }
@@ -1569,7 +1590,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             dispatch(s,0,event,commands[at+4],int(commands[at+5]),when,output);
         }
         else if (op == 4 && s.combat != 0) { if (s.clockMode != 0) { s.error = 64; break; } squadFrame(s,when,output); s.frameCount++; }
-        WORLD_ACTOR_COMMAND(s,at) else if (op == 26)
+        WORLD_ACTOR_COMMAND(s,at) WORLD_POOL_COMMAND(s,at) else if (op == 26)
         {
             uint mask = commands[at+5]; uint64_t amount = loadNumber(at+6);
             if (commands[at+3] != 0 || commands[at+4] != 0 || mask == 0 || mask > 31 || !f64Finite(amount) || f64Less(amount,0)) { s.error = 64; break; }

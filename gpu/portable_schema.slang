@@ -2,7 +2,9 @@
 #if defined(PORTABLE_WORLD_FRAME) && defined(PORTABLE_WIDE_LANDINGS)
 #error World and wide-landing diagnostic layouts cannot be combined.
 #endif
-#ifdef PORTABLE_WORLD_ACTORS
+#ifdef PORTABLE_WORLD_ACTOR_POOLS
+static const uint PORTABLE_ABI = 1346721399U;
+#elif defined(PORTABLE_WORLD_ACTORS)
 static const uint PORTABLE_ABI = 1346721398U;
 #elif defined(PORTABLE_WORLD_OVERLAYS)
 static const uint PORTABLE_ABI = 1346721397U;
@@ -99,7 +101,9 @@ static const uint P_LANDING_META_BASE = 77792U;
 static const uint P_STATUS_META_BASE = 77800U;
 static const uint P_PROTECTION_META_BASE = 77808U;
 static const uint P_PROTECTION_DEFINITION_BASE = 77816U;
-#ifdef PORTABLE_WORLD_ACTORS
+#ifdef PORTABLE_WORLD_ACTOR_POOLS
+static const uint P_INPUT_WORDS = 92208U;
+#elif defined(PORTABLE_WORLD_ACTORS)
 static const uint P_INPUT_WORDS = 90536U;
 #elif defined(PORTABLE_WORLD_OVERLAYS)
 static const uint P_INPUT_WORDS = 89376U;
@@ -176,7 +180,9 @@ static const uint P_PROTECTION_MAP_BASE = 108224U;
 static const uint P_PROTECTION_SELECTION_BASE = 108736U;
 static const uint P_PROTECTION_OBJECT_BASE = 109248U;
 static const uint P_PROTECTION_BUILD_BASE = 133824U;
-#ifdef PORTABLE_WORLD_FRAME
+#ifdef PORTABLE_WORLD_ACTOR_POOLS
+static const uint P_OUTPUT_WORDS = 253952U;
+#elif defined(PORTABLE_WORLD_FRAME)
 static const uint P_OUTPUT_WORDS = 225280U;
 #else
 #ifdef PORTABLE_WIDE_LANDINGS
@@ -225,6 +231,21 @@ static const uint P_WORLD_ACTOR_INPUT_WORDS = 90536U;
 static const uint P_WORLD_ACTOR_STATE_BASE = 216192U;
 static const uint P_WORLD_ACTOR_QUERY_BASE = 217224U;
 static const uint P_WORLD_ACTOR_STATE_WORDS = 1544U;
+static const uint P_WORLD_ACTOR_POOL_ABI = 1346721399U;
+static const uint P_WORLD_ACTOR_POOL_INPUT_BASE = 90536U;
+static const uint P_WORLD_ACTOR_POOL_DEF_BASE = 90544U;
+static const uint P_WORLD_ACTOR_LAND_INPUT_BASE = 92080U;
+static const uint P_WORLD_ACTOR_POOL_INPUT_WORDS = 92208U;
+static const uint P_WORLD_ACTOR_POOL_OUTPUT_BASE = 225280U;
+static const uint P_WORLD_ACTOR_POOL_STATE_BASE = 225304U;
+static const uint P_WORLD_ACTOR_SETS = 32U;
+static const uint P_WORLD_ACTOR_SET_WORDS = 520U;
+static const uint P_WORLD_ACTOR_SET_BASE = 227352U;
+static const uint P_WORLD_ACTOR_POOL_QUERY_BASE = 243992U;
+static const uint P_WORLD_ACTOR_RECEIPT_BASE = 245016U;
+static const uint P_WORLD_ACTOR_NOTICE_BASE = 245528U;
+static const uint P_WORLD_ACTOR_NOTICES = 1024U;
+static const uint P_WORLD_ACTOR_POOL_OUTPUT_WORDS = 253952U;
 static const uint D_OWNER = 0U;
 static const uint D_KIND = 1U;
 static const uint D_STAT = 2U;

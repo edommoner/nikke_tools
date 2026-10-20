@@ -35,7 +35,18 @@ def observe(case):
  class Controller(original_burst):
   def tick(self,t,bm,state):capture.update(bm=bm,state=state,time=t);return super().tick(t,bm,state)
  class Boss(original_boss):
-  def __init__(self,*args,**kwargs):super().__init__(*args,**kwargs);capture['boss']=self
+  def __init__(self,*args,**kwargs):super().__init__(*args,**kwargs);capture['boss']=self;capture['actor_notices']=[0]*4;capture['actor_deaths']=0
+  def begin_frame(self,t,enemy):
+   if case.get('observe_actor_pools') and getattr(self,'_nikke_world_frame_time',None)!=t:
+    from calculator.boss_pattern import BOSS_EVENTS
+    for event in self._carry:capture['actor_notices'][BOSS_EVENTS.index(event)]+=1
+   return super().begin_frame(t,enemy)
+  def _destroy(self,run,target,t):
+   if case.get('observe_actor_pools'):capture['actor_deaths']+=1
+   return super()._destroy(run,target,t)
+  def _retire(self,run,add,why,t,events,log=True):
+   if case.get('observe_actor_pools') and why!='퇴장':capture['actor_deaths']+=1
+   return super()._retire(run,add,why,t,events,log)
   def _close(self,run,t,outcome,events):
    super()._close(run,t,outcome,events);ends.append([run.p.idx,{'cleared':1,'expired':2,'followed':3,'end':4}[outcome],*bits(t)])
  def register(bm):bm._effects=copy.deepcopy(effects);bm._build_notify_index()
@@ -57,4 +68,9 @@ def observe(case):
   for out,run in zip(answer['world_nodes'],capture['boss']._runs):out.update(dispelled=run.dispelled,dispels=sum(x.event=='dispel' and x.pattern==run.p.id for x in result.boss_log))
  if case.get('observe_charge_hold'):
   answer['charge_hold']=[dict(owner=i,charging=capture['characters'][n]._charge_phase=='charging',full_time=capture['characters'][n]._charge_full_t,deadline=capture['characters'][n]._vanish_charge_hold_until) for i,n in enumerate(NAMES) if n=='스노우 화이트 : 헤비암즈']
+ if case.get('observe_actor_pools'):
+  from world_actor_pool_native import summary
+  body_hits=[h for h in result.hits if not (h.target or h.part)]
+  answer['actor_pools']=summary(capture['boss'],body_hits,capture['actor_notices'],capture['actor_deaths'])
+  answer['actor_add_damage']=[result.add_char_total.get(n,0) for n in NAMES]
  return answer

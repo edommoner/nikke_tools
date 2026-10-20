@@ -329,7 +329,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     // later pellets, consume extra ammunition, or redirect this physical shot.
     for (uint hit = 0; hit < count && s.error == 0; hit++)
     {
-        if (s.landingPolicy==0) land(s,who,target,amount);
+        if (s.landingPolicy==0) land(s,who,WORLD_POOL_PHYSICAL_TARGET(s,who,target),amount);
         if (w.mode != 1 || count > 1) dispatch(s,0,20,who,0,when,output);
     }
     s.shots[who] = completedShots;
@@ -364,7 +364,7 @@ void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
     s.frameAmmoActive[who] = 0;s.physicalGaugeOwner=0;
     if (s.landingPolicy!=0 || (s.healthMask&64)!=0) for (uint hit=0;hit<landedCount && s.error==0;hit++)
     {
-        WORLD_PHYSICAL_BEGIN(s,who,landedTarget,landedAmount) if (s.landingPolicy!=0) land(s,who,landedTarget,landedAmount);
+        WORLD_PHYSICAL_BEGIN(s,who,landedTarget,landedAmount) if (s.landingPolicy!=0) land(s,who,WORLD_POOL_PHYSICAL_TARGET(s,who,landedTarget),landedAmount);
         if ((s.healthMask&64)!=0 && s.error==0) dispatch(s,17,0,who,0,when,output,landedAmount); WORLD_GATE_END
     }
 }
