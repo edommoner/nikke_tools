@@ -10,7 +10,7 @@ def fixtures(physical):
  def field(stat,value,target='target',name='counter-field',timing='event:target_counter_complete:marker',duration=.3,condition=()):
   return dict(type='buff',name=name,source='스킬1',stat=stat,fixed_value=value,target=target,duration=duration,trigger=dict(timing=[timing],condition=list(condition)))
  def make(base,stat,value,target):
-  c=copy.deepcopy(source[base]);c.update(name=base+'-'+stat+'-'+target,duration=.15,observe_enemy_fields=True,observe_named_state=True)
+  c=copy.deepcopy(source[base]);c.update(name=base+'-'+stat+'-'+target,duration=.15,observe_enemy_fields=True,observe_named_state=True,observe_counter_field_memberships=True)
   c['allow_shared_enemy_fields']=any(p['kind']=='summon' for p in c['patterns'])
   c['effects'][-1]=field(stat,value,target)
   for a in c['environment']['allies']:a['base_defense']=30

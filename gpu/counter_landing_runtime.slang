@@ -40,7 +40,7 @@ bool validCounterLandingInput(inout Runtime s,uint base,uint step)
         { if(commands[at]!=1||commands[at+1]>5) return false;for(uint k=2;k<8;k++) if(commands[at+k]!=0) return false; }
         else for(uint k=0;k<8;k++) if(commands[at+k]!=0) return false;
     }
-    if(step==0) { COUNTER_CONTEXT_INIT(s) for(uint i=P_COUNTER_LANDING_PACKET_BASE;i<P_COUNTER_LANDING_EXTRA_BASE+128*4;i++) results[s.resourceOutput+i]=0; }
+    if(step==0) { COUNTER_FIELDS_WORK_INIT(s) COUNTER_CONTEXT_INIT(s) for(uint i=P_COUNTER_LANDING_PACKET_BASE;i<P_COUNTER_LANDING_EXTRA_BASE+128*4;i++) results[s.resourceOutput+i]=0; }
     return true;
 }
 void sampleCounterPartShot(inout Runtime s,uint who,uint64_t coefficient,bool normal,uint64_t coreBonus,uint flags,uint64_t charge,bool optimal,uint64_t when)

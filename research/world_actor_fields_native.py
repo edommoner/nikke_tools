@@ -28,12 +28,17 @@ def observe_before_finish(case,boss,manager,names,when):
   label='__enemy__' if kind==1 else snap.label;actual=manager.get_buffs(names[who],label,when)
   explicit.append([0,kind,identity,generation,int(snap.alive),boss.enemy_count,*bits(actual.get('enemy_def_down_pct',0)),*bits(actual.get('enemy_def_down_flat',0)),*bits(actual.get('received_dmg',0)),0,0,0,0])
  answer=dict(queries=queries,carriers=carriers,explicit_queries=explicit,owned_snapshots=0)
- if case.get('allow_shared_enemy_fields'):
+ if case.get('allow_shared_enemy_fields') or case.get('observe_counter_field_memberships'):
   answer['recipient_memberships']=[]
   for ab in manager._active:
    if ab.effect.get('_boss_bound') or enemy_buff_plan(ab.effect) is None:continue
-   key=getattr(ab,'enemy_recipient_key',None);assert key is not None
-   answer['recipient_memberships'].append([[int(x.actor.kind),x.actor.identity,x.actor.generation] for x in key.bindings if x.label in (ab.target_chars or [])])
+   key=getattr(ab,'enemy_recipient_key',None)
+   if key is not None:members=[[int(x.actor.kind),x.actor.identity,x.actor.generation] for x in key.bindings if x.label in (ab.target_chars or [])]
+   else:
+    assert case.get('observe_counter_field_memberships')
+    handles=[registry.view(ActorKind.BODY if label=='__enemy__' else ActorKind.ADD,label).handle for label in ab.target_chars or ()]
+    members=[[int(h.kind),h.identity,h.generation] for h in handles]
+   answer['recipient_memberships'].append(members)
  if case.get('observe_actor_status'):
   lookup={b.label:[int(b.kind),b.identity] for b in bindings};lookup.update({n:[-1,i] for i,n in enumerate(names)})
   answer['nonzero_immunity_used']=sorted([dict(actor=lookup[label],name=name,used=value) for (label,name),value in manager._immune_used.items() if value!=0],key=lambda x:(x['actor'],x['name']))

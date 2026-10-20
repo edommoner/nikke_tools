@@ -42,13 +42,15 @@ def main():
  checked=[]
  for i,(case,(_,meta,bindings),expected) in enumerate(zip(rows,programs,native)):
   block=values[i*524288:(i+1)*524288]
+  work=list(block[L['COUNTER_FIELD_WORK_BASE']:L['COUNTER_FIELD_WORK_BASE']+8]);work_valid=work[0]>0 and 0<work[1]<=L['CARRIERS']*L['DEPTH'] and work[2]>=work[1] and not any(work[3:])
+  if case['name']=='counter-field-fanout128-holds-completion-marker':work_valid=work_valid and work[1]>4096
   try:
    actual=physical.decoded(block,meta,case,bindings);changed=[k for k in expected if k!='scope' and actual[k]!=expected[k]]
    context_zero=not any(block[L['COUNTER_CONTEXT_BASE']:L['COUNTER_CONTEXT_BASE']+1096])
   except Exception as error:actual=dict(error=repr(error));changed=['decode'];context_zero=False
-  checked.append(dict(name=case['name'],passed=block[0]==0 and not changed and context_zero,status=block[0],changed=changed,context_restored=context_zero,actual=actual,native=expected))
+  checked.append(dict(name=case['name'],passed=block[0]==0 and not changed and context_zero and work_valid,status=block[0],changed=changed,context_restored=context_zero,dispatch_work=dict(count=work[0],maximum=work[1],total=work[2],guard_exits=work[3],valid=work_valid),actual=actual,native=expected))
  rejected=[dict(name=name,status=values[(len(rows)+j)*524288],passed=values[(len(rows)+j)*524288]==64) for j,(name,_) in enumerate(bad)];offset=len(rows)+len(bad)
  kept=[dict(index=i,passed=raw[(offset+i)*ow:(offset+i+1)*ow]==prior[i*ow:(i+1)*ow]) for i in range(721)]
  report=dict(passed=all(r['passed'] for r in checked+rejected+kept),cases=checked,rejected_cases=rejected,preserved721=kept,captured=str(folder),evidence=evidence,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),cpu_state_used_as_input=False,typed_target_child_conditions=True,typed_enemy_field_children=True,typed_damage_children=False,normal_ui='CPU',canonical_world_admission=False,full_character_verified=0,full_goal_complete=False)
- (ROOT/f'research/portable-world-counter-field-{a.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[r.get('name',r.get('index')) for r in checked+rejected+kept if not r['passed']];print('Context native',len(rows),'raw',len(bad),'old721 all words exact',a.backend)
+ (ROOT/f'research/portable-world-counter-field-{a.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[r.get('name',r.get('index')) for r in checked+rejected+kept if not r['passed']];print('Counter field native',len(rows),'raw',len(bad),'old721 all words exact',a.backend)
 if __name__=='__main__':main()

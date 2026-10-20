@@ -260,6 +260,7 @@ static const uint P_WORLD_ACTOR_STATE_BASE = 216192U;
 static const uint P_WORLD_ACTOR_QUERY_BASE = 217224U;
 static const uint P_WORLD_ACTOR_STATE_WORDS = 1544U;
 static const uint P_COUNTER_FIELD_ABI = 1346721409U;
+static const uint P_COUNTER_FIELD_WORK_BASE = 512176U;
 static const uint P_COUNTER_CONTEXT_ABI = 1346721408U;
 static const uint P_COUNTER_CONTEXT_BASE = 511080U;
 static const uint P_COUNTER_LANDING_ABI = 1346721407U;
