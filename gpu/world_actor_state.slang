@@ -64,7 +64,7 @@ void actorStateGone(inout Runtime s,uint slot)
 void actorStateDropGone(inout Runtime s)
 {
     if(!actorStateEnabled(s)) return;
-    uint head=actorFieldHead(s);ActorBits gone;bool any=false;
+    WORLD_RECIPIENT_GONE(s) uint head=actorFieldHead(s);ActorBits gone;bool any=false;
     for(uint i=0;i<4;i++) { gone.words[i]=results[head+8+i];any|=gone.words[i]!=0;results[head+8+i]=0; }
     if(!any) return;
     // Native drops labels after death/start/end notifications. A new generation

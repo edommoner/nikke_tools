@@ -1,6 +1,6 @@
 // Named removal snapshots scope once and retires all matches before callbacks.
 bool actorMutationEnabled(inout Runtime s)
-{ return actorFieldsEnabled(s)&&commands[s.inputBase+P_WORLD_ACTOR_POOL_INPUT_BASE+4]==0x574D3031; }
+{ return WORLD_RECIPIENT_STATE(s,actorFieldsEnabled(s)&&commands[s.inputBase+P_WORLD_ACTOR_POOL_INPUT_BASE+4]==0x574D3031); }
 [noinline]
 void actorMutationRemoveNamed(inout Runtime s,uint row,uint target,uint64_t when)
 {
@@ -22,7 +22,7 @@ void actorMutationRemoveNamed(inout Runtime s,uint row,uint target,uint64_t when
         {
             // Native mutation_targets requires both current scope membership and
             // the canonical captured generation;old empty carriers survive.
-            if(bound==0||!actorFieldMember(s,slot,ACTOR_REF|(bound-1))||!actorBitsHas(enemies,bound-1)) continue;
+            if(WORLD_RECIPIENT_SCOPE_MISS(s,slot,enemies,bound==0||!actorFieldMember(s,slot,ACTOR_REF|(bound-1))||!actorBitsHas(enemies,bound-1))) continue;
             s.activeRecipients[slot]&=~32U;
         }
         else if(d.target==1)

@@ -16,7 +16,7 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 MAX_INPUT_WORDS=131072
-MAX_OUTPUT_WORDS=262144
+MAX_OUTPUT_WORDS=524288
 
 
 def source_hashes(source):

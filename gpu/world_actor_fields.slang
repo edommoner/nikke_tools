@@ -4,17 +4,17 @@ bool actorFieldsEnabled(inout Runtime s) { return actorPoolsEnabled(s); }
 uint actorFieldKey(inout Runtime s,uint row) { return s.resourceOutput+P_WORLD_ACTOR_FIELD_KEY_BASE+row*4; }
 uint actorFieldHead(inout Runtime s) { return s.resourceOutput+P_WORLD_ACTOR_FIELDS_BASE; }
 void actorFieldReset(inout Runtime s,uint row)
-{ uint at=actorFieldKey(s,row);for(uint i=0;i<4;i++) results[at+i]=0; }
+{ uint at=actorFieldKey(s,row);for(uint i=0;i<4;i++) results[at+i]=0; WORLD_RECIPIENT_RESET(s,row) }
 void actorFieldBind(inout Runtime s,uint row,uint target,uint generation)
-{ uint at=actorFieldKey(s,row);results[at]=(target&127U)+1;results[at+1]=generation; }
+{ uint at=actorFieldKey(s,row);results[at]=(target&127U)+1;results[at+1]=generation; WORLD_RECIPIENT_BIND(s,row,target,generation) }
 bool actorFieldSame(inout Runtime s,uint row,uint generation)
-{ uint at=actorFieldKey(s,row);return results[at]==(s.target&127U)+1 && results[at+1]==generation; }
+{ uint at=actorFieldKey(s,row);return WORLD_RECIPIENT_SAME(s,row,generation,results[at]==(s.target&127U)+1 && results[at+1]==generation); }
 uint actorFieldLogicalSlot(inout Runtime s,uint target)
 { uint slot=(target&ACTOR_REF)!=0 ? target&127U : target;if(slot>=actorPoolCount(s)) return 128;return commands[actorBinding(s,slot)]==1 ? 0 : slot; }
 bool actorFieldQueryLive(inout Runtime s,uint target)
 { uint slot=actorFieldLogicalSlot(s,target);return slot<actorPoolCount(s) && results[actorPoolAt(s,slot)+1]!=0; }
 bool actorFieldMember(inout Runtime s,uint row,uint target)
-{ uint slot=actorFieldLogicalSlot(s,target),at=actorFieldKey(s,row);return WORLD_STATE_MEMBER(s,row,slot<128 && results[at]==slot+1 && results[at+1]==results[actorPoolAt(s,slot)]); }
+{ uint slot=actorFieldLogicalSlot(s,target),at=actorFieldKey(s,row);return WORLD_RECIPIENT_MEMBER(s,row,target,WORLD_STATE_MEMBER(s,row,slot<128 && results[at]==slot+1 && results[at+1]==results[actorPoolAt(s,slot)])); }
 bool actorFieldConditions(inout Runtime s,uint row,uint target,uint64_t when)
 { WORLD_STATE_SCOPE_BEGIN(s,target) uint saved=s.target,slot=actorFieldLogicalSlot(s,target);s.target=slot==0 ? 0 : ACTOR_REF|slot;bool ok=basicConditions(s,row,when,true);s.target=saved; WORLD_STATE_SCOPE_END(s) return ok; }
 bool actorFieldContextAdd(inout Runtime s,uint who)
@@ -34,8 +34,8 @@ bool actorFieldsDefinitionValid(inout Runtime s,uint row,Definition d)
         if(kind==C_TARGET_BOSS||kind==C_TARGET_ADD) { if(!f64Zero(arg)) return false; }
         else { uint status;uint64_t value=f64ToI64(arg,1,status);if(status!=0||!f64Equal(arg,f64FromI64(value))||f64Less(f64FromI64(2147483647),f64Abs(arg))) return false; }
     }
-    if(d.enemyBuff==0) return true;
-    if(d.kind!=0 || d.stat!=S_enemy_def_down_pct&&d.stat!=S_def_caster_based_pct&&d.stat!=S_received_dmg_pct || d.bulletDuration!=0 || !f64Zero(d.interval) || d.lazyGroup!=0 || referenceScaleMode(s,row)!=0) return false;
+    WORLD_STATUS_FIELD_GUARD(s,d) if(d.enemyBuff==0) return true;
+    if(WORLD_STATUS_FIELD_INVALID(s,d,d.kind!=0 || d.stat!=S_enemy_def_down_pct&&d.stat!=S_def_caster_based_pct&&d.stat!=S_received_dmg_pct) || d.bulletDuration!=0 || !f64Zero(d.interval) || d.lazyGroup!=0 || referenceScaleMode(s,row)!=0) return false;
     if(d.damageRoute>9 || d.damageCount==0 || d.damageCount>256 || (d.buffEvent&2)!=0) return false;
     if(d.damageRoute==3) for(uint slot=1;slot<actorPoolCount(s);slot++)
         if(commands[actorBinding(s,slot)]==5 && commands[actorPoolDef(s,slot)]==3) return false; // Native max-HP rank has no HP for hit-only actors.
@@ -44,7 +44,7 @@ bool actorFieldsDefinitionValid(inout Runtime s,uint row,Definition d)
 bool initializeActorFields(inout Runtime s)
 {
     uint head=actorFieldHead(s);for(uint i=0;i<P_WORLD_ACTOR_FIELDS_OUTPUT_WORDS-P_WORLD_ACTOR_POOL_OUTPUT_WORDS;i++) results[head+i]=0;
-    if(!actorFieldsEnabled(s)) return true;
+    WORLD_RECIPIENT_INIT(s) if(!actorFieldsEnabled(s)) return true;
     results[head]=0x57463031;return true;
 }
 uint64_t actorFieldRank(inout Runtime s,uint slot,uint route)
