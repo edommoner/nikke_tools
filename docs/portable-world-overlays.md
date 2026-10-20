@@ -1,5 +1,29 @@
 # 敵世界overlayの接続契約
 
+## 2026-10-21 Heavyarms holdのMetal208
+
+共通実行器へHeavyarmsのvanish時charge holdを接続しました。静的な実在rosterからpolicyだけを入力にし、vanishの終了時刻・2秒上限・charge完成と期限はGPUが計算します。固定終了・終了不明・2秒の隣接値・複数vanish・再開・非camera・速度バフ失効・保持中の武器変更と再chargeの26条件を、元のHeavyarmsを含む完全native simulateと比較しました。完成後はcharge速度バフが失効してもfull latchを維持し、mode取消で完成chargeを解除します。状態領域と上限は共通schemaに集約しました。
+
+初回206入力では、非cameraの1fixtureにcamera用ゲージ倍率300を残していた誤りを検出し、rawを保存しました。native123辞書を変えずGPU入力を100へ修正し、GPUソースと205入力の完全一致を確認して保存出力を再利用、変更1入力だけを実GPUで検証しました。その後、武器変更中の2スナップショットと共通状態schemaを追加した固定4bd848bで208入力を新規実行し、完全native125件・raw拒否34件・旧world49全出力が成功しました。旧179と途中206の全入力・全出力byte、99／123 native／actual完全辞書を保持しています。通常CUDA／MSL生成コードはv79と厳密同一、portable単体299件・旧native17辞書も成功しました。
+
+証拠は `research/portable-world-charge-hold-validation.json`、`research/portable-world-overlay-charge-hold-metal.json`、`research/portable-world-charge-hold-expected.json`。Windowsは新規skill modeとholdを合わせた共通208入力を短く1回検証する準備中です。rawと巨大詳細は各PCのローカル保持です。通常受付CPU・全変種認証0/203を維持します。複合ally/enemy selector、Actor、dynamic control・復活、全変種認証と必要な検証後の効率化は引き続き未完了です。
+
+## 2026-10-21 skill_damage武器モードのMetal179
+
+実験ABI75の明示skill_damageモードを、同じダメージ式のnormal倍率・skill crit・core確率、着弾ゲート、ゲージ、弾数バフ消費へ接続しました。物理射撃の種類はcallbackによるモード終了前にGPUが保持します。初回175入力で2差分を検出し、rawを残して調査しました。元nativeの分類は、名前付き単発をスキル、pellet/core:pelletタグを名前にかかわらず通常着弾とするため、この着弾分類をスキル式・ゲージ・弾数消費から独立させました。これは現在のnative規約の保持であり、一律に全散弾をスキル扱いへ変更したものではありません。もう1件はカメラ中のcharge武器モードでfullChargeMultをゲージへ反映して解消しました。
+
+修正版c953d3bのMetal新規179入力は全成功です。完全native simulate99件（従来70＋武器モード29）、不正入力31件、旧world49全出力を確認しました。前回CUDAまで確認済み146入力とその全出力byte、70件の完全native／actual辞書を、今回の成功・失敗両readbackから再監査して保持を確認しています。通常CUDA／MSL生成コードもv79と厳密同一、CPU状態を入力へ混入させない新規hostテスト4件を含む共通portable単体297件が成功しました。
+
+証拠は `research/portable-world-skill-mode-validation.json`、`research/portable-world-overlay-skill-modes-metal.json`、`research/portable-world-skill-mode-expected.json`。`research/seal-world-skill-mode-metal.py` はGPUなしで固定ソースと全byteを再監査します。この29条件の新規CUDA実行はまだ行っていません。次の必要な短い検証へまとめます。Windows146の成功は保持し、元Windowsは待機中です。
+
+Heavyarms固有のcharge hold、複合ally/enemy selector、Actor、dynamic control・復活、全変種認証は未完了です。通常受付CPU・全変種認証0/203を維持し、効率化は未着手です。
+
+## 2026-10-21 CUDA／Metal146の全出力一致
+
+固定6c8aaa5の共通overlay・shield／vanish・敵バフ解除146入力は、Windows CUDAとMac Metalの全入力・全出力byte、完全native／actual辞書、計算ソース、生成コードのfingerprintが一致しました。WindowsはCPU故障注入5件・Job Object子孫終了と、GPU呼び出しを禁止した全146入力生成／SHA照合後、BelowNormal・180秒上限のGPU実行1回で70.930秒、exit0でした。NVRTC・launch・同期・readbackの戻り値0を実測50イベントで確認しました。通常4682の再実行・GPU再試行は0、元作業・サービス保持、残存プロセス0です。
+
+3つの結果JSON計73,073バイトを既存接続で取得し、個々のbytes／SHAと固定Git blob、CPU事前検査、全146fingerprintをMacで再監査しました。rawと巨大詳細は各PCに保持します。証拠は `research/portable-world-v81-cuda-validation.json`、`research/windows-portable-world-v81-summary.json`、`research/portable-cross-v81-receipt.json`。通常受付CPU・全変種認証0/203を維持し、次はskill_damage武器変更モードへ進みます。以下は段階ごとの履歴です。
+
 ## 2026-10-21 敵バフ解除・整数変換の共通接続
 
 実験ABI75の本体1体に対し、enemy_buff_cleanseを既存のtyped instantと対象解決器へ接続しました。元の値をbinary64のまま保持し、nativeの `int(value or 1)` と同じゼロ既定値・ゼロ方向切り捨てを使います。32以上は最大ノード数32へ制限して巨大値の整数overflowを避けます。負数は解除なし、irremovableは飛ばし、開始時刻と宣言順の逆順で解除します。解除直後のsnapshotは維持し、次の別フレームで反映します。再開時の世代リセット、解除ログ、累積解除数も接続しました。既存debuff_cleanseとは別の明示フラグで区別しています。

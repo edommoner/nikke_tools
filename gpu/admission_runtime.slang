@@ -46,7 +46,7 @@ void admitDefinitions(inout Runtime s,uint input)
         uint64_t entryDelay=loadNumber(entry);
         if(d.kind==2)
         {
-            if(s.combat==0 || !f64Finite(entryDelay) || f64Less(entryDelay,0) || f64Less(f64FromI64(180),entryDelay) || (commands[entry+2]>1 || commands[entry+2]==0 && !f64Zero(entryDelay)) || commands[entry+3]!=0) { s.error=64;break; }
+            if(s.combat==0 || !f64Finite(entryDelay) || f64Less(entryDelay,0) || f64Less(f64FromI64(180),entryDelay) || (commands[entry+2]>1 || commands[entry+2]==0 && !f64Zero(entryDelay)) || WORLD_MODE_POLICY_INVALID(s,commands[entry+3])) { s.error=64;break; }
             if(commands[entry+2]!=0) s.quantityMask|=512;
         }
         else if(commands[entry]!=0 || commands[entry+1]!=0 || commands[entry+2]!=0 || commands[entry+3]!=0) { s.error=64;break; }

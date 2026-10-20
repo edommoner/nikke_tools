@@ -12,11 +12,12 @@ def number(value):
  if not valid:raise ValueError('Overlay requires finite numeric input')
  return list(struct.unpack('<II',struct.pack('<d',float(value))))
 
-def compile_payload(patterns,*,camera_mask=0,element_codes=(),code_tags=None):
+def compile_payload(patterns,*,camera_mask=0,element_codes=(),code_tags=None,charge_hold_mask=0):
  if not 1<=len(patterns)<=32:raise ValueError('World overlay node capacity exceeded')
  if type(camera_mask) is not int or not 0<=camera_mask<=31:raise ValueError('Invalid static camera mask')
  if element_codes and (len(element_codes)!=5 or any(x not in range(6) for x in element_codes)):raise ValueError('Invalid roster element codes')
- words=[MAGIC]+[0]*527;words[1]=camera_mask
+ if type(charge_hold_mask) is not int or not 0<=charge_hold_mask<=31:raise ValueError('Invalid charge hold owner mask')
+ words=[MAGIC]+[0]*527;words[1]=camera_mask;words[7]=0x48410000|charge_hold_mask if charge_hold_mask else 0
  if element_codes:words[2:7]=element_codes
  code_tags=code_tags or {}
  for p in patterns:
@@ -41,6 +42,9 @@ def compile_payload(patterns,*,camera_mask=0,element_codes=(),code_tags=None):
 
 def compiler_effect(effect):
  """Use the existing typed instant selector;the overlay flag owns semantics."""
+ if effect.get('type')=='weapon_change' and 'skill_damage' in effect:
+  if type(effect['skill_damage']) is not bool:raise ValueError('Weapon mode skill policy requires boolean')
+  result=dict(effect);result.pop('skill_damage');return result
  if effect.get('stat')!='enemy_buff_cleanse':return effect
  if effect.get('type')!='instant':raise ValueError('Enemy beneficial cleanse requires instant type')
  return dict(effect,stat='debuff_cleanse')
@@ -53,3 +57,10 @@ def pack_cleanse_flags(words,effects,limits):
   at=limits['DEFINITION_BASE']+row*limits['DEFINITION_WORDS']
   if words[at+1]!=26:raise ValueError('Unexpected compiled cleanse kind')
   words[header+8+row//32]|=1<<(row%32)
+
+def pack_skill_mode_flags(words,effects,limits):
+ for row,effect in enumerate(effects):
+  if effect.get('type')!='weapon_change' or not effect.get('skill_damage'):continue
+  compiler_effect(effect)
+  if words[limits['DEFINITION_BASE']+row*limits['DEFINITION_WORDS']+1]!=2:raise ValueError('Unexpected compiled weapon mode kind')
+  words[limits['MODE_BASE']+row*limits['MODE_WORDS']+31]=1
