@@ -1,0 +1,20 @@
+{
+  "stage": "CPU contract proved:typed128 immunity pools and shared initialized resident",
+  "parent": "bb4f638",
+  "native_full_battles": 17,
+  "gpu_executions": 0,
+  "windows_idle": true,
+  "normal_ui": "CPU",
+  "canonical_world_admission": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "efficiency_started": false,
+  "contract": "portable-world-actor-status-native-contract.json",
+  "design": "docs/portable-world-actor-status.md",
+  "next": [
+    "Add per-resident128 membership/captured generations/order;retain single and shared native semantics",
+    "Extend output/transport dimensions with measured buffer checks and negative cases",
+    "Share existing numeric stack and status executor functions",
+    "Metal common fixture validation and legacy retention before bounded new-only CUDA"
+  ]
+}

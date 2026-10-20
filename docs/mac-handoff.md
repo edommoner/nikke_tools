@@ -1,5 +1,10 @@
 # Mac側で開発を続けるための引き継ぎ
 
+## 次の接続：共有受領者と免疫プール
+
+128対象の完全native17ケースを実測し、回数免疫が対象・名前ごとの最大容量プール、buff_stack_initが1つのcarrierに1/65/128対象を共有する契約を確認しました。従来の単一受領者へ分割するとstack・通知の意味が変わるため、GPUの長寿命共有受領者領域を先に接続します。実装・Metal検証・Windows確認は未実施です。設計は `docs/portable-world-actor-status.md`、実測は `research/portable-world-actor-status-native-contract.json`。今回のGPU実行0、Windows待機中、通常CPU・全変種認証0/203を維持します。
+
+
 ## 2026-10-21 型付き128対象の名前指定解除（Metal／CUDA一致）
 
 実験ABI7A・固定af7aae6で、共通resident解除処理に名前指定のglobal／味方scope／敵scopeを接続しました。敵scopeは既存128対象集合を一度だけ捕捉し、全対象の解除を終えてから既存の状態終了通知列を実行します。新しい同名バフを通知から再付与しても、終了した走査で再削除しません。世代の照合は既存actorFieldMemberを使います。効果計算の別コピーはありません。
