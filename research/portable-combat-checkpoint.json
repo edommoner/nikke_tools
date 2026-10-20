@@ -1,9 +1,9 @@
 {
   "wire_abi": "0x5045566A",
-  "verified_commit": "dd7d62b98a63f9fa99892dd964809775b136a9d6",
+  "verified_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
   "previous_checkpoint": {
-    "report": "portable-combat-v62-checkpoint.json",
-    "proof_commit": "0066afe"
+    "report": "portable-combat-v63-checkpoint.json",
+    "proof_commit": "7492276"
   },
   "positive_cases": 1692,
   "rejections": 314,
@@ -14,13 +14,13 @@
   "cuda_verified": true,
   "metal_report": "portable-combat-metal.json",
   "cuda_report": "portable-combat-cuda.json",
-  "windows_report": "windows-portable-combat-v63.json",
+  "windows_report": "windows-portable-sequence-v64.json",
   "windows_execution": {
-    "command": "python research/verify-code-regression.py --backend cuda",
-    "commit": "dd7d62b98a63f9fa99892dd964809775b136a9d6",
+    "command": "python research/verify-dispatch-sequence.py --backend cuda",
+    "commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "33, 4193",
+    "gpu_before": "30, 4195",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -38,8 +38,8 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 80.34532980015501,
-    "stdout": "{\"passed\": true, \"cases\": 1692, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\n",
+    "elapsed_seconds": 78.65970540000126,
+    "stdout": "{\"passed\": true, \"backend\": \"cuda\", \"programs\": 2050, \"dispatches\": [1024, 1024, 2], \"previous_output_sha256\": \"af8ae464ae0e1fce34813a0dc99520c41af3eb61c23b5dd8b43771048f67836e\"}\n",
     "stderr": ""
   },
   "windows_postcheck": {
@@ -49,18 +49,18 @@
     "existing_gpu_service_preserved": true
   },
   "windows_checks_this_stage": 1,
-  "current_full_cuda_batch_executed": true,
-  "cuda_verification_mode": "full_current_batch",
+  "cuda_verification_mode": "all2006_core_inputs_in2050_input_three_dispatch_sequence",
   "source_provenance": {
-    "fixed_shared_source_commit": "dd7d62b98a63f9fa99892dd964809775b136a9d6",
-    "metal_core_source_commit": "dd7d62b98a63f9fa99892dd964809775b136a9d6",
-    "windows_source_commit": "dd7d62b98a63f9fa99892dd964809775b136a9d6"
+    "fixed_shared_source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+    "metal_core_source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+    "windows_source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+    "unchanged_gpu_source_prior_proof": "7492276"
   },
-  "validation_receipt": "portable-enemy-codes-validation.json",
-  "generated_source_comparison": "portable-enemy-codes-generated-comparison.json",
-  "existing_parity": "portable-enemy-codes-existing-metal-parity.json",
-  "mac_gates": 29,
-  "unit_tests": 212,
+  "validation_receipt": "portable-dispatch-sequence-validation.json",
+  "generated_source_comparison": "portable-dispatch-sequence-transfer-completed.json",
+  "existing_parity": "portable-dispatch-sequence-broad-validation.json",
+  "mac_gates": 31,
+  "unit_tests": 220,
   "real_roster_profiles": 86,
   "real_fixed_squad": 8,
   "weapon_only_metal_verified": 203,
@@ -1999,7 +1999,7 @@
   },
   "historical_measurement_scope": "Earlier metrics retain their original source and proof provenance in the previous checkpoint; the current experiment is separate.",
   "next_work": [
-    "Connect remaining modifiers, controls, enemy world scheduling and effects; certify all203 characters and their variants"
+    "Connect element_code_override and other remaining effects/world scheduling, using bounded dispatch sequences without removing regression cases; certify all203 characters and all variants"
   ],
   "enemy_codes": {
     "native_cases": 103,
@@ -2178,11 +2178,11 @@
     "app/portable_roster_input.py": "06e0dd350bef64a1355f14a93843f8698d7dfba2fcde3bcea7226bfcd31438ca",
     "app/portable_runtime_layout.py": "1a882b22eef68f04633c2a0fcdc542b188669e50f283dc88bf241af33c7ca0f1",
     "app/portable_enemy_specs.py": "34cfe5234f5ed216af3cf3cbdde5c6b777a48eed2a81676294f2ed96d1ab6e49",
-    "app/portable_runtime.py": "7f35f03f10339fd25ff6f5d8bb812be756d36804369e89a2ca6d2b8553d03e3e",
+    "app/portable_runtime.py": "9b8d7c63b63ae2bbbc244f965a1b7fc9978956c4021a8445ab852a8a87efbf22",
     "app/portable_combat.py": "aeb209d1d7b05d1d7954e34c7d674b52157c0aff663cde951affaea023d8f98a",
     "app/portable_specs.py": "9ba6c94e6bf0773b9c7dd10e6463b830367ccfeee0fa5f3c1fe39b53cb99d2ae",
     "app/portable_periodic_specs.py": "830b7b7bd25586ae568b210dd3583c3e7349bb0ac29226d0748ba77b7da3d9bf",
-    "app/portable_backend.py": "ff77334356c509d4b5bdd21602c97bbaf24706b7c5885ed5a9ec9ec7745bb338",
+    "app/portable_backend.py": "36bf3011697e943eaee668a806d6c38192d676fc49508c258ee67424d427eed8",
     "app/portable_trigger_specs.py": "cb331314acba871bc8a66b18829d75fac459373c4af75a770c30284727b8f6c9",
     "app/portable_recipient_specs.py": "6bd29a3e5bab623bdd3a49706395864fe9bdf0fb9e1e78dd2060487d75f9d8fd",
     "app/portable_damage_specs.py": "62d322155e688a5e428b4cf56550216c6d050c0605487d39331d4306d47b14bb",
@@ -2234,7 +2234,7 @@
     "tests/fixtures/portable-combat.json": "744d7ad110e98694f6d7315dcd8b0d037a7989b04b4a33bddd80a4d18167edbe",
     "tests/fixtures/portable-combat-extensions.json": "2277883e34b033505e715674ddd81006894ab8c6d9ad52076f89c4cebed4a96b",
     "tests/fixtures/portable-autonomous.json": "0d97f8e8a848cfaf25d08e52414f1055d6a8807625f28bce3608a1726db6a5e9",
-    "scripts/run-metal-probe.swift": "121cd69e4f03b5def7d09437296ca4a3b2fd065f46b813ff990cf4936fb7554f",
+    "scripts/run-metal-probe.swift": "5d75cc8752fcc81d0dba18f2ebd445108ff0079d0a5c68885a0c2a697957fbcf",
     "tests/fixtures/portable-lazy-cleanse-capacity-rejection.json": "780a9343f58142e36463cb4bcd0fbfcc0c32e7a6d040483c1d8b2916fd7ae5be",
     "app/portable_status_specs.py": "387618cb8e46f8db81be2b9f83e7a70c167abc877868aefa21d0ebccb5d2fc2a",
     "scripts/portable_status_oracle.py": "916860a08df128bd05096dc015e6240c0a04e2f2aee314a9704aecdfc4b753e8",
@@ -2586,5 +2586,98 @@
       2004,
       2005
     ]
+  },
+  "current_full_cuda_core_executed": true,
+  "dispatch_sequence": {
+    "programs": 2050,
+    "dispatch_counts": [
+      1024,
+      1024,
+      2
+    ],
+    "prior_core_programs": 2006,
+    "additional_repeats": 44,
+    "metal_report": "portable-dispatch-sequence-metal.json",
+    "windows_report": "windows-portable-sequence-v64.json",
+    "all_ordered_input_output_bytes_equal": true,
+    "pipeline_context_instances": 1,
+    "reused_wire_buffers": 2,
+    "gpu_private_fields_added": 0,
+    "default_batch_capacity": 2048,
+    "host_retains_all_readbacks": true,
+    "efficiency": {
+      "passed": true,
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "efficiency_evaluated": true,
+      "production_default_changed": false,
+      "retained_default_batch_size": 2048,
+      "explicit_smaller_batches_supported": true,
+      "all_2050_input_output_bytes_equal": true,
+      "median_gpu_ratio_to2048": {
+        "2048": 1.0,
+        "1024": 1.4980245314180836,
+        "512": 2.046144828209478
+      },
+      "summaries": {
+        "2048": {
+          "median_gpu_seconds": 0.527438124991022,
+          "gpu_range": [
+            0.5240352916298434,
+            0.5322355416137725
+          ],
+          "median_wall_seconds": 6.518557874951512,
+          "wall_range": [
+            6.115739000029862,
+            6.578334916965105
+          ],
+          "allocated_wire_buffer_bytes": 2013265924,
+          "dispatch_counts": [
+            2048,
+            2
+          ]
+        },
+        "1024": {
+          "median_gpu_seconds": 0.7901152500417084,
+          "gpu_range": [
+            0.7886596251046285,
+            0.7930477082263678
+          ],
+          "median_wall_seconds": 6.387203457998112,
+          "wall_range": [
+            6.128014374990016,
+            6.410197334014811
+          ],
+          "allocated_wire_buffer_bytes": 1006632964,
+          "dispatch_counts": [
+            1024,
+            1024,
+            2
+          ]
+        },
+        "512": {
+          "median_gpu_seconds": 1.0792147916508839,
+          "gpu_range": [
+            1.074991124914959,
+            1.0826439168304205
+          ],
+          "median_wall_seconds": 6.461696584010497,
+          "wall_range": [
+            6.36529454193078,
+            6.651737332926132
+          ],
+          "allocated_wire_buffer_bytes": 503316484,
+          "dispatch_counts": [
+            512,
+            512,
+            512,
+            512,
+            2
+          ]
+        }
+      },
+      "reason": "Retain2048 default:1024 and512 were1.498x and2.046x slower in measured GPU time with disjoint sample ranges. Wall-time ranges overlap. Smaller explicit sizes remain available to reduce requested wire-buffer allocation; no general speed benefit demonstrated.",
+      "benchmark_sha256": "23c603754e6c42d0b03e48cc1e22367b62620624757af6abf6b66674842ba681",
+      "scope": "Sequential warmup and3 samples per size on Apple M5 with all2050 inputs. Buffer bytes are requested wire allocation sizes, not measured peak/device-private memory. Desktop GPU activity is not excluded; no CUDA speed claim."
+    }
   }
 }

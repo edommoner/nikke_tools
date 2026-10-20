@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+  "efficiency_evaluated": true,
+  "production_default_changed": false,
+  "retained_default_batch_size": 2048,
+  "explicit_smaller_batches_supported": true,
+  "all_2050_input_output_bytes_equal": true,
+  "median_gpu_ratio_to2048": {
+    "2048": 1.0,
+    "1024": 1.4980245314180836,
+    "512": 2.046144828209478
+  },
+  "summaries": {
+    "2048": {
+      "median_gpu_seconds": 0.527438124991022,
+      "gpu_range": [
+        0.5240352916298434,
+        0.5322355416137725
+      ],
+      "median_wall_seconds": 6.518557874951512,
+      "wall_range": [
+        6.115739000029862,
+        6.578334916965105
+      ],
+      "allocated_wire_buffer_bytes": 2013265924,
+      "dispatch_counts": [
+        2048,
+        2
+      ]
+    },
+    "1024": {
+      "median_gpu_seconds": 0.7901152500417084,
+      "gpu_range": [
+        0.7886596251046285,
+        0.7930477082263678
+      ],
+      "median_wall_seconds": 6.387203457998112,
+      "wall_range": [
+        6.128014374990016,
+        6.410197334014811
+      ],
+      "allocated_wire_buffer_bytes": 1006632964,
+      "dispatch_counts": [
+        1024,
+        1024,
+        2
+      ]
+    },
+    "512": {
+      "median_gpu_seconds": 1.0792147916508839,
+      "gpu_range": [
+        1.074991124914959,
+        1.0826439168304205
+      ],
+      "median_wall_seconds": 6.461696584010497,
+      "wall_range": [
+        6.36529454193078,
+        6.651737332926132
+      ],
+      "allocated_wire_buffer_bytes": 503316484,
+      "dispatch_counts": [
+        512,
+        512,
+        512,
+        512,
+        2
+      ]
+    }
+  },
+  "reason": "Retain2048 default:1024 and512 were1.498x and2.046x slower in measured GPU time with disjoint sample ranges. Wall-time ranges overlap. Smaller explicit sizes remain available to reduce requested wire-buffer allocation; no general speed benefit demonstrated.",
+  "benchmark_sha256": "23c603754e6c42d0b03e48cc1e22367b62620624757af6abf6b66674842ba681",
+  "scope": "Sequential warmup and3 samples per size on Apple M5 with all2050 inputs. Buffer bytes are requested wire allocation sizes, not measured peak/device-private memory. Desktop GPU activity is not excluded; no CUDA speed claim."
+}

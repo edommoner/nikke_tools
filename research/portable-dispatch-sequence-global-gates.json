@@ -1,0 +1,224 @@
+{
+  "passed": true,
+  "complete": true,
+  "gates": [
+    {
+      "name": "dispatch-sequence",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 11.581035250099376,
+      "log": "/tmp/nikke-sequence-gate-dispatch-sequence.log"
+    },
+    {
+      "name": "core",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 12.201675040996633,
+      "log": "/tmp/nikke-sequence-gate-core.log"
+    },
+    {
+      "name": "enemy-code-real",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 70.72768062492833,
+      "log": "/tmp/nikke-sequence-gate-enemy-code-real.log"
+    },
+    {
+      "name": "enemy-code-native",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7395722909132019,
+      "log": "/tmp/nikke-sequence-gate-enemy-code-native.log"
+    },
+    {
+      "name": "named-state-native",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7645500830840319,
+      "log": "/tmp/nikke-sequence-gate-named-state-native.log"
+    },
+    {
+      "name": "instant-list-native",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7469583749771118,
+      "log": "/tmp/nikke-sequence-gate-instant-list-native.log"
+    },
+    {
+      "name": "split-native",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7440918330103159,
+      "log": "/tmp/nikke-sequence-gate-split-native.log"
+    },
+    {
+      "name": "protection-native",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8030206670518965,
+      "log": "/tmp/nikke-sequence-gate-protection-native.log"
+    },
+    {
+      "name": "status-native",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7557243329938501,
+      "log": "/tmp/nikke-sequence-gate-status-native.log"
+    },
+    {
+      "name": "stack-foundation",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 2.731512082973495,
+      "log": "/tmp/nikke-sequence-gate-stack-foundation.log"
+    },
+    {
+      "name": "staged-native",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7342547079315409,
+      "log": "/tmp/nikke-sequence-gate-staged-native.log"
+    },
+    {
+      "name": "source-native",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 0.03298554208595306,
+      "log": "/tmp/nikke-sequence-gate-source-native.log"
+    },
+    {
+      "name": "native-mode-spec",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 0.732254333095625,
+      "log": "/tmp/nikke-sequence-gate-native-mode-spec.log"
+    },
+    {
+      "name": "native-mode-input",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7449232499348,
+      "log": "/tmp/nikke-sequence-gate-native-mode-input.log"
+    },
+    {
+      "name": "reference-rewrite",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 0.02901324990671128,
+      "log": "/tmp/nikke-sequence-gate-reference-rewrite.log"
+    },
+    {
+      "name": "duration-native",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 2.430261041969061,
+      "log": "/tmp/nikke-sequence-gate-duration-native.log"
+    },
+    {
+      "name": "definition-input",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0313905410002917,
+      "log": "/tmp/nikke-sequence-gate-definition-input.log"
+    },
+    {
+      "name": "definition-scalar",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0567889580270275,
+      "log": "/tmp/nikke-sequence-gate-definition-scalar.log"
+    },
+    {
+      "name": "definition-out",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 1.0768633330008015,
+      "log": "/tmp/nikke-sequence-gate-definition-out.log"
+    },
+    {
+      "name": "removal-queue",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8738727919990197,
+      "log": "/tmp/nikke-sequence-gate-removal-queue.log"
+    },
+    {
+      "name": "numeric",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7004182920791209,
+      "log": "/tmp/nikke-sequence-gate-numeric.log"
+    },
+    {
+      "name": "probe",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 0.34700450010132045,
+      "log": "/tmp/nikke-sequence-gate-probe.log"
+    },
+    {
+      "name": "events",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 3.7564486250048503,
+      "log": "/tmp/nikke-sequence-gate-events.log"
+    },
+    {
+      "name": "roster",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 622.9682718749391,
+      "log": "/tmp/nikke-sequence-gate-roster.log"
+    },
+    {
+      "name": "catalog-weapons",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 3.5409946659347042,
+      "log": "/tmp/nikke-sequence-gate-catalog-weapons.log"
+    },
+    {
+      "name": "equipment",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 4.321951291989535,
+      "log": "/tmp/nikke-sequence-gate-equipment.log"
+    },
+    {
+      "name": "real-battle",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 22.264105750015005,
+      "log": "/tmp/nikke-sequence-gate-real-battle.log"
+    },
+    {
+      "name": "api",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 352.1567158749094,
+      "log": "/tmp/nikke-sequence-gate-api.log"
+    },
+    {
+      "name": "pipeline-lock",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 1.3343402919126675,
+      "log": "/tmp/nikke-sequence-gate-pipeline-lock.log"
+    },
+    {
+      "name": "catalog-audit",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 1.014701290987432,
+      "log": "/tmp/nikke-sequence-gate-catalog-audit.log"
+    },
+    {
+      "name": "unit",
+      "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb",
+      "exit_code": 0,
+      "elapsed_seconds": 6.762376833008602,
+      "log": "/tmp/nikke-sequence-gate-unit.log"
+    }
+  ],
+  "source_commit": "ff9a10d175f266708e2d572132b045f1c04083bb"
+}

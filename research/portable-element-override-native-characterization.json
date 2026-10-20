@@ -1,0 +1,3714 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "gpu_execution_performed": false,
+  "gpu_admission_enabled": false,
+  "cases": 60,
+  "rows": [
+    {
+      "target": "self",
+      "enemy_code": null,
+      "fixed_value": null,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": null,
+      "fixed_value": 0,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": null,
+      "fixed_value": -10,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": null,
+      "fixed_value": 100,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": "",
+      "fixed_value": null,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": "",
+      "fixed_value": 0,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": "",
+      "fixed_value": -10,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": "",
+      "fixed_value": 100,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": "전격",
+      "fixed_value": null,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": "전격",
+      "fixed_value": 0,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": "전격",
+      "fixed_value": -10,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": "전격",
+      "fixed_value": 100,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": "작열",
+      "fixed_value": null,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": "작열",
+      "fixed_value": 0,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": "작열",
+      "fixed_value": -10,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": "작열",
+      "fixed_value": 100,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": "unknown:code",
+      "fixed_value": null,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": "unknown:code",
+      "fixed_value": 0,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": "unknown:code",
+      "fixed_value": -10,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "self",
+      "enemy_code": "unknown:code",
+      "fixed_value": 100,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": null,
+      "fixed_value": null,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": null,
+      "fixed_value": 0,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": null,
+      "fixed_value": -10,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": null,
+      "fixed_value": 100,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": "",
+      "fixed_value": null,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": "",
+      "fixed_value": 0,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": "",
+      "fixed_value": -10,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": "",
+      "fixed_value": 100,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": "전격",
+      "fixed_value": null,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": "전격",
+      "fixed_value": 0,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": "전격",
+      "fixed_value": -10,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": "전격",
+      "fixed_value": 100,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": "작열",
+      "fixed_value": null,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": "작열",
+      "fixed_value": 0,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": "작열",
+      "fixed_value": -10,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": "작열",
+      "fixed_value": 100,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": "unknown:code",
+      "fixed_value": null,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": "unknown:code",
+      "fixed_value": 0,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": "unknown:code",
+      "fixed_value": -10,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies",
+      "enemy_code": "unknown:code",
+      "fixed_value": 100,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "리타",
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": null,
+      "fixed_value": null,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": null,
+      "fixed_value": 0,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": null,
+      "fixed_value": -10,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": null,
+      "fixed_value": 100,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": "",
+      "fixed_value": null,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": "",
+      "fixed_value": 0,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": "",
+      "fixed_value": -10,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": "",
+      "fixed_value": 100,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": "전격",
+      "fixed_value": null,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            true,
+            true,
+            true,
+            true
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            true,
+            true,
+            true,
+            true
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": "전격",
+      "fixed_value": 0,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            true,
+            true,
+            true,
+            true
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            true,
+            true,
+            true,
+            true
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": "전격",
+      "fixed_value": -10,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            true,
+            true,
+            true,
+            true
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            true,
+            true,
+            true,
+            true
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": "전격",
+      "fixed_value": 100,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            true,
+            true,
+            true,
+            true
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            true,
+            true,
+            true,
+            true
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": "작열",
+      "fixed_value": null,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": "작열",
+      "fixed_value": 0,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": "작열",
+      "fixed_value": -10,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": "작열",
+      "fixed_value": 100,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": "unknown:code",
+      "fixed_value": null,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": "unknown:code",
+      "fixed_value": 0,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": "unknown:code",
+      "fixed_value": -10,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    },
+    {
+      "target": "all_allies_excl_self",
+      "enemy_code": "unknown:code",
+      "fixed_value": 100,
+      "observations": [
+        {
+          "time": 0,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 0.999,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": [
+            "크라운",
+            "앨리스",
+            "모더니아",
+            "N102"
+          ]
+        },
+        {
+          "time": 1,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        },
+        {
+          "time": 1.001,
+          "override": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "recipient_names": []
+        }
+      ]
+    }
+  ],
+  "conditional_presence": [
+    {
+      "duration": -1,
+      "timing": "passive",
+      "override": true,
+      "active": 1
+    },
+    {
+      "duration": -1,
+      "timing": "battle_start",
+      "override": false,
+      "active": 0
+    },
+    {
+      "duration": 1,
+      "timing": "passive",
+      "override": false,
+      "active": 0
+    },
+    {
+      "duration": 1,
+      "timing": "battle_start",
+      "override": false,
+      "active": 0
+    }
+  ],
+  "lazy_presence": [
+    {
+      "target": "allies_top_atk:1",
+      "before_numeric_queries": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "after_numeric_queries": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "target_names": [
+        null
+      ]
+    },
+    {
+      "target": "allies_lowest_hp:1",
+      "before_numeric_queries": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "after_numeric_queries": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "target_names": [
+        null
+      ]
+    }
+  ],
+  "authored_effects": [
+    {
+      "character": "라피 : 레드 후드",
+      "effect": {
+        "source": "스킬2",
+        "type": "buff",
+        "name": "부착형 유탄",
+        "trigger": {
+          "timing": [
+            "battle_start"
+          ],
+          "condition": []
+        },
+        "target": "self",
+        "stat": "element_code_override",
+        "target_code": "전격",
+        "polarity": "beneficial_irremovable",
+        "duration": -1,
+        "note": "전격 코드 적에게 우월 코드 대미지 적용"
+      }
+    },
+    {
+      "character": "슈가",
+      "effect": {
+        "source": "스킬1",
+        "favorite": 1,
+        "type": "buff",
+        "name": "블랙 타이푼 5",
+        "trigger": {
+          "timing": [
+            "battle_start"
+          ],
+          "condition": []
+        },
+        "target": "self",
+        "stat": "element_code_override",
+        "target_code": "작열",
+        "polarity": "beneficial_irremovable",
+        "duration": -1,
+        "note": "작열 코드 적에게 우월 코드 대미지 적용"
+      }
+    }
+  ],
+  "rules": [
+    "Presence, not numeric amount or sign, grants override to active resolved recipients",
+    "Missing/empty enemy code returnsfalse; exact strings match",
+    "Base roster element advantage is ORed with live override",
+    "Override does not change roster element identity",
+    "Native active carrier expiry and membership are authoritative; characterize query filters separately"
+  ],
+  "source_sha256": {
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/data/parsed_skills.json": "81e2934af7c91b69a49b71721d5f53af25b5ebf006595d3e929db4582ff23137",
+    "tests/test_target_counter_runtime.py": "67aae222254b5e64d7b277dd9ba1336f1fabf08b4e9bd2a029d7bfdf72f3bacb",
+    "research/characterize-element-override.py": "5bcf83ff0b9a7614029201d8c2f210917b918cd8a699778d4514a8331572c3cc"
+  }
+}

@@ -3,7 +3,7 @@
     "app/portable_protection_specs.py": "9fee0cc9f4fcdd8383545db69c9e1e9dc43f97ea2a5865c6f45353b052a3b4af",
     "app/protection_runtime.py": "1ddbb6134b1deea1e9fee295d0171b380098ca2211f109a20224f2d369a91f92",
     "app/reference_health_runtime.py": "fb028c974a10f80821336fb3f2bcf235ee6d300538a61afa829b536dc9ba1e44",
-    "app/portable_runtime.py": "7f35f03f10339fd25ff6f5d8bb812be756d36804369e89a2ca6d2b8553d03e3e",
+    "app/portable_runtime.py": "9b8d7c63b63ae2bbbc244f965a1b7fc9978956c4021a8445ab852a8a87efbf22",
     "scripts/portable_protection_oracle.py": "23f38a9340a621a738bc5f58d030489bc9c1b5c18c01fcc0f54408e8731ef70d",
     "tests/fixtures/portable-protection.json": "51e8b658f5ba027795cb88c8f1c524aacd6aec1e41a50fa2ac211362025d5ae0",
     "research/verify-protection.py": "07638db7e58e2af59feb79ac49b52f1f0c90edabc655e897574f50ee0cd5a56a"

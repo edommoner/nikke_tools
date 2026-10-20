@@ -8,12 +8,12 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.00536716659553349,
+    "gpu_seconds": 0.005365958320908248,
     "input_bytes": 344068,
-    "library_compile_seconds": 0.0011820793151855469,
+    "library_compile_seconds": 0.0010991096496582031,
     "output_bytes": 638976,
-    "pipeline_compile_seconds": 0.001199960708618164,
-    "pipeline_lock_wait_seconds": 0.21014797687530518,
+    "pipeline_compile_seconds": 0.0011540651321411133,
+    "pipeline_lock_wait_seconds": 0.20566105842590332,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
     "threads_per_threadgroup": 1
@@ -68,10 +68,10 @@
   "input_sha256": "e53aaa1c7c17fc98b1724ca2bbb1ddda2f634be51d3421cfe94cae4609d58b66",
   "output_sha256": "ea920660933c1a80786810f816d13cc0bc911c479b5ff5ca7b62f471970337ef",
   "validation_sha256": {
-    "scripts/run-metal-probe.swift": "121cd69e4f03b5def7d09437296ca4a3b2fd065f46b813ff990cf4936fb7554f",
+    "scripts/run-metal-probe.swift": "5d75cc8752fcc81d0dba18f2ebd445108ff0079d0a5c68885a0c2a697957fbcf",
     "scripts/verify-portable-metal-lock.py": "1b61cb71e824881b0979abab06cfa614018222454b6f357013ba88be7f4646de",
     "scripts/verify-portable-combat.py": "801700fe6a3743ffe6c1b8519c8aff3da23e651bd4f4a2c8e68a00daa00e7263",
-    "app/portable_runtime.py": "7f35f03f10339fd25ff6f5d8bb812be756d36804369e89a2ca6d2b8553d03e3e"
+    "app/portable_runtime.py": "9b8d7c63b63ae2bbbc244f965a1b7fc9978956c4021a8445ab852a8a87efbf22"
   },
   "diagnostic": "portable_stage=pipeline_lock\nportable_stage=library_compile\nportable_stage=pipeline_compile\nportable_stage=gpu_dispatch\n"
 }
