@@ -1,16 +1,8 @@
 {
-  "stage": "Root fixed-source global52 active;isolated initial-zero fix and closed notices Metal verified",
+  "stage": "Canonical world notices and initial-zero fix integrated after all52 base gates;short CUDA pending",
   "source_commit": "4c07f45356b561bdc64725b3e691731526ee04f2",
   "validation": "research/portable-world-provider-validation.json",
-  "gpu_jobs": [
-    {
-      "session_id": 57266,
-      "driver": "research/run-enemy-target-gates.py",
-      "log": "/tmp/nikke-world-provider-gates.log",
-      "report": "research/portable-enemy-target-global-gates.json",
-      "source_frozen": true
-    }
-  ],
+  "gpu_jobs": [],
   "all_other_gpu_jobs_terminal": true,
   "actual_core_capture": "research/portable-build/enemy-target-core-20261020T162035004004Z",
   "cpu_core_replay_capture": "research/portable-build/enemy-target-core-20261020T162231502751Z",
@@ -44,7 +36,7 @@
   "efficiency_started": false,
   "normal_ui": "CPU",
   "full_goal_complete": false,
-  "updated_at": "2026-10-20T16:46:43.912219+00:00",
+  "updated_at": "2026-10-20T17:02:07.157474+00:00",
   "new_finding": "research/portable-world-zero-once-finding.json",
   "new_witness_session": {
     "session_id": 95535,
@@ -70,6 +62,10 @@
   "isolated_worktree": "/Users/edo/.codex/worktrees/world-notices/nikke_tools",
   "isolated_source_commit": "15bcbfe9ecf7484f0b53afdf2feec7e85c97b6ad",
   "isolated_validation": "/Users/edo/.codex/worktrees/world-notices/nikke_tools/research/portable-world-notices-validation.json",
-  "root_initial_zero_fix_integrated": false,
-  "root_notices_integrated": false
+  "root_initial_zero_fix_integrated": true,
+  "root_notices_integrated": true,
+  "all_root_gpu_jobs_terminal": true,
+  "integrated_merge_commit": "7388f1d",
+  "current_validation": "research/portable-world-notices-validation.json",
+  "global_base_validation": "research/portable-world-provider-global-validation.json"
 }

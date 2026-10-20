@@ -616,8 +616,8 @@
     "core_report_source_commit": "5a161e8078179db5a148883b9bd6cb99190268e2",
     "world_report_source_commit": "9d61cbc5fc71a209ee12d76be20e4533ed528fcf"
   },
-  "expected_sha256": "a5326ab0d7f67a12ff43a1556f383a6833fa6aedbf935b0568ca682bfc2f963f",
-  "source_commit": "5a161e8078179db5a148883b9bd6cb99190268e2",
+  "expected_sha256": "a114dfe12eb5aafe218c42907775339752ebe998c3f8f17bae7367bc5bc133ff",
+  "source_commit": "7388f1d0f7f93c01752d84913cd99a9998f33f3d",
   "backend": "metal",
   "scope": "Exact full-output and full semantic-dictionary SHA256 comparison. This compact report does not discard or replace detailed reports/raw retained on this host.",
   "full_character_verified": 0,

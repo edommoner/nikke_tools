@@ -20,9 +20,16 @@ def fingerprint(core,world):
  for name,stem,evidence in [('core','event_runtime',c),('world','world_frame_entry',w)]:
   generated[name]={}
   for backend,suffix in [('cuda','cu'),('metal','metal')]:
-   path=ROOT/'research/portable-build'/(stem+'.'+suffix)
-   assert file_sha(path)==evidence['generated_sha256'][backend],('generated source no longer matches saved report',str(path))
-   generated[name][backend]=normalized(path.read_bytes())
+   capture=Path(core['enemy_target_existing_parity']['raw_path']).parent if name=='core' else Path(world['captured'])
+   expected_sha=evidence['generated_sha256'][backend]
+   snapshot=ROOT/'research/portable-build/generated-proof'/stem/(expected_sha+'.'+suffix)
+   candidates=[snapshot,capture.parent/(stem+'.'+suffix),ROOT/'research/portable-build'/(stem+'.'+suffix)]
+   path=next((p for p in candidates if p.exists() and file_sha(p)==expected_sha),None)
+   assert path is not None,('No exact generated source for saved report',name,backend,expected_sha)
+   raw=path.read_bytes()
+   if not snapshot.exists():
+    snapshot.parent.mkdir(parents=True,exist_ok=True);snapshot.write_bytes(raw)
+   generated[name][backend]=normalized(raw)
  return dict(core_input_sha256=c['input_sha256'],core_output_sha256=c['output_sha256'],core_source_sha256=c['source_sha256'],core_validation_sha256=c['validation_sha256'],core_semantic_fields=semantic_core(c),core_existing_parity={k:p[k] for k in parity_keys},world_input_sha256=w['input_sha256'],world_output_sha256=w['output_sha256'],world_source_sha256=w['source_sha256'],world_cases_sha256=digest(world['cases']),world_golden_sha256=world['golden_sha256'],generated_normalized_sha256=generated)
 def observed(core,world):
  return dict(core_passed=core['passed'],world_passed=world['passed'],positive_cases=len(core['cases']),negative_cases=len(core['rejected_cases']),world_cases=len(world['cases']),core_gpu_execution_verified=core['gpu_execution_verified'],world_gpu_execution_verified=world['evidence']['gpu_execution_verified'],core_transport=core['transport'],world_transport=world['evidence']['transport'],core_report_source_commit=core['enemy_target_existing_parity']['source_commit'],world_report_source_commit=world['source_commit'])

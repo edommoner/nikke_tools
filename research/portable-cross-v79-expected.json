@@ -615,7 +615,7 @@
     "core_report_source_commit": "5a161e8078179db5a148883b9bd6cb99190268e2",
     "world_report_source_commit": "9d61cbc5fc71a209ee12d76be20e4533ed528fcf"
   },
-  "summary_driver_sha256": "7a23307cdafc46db72a60ce37e163baa6593eb7a55b5002dc9b8b5357f271706",
+  "summary_driver_sha256": "01e8595eb20c4a3c1f94f524e81e812d2921fd240b17a33e6dbfb050320fb21a",
   "scope": "Actual same-source Metal core4682 and world49 results. Full report dictionaries and all output bytes are fingerprinted;source/raw reports stay on their originating host.",
   "full_character_verified": 0,
   "full_goal_complete": false
