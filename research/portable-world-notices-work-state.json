@@ -29,5 +29,8 @@
     "report": "research/portable-world-suite-metal.json",
     "golden": "research/portable-world-suite-golden.json",
     "complete_word_readback_preserved": true
-  }
+  },
+  "normal_fixed_source_core_gpu_verified": true,
+  "normal_core_capture": "/Users/edo/.codex/worktrees/world-notices/nikke_tools/research/portable-build/enemy-target-core-20261020T165344569267Z/readback.bin",
+  "compact_cross_summary_verified": true
 }

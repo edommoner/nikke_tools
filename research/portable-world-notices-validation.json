@@ -122,8 +122,11 @@
   "efficiency_started": false,
   "root_global52_pending": true,
   "normal4682_input_bytes_preserved": true,
+  "normal_fixed_source_core_gpu_verified": true,
+  "normal_core_capture": "/Users/edo/.codex/worktrees/world-notices/nikke_tools/research/portable-build/enemy-target-core-20261020T165344569267Z/readback.bin",
+  "cross_gpu_compact_expected": "research/portable-cross-v79-expected.json",
   "normal_generated_cuda_and_msl_unchanged": true,
-  "updated_at": "2026-10-20T16:46:33.236978+00:00",
+  "updated_at": "2026-10-20T16:56:38.045596+00:00",
   "remaining": [
     "Complete root4c07f45 global52 run without source mutation;integrate isolated commits after terminal",
     "Verify final-source normal packing/code identity,appropriate Metal global regressions and one necessary short CUDA check",
