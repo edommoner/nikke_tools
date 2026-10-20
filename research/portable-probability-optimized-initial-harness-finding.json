@@ -1,0 +1,16 @@
+{
+  "passed": false,
+  "source_commit": "02a7b3dc90062ea4902fd7c5f6677081e9c4499a",
+  "failure": "New capture wrapper omitted uint32 total-count prefix in its saved input file;dispatch input unchanged",
+  "actual_input_sha256": "5a9a4b3062107630c0060d8c555be0b3b9bd1711975fa22500764e1ec6d1e152",
+  "actual_output_sha256": "6db7acffb26327498ead7c5375ff80652ab9d092cfa9e98aa7b261d155b8423a",
+  "baseline_input_and_output_equal": true,
+  "saved_input_with_count_prefix_equal": true,
+  "raw_path": "research/portable-build/probability-optimized-metal-20261020T050208432594/readback.bin",
+  "input_path": "research/portable-build/probability-optimized-metal-20261020T050208432594/input.bin",
+  "evidence_path": "research/portable-build/probability-optimized-metal-20261020T050208432594/evidence.json",
+  "gpu_compute_mismatch": false,
+  "raw_saved_before_guard": true,
+  "native_cpu_checks_reached": false,
+  "initial_unlocalized_metal_finding_open": true
+}

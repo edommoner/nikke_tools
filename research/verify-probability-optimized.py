@@ -9,6 +9,7 @@ import importlib.util
 import json
 from pathlib import Path
 import subprocess
+import struct
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -32,6 +33,7 @@ def main():
         directory = ROOT / 'research/portable-build' / ('probability-optimized-' + backend + '-' + datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%f'))
         directory.mkdir(parents=True)
         with (directory / 'input.bin').open('wb') as stream:
+            stream.write(struct.pack('<I', len(programs)))
             for words, _ in programs:
                 packed = array.array('I', words)
                 if sys.byteorder != 'little':
