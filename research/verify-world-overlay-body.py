@@ -8,7 +8,7 @@ from portable_backend import execute,source_hashes
 from portable_specs import LIMITS as L
 from portable_world_schedule_specs import compile_schedule
 from portable_world_overlay_specs import compile_payload
-from world_frame_native import observe
+from world_frame_native import observe,authored_metadata
 
 def module(name,path):
  spec=importlib.util.spec_from_file_location(name,ROOT/path);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
@@ -30,14 +30,17 @@ def compile_case(case):
  from calculator.boss_pattern import BossScript
  from portable_geometry_specs import validate
  enemy=case['enemy'];auth=copy.deepcopy(case);auth['combat']['targets'][0]['defense']=enemy.get('def',0)
- geometry=dict(core_px=enemy.get('core_px',0),distance=enemy.get('distance'),optimal_weapons=enemy.get('optimal_range_weapons',[]),weapons=[dict(type='AR',minimum=10,maximum=20) for _ in range(5)])
+ geometry=dict(core_px=enemy.get('core_px',0),distance=enemy.get('distance'),optimal_weapons=enemy.get('optimal_range_weapons',[]),weapons=[dict(type=w.get('base_weapon_type','MG' if w.get('mode')=='auto_warmup' else 'AR'),minimum=10,maximum=20) for w in case['combat']['weapons']])
  validate(geometry);auth['environment']['geometry']=geometry
  for weapon in auth['combat']['weapons']:weapon.update(spread_start=20,spread_end=10,spread_shots=5,core_diameter=geometry['core_px'])
  graph,patterns=compile_schedule(dict(patterns=case['patterns'],clock='accumulated',duration=case['duration']),notice_payload=True)
  BossScript(patterns,copy.deepcopy(enemy),lambda *_:False) # Same cross-domain constraints as native.
  payload=None
  auth['patterns']=[{k:v for k,v in p.items() if k not in ('enemy','irremovable','core_px','weapons','distance')} if p['kind'] in ('idle','groggy','attack') else dict({k:v for k,v in p.items() if k in ('id','after','delay','until','repeat','emit','emit_end')},kind='idle') for p in case['patterns']]
- words,meta=f.compile_case(auth)
+ if case.get('observe_overlay'):
+  from unittest.mock import patch
+  with patch.dict(f.engine_worker.META,authored_metadata(case)):words,meta=f.compile_case(auth)
+ else:words,meta=f.compile_case(auth)
  from portable_world_overlay_specs import CODES
  shield=any(p.kind=='shield' for p in patterns)
  elements=case.get('element_codes') or [case.get('weapon_metadata',{}).get('element_code',f.engine_worker.META[name].get('element_code','')) for name in f.NAMES]

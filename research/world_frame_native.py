@@ -6,6 +6,19 @@ from calculator import timeline,buff_manager
 from enemy_target_native import ObservedRNG
 from timer_registry_cases import NAMES
 
+def authored_metadata(case):
+ """Literal weapon normalization only;does not tick a character or a battle."""
+ metadata={}
+ for n,w in zip(NAMES,case['combat']['weapons']):
+  rate=w.get('rate',1/w['interval']);maximum=w.get('rate_max',rate)
+  metadata[n]=dict(timeline._NIKKE[n],weapon_type=w.get('base_weapon_type','MG' if w.get('mode')=='auto_warmup' else 'AR'),is_charge=w.get('mode')=='charge',input_type='DOWN_Charge' if w.get('mode')=='charge' else 'DOWN',burst_stage=str(w.get('stage',0)),fire_rate=rate,fire_rate_max=maximum,damage_coeff=w.get('coefficient',100),max_ammo=w['capacity'],reload_time=w['reload'],burst_energy=w.get('gauge',0),muzzles=w.get('muzzles',1),pellets=w.get('pellets',1),core_dmg_mult=200)
+  if 'warmup' in w:metadata[n]['fire_rate_change_pershot']=(maximum-rate)/w['warmup']
+  if w.get('mode')=='charge':metadata[n].update(charge_time=w.get('charge',.2),full_charge_mult=w.get('full_charge_mult',100),fire_stance_hold=None)
+ for n in NAMES:metadata[n].update(copy.deepcopy(case.get('weapon_metadata',{})))
+ if case.get('element_codes'):
+  for n,code in zip(NAMES,case['element_codes']):metadata[n]['element_code']=code
+ return metadata
+
 def observe(case):
  capture={};ends=[];counts={n:0 for n in NAMES};effects=[(copy.deepcopy(e),NAMES[o]) for e,o in zip(case['effects'],case['owners'])]
  bits=lambda v:list(struct.unpack('<II',struct.pack('<d',float(v))))
@@ -20,12 +33,7 @@ def observe(case):
   def _close(self,run,t,outcome,events):
    super()._close(run,t,outcome,events);ends.append([run.p.idx,{'cleared':1,'expired':2,'followed':3,'end':4}[outcome],*bits(t)])
  def register(bm):bm._effects=copy.deepcopy(effects);bm._build_notify_index()
- metadata={}
- for n,w in zip(NAMES,case['combat']['weapons']):
-  metadata[n]=dict(timeline._NIKKE[n],weapon_type=w.get('base_weapon_type','MG' if w.get('mode')=='auto_warmup' else 'AR'),is_charge=w.get('mode')=='charge',input_type='DOWN_Charge' if w.get('mode')=='charge' else 'DOWN',burst_stage=str(w.get('stage',0)),fire_rate=1/w['interval'],fire_rate_max=1/w['interval'],damage_coeff=100,max_ammo=w['capacity'],reload_time=w['reload'],burst_energy=w.get('gauge',0),muzzles=w.get('muzzles',1),pellets=w.get('pellets',1),core_dmg_mult=200)
- for n in NAMES:metadata[n].update(copy.deepcopy(case.get('weapon_metadata',{})))
- if case.get('element_codes'):
-  for n,code in zip(NAMES,case['element_codes']):metadata[n]['element_code']=code
+ metadata=authored_metadata(case)
  def stats(char):
   i=NAMES.index(char['name']);a=case['environment']['allies'][i]
   return {'atk':case['base_atk'][i],'hp':a['base_hp'],'def':a['base_defense']}
