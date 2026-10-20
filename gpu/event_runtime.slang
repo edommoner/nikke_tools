@@ -155,6 +155,33 @@ struct Runtime
 #define WORLD_POOL_ACCOUNTING(s,legacy) legacy
 #define WORLD_POOL_PHYSICAL_TARGET(s,who,target) target
 #endif
+#ifdef PORTABLE_WORLD_ACTOR_FIELDS
+#define WORLD_FIELDS_ENEMY_SELECT(s,d,target,order) if(actorFieldsEnabled(s)&&d.enemyBuff!=0) { order=1;return 1; }
+#define WORLD_FIELDS_SAME(s,slot,recipients,gen) if(actorFieldsEnabled(s)) return actorFieldSame(s,slot,gen);
+#define WORLD_FIELDS_QUERY_DEAD(s,target,legacy) (actorFieldsEnabled(s) ? !actorFieldQueryLive(s,target) : (legacy))
+#define WORLD_FIELDS_MEMBER_INVALID(s,row,target,legacy) (actorFieldsEnabled(s) ? !actorFieldMember(s,row,target) : (legacy))
+#define WORLD_FIELDS_CONDITION(s,row,target,when,legacy) (actorFieldsEnabled(s) ? actorFieldConditions(s,row,target,when) : (legacy))
+#define WORLD_FIELDS_RESET(s,row) actorFieldReset(s,row);
+#define WORLD_FIELDS_BIND(s,row,d,f) if(actorFieldsEnabled(s)&&d.enemyBuff!=0) actorFieldBind(s,row,f.target,f.repeatPassive);
+#define WORLD_FIELDS_FRAME(s,frames,depth,f) if(f.mode==25) { advanceActorFields(s,frames,depth);continue; }
+#define WORLD_FIELDS_FANOUT(s,frames,depth,d,row,f) if(actorFieldsEnabled(s)&&d.enemyBuff!=0&&f.mode!=19) { beginActorFields(s,frames,depth,row,f);continue; }
+#define WORLD_FIELDS_TARGET_INVALID(s,who,kind,legacy) (actorFieldsEnabled(s) ? actorFieldTargetMismatch(s,who,kind) : (legacy))
+#define WORLD_FIELDS_INIT(s,output) if(!initializeActorFields(s)) { results[output]=64;return; }
+#define WORLD_FIELDS_COMMAND(s,at) else if(op==39||op==40) { if(!actorFieldCommand(s,at,op,when)) { s.error=64;break; } }
+#else
+#define WORLD_FIELDS_ENEMY_SELECT(s,d,target,order)
+#define WORLD_FIELDS_SAME(s,slot,recipients,gen)
+#define WORLD_FIELDS_QUERY_DEAD(s,target,legacy) legacy
+#define WORLD_FIELDS_MEMBER_INVALID(s,row,target,legacy) legacy
+#define WORLD_FIELDS_CONDITION(s,row,target,when,legacy) legacy
+#define WORLD_FIELDS_RESET(s,row)
+#define WORLD_FIELDS_BIND(s,row,d,f)
+#define WORLD_FIELDS_FRAME(s,frames,depth,f)
+#define WORLD_FIELDS_FANOUT(s,frames,depth,d,row,f)
+#define WORLD_FIELDS_TARGET_INVALID(s,who,kind,legacy) legacy
+#define WORLD_FIELDS_INIT(s,output)
+#define WORLD_FIELDS_COMMAND(s,at)
+#endif
 #include "geometry_runtime.slang"
 
 bool hasProtection(inout Runtime s,uint who,uint kind);
@@ -296,7 +323,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
             if (kind == C_BURST1_ALLY && !has || kind == C_NO_BURST1_ALLY && has) return false;
         }
         if (kind == C_ENEMIES_ABOVE && f64Less(f64FromI64(s.enemySnapshot),arg) || kind == C_ENEMIES_BELOW && f64Less(arg,f64FromI64(s.enemySnapshot))) return false;
-        if (kind == C_TARGET_BOSS && s.target != 0 || kind == C_TARGET_ADD && s.target == 0) return false;
+        if (WORLD_FIELDS_TARGET_INVALID(s,owner,kind,kind == C_TARGET_BOSS && s.target != 0 || kind == C_TARGET_ADD && s.target == 0)) return false;
     }
     return true;
 }
@@ -712,7 +739,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if(encoded==0) { depth--;continue; }
             frames[depth].cursor++;pushFrame(s,frames,depth,0,18,encoded-1,0,f.time);continue;
         }
-        if (f.mode==18)
+        WORLD_FIELDS_FRAME(s,frames,depth,f) if (f.mode==18)
         {
             uint encoded=f.cursor<8 ? (f.value>>(f.cursor*4))&15 : 0;
             if(encoded==0) { depth--;continue; }
@@ -1147,7 +1174,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if(staged && s.error==0) prepareStaged(s,row,count,f.time,previousCarrier);
             continue;
         }
-        if((d.kind==0 || d.kind==4) && d.enemyBuff!=0 && recipientMask!=0 && f.mode!=19 && (countbits(recipientMask)!=1 || s.hpPendingMask!=0 || s.hpDirtyMask!=0))
+        WORLD_FIELDS_FANOUT(s,frames,depth,d,row,f) if((d.kind==0 || d.kind==4) && d.enemyBuff!=0 && recipientMask!=0 && f.mode!=19 && (countbits(recipientMask)!=1 || s.hpPendingMask!=0 || s.hpDirtyMask!=0))
         {
             pushFrame(s,frames,depth,18,f.event,d.owner,int(row),f.time,enemyOrder);
             if(s.error==0)
@@ -1182,7 +1209,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             else { s.activeRecipients[row] = recipientMask; storeCarrierOrder(s,row,recipientOrder); }
             if(!live || d.maxStack!=1) s.stacks[row] = checkedStackIncrement(s.stacks[row],d.maxStack,s.error);
             if (s.error!=0) break;
-            s.alive[row] = 1; s.activated[row] = f.time;
+            WORLD_FIELDS_BIND(s,row,d,f) s.alive[row] = 1; s.activated[row] = f.time;
             s.end[row] = f64Less(duration,0) ? F64_INF : f64Add(f.time,duration);
             if (d.enemyBuff != 0) s.enemyCaptureGeneration[row] = capturedGeneration;
             if (d.bulletDuration != 0) prepareBulletActivation(s,row,recipientMask,live,activationLazy,previousStack);
@@ -1491,10 +1518,13 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "bullet_consume.slang"
 #ifdef PORTABLE_WORLD_ACTOR_POOLS
 #include "world_actor_pools.slang"
+#ifdef PORTABLE_WORLD_ACTOR_FIELDS
+#include "world_actor_fields.slang"
+#endif
 #define WORLD_POOL_INIT(s,output) if(!initializeActorPools(s)) { results[output]=64;return; }
-#define WORLD_POOL_COMMAND(s,at) else if(op>=34 && op<=38) { if(!actorPoolCommand(s,op,step,when)) { s.error=64;break; } }
+#define WORLD_POOL_COMMAND(s,at) WORLD_FIELDS_COMMAND(s,at) else if(op>=34 && op<=38) { if(!actorPoolCommand(s,op,step,when)) { s.error=64;break; } }
 #else
-#define WORLD_POOL_INIT(s,output)
+#define WORLD_POOL_INIT(s,output) WORLD_FIELDS_INIT(s,output)
 #define WORLD_POOL_COMMAND(s,at)
 #endif
 #ifdef PORTABLE_WORLD_ACTORS
@@ -1557,7 +1587,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if(!validGeometry(s)) { results[output]=64;return; }
     admitDefinitions(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
-    if(!initializeWorldFrame(s)) { results[output]=64;return; } WORLD_OVERLAY_INIT(s,output) WORLD_ACTORS_INIT(s,output) WORLD_POOL_INIT(s,output)
+    if(!initializeWorldFrame(s)) { results[output]=64;return; } WORLD_OVERLAY_INIT(s,output) WORLD_ACTORS_INIT(s,output) WORLD_POOL_INIT(s,output) WORLD_FIELDS_INIT(s,output)
     if(!validEnemyTargeting(s)) { results[output]=64;return; }
     if(!validProtection(s)) { results[output]=64;return; }
     if (!validStatusDefinitions(s)) { results[output]=64;return; }
@@ -1590,7 +1620,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             dispatch(s,0,event,commands[at+4],int(commands[at+5]),when,output);
         }
         else if (op == 4 && s.combat != 0) { if (s.clockMode != 0) { s.error = 64; break; } squadFrame(s,when,output); s.frameCount++; }
-        WORLD_ACTOR_COMMAND(s,at) WORLD_POOL_COMMAND(s,at) else if (op == 26)
+        WORLD_ACTOR_COMMAND(s,at) WORLD_POOL_COMMAND(s,at) WORLD_FIELDS_COMMAND(s,at) else if (op == 26)
         {
             uint mask = commands[at+5]; uint64_t amount = loadNumber(at+6);
             if (commands[at+3] != 0 || commands[at+4] != 0 || mask == 0 || mask > 31 || !f64Finite(amount) || f64Less(amount,0)) { s.error = 64; break; }

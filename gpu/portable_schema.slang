@@ -2,7 +2,9 @@
 #if defined(PORTABLE_WORLD_FRAME) && defined(PORTABLE_WIDE_LANDINGS)
 #error World and wide-landing diagnostic layouts cannot be combined.
 #endif
-#ifdef PORTABLE_WORLD_ACTOR_POOLS
+#ifdef PORTABLE_WORLD_ACTOR_FIELDS
+static const uint PORTABLE_ABI = 1346721400U;
+#elif defined(PORTABLE_WORLD_ACTOR_POOLS)
 static const uint PORTABLE_ABI = 1346721399U;
 #elif defined(PORTABLE_WORLD_ACTORS)
 static const uint PORTABLE_ABI = 1346721398U;
@@ -180,7 +182,9 @@ static const uint P_PROTECTION_MAP_BASE = 108224U;
 static const uint P_PROTECTION_SELECTION_BASE = 108736U;
 static const uint P_PROTECTION_OBJECT_BASE = 109248U;
 static const uint P_PROTECTION_BUILD_BASE = 133824U;
-#ifdef PORTABLE_WORLD_ACTOR_POOLS
+#ifdef PORTABLE_WORLD_ACTOR_FIELDS
+static const uint P_OUTPUT_WORDS = 262144U;
+#elif defined(PORTABLE_WORLD_ACTOR_POOLS)
 static const uint P_OUTPUT_WORDS = 253952U;
 #elif defined(PORTABLE_WORLD_FRAME)
 static const uint P_OUTPUT_WORDS = 225280U;
@@ -231,6 +235,7 @@ static const uint P_WORLD_ACTOR_INPUT_WORDS = 90536U;
 static const uint P_WORLD_ACTOR_STATE_BASE = 216192U;
 static const uint P_WORLD_ACTOR_QUERY_BASE = 217224U;
 static const uint P_WORLD_ACTOR_STATE_WORDS = 1544U;
+static const uint P_WORLD_ACTOR_FIELDS_ABI = 1346721400U;
 static const uint P_WORLD_ACTOR_POOL_ABI = 1346721399U;
 static const uint P_WORLD_ACTOR_POOL_INPUT_BASE = 90536U;
 static const uint P_WORLD_ACTOR_POOL_DEF_BASE = 90544U;
@@ -246,6 +251,11 @@ static const uint P_WORLD_ACTOR_RECEIPT_BASE = 245016U;
 static const uint P_WORLD_ACTOR_NOTICE_BASE = 245528U;
 static const uint P_WORLD_ACTOR_NOTICES = 1024U;
 static const uint P_WORLD_ACTOR_POOL_OUTPUT_WORDS = 253952U;
+static const uint P_WORLD_ACTOR_FIELDS_BASE = 253952U;
+static const uint P_WORLD_ACTOR_FIELD_KEY_BASE = 253968U;
+static const uint P_WORLD_ACTOR_FIELD_QUERY_BASE = 256016U;
+static const uint P_WORLD_ACTOR_FIELD_ALL_BASE = 257040U;
+static const uint P_WORLD_ACTOR_FIELDS_OUTPUT_WORDS = 262144U;
 static const uint D_OWNER = 0U;
 static const uint D_KIND = 1U;
 static const uint D_STAT = 2U;
