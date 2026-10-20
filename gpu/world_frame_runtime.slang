@@ -11,6 +11,9 @@ void worldFrameBegin(inout Runtime s,uint64_t when)
 #ifdef PORTABLE_WORLD_OVERLAYS
     if(s.error==0) applyWorldOverlays(s,when);
 #endif
+#ifdef PORTABLE_WORLD_ACTORS
+    if(s.error==0) worldActorsApply(s);
+#endif
 }
 [noinline]
 void worldFrameNotice(inout Runtime s,uint notice,uint64_t when,uint output)
@@ -52,6 +55,9 @@ void worldFrameFinish(inout Runtime s)
 {
     if(!worldFrameEnabled(s) || s.error!=0) return;
     WorldSchedule w=frameSchedule(s);wsFinish(w,wsLoad(w.input+6));s.error=w.error;
+#ifdef PORTABLE_WORLD_ACTORS
+    if(s.error==0) worldActorsApply(s);
+#endif
 }
 
 #ifdef PORTABLE_WORLD_OVERLAYS

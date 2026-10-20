@@ -1476,6 +1476,12 @@ void tick(inout Runtime s, uint64_t when, uint output)
 }
 
 #include "bullet_consume.slang"
+#ifdef PORTABLE_WORLD_ACTORS
+#include "world_actor_registry.slang"
+#define WORLD_ACTORS_INIT(s,output) if(!initializeWorldActors(s)) { results[output]=64;return; }
+#else
+#define WORLD_ACTORS_INIT(s,output)
+#endif
 #ifdef PORTABLE_WORLD_FRAME
 #include "world_frame_runtime.slang"
 #endif
@@ -1528,7 +1534,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if(!validGeometry(s)) { results[output]=64;return; }
     admitDefinitions(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
-    if(!initializeWorldFrame(s)) { results[output]=64;return; } WORLD_OVERLAY_INIT(s,output)
+    if(!initializeWorldFrame(s)) { results[output]=64;return; } WORLD_OVERLAY_INIT(s,output) WORLD_ACTORS_INIT(s,output)
     if(!validEnemyTargeting(s)) { results[output]=64;return; }
     if(!validProtection(s)) { results[output]=64;return; }
     if (!validStatusDefinitions(s)) { results[output]=64;return; }
@@ -1561,6 +1567,14 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             dispatch(s,0,event,commands[at+4],int(commands[at+5]),when,output);
         }
         else if (op == 4 && s.combat != 0) { if (s.clockMode != 0) { s.error = 64; break; } squadFrame(s,when,output); s.frameCount++; }
+#ifdef PORTABLE_WORLD_ACTORS
+        else if(op==33)
+        {
+            uint kind=commands[at+3],identity=commands[at+4],generation=commands[at+5],root=commands[at+6],query=commands[at+7];
+            if(kind>5 || identity>=0x10000000U || generation==0 || generation>=0x80000000U || root>1 || query>=P_COMMANDS || !worldActorsEnabled(s)) { s.error=64;break; }
+            worldActorQuery(s,kind,identity,generation,root,query);
+        }
+#endif
         else if (op == 26)
         {
             uint mask = commands[at+5]; uint64_t amount = loadNumber(at+6);
