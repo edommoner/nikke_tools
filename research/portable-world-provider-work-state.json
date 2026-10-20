@@ -1,5 +1,5 @@
 {
-  "stage": "Canonical provider fold,Metal scope passed;full52 gate run active",
+  "stage": "Fixed-source global gates active;new distinct world-zero-once failure retained,next fix after gates",
   "source_commit": "4c07f45356b561bdc64725b3e691731526ee04f2",
   "validation": "research/portable-world-provider-validation.json",
   "gpu_jobs": [
@@ -44,5 +44,17 @@
   "efficiency_started": false,
   "normal_ui": "CPU",
   "full_goal_complete": false,
-  "updated_at": "2026-10-20T16:23:23.603095+00:00"
+  "updated_at": "2026-10-20T16:27:56.680396+00:00",
+  "new_finding": "research/portable-world-zero-once-finding.json",
+  "new_witness_session": {
+    "session_id": 95535,
+    "terminal": true,
+    "exit_code": 0,
+    "comparison_passed": false,
+    "no_retry": true
+  },
+  "next_cpu_characterizations": [
+    "research/portable-world-notice-native-characterization.json",
+    "research/portable-world-notice-order-native.json"
+  ]
 }

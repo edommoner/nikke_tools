@@ -1,7 +1,7 @@
 {
-  "stage": "Common canonical provider fold: scoped Metal proof complete;full global gates pending",
+  "stage": "Common canonical provider fold:20-case scoped parity passed,new zero-time-once boundary failed;global gates active",
   "source_commit": "4c07f45356b561bdc64725b3e691731526ee04f2",
-  "updated_at": "2026-10-20T16:22:54.419750+00:00",
+  "updated_at": "2026-10-20T16:27:56.680011+00:00",
   "scoped_metal_passed": true,
   "global_gates_complete": false,
   "cuda_provider_fold_verified": false,
@@ -148,10 +148,14 @@
   "normal_ui": "CPU",
   "old_metal_finding_open": true,
   "remaining": [
+    "After fixed-source global gates terminate,fix repeated initial world clock0 and add sub-EPS expiry regression;retain failed raw and compare changed-source execution",
     "Complete all52 fixed-source Mac gates including real roster/API",
     "Freeze any further world-family implementation and appropriate tests before requesting one necessary short Windows CUDA check",
     "Obtain exact new source/result export approval where required;compare saved CUDA results",
     "Measure efficiency only after correctness,transfers and jobs are terminal",
     "Pattern emit/overlay/debuff/actor/control/revive families remain unconnected"
-  ]
+  ],
+  "adoption_ready": false,
+  "new_zero_once_witness_passed": false,
+  "new_zero_once_finding": "research/portable-world-zero-once-finding.json"
 }
