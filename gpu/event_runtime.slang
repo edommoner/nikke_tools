@@ -101,6 +101,7 @@ struct Runtime
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
 #ifdef PORTABLE_TARGET_COUNTERS
+#define COUNTER_WORLD_LITERAL(s,through,legacy) targetCounterLiteralRoot(s,through,legacy)
 #define COUNTER_PREPARE(s,row,when) prepareTargetCounter(s,row,when);
 #define COUNTER_GUARD(s,row) if(targetCounterDeadDefinition(s,row)) continue;
 #define COUNTER_FRAME(s,frames,depth) if(frames[depth].mode==26) { advanceTargetCounter(s,frames,depth);continue; }
@@ -109,6 +110,7 @@ struct Runtime
 #define COUNTER_INIT(s,output) if(!initializeTargetCounters(s)) { results[output]=64;return; }
 #define COUNTER_COMMAND(s,at) else if(op==43) { if(!targetCounterCommand(s,at,step,when,output)) { s.error=64;break; } }
 #else
+#define COUNTER_WORLD_LITERAL(s,through,legacy) legacy
 #define COUNTER_PREPARE(s,row,when)
 #define COUNTER_GUARD(s,row)
 #define COUNTER_FRAME(s,frames,depth)

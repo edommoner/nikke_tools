@@ -5,6 +5,19 @@ uint counterPolicy(inout Runtime s,uint definition) { return s.inputBase+P_TARGE
 uint counterResource(inout Runtime s,uint slot) { return s.resourceOutput+P_TARGET_COUNTER_RESOURCE_BASE+slot*16; }
 uint counterReady(inout Runtime s,uint index) { return s.resourceOutput+P_TARGET_COUNTER_READY_BASE+index*20; }
 bool targetCountersEnabled(inout Runtime s) { return commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE]==0x57433031; }
+bool targetCounterLiteralRoot(inout Runtime s,uint64_t through,bool autonomousReached)
+{
+    if(autonomousReached) return true;
+    if(!targetCountersEnabled(s)||commands[s.inputBase+2]==0) return false;
+    // Literal resource tests neither advance the world nor fire weapons. Their
+    // own full sidecar/action admission runs before executing the first action.
+    for(uint i=0;i<commands[s.inputBase+2];i++)
+    {
+        uint at=s.inputBase+P_COMMAND_BASE+i*8;uint64_t time=loadNumber(at+1);
+        if(commands[at]!=43||!f64Finite(time)||f64Less(time,0)||f64Less(through,time)) return false;
+    }
+    return true;
+}
 bool counterActorEqual(uint at,uint kind,uint id,uint gen)
 { return results[at]==kind&&results[at+1]==id&&results[at+2]==gen; }
 bool counterActorDead(inout Runtime s,uint kind,uint id,uint gen)
