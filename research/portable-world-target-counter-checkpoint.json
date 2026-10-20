@@ -1,5 +1,5 @@
 {
-  "stage": "Typed counter completion context and predicates verified on Metal721; CUDA41 audited; CUDA58 dispatched",
+  "stage": "Typed counter completion context and predicates verified on Metal721 and CUDA58; saved evidence audited",
   "calculation_source": "63485778d943d38e60620cd5824a3b5c9aee62e1",
   "metal_inputs": 721,
   "native_literal_cases": 10,
@@ -15,11 +15,11 @@
   "typed_target_child_conditions": true,
   "cuda_source": "a9bb64216cce80e813a4a18e524f8b178ba6cc2c",
   "cuda_inputs": 58,
-  "windows_status": "v91 dispatched; awaiting saved results",
+  "windows_status": "v91 completed/audited;idle",
   "windows_thread": "01a140bc-5f3b-7661-b720-50c945596eaa",
   "windows_host": "remote-control:env_e_6ac12920046c8331afb50b0234aeba48",
-  "windows_turn": "01a15b9e-ae4f-7693-9f09-9263cc3a83e0",
-  "windows_cursor": "09b5d983-892a-4318-b2cf-37e3aa661d1e:133",
+  "windows_turn": "01a15bad-07d9-7460-8418-eb95ddd467e3",
+  "windows_cursor": "09b5d983-892a-4318-b2cf-37e3aa661d1e:143",
   "normal_ui": "CPU",
   "canonical_world_admission": false,
   "full_character_verified": 0,
@@ -36,10 +36,10 @@
     "Efficiency after required validation"
   ],
   "windows_counters_verified": true,
-  "windows_cpu_tests": 13,
-  "windows_cuda_elapsed_seconds": 92.35881459992379,
+  "windows_cpu_tests": 23,
+  "windows_cuda_elapsed_seconds": 100.69912629993632,
   "windows_gpu_executions": 1,
-  "windows_imported_json_bytes": 50092,
+  "windows_imported_json_bytes": 71270,
   "gpu_jobs_active": 0,
   "counter_binding_scope": "Physical body/part/add with exact generation and extra-part accounting",
   "physical_native_battle_cases": 26,
@@ -70,7 +70,10 @@
   "context_mode": 3,
   "context_abi": "0x50455680",
   "context_stack_fully_restored": true,
-  "windows_context_verified": false,
+  "windows_context_verified": true,
   "windows_v90_cuda_elapsed_seconds": 94.98214299976826,
-  "windows_v90_imported_json_bytes": 55749
+  "windows_v90_imported_json_bytes": 55749,
+  "windows_native_oracles": 49,
+  "windows_v91_result_retrieved": true,
+  "windows_v91_result_audited": true
 }
