@@ -100,6 +100,26 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_WORLD_OVERLAYS
+#include "world_overlay_runtime.slang"
+#define WORLD_OVERLAY_INIT(s,output) if(!initializeWorldOverlays(s)) { results[output]=64;return; }
+#define WORLD_CLEANSE(s,row,scope,when) worldCleanseResidents(s,row,scope,when)
+#define WORLD_SKILL_BEGIN(s,who,target,amount) if(worldOverlayLand(s,who,target,amount,false)) {
+#define WORLD_PHYSICAL_BEGIN(s,who,target,amount) if(worldOverlayLand(s,who,target,amount,true)) {
+#define WORLD_GATE_END }
+#define WORLD_SKILL_GAUGE(s,who) if(worldSkillGauge(s,who))
+#define WORLD_PHYSICAL_GAUGE(s) if(!worldVanish(s))
+#define WORLD_PAUSE_WEAPON(s,w,who,when) if(worldPauseWeapon(s,w,who,when)) return;
+#else
+#define WORLD_OVERLAY_INIT(s,output)
+#define WORLD_CLEANSE(s,row,scope,when) cleanseResidents(s,row,scope)
+#define WORLD_SKILL_BEGIN(s,who,target,amount)
+#define WORLD_PHYSICAL_BEGIN(s,who,target,amount)
+#define WORLD_GATE_END
+#define WORLD_SKILL_GAUGE(s,who)
+#define WORLD_PHYSICAL_GAUGE(s)
+#define WORLD_PAUSE_WEAPON(s,w,who,when)
+#endif
 #include "geometry_runtime.slang"
 
 bool hasProtection(inout Runtime s,uint who,uint kind);
@@ -512,6 +532,10 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
 #include "duration_extend_runtime.slang"
 #include "stack_runtime.slang"
 #include "status_runtime.slang"
+#ifdef PORTABLE_WORLD_OVERLAYS
+void worldCleanseResidents(inout Runtime s,uint row,uint scope,uint64_t when)
+{ if(worldCleanseDefinition(s,row)) worldDispel(s,row,scope,when);else cleanseResidents(s,row,scope); }
+#endif
 #include "event_candidate_runtime.slang"
 #include "pending_burst_runtime.slang"
 #include "incoming_descriptor_runtime.slang"
@@ -708,7 +732,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 if (s.combat != 0 && f.value != 0)
                 {
                     uint64_t gain = f64Less(damage.damageGauge,0) ? (s.physicalGaugeOwner==damage.owner+1 ? s.physicalGaugeGain : s.gain[damage.owner]) : damage.damageGauge;
-                    addBurstGauge(s,f64Add(f64Mul(gain,f64FromI64(f.value)),f64Mul(f.gaugeFlat,f64FromI64(f.value))));
+                    WORLD_SKILL_GAUGE(s,damage.owner) addBurstGauge(s,f64Add(f64Mul(gain,f64FromI64(f.value)),f64Mul(f.gaugeFlat,f64FromI64(f.value))));
                 }
                 continue;
             }
@@ -745,7 +769,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 share = f64FromI64(rounded);
             }
             for (uint pass = 0; pass < 8; pass++)
-            { uint encoded = (packedOrder >> (pass*4)) & 15; if (encoded == 0) break; land(s,damage.owner,encoded-1,share); }
+            { uint encoded = (packedOrder >> (pass*4)) & 15; if (encoded == 0) break; WORLD_SKILL_BEGIN(s,damage.owner,encoded-1,share) land(s,damage.owner,encoded-1,share); WORLD_GATE_END }
             frames[depth].cursor++; frames[depth].value++;
             logDamagePacket(s,damage,uint(f.argument),mask,basis,f.cursor+1,share,weighted,packedOrder,f.time,uint(depth+1),output);
             if (s.error == 0) pushFrame(s,frames,depth,0,49,damage.owner,int(damage.name),f.time);
@@ -1271,7 +1295,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             removeNamedResidents(s,row,f.target,f.time);
             if (s.removalCount > begin) pushFrame(s,frames,depth,9,0,0,int(begin),f.time);
         }
-        else if (d.kind==26) cleanseResidents(s,row,recipientMask);
+        else if (d.kind==26) WORLD_CLEANSE(s,row,recipientMask,f.time);
         else if (d.kind == 33) pushFrame(s,frames,depth,2,0,d.owner,int(row),f.time);
         else if (d.kind == 3)
         {
@@ -1482,7 +1506,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if(!validGeometry(s)) { results[output]=64;return; }
     admitDefinitions(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
-    if(!initializeWorldFrame(s)) { results[output]=64;return; }
+    if(!initializeWorldFrame(s)) { results[output]=64;return; } WORLD_OVERLAY_INIT(s,output)
     if(!validEnemyTargeting(s)) { results[output]=64;return; }
     if(!validProtection(s)) { results[output]=64;return; }
     if (!validStatusDefinitions(s)) { results[output]=64;return; }
@@ -1579,8 +1603,8 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             if (s.error != 0) break;
             if (s.landingPolicy==0) land(s,who,target,amount);
             dispatch(s,0,8,who,0,when,output);
-            if (s.landingPolicy!=0) land(s,who,target,amount);
-            if ((s.healthMask & 64) != 0 && s.error == 0) dispatch(s,17,0,who,0,when,output,amount);
+            WORLD_PHYSICAL_BEGIN(s,who,target,amount) if (s.landingPolicy!=0) land(s,who,target,amount);
+            if ((s.healthMask & 64) != 0 && s.error == 0) dispatch(s,17,0,who,0,when,output,amount); WORLD_GATE_END
         }
         else if (op == 30)
         {
