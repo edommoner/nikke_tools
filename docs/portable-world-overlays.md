@@ -1,5 +1,15 @@
 # 敵世界overlayの接続契約
 
+## 2026-10-21 敵バフ解除・整数変換の共通接続
+
+実験ABI75の本体1体に対し、enemy_buff_cleanseを既存のtyped instantと対象解決器へ接続しました。元の値をbinary64のまま保持し、nativeの `int(value or 1)` と同じゼロ既定値・ゼロ方向切り捨てを使います。32以上は最大ノード数32へ制限して巨大値の整数overflowを避けます。負数は解除なし、irremovableは飛ばし、開始時刻と宣言順の逆順で解除します。解除直後のsnapshotは維持し、次の別フレームで反映します。再開時の世代リセット、解除ログ、累積解除数も接続しました。既存debuff_cleanseとは別の明示フラグで区別しています。
+
+初回144入力で整数直前の2条件が不一致となり、呼び出し側が最近接丸めmode0を指定していたと判明しました。失敗rawと比較を保存し、mode1の切り捨てへ修正しました。1.5／2.5の32ノード条件も追加し、修正版4057d19はMetalの新規1セッション146入力すべてで成功しました。native完全simulate70件（従来35＋敵解除35）、raw拒否27件、旧world49の全出力byte保持です。通常CUDA／MSLの限定正規化後の厳密同一性と旧native17辞書も保持しました。portable単体293件は初期実装3247e71で成功し、変更は解除呼び出しの丸めmodeと研究fixtureのみです。
+
+証拠は `research/portable-world-overlay-cleanse-metal.json`、コンパクト全byte照合は `research/portable-world-cleanse-expected.json`、失敗原因は `research/portable-world-cleanse-integer-finding.json`。Windowsは新しい146入力だけを低優先度・180秒上限で1回実行する準備中です。通常4682の再実行は不要です。rawと巨大Metal詳細はMacに保持し、Windowsへは共有コード・共通fixture・小さなfingerprintだけを渡します。
+
+skill_damage武器変更モード、Heavyarms固有charge hold、複合ally/enemy selector、Actor、dynamic control・復活、全変種認証は未完了です。通常受付CPU・全変種認証0/203を維持します。
+
 ## 2026-10-21 shield／vanishの着弾・ゲージ接続
 
 共通計算ソースfe684eeで、shield／vanishを通常射撃、通常攻撃式を含む名前付きスキル、保留B3、lifestealの入口へ接続しました。遮断分は最初のノードだけに計上します。shieldは全てへの優越を要求し、基底コードとelement_code_overrideの現在のpresenceを使います。vanishは通常攻撃を先に遮断し、通常ゲージを止めます。shieldは通常ゲージを通し、遮断されたスキルのゲージを止めます。
