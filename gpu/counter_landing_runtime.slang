@@ -20,7 +20,7 @@ bool counterLandingDefinitionInvalid(inout Runtime s,uint row,Definition d,bool 
     if(d.enemyBuff!=0)
     {
         uint p=counterPolicy(s,row);
-        return commands[p]!=1||d.damageRoute!=1||d.damageCount!=1||((commands[p+8]&8)!=0&&actorPoolCount(s)!=1);
+        return COUNTER_FIELDS_DEFINITION(s,row,d,commands[p]!=1||d.damageRoute!=1||d.damageCount!=1||((commands[p+8]&8)!=0&&actorPoolCount(s)!=1));
     }
     return false;
 }

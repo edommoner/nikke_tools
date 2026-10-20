@@ -100,6 +100,15 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_COUNTER_FIELDS
+#define COUNTER_FIELDS_CONTEXT(s,legacy) ((legacy)||counterFieldsEnabled(s))
+#define COUNTER_FIELDS_DEFINITION(s,row,d,legacy) counterFieldDefinitionInvalid(s,row,d,legacy)
+#define COUNTER_FIELDS_FIRST(s,route,legacy) counterFieldFirst(s,route,legacy)
+#else
+#define COUNTER_FIELDS_CONTEXT(s,legacy) legacy
+#define COUNTER_FIELDS_DEFINITION(s,row,d,legacy) legacy
+#define COUNTER_FIELDS_FIRST(s,route,legacy) legacy
+#endif
 #ifdef PORTABLE_COUNTER_CONTEXT
 #define COUNTER_CONTEXT_MODE(s,legacy) ((legacy)||counterContextEnabled(s))
 #define COUNTER_CONTEXT_CONDITIONS(s,row,d,legacy) ((legacy)&&!counterContextEnabled(s))
@@ -1744,6 +1753,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "counter_landing_runtime.slang"
 #ifdef PORTABLE_COUNTER_CONTEXT
 #include "counter_context_runtime.slang"
+#ifdef PORTABLE_COUNTER_FIELDS
+#include "counter_field_runtime.slang"
+#endif
 #endif
 #endif
 #endif
