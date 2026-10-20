@@ -1,5 +1,13 @@
 # Mac側で開発を続けるための引き継ぎ
 
+## 2026-10-21 Metal146・敵バフ解除の整数境界
+
+実験ABI75で防御・core・move・敵効果、shield／vanishの着弾とゲージ、休止・reload・MG冷却、敵バフ解除を共通本体へ接続しました。Metalの146入力で、元の完全simulate70件、raw拒否27件、旧world49全出力が一致しています。敵解除の初回は整数直前の2条件で丸め指定の誤りを検出し、rawを保存してゼロ方向切り捨てへ修正しました。既存35ケースの全出力byteとnative辞書、通常CUDA／MSL生成コード、旧native17辞書、共通portable単体293件も維持しています。
+
+コード・共通fixture・fingerprintだけの22ファイル299,196バイトを固定6c8aaa5として codex/cuda-world-v81-source へ共有済みです。ユーザーは「今後githubへの共有をこのゴールを達成するまで許可します」と明示承認しました。個人設定・raw・巨大詳細は含みません。WindowsにCPU事前検査後の146入力だけをBelowNormal・180秒上限で1回依頼し、結果待ちです。通常4682を再実行しません。新overlayのCUDA成功はまだ主張しません。
+
+通常受付CPU・全変種認証0/203は維持します。skill_damage武器変更モード、Heavyarms固有charge hold、複合ally/enemy selector、Actor、dynamic control・復活、全変種認証は未完了です。[接続契約](portable-world-overlays.md)、`research/portable-world-cleanse-validation.json` と `research/portable-world-cleanse-expected.json` を参照してください。
+
 ## 2026-10-21 world49をWindows実GPUで照合
 
 共通フレーム・敵攻撃・対象選択・パターン通知のworld49入力は、固定86f6685でCUDAとMetalの全出力・ソース・生成コードが一致しました。通常4682入力は実行済みv79の保存結果を再利用し、全入力・全出力・CPU比較項目も一致しています。通常コアのGPU再実行はありません。
