@@ -89,6 +89,12 @@ LIMITS['WORLD_FRAME_OUTPUT_WORDS']=LIMITS['OUTPUT_WORDS']+_world_output
 LIMITS['WORLD_FRAME_TARGET_BASE']=LIMITS['WORLD_FRAME_OUTPUT_BASE']+15120
 LIMITS['WORLD_FRAME_HIT_BASE']=LIMITS['WORLD_FRAME_TARGET_BASE']+1024*8
 assert LIMITS['WORLD_FRAME_HIT_BASE']+2048*16<=LIMITS['WORLD_FRAME_OUTPUT_WORDS']<=262144
+LIMITS['WORLD_OVERLAY_ABI']=ABI+2
+LIMITS['WORLD_OVERLAY_INPUT_BASE']=LIMITS['WORLD_FRAME_INPUT_WORDS']
+LIMITS['WORLD_OVERLAY_NODE_BASE']=LIMITS['WORLD_OVERLAY_INPUT_BASE']+16
+LIMITS['WORLD_OVERLAY_INPUT_WORDS']=LIMITS['WORLD_OVERLAY_NODE_BASE']+32*16
+LIMITS['WORLD_OVERLAY_STATE_BASE']=LIMITS['WORLD_FRAME_HIT_BASE']+2048*16
+assert LIMITS['WORLD_OVERLAY_STATE_BASE']+288<=LIMITS['WORLD_FRAME_OUTPUT_WORDS']
 
 FIELDS = dict(OWNER=0, KIND=1, STAT=2, NAME=3, MAX_STACK=4, BUDGET=5,
               VALUE=6, DURATION=8, INTERVAL=10, IMMEDIATE=12, PRESERVE=13,
@@ -100,12 +106,14 @@ def shader_schema():
     lines = ['// Generated from app/portable_specs.py; do not hand-edit.',
              '#if defined(PORTABLE_WORLD_FRAME) && defined(PORTABLE_WIDE_LANDINGS)',
              '#error World and wide-landing diagnostic layouts cannot be combined.', '#endif',
-             '#ifdef PORTABLE_WORLD_FRAME',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_FRAME_ABI"]}U;',
+             '#ifdef PORTABLE_WORLD_OVERLAYS',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_OVERLAY_ABI"]}U;',
+             '#elif defined(PORTABLE_WORLD_FRAME)',f'static const uint PORTABLE_ABI = {LIMITS["WORLD_FRAME_ABI"]}U;',
              '#else',f'static const uint PORTABLE_ABI = {ABI}U;','#endif']
     for prefix, mapping in [('P_', LIMITS), ('D_', FIELDS), ('C_', CONDITIONS), ('S_', STATS), ('H_', FLAGS)]:
         for name,value in mapping.items():
             variant=prefix=='P_' and name in ('INPUT_WORDS','OUTPUT_WORDS')
-            if variant:lines += ['#ifdef PORTABLE_WORLD_FRAME',f'static const uint {prefix}{name} = {LIMITS["WORLD_FRAME_"+name]}U;','#else']
+            if variant and name=='INPUT_WORDS':lines += ['#ifdef PORTABLE_WORLD_OVERLAYS',f'static const uint P_INPUT_WORDS = {LIMITS["WORLD_OVERLAY_INPUT_WORDS"]}U;','#elif defined(PORTABLE_WORLD_FRAME)']+[f'static const uint P_INPUT_WORDS = {LIMITS["WORLD_FRAME_INPUT_WORDS"]}U;','#else']
+            elif variant:lines += ['#ifdef PORTABLE_WORLD_FRAME',f'static const uint {prefix}{name} = {LIMITS["WORLD_FRAME_"+name]}U;','#else']
             if prefix=='P_' and name in ('LANDING_WORDS','OUTPUT_WORDS','REMOVAL_QUEUE_BASE','STACK_NOTICE_VALUE_BASE','PROBABILITY_STATE_BASE'):
                 delta=LIMITS['LANDINGS']*4
                 wide=12 if name=='LANDING_WORDS' else value+delta

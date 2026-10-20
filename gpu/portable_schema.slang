@@ -2,7 +2,9 @@
 #if defined(PORTABLE_WORLD_FRAME) && defined(PORTABLE_WIDE_LANDINGS)
 #error World and wide-landing diagnostic layouts cannot be combined.
 #endif
-#ifdef PORTABLE_WORLD_FRAME
+#ifdef PORTABLE_WORLD_OVERLAYS
+static const uint PORTABLE_ABI = 1346721397U;
+#elif defined(PORTABLE_WORLD_FRAME)
 static const uint PORTABLE_ABI = 1346721396U;
 #else
 static const uint PORTABLE_ABI = 1346721395U;
@@ -95,7 +97,9 @@ static const uint P_LANDING_META_BASE = 77792U;
 static const uint P_STATUS_META_BASE = 77800U;
 static const uint P_PROTECTION_META_BASE = 77808U;
 static const uint P_PROTECTION_DEFINITION_BASE = 77816U;
-#ifdef PORTABLE_WORLD_FRAME
+#ifdef PORTABLE_WORLD_OVERLAYS
+static const uint P_INPUT_WORDS = 89376U;
+#elif defined(PORTABLE_WORLD_FRAME)
 static const uint P_INPUT_WORDS = 88848U;
 #else
 static const uint P_INPUT_WORDS = 86016U;
@@ -200,6 +204,11 @@ static const uint P_WORLD_FRAME_OUTPUT_BASE = 159744U;
 static const uint P_WORLD_FRAME_OUTPUT_WORDS = 225280U;
 static const uint P_WORLD_FRAME_TARGET_BASE = 174864U;
 static const uint P_WORLD_FRAME_HIT_BASE = 183056U;
+static const uint P_WORLD_OVERLAY_ABI = 1346721397U;
+static const uint P_WORLD_OVERLAY_INPUT_BASE = 88848U;
+static const uint P_WORLD_OVERLAY_NODE_BASE = 88864U;
+static const uint P_WORLD_OVERLAY_INPUT_WORDS = 89376U;
+static const uint P_WORLD_OVERLAY_STATE_BASE = 215824U;
 static const uint D_OWNER = 0U;
 static const uint D_KIND = 1U;
 static const uint D_STAT = 2U;

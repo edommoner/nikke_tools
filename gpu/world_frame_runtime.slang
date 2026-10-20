@@ -8,6 +8,9 @@ void worldFrameBegin(inout Runtime s,uint64_t when)
     // Native app/world_frame_runtime.py enforces the same frame-once policy.
     if(f64Zero(when) && results[w.output+1]!=0) return;
     wsBegin(w,when,0);s.error=w.error;
+#ifdef PORTABLE_WORLD_OVERLAYS
+    if(s.error==0) applyWorldOverlays(s,when);
+#endif
 }
 [noinline]
 void worldFrameNotice(inout Runtime s,uint notice,uint64_t when,uint output)

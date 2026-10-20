@@ -100,6 +100,9 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_WORLD_OVERLAYS
+#include "world_overlay_runtime.slang"
+#endif
 #include "geometry_runtime.slang"
 
 bool hasProtection(inout Runtime s,uint who,uint kind);
@@ -1483,6 +1486,9 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     admitDefinitions(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
     if(!initializeWorldFrame(s)) { results[output]=64;return; }
+#ifdef PORTABLE_WORLD_OVERLAYS
+    if(!initializeWorldOverlays(s)) { results[output]=64;return; }
+#endif
     if(!validEnemyTargeting(s)) { results[output]=64;return; }
     if(!validProtection(s)) { results[output]=64;return; }
     if (!validStatusDefinitions(s)) { results[output]=64;return; }
