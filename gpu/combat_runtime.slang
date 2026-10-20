@@ -321,7 +321,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     if (w.mode != 1 && w.infinite == 0) { if (!changedWeaponSession(s,who,epoch,mode)) s.ammo[who]--; dispatch(s,0,26,who,0,when,output); }
     WORLD_SAMPLE_SHOT_KIND(s,who,mode,w.pellets*w.muzzles) uint64_t coefficient = mode >= 0 && modeShots == 0 && !f64Less(w.firstCoefficient,0) ? w.firstCoefficient : w.coefficient;
     uint64_t amount = damageValue(s,who,f64Div(coefficient,f64FromI64(w.pellets)),when,WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode == 1 ? H_CHARGE | ((s.attackContext[who] & 4) != 0 ? H_EXPLOSION : 0) : 0)),w.fullChargeMult,w.optimal != 0,true);
-    if (s.error != 0) return;
+    COUNTER_SHOT(s,who,w,coefficient,when) if (s.error != 0) return;
     uint count = w.pellets*w.muzzles;
     landedAmount=amount;landedCount=count;landedTarget=target;
     uint completedShots = s.shots[who]+1;
@@ -364,8 +364,8 @@ void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
     s.frameAmmoActive[who] = 0;s.physicalGaugeOwner=0;
     if (s.landingPolicy!=0 || (s.healthMask&64)!=0) for (uint hit=0;hit<landedCount && s.error==0;hit++)
     {
-        WORLD_PHYSICAL_BEGIN(s,who,landedTarget,landedAmount) if (s.landingPolicy!=0) land(s,who,WORLD_POOL_PHYSICAL_TARGET(s,who,landedTarget),landedAmount);
-        if ((s.healthMask&64)!=0 && s.error==0) dispatch(s,17,0,who,0,when,output,landedAmount); WORLD_GATE_END
+        COUNTER_CAPTURE(s,who,landedTarget) WORLD_PHYSICAL_BEGIN(s,who,landedTarget,landedAmount) if (s.landingPolicy!=0) land(s,who,COUNTER_TARGET(s,WORLD_POOL_PHYSICAL_TARGET(s,who,landedTarget)),landedAmount);
+        COUNTER_IMPACT(s,who,landedAmount,when,output) if ((s.healthMask&64)!=0 && s.error==0) dispatch(s,17,0,who,0,when,output,landedAmount); COUNTER_PARTS(s,who,when,output) WORLD_GATE_END
     }
 }
 [noinline]

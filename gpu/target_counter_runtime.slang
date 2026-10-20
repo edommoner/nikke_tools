@@ -47,7 +47,7 @@ void prepareTargetCounter(inout Runtime s,uint slot,uint64_t when)
 // All siblings are marked done before the caller pushes any completion frame.
 uint collectTargetCounters(inout Runtime s,uint action,uint64_t when)
 {
-    uint h=counterHead(s),start=results[h+4],kind=commands[action],actorKind=commands[action+4],id=commands[action+5],gen=commands[action+6];
+    uint h=counterHead(s),start=results[h+4],kind=COUNTER_PACKET_WORD(action,commands[action]),actorKind=COUNTER_PACKET_WORD(action+4,commands[action+4]),id=COUNTER_PACKET_WORD(action+5,commands[action+5]),gen=COUNTER_PACKET_WORD(action+6,commands[action+6]);
     if(kind==3&&counterActorDead(s,actorKind,id,gen)) return start;
     if(kind==4)
     {
@@ -63,7 +63,7 @@ uint collectTargetCounters(inout Runtime s,uint action,uint64_t when)
         uint p=counterPolicy(s,results[at+3]-1);
         if(kind==3)
         {
-            uint who=commands[action+3],family=commands[action+7],outcome=commands[action+8];uint64_t credit=loadNumber(action+11);
+            uint who=COUNTER_PACKET_WORD(action+3,commands[action+3]),family=COUNTER_PACKET_WORD(action+7,commands[action+7]),outcome=COUNTER_PACKET_WORD(action+8,commands[action+8]);uint64_t credit=COUNTER_PACKET_NUMBER(action+11,loadNumber(action+11));
             if(f64Zero(credit)||(commands[p+6]&(1U<<family))==0||(commands[p+7]&(1U<<outcome))==0||(commands[p+8]&4)!=0&&who!=commands[p+9]) continue;
             credit=smaller(loadNumber(p+4),f64Add(actorNumber(at+4),credit));storeNumber(at+4,credit);
             if(f64Less(credit,loadNumber(p+4))) continue;
@@ -76,8 +76,8 @@ uint collectTargetCounters(inout Runtime s,uint action,uint64_t when)
         storeNumber(dst+8,actorNumber(at+4));
         if(kind==3)
         {
-            results[dst+10]=commands[action+3];results[dst+11]=commands[action+7];results[dst+12]=commands[action+8];results[dst+13]=commands[action+13];
-            storeNumber(dst+14,loadNumber(action+9));storeNumber(dst+16,loadNumber(action+11));results[dst+18]=1;
+            results[dst+10]=COUNTER_PACKET_WORD(action+3,commands[action+3]);results[dst+11]=COUNTER_PACKET_WORD(action+7,commands[action+7]);results[dst+12]=COUNTER_PACKET_WORD(action+8,commands[action+8]);results[dst+13]=COUNTER_PACKET_WORD(action+13,commands[action+13]);
+            storeNumber(dst+14,COUNTER_PACKET_NUMBER(action+9,loadNumber(action+9)));storeNumber(dst+16,COUNTER_PACKET_NUMBER(action+11,loadNumber(action+11)));results[dst+18]=1;
         }
     }
     return start;
@@ -126,7 +126,7 @@ bool initializeTargetCounters(inout Runtime s)
 {
     uint base=s.inputBase+P_TARGET_COUNTER_INPUT_BASE;
     if(commands[base]==0) { for(uint j=1;j<5128;j++) if(commands[base+j]!=0) return false;return true; }
-    if(!targetCountersEnabled(s)||!actorStacksEnabled(s)||commands[base+1]!=1||commands[base+2]!=s.count||commands[base+3]!=commands[s.inputBase+2]||commands[base+4]!=16||commands[base+5]!=16||commands[base+6]!=0||commands[base+7]!=0) return false;
+    if(!targetCountersEnabled(s)||!actorStacksEnabled(s)||commands[base+1]!=1||commands[base+2]!=s.count||commands[base+3]!=commands[s.inputBase+2]||commands[base+4]!=16||commands[base+5]!=16||COUNTER_MODE_INVALID(s,base,commands[base+6]!=0)||commands[base+7]!=0) return false;
     uint definitions=0;
     for(uint row=0;row<256;row++)
     {
@@ -152,13 +152,13 @@ bool initializeTargetCounters(inout Runtime s)
     for(uint row=0;row<s.count;row++)
     {
         Definition d=readDefinition(s.inputBase,row);
-        if(d.kind!=0&&d.kind!=4||d.conditionCount!=0||d.enemyBuff!=0&&commands[counterPolicy(s,row)]==0) return false;
+        if(COUNTER_DEFINITION_INVALID(s,row,d,d.kind!=0&&d.kind!=4||d.conditionCount!=0||d.enemyBuff!=0&&commands[counterPolicy(s,row)]==0)) return false;
     }
     uint64_t previous=0;
     for(uint step=0;step<64;step++)
     {
         uint at=base+4104+step*16;
-        if(step<commands[base+3])
+        COUNTER_PART_INPUT(s,base,step) if(step<commands[base+3])
         {
             if(!validTargetCounterAction(at)||f64Less(loadNumber(at+1),previous)) return false;
             previous=loadNumber(at+1);uint cmd=s.inputBase+P_COMMAND_BASE+step*8;

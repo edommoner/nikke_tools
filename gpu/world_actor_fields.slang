@@ -26,7 +26,7 @@ bool actorFieldTargetMismatch(inout Runtime s,uint who,uint kind)
 { return kind==C_TARGET_BOSS && actorFieldContextAdd(s,who) || kind==C_TARGET_ADD && !actorFieldContextAdd(s,who); }
 bool actorFieldsDefinitionValid(inout Runtime s,uint row,Definition d)
 {
-    WORLD_STATE_HEALTH_GUARD(s,d) if(WORLD_MUTATION_KIND_INVALID(s,d,d.kind!=0&&d.kind!=2&&d.kind!=4)) return false;
+    WORLD_STATE_HEALTH_GUARD(s,d) if(COUNTER_FIELD_KIND(s,d,WORLD_MUTATION_KIND_INVALID(s,d,d.kind!=0&&d.kind!=2&&d.kind!=4))) return false;
     for(uint i=0;i<d.conditionCount;i++)
     {
         uint at=s.inputBase+P_CONDITION_BASE+row*P_CONDITION_WORDS+i*4,kind=commands[at];uint64_t arg=loadNumber(at+2);

@@ -1,5 +1,6 @@
 """Observe full native simulate, including its actual boss/weapon/frame ordering."""
 import copy,sys,struct
+from contextlib import nullcontext
 from unittest.mock import patch
 import engine_worker
 from calculator import timeline,buff_manager
@@ -48,6 +49,9 @@ def observe(case):
    if case.get('observe_actor_pools') and why!='퇴장':capture['actor_deaths']+=1
    return super()._retire(run,add,why,t,events,log)
   def finish(self,t):
+   if case.get('observe_target_counters'):
+    from world_target_counter_battle_native import before_finish as counter_before_finish
+    capture['target_counters']=counter_before_finish(capture['bm'],capture,NAMES)
    if case.get('observe_enemy_fields'):
     from world_actor_fields_native import observe_before_finish
     capture['enemy_fields']=observe_before_finish(case,self,capture['bm'],NAMES,t)
@@ -57,14 +61,22 @@ def observe(case):
    return super().finish(t)
   def _close(self,run,t,outcome,events):
    super()._close(run,t,outcome,events);ends.append([run.p.idx,{'cleared':1,'expired':2,'followed':3,'end':4}[outcome],*bits(t)])
- def register(bm):bm._effects=copy.deepcopy(effects);bm._build_notify_index()
+ def register(bm):
+  bm._effects=copy.deepcopy(effects);bm._build_notify_index()
+  if case.get('observe_target_counters'):
+   from world_target_counter_battle_native import initialize
+   initialize(bm,capture)
  metadata=authored_metadata(case)
  def stats(char):
   i=NAMES.index(char['name']);a=case['environment']['allies'][i]
   return {'atk':case['base_atk'][i],'hp':a['base_hp'],'def':a['base_defense']}
  enemy={'def':0,'code':None,'core_px':0,'optimal_range_weapons':[],'patterns':copy.deepcopy(case['patterns'])}
  enemy.update(copy.deepcopy(case.get('enemy',{})))
- with patch.dict(timeline._NIKKE,metadata),patch.dict(buff_manager._NIKKE,metadata),patch.object(timeline,'calc_base_stats',stats),patch.object(buff_manager.BuffManager,'_register_all',register),patch.object(timeline,'CharState',Character),patch.object(timeline,'BurstController',Controller),patch.object(timeline,'BossScript',Boss),patch.object(timeline.random,'Random',ObservedRNG),patch.dict(timeline._DELAYS['_exceptions'],{},clear=True),patch.dict(timeline._DELAYS['_defaults_by_weapon_type'],{'AR':{'post_reload_delay':0}},clear=True):
+ counter_observer=nullcontext()
+ if case.get('observe_target_counters'):
+  from world_target_counter_battle_native import observe_events
+  counter_observer=observe_events(capture,NAMES)
+ with counter_observer,patch.dict(timeline._NIKKE,metadata),patch.dict(buff_manager._NIKKE,metadata),patch.object(timeline,'calc_base_stats',stats),patch.object(buff_manager.BuffManager,'_register_all',register),patch.object(timeline,'CharState',Character),patch.object(timeline,'BurstController',Controller),patch.object(timeline,'BossScript',Boss),patch.object(timeline.random,'Random',ObservedRNG),patch.dict(timeline._DELAYS['_exceptions'],{},clear=True),patch.dict(timeline._DELAYS['_defaults_by_weapon_type'],{'AR':{'post_reload_delay':0}},clear=True):
   result=timeline.simulate([dict(name=n,skill_levels={'1':10,'2':10,'3':10}) for n in NAMES],config=dict(duration=case['duration'],rng_mode='expected',burst_gauge_mode='accumulate',cover_hp=1000,camera_mode=case.get('camera_mode','single'),camera=case.get('camera',[])),enemy=enemy,seed=19)
  state=capture['state'];bm=capture['bm'];rng=capture['boss']._rng
  hits=[dict(time=h.t,pattern=h.pattern,owner=NAMES.index(h.target),damage=h.damage,pierce=h.pierce,shield=h.shield,cover=h.cover,decoy=h.decoy,hp=h.hp,hp_after=h.hp_after,down=h.down) for h in result.squad_hits]
@@ -77,6 +89,7 @@ def observe(case):
  if case.get('observe_charge_hold'):
   answer['charge_hold']=[dict(owner=i,charging=capture['characters'][n]._charge_phase=='charging',full_time=capture['characters'][n]._charge_full_t,deadline=capture['characters'][n]._vanish_charge_hold_until) for i,n in enumerate(NAMES) if n=='스노우 화이트 : 헤비암즈']
  if case.get('observe_enemy_fields'):answer['enemy_fields']=capture['enemy_fields']
+ if case.get('observe_target_counters'):answer['target_counters']=capture['target_counters']
  if case.get('observe_named_state'):
   from world_actor_state_native import after_finish
   answer['named_state']=dict(capture['named_state'],pending_gone=after_finish(capture['boss']))

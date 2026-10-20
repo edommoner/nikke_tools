@@ -21,6 +21,7 @@ sys.path[:0]=[str(ROOT/p) for p in ('app','scripts','research')]
 from portable_backend import execute,source_hashes
 from portable_specs import LIMITS as L,FIELDS as F
 from portable_trigger_specs import pack_event_candidates
+from portable_target_counter_program import compiler_effects,patch_program
 import portable_target_counter_specs as wire
 from target_counter_cases import clone_cases
 from world_target_counter_native import observe_case,NAMES
@@ -34,23 +35,10 @@ def fixtures(): return clone_cases()
 
 def compile_case(case):
     c=copy.deepcopy(stack.fixtures()[0]); c.update(name=case['name'],duration=max(.01,case['actions'][-1][0]),state_queries=[],field_queries=[])
-    c['effects']=copy.deepcopy(case['effects']);c['owners']=[0]*len(c['effects'])
-    for e in c['effects']:
-        e.pop('target_counter');e.update(stat='def_pct',fixed_value=0)
-        e['trigger']['timing']=[t.replace('event:target_counter_complete:','event:',1) if t.startswith('event:target_counter_complete:') else t for t in e['trigger']['timing']]
+    c['effects']=compiler_effects(case['effects']);c['owners']=[0]*len(c['effects'])
     words,meta,bindings=stack.compile_case(c)
     chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES]
-    original=detail_gpu.compile_effects(chars,[(e,NAMES[0]) for e in case['effects']])
-    assert original['states']==meta['states'],(original['states'],meta['states'])
-    for i,(e,row) in enumerate(zip(case['effects'],original['effects'])):
-        at=L['DEFINITION_BASE']+i*L['DEFINITION_WORDS'];words[at+F['KIND']]=4;words[at+F['STAT']]=0
-        for slot in range(int(row[144])):
-            base=145+slot*7
-            if row[base]==58:
-                event=L['EVENT_BASE']+i*L['EVENT_WORDS']+slot*8;words[event]=58
-                assert words[event+4]==int(row[base+3])
-                if slot==0: words[at+F['EVENT']]=58
-    pack_event_candidates(words,L)
+    patch_program(words,meta,chars,[(e,NAMES[0]) for e in case['effects']])
     words[0]=L['TARGET_COUNTER_ABI'];words[2]=len(case['actions'])
     words[L['COMMAND_BASE']:L['COMMAND_BASE']+L['COMMANDS']*8]=[0]*(L['COMMANDS']*8)
     for step,(time,_) in enumerate(case['actions']):

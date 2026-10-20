@@ -89,7 +89,7 @@ void actorPoolsSync(inout Runtime s,uint64_t when)
         uint b=actorBinding(s,slot),p=actorPoolAt(s,slot),g=s.resourceOutput+P_WORLD_FRAME_OUTPUT_BASE+16+commands[b+3]*24,gen=results[g+1];
         if(gen!=results[p])
         {
-            WORLD_STATE_BEFORE_RESET(s,b,p,slot) for(uint i=0;i<16;i++) results[p+i]=0;
+            WORLD_STATE_BEFORE_RESET(s,b,p,slot) COUNTER_EXTRA_RESET(s,slot) for(uint i=0;i<16;i++) results[p+i]=0;
             results[p]=gen;results[p+1]=results[g];storeNumber(p+8,actorNumber(g+2));
             if(commands[b]==5)
             { uint head=actorPoolHead(s);if(results[head+4]==0x7fffffff) { s.error=2;return; }results[p+10]=++results[head+4]; }
@@ -140,11 +140,11 @@ void actorPoolLand(inout Runtime s,uint who,uint slot,uint64_t amount)
     else if(live)
     {
         uint mode=commands[d];bool counting=mode==3 || mode==4 && !f64Less(when,f64Add(f64Add(actorNumber(p+8),loadNumber(d+4)),WS_EPS^F64_SIGN));
-        if(kind==1 || counting)
+        if(COUNTER_PART_DIRECT(s,kind,kind==1 || counting))
         { if(results[p+3]==0x7fffffff) { s.error=2;return; }results[p+3]++; }
         took=kind==1 ? amount : counting ? smaller(amount,ONE) : smaller(amount,f64Add(loadNumber(d+2),actorNumber(p+4)^F64_SIGN));
-        uint64_t dealt=f64Add(actorNumber(p+4),took);storeNumber(p+4,dealt);
-        if(kind==1) storeNumber(p+6,f64Add(actorNumber(p+6),amount));
+        uint64_t dealt=COUNTER_PART_DEALT(s,kind,d,p,f64Add(actorNumber(p+4),took));storeNumber(p+4,dealt);
+        if(COUNTER_PART_DIRECT(s,kind,kind==1)) storeNumber(p+6,f64Add(actorNumber(p+6),amount));
         killed=kind==1 ? f64Less(0,loadNumber(d+2))&&!f64Less(dealt,loadNumber(d+2)) : counting ? results[p+3]>=commands[d+1] : !f64Less(dealt,loadNumber(d+2));
         if(kind==5) { s.addScoredDamage[who]=f64Add(s.addScoredDamage[who],took);overkill=f64Add(amount,took^F64_SIGN);actorPoolAddOverkill(s,who,overkill); }
         results[scratch]=1;
