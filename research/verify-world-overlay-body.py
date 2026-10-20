@@ -40,10 +40,23 @@ def compile_case(case):
  words,meta=f.compile_case(auth);words[L['WORLD_FRAME_INPUT_BASE']:L['WORLD_FRAME_PAYLOAD_BASE']]=graph;words[0]=L['WORLD_OVERLAY_ABI'];words.extend(payload)
  assert len(words)==L['WORLD_OVERLAY_INPUT_WORDS'];return words,meta
 
+def negative_inputs(programs):
+ from portable_world_schedule_specs import number
+ buff=list(programs[1][0]);core=list(programs[3][0]);header=L['WORLD_OVERLAY_INPUT_BASE'];node=L['WORLD_OVERLAY_NODE_BASE']+16
+ edits=[('bad-magic',buff,header,0x574f3032),('reserved-header',buff,header+1,1),('unsupported-shield',buff,node,5),('unsupported-vanish',buff,node,6),('invalid-buff-flags',buff,node+1,2),('reserved-node',buff,node+15,1),('unused-node',buff,L['WORLD_OVERLAY_NODE_BASE']+31*16,1),('disabled-nonzero-payload',buff,header,0)]
+ rows=[]
+ for name,original,at,value in edits:
+  words=list(original);words[at]=value;rows.append((name,words))
+ words=list(buff);words[node:node+16]=[4]+[0]*9+[64]+[0]*5;rows.append(('mask-overflow',words))
+ for name,original,offset,value in [('negative-multiplier',buff,2,-1),('nan-buff',buff,4,float('nan')),('infinite-received',buff,6,float('inf')),('zero-core',core,8,0),('negative-core',core,8,-1),('fractional-core',core,8,.5),('oversized-core',core,8,100000001)]:
+  words=list(original);words[node+offset:node+offset+2]=number(value);rows.append((name,words))
+ return rows
+
 def main():
  p=argparse.ArgumentParser();p.add_argument('--backend',choices=('metal','cuda'),default='metal');p.add_argument('--replay',type=Path);args=p.parse_args();rows=cases();programs=[compile_case(c) for c in rows]
- packed=array.array('I',[len(rows)])
+ negative=negative_inputs(programs);packed=array.array('I',[len(rows)+len(negative)])
  for words,_ in programs:packed.extend(words)
+ for _,words in negative:packed.extend(words)
  if sys.byteorder!='little':packed.byteswap()
  data=packed.tobytes()
  if args.replay:
@@ -60,7 +73,8 @@ def main():
   actual=f.read_result(values[i*L['WORLD_FRAME_OUTPUT_WORDS']:(i+1)*L['WORLD_FRAME_OUTPUT_WORDS']],meta,case);native=observe(case)
   changed=[k for k in ('damage','allies','covers','shots','ammo','hits','boss_log','rng','graph_states','graph_history') if actual[k]!=native[k]]
   results.append(dict(name=case['name'],passed=actual['status']==0 and not changed,changed=changed,actual=actual,native=native))
- report=dict(passed=all(r['passed'] for r in results),source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),cases=results,captured=str(folder),evidence=evidence,scope='Shared executor frame->ordered overlay snapshot->defense/core/range/ordered boss+character enemy effects versus complete native simulate;gates/cleanse/actors still closed',full_character_verified=0,canonical_world_admission=False,full_goal_complete=False)
- (ROOT/f'research/portable-world-overlay-body-{args.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[(r['name'],r['changed'],r['actual']['status']) for r in results if not r['passed']]
- print(len(rows),'world overlay body cases match complete native simulate',args.backend)
+ rejected=[dict(name=name,status=values[(len(rows)+i)*L['WORLD_FRAME_OUTPUT_WORDS']],passed=values[(len(rows)+i)*L['WORLD_FRAME_OUTPUT_WORDS']]==64) for i,(name,_) in enumerate(negative)]
+ report=dict(passed=all(r['passed'] for r in results+rejected),rejected_cases=rejected,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),cases=results,captured=str(folder),evidence=evidence,scope='Shared executor frame->ordered overlay snapshot->defense/core/range/ordered boss+character enemy effects versus complete native simulate;gates/cleanse/actors still closed',full_character_verified=0,canonical_world_admission=False,full_goal_complete=False)
+ (ROOT/f'research/portable-world-overlay-body-{args.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[(r['name'],r.get('changed'),r.get('status',r.get('actual',{}).get('status'))) for r in results+rejected if not r['passed']]
+ print(len(rows),'world overlay body cases match complete native simulate;',len(rejected),'raw descriptors rejected',args.backend)
 if __name__=='__main__':main()

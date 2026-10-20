@@ -35,6 +35,11 @@ bool initializeWorldOverlays(inout Runtime s)
             for(uint i=2;i<8;i++) if(commands[p+i]!=0) return false;
             if(kind==2 || kind==3)
             { if(!f64Less(0,loadNumber(p+8)) || commands[p+10]!=0) return false; }
+            if(kind==2)
+            {
+                uint status;uint64_t whole=f64ToI64(loadNumber(p+8),0,status);
+                if(status!=0 || !f64Equal(loadNumber(p+8),f64FromI64(whole)) || f64Less(f64FromI64(100000000),loadNumber(p+8))) return false;
+            }
             if(kind==4 && (!f64Zero(loadNumber(p+8)) || commands[p+10]>63)) return false;
         }
         if(kind==3 && ((commands[s.inputBase+P_GEOMETRY_BASE]&2)==0) || kind==4 && (commands[s.inputBase+P_GEOMETRY_BASE]&2)!=0) return false;
