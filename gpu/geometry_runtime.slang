@@ -3,12 +3,12 @@
 #define WG_CORE(s) (worldOverlayEnabled(s)?woCore(s):loadNumber(s.inputBase+P_GEOMETRY_BASE+2))
 #define WG_FLAGS(s,meta) (worldOverlayEnabled(s)?woRangeFlags(s):commands[meta])
 #define WG_MASK(s,meta) (worldOverlayEnabled(s)?woRangeMask(s):commands[meta+1])
-#define WG_DISTANCE(s,meta) (worldOverlayEnabled(s)?woDistance(s):loadNumber(meta+4))
+#define WG_DISTANCE_OVERRIDE(s,distance) if(worldOverlayEnabled(s)) distance=woDistance(s);
 #else
 #define WG_CORE(s) loadNumber(s.inputBase+P_GEOMETRY_BASE+2)
 #define WG_FLAGS(s,meta) commands[meta]
 #define WG_MASK(s,meta) commands[meta+1]
-#define WG_DISTANCE(s,meta) loadNumber(meta+4)
+#define WG_DISTANCE_OVERRIDE(s,distance)
 #endif
 // Immutable authored geometry,shared by CUDA and Metal;no Runtime arrays.
 bool hasRangeGeometry(inout Runtime s) { return (commands[s.inputBase+P_GEOMETRY_BASE]&1)!=0; }
@@ -22,7 +22,7 @@ bool geometryRange(inout Runtime s,uint who,bool activeMode,uint64_t minimumPct,
     uint64_t lower=larger(0,f64Mul(loadNumber(at+2),f64Add(ONE,f64Div(minimumPct,HUNDRED)^F64_SIGN)));
     uint64_t upper=f64Mul(loadNumber(at+4),f64Add(ONE,f64Div(maximumPct,HUNDRED)));
     uint64_t epsilon=uint64_t(0x3e112e0b)<<32 | 0xe826d695; // binary64 1e-9
-    uint64_t distance=WG_DISTANCE(s,meta);
+    uint64_t distance=loadNumber(meta+4); WG_DISTANCE_OVERRIDE(s,distance)
     return !f64Less(distance,f64Add(lower,epsilon^F64_SIGN)) && !f64Less(f64Add(upper,epsilon),distance);
 }
 bool validGeometry(inout Runtime s)
@@ -53,4 +53,4 @@ bool validGeometry(inout Runtime s)
 #undef WG_CORE
 #undef WG_FLAGS
 #undef WG_MASK
-#undef WG_DISTANCE
+#undef WG_DISTANCE_OVERRIDE
