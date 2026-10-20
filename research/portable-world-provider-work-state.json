@@ -1,0 +1,48 @@
+{
+  "stage": "Canonical provider fold,Metal scope passed;full52 gate run active",
+  "source_commit": "4c07f45356b561bdc64725b3e691731526ee04f2",
+  "validation": "research/portable-world-provider-validation.json",
+  "gpu_jobs": [
+    {
+      "session_id": 57266,
+      "driver": "research/run-enemy-target-gates.py",
+      "log": "/tmp/nikke-world-provider-gates.log",
+      "report": "research/portable-enemy-target-global-gates.json",
+      "source_frozen": true
+    }
+  ],
+  "all_other_gpu_jobs_terminal": true,
+  "actual_core_capture": "research/portable-build/enemy-target-core-20261020T162035004004Z",
+  "cpu_core_replay_capture": "research/portable-build/enemy-target-core-20261020T162231502751Z",
+  "world_capture": "research/portable-build/world-frame-common-20261020T162029492381Z",
+  "extended_capture": "research/portable-build/world-frame-extended-20261020T162058355291Z",
+  "prior_capture": "research/portable-build/world-frame-prior-20261020T162110093171Z",
+  "unit_log": "/tmp/nikke-world-provider-unit.log",
+  "unit_tests": 286,
+  "source_mutation_forbidden_while_gates": [
+    "app",
+    "scripts",
+    "gpu",
+    "tests",
+    "server.mjs",
+    "research/*.py"
+  ],
+  "aborted_invocation": {
+    "session_id": 58596,
+    "pid": 71521,
+    "reason": "Mistyped nonexistent core replay directory;stopped before core,no claimed pass",
+    "exit_code": 143,
+    "archive": "research/portable-build/world-provider-before-20261020T160542861556Z/aborted-wrong-core-path-portable-enemy-target-global-gates.json"
+  },
+  "windows": {
+    "v78_already_shared": true,
+    "report_commit": "39fbfc4a3197fbfe6cdf666df9589d34eb985c6d",
+    "all4682_compared": true,
+    "new_request_pending": false
+  },
+  "export_permission_for_current_fold": false,
+  "efficiency_started": false,
+  "normal_ui": "CPU",
+  "full_goal_complete": false,
+  "updated_at": "2026-10-20T16:23:23.603095+00:00"
+}
