@@ -1,0 +1,20 @@
+{
+  "stage": "Typed128 global/ally/enemy named removal",
+  "calculation_source": "af7aae6",
+  "initial_failed_source": "639a851",
+  "metal_inputs": 461,
+  "native_battles": 30,
+  "raw_rejections": 7,
+  "old424_all_output_words_preserved": true,
+  "portable_cpu_tests": 332,
+  "normal_fields_state_generated_exact": true,
+  "physical_metal_sessions": 2,
+  "unchanged_gpu_retries": 0,
+  "windows_status": "not_dispatched_yet",
+  "windows_new_inputs": 37,
+  "normal_ui": "CPU",
+  "canonical_world_admission": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "efficiency_started": false
+}
