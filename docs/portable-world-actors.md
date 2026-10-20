@@ -1,5 +1,16 @@
 # 共通world Actorの接続
 
+## 2026-10-21 型付き対象の名前付き状態条件（CUDA検証待ち）
+
+共通計算ソース8c5a09b、実験ABI79で、target_state／not_target_state／target_stack、self_state／not_self_state／self_stackを128対象のresidentへ接続しました。条件の評価対象は味方数値照会・イベント所有者・明示対象の文脈を保存復元し、死亡・期限切れの対象解除は通知の後に行います。空のenemy carrierも期限通知まで残します。通常受付CPU・world公開無効・全変種認証0/203を維持します。
+
+Metal424入力はnative完全戦闘49件、不正入力18件、旧357入力の全262144出力word保持で成功しました。最初の実行では48/49件が一致し、1件は敵攻撃のliteral payloadが入力生成で欠落して初期拒否されました。失敗rawを保存し、共通入力packerを修正した3bf0881で変更された1入力だけ実行、同じ計算ソース・生成物・入力を持つ423blockを再利用しています。同一入力のGPU再試行0です。CPU単体324件、旧125 native辞書、通常版および前fields版のCUDA/MSL生成物の厳密一致を確認しました。
+
+残課題として、元CPUが永続味方HP/防御効果のruntime条件を無視する実例を保存しました。今回の実験policyでは該当入力を拒否し、対応済みには数えません。旧Metal差分・広範な免疫/解除/カウンター、skill/pending/DoT、interrupt/source攻撃、操作/復活、容量と全203変種の統合も未完了です。効率化は必要な検証後です。
+
+Windowsでは共通driverの新規67入力（native49＋不正18）だけを、CPU事前検査後にBelowNormal・180秒上限で1回検証します。旧357・通常4682入力は再実行しません。GitHub共有はゴール達成まで利用者が許可しています。個人設定・raw・巨大詳細は共有しません。証拠はportable-world-actor-state-validation.json、CPU監査器はseal-world-actor-state-metal.pyです。
+
+
 ## 現在の実証
 
 固定14fab08、実験ABI76。既存のevent/combat/world実行器を別コピーせず、world_frame_runtimeの開始・終了hookから128枠の型付き登録表を更新します。入力はworld_actor_specs.bindingsから得たkind・設定内identity・出現元node・slot・親参照だけです。生存とgenerationをCPUで入力しません。開始前のbodyはgeneration1、未出現sourceはgeneration0で、問い合わせ時は未出現として区別します。再出現時は既存スケジューラーのopensを世代として使い、古い世代や未知の対象をbodyへ読み替えません。
