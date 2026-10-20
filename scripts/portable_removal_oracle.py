@@ -25,7 +25,7 @@ def observe(case):
         def char_effects(self,name):return [e for e,n in raw if n==name]
     chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES]
     allies=case.get('environment',{}).get('allies',[{} for _ in NAMES]);attacks=case.get('base_atk',[1000]*5)
-    enemy={'def':targets[0].get('defense',0),'core_px':0,'code':None,'atk':targets[0].get('attack',DEFAULT_BOSS_ATK)}
+    enemy={'def':targets[0].get('defense',0),'core_px':0,'code':case.get('environment',{}).get('enemy_code'),'atk':targets[0].get('attack',DEFAULT_BOSS_ATK)}
     bm=BM(chars,state=dict(base_stats={n:dict(atk=attacks[i],hp=a.get('base_hp',1000000),**{'def':a.get('base_defense',0)}) for i,(n,a) in enumerate(zip(NAMES,allies))},enemy=enemy,full_burst=False,rng_acc={},rng_expected=True))
     bm.state['hp']={n:a.get('hp',a.get('base_hp',1000000)) for n,a in zip(NAMES,allies)}
     bm.state['hp_pct']={n:bm.state['hp'][n]/a.get('base_hp',1000000)*100 for n,a in zip(NAMES,allies)}

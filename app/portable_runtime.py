@@ -133,7 +133,7 @@ def validate_effect(eff, *, combat=None):
             raise ValueError('Invalid '+key)
 
 
-def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False):
+def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None):
     import detail_gpu as legacy
     from portable_stack_specs import plan as stack_plan,operation as stack_operation,value as stack_value,pack_metadata as pack_stack_metadata
     check_schema()
@@ -155,6 +155,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     from portable_resource_specs import identities,pack as pack_resource,operation as resource_operation
     resource_keys=identities(effects,script,L['RESOURCE_KEYS']);resource_query_indices={}
     for name in resource_keys:program['states'].setdefault(name,len(program['states']))
+    from portable_code_specs import code_names
+    world_code,world_name_count=code_names(effects,enemy_code,program['states'],L['DEFINITIONS'])
     if len(program['states'])>L['DEFINITIONS']:raise UnsupportedPortable('Reference name capacity exceeded')
     nodes=program['effects'][len(effects):]
     if any(int(row[1])!=-1 or int(row[4])==17 for row in nodes) or len(nodes)>L['RECIPIENT_NODES']:raise UnsupportedPortable('Invalid ordered recipient nodes')
@@ -180,6 +182,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     if not 1<=len(script)<=L['COMMANDS'] or len(base_atk)!=5:
         raise ValueError('Invalid portable command/base-stat dimensions')
     words=[0]*L['INPUT_WORDS'];words[0:3]=[ABI,len(effects),len(script)];words[5]=1
+    words[L['WORLD_META_BASE']:L['WORLD_META_BASE']+2]=[world_code,world_name_count]
     if type(cover_sync) is not bool:raise ValueError('Cover synchronization policy must be boolean')
     words[7]=int(cover_sync)
     if type(native_landing) is not bool or native_landing and combat is None:raise ValueError('Native landing phases require combat and a boolean policy')
@@ -299,7 +302,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         from portable_protection_specs import pack as pack_protection
         pack_protection(words,index,eff,L)
         from portable_trigger_specs import pack_descriptors
-        pack_descriptors(words,index,row,L,F,double_words)
+        pack_descriptors(words,index,row,L,F,double_words,effect=effects[index][0],states=program['states'])
         if effects[index][0].get('stat')=='stack_change_immune':words[at+F['FLAGS']] |= 8
         policy=immunity(eff)
         if policy:

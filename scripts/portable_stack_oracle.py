@@ -21,5 +21,6 @@ def compare(case,gpu,contains):
         contains(a,expected,case['name']+'.carrier')
     clocks=[dict(definition=i,due=t['due'],expiry=t['expiry']) for i,t in enumerate(gpu['timers']) if t['active']]
     assert clocks==cpu['timers'],(case['name'],'clocks',clocks,cpu['timers'])
-    for row,count in cpu['budgets'].items():assert gpu['timers'][int(row)]['activations']==count,(case['name'],'budget',row,count)
+    if 'budgets' not in cpu:assert not any(e.get('max_trigger') is not None for e in case['effects'])
+    for row,count in cpu.get('budgets',{}).items():assert gpu['timers'][int(row)]['activations']==count,(case['name'],'budget',row,count)
     return cpu

@@ -29,7 +29,7 @@ def observe(case):
    if event in ('event:shield_applied','event:shield_consumed','received_hit','event:cover_hit') or event.startswith('event:state_end:'):events.append(dict(event=event,time=t,owner=NAMES.index(caster)))
    return super().notify(event,t,caster,*args,**kwargs)
  base={n:dict(atk=case.get('base_atk',[1000]*5)[i],hp=a.get('base_hp',1000),**{'def':a.get('base_defense',0)}) for i,(n,a) in enumerate(zip(NAMES,allies))}
- state=dict(base_stats=base,hp={n:a.get('hp',base[n]['hp']) for n,a in zip(NAMES,allies)},hp_pct={n:a.get('hp',base[n]['hp'])/base[n]['hp']*100 for n,a in zip(NAMES,allies)},enemy={'def':0},full_burst=False,rng_acc={},rng_expected=True)
+ state=dict(base_stats=base,hp={n:a.get('hp',base[n]['hp']) for n,a in zip(NAMES,allies)},hp_pct={n:a.get('hp',base[n]['hp'])/base[n]['hp']*100 for n,a in zip(NAMES,allies)},enemy={'def':0,'code':case.get('environment',{}).get('enemy_code')},full_burst=False,rng_acc={},rng_expected=True)
  for field,key,default in (('cover_base_hp','base_cover_hp',2000000),('cover_max_hp','base_cover_hp',2000000),('cover_hp','cover_hp',None)):
   state[field]={n:a.get(key,a.get('base_cover_hp',2000000) if default is None else default) for n,a in zip(NAMES,allies)}
  bm=BM(chars,state=state);covered=0;selected=0

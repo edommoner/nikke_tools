@@ -53,7 +53,7 @@ class NamedStateContracts(unittest.TestCase):
         for timing in ('event:','event:state_end:','event:part_destroy','event:enemy_spawn','event:projectile_destroy','event:accum_full:A:B','event:target_counter_complete:A:B','event:ally_hp_below:abc','event:adjacent_hp_below:50:bad','stack_reach:A:B:1','every_stack:A:B:1','hit_count:A:B:1'):
             with self.subTest(timing=timing),self.assertRaises(ValueError):validate_input(dict(trigger=dict(timing=[timing],condition=[])))
     def test_structured_predicates_do_not_acquire_an_ambiguous_colon_parser(self):
-        for condition in ('target_code:전격','self_stack_above:A:B:1','gauge_above:A:B:1'):
+        for condition in ('target_state:전격','self_stack_above:A:B:1','gauge_above:A:B:1'):
             with self.subTest(condition=condition),self.assertRaises(ValueError):validate_input(dict(trigger=dict(timing=['on_attack'],condition=[condition])))
     def test_every_authored_case_compiles_without_mutating_its_names(self):
         for c in CASES:

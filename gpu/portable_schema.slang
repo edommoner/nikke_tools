@@ -1,5 +1,5 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721385U;
+static const uint PORTABLE_ABI = 1346721386U;
 static const uint P_PROTECTION_OBJECTS = 1024U;
 static const uint P_PROTECTION_OBJECT_WORDS = 24U;
 static const uint P_REMOVALS = 4096U;
@@ -91,6 +91,8 @@ static const uint P_PROTECTION_DEFINITION_BASE = 77816U;
 static const uint P_INPUT_WORDS = 86016U;
 static const uint P_RECIPIENT_META_BASE = 81920U;
 static const uint P_RECIPIENT_NODE_BASE = 81928U;
+static const uint P_WORLD_META_BASE = 51913U;
+static const uint P_WORLD_META_WORDS = 7U;
 static const uint P_QUERY_BASE = 16U;
 static const uint P_TRACE_BASE = 2064U;
 static const uint P_STATE_BASE = 3088U;
@@ -211,6 +213,7 @@ static const uint C_CHARGING = 29U;
 static const uint C_BURST1_ALLY = 31U;
 static const uint C_NO_BURST1_ALLY = 32U;
 static const uint C_ALLY_HP_BELOW = 34U;
+static const uint C_TARGET_CODE = 44U;
 static const uint C_ENEMIES_ABOVE = 40U;
 static const uint C_ENEMIES_BELOW = 41U;
 static const uint C_TARGET_BOSS = 42U;

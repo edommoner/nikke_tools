@@ -22,7 +22,7 @@ def _observe(case):
                full_burst=False,rng_acc={},rng_expected=True,burst_casted={},burst_cycle_users={},
                burst_stages={n:str(w.get('stage',0)) for n,w in zip(NAMES,weapons)},
                burst_gauge=config.get('initial_gauge',0),burst_gauge_charging=True,camera=set())
-    enemy=dict(defense=0,core_px=0,code=None,optimal_range_weapons=[],**{'def':config['targets'][0].get('defense',0)})
+    enemy=dict(defense=0,core_px=0,code=case.get('environment',{}).get('enemy_code'),optimal_range_weapons=[],**{'def':config['targets'][0].get('defense',0)})
     state['enemy']=enemy;bm=BM(chars,state=state)
     actors={n:authored_weapon_state(c,w,a) for n,c,w,a in zip(NAMES,chars,weapons,attacks)}
     counts=[0]*5;casts=[];shots=[0]*5;damage=[0]*5

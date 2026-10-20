@@ -55,7 +55,7 @@ def compile_static_battle(prepared, *, trace='summary'):
             raise UnsupportedPortable(item['owner']+'/'+item['effect']['name']+' ('+item['effect'].get('stat','')+'): '+str(error)) from error
     duration=cfg['duration']
     program,metadata=compile_program(chars,[(x['effect'],x['owner']) for x in prepared['effects']],
-        [[duration,24,0,0,0,-1,0,0],[duration,30,0,0,0,-1,0,0],[duration,2,0,0,-1,0,0,0]],prepared['base_atk'],allies=prepared['allies'],cover_sync=False,native_landing=True,
+        [[duration,24,0,0,0,-1,0,0],[duration,30,0,0,0,-1,0,0],[duration,2,0,0,-1,0,0,0]],prepared['base_atk'],allies=prepared['allies'],cover_sync=False,native_landing=True,enemy_code=enemy.get('code'),
         combat=dict(weapons=weapons,targets=[dict(hp=1e30,defense=enemy['def'],attack=enemy.get('atk',DEFAULT_BOSS_ATK))],trace=trace,clock='accumulated'))
     metadata['real_prepared_input']=dict(all_character_effects_included=True,prepared_effects=len(prepared['effects']),
         camera=sorted(cameras),policies=copy.deepcopy(policies),cpu_battle_executed=False,full_catalog_certified=False)

@@ -3,12 +3,22 @@
 [noinline]
 void admitDefinitions(inout Runtime s,uint input)
 {
+    uint world=input+P_WORLD_META_BASE,codeNames=commands[world+1];
+    if(codeNames>P_DEFINITIONS || commands[world]>codeNames) { s.error=64;return; }
+    for(uint word=2;word<P_WORLD_META_WORDS;word++) if(commands[world+word]!=0) { s.error=64;return; }
     if(commands[input+P_RECIPIENT_META_BASE]>P_RECIPIENT_NODES) { s.error=64;return; }
     for(uint word=1;word<8;word++) if(commands[input+P_RECIPIENT_META_BASE+word]!=0) { s.error=64;return; }
     for (uint j = 0; j < s.count; j++)
     {
         Definition d=readDefinition(input,j);
         if (d.owner >= 5 || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; }
+        for(uint slot=0;slot<d.conditionCount;slot++)
+        {
+            uint at=input+P_CONDITION_BASE+j*P_CONDITION_WORDS+slot*4;
+            if(commands[at]==22) { s.error=64;break; } // Legacy CPU-folded code predicate is not a portable condition.
+            if(commands[at]==C_TARGET_CODE && (commands[at+1]==0 || commands[at+1]>codeNames || !f64Zero(loadNumber(at+2)))) { s.error=64;break; }
+        }
+        if(s.error!=0) break;
         for (uint slot = 0; slot < d.triggerCount; slot++)
             if (commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8] == 31) s.namedEventOwners |= 1U << d.owner;
         for (uint slot = 0; slot < d.triggerCount; slot++)
