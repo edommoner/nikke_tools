@@ -2,7 +2,7 @@
 [noinline]
 uint enemyDamageMask(inout Runtime s, Definition d, uint inherited, out uint packedOrder)
 {
-    packedOrder = 0;
+    WORLD_FIELDS_ENEMY_SELECT(s,d,inherited,packedOrder) packedOrder = 0;
     if (s.combat == 0) { packedOrder = 1; return 1; }
     if (d.damageRoute < 2)
     {

@@ -8,9 +8,10 @@ def number(v):
  if type(v) not in (int,float) or not math.isfinite(v):raise ValueError('Finite Actor quantity required')
  return list(struct.unpack('<II',struct.pack('<d',float(v))))
 
-def compile_pools(patterns,bindings):
+def compile_pools(patterns,bindings,*,fields=False,boss_atk=114344):
  from calculator.boss_pattern import BOSS_EVENTS
  words=[0]*(L['WORLD_ACTOR_POOL_INPUT_WORDS']-L['WORLD_ACTOR_INPUT_WORDS']);words[:2]=[MAGIC,len(bindings)]
+ if fields:words[2:4]=number(boss_atk)
  for slot,b in enumerate(bindings):
   if slot==0:continue
   p=patterns[b.run];at=8+slot*12
@@ -23,4 +24,5 @@ def compile_pools(patterns,bindings):
    spec=p.summon;mode=4 if spec.hp is not None and spec.hit_hp else 3 if spec.hp is None else 2
    if not 0<=spec.hit_hp<=0x7fffffff:raise ValueError('Actor hit-HP exceeds exact integer bound')
    words[at:at+12]=[mode,spec.hit_hp,*number(spec.hp or 0),*number(spec.hit_hp_after),0,0,0,0,0,0]
+   if fields and int(b.kind)==5:words[at+9:at+11]=number(spec.atk)
  return words

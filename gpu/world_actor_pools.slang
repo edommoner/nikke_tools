@@ -38,7 +38,12 @@ bool initializeActorPools(inout Runtime s)
     if(commands[base]==0)
     { for(uint i=0;i<P_WORLD_ACTOR_POOL_INPUT_WORDS-P_WORLD_ACTOR_INPUT_WORDS;i++) if(commands[base+i]!=0) return false;return true; }
     if(commands[base]!=0x57485031 || !worldActorsEnabled(s) || commands[base+1]!=actorPoolCount(s)) return false;
+    #ifdef PORTABLE_WORLD_ACTOR_FIELDS
+    uint64_t bossAtk=loadNumber(base+2);if(!f64Finite(bossAtk)||f64Less(bossAtk,0)) return false;
+    for(uint i=4;i<8;i++) if(commands[base+i]!=0) return false;
+#else
     for(uint i=2;i<8;i++) if(commands[base+i]!=0) return false;
+#endif
     for(uint slot=0;slot<128;slot++)
     {
         uint d=actorPoolDef(s,slot),mode=commands[d],kind=commands[actorBinding(s,slot)];
@@ -50,12 +55,23 @@ bool initializeActorPools(inout Runtime s)
         if(mode>=3 && commands[d+1]==0 || mode==3 && (!f64Zero(hp)||!f64Zero(after)) || mode==4 && (!f64Less(0,hp)||!f64Less(0,after))) return false;
         uint n=commands[d+6],packed=commands[d+7];if(n>8 || (packed>>(n*3))!=0 || kind!=1 && (n!=0||commands[d+8]!=0)) return false;
         for(uint i=0;i<n;i++) if(((packed>>(i*3))&7)==0||((packed>>(i*3))&7)>4) return false;
+        #ifdef PORTABLE_WORLD_ACTOR_FIELDS
+        uint64_t atk=loadNumber(d+9);if(!f64Finite(atk)||f64Less(atk,0)||kind!=5&&!f64Zero(atk)) return false;
+        if(commands[d+8]>0x7fffffff || commands[d+11]!=0) return false;
+#else
         if(commands[d+8]>0x7fffffff || commands[d+9]!=0||commands[d+10]!=0||commands[d+11]!=0) return false;
+#endif
     }
     // Wide enemy carriers/skill packets are connected in the next stage.
     // Numeric allied buffs and weapon modes already use the common core.
     for(uint row=0;row<s.count;row++)
-    { Definition d=readDefinition(s.inputBase,row);if(d.enemyBuff!=0 || (d.kind!=0&&d.kind!=2&&d.kind!=4) || d.conditionCount!=0) return false; }
+    { Definition d=readDefinition(s.inputBase,row);
+#ifdef PORTABLE_WORLD_ACTOR_FIELDS
+        if(!actorFieldsDefinitionValid(s,row,d)) return false;
+#else
+        if(d.enemyBuff!=0 || (d.kind!=0&&d.kind!=2&&d.kind!=4) || d.conditionCount!=0) return false;
+#endif
+    }
     for(uint step=0;step<P_COMMANDS;step++)
     {
         uint at=s.inputBase+P_WORLD_ACTOR_LAND_INPUT_BASE+step*2;uint64_t amount=loadNumber(at);
@@ -179,7 +195,7 @@ void actorPoolsSpawnNotice(inout Runtime s,uint node,uint64_t when,uint output)
     for(uint i=0;i<commands[s.inputBase+P_WORLD_ACTOR_NODE_BASE+node*4+1] && s.error==0;i++) { results[actorPoolHead(s)+6]++;worldFrameNotice(s,5,when,output); }
 }
 [noinline]
-void actorSetCapture(inout Runtime s,uint kindMask,uint index)
+void actorSetCapture(inout Runtime s,uint kindMask,uint index,uint route=2,uint limit=128,uint inherited=0,uint who=0)
 {
     uint at=actorPoolSet(s,index),head=actorPoolHead(s);
     if(results[at+5]!=0) { s.error=64;return; }
@@ -192,6 +208,9 @@ void actorSetCapture(inout Runtime s,uint kindMask,uint index)
         if(kind==5) while(insert>0 && commands[actorBinding(s,order[insert-1])]==5 && results[actorPoolAt(s,slot)+10]<results[actorPoolAt(s,order[insert-1])+10]) { order[insert]=order[insert-1];insert--; }
         order[insert]=slot;
     }
+#ifdef PORTABLE_WORLD_ACTOR_FIELDS
+    actorFieldSelectOrder(s,order,count,route,limit,inherited,who);
+#endif
     ActorBits bits=actorBitsEmpty();
     for(uint i=0;i<count;i++)
     {

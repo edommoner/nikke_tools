@@ -10,7 +10,7 @@ void unlinkBulletCarrier(inout Runtime s, uint row)
 }
 void resetBulletCarrier(inout Runtime s, uint row)
 {
-    unlinkBulletCarrier(s,row);
+    WORLD_FIELDS_RESET(s,row) unlinkBulletCarrier(s,row);
     if (s.bulletInitialized[row] == 0) return;
     for (uint who = 0; who < 5; who++) { s.recipientBullets[row*5+who] = 0; s.recipientStacks[row*5+who] = 0; }
     s.bulletLeft[row] = 0; s.bulletInitialized[row] = 0;

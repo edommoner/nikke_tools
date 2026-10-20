@@ -38,3 +38,19 @@ HP制addは受け取った量だけ、hit制addはnative同様1発ずつ（0ダ�
 ABI77のinputは92,208 words、outputは253,952 words。pool inputは90,536、12word定義は90,544、命中量sidecarは92,080。output headerは225,280、16word poolは225,304、32×520word集合は227,352、queryは243,992、receiptは245,016、notice tripleは245,528から。通常ABI73とregistry ABI76のlayoutは変更しない。
 
 現時点で広いenemy効果carrier・skill packet・pending/DoT・Actor-bound callbackは未接続のため、このprivate入口はenemy buff・条件付き効果・未接続damage種を拒否する。interrupt・召喚自身の攻撃/自爆・dynamic control・復活も未完了。通常画面CPU、public world受付false、全変種認証0/203を維持する。Windowsは新しい43入力と前段registry34入力だけを共有driverで検証し、通常4682と旧208は再実行しない。
+
+Windows v83は固定ea1f8ddで77入力（新43＋registry34）を1回だけ実GPU検証し72.917秒で成功した。CPU15件・36 native oracle・GPU禁止packing SHAを先に照合し、全77出力byteと生成fingerprintをMetalから切り出した保存基準と比較した。結果3JSON計56,595 bytesの輸送SHA、固定Git blob、50実測phase、残存0をMacで監査した。旧208/通常4682再実行0。`portable-world-v83-cuda-validation.json` を参照。
+
+## 2026-10-21 private ABI78:128対象の敵向け数値効果
+
+固定c2425e5のMetal357入力で、実戦native52・raw拒否20・旧285入力の既存253,952 words保持が成功した。新規52では最終のバフ保持領域の順序・名前/術者・型/ID/世代・stack・activated/end、全Actorの3種のmodifier、型付き照会、全実戦結果を元の完全native simulateと比較した。128対象、512 resident、同名別術者、死亡・再出現後の古い保持領域、敵数のinclusive/負閾値、永続runtime条件と有限latch、武器変更/散弾、同期named子イベントを含む。通常CUDA/MSL生成コードはv79と厳密一致し、portable315件と旧125 native辞書の保持が成功した。
+
+敵向けdef_pct・def_caster_based_pct・received_dmg_pctは、既存resident activation/expiry/name merge/scalarの計算を再利用する。1回の発動条件/回数消費後に既存の32 owned setから型・世代・順序を固定し、各受取先を共通mode19へ渡す。保持領域ごとの4word keyだけを新領域へ付け、旧13bit maskに128IDを詰めない。子イベントを先に完了しても、親が選んだ集合と世代は変更しない。現在のqueryはlive/generationが一致する保持領域だけを既存modifier合算へ渡す。bodyのworld receivedも既存entryClock順を維持する。
+
+ALL、現在照準/BOSS、最大/残HP、最少HP、nearest、def rank、実ATK rankを128枠へ接続した。bodyのHP/def順位規約、addの出生順tie、hit制の残ヒットをnativeどおり扱う。敵数はbody1＋live addで、part数を含めずframe中のkillでは更新しない。敵数条件とtarget_is_boss/addを共通条件入口へ接続し、未知/古いtyped照会をbodyへ読み替えない。攻撃力は入力headerとsource定義の未使用領域にliteral値だけを置く。
+
+ABI78はinput92,208、output262,144 words。既存領域を動かさず、253,952にfields header16、253,968から512×4 carrier keys、256,016から64×16 query、257,040から128×12 snapshotを追加した。op39は型・ID・世代のmodifier照会、op40は全Actorのsnapshotである。旧285入力はABIだけ変更して実行し、追加領域はpool初期化済みならready markerだけ、それ以外はzeroを検査した。
+
+初回の保持検査は、初期化成功後のコマンド負例6件にも新領域zeroを期待したため失敗した。実GPUでは新52/raw20と旧285の既存領域はすべて成功しており、初回report/rawを保存した。同じ入力・GPUソース・読み戻しを再利用し、固定旧GPU出力のpool-ready状態に従うmarker期待値へ修正してCPUで再監査した。GPU retryは0。通常生成の初期比較もCPUのみで差を捕捉しており、式/行位置を元どおりにする修正後、厳密一致と314テスト成功を確認してからGPUへ進んだ。後続のtyped query入力テストを含む315件も成功。証拠は `portable-world-actor-fields-validation.json` と各finding。
+
+Windowsでは新規72入力だけを同一driverで検証する予定で、旧285/旧208/通常4682を繰り返さない。まだCUDA成功は主張しない。enemy条件のその他の種類、immunity/cleanse/target counterなどのwide状態、skill/pending/DoT、mixed ally/enemy、interrupt/source attack・dynamic control/revive、全変種、容量拡大/長時間条件と効率化は残る。hit-only召喚の最大HP順位は元nativeもhp=Noneのため定義を整理する必要があり、この組み合わせは受け付けない。resident640は容量512を超えるraw拒否として明示検査した。通常画面CPU/public受付false/全変種0/203を維持する。
