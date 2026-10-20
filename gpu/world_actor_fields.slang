@@ -14,9 +14,9 @@ uint actorFieldLogicalSlot(inout Runtime s,uint target)
 bool actorFieldQueryLive(inout Runtime s,uint target)
 { uint slot=actorFieldLogicalSlot(s,target);return slot<actorPoolCount(s) && results[actorPoolAt(s,slot)+1]!=0; }
 bool actorFieldMember(inout Runtime s,uint row,uint target)
-{ uint slot=actorFieldLogicalSlot(s,target),at=actorFieldKey(s,row);return slot<128 && results[at]==slot+1 && results[at+1]==results[actorPoolAt(s,slot)]; }
+{ uint slot=actorFieldLogicalSlot(s,target),at=actorFieldKey(s,row);return WORLD_STATE_MEMBER(s,row,slot<128 && results[at]==slot+1 && results[at+1]==results[actorPoolAt(s,slot)]); }
 bool actorFieldConditions(inout Runtime s,uint row,uint target,uint64_t when)
-{ uint saved=s.target,slot=actorFieldLogicalSlot(s,target);s.target=slot==0 ? 0 : ACTOR_REF|slot;bool ok=basicConditions(s,row,when,true);s.target=saved;return ok; }
+{ WORLD_STATE_SCOPE_BEGIN(s,target) uint saved=s.target,slot=actorFieldLogicalSlot(s,target);s.target=slot==0 ? 0 : ACTOR_REF|slot;bool ok=basicConditions(s,row,when,true);s.target=saved; WORLD_STATE_SCOPE_END(s) return ok; }
 bool actorFieldContextAdd(inout Runtime s,uint who)
 {
     if((s.target&ACTOR_REF)!=0) return commands[actorBinding(s,s.target&127U)]==5;
@@ -26,11 +26,11 @@ bool actorFieldTargetMismatch(inout Runtime s,uint who,uint kind)
 { return kind==C_TARGET_BOSS && actorFieldContextAdd(s,who) || kind==C_TARGET_ADD && !actorFieldContextAdd(s,who); }
 bool actorFieldsDefinitionValid(inout Runtime s,uint row,Definition d)
 {
-    if(d.kind!=0&&d.kind!=2&&d.kind!=4) return false;
+    WORLD_STATE_HEALTH_GUARD(s,d) if(d.kind!=0&&d.kind!=2&&d.kind!=4) return false;
     for(uint i=0;i<d.conditionCount;i++)
     {
         uint at=s.inputBase+P_CONDITION_BASE+row*P_CONDITION_WORDS+i*4,kind=commands[at];uint64_t arg=loadNumber(at+2);
-        if(kind!=C_ENEMIES_ABOVE&&kind!=C_ENEMIES_BELOW&&kind!=C_TARGET_BOSS&&kind!=C_TARGET_ADD || commands[at+1]!=0 || !f64Finite(arg)) return false;
+        WORLD_STATE_ADMIT_CONDITION(s,at,kind,arg) if(kind!=C_ENEMIES_ABOVE&&kind!=C_ENEMIES_BELOW&&kind!=C_TARGET_BOSS&&kind!=C_TARGET_ADD || commands[at+1]!=0 || !f64Finite(arg)) return false;
         if(kind==C_TARGET_BOSS||kind==C_TARGET_ADD) { if(!f64Zero(arg)) return false; }
         else { uint status;uint64_t value=f64ToI64(arg,1,status);if(status!=0||!f64Equal(arg,f64FromI64(value))||f64Less(f64FromI64(2147483647),f64Abs(arg))) return false; }
     }

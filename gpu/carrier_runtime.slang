@@ -74,7 +74,7 @@ void queueRemovalNotice(inout Runtime s,uint owner,uint name,uint repeats=1)
 void queueCarrierEnd(inout Runtime s,uint slot,uint repeats=0)
 {
     uint definition=s.carrierDefinition[slot];
-    if(repeats==0) repeats=definition_enemyBuff(s.inputBase,definition)!=0 && s.bulletInitialized[slot]!=2 ? countbits(s.activeRecipients[slot]>>5) : 1;
+    if(repeats==0) repeats=WORLD_STATE_END_REPEATS(s,slot,definition_enemyBuff(s.inputBase,definition)!=0 && s.bulletInitialized[slot]!=2 ? countbits(s.activeRecipients[slot]>>5) : 1);
     unlinkBulletCarrier(s,slot);discardLazy(s,slot);s.alive[slot]=0;s.stacks[slot]=0;
     queueRemovalNotice(s,definition_owner(s.inputBase,definition),definition_name(s.inputBase,definition),repeats);
 }

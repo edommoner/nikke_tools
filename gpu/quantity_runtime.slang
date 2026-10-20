@@ -162,15 +162,15 @@ uint64_t rawEffectiveCharge(inout Runtime s, uint who, uint64_t base, uint64_t w
 
 uint fullCapacity(inout Runtime s, uint who, uint base, bool applyBuffs, uint64_t when)
 {
-    bool query = applyBuffs && needsBuffResolution(s) && beginBuffQuery(s,who,when);
+    WORLD_STATE_SCOPE_BEGIN(s,0) bool query = applyBuffs && needsBuffResolution(s) && beginBuffQuery(s,who,when);
     uint capacity = rawFullCapacity(s,who,base,applyBuffs,when);
-    if (query) s.queryActive = 0;
+    if (query) s.queryActive = 0; WORLD_STATE_SCOPE_END(s)
     return capacity;
 }
 uint64_t effectiveCharge(inout Runtime s, uint who, uint64_t base, uint64_t when)
 {
-    bool query = needsBuffResolution(s) && beginBuffQuery(s,who,when);
+    WORLD_STATE_SCOPE_BEGIN(s,0) bool query = needsBuffResolution(s) && beginBuffQuery(s,who,when);
     uint64_t charge = rawEffectiveCharge(s,who,base,when);
-    if (query) s.queryActive = 0;
+    if (query) s.queryActive = 0; WORLD_STATE_SCOPE_END(s)
     return charge;
 }

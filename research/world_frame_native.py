@@ -51,6 +51,9 @@ def observe(case):
    if case.get('observe_enemy_fields'):
     from world_actor_fields_native import observe_before_finish
     capture['enemy_fields']=observe_before_finish(case,self,capture['bm'],NAMES,t)
+   if case.get('observe_named_state'):
+    from world_actor_state_native import before_finish
+    capture['named_state']=before_finish(case,self,capture['bm'],NAMES,t)
    return super().finish(t)
   def _close(self,run,t,outcome,events):
    super()._close(run,t,outcome,events);ends.append([run.p.idx,{'cleared':1,'expired':2,'followed':3,'end':4}[outcome],*bits(t)])
@@ -74,6 +77,9 @@ def observe(case):
  if case.get('observe_charge_hold'):
   answer['charge_hold']=[dict(owner=i,charging=capture['characters'][n]._charge_phase=='charging',full_time=capture['characters'][n]._charge_full_t,deadline=capture['characters'][n]._vanish_charge_hold_until) for i,n in enumerate(NAMES) if n=='스노우 화이트 : 헤비암즈']
  if case.get('observe_enemy_fields'):answer['enemy_fields']=capture['enemy_fields']
+ if case.get('observe_named_state'):
+  from world_actor_state_native import after_finish
+  answer['named_state']=dict(capture['named_state'],pending_gone=after_finish(capture['boss']))
  if case.get('observe_actor_pools'):
   from world_actor_pool_native import summary
   body_hits=[h for h in result.hits if not (h.target or h.part)]

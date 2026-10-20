@@ -182,6 +182,45 @@ struct Runtime
 #define WORLD_FIELDS_INIT(s,output)
 #define WORLD_FIELDS_COMMAND(s,at)
 #endif
+#ifdef PORTABLE_WORLD_ACTOR_STATE
+#define WORLD_STATE_TARGET_STACK(s,name,when,present,legacy) (actorStateEnabled(s) ? actorNamedTargetStack(s,name,present) : (legacy))
+#define WORLD_STATE_SELF_STACK(s,owner,name,arg) if(kind==C_SELF_STACK&&actorStateEnabled(s)) { if(f64Less(actorNamedSelfStack(s,owner,name),arg)) return false;continue; }
+#define WORLD_STATE_SCOPE_BEGIN(s,target) uint actorStateScope=actorStatePushQuery(s,target);
+#define WORLD_STATE_SCOPE_END(s) actorStatePopQuery(s,actorStateScope);
+#define WORLD_STATE_DISPATCH_BEGIN(s) uint actorStateSavedOwner=results[actorFieldHead(s)+4],actorStateSavedTarget=results[actorFieldHead(s)+5];
+#define WORLD_STATE_DISPATCH_FRAME(s,frames,depth) actorStateEvent(s,frames,depth,actorStateSavedOwner,actorStateSavedTarget);
+#define WORLD_STATE_DISPATCH_END(s) if(actorStateEnabled(s)) { results[actorFieldHead(s)+4]=actorStateSavedOwner;results[actorFieldHead(s)+5]=actorStateSavedTarget; }
+#define WORLD_STATE_GONE(s,slot) actorStateGone(s,slot);
+#define WORLD_STATE_DROP_GONE(s) actorStateDropGone(s);
+#define WORLD_STATE_END_REPEATS(s,slot,legacy) (actorStateEnabled(s)&&results[actorFieldKey(s,slot)]!=0 ? 1U : (legacy))
+#define WORLD_STATE_MEMBER(s,row,legacy) (actorStateEnabled(s) ? (s.activeRecipients[row]&32)!=0&&(legacy) : (legacy))
+#define WORLD_STATE_HEALTH_GUARD(s,d) if(actorStateEnabled(s)&&!actorStateHealthContract(d)) return false;
+#define WORLD_STATE_ADMIT_CONDITION(s,at,kind,arg) if(actorStateEnabled(s)&&actorNamedConditionKind(kind)) { if(!actorNamedConditionValid(s,at,kind,arg)) return false;continue; }
+#define WORLD_STATE_HEADER_INVALID(s,base,index,legacy) actorStateHeaderInvalid(s,base,index)
+#define WORLD_STATE_BEFORE_RESET(s,b,p,slot) if(commands[b]==5&&results[p+1]!=0) actorStateGone(s,slot);
+#define WORLD_STATE_NUMERIC_CONDITION(s,row,who,when,legacy) actorNamedNumericCondition(s,row,who,when)
+#define WORLD_STATE_INIT(s,output) if(!initializeActorState(s)) { results[output]=64;return; }
+#define WORLD_STATE_COMMAND(s,at) else if(op==41) { if(!actorNamedQueryCommand(s,at,step,when)) { s.error=64;break; } }
+#else
+#define WORLD_STATE_TARGET_STACK(s,name,when,present,legacy) legacy
+#define WORLD_STATE_SELF_STACK(s,owner,name,arg)
+#define WORLD_STATE_SCOPE_BEGIN(s,target)
+#define WORLD_STATE_SCOPE_END(s)
+#define WORLD_STATE_DISPATCH_BEGIN(s)
+#define WORLD_STATE_DISPATCH_FRAME(s,frames,depth)
+#define WORLD_STATE_DISPATCH_END(s)
+#define WORLD_STATE_GONE(s,slot)
+#define WORLD_STATE_DROP_GONE(s)
+#define WORLD_STATE_END_REPEATS(s,slot,legacy) legacy
+#define WORLD_STATE_MEMBER(s,row,legacy) legacy
+#define WORLD_STATE_HEALTH_GUARD(s,d)
+#define WORLD_STATE_ADMIT_CONDITION(s,at,kind,arg)
+#define WORLD_STATE_HEADER_INVALID(s,base,index,legacy) legacy
+#define WORLD_STATE_BEFORE_RESET(s,b,p,slot)
+#define WORLD_STATE_NUMERIC_CONDITION(s,row,who,when,legacy) legacy
+#define WORLD_STATE_INIT(s,output)
+#define WORLD_STATE_COMMAND(s,at)
+#endif
 #include "geometry_runtime.slang"
 
 bool hasProtection(inout Runtime s,uint who,uint kind);
@@ -268,7 +307,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
         uint kind = commands[at]; int name = int(commands[at+1]); uint64_t arg = loadNumber(at+2);
         if(kind==C_TARGET_STATE || kind==C_NOT_TARGET_STATE || kind==C_TARGET_STACK && !runtime)
         {
-            bool present;uint64_t count=targetStateStack(s,name,when,present);
+            bool present;uint64_t count=WORLD_STATE_TARGET_STACK(s,name,when,present,targetStateStack(s,name,when,present));
             if(kind==C_TARGET_STATE && !present || kind==C_NOT_TARGET_STATE && present || kind==C_TARGET_STACK && f64Less(count,arg)) return false;
             continue;
         }
@@ -287,7 +326,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
             bool present = stateMember(s,owner,name,flags);
             if (kind == C_SELF_STATE && !present || kind == C_NOT_SELF_STATE && present) return false;
         }
-        if (kind == C_SELF_STACK)
+        WORLD_STATE_SELF_STACK(s,owner,name,arg) if (kind == C_SELF_STACK)
         {
             uint64_t count = 0;
             for (uint pass = 0; pass < s.orderedCount; pass++)
@@ -383,7 +422,7 @@ bool excludedDamageBuff(inout Runtime s, uint resident, uint who)
 [noinline]
 void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[64])
 {
-    bool query = needsBuffResolution(s) && beginBuffQuery(s,who,when);
+    WORLD_STATE_SCOPE_BEGIN(s,s.target) bool query = needsBuffResolution(s) && beginBuffQuery(s,who,when);
     for (uint k = 0; k < 64; k++) values[k] = 0;
     Sum rate = {}; rate.total = s.baseCrit; Sum skillRate = rate;
     Sum critical = {}; Sum skillCritical = {};
@@ -440,7 +479,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
     values[S_crit_rate_skill] = larger(0,smaller(ONE,f64Add(skillRate.total,skillRate.correction)));
     values[S_crit_dmg] = f64Add(critical.total,critical.correction);
     values[S_crit_dmg_skill] = f64Add(skillCritical.total,skillCritical.correction);
-    if (query) s.queryActive = 0;
+    if (query) s.queryActive = 0; WORLD_STATE_SCOPE_END(s)
 }
 #include "recipient_runtime.slang"
 
@@ -705,7 +744,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
 {
     if (owner >= 5) { s.error = 64; return; }
     s.sourceTime=when; syncHealth(s,when);
-    uint entryTarget = s.target;
+    WORLD_STATE_DISPATCH_BEGIN(s) uint entryTarget = s.target;
     Frame frames[32]; int depth = -1;
     if ((s.healthMask&32)!=0) pushFrame(s,frames,depth,16,0,0,0,when);
     pushFrame(s,frames,depth,mode,event,owner,argument,when);
@@ -728,7 +767,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             uint who = 0; while ((s.hpDirtyMask & (1U << who)) == 0) who++;
             s.hpDirtyMask &= ~(1U << who); syncHealthActor(s,who,frames[depth].time); continue;
         }
-        Frame f = frames[depth]; s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; uint row = s.count, passive = 0;
+        WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = frames[depth]; s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; uint row = s.count, passive = 0;
         if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
             (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
         { depth--; continue; }
@@ -1385,7 +1424,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (d.kind == 1 && (s.healthMask&32)==0) syncHealth(s,f.time);
 #endif
     }
-    s.target = entryTarget;
+    WORLD_STATE_DISPATCH_END(s) s.target = entryTarget;
 }
 
 void timerPass(inout Runtime s, uint64_t when, bool damagePass, uint output)
@@ -1520,6 +1559,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "world_actor_pools.slang"
 #ifdef PORTABLE_WORLD_ACTOR_FIELDS
 #include "world_actor_fields.slang"
+#ifdef PORTABLE_WORLD_ACTOR_STATE
+#include "world_actor_state.slang"
+#endif
 #endif
 #define WORLD_POOL_INIT(s,output) if(!initializeActorPools(s)) { results[output]=64;return; }
 #define WORLD_POOL_COMMAND(s,at) WORLD_FIELDS_COMMAND(s,at) else if(op>=34 && op<=38) { if(!actorPoolCommand(s,op,step,when)) { s.error=64;break; } }
@@ -1587,7 +1629,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if(!validGeometry(s)) { results[output]=64;return; }
     admitDefinitions(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
-    if(!initializeWorldFrame(s)) { results[output]=64;return; } WORLD_OVERLAY_INIT(s,output) WORLD_ACTORS_INIT(s,output) WORLD_POOL_INIT(s,output) WORLD_FIELDS_INIT(s,output)
+    if(!initializeWorldFrame(s)) { results[output]=64;return; } WORLD_OVERLAY_INIT(s,output) WORLD_ACTORS_INIT(s,output) WORLD_POOL_INIT(s,output) WORLD_FIELDS_INIT(s,output) WORLD_STATE_INIT(s,output)
     if(!validEnemyTargeting(s)) { results[output]=64;return; }
     if(!validProtection(s)) { results[output]=64;return; }
     if (!validStatusDefinitions(s)) { results[output]=64;return; }
@@ -1620,7 +1662,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             dispatch(s,0,event,commands[at+4],int(commands[at+5]),when,output);
         }
         else if (op == 4 && s.combat != 0) { if (s.clockMode != 0) { s.error = 64; break; } squadFrame(s,when,output); s.frameCount++; }
-        WORLD_ACTOR_COMMAND(s,at) WORLD_POOL_COMMAND(s,at) WORLD_FIELDS_COMMAND(s,at) else if (op == 26)
+        WORLD_ACTOR_COMMAND(s,at) WORLD_POOL_COMMAND(s,at) WORLD_FIELDS_COMMAND(s,at) WORLD_STATE_COMMAND(s,at) else if (op == 26)
         {
             uint mask = commands[at+5]; uint64_t amount = loadNumber(at+6);
             if (commands[at+3] != 0 || commands[at+4] != 0 || mask == 0 || mask > 31 || !f64Finite(amount) || f64Less(amount,0)) { s.error = 64; break; }
