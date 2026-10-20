@@ -15,8 +15,9 @@ def load(name):
     return json.loads((P / (name + '.json')).read_text())
 
 
-def save(name, value):
-    (P / (name + '.json')).write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
+def save(name, value, compact=False):
+    options = dict(separators=(',', ':')) if compact else dict(indent=2)
+    (P / (name + '.json')).write_text(json.dumps(value, ensure_ascii=False, **options) + '\n')
 
 
 def main():
@@ -32,7 +33,7 @@ def main():
     assert metal['input_sha256'] == cuda['input_sha256'] and metal['output_sha256'] == cuda['output_sha256']
     summary = {k: v for k, v in cuda.items() if k != 'results'}
     summary['duplicate_results_omitted'] = 'Identical data remains in cases.actual and the byte-exact Windows artifact'
-    save('portable-combat-cuda', summary)
+    save('portable-combat-cuda', summary, compact=True)
     audit = load('portable-catalog-readiness')
     proof = dict(passed=True, source_commit=SOURCE, previous_proof_commit=PRIOR,
                  checked_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),

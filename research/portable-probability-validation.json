@@ -2,7 +2,7 @@
   "passed": true,
   "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
   "previous_proof_commit": "f2206ef4a32fb89ad9c4f2381bb9dbfa5ec711d1",
-  "checked_at": "2026-10-20T05:00:15.769259+00:00",
+  "checked_at": "2026-10-20T05:00:50.214854+00:00",
   "wire_abi": "0x5045566C",
   "mac_gates": 32,
   "unit_tests": 243,
