@@ -296,13 +296,13 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     {
         if (s.charging[who] == 0)
         {
-            s.charging[who] = 1; s.chargeStartedAt[who] = when;
+            WORLD_CHARGE_START(s,who) s.charging[who] = 1; s.chargeStartedAt[who] = when;
             w.infinite = uint(hasInfiniteAmmo(s,who,when));
             if (w.infinite == 0 && s.ammo[who] == 1) dispatch(s,0,21,who,0,when,output);
             if (changedWeaponSession(s,who,epoch,mode)) return;
         }
         s.chargeUntil[who] = f64Add(s.chargeStartedAt[who],effectiveCharge(s,who,w.chargeTime,when));
-        if (s.error != 0 || f64Less(when,s.chargeUntil[who])) return;
+        WORLD_CHARGE_HOLD(s,w,who,when) if (s.error != 0 || f64Less(when,s.chargeUntil[who])) return;
         dispatch(s,0,10,who,0,when,output);
         w.infinite = uint(hasInfiniteAmmo(s,who,when));
         if (changedWeaponSession(s,who,epoch,mode)) return;
@@ -345,7 +345,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     { if(WORLD_PACKET_NORMAL(s,who)) s.normalLandedMask|=1U<<who;WORLD_PHYSICAL_GAUGE(s) addBurstGauge(s,burstHitGain(s,who,w.gain,count,w.gaugeMultiplier,when)); }
     if (s.bulletCount != 0) WORLD_NORMAL_ONLY(s,who) consumeBulletBuffs(s,who,when,output);
     if (last) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,14,who,0,when,output);
-    if (changedWeaponSession(s,who,epoch,mode)) return; // Preserve a callback's new session.
+    WORLD_CHARGE_FINISH(s,w,who) if (changedWeaponSession(s,who,epoch,mode)) return; // Preserve a callback's new session.
     if (mode >= 0)
     {
         s.modeShots[who]++;

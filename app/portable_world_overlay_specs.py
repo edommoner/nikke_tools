@@ -12,11 +12,12 @@ def number(value):
  if not valid:raise ValueError('Overlay requires finite numeric input')
  return list(struct.unpack('<II',struct.pack('<d',float(value))))
 
-def compile_payload(patterns,*,camera_mask=0,element_codes=(),code_tags=None):
+def compile_payload(patterns,*,camera_mask=0,element_codes=(),code_tags=None,charge_hold_mask=0):
  if not 1<=len(patterns)<=32:raise ValueError('World overlay node capacity exceeded')
  if type(camera_mask) is not int or not 0<=camera_mask<=31:raise ValueError('Invalid static camera mask')
  if element_codes and (len(element_codes)!=5 or any(x not in range(6) for x in element_codes)):raise ValueError('Invalid roster element codes')
- words=[MAGIC]+[0]*527;words[1]=camera_mask
+ if type(charge_hold_mask) is not int or not 0<=charge_hold_mask<=31:raise ValueError('Invalid charge hold owner mask')
+ words=[MAGIC]+[0]*527;words[1]=camera_mask;words[7]=0x48410000|charge_hold_mask if charge_hold_mask else 0
  if element_codes:words[2:7]=element_codes
  code_tags=code_tags or {}
  for p in patterns:

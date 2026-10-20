@@ -13,13 +13,13 @@ uint woRangeMask(inout Runtime s) { return results[s.resourceOutput+WO_OUT+3]; }
 [noinline]
 bool initializeWorldOverlays(inout Runtime s)
 {
-    for(uint i=0;i<328;i++) results[s.resourceOutput+WO_OUT+i]=0;
+    for(uint i=0;i<368;i++) results[s.resourceOutput+WO_OUT+i]=0;
     uint at=s.inputBase+WO_IN;
     if(commands[at]==0) { for(uint i=0;i<528;i++) if(commands[at+i]!=0) return false;return true; }
     if(commands[at]!=0x574f3031 || commands[s.inputBase+P_WORLD_FRAME_INPUT_BASE]!=0x57533031 || s.targetCount!=1 || commands[s.inputBase+P_LANDING_META_BASE]!=1 || commands[s.inputBase+P_GEOMETRY_BASE]==0) return false;
     if(commands[at+1]>31) return false;
     for(uint i=2;i<7;i++) if(commands[at+i]>5) return false;
-    if(commands[at+7]!=0) return false;
+    uint hold=commands[at+7];if(hold!=0 && ((hold&0xffffffe0U)!=0x48410000U || (hold&31U)==0)) return false;
     for(uint row=0;row<P_DEFINITIONS;row++)
     {
         uint policy=commands[s.inputBase+P_MODE_BASE+row*P_MODE_WORDS+31];
