@@ -1,5 +1,13 @@
 # MacBookへの開発環境の移行
 
+## 2026-10-21 Metal285: ActorのHP・命中・128対象集合
+
+固定822c559のprivate ABI77で、召喚のHP/hit制HP・通常武器からの命中・死亡通知・GPU targets_cleared再出現、部位の超過ダメージ/score、128bitと順序/世代付き対象集合を共通landへ接続しました。Metal285は実戦native14・型付きpool/set10・raw拒否19・旧242全出力保持で成功、portable CPU309件、通常CUDA/MSL生成コードの厳密一致、保存rawと固定Git blobの再監査も成功しています。`research/portable-world-actor-pools-validation.json` を参照してください。
+
+Windowsには最小24ファイル301,900 bytesを固定ea1f8dd、`codex/cuda-world-v83-source`へ共有し、新規43＋registry34の77入力だけをBelowNormal・180秒上限で1回依頼しました。全77input SHAと36 native oracleのCPU事前検査後に実行します。通常4682と旧208は再実行しません。現在CUDA結果待ちです。利用者はこのゴール達成までの今後のGitHub共有を許可済みで、個人設定/raw/巨大詳細は共有していません。
+
+wide enemy効果・skill/pending/DoT・Actor-bound callback・interrupt・召喚自身の攻撃/自爆・dynamic control/復活・全変種認証・必要検証後の効率化は未完了です。通常画面CPU・public world受付false・全変種認証0/203を維持します。
+
 ## 2026-10-21 128枠Actor識別を共通フレームへ接続
 
 実験ABI76でbody・parts・addsの型、設定内ID、出現世代、親参照を共通worldフレームの開始／終了へ接続しました。Metal242入力でnative BossScript/ActorRegistryとの12比較、不正入力22件、以前の208全出力byte保持が成功しました。128枠・全32node・未出現・再出現・古い世代・親rootを含みます。初回237の全blockも保持し、通常CUDA/MSL生成コードはv79と厳密同一、CPU portable303件が成功しました。
