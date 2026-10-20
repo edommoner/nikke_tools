@@ -28,5 +28,9 @@
     "Initial native BossScript.begin_frame(0) precedes battle_start and loop begin_frame(0);initial events/attacks carry into post-tick delivery.",
     "Prototype full-frame coupling in an isolated common-source copy first;avoid modifying verified canonical runtime until raw readback and native comparisons establish ordering."
   ],
-  "unresolved_old_metal_finding_open": true
+  "unresolved_old_metal_finding_open": true,
+  "frame_coupling_verified_in_isolated_common_runtime": true,
+  "frame_coupling_source_commit": "57c2a340ea4c0c13261bc2659d7e3dae28288693",
+  "frame_coupling_validation": "research/portable-world-frame-validation.json",
+  "current_stage": "Graph foundation plus isolated frame/attack coupling verified;see portable-world-frame-work-state.json for current remaining work"
 }
