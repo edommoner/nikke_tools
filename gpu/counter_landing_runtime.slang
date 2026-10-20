@@ -9,7 +9,7 @@ bool counterLandingsEnabled(inout Runtime s)
 bool counterLandingDefinitionInvalid(inout Runtime s,uint row,Definition d,bool legacy)
 {
     if(!counterLandingsEnabled(s)) return legacy;
-    if(d.conditionCount!=0||d.kind!=0&&d.kind!=4&&d.kind!=2&&d.kind!=24) return true;
+    if(d.conditionCount!=0||d.kind!=0&&d.kind!=4&&d.kind!=2&&d.kind!=8) return true;
     if(d.enemyBuff!=0)
     {
         uint p=counterPolicy(s,row);
