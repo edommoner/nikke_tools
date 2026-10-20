@@ -2,7 +2,12 @@
 void worldFrameBegin(inout Runtime s,uint64_t when)
 {
     if(!worldFrameEnabled(s)) return;
-    WorldSchedule w=frameSchedule(s);wsBegin(w,when,0);s.error=w.error;
+    WorldSchedule w=frameSchedule(s);
+    // Initialization owns clock0. The first combat frame delivers its queued
+    // attacks without applying another transition at the same timestamp.
+    // Native app/world_frame_runtime.py enforces the same frame-once policy.
+    if(f64Zero(when) && results[w.output+1]!=0) return;
+    wsBegin(w,when,0);s.error=w.error;
 }
 [noinline]
 void worldFrameDeliver(inout Runtime s,uint64_t when,uint output)
