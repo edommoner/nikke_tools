@@ -1,5 +1,14 @@
 # 型付き128対象の免疫・共有スタックの接続設計
 
+## 2026-10-21 長寿命共有受領者をMetalへ接続
+
+実験ABI7B・計算source e7585b8で、512 residentそれぞれの128bit可変membership・捕捉generation・対象順を追加しました。単一受領者と共有受領者が同じ照会・世代照合を使い、buff_stack_initは1/65/128対象を1個のstack/期限で保持します。部分解除・全解除・死亡によるmembership解除・再出現・有限期限通知を共通実行器へ接続しています。
+
+Metal484入力は完全native19件・不正入力4件・旧461入力の全262144出力word保持と拡張領域zeroで成功しました。CPU340件、通常／fields／state／mutationのCUDA・MSL生成物が厳密一致しました。M5のmaxBufferLength 14,302,248,960 bytesを実測し、新出力524288 words/ケース・実行全体1,015,021,568 bytesが上限内であることを確認しました。入力92336 wordsは増やしていません。GPU実行1回・再試行0です。元nativeの共有受領者も全辞書で照合しています。
+
+保存結果のCPU監査器はseal-world-actor-recipients-metal.py、証拠はportable-world-actor-recipient-validation.json。新規23入力の全input/output/native/generated基準を保存しました。Windowsは未実行で、次の128対象免疫/解除とまとめて新規入力だけを短く検証する予定です。回数免疫用の拡張領域は確保済みですが、計算接続はまだ未実施です。通常画面CPU・world公開無効・全変種認証0/203・旧Metal差分OPEN・効率化未開始を維持します。
+
+
 ## 実測した契約
 
 `research/characterize-world-actor-status.py` は元の完全なCPU simulateを17ケース実行します。入力は128対象の召喚・定義・通常武器だけで、途中状態はGPUへ渡しません。結果は `research/portable-world-actor-status-native-contract.json` です。通常画面CPU・world公開無効・全変種認証0/203を維持します。この段階のGPU実行は0です。

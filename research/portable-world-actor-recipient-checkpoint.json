@@ -1,0 +1,26 @@
+{
+  "stage": "Persistent128 shared recipient core connected on Metal",
+  "source": "e7585b8",
+  "metal_inputs": 484,
+  "native_battles": 19,
+  "raw_rejections": 4,
+  "old461_prefix_exact_and_tail_zero": true,
+  "portable_cpu_tests": 340,
+  "normal_fields_state_mutation_generated_exact": true,
+  "output_words": 524288,
+  "source_input_words": 92336,
+  "gpu_executions": 1,
+  "gpu_retries": 0,
+  "windows_status": "not_dispatched;aggregate_with_wide_status_stage",
+  "short_golden_inputs": 23,
+  "normal_ui": "CPU",
+  "canonical_world_admission": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "efficiency_started": false,
+  "next": [
+    "Connect128-target immunity capacity and recharge to existing loops",
+    "Connect typed cleanse and stack mutations/counters",
+    "Metal full native and old outputs before bounded new-only CUDA"
+  ]
+}
