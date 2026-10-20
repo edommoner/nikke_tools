@@ -1,12 +1,12 @@
 {
-  "source_commit": "a377f0d97a44483771a24ccc266384f272dec79a",
+  "source_commit": "15bcbfe9ecf7484f0b53afdf2feec7e85c97b6ad",
   "source_sha256_local": {
     "research/prepare-world-frame-candidate.py": "09a418564d32423876c03c28c8e8793328460915d96c16e202ae1ee073e1a31d",
-    "research/verify-world-frame.py": "75691960ea68801b318f9397e28987ab7c8b4546f2532c9c5361120d1c02997b",
+    "research/verify-world-frame.py": "05e4ebaaecb1af7e859c9d7d69b8c2c33180cfdbc690610d06e1f4076abdf4e8",
     "research/world_frame_native.py": "b6e7e708a155165ecec11c0169aa3e394aaabcf98451f663f429979cc4630166",
-    "gpu/world_frame_addresses.slang": "33dc10f30af4ce958b5d56914a91747bd2d9096374961cda97226d27580485b5",
-    "gpu/world_frame_runtime.slang": "ab3aa7dc2d2b2dbf2bdb4fce07822c76f4fee9ae0fdd48a920eccde10fcddcb2",
-    "tests/test_portable_world_frame_input.py": "b1b23b481d56d2109916ea7a38634c004e6ec89fc1cd3bfa2e19f62d47979240"
+    "gpu/world_frame_addresses.slang": "5f4f5bd1401b9db5b05a3f1b057fc1fabe72255aed612b552f3a5b4057a5cc80",
+    "gpu/world_frame_runtime.slang": "705bb6a964271f70d7bb602dbfb14b190161b7bbd5901bd0630be5fefd5c1793",
+    "tests/test_portable_world_frame_input.py": "5509d7c26289b359f146f917b595892c5832b5ba655f4986e02a031ad594d48e"
   },
   "passed": true,
   "cases": [
@@ -79040,10 +79040,10 @@
       }
     }
   ],
-  "captured": "/Users/edo/.codex/worktrees/world-notices/nikke_tools/research/portable-build/world-frame-common-20261020T163546346496Z",
+  "captured": "/Users/edo/.codex/worktrees/world-notices/nikke_tools/research/portable-build/world-frame-common-20261020T164206947586Z",
   "prepared": {
-    "base_source_commit": "a377f0d97a44483771a24ccc266384f272dec79a",
-    "created": "/Users/edo/.codex/worktrees/world-notices/nikke_tools/research/portable-build/world-frame-common-20261020T163546346496Z",
+    "base_source_commit": "15bcbfe9ecf7484f0b53afdf2feec7e85c97b6ad",
+    "created": "/Users/edo/.codex/worktrees/world-notices/nikke_tools/research/portable-build/world-frame-common-20261020T164206947586Z",
     "source": "gpu/world_frame_entry.slang",
     "patches": [],
     "runtime_copies": false,
@@ -79095,11 +79095,11 @@
       "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
       "gpu/pending_burst_runtime.slang": "ebc7b917f8ce3418d7f18de6c0c07e1c67a58d6cde04156cb52d50de2388c905",
       "gpu/incoming_descriptor_runtime.slang": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
-      "gpu/world_frame_addresses.slang": "33dc10f30af4ce958b5d56914a91747bd2d9096374961cda97226d27580485b5",
-      "gpu/world_schedule.slang": "9219d807936105eadbdf34687291b56ee35a89ea2b91ab28bbee7ad8907aaf17",
+      "gpu/world_frame_addresses.slang": "5f4f5bd1401b9db5b05a3f1b057fc1fabe72255aed612b552f3a5b4057a5cc80",
+      "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
       "gpu/protection_runtime.slang": "768eefaec94ee16a561a471c0400506f2b9c13ac3b8756693be1bbbcafc4bdd2",
       "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-      "gpu/world_frame_runtime.slang": "ab3aa7dc2d2b2dbf2bdb4fce07822c76f4fee9ae0fdd48a920eccde10fcddcb2",
+      "gpu/world_frame_runtime.slang": "705bb6a964271f70d7bb602dbfb14b190161b7bbd5901bd0630be5fefd5c1793",
       "gpu/combat_runtime.slang": "de65fe8974c6e035a2611ed04eb5cf1e67fd3b4af532476bd355550d82cd281d",
       "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
       "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
@@ -79118,19 +79118,19 @@
   "normal_ui": "CPU",
   "full_character_verified": 0,
   "full_goal_complete": false,
-  "scope": "Isolated common frame->graph->native-order GPU victim/protection/split/HP/notifications coupling versus complete native simulate;direct attack/idle/groggy graphs only.No pattern overlays/events/debuff/actor/control/revive admission yet.",
+  "scope": "Canonical shared frame->graph->native-order victim/protection/split/HP coupling versus complete native simulate;direct attack/idle/groggy and closed pattern notices only.No overlays/debuff/actor/control/revive admission yet.",
   "transport": {
     "backend": "metal",
     "cases": 17,
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.006497708382084966,
+    "gpu_seconds": 0.016215624986216426,
     "input_bytes": 6041668,
-    "library_compile_seconds": 0.001083970069885254,
+    "library_compile_seconds": 0.7535159587860107,
     "output_bytes": 15319040,
-    "pipeline_compile_seconds": 0.0011279582977294922,
-    "pipeline_lock_wait_seconds": 1.9073486328125e-06,
+    "pipeline_compile_seconds": 4.285343050956726,
+    "pipeline_lock_wait_seconds": 9.5367431640625e-07,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
     "threads_per_threadgroup": 1,
@@ -79180,11 +79180,11 @@
     "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
     "gpu/pending_burst_runtime.slang": "ebc7b917f8ce3418d7f18de6c0c07e1c67a58d6cde04156cb52d50de2388c905",
     "gpu/incoming_descriptor_runtime.slang": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
-    "gpu/world_frame_addresses.slang": "33dc10f30af4ce958b5d56914a91747bd2d9096374961cda97226d27580485b5",
-    "gpu/world_schedule.slang": "9219d807936105eadbdf34687291b56ee35a89ea2b91ab28bbee7ad8907aaf17",
+    "gpu/world_frame_addresses.slang": "5f4f5bd1401b9db5b05a3f1b057fc1fabe72255aed612b552f3a5b4057a5cc80",
+    "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
     "gpu/protection_runtime.slang": "768eefaec94ee16a561a471c0400506f2b9c13ac3b8756693be1bbbcafc4bdd2",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-    "gpu/world_frame_runtime.slang": "ab3aa7dc2d2b2dbf2bdb4fce07822c76f4fee9ae0fdd48a920eccde10fcddcb2",
+    "gpu/world_frame_runtime.slang": "705bb6a964271f70d7bb602dbfb14b190161b7bbd5901bd0630be5fefd5c1793",
     "gpu/combat_runtime.slang": "de65fe8974c6e035a2611ed04eb5cf1e67fd3b4af532476bd355550d82cd281d",
     "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
     "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
@@ -79194,8 +79194,8 @@
     "gpu/enemy_target_runtime.slang": "bb88cf05d475109cf34e6fca4099ce71096cecc8ba03c72995cce8de15a0b730"
   },
   "generated_sha256": {
-    "cuda": "1e3dd3ce073dc1cca2cb8fa4f88d2151f4cb0ded382eb515550ad2eae7338b6b",
-    "metal": "79ecb9ecda90b5a1d39c3031ab995faf980b085161f83b2c120976930786d897"
+    "cuda": "13908df91c51860b2b2e4db139256827c423606569fc352db60d16b24eea2acb",
+    "metal": "7031f2c22926670ba296cce5e648fbedc65475e7893e9648ba82ac9829702e04"
   },
   "input_sha256": "b9a0c9aa47eb77294f0b0b52a015e3ae656d3fed3eb70fdcf1c5cbca19647341",
   "output_sha256": "397260aa786ca41e46d897e292cf15f060e24061b8d523a3cc56a2f3c65eaaf9",

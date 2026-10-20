@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "inputs": 4682,
+  "all_input_bytes_equal": true,
+  "input_sha256": "3e27031e3a5f2d3da03c48cba7bc5b785ad8d3af71d5511a141530f1a6d434e0",
+  "reference": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-core-20261020T162035004004Z/input.bin",
+  "source_commit": "15bcbfe9ecf7484f0b53afdf2feec7e85c97b6ad",
+  "gpu_executions": 0,
+  "scope": "Default host packing unchanged by world-only trigger/namespace options;no GPU execution or decoded-result claim"
+}

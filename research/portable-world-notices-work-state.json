@@ -1,0 +1,25 @@
+{
+  "stage": "Isolated world notices and initial-zero fix scoped Metal verified;root global52 still running",
+  "source_commit": "15bcbfe9ecf7484f0b53afdf2feec7e85c97b6ad",
+  "validation": "research/portable-world-notices-validation.json",
+  "worktree": "/Users/edo/.codex/worktrees/world-notices/nikke_tools",
+  "root_worktree": "/Users/edo/Documents/ChatGPT/nikke_tools",
+  "root_live_session": 57266,
+  "root_source_commit": "4c07f45356b561bdc64725b3e691731526ee04f2",
+  "all_isolated_gpu_jobs_terminal": true,
+  "root_compute_source_must_remain_frozen": true,
+  "do_not_archive_before_preserving_ignored_raw": true,
+  "windows_request_pending": false,
+  "cuda_verified": false,
+  "efficiency_started": false,
+  "normal_ui": "CPU",
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "next": [
+    "Wait for authoritative root global52 completion without editing root source",
+    "Integrate isolated commits only after root job terminal;preserve raw captures before any worktree cleanup",
+    "Prepare a shared single-session world test bundle for necessary short CUDA verification",
+    "Continue overlays,world actors,DoT/control/revive and full character variants"
+  ],
+  "updated_at": "2026-10-20T16:46:33.281051+00:00"
+}
