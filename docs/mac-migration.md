@@ -1,5 +1,11 @@
 # MacBookへの開発環境の移行
 
+## 2026-10-21 CUDA／Metal146の全出力一致
+
+固定6c8aaa5の共通overlay・shield／vanish・敵バフ解除146入力は、Windows CUDAとMac Metalの全入力・全出力byte、完全native／actual辞書、計算ソース、生成コードのfingerprintが一致しました。WindowsはCPU故障注入5件・Job Object子孫終了と、GPU呼び出しを禁止した全146入力生成／SHA照合後、BelowNormal・180秒上限のGPU実行1回で70.930秒、exit0でした。NVRTC・launch・同期・readbackの戻り値0を実測50イベントで確認しました。通常4682の再実行・GPU再試行は0、元作業・サービス保持、残存プロセス0です。
+
+3つの結果JSON計73,073バイトを既存接続で取得し、個々のbytes／SHAと固定Git blob、CPU事前検査、全146fingerprintをMacで再監査しました。rawと巨大詳細は各PCに保持します。証拠は `research/portable-world-v81-cuda-validation.json`、`research/windows-portable-world-v81-summary.json`、`research/portable-cross-v81-receipt.json`。通常受付CPU・全変種認証0/203を維持し、次はskill_damage武器変更モードへ進みます。以下は段階ごとの履歴です。
+
 ## 2026-10-21 Metal146・敵バフ解除の整数境界
 
 実験ABI75で防御・core・move・敵効果、shield／vanishの着弾とゲージ、休止・reload・MG冷却、敵バフ解除を共通本体へ接続しました。Metalの146入力で、元の完全simulate70件、raw拒否27件、旧world49全出力が一致しています。敵解除の初回は整数直前の2条件で丸め指定の誤りを検出し、rawを保存してゼロ方向切り捨てへ修正しました。既存35ケースの全出力byteとnative辞書、通常CUDA／MSL生成コード、旧native17辞書、共通portable単体293件も維持しています。

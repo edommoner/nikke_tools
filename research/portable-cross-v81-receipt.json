@@ -1,0 +1,445 @@
+{
+  "source_commit": "6c8aaa5a10e9baf86397675f18c3651977775c2c",
+  "passed": true,
+  "cpu_preflight": {
+    "source_commit": "6c8aaa5a10e9baf86397675f18c3651977775c2c",
+    "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
+    "original_status_before": [],
+    "existing_gpu_service_preserved": true,
+    "environment": {
+      "PYTHONPATH": "C:/Users/owner/Documents/Codex/nikke-cuda-world-6c8aaa5/app;C:/Users/owner/Documents/Codex/nikke-cuda-world-6c8aaa5/scripts;C:/Users/owner/Documents/Codex/nikke-cuda-world-6c8aaa5/research;C:/Users/owner/Documents/Codex/nikke-cuda-world-6c8aaa5/research/upstream/nikke-calc-master",
+      "TEMP": "C:/Users/owner/Documents/Codex/nikke-cuda-world-6c8aaa5/research/portable-build/v81-cpu-temp",
+      "TMP": "C:/Users/owner/Documents/Codex/nikke-cuda-world-6c8aaa5/research/portable-build/v81-cpu-temp",
+      "PYTHONUTF8": "1",
+      "PYTHONIOENCODING": "utf-8",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "trace_is_none": true,
+    "profile_is_none": true,
+    "sitecustomize_loaded": false,
+    "cpu_tests": {
+      "exit_code": 0,
+      "elapsed_seconds": 1.6097396998666227,
+      "stdout": "",
+      "stderr": "test_containment_failure_never_releases_gpu_gate (test_portable_phase_audit.AuditTests.test_containment_failure_never_releases_gpu_gate) ... ok\ntest_exception_keeps_last_actual_stage_and_observer_restores_backend (test_portable_phase_audit.AuditTests.test_exception_keeps_last_actual_stage_and_observer_restores_backend) ... ok\ntest_native_proxy_preserves_signature_arguments_result_and_failed_launch (test_portable_phase_audit.AuditTests.test_native_proxy_preserves_signature_arguments_result_and_failed_launch) ... ok\ntest_successful_launch_alone_does_not_prove_sync_or_readback (test_portable_phase_audit.AuditTests.test_successful_launch_alone_does_not_prove_sync_or_readback) ... ok\ntest_timeout_preserves_phase_and_elapsed_and_terminates_descendants (test_portable_phase_audit.AuditTests.test_timeout_preserves_phase_and_elapsed_and_terminates_descendants) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 1.091s\n\nOK\n"
+    },
+    "passed": true,
+    "case_counts": [
+      9,
+      26,
+      35
+    ],
+    "rejections": 27,
+    "prior_inputs": 49,
+    "total_inputs": 146,
+    "input_bytes": 52195588,
+    "input_sha256": "67815d4ebf24029b44c0b58dc4bd25b7e0b94b3ab3a5999a0457fd52dd097ad4",
+    "expected_input_sha256": "67815d4ebf24029b44c0b58dc4bd25b7e0b94b3ab3a5999a0457fd52dd097ad4",
+    "input_equal": true,
+    "gpu_sentinel_calls": [],
+    "gpu_sentinel_call_count": 0,
+    "cpu_only": true,
+    "job_object_descendants_verified": true,
+    "source_unchanged": true
+  },
+  "original_head_equal": true,
+  "original_status_equal": true,
+  "existing_gpu_service_preserved": true,
+  "residual_verification_process_count": 0,
+  "actual_gpu_execution_count": 1,
+  "normal4682_execution_count": 0,
+  "gpu_retry_count": 0,
+  "manifest": {
+    "source_commit": "6c8aaa5a10e9baf86397675f18c3651977775c2c",
+    "backend": "cuda",
+    "inputs": 146,
+    "files": {
+      "research/run-world-overlay-bounded.py": "b63955e3e0d17a00f7c41f27f7c06f463746ac89866e0c49b91d4f17a1bff31d",
+      "research/run-world-bounded.py": "f0ba2e20e1200d7a2875df5c9e9b5be218a36808241ff1e93ba5d0fa4a9a62fc",
+      "research/portable_phase_audit.py": "20876dc410217473aa5a7cd9ad27368c41fcb2a9254b396ea1c53feaf205a727",
+      "research/verify-world-overlay-body.py": "2e08fa9761e7c4f262e4446dbf61a3c6b74254135daa6393b9d9d936cbea8bfa",
+      "research/summarize-world-overlay.py": "f6867d2c195419a7e73fc8c0e960375d8eaeb87bcf943cfe9fe179001f6b2a41",
+      "research/portable-world-cleanse-expected.json": "1e566996f6f5d3742955334bb71c5832e7e51f65221d16ca79bf67c6ff0f1bd2"
+    },
+    "normal4682_repeated": false
+  },
+  "phase_rows": [
+    {
+      "monotonic_ns": 2350568421000000,
+      "pid": 97828,
+      "stage": "shared_world_overlay_suite",
+      "state": "entered",
+      "wall_time_ns": 1792521143633369500
+    },
+    {
+      "monotonic_ns": 2350571421000000,
+      "pid": 97828,
+      "stage": "slang_build",
+      "state": "entered",
+      "wall_time_ns": 1792521146627812300
+    },
+    {
+      "monotonic_ns": 2350575484000000,
+      "pid": 97828,
+      "stage": "slang_build",
+      "state": "returned",
+      "wall_time_ns": 1792521150694441900
+    },
+    {
+      "monotonic_ns": 2350575546000000,
+      "pid": 97828,
+      "stage": "nvrtcCreateProgram",
+      "state": "entered",
+      "wall_time_ns": 1792521150749590100
+    },
+    {
+      "monotonic_ns": 2350575546000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "nvrtcCreateProgram",
+      "state": "returned",
+      "wall_time_ns": 1792521150752608700
+    },
+    {
+      "monotonic_ns": 2350575546000000,
+      "pid": 97828,
+      "stage": "nvrtcCompileProgram",
+      "state": "entered",
+      "wall_time_ns": 1792521150754117700
+    },
+    {
+      "monotonic_ns": 2350587375000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "nvrtcCompileProgram",
+      "state": "returned",
+      "wall_time_ns": 1792521162587406400
+    },
+    {
+      "monotonic_ns": 2350587375000000,
+      "pid": 97828,
+      "stage": "nvrtcGetProgramLogSize",
+      "state": "entered",
+      "wall_time_ns": 1792521162588407000
+    },
+    {
+      "monotonic_ns": 2350587375000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "nvrtcGetProgramLogSize",
+      "state": "returned",
+      "wall_time_ns": 1792521162588407000
+    },
+    {
+      "monotonic_ns": 2350587390000000,
+      "pid": 97828,
+      "stage": "nvrtcGetProgramLog",
+      "state": "entered",
+      "wall_time_ns": 1792521162589912000
+    },
+    {
+      "monotonic_ns": 2350587390000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "nvrtcGetProgramLog",
+      "state": "returned",
+      "wall_time_ns": 1792521162589912000
+    },
+    {
+      "monotonic_ns": 2350587390000000,
+      "pid": 97828,
+      "stage": "nvrtcGetPTXSize",
+      "state": "entered",
+      "wall_time_ns": 1792521162591430800
+    },
+    {
+      "monotonic_ns": 2350587390000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "nvrtcGetPTXSize",
+      "state": "returned",
+      "wall_time_ns": 1792521162591940200
+    },
+    {
+      "monotonic_ns": 2350587390000000,
+      "pid": 97828,
+      "stage": "nvrtcGetPTX",
+      "state": "entered",
+      "wall_time_ns": 1792521162593295200
+    },
+    {
+      "monotonic_ns": 2350587390000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "nvrtcGetPTX",
+      "state": "returned",
+      "wall_time_ns": 1792521162593295200
+    },
+    {
+      "monotonic_ns": 2350587390000000,
+      "pid": 97828,
+      "stage": "nvrtcDestroyProgram",
+      "state": "entered",
+      "wall_time_ns": 1792521162595877500
+    },
+    {
+      "monotonic_ns": 2350587390000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "nvrtcDestroyProgram",
+      "state": "returned",
+      "wall_time_ns": 1792521162597404600
+    },
+    {
+      "monotonic_ns": 2350587390000000,
+      "pid": 97828,
+      "stage": "cuInit",
+      "state": "entered",
+      "wall_time_ns": 1792521162601539900
+    },
+    {
+      "monotonic_ns": 2350587421000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "cuInit",
+      "state": "returned",
+      "wall_time_ns": 1792521162632345000
+    },
+    {
+      "monotonic_ns": 2350587421000000,
+      "pid": 97828,
+      "stage": "cuDeviceGet",
+      "state": "entered",
+      "wall_time_ns": 1792521162632847600
+    },
+    {
+      "monotonic_ns": 2350587421000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "cuDeviceGet",
+      "state": "returned",
+      "wall_time_ns": 1792521162633851800
+    },
+    {
+      "monotonic_ns": 2350587421000000,
+      "pid": 97828,
+      "stage": "cuDeviceGetName",
+      "state": "entered",
+      "wall_time_ns": 1792521162634354700
+    },
+    {
+      "monotonic_ns": 2350587421000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "cuDeviceGetName",
+      "state": "returned",
+      "wall_time_ns": 1792521162635860700
+    },
+    {
+      "monotonic_ns": 2350587421000000,
+      "pid": 97828,
+      "stage": "cuCtxCreate_v2",
+      "state": "entered",
+      "wall_time_ns": 1792521162636372600
+    },
+    {
+      "monotonic_ns": 2350587515000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "cuCtxCreate_v2",
+      "state": "returned",
+      "wall_time_ns": 1792521162716451400
+    },
+    {
+      "monotonic_ns": 2350587515000000,
+      "pid": 97828,
+      "stage": "cuModuleLoadData",
+      "state": "entered",
+      "wall_time_ns": 1792521162717990600
+    },
+    {
+      "monotonic_ns": 2350628031000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "cuModuleLoadData",
+      "state": "returned",
+      "wall_time_ns": 1792521203230375300
+    },
+    {
+      "monotonic_ns": 2350628031000000,
+      "pid": 97828,
+      "stage": "cuModuleGetFunction",
+      "state": "entered",
+      "wall_time_ns": 1792521203231884000
+    },
+    {
+      "monotonic_ns": 2350628031000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "cuModuleGetFunction",
+      "state": "returned",
+      "wall_time_ns": 1792521203233391700
+    },
+    {
+      "monotonic_ns": 2350628031000000,
+      "pid": 97828,
+      "stage": "cuMemAlloc_v2",
+      "state": "entered",
+      "wall_time_ns": 1792521203234900000
+    },
+    {
+      "monotonic_ns": 2350628031000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "cuMemAlloc_v2",
+      "state": "returned",
+      "wall_time_ns": 1792521203234900000
+    },
+    {
+      "monotonic_ns": 2350628031000000,
+      "pid": 97828,
+      "stage": "cuMemAlloc_v2",
+      "state": "entered",
+      "wall_time_ns": 1792521203236410000
+    },
+    {
+      "monotonic_ns": 2350628031000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "cuMemAlloc_v2",
+      "state": "returned",
+      "wall_time_ns": 1792521203236926800
+    },
+    {
+      "monotonic_ns": 2350628031000000,
+      "pid": 97828,
+      "stage": "cuModuleGetGlobal_v2",
+      "state": "entered",
+      "wall_time_ns": 1792521203238465600
+    },
+    {
+      "monotonic_ns": 2350628031000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "cuModuleGetGlobal_v2",
+      "state": "returned",
+      "wall_time_ns": 1792521203239193200
+    },
+    {
+      "monotonic_ns": 2350628031000000,
+      "pid": 97828,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "entered",
+      "wall_time_ns": 1792521203239702400
+    },
+    {
+      "monotonic_ns": 2350628046000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "returned",
+      "wall_time_ns": 1792521203246141300
+    },
+    {
+      "monotonic_ns": 2350628062000000,
+      "pid": 97828,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "entered",
+      "wall_time_ns": 1792521203270268300
+    },
+    {
+      "monotonic_ns": 2350628078000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "returned",
+      "wall_time_ns": 1792521203281963300
+    },
+    {
+      "monotonic_ns": 2350628078000000,
+      "pid": 97828,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "entered",
+      "wall_time_ns": 1792521203282490400
+    },
+    {
+      "monotonic_ns": 2350628078000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "returned",
+      "wall_time_ns": 1792521203283996600
+    },
+    {
+      "monotonic_ns": 2350628078000000,
+      "pid": 97828,
+      "stage": "cuLaunchKernel",
+      "state": "entered",
+      "wall_time_ns": 1792521203285090500
+    },
+    {
+      "monotonic_ns": 2350628093000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "cuLaunchKernel",
+      "state": "returned",
+      "wall_time_ns": 1792521203301248100
+    },
+    {
+      "monotonic_ns": 2350628093000000,
+      "pid": 97828,
+      "stage": "cuCtxSynchronize",
+      "state": "entered",
+      "wall_time_ns": 1792521203303764700
+    },
+    {
+      "monotonic_ns": 2350635734000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "cuCtxSynchronize",
+      "state": "returned",
+      "wall_time_ns": 1792521210940173900
+    },
+    {
+      "monotonic_ns": 2350635765000000,
+      "pid": 97828,
+      "stage": "cuMemcpyDtoH_v2",
+      "state": "entered",
+      "wall_time_ns": 1792521210970622500
+    },
+    {
+      "monotonic_ns": 2350635781000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "cuMemcpyDtoH_v2",
+      "state": "returned",
+      "wall_time_ns": 1792521210984129300
+    },
+    {
+      "monotonic_ns": 2350635812000000,
+      "pid": 97828,
+      "stage": "cuCtxDestroy_v2",
+      "state": "entered",
+      "wall_time_ns": 1792521211012394100
+    },
+    {
+      "monotonic_ns": 2350636828000000,
+      "pid": 97828,
+      "return_code": 0,
+      "stage": "cuCtxDestroy_v2",
+      "state": "returned",
+      "wall_time_ns": 1792521212030047600
+    },
+    {
+      "monotonic_ns": 2350638015000000,
+      "pid": 97828,
+      "stage": "shared_world_overlay_suite",
+      "state": "returned",
+      "wall_time_ns": 1792521213221033100
+    }
+  ],
+  "stdout": "70 world overlay body cases match complete native simulate; 27 raw descriptors rejected;49 old outputs preserved cuda\nExact world overlay fingerprints: 146 passed\n",
+  "stderr": "",
+  "capture_directory": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-world-6c8aaa5\\research\\portable-build\\v81-cuda-once",
+  "full_report_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-world-6c8aaa5\\research\\portable-world-overlay-cleanse-cuda.json"
+}
