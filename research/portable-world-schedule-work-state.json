@@ -1,0 +1,32 @@
+{
+  "stage": "Shared graph scheduler foundation passes Metal;canonical frame/attack/world hookup remains pending",
+  "fixed_component_source_commit": "5d4994f56a209d138886eabfa51060752030a5cb",
+  "last_complete_canonical_source_commit": "73570451569dce424667e37f4729e475ea6b0a86",
+  "last_complete_canonical_proof_commit": "be5c956556350cacaace5cc085b5f8da9f8bb099",
+  "validation": "research/portable-world-schedule-foundation-validation.json",
+  "component_only": true,
+  "canonical_world_admission": false,
+  "windows_used": false,
+  "efficiency_started": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "normal_ui": "CPU",
+  "remaining": [
+    "Connect graph begin before tick and initial battle_start;apply world overlays and pattern-bound effect release/application before tick",
+    "After tick,deliver queued pattern events in squad order,then direct attacks/debuffs,before ally landing/burst/weapons;select victims only at actual attack dispatch after sourceTime/HP sync",
+    "Refactor common incoming hit access into descriptor/damage/rule/trace-address helpers so scheduled attacks reuse selection/protection/split/HP/down/notifications without CPU command32 schedules",
+    "Derive cleared state from GPU actors/HP/generations;authored clear masks remain isolated test stimuli",
+    "Implement remaining world overlay,effect/debuff/DoT,parts/interrupt/summon attack/self-destruct,coordinate,manual control and revive lifecycles without silently dropping unsupported kinds",
+    "Preserve old4682 full input/output words and decoded/native groups;freeze canonical source,run appropriate full Metal suites/roster/API,then one necessary short CUDA check and exact artifact transfer comparison",
+    "Evaluate new common processing efficiency only after all necessary verification,transfer and jobs terminate"
+  ],
+  "integration_design_notes": [
+    "WorldSchedule owns only pointer/count/error scalars;state and history use output scratch,not private Runtime arrays",
+    "Scheduler records when to issue attacks before tick;victim selection must stay after tick at shared incoming dispatch. Do not freeze victims at graph-begin time.",
+    "Keep original command32 behavior and trace layout byte-exact. New descriptor entry must validate damage/pierce/victim rules and use separate bounded dynamic output addresses so periodic attacks cannot alias command records.",
+    "Current transport maxima are input131072/output262144 words. Existing canonical strides86016/159744 plus component2320/65536 leave room for a bounded trace;design recipient/split trace allocation explicitly,not patternID multiplied into old64-command arrays.",
+    "Initial native BossScript.begin_frame(0) precedes battle_start and loop begin_frame(0);initial events/attacks carry into post-tick delivery.",
+    "Prototype full-frame coupling in an isolated common-source copy first;avoid modifying verified canonical runtime until raw readback and native comparisons establish ordering."
+  ],
+  "unresolved_old_metal_finding_open": true
+}
