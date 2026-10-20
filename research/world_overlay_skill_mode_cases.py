@@ -25,5 +25,9 @@ def fixtures():
   c=add('one-shot-exit-before-landing-'+kind,vanish() if kind=='vanish' else shield());c['effects'][0]['duration_bullets']=1
   c=add('pellets-muzzles-'+kind,vanish() if kind=='vanish' else shield());c['effects'][0].update(pellets=3,muzzles=2)
   c=add('charge-'+kind,vanish() if kind=='vanish' else shield());c['duration']=1.2;c['effects'][0].update(weapon_type='SR',charge=True,charge_time=.2,full_charge_mult=300,post_fire_delay=.2,fire_rate=5,fire_rate_max=5)
+ for skill in (False,True):
+  c=add('muzzles-only-vanish-'+str(skill),vanish(),skill);c['effects'][0].update(pellets=1,muzzles=2)
+ c=add('normal-charge-camera-vanish',vanish(),False);c['duration']=1.2;c['effects'][0].update(weapon_type='SR',charge=True,charge_time=.2,full_charge_mult=300,post_fire_delay=.2,fire_rate=5,fire_rate_max=5)
+ c=add('skill-charge-unobserved-vanish',vanish());c['duration']=1.2;c['camera']=[];c['camera_mode']='single';c['effects'][0].update(weapon_type='SR',charge=True,charge_time=.2,full_charge_mult=300,post_fire_delay=.2,fire_rate=5,fire_rate_max=5)
  c=add('vanish-unobserved-auto-still-pauses',vanish());c['camera']=[];c['camera_mode']='single'
  return rows

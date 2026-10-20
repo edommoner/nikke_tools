@@ -117,7 +117,7 @@ void selectWeapon(inout Runtime s,uint who,uint64_t when,out Weapon w)
         w.rawRate = 1; uint timing = s.inputBase+P_MODE_TIMING_BASE+uint(index)*P_MODE_TIMING_WORDS;
         w.rateMin = loadNumber(timing); w.rateMax = loadNumber(timing+2); w.warmLimit = loadNumber(timing+4); w.coolTime = loadNumber(timing+6);
     }
-    if (w.pellets == 0 || w.pellets > 64 || w.muzzles == 0 || w.muzzles > 8) { s.error = 64; return; }
+    WORLD_MODE_GAUGE(s,w,who,index) if (w.pellets == 0 || w.pellets > 64 || w.muzzles == 0 || w.muzzles > 8) { s.error = 64; return; }
     if (index < 0 && s.physicalModeIndex[who] == -2)
     {
         s.physicalModeIndex[who] = -1;
@@ -319,7 +319,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     if (last && w.mode != 1) dispatch(s,0,21,who,0,when,output);
     if (w.mode != 1) advanceWarmup(s,w,who,when,shotInterval);
     if (w.mode != 1 && w.infinite == 0) { if (!changedWeaponSession(s,who,epoch,mode)) s.ammo[who]--; dispatch(s,0,26,who,0,when,output); }
-    WORLD_SAMPLE_SHOT_KIND(s,who,mode) uint64_t coefficient = mode >= 0 && modeShots == 0 && !f64Less(w.firstCoefficient,0) ? w.firstCoefficient : w.coefficient;
+    WORLD_SAMPLE_SHOT_KIND(s,who,mode,w.pellets*w.muzzles) uint64_t coefficient = mode >= 0 && modeShots == 0 && !f64Less(w.firstCoefficient,0) ? w.firstCoefficient : w.coefficient;
     uint64_t amount = damageValue(s,who,f64Div(coefficient,f64FromI64(w.pellets)),when,WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode == 1 ? H_CHARGE | ((s.attackContext[who] & 4) != 0 ? H_EXPLOSION : 0) : 0)),w.fullChargeMult,w.optimal != 0,true);
     if (s.error != 0) return;
     uint count = w.pellets*w.muzzles;

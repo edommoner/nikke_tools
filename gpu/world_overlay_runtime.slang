@@ -206,11 +206,11 @@ void worldDispel(inout Runtime s,uint row,uint scope,uint64_t when)
 
 // Snapshot the physical packet category before callbacks can clear/switch modes.
 bool worldPhysicalSkill(inout Runtime s,uint who)
-{ return results[s.resourceOutput+WO_OUT+288+who*8+7]!=0; }
-void worldSampleShotKind(inout Runtime s,uint who,int mode)
+{ return (results[s.resourceOutput+WO_OUT+288+who*8+7]&1)!=0; }
+void worldSampleShotKind(inout Runtime s,uint who,int mode,uint hitCount)
 {
     uint flag=mode<0 ? 0 : commands[s.inputBase+P_MODE_BASE+uint(mode)*P_MODE_WORDS+31];
-    results[s.resourceOutput+WO_OUT+288+who*8+7]=flag;
+    results[s.resourceOutput+WO_OUT+288+who*8+7]=flag!=0 ? 1U | (hitCount>1 ? 2U : 0U) : 0U;
 }
 bool worldModePolicyInvalid(inout Runtime s,uint policy)
 { return policy>1 || policy!=0 && !worldOverlayEnabled(s); }
@@ -219,3 +219,8 @@ bool worldPhysicalGauge(inout Runtime s)
     uint who=s.physicalGaugeOwner;
     return who>0 && who<=5 && worldPhysicalSkill(s,who-1) ? worldSkillGauge(s,who-1) : !worldVanish(s);
 }
+
+// Preserve native _is_normal: named pellet/core:pellet packets retain the
+// normal landing category,independently from their skill formula and gauge.
+bool worldPhysicalNormal(inout Runtime s,uint who)
+{ uint flags=results[s.resourceOutput+WO_OUT+288+who*8+7];return (flags&1)==0 || (flags&2)!=0; }
