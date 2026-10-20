@@ -19956,9 +19956,9 @@
     }
   ],
   "validation_sha256": {
-    "gpu/event_runtime.slang": "0a0148c8c2108a56692f4281a92a92aafc5104ac9b9d12247e08d3d02cbbbb26",
+    "gpu/event_runtime.slang": "b2b2afeb055be9b6dce6103dedb6395514c6f8ad135b18e799a7576469c24f7d",
     "gpu/admission_runtime.slang": "06a609cf2707955d8c186b2e3e28ae5cfaefd716782606698aefd54fa3e9d44e",
-    "app/portable_specs.py": "3854ebc9d0f7c67845ad8bb7fab33fc9a8b8eaddbb13ffa059e2b2aa887c14b6",
+    "app/portable_specs.py": "6540c152be54ccdfe7f75f87463f23106c498a47045d536f0060efb567095864",
     "app/portable_code_specs.py": "b53cd9cee83bf1cf6442c72db6a1fd65cc4408f2471c9fd504de54cb42cd86ab",
     "app/portable_trigger_specs.py": "cb51cde60865323c4f077687d8d2c8b8fac7d9572945ed0cf8f6f64034876b77",
     "app/portable_runtime.py": "91b80a5a83860d42e1b8998c2360e783fa87c0b905122cb5293755b36ad530b0",

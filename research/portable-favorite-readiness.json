@@ -27628,7 +27628,7 @@
   ],
   "source_sha256": {
     "research/audit-portable-favorites.py": "e2e9a7d747f966b8805f29ad0307e5d8a5c376c1550614d3994b288a0216835b",
-    "research/portable-catalog-readiness.json": "2a06acc4340b5f64038f466bf10416612c7d055cf33706880532b9aae81b036b",
+    "research/portable-catalog-readiness.json": "4754ebb6cb8bbaf3d2bf9998fd06e87442b378f93b53e8b6972ec1088c044dd7",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
     "app/portable_runtime.py": "91b80a5a83860d42e1b8998c2360e783fa87c0b905122cb5293755b36ad530b0",
     "app/portable_roster_input.py": "cf569da9faababe07f9c1c16111da2f64936d5da562b123ea0ed67b7847bd024",

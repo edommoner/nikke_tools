@@ -7706,7 +7706,7 @@
   "validation_sha256": {
     "app/portable_runtime.py": "91b80a5a83860d42e1b8998c2360e783fa87c0b905122cb5293755b36ad530b0",
     "app/portable_recipient_specs.py": "6bd29a3e5bab623bdd3a49706395864fe9bdf0fb9e1e78dd2060487d75f9d8fd",
-    "app/portable_specs.py": "3854ebc9d0f7c67845ad8bb7fab33fc9a8b8eaddbb13ffa059e2b2aa887c14b6",
+    "app/portable_specs.py": "6540c152be54ccdfe7f75f87463f23106c498a47045d536f0060efb567095864",
     "scripts/portable_instant_list_oracle.py": "942fe66cbfe2b0e8f53600922f6c42f68651d1dee9a0c05c026ecff43d316296",
     "tests/fixtures/portable-instant-lists.json": "9347dd203f8938d7fd571d23d05c989ef819a23e736d68a8b0cc5b219c658ac0",
     "research/verify-instant-lists.py": "67113254ed6393df671b1f816770546dd6b33774aa8c06340805c9e9848b4d84"
