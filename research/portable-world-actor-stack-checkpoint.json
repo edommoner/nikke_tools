@@ -13,7 +13,7 @@
   "gpu_retries": 0,
   "new_cuda_inputs": 61,
   "new_cuda_native_oracles": 53,
-  "windows_status": "not_dispatched_yet",
+  "windows_status": "requested61_after_cpu13",
   "normal_ui": "CPU",
   "canonical_world_admission": false,
   "full_character_verified": 0,
@@ -29,5 +29,6 @@
     "Hit-only max-HP rank native TypeError",
     "Capacity/long simulations/full203 certification",
     "Efficiency after required validation"
-  ]
+  ],
+  "cuda_source": "a106e1e69de91888abe3c175029f13028a616e1c"
 }
