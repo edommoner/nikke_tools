@@ -20,6 +20,10 @@
 
 証拠は`research/portable-world-schedule-metal.json`、元CPUだけの観測は`research/portable-world-schedule-native.json`。入力契約の単体4件でCPUスケジューラーの非実行、未使用領域、未接続の召喚攻撃の拒否、容量・時計の拒否を確認します。
 
+## 直接攻撃のフレーム接続を別コピーで確認
+
+その後、同じ共通部品を既存のevent／combat／protection／target実行器へ接続し、20成功条件・2容量拒否、旧4682入力の全出力保持・新25不正入力をMetalで確認しました。パターン開始／終了通知・world payloadの接続は続行中です。[接続順と証拠](portable-world-frame-design.md)を参照してください。以下の次の作業は、この直接攻撃の実証前に記した設計です。
+
 ## 本体へ接続する次の作業
 
 この部品のcleared maskは、部品検証用に手で与えた刺激です。本体ではGPUの部位・追加敵のHP／世代から求める必要があり、CPUが判定した破壊結果を渡す代替にしません。ここで検査した各kindは遷移規則の証拠で、overlay・状態効果・座標・召喚体の実戦動作の証明ではありません。召喚体ごとの射撃・自爆はホストの部品入力でも拒否します。
