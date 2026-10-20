@@ -14982,11 +14982,11 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.005685250042006373,
+    "gpu_seconds": 0.0052096666768193245,
     "input_bytes": 5505028,
-    "library_compile_seconds": 0.0009970664978027344,
+    "library_compile_seconds": 0.0010129213333129883,
     "output_bytes": 10223616,
-    "pipeline_compile_seconds": 0.0010900497436523438,
+    "pipeline_compile_seconds": 0.0010819435119628906,
     "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
@@ -14995,7 +14995,7 @@
     "gpu_timeout_seconds": 120
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "ed400ff51d49e253b2a03a419dcdde5d5a8a8a11a1927bdf11641e8186daa662",
+    "gpu/event_runtime.slang": "d11e2c0acfbc2f8f05f4e270c1b422a65606a51dab874d7ca85e61b364f12452",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/portable_schema.slang": "0784e46590ac095845c2c28f47e2b3018b485c695de6e63342a78f5b6d62a158",
@@ -15042,8 +15042,8 @@
     "gpu/admission_runtime.slang": "80024c2d33984fb6a51e9c62c1e6844a10c8d049138683a13f213269d85bf573"
   },
   "generated_sha256": {
-    "cuda": "8802c6e681380cd595fdcab2a6d49b5158d8b485bfb0e0292b9d824ac8076796",
-    "metal": "ad3528633fb49c807b44db15e6c63ef58b3ac6d9256524eb85a4323480f02235"
+    "cuda": "5e4b4469b8ea95606e06998ba741cd685bf0413e726b6a9cf181d9a596c9eae5",
+    "metal": "1690006e0b3edbdde7759dfac8b5f4e7ea03c614bd1ca3db1cd1f9fbf923f53b"
   },
   "input_sha256": "f6eb0836f0e08712ec1ba1466d9e35dd52140e572b5874a08e7621a6f335fa08",
   "output_sha256": "bdad5f9fa6e1a9d8a168f1b6c4764d6d6f6e8aa9f35de84ed7bfd4fc81c32a45",
@@ -30206,11 +30206,11 @@
       "command_status": "completed",
       "configured_max_threads_per_threadgroup": 1,
       "device": "Apple M5",
-      "gpu_seconds": 0.002323083346709609,
+      "gpu_seconds": 0.0011036249343305826,
       "input_bytes": 688132,
-      "library_compile_seconds": 0.0010210275650024414,
+      "library_compile_seconds": 0.0010050535202026367,
       "output_bytes": 1277952,
-      "pipeline_compile_seconds": 0.0010709762573242188,
+      "pipeline_compile_seconds": 0.0010390281677246094,
       "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
       "pipeline_max_threads_per_threadgroup": 1,
       "registry_id": "4294968313",
@@ -30219,7 +30219,7 @@
       "gpu_timeout_seconds": 120
     },
     "source_sha256": {
-      "gpu/event_runtime.slang": "ed400ff51d49e253b2a03a419dcdde5d5a8a8a11a1927bdf11641e8186daa662",
+      "gpu/event_runtime.slang": "d11e2c0acfbc2f8f05f4e270c1b422a65606a51dab874d7ca85e61b364f12452",
       "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
       "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
       "gpu/portable_schema.slang": "0784e46590ac095845c2c28f47e2b3018b485c695de6e63342a78f5b6d62a158",
@@ -30266,8 +30266,8 @@
       "gpu/admission_runtime.slang": "80024c2d33984fb6a51e9c62c1e6844a10c8d049138683a13f213269d85bf573"
     },
     "generated_sha256": {
-      "cuda": "8802c6e681380cd595fdcab2a6d49b5158d8b485bfb0e0292b9d824ac8076796",
-      "metal": "ad3528633fb49c807b44db15e6c63ef58b3ac6d9256524eb85a4323480f02235"
+      "cuda": "5e4b4469b8ea95606e06998ba741cd685bf0413e726b6a9cf181d9a596c9eae5",
+      "metal": "1690006e0b3edbdde7759dfac8b5f4e7ea03c614bd1ca3db1cd1f9fbf923f53b"
     },
     "input_sha256": "114c1368fea3c89f13c32480b61ce1adf1b769d56ce7b3468ada82423edd4736",
     "output_sha256": "52620f942fc397f684905cd9c68f4a91370f075022e76348c9046852165991a5",

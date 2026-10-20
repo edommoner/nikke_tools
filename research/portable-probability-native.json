@@ -144447,6 +144447,6 @@
     "app/portable_runtime.py": "2c10e4a610569958183566f7385ad0b07a81f154ce5c36edea3ce2c73cb98c2c",
     "scripts/portable_probability_oracle.py": "be3fd68b11ed61085248e71a385bb09b1b66777b78270aeb5b275a7b6ddb9892",
     "tests/fixtures/portable-probability.json": "5a93f6ac3f1658cbdb29c4b282067efa40c3d5d0eae2796d22872dc799718eae",
-    "research/verify-probability.py": "8f36bc84da95b7e471e14d2e635b8415069e984e4a34573137d3de8a20f02254"
+    "research/verify-probability.py": "d248eb66dc367f69b96fc213c48f50bb57f5dff3ef121df8c89452c7cf54f5fe"
   }
 }

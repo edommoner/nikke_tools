@@ -1,8 +1,8 @@
 {
   "wire_abi": "0x5045566C",
-  "verified_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+  "verified_commit": "2b89babe0bd6ffa16c9b8b315de3137e7da669c8",
   "previous_checkpoint": {
-    "proof_commit": "f2206ef4a32fb89ad9c4f2381bb9dbfa5ec711d1",
+    "proof_commit": "988858f853594e2a0770640fa21bbd94d7c08cc0",
     "report": "Git baseline portable-combat-checkpoint.json"
   },
   "positive_cases": 1940,
@@ -14,13 +14,13 @@
   "cuda_verified": true,
   "metal_report": "portable-combat-metal.json",
   "cuda_report": "portable-combat-cuda.json",
-  "windows_report": "windows-portable-probability-v67.json",
+  "windows_report": "windows-portable-probability-v68.json",
   "windows_execution": {
-    "command": "python research/verify-probability-regression.py --backend cuda --batch-size 1024",
-    "commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+    "command": "python research/verify-probability-optimized.py --backend cuda --batch-size 1024",
+    "commit": "2b89babe0bd6ffa16c9b8b315de3137e7da669c8",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "30, 4082",
+    "gpu_before": "10, 4007",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -38,8 +38,8 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 90.38449299987406,
-    "stdout": "{\"passed\": true, \"cases\": 1940, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\nAll2182 prior input bytes,output words,decoded cases and native groups preserved\n",
+    "elapsed_seconds": 99.70501390006393,
+    "stdout": "{\"passed\": true, \"cases\": 1940, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\nAll2182 prior input bytes,output words,decoded cases and native groups preserved\nMeasured helper preserves all2280 baseline inputs/output words,decoded cases and native groups\n",
     "stderr": ""
   },
   "windows_postcheck": {
@@ -51,25 +51,21 @@
   },
   "windows_checks_this_stage": {
     "gpu_executions": 1,
-    "pre_gpu_setup_failures": 1,
     "additional_transfer_gpu_runs": 0
   },
   "source_provenance": {
-    "fixed_shared_source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
-    "metal_core_source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
-    "windows_source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
-    "previous_proof_commit": "f2206ef4a32fb89ad9c4f2381bb9dbfa5ec711d1"
+    "fixed_shared_source_commit": "2b89babe0bd6ffa16c9b8b315de3137e7da669c8",
+    "metal_core_source_commit": "2b89babe0bd6ffa16c9b8b315de3137e7da669c8",
+    "windows_source_commit": "2b89babe0bd6ffa16c9b8b315de3137e7da669c8",
+    "baseline_proof_commit": "988858f853594e2a0770640fa21bbd94d7c08cc0"
   },
-  "validation_receipt": "portable-probability-validation.json",
-  "generated_source_comparison": {
-    "cuda": "f640b7c2c5fc283366f07afee9ee63a5e54791611ab6d8a6b25f1ac8ece47a6e",
-    "metal": "2a48651335c034e38db808d46b660ab6653954621a04b2e0daf130d3644924ac"
-  },
+  "validation_receipt": "portable-probability-optimized-validation.json",
+  "generated_source_comparison": "portable-probability-optimized-validation.json",
   "existing_parity": {
     "passed": true,
     "prior_proof_commit": "f2206ef4a32fb89ad9c4f2381bb9dbfa5ec711d1",
     "block_proof_commit": "80170c3b922b666eadb1f72bec22331c183a89b4",
-    "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+    "source_commit": "2b89babe0bd6ffa16c9b8b315de3137e7da669c8",
     "compute_worktree_clean": true,
     "prior_inputs": 2182,
     "current_inputs": 2280,
@@ -85,9 +81,9 @@
     "gpu_execution_reused": false,
     "replay_source": null,
     "no_output_normalization": true,
-    "input_path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/probability-core-20261020T042431848848Z/input.bin",
-    "raw_path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/probability-core-20261020T042431848848Z/readback.bin",
-    "driver_sha256": "cedc0a62633a94b4d1c05d0bf25b83190567a03ee9d6a28f29d17f63fde68431",
+    "input_path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/probability-core-20261020T050304214884Z/input.bin",
+    "raw_path": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/probability-core-20261020T050304214884Z/readback.bin",
+    "driver_sha256": "f3c4153bd19911469ad0fd0fdeeb3de11e4ab35fbd18ba40e5eaa92cc02e7b71",
     "evidence": {
       "transport": {
         "backend": "metal",
@@ -95,12 +91,12 @@
         "command_status": "completed",
         "configured_max_threads_per_threadgroup": 1,
         "device": "Apple M5",
-        "gpu_seconds": 0.6181993333157152,
+        "gpu_seconds": 0.5844396250322461,
         "input_bytes": 784465928,
-        "library_compile_seconds": 0.0010010004043579102,
+        "library_compile_seconds": 0.001206040382385254,
         "output_bytes": 1456865280,
-        "pipeline_compile_seconds": 0.001128077507019043,
-        "pipeline_lock_wait_seconds": 2.9802322387695312e-06,
+        "pipeline_compile_seconds": 0.001195073127746582,
+        "pipeline_lock_wait_seconds": 1.9073486328125e-06,
         "pipeline_max_threads_per_threadgroup": 1,
         "registry_id": "4294968313",
         "threads_per_threadgroup": 1,
@@ -111,7 +107,7 @@
         "buffer_allocations": 2
       },
       "source_sha256": {
-        "gpu/event_runtime.slang": "ed400ff51d49e253b2a03a419dcdde5d5a8a8a11a1927bdf11641e8186daa662",
+        "gpu/event_runtime.slang": "d11e2c0acfbc2f8f05f4e270c1b422a65606a51dab874d7ca85e61b364f12452",
         "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
         "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
         "gpu/portable_schema.slang": "0784e46590ac095845c2c28f47e2b3018b485c695de6e63342a78f5b6d62a158",
@@ -158,8 +154,8 @@
         "gpu/admission_runtime.slang": "80024c2d33984fb6a51e9c62c1e6844a10c8d049138683a13f213269d85bf573"
       },
       "generated_sha256": {
-        "cuda": "8802c6e681380cd595fdcab2a6d49b5158d8b485bfb0e0292b9d824ac8076796",
-        "metal": "ad3528633fb49c807b44db15e6c63ef58b3ac6d9256524eb85a4323480f02235"
+        "cuda": "5e4b4469b8ea95606e06998ba741cd685bf0413e726b6a9cf181d9a596c9eae5",
+        "metal": "1690006e0b3edbdde7759dfac8b5f4e7ea03c614bd1ca3db1cd1f9fbf923f53b"
       },
       "input_sha256": "5a9a4b3062107630c0060d8c555be0b3b9bd1711975fa22500764e1ec6d1e152",
       "output_sha256": "6db7acffb26327498ead7c5375ff80652ab9d092cfa9e98aa7b261d155b8423a",
@@ -173,12 +169,12 @@
             "command_status": "completed",
             "configured_max_threads_per_threadgroup": 1,
             "device": "Apple M5",
-            "gpu_seconds": 0.5758529166923836,
+            "gpu_seconds": 0.542947500012815,
             "input_bytes": 704643076,
-            "library_compile_seconds": 0.0010010004043579102,
+            "library_compile_seconds": 0.001206040382385254,
             "output_bytes": 1308622848,
-            "pipeline_compile_seconds": 0.001128077507019043,
-            "pipeline_lock_wait_seconds": 2.9802322387695312e-06,
+            "pipeline_compile_seconds": 0.001195073127746582,
+            "pipeline_lock_wait_seconds": 1.9073486328125e-06,
             "pipeline_max_threads_per_threadgroup": 1,
             "registry_id": "4294968313",
             "threads_per_threadgroup": 1,
@@ -190,7 +186,7 @@
             "buffer_allocations": 2
           },
           "source_sha256": {
-            "gpu/event_runtime.slang": "ed400ff51d49e253b2a03a419dcdde5d5a8a8a11a1927bdf11641e8186daa662",
+            "gpu/event_runtime.slang": "d11e2c0acfbc2f8f05f4e270c1b422a65606a51dab874d7ca85e61b364f12452",
             "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
             "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
             "gpu/portable_schema.slang": "0784e46590ac095845c2c28f47e2b3018b485c695de6e63342a78f5b6d62a158",
@@ -237,8 +233,8 @@
             "gpu/admission_runtime.slang": "80024c2d33984fb6a51e9c62c1e6844a10c8d049138683a13f213269d85bf573"
           },
           "generated_sha256": {
-            "cuda": "8802c6e681380cd595fdcab2a6d49b5158d8b485bfb0e0292b9d824ac8076796",
-            "metal": "ad3528633fb49c807b44db15e6c63ef58b3ac6d9256524eb85a4323480f02235"
+            "cuda": "5e4b4469b8ea95606e06998ba741cd685bf0413e726b6a9cf181d9a596c9eae5",
+            "metal": "1690006e0b3edbdde7759dfac8b5f4e7ea03c614bd1ca3db1cd1f9fbf923f53b"
           },
           "input_sha256": "881152b0f8da4130bc0180bd657d8cbf2fd9805d6b12c941941eed64b81599c5",
           "output_sha256": "6b49ecde8761d1446a0c89aa681bb8709f9c316c31286d12476aedbb35103516",
@@ -252,12 +248,12 @@
             "command_status": "completed",
             "configured_max_threads_per_threadgroup": 1,
             "device": "Apple M5",
-            "gpu_seconds": 0.042346416623331606,
+            "gpu_seconds": 0.041492125019431114,
             "input_bytes": 79822852,
-            "library_compile_seconds": 0.0010010004043579102,
+            "library_compile_seconds": 0.001206040382385254,
             "output_bytes": 148242432,
-            "pipeline_compile_seconds": 0.001128077507019043,
-            "pipeline_lock_wait_seconds": 2.9802322387695312e-06,
+            "pipeline_compile_seconds": 0.001195073127746582,
+            "pipeline_lock_wait_seconds": 1.9073486328125e-06,
             "pipeline_max_threads_per_threadgroup": 1,
             "registry_id": "4294968313",
             "threads_per_threadgroup": 1,
@@ -269,7 +265,7 @@
             "buffer_allocations": 2
           },
           "source_sha256": {
-            "gpu/event_runtime.slang": "ed400ff51d49e253b2a03a419dcdde5d5a8a8a11a1927bdf11641e8186daa662",
+            "gpu/event_runtime.slang": "d11e2c0acfbc2f8f05f4e270c1b422a65606a51dab874d7ca85e61b364f12452",
             "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
             "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
             "gpu/portable_schema.slang": "0784e46590ac095845c2c28f47e2b3018b485c695de6e63342a78f5b6d62a158",
@@ -316,8 +312,8 @@
             "gpu/admission_runtime.slang": "80024c2d33984fb6a51e9c62c1e6844a10c8d049138683a13f213269d85bf573"
           },
           "generated_sha256": {
-            "cuda": "8802c6e681380cd595fdcab2a6d49b5158d8b485bfb0e0292b9d824ac8076796",
-            "metal": "ad3528633fb49c807b44db15e6c63ef58b3ac6d9256524eb85a4323480f02235"
+            "cuda": "5e4b4469b8ea95606e06998ba741cd685bf0413e726b6a9cf181d9a596c9eae5",
+            "metal": "1690006e0b3edbdde7759dfac8b5f4e7ea03c614bd1ca3db1cd1f9fbf923f53b"
           },
           "input_sha256": "3dfd4a5d71c8fd20f17862b1b228e6acd20c61d4c638ee8d18440240d6b8ee4c",
           "output_sha256": "601ccd0765930486a0a102f1557a7ae2481c068c6411cc3a41f19d8ac87bbfa2",
@@ -2509,7 +2505,7 @@
     ]
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "ed400ff51d49e253b2a03a419dcdde5d5a8a8a11a1927bdf11641e8186daa662",
+    "gpu/event_runtime.slang": "d11e2c0acfbc2f8f05f4e270c1b422a65606a51dab874d7ca85e61b364f12452",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/portable_schema.slang": "0784e46590ac095845c2c28f47e2b3018b485c695de6e63342a78f5b6d62a158",
@@ -3043,8 +3039,123 @@
     "remaining_output_tail_words": 512,
     "expected_mode_only": true,
     "authored_condition_order": true,
-    "runtime_queries_skip_probability": true
+    "runtime_queries_skip_probability": true,
+    "efficiency": {
+      "passed": true,
+      "source_commit": "27a375145147a2d042c8c0e66fffdb908b2b1be3",
+      "efficiency_evaluated": true,
+      "candidate": "Read only immutable owner/duration/flags/conditionCount in the shared basic condition helper",
+      "selected_for_adoption": true,
+      "production_change_adopted": true,
+      "adoption_stage": "Adopted after exact2280-input CUDA/Metal parity and all32 Mac gates",
+      "all_2280_input_output_bytes_equal": true,
+      "improved_nonoverlapping_workloads": [
+        "physical4096"
+      ],
+      "worsened_nonoverlapping_workloads": [],
+      "workloads": {
+        "ordinary": {
+          "ratio": 0.9656524935176188,
+          "ranges_overlap": true,
+          "ranges": {
+            "control": [
+              0.006699291639961302,
+              0.00712049996946007
+            ],
+            "accessors": [
+              0.005788541748188436,
+              0.007598291616886854
+            ]
+          },
+          "median_gpu_seconds": {
+            "control": 0.006830916623584926,
+            "accessors": 0.006596291670575738
+          }
+        },
+        "probability": {
+          "ratio": 0.9828505936760488,
+          "ranges_overlap": true,
+          "ranges": {
+            "control": [
+              0.00717550003901124,
+              0.009911875007674098
+            ],
+            "accessors": [
+              0.007493750075809658,
+              0.009548458270728588
+            ]
+          },
+          "median_gpu_seconds": {
+            "control": 0.00964562501758337,
+            "accessors": 0.009480208274908364
+          }
+        },
+        "ordered-stat": {
+          "ratio": 0.9952232190369236,
+          "ranges_overlap": true,
+          "ranges": {
+            "control": [
+              0.008742875070311129,
+              0.009028875036165118
+            ],
+            "accessors": [
+              0.0031976249301806092,
+              0.008911999990232289
+            ]
+          },
+          "median_gpu_seconds": {
+            "control": 0.0088448750320822,
+            "accessors": 0.00880262500140816
+          }
+        },
+        "rank-query": {
+          "ratio": 1.1035118547171152,
+          "ranges_overlap": true,
+          "ranges": {
+            "control": [
+              0.0024537499994039536,
+              0.0033621666952967644
+            ],
+            "accessors": [
+              0.0028975000604987144,
+              0.003805833403021097
+            ]
+          },
+          "median_gpu_seconds": {
+            "control": 0.003253250033594668,
+            "accessors": 0.003589999978430569
+          }
+        },
+        "physical4096": {
+          "ratio": 0.9728680537617548,
+          "ranges_overlap": false,
+          "ranges": {
+            "control": [
+              0.4773588333046064,
+              0.4851655000820756
+            ],
+            "accessors": [
+              0.4603643750306219,
+              0.469387041637674
+            ]
+          },
+          "median_gpu_seconds": {
+            "control": 0.4774691249476746,
+            "accessors": 0.46451445831917226
+          }
+        }
+      },
+      "benchmark_sha256": "f2bc06988586fbbf228ef780534e22d821266d9233399345a74e808b2fa1ca65",
+      "initial_unlocalized_metal_finding_open": true,
+      "scope": "Five local workloads,warmup+3 samples on Apple M5;no full-roster,CUDA-speed or peak-memory claim",
+      "optimized_source_commit": "2b89babe0bd6ffa16c9b8b315de3137e7da669c8",
+      "adoption_validation": "portable-probability-optimized-validation.json"
+    },
+    "optimized_source_verification_pending": false
   },
   "efficiency_decision": "portable-probability-efficiency-decision.json",
-  "next_work": "Validate selected optimization before adoption if any;then remaining effects/world/all203 variants"
+  "next_work": [
+    "Connect remaining effects/world scheduling;certify all203 characters and all variants",
+    "Keep strict readback capture;initial mismatch is unlocalized and not claimed fixed"
+  ]
 }

@@ -4,8 +4,8 @@
   "efficiency_evaluated": true,
   "candidate": "Read only immutable owner/duration/flags/conditionCount in the shared basic condition helper",
   "selected_for_adoption": true,
-  "production_change_adopted": false,
-  "adoption_stage": "Selected;optimized-source validation still required",
+  "production_change_adopted": true,
+  "adoption_stage": "Adopted after exact2280-input CUDA/Metal parity and all32 Mac gates",
   "all_2280_input_output_bytes_equal": true,
   "improved_nonoverlapping_workloads": [
     "physical4096"
@@ -105,5 +105,7 @@
   },
   "benchmark_sha256": "f2bc06988586fbbf228ef780534e22d821266d9233399345a74e808b2fa1ca65",
   "initial_unlocalized_metal_finding_open": true,
-  "scope": "Five local workloads,warmup+3 samples on Apple M5;no full-roster,CUDA-speed or peak-memory claim"
+  "scope": "Five local workloads,warmup+3 samples on Apple M5;no full-roster,CUDA-speed or peak-memory claim",
+  "optimized_source_commit": "2b89babe0bd6ffa16c9b8b315de3137e7da669c8",
+  "adoption_validation": "portable-probability-optimized-validation.json"
 }

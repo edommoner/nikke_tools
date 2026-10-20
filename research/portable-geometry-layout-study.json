@@ -1,0 +1,207 @@
+{
+  "passed": true,
+  "design_only": true,
+  "gpu_admission_enabled": false,
+  "gpu_execution_performed": false,
+  "current_abi": "0x5045566C",
+  "input_words": 86016,
+  "unused_input_tail_words": 2040,
+  "proposed_geometry_base": 83976,
+  "proposed_geometry_words": 1592,
+  "proposed_remaining_tail_words": 448,
+  "proposed_sections": {
+    "world_header": 16,
+    "five_original_weapons": 40,
+    "mode_geometry": 1536
+  },
+  "required_literal_inputs": [
+    "Enemy core_px as binary64;GPU compares >=1",
+    "Distance as binary64 and separate presence flag;do not use a numeric sentinel",
+    "Explicit weapon-list membership mask;original weapon IDs for conditions",
+    "Original weapon lower/upper range and active-mode lower/upper range",
+    "Each active mode also needs its literal weapon ID for distance-absent membership;mode6-word record reserves ID/flags plus two binary64 bounds"
+  ],
+  "required_execution": [
+    "Keep original weapon for activation optimal_range predicate",
+    "Use current active weapon mode for normal attack damage range bonus",
+    "No distance:membership only,no stat query",
+    "Distance:one shared stat query preserves lazy recipient resolution side effects",
+    "Evaluate authored condition order with probability/stat short circuit",
+    "Numeric stat IDs61/62 remain in existing64-entry vector;never treat them as direct damage boosts",
+    "Apply binary64 lower=max(0,baseLower*(1-minimumPct/100)),upper=baseUpper*(1+maximumPct/100)",
+    "Closed bounds use binary64 lower-1e-9 and upper+1e-9,withoutfloat32",
+    "Core/range activation predicates are skipped on runtime buff queries like native",
+    "Avoid new Runtime private arrays;read immutable geometry from commands"
+  ],
+  "required_rejections": [
+    "Nonfinite core/distance/bounds",
+    "Invalid masks,owner IDs and range order",
+    "Unsupported moving enemy/core world events until their shared execution is implemented"
+  ],
+  "future_verification": [
+    "Raw admission negative cases for each new field",
+    "Native geometry cases including weapon changes,stat-query ordering and low/high endpoint slack",
+    "Range buffs affect actual physical damage as well as predicates",
+    "All previous2280 input bytes except ABI and all output words preserved",
+    "Include deferred rounding chains [100,99.99999999999999,0] in next shared probability fixture expansion",
+    "All current Mac gates and short CUDA verification before measuring the new common geometry helper"
+  ],
+  "affected_characters": [
+    {
+      "character": "리버렐리오",
+      "effects": [
+        {
+          "name": "차분한 수심 2",
+          "type": "buff",
+          "stat": "atk_dmg_pct",
+          "family": "damage_modifiers",
+          "timings": [
+            "full_charge_hit"
+          ],
+          "conditions": [
+            "core_hit"
+          ],
+          "preflight_passed": false,
+          "diagnostic_semantic_issue": "Unported predicate: core_hit",
+          "diagnostic_metadata_stripped": true,
+          "diagnostic_removed_fields": [],
+          "issue": "Unported predicate: core_hit"
+        }
+      ],
+      "all_effects_preflight_passed": false
+    },
+    {
+      "character": "에이드 : 에이전트 바니",
+      "effects": [
+        {
+          "name": "요원의 시선",
+          "type": "buff",
+          "stat": "atk_caster_based_pct",
+          "family": "damage_modifiers",
+          "timings": [
+            "full_charge_hit"
+          ],
+          "conditions": [
+            "optimal_range"
+          ],
+          "preflight_passed": false,
+          "diagnostic_semantic_issue": "Unported predicate: optimal_range",
+          "diagnostic_metadata_stripped": true,
+          "diagnostic_removed_fields": [],
+          "issue": "Unported predicate: optimal_range"
+        },
+        {
+          "name": "스파이 렌즈",
+          "type": "buff",
+          "stat": "optimal_range_min",
+          "family": "weapon",
+          "timings": [
+            "full_charge_fire"
+          ],
+          "conditions": [],
+          "preflight_passed": false,
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
+          "diagnostic_metadata_stripped": true,
+          "diagnostic_removed_fields": [],
+          "issue": "Unported buff or recipient selector"
+        },
+        {
+          "name": "요원의 움직임",
+          "type": "buff",
+          "stat": "pierce_dmg_pct",
+          "family": "weapon",
+          "timings": [
+            "full_charge_hit"
+          ],
+          "conditions": [
+            "optimal_range"
+          ],
+          "preflight_passed": false,
+          "diagnostic_semantic_issue": "Unported predicate: optimal_range",
+          "diagnostic_metadata_stripped": true,
+          "diagnostic_removed_fields": [],
+          "issue": "Unported predicate: optimal_range"
+        },
+        {
+          "name": "최첨단 요원 장비",
+          "type": "buff",
+          "stat": "optimal_range_min",
+          "family": "weapon",
+          "timings": [
+            "burst_cast"
+          ],
+          "conditions": [],
+          "preflight_passed": false,
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
+          "diagnostic_metadata_stripped": true,
+          "diagnostic_removed_fields": [],
+          "issue": "Unported buff or recipient selector"
+        }
+      ],
+      "all_effects_preflight_passed": false
+    },
+    {
+      "character": "레오나",
+      "effects": [
+        {
+          "name": "우렁찬 포효",
+          "type": "buff",
+          "stat": "optimal_range_max_pct",
+          "family": "weapon",
+          "timings": [
+            "on_attack_count:15"
+          ],
+          "conditions": [],
+          "preflight_passed": false,
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
+          "diagnostic_metadata_stripped": true,
+          "diagnostic_removed_fields": [],
+          "issue": "Unported buff or recipient selector"
+        }
+      ],
+      "all_effects_preflight_passed": false
+    },
+    {
+      "character": "신데렐라 : 크리스탈 웨이브",
+      "effects": [
+        {
+          "name": "모드 스왑 3",
+          "type": "damage",
+          "stat": "core_damage",
+          "family": "damage",
+          "timings": [
+            "full_burst_start"
+          ],
+          "conditions": [
+            "burst_casted",
+            "not_self_state:저격 모드",
+            "core_hit"
+          ],
+          "preflight_passed": false,
+          "diagnostic_semantic_issue": "Unported predicate: core_hit",
+          "diagnostic_metadata_stripped": true,
+          "diagnostic_removed_fields": [
+            "note"
+          ],
+          "issue": "Unported predicate: core_hit"
+        }
+      ],
+      "all_effects_preflight_passed": false
+    }
+  ],
+  "scope": "Proposed complete geometry connection;not implementation or evidence of character compatibility",
+  "source_sha256": {
+    "research/study-geometry-layout.py": "1d30816b2101a01bd46778a362e2aece69e9d789c5e4a887cde918911f592b98",
+    "research/portable-core-range-native.json": "98e4f38a2b8b73502d2d4c888cfbc8cab90cd633df5310bc50fd1b7def48f5af",
+    "research/portable-catalog-readiness.json": "3159af4046bb649e7677500827f12f1f0ceba829ef91900eb8aebc841840e403",
+    "app/portable_specs.py": "b46538f0221b7205a0699d33c4ddaf7f6e6351922517c1d31a77ceef08d87281",
+    "app/portable_combat.py": "aeb209d1d7b05d1d7954e34c7d674b52157c0aff663cde951affaea023d8f98a",
+    "app/portable_weapon_input.py": "f5b6a332f60bde4382f7579eb32bbf8df2e93116de443c824b8826390136e43b",
+    "app/portable_roster_input.py": "06e0dd350bef64a1355f14a93843f8698d7dfba2fcde3bcea7226bfcd31438ca",
+    "app/portable_trigger_specs.py": "7d4e9045da232fbe5579e35e5fe9635b129fbd865c2b736f7560a1cc63504e9f",
+    "app/portable_damage_specs.py": "8e2433b1720f24bf6d5e70e8a59e5230fac309977170356753506922da69243c",
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+  }
+}
