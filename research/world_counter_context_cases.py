@@ -3,7 +3,7 @@ import copy
 from portable_specs import LIMITS as L
 
 def compile_case(physical,case):
- words,meta,bindings=physical.compile_case(case);words[0]=L['COUNTER_CONTEXT_ABI'];words[L['TARGET_COUNTER_INPUT_BASE']+6]=2;return words,meta,bindings
+ words,meta,bindings=physical.compile_case(case);words[0]=L['COUNTER_CONTEXT_ABI'];words[L['TARGET_COUNTER_INPUT_BASE']+6]=3;return words,meta,bindings
 
 def fixtures(physical):
  sources={c['name']:c for c in physical.fixtures()};rows=[]

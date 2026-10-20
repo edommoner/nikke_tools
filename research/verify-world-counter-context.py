@@ -12,7 +12,7 @@ def compile_case(case):
  return cases.compile_case(physical,case)
 def prepare():
  rows=fixtures();programs=[compile_case(c) for c in rows];bad=[];seed=programs[0][0];probe=len(rows[0]['effects'])-1;condition=L['CONDITION_BASE']+probe*L['CONDITION_WORDS']
- for name,at,value in [('unknown-context-mode',L['TARGET_COUNTER_INPUT_BASE']+6,3),('context-without-native-landings',L['LANDING_META_BASE'],0),('unknown-context-condition',condition,999),('predicate-nonzero-argument',condition+3,0x3ff00000),('counter-condition-not-yet-admitted',L['DEFINITION_BASE']+2*L['DEFINITION_WORDS']+F['CONDITION_COUNT'],1)]:
+ for name,at,value in [('unknown-context-mode',L['TARGET_COUNTER_INPUT_BASE']+6,4),('context-without-native-landings',L['LANDING_META_BASE'],0),('unknown-context-condition',condition,999),('predicate-nonzero-argument',condition+3,0x3ff00000),('counter-condition-not-yet-admitted',L['DEFINITION_BASE']+2*L['DEFINITION_WORDS']+F['CONDITION_COUNT'],1)]:
   w=list(seed);w[at]=value;bad.append((name,w))
  named=next(p[0] for c,p in zip(rows,programs) if c['name']=='body-completion-versus-lifesteal-order-target_state:marker')
  w=list(named);w[condition+1]=256;bad.append(('context-name-overflow',w))
