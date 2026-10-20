@@ -26,3 +26,8 @@ FLAGS=dict(BURST=1,SEQUENTIAL=2,ATTACHMENT=4,EXPLOSION=8,SPLIT=16,CHARGE=32,
 from portable_element_specs import STAT as ELEMENT_OVERRIDE_STAT
 BUFFS=BUFFS | {'element_code_override'}
 STATS['element_code_override']=ELEMENT_OVERRIDE_STAT
+
+# Native late pass;never index the64-value vector with this identity.
+from portable_hp_attack_specs import STAT as HP_ATTACK_STAT
+BUFFS=BUFFS | {'atk_from_hp_pct'}
+STATS['atk_from_hp_pct']=HP_ATTACK_STAT

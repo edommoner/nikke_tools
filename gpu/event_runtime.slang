@@ -293,6 +293,7 @@ bool excludedDamageBuff(inout Runtime s, uint resident, uint who)
 #include "lifesteal_runtime.slang"
 #include "cover_runtime.slang"
 #include "hp_edge_runtime.slang"
+#include "hp_attack_runtime.slang"
 
 // Collect in resident order once per query/hit. Four critical sums use the
 // same compensated accumulation as the reference; other scalar sums are ordered.
@@ -318,6 +319,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
     {
         uint selected = s.orderedRows[pass]; Definition d = residentDefinition(s,selected);
 #endif
+        if((s.quantityMask & 256)!=0 && d.stat==S_atk_caster_based_pct) continue;
         if (d.alliedFlags != 0 || d.kind != 0 || d.stat >= 64 || d.stat == S_infinite_ammo || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
             !queryRecipient(s,selected,who,when)) continue;
         // Native boolean flags ignore their numeric value and stack scaling.
@@ -343,6 +345,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
         }
         else values[d.stat] = f64Add(values[d.stat],value);
     }
+    if((s.quantityMask & 256)!=0) collectHPAttack(s,who,when,values[S_atk_flat]);
     if ((s.quantityMask & 1) != 0) values[S_max_ammo_pct] = quantityTotals(s,who,S_max_ammo_pct,when,0,ONE).percent;
     if ((s.quantityMask & 2) != 0 || (s.quantityMask & 8) != 0) values[S_charge_speed_pct] = quantityTotals(s,who,S_charge_speed_pct,when,0,ONE).percent;
     if ((s.quantityMask & 4) != 0)

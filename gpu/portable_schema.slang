@@ -1,5 +1,5 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721392U;
+static const uint PORTABLE_ABI = 1346721393U;
 static const uint P_PROTECTION_OBJECTS = 1024U;
 static const uint P_PROTECTION_OBJECT_WORDS = 24U;
 static const uint P_REMOVALS = 4096U;
@@ -297,6 +297,7 @@ static const uint S_cover_hp_pct = 70U;
 static const uint S_outgoing_heal_pct = 73U;
 static const uint S_max_hp_from_max_hp_pct = 84U;
 static const uint S_element_code_override = 88U;
+static const uint S_atk_from_hp_pct = 89U;
 static const uint H_BURST = 1U;
 static const uint H_SEQUENTIAL = 2U;
 static const uint H_ATTACHMENT = 4U;

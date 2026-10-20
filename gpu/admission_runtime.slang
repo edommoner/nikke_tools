@@ -34,6 +34,14 @@ void admitDefinitions(inout Runtime s,uint input)
             if(d.stat==S_burst_charge_speed_pct)
             { if(commands[refs]!=1) { s.error=64;break; } s.quantityMask|=128; }
         }
+        if(d.stat==S_atk_from_hp_pct)
+        {
+            if(d.kind!=0 || d.enemyBuff!=0 || d.alliedFlags!=0 || d.healthScaling!=0 || d.queryResolve!=0 || !f64Finite(d.value) || d.damageFlags!=0) { s.error=64;break; }
+            for(uint word=0;word<P_DAMAGE_DEFINITION_WORDS;word++)
+                if(commands[input+P_DAMAGE_DEFINITION_BASE+j*P_DAMAGE_DEFINITION_WORDS+word]!=0) { s.error=64;break; }
+            if(s.error!=0) break;
+            s.quantityMask|=256;
+        }
         if (d.owner >= 5 || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; }
         for(uint slot=0;slot<d.conditionCount;slot++)
         {

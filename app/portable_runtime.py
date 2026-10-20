@@ -158,6 +158,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     from portable_staged_specs import descriptors as staged_descriptors,pack as pack_staged
     staged=staged_descriptors(effects)
     from portable_element_specs import enabled as element_override,STAT as ELEMENT_OVERRIDE_STAT,code_tag,legacy_effect
+    from portable_hp_attack_specs import enabled as hp_attack,STAT as HP_ATTACK_STAT
     from portable_geometry_specs import compiler_chars,required as geometry_required
     if geometry is None and geometry_required(effects):raise UnsupportedPortable('Core/range effects require literal geometry input')
     geometry_chars=compiler_chars(chars,geometry)
@@ -312,6 +313,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
                 'TARGET':cleansing[0] if cleansing is not None else stack[1] if stack is not None else extension[0] if extension is not None else removal[0] if removal is not None else int(bool(effects[index][0].get('name'))) if row[1] in (2,13) else int(effects[index][0].get('target')=='boss'), 'STAGE_ARG':int(row[151]),
                 'STAGE_OVERRIDE':int(row[252]),'REENTRY':int(row[253]),'TOGGLE':int(bool(int(row[213]) & 128)), 'DAMAGE_FLAGS':int(row[39])}
         if element_override(eff):fields.update(KIND=0,STAT=ELEMENT_OVERRIDE_STAT)
+        if hp_attack(eff):fields.update(KIND=0,STAT=HP_ATTACK_STAT)
         for key,value in fields.items():compact[F[key]]=value & 0xffffffff
         for key,offset in [('VALUE',6),('DURATION',7),('INTERVAL',59)]:compact[F[key]:F[key]+2]=double_words(row[offset])
         if element_override(eff):
