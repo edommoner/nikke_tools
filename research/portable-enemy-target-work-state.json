@@ -1,6 +1,6 @@
 {
-  "stage": "Canonical ABI73 adopted locally;270 Python and4 Node units passed;fresh4658-input Metal proof pending",
-  "updated_at": "2026-10-20T12:14:02.319045+00:00",
+  "stage": "Initial canonical4658 Metal pass,52 gates complete50 pass;fixing six new roster failures and stale API negative;277 units passed,new4682 frozen verification pending",
+  "updated_at": "2026-10-20T13:15:19.139011+00:00",
   "production_source_commit": "39bce8aa5c9c5f29f0653e80fc69855f19ad5ad6",
   "production_proof_commit": "89c19e3",
   "production_abi": "0x50455673",
@@ -83,9 +83,17 @@
   ],
   "adoption_verified": false,
   "last_complete_source_commit": "39bce8aa5c9c5f29f0653e80fc69855f19ad5ad6",
-  "canonical_positive_cases": 4088,
+  "canonical_positive_cases": 4112,
   "canonical_raw_rejections": 570,
   "canonical_enemy_target_cases": 548,
   "source_time_boundary_finding": "research/portable-enemy-target-time-initial-finding.json",
-  "source_time_boundary_fix": "Select victims inside event dispatch after sourceTime and HP-edge updates;fresh full verification required"
+  "source_time_boundary_fix": "Select victims inside event dispatch after sourceTime and HP-edge updates;fresh full verification required",
+  "initial_adopted_source_commit": "1db1a3f46e594eca59284b0c0b32d42628fc4ee7",
+  "initial_gates": 52,
+  "initial_passed_gates": 50,
+  "initial_roster_passed": 152,
+  "initial_roster_conditions": 158,
+  "old136_profiles_exactly_preserved": true,
+  "mode_enemy_name_cases": 24,
+  "python_units": 277
 }

@@ -1,0 +1,138 @@
+{
+  "source_commit": "1db1a3f46e594eca59284b0c0b32d42628fc4ee7",
+  "all_gates_terminal": true,
+  "passed_gates": 50,
+  "total_gates": 52,
+  "failed_gates": [
+    {
+      "name": "roster",
+      "source_commit": "1db1a3f46e594eca59284b0c0b32d42628fc4ee7",
+      "exit_code": 1,
+      "elapsed_seconds": 1218.2225195000647,
+      "log": "/tmp/nikke-enemy-target-gate-roster.log"
+    },
+    {
+      "name": "api",
+      "source_commit": "1db1a3f46e594eca59284b0c0b32d42628fc4ee7",
+      "exit_code": 1,
+      "elapsed_seconds": 3.8225094999652356,
+      "log": "/tmp/nikke-enemy-target-gate-api.log"
+    }
+  ],
+  "core4658_passed": true,
+  "prior136_profiles_exactly_preserved": true,
+  "roster_passed": 152,
+  "roster_required": 158,
+  "failed_profiles": [
+    {
+      "character": "벨로타 : 펌킨 위치",
+      "grown": false,
+      "duration": 180,
+      "passed": false,
+      "squad": [
+        "벨로타 : 펌킨 위치",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 71,
+      "cpu_battle_executed_for_gpu_input": false,
+      "differences": [
+        {
+          "path": ".allies[0].hp",
+          "gpu": 3000314.0,
+          "cpu": 3475563.7375999996
+        }
+      ],
+      "cpu_reference_wall_seconds": 1.0186398340156302
+    },
+    {
+      "character": "벨로타 : 펌킨 위치",
+      "grown": true,
+      "duration": 180,
+      "passed": false,
+      "squad": [
+        "벨로타 : 펌킨 위치",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 91,
+      "cpu_battle_executed_for_gpu_input": false,
+      "differences": [
+        {
+          "path": ".allies[0].hp",
+          "gpu": 3261117.0,
+          "cpu": 3613317.6360000004
+        }
+      ],
+      "cpu_reference_wall_seconds": 1.0882476669503376
+    },
+    {
+      "character": "은화 : 택티컬 업",
+      "grown": false,
+      "duration": 180,
+      "passed": false,
+      "compile_error": "Multiple named non-buff carriers are not ported"
+    },
+    {
+      "character": "은화 : 택티컬 업",
+      "grown": true,
+      "duration": 180,
+      "passed": false,
+      "compile_error": "Multiple named non-buff carriers are not ported"
+    },
+    {
+      "character": "폴크방",
+      "grown": false,
+      "duration": 180,
+      "passed": false,
+      "squad": [
+        "폴크방",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 69,
+      "cpu_battle_executed_for_gpu_input": false,
+      "differences": [
+        {
+          "path": ".allies[0].hp",
+          "gpu": 3284775.0,
+          "cpu": 4761609.84
+        }
+      ],
+      "cpu_reference_wall_seconds": 1.1951190830441192
+    },
+    {
+      "character": "폴크방",
+      "grown": true,
+      "duration": 180,
+      "passed": false,
+      "squad": [
+        "폴크방",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
+      ],
+      "prepared_effects": 89,
+      "cpu_battle_executed_for_gpu_input": false,
+      "differences": [
+        {
+          "path": ".allies[0].hp",
+          "gpu": 3541478.0,
+          "cpu": 5046960.2978
+        }
+      ],
+      "cpu_reference_wall_seconds": 1.180614750017412
+    }
+  ],
+  "archive": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-1db1a3f-initial",
+  "full_goal_complete": false,
+  "no_tolerance_change": true,
+  "no_unchanged_gpu_retry": true
+}

@@ -15,7 +15,10 @@ def enabled(manager):
         stack_changes=any(e.get('stat') in ('buff_stack_add','buff_stack_remove','buff_stack_init','buff_max_stack_add','debuff_stack_add','debuff_stack_remove','debuff_cleanse') for e in effects)
         observed_hp=HP_STATS | ({'max_hp_from_max_hp_pct'} if any(e.get('stat')=='debuff_cleanse' for e in effects) else set())
         protection_health=any(e.get('type')=='buff' and e.get('stat') in HP_STATS|{'max_hp_from_max_hp_pct'} and 'during_shield' in e.get('trigger',{}).get('condition',[]) for e in effects)
-        result=protection_health or any(is_reference_health(e) for e in effects) or stack_changes and any(e.get('type')=='buff' and e.get('stat') in observed_hp for e in effects)
+        # Ordinary finite HP effects also need the existing boundary sync:
+        # expiration must not leave stored current HP above the new maximum.
+        finite_health=any(e.get('type')=='buff' and e.get('stat') in HP_STATS and e.get('duration',-1) not in (-1,None) for e in effects)
+        result=finite_health or protection_health or any(is_reference_health(e) for e in effects) or stack_changes and any(e.get('type')=='buff' and e.get('stat') in observed_hp for e in effects)
         manager._nikke_reference_health_defined=result
     return result
 

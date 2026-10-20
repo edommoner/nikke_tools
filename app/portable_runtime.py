@@ -194,7 +194,11 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         resource_instant=resource_operation(eff) in (1,2,3) and all(resource_operation(effects[j][0]) in (1,2,3) for j in previous)
         source_instant=eff.get('stat') in ('periodic_source_refresh','feather_refresh') and all(effects[j][0].get('stat') in ('periodic_source_refresh','feather_refresh') for j in previous)
         stack_coexist=bool(stack_operation(eff) or any(stack_operation(effects[j][0]) for j in previous)) and all(effects[j][0].get('type')=='buff' or stack_operation(effects[j][0]) for j in previous) and (eff.get('type')=='buff' or bool(stack_operation(eff)))
-        if previous and not stack_coexist and not periodic.get(index) and not resource_instant and not source_instant and (eff.get('type')!='buff' or any(effects[j][0].get('type')!='buff' for j in previous)):
+        # One self weapon mode and enemy buff carriers use separate membership
+        # domains even when the exact authored name and caster are identical.
+        group=[effects[j][0] for j in previous]+[eff]
+        mode_enemy_coexist=bool(eff.get('name')) and sum(e.get('type')=='weapon_change' for e in group)==1 and all(e.get('type')=='weapon_change' or enemy_buff_plan(e) is not None for e in group)
+        if previous and not mode_enemy_coexist and not stack_coexist and not periodic.get(index) and not resource_instant and not source_instant and (eff.get('type')!='buff' or any(effects[j][0].get('type')!='buff' for j in previous)):
             raise UnsupportedPortable('Multiple named non-buff carriers are not ported')
         seen_names.setdefault(key,[]).append(index)
     duration_groups={key:i+1 for i,key in enumerate(dict.fromkeys((owner,e.get('source'),e.get('name')) for e,owner in effects if e.get('stat')=='fullburst_duration'))}

@@ -47,7 +47,7 @@ def main():
     assert result['gpu_execution_verified'] and result['backend']==args.backend
     assert result['application_event_runtime_connected'] and not result['autonomous_battle_connected']
     assert [sum(q['damage']) for q in result['results'][0]['queries']]==case['expected_totals']
-    invalid=copy.deepcopy(payload);invalid['effects'][1]['effect']['stat']='taunt'
+    invalid=copy.deepcopy(payload);invalid['effects'][1]['effect']['stat']='__unported_api_probe__'
     try:request(invalid)
     except urllib.error.HTTPError as error:
         assert error.code==400

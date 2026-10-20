@@ -57,6 +57,9 @@ def main():
     assert [c['name'] for c in cases[:len(prior['cases'])]] == [c['name'] for c in prior['cases']]
     indices = list(range(len(prior['cases']))) + list(range(len(cases), len(cases) + len(prior['rejected_cases'])))
     assert len(indices) == 4070 and ABI == 0x50455673
+    adoption=json.loads((ROOT/'research/portable-enemy-target-adoption-blocks.json').read_text())
+    assert adoption['passed'] and adoption['inputs']==4658 and len(adoption['blocks'])==4658
+    adoption_indices=list(range(adoption['positive_inputs']))+list(range(len(cases),len(cases)+adoption['rejections']))
     original = runtime.dispatch_programs
     calls = 0
     projection = None
@@ -79,6 +82,11 @@ def main():
             else:assert words[0]==manifest['blocks'][old_index]['input_abi'],(old_index,hex(words[0]))
             digest.update(packed_words(words))
         assert digest.hexdigest() == prior['input_sha256'], f'Previous inputs changed; current input retained at {directory}'
+        adopted_input_digest=hashlib.sha256(struct.pack('<I',len(adoption_indices)))
+        for index,block in zip(adoption_indices,adoption['blocks']):
+            packed=packed_words(programs[index][0]);assert hashlib.sha256(packed).hexdigest()==block['input_sha256'],('adopted input',index)
+            adopted_input_digest.update(packed)
+        assert adopted_input_digest.hexdigest()==adoption['input_sha256']
         if args.replay:
             assert file_sha(directory / 'input.bin') == file_sha(args.replay / 'input.bin'), 'Replay input must be byte-identical'
             evidence = json.loads((args.replay / 'evidence.json').read_text())
@@ -101,9 +109,16 @@ def main():
             actual = hashlib.sha256(view).hexdigest()
             if actual != block['sha256']:
                 changed.append(dict(**block, current_index=index, actual_sha256=actual))
+        adopted_output_digest=hashlib.sha256();adopted_changed=[]
+        for index,block in zip(adoption_indices,adoption['blocks']):
+            view=memoryview(raw)[index*stride:(index+1)*stride];adopted_output_digest.update(view)
+            digest_block=hashlib.sha256(view).hexdigest()
+            if digest_block!=block['sha256']:adopted_changed.append(dict(old_index=block['index'],current_index=index,expected_sha256=block['sha256'],actual_sha256=digest_block))
+        adopted_parity=dict(passed=not adopted_changed and adopted_output_digest.hexdigest()==adoption['output_sha256'],source_commit=adoption['source_commit'],inputs=4658,all_input_words_equal=True,all_output_words_equal=not adopted_changed,input_sha256=adopted_input_digest.hexdigest(),output_sha256=adopted_output_digest.hexdigest(),changed=adopted_changed,no_output_normalization=True)
         projection = dict(passed=not changed and old_digest.hexdigest() == prior['output_sha256'],
                           prior_proof_commit=PRIOR, block_proof_commit=BLOCK_PROOF,
                           source_commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
+                          adoption4658_parity=adopted_parity,
                           compute_worktree_clean=subprocess.run(['git', 'diff', '--quiet', '--', 'app', 'scripts', 'gpu', 'tests','server.mjs'], cwd=ROOT).returncode == 0,
                           prior_inputs=4070, current_inputs=len(programs), current_positive_inputs=len(cases),
                           input_projection='Valid ABI73 to72 only;intentional invalid70/71 and every other prior input byte preserved',
@@ -114,7 +129,7 @@ def main():
                           no_output_normalization=True, input_path=str(directory / 'input.bin'), raw_path=str(directory / 'readback.bin'),
                           driver_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), evidence=evidence)
         (ROOT / f'research/portable-enemy-target-existing-{args.backend}-parity.json').write_text(json.dumps(projection, indent=2) + '\n')
-        assert projection['passed'], f'Prior output changed; full current bytes retained at {directory}'
+        assert projection['passed'] and adopted_parity['passed'], f'Prior output changed; full current bytes retained at {directory}'
         return raw, evidence
 
     runtime.dispatch_programs = captured
@@ -133,6 +148,10 @@ def main():
     for key in prior:
         if key.endswith('_cpu_regressions') or key.startswith('known_'):
             assert result[key] == prior[key], key
+    canonical_hash=lambda value:hashlib.sha256(json.dumps(value,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+    assert canonical_hash(result['cases'][:adoption['positive_inputs']])==adoption['positive_decoded_sha256']
+    assert canonical_hash(result['rejected_cases'])==adoption['rejected_cases_sha256']
+    projection['adoption4658_parity']['decoded_cases_and_rejections_preserved']=True
     result['enemy_target_existing_parity'] = projection
     path.write_text(json.dumps(result, ensure_ascii=False, separators=(',', ':')) + '\n')
     print('All4070 prior input bytes,output words,decoded cases and native groups preserved')
