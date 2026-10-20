@@ -31,15 +31,16 @@ def fixtures():
  return rows
 def compile_case(case):
  for p in case['patterns']:
-  if p['kind'] not in ('idle','groggy','attack') or p.get('emit') or p.get('emit_end') or p.get('until',{}).get('targets_cleared') or p.get('spec',{}).get('debuffs'):raise ValueError('World payload is not connected at this frame-coupling stage')
+  if p['kind'] not in ('idle','groggy','attack') or p.get('until',{}).get('targets_cleared') or p.get('spec',{}).get('debuffs'):raise ValueError('World payload is not connected at this frame-coupling stage')
  duration=case['duration'];clock='accumulated' if case['combat'].get('clock')=='accumulated' else 'rational'
- graph,patterns=compile_schedule(dict(patterns=case['patterns'],clock=clock,duration=duration))
+ graph,patterns=compile_schedule(dict(patterns=case['patterns'],clock=clock,duration=duration),notice_payload=True)
  chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=dict(engine_worker.META[n],reload_time=case['combat']['weapons'][i]['reload'])) for i,n in enumerate(NAMES)]
  script=[[duration,24,0,0,0,-1,0,0],[duration,30,0,0,0,-1,0,0],[duration,2,0,0,-1,0,0,0]]
- words,meta=compile_program(chars,[(e,NAMES[o]) for e,o in zip(case['effects'],case['owners'])],script,case['base_atk'],combat=case['combat'],**case['environment'])
+ words,meta=compile_program(chars,[(e,NAMES[o]) for e,o in zip(case['effects'],case['owners'])],script,case['base_atk'],combat=case['combat'],world_frame=True,world_notice_names=('target_spawn',) if any('event:target_spawn' in (*p.emit,*p.emit_end) for p in patterns) else (),**case['environment'])
  assert len(words)==86016;words[0]=L['WORLD_FRAME_ABI'];words.extend(graph);words.extend([0]*512)
  words[L['ENEMY_TARGET_META_BASE']:L['ENEMY_TARGET_META_BASE']+8]=[1,0,0,0,0,0,0,0]
  meta['enemy_targeting']=dict(enabled=True,steps=[],seed=0)
+ if any('event:target_spawn' in (*p.emit,*p.emit_end) for p in patterns):words[WF_INPUT+8]=meta['states']['target_spawn']+1
  for p in patterns:
   if p.attack is None:continue
   raw=case['patterns'][p.idx]['spec'];at=WF_PAYLOAD+p.idx*16
@@ -97,7 +98,7 @@ def main():
    if case['name']=='received-hit-buff-next-attacker-order':assert next(h for h in actual['hits'] if h['pattern']=='b' and h['owner']==1)['damage']==85
   except Exception as error:rows.append(dict(name=case['name'],passed=False,error=repr(error),actual=actual,native=native))
   else:rows.append(dict(name=case['name'],passed=True,actual=actual,native=native))
- report=dict(source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),source_sha256_local={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in ('research/prepare-world-frame-candidate.py','research/verify-world-frame.py','research/world_frame_native.py','gpu/world_frame_addresses.slang','gpu/world_frame_runtime.slang','tests/test_portable_world_frame_input.py')},passed=all(r['passed'] for r in rows),cases=rows,captured=str(folder),prepared=prep,gpu_execution_reused=args.replay is not None,cpu_attack_schedule_used_as_gpu_input=False,canonical_world_admission=False,windows_used=False,efficiency_started=False,normal_ui='CPU',full_character_verified=0,full_goal_complete=False,scope='Isolated common frame->graph->native-order GPU victim/protection/split/HP/notifications coupling versus complete native simulate;direct attack/idle/groggy graphs only.No pattern overlays/events/debuff/actor/control/revive admission yet.',**evidence)
+ report=dict(source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),source_sha256_local={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in ('research/prepare-world-frame-candidate.py','research/verify-world-frame.py','research/world_frame_native.py','gpu/world_frame_addresses.slang','gpu/world_frame_runtime.slang','tests/test_portable_world_frame_input.py')},passed=all(r['passed'] for r in rows),cases=rows,captured=str(folder),prepared=prep,gpu_execution_reused=args.replay is not None,cpu_attack_schedule_used_as_gpu_input=False,canonical_world_admission=False,windows_used=False,efficiency_started=False,normal_ui='CPU',full_character_verified=0,full_goal_complete=False,scope='Canonical shared frame->graph->native-order victim/protection/split/HP coupling versus complete native simulate;direct attack/idle/groggy and closed pattern notices only.No overlays/debuff/actor/control/revive admission yet.',**evidence)
  (ROOT/f'research/portable-world-frame-{args.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
  assert report['passed'],[(r['name'],r.get('error')) for r in rows if not r['passed']]
  print(len(rows),'GPU-scheduled frame/attack cases match full native simulate',args.backend)

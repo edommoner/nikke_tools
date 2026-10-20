@@ -35,10 +35,10 @@ def double_words(value):
     return list(struct.unpack('<II',struct.pack('<d',value)))
 
 
-def validate_effect(eff, *, combat=None):
+def validate_effect(eff, *, combat=None, world_frame=False):
     if isinstance(eff.get('target'),list):
         for target in eff['target']:
-            if target!=[]:validate_effect(dict(eff,target=target),combat=combat)
+            if target!=[]:validate_effect(dict(eff,target=target),combat=combat,world_frame=world_frame)
     from portable_resource_specs import operation as resource_operation,validate as validate_resource
     resource_op=resource_operation(eff);validate_resource(eff)
     from portable_protection_specs import policy as protection_policy
@@ -81,7 +81,7 @@ def validate_effect(eff, *, combat=None):
     if set(eff)-effect_allowed:
         raise UnsupportedPortable('Unported effect fields: '+', '.join(sorted(set(eff)-effect_allowed)))
     from portable_trigger_specs import validate_input
-    try:validate_input(eff)
+    try:validate_input(eff,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error)) from error
     kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
     if stat in ('taunt','stealth') and combat is None:raise UnsupportedPortable('Enemy target markers require combat-owned allied health and state')
@@ -146,14 +146,16 @@ def validate_effect(eff, *, combat=None):
             raise ValueError('Invalid '+key)
 
 
-def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None, burst_references=None, enemy_targeting=None):
+def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None, burst_references=None, enemy_targeting=None, world_frame=False, world_notice_names=()):
     import detail_gpu as legacy
     from portable_stack_specs import plan as stack_plan,operation as stack_operation,value as stack_value,pack_metadata as pack_stack_metadata
     check_schema()
+    if type(world_frame) is not bool:raise ValueError("Invalid world-frame trigger policy")
+    if not isinstance(world_notice_names,tuple) or any(n!='target_spawn' for n in world_notice_names) or world_notice_names and not world_frame:raise ValueError("Invalid world notice namespace")
     effects = list(effects)
     if not 1<=len(effects)<=L['DEFINITIONS']:raise UnsupportedPortable('Portable definition capacity exceeded')
     if any(e.get('stat')=='lifesteal_pct' for e,_ in effects) and (not native_landing or combat is None):raise UnsupportedPortable('Lifesteal requires native landing phases')
-    for eff, owner in effects:validate_effect(eff,combat=combat)
+    for eff, owner in effects:validate_effect(eff,combat=combat,world_frame=world_frame)
     from portable_source_specs import validate_sources,pack as pack_source
     validate_sources(effects)
     from portable_staged_specs import descriptors as staged_descriptors,pack as pack_staged
@@ -167,6 +169,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     program=legacy.compile_effects(geometry_chars,[(target_compiler_effect(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e)),owner) for e,owner in effects])
     from portable_target_state_specs import allocate_names as target_state_names
     target_state_names(effects,program['states'])
+    for name in world_notice_names:program['states'].setdefault(name,len(program['states']))
     source_query_indices={}
     for command in script:
         if len(command)==8 and command[1]==29:
@@ -333,7 +336,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         from portable_protection_specs import pack as pack_protection
         pack_protection(words,index,eff,L)
         from portable_trigger_specs import pack_descriptors
-        pack_descriptors(words,index,row,L,F,double_words,effect=effects[index][0],states=program['states'])
+        pack_descriptors(words,index,row,L,F,double_words,effect=effects[index][0],states=program['states'],world_frame=world_frame)
         if effects[index][0].get('stat')=='stack_change_immune':words[at+F['FLAGS']] |= 8
         policy=immunity(eff)
         if policy:
