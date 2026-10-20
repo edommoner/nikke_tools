@@ -8,7 +8,7 @@ Metal783＝新52実戦＋不正10＋旧721全524288word保持が成功し、CPU3
 
 初回bf9a60bは旧721/不正10を保持し、31実戦一致でした。body-only native観測にmembershipが無かったため、実際のtarget_charsの観測をopt-inで追加し、同じ保存rawをCPU再監査して51一致を確認しました。項目を無視してはいません。残る128受取先の正当な同期子列は旧4096 work上限でstatus4でした。mode5だけ512carriers×32depth＝16384の有限上限とGPU所有workカウンター（512176以後8words）を追加し、最大4106・合計4833・dispatch691・guard exit0を実測しました。旧モードの4096上限は生成物/全出力で保持しています。異なるソースでMetal2回、同一ソース/入力retry0、失敗raw保持です。
 
-証拠はportable-world-counter-field-validation.json、監査器seal-world-counter-fields-metal.py、初回/membership-replay/finding.jsonです。Windows v92は固定9152a2a52b89cb8d3b77a94a619101a31d6942e8・15ファイル234843bytesで新規62入力/native52だけ依頼済みです。CPU28検査後、BelowNormal/JobObject/start gate/180秒/cleanup5秒の1回、通常4682/旧721以下の再実行0を指定しています。v92結果はまだ未照合です。
+証拠はportable-world-counter-field-validation.json、監査器seal-world-counter-fields-metal.py、初回/membership-replay/finding.jsonです。Windows v92は固定9152a2a52b89cb8d3b77a94a619101a31d6942e8・15ファイル234843bytesの共通short driverで新規62入力/native52に成功しました。CPU28検査とGPU禁止62入力照合後、BelowNormal/JobObject/start gate/180秒/cleanup5秒でCUDA1回、98.870483秒・exit0でした。保存3JSON計74574bytesだけを取得し、source/name/bytes/SHA、全input/output/native/generated fingerprint、50 API phase、workカウンター、元checkout/status/service保持、残存0、retry0、通常4682/旧721以下の再実行0まで共通監査器で確認しました。証拠はportable-world-v92-cuda-validation.json、監査器seal-world-v92-cuda.pyです。Windows turn01a15bbc-c577-7da3-a1f3-f73de12eefcdはcompleted、cursor145、idle。再実行依頼は不要です。
 
 次のtyped damage queueはGPU未接続です。CPU11実戦で、counter子は作成時に式を一度計算し、次フレーム（DT=1/60）か終了時drainで実着弾すること、致死addの子skillが後のbody aimへ着弾すること、named hit_count子（compiler wire49）が元completion targetを継承することを確認しました。ダメージの遅い対象解決と、敵fieldの捕捉対象解決を混同しないでください。
 
