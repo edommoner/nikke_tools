@@ -17,6 +17,14 @@ void admitDefinitions(inout Runtime s,uint input)
         for(uint slot=0;slot<d.conditionCount;slot++)
         {
             uint at=input+P_CONDITION_BASE+j*P_CONDITION_WORDS+slot*4;
+            if(commands[at]==C_TARGET_STATE || commands[at]==C_NOT_TARGET_STATE || commands[at]==C_TARGET_STACK)
+            {
+                uint64_t arg=loadNumber(at+2);uint conversionStatus;
+                uint64_t integer=f64ToI64(arg,1,conversionStatus);
+                if(commands[at+1]>=P_DEFINITIONS || !f64Finite(arg) ||
+                   commands[at]!=C_TARGET_STACK && !f64Zero(arg) ||
+                   commands[at]==C_TARGET_STACK && (conversionStatus!=0 || f64Less(arg,0) || f64Less(f64FromI64(2147483647),arg) || !f64Equal(arg,f64FromI64(integer)))) { s.error=64;break; }
+            }
             if((commands[at]==C_CORE || commands[at]==C_OPTIMAL_RANGE) && (!hasRangeGeometry(s) || commands[at+1]!=0 || !f64Zero(loadNumber(at+2)))) { s.error=64;break; }
             if(commands[at]==C_PROB && (commands[at+1]!=0 || !f64Finite(loadNumber(at+2)) || f64Less(loadNumber(at+2),0) || f64Less(ONE,loadNumber(at+2)))) { s.error=64;break; }
             if(commands[at]==22) { s.error=64;break; } // Legacy CPU-folded code predicate is not a portable condition.

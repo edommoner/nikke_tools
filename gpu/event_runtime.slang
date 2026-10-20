@@ -149,6 +149,29 @@ bool stateMember(inout Runtime s, uint who, int name, uint flags)
     if (mode >= 0) return int(definition_name(s.inputBase,mode)) == name;
     return flags == 2;
 }
+// Native target predicates inspect any enemy member of an exact-name carrier,
+// independently of its caster and of the currently aimed enemy. Stack count
+// is the largest instance, not a sum across casters or enemy recipients.
+uint64_t targetStateStack(inout Runtime s,int name,uint64_t when,out bool present)
+{
+    uint64_t count=0;present=false;
+    for(uint pass=0;pass<s.orderedCount;pass++)
+    {
+        uint slot=s.orderedRows[pass];
+        if(s.alive[slot]==0 || !f64Less(when,s.end[slot]) || int(definition_name(s.inputBase,s.carrierDefinition[slot]))!=name) continue;
+        Definition carrier=residentDefinition(s,slot);bool member=false;
+        if(carrier.enemyBuff!=0)
+            for(uint enemy=0;enemy<s.targetCount;enemy++)
+                if((s.activeRecipients[slot]&(1U<<(enemy+5)))!=0 && targetLive(s,enemy,enemyCarrierGeneration(s,slot,enemy))) member=true;
+        if(carrier.kind==3 && !f64Zero(carrier.interval))
+        {
+            uint packed;
+            member=(carrier.periodicFlags&1)!=0 ? periodicDamageMask(s,s.carrierDefinition[slot],packed)!=0 : targetLive(s,s.timerTarget[s.carrierDefinition[slot]],s.timerGeneration[s.carrierDefinition[slot]]);
+        }
+        if(member) { present=true;count=larger(count,carrierStackValue(s,slot)); }
+    }
+    return count;
+}
 [noinline]
 bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uint recipient = 0xffffffff, uint conditionSlot = 0xffffffff)
 {
@@ -160,6 +183,12 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
     {
         uint at = s.inputBase+P_CONDITION_BASE+definition*P_CONDITION_WORDS+i*4;
         uint kind = commands[at]; int name = int(commands[at+1]); uint64_t arg = loadNumber(at+2);
+        if(kind==C_TARGET_STATE || kind==C_NOT_TARGET_STATE || kind==C_TARGET_STACK && !runtime)
+        {
+            bool present;uint64_t count=targetStateStack(s,name,when,present);
+            if(kind==C_TARGET_STATE && !present || kind==C_NOT_TARGET_STATE && present || kind==C_TARGET_STACK && f64Less(count,arg)) return false;
+            continue;
+        }
         if (runtime && kind != C_GAUGE_ABOVE && kind != C_GAUGE_BELOW && kind != C_FULL && kind != C_NOT_FULL && kind != C_SELF_STATE && kind != C_NOT_SELF_STATE && kind != C_SELF_STACK && kind != C_CAST && kind != C_NOT_CAST && kind != C_CHARGING && kind != C_ENEMIES_ABOVE && kind != C_ENEMIES_BELOW && kind != C_HP_ABOVE && kind != C_HP_BELOW && kind != C_HP_MAX && kind != C_ALLY_HP_BELOW && kind != C_COVER_ALIVE && kind != C_COVER_BROKEN && kind != C_SHIELD && kind != C_TARGET_CODE) continue;
         if (kind >= C_GAUGE_ABOVE && kind <= C_GAUGE_MOD && !resourceCondition(s,owner,kind,uint(name),arg,int(commands[s.inputBase+P_RESOURCE_CONDITION_BASE+definition*3+i]))) return false;
         if (kind == C_CORE && !geometryCore(s)) return false;

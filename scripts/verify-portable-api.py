@@ -31,6 +31,7 @@ def main():
     tracked += ['app/portable_protection_specs.py','app/protection_runtime.py','scripts/portable_protection_oracle.py','tests/fixtures/portable-protection.json']
     tracked += ['app/portable_code_specs.py','scripts/portable_code_oracle.py','scripts/portable_removal_oracle.py','scripts/portable_stack_oracle.py','scripts/portable_instant_list_oracle.py','tests/fixtures/portable-enemy-codes.json']
     tracked += ['app/portable_element_specs.py','scripts/portable_element_oracle.py','scripts/portable_enemy_oracle.py','scripts/portable_weapon_oracle.py','tests/fixtures/portable-element-overrides.json']
+    tracked += ['app/portable_target_state_specs.py','scripts/portable_target_state_oracle.py','tests/fixtures/portable-target-states.json']
     tracked += ['app/portable_geometry_specs.py','scripts/portable_geometry_oracle.py','tests/fixtures/portable-geometry.json']
     tracked += ['app/portable_probability_specs.py','scripts/portable_probability_oracle.py','tests/fixtures/portable-probability.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
@@ -600,6 +601,19 @@ def main():
         if 'combat' in c:body['combat']=c['combat']
         actual=request(body);assert actual['gpu_execution_verified'];compare_geometry(c,actual['results'][0],verifier.contains)
         result['geometry_execution'].append(dict(name=name,execution=actual))
+    from portable_target_state_oracle import compare as compare_target_state
+    target_cases=json.loads((ROOT/'tests/fixtures/portable-target-states.json').read_text())['cases']
+    target_names=['target-state-exact-4-2-target_stack_above:', 'target-state-lifetime-0--1-target_state:',
+                  'target-state-lifetime-0--1-not_target_state:', 'target-state-max-3-5',
+                  'target-state-retire-reuse-target_state:', 'target-state-dot-target_state:',
+                  'target-state-any-live-enemy', 'target-state-integer-bound-0']
+    result['target_state_execution']=[]
+    for name in target_names:
+        c=next(c for c in target_cases if c['name']==name)
+        body=dict(chars=copy.deepcopy(payload['chars']),effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(c['effects'],c['owners'])],
+                  script=c['script'],base_atk=[1000]*5,combat=c['combat'],backend=args.backend)
+        actual=request(body);assert actual['gpu_execution_verified'];compare_target_state(c,actual['results'][0],verifier.contains)
+        result['target_state_execution'].append(dict(name=name,execution=actual))
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in hashes}
     result.update(passed=True,api_status=200,unsupported_status=400,unsupported_error=detail['error'],adapter_sha256=hashes)
     path.write_text(json.dumps(result,indent=2)+'\n', encoding='utf-8')

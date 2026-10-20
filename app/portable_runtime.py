@@ -153,7 +153,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     from portable_geometry_specs import compiler_chars,required as geometry_required
     if geometry is None and geometry_required(effects):raise UnsupportedPortable('Core/range effects require literal geometry input')
     geometry_chars=compiler_chars(chars,geometry)
-    program=legacy.compile_effects(geometry_chars,[(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e),owner) for e,owner in effects])
+    from portable_target_state_specs import compiler_effect as target_compiler_effect
+    program=legacy.compile_effects(geometry_chars,[(target_compiler_effect(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e)),owner) for e,owner in effects])
     source_query_indices={}
     for command in script:
         if len(command)==8 and command[1]==29:

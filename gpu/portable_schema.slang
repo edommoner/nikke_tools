@@ -1,5 +1,5 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721389U;
+static const uint PORTABLE_ABI = 1346721390U;
 static const uint P_PROTECTION_OBJECTS = 1024U;
 static const uint P_PROTECTION_OBJECT_WORDS = 24U;
 static const uint P_REMOVALS = 4096U;
@@ -196,6 +196,9 @@ static const uint D_CONDITION_COUNT = 27U;
 static const uint D_FLAGS = 28U;
 static const uint D_PERIOD = 29U;
 static const uint D_DAMAGE_FLAGS = 31U;
+static const uint C_TARGET_STATE = 16U;
+static const uint C_NOT_TARGET_STATE = 17U;
+static const uint C_TARGET_STACK = 6U;
 static const uint C_CORE = 35U;
 static const uint C_OPTIMAL_RANGE = 33U;
 static const uint C_PROB = 26U;
