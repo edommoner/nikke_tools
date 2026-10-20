@@ -1,0 +1,8 @@
+{
+  "native_unsupported": true,
+  "case": "Max-HP rank for a pure hit-HP source",
+  "error": "TypeError(\"bad operand type for unary -: 'NoneType'\")",
+  "gpu_guard": "actorFieldsDefinitionValid rejects route3 with mode3",
+  "gpu_executions": 0,
+  "remains_unresolved": true
+}
