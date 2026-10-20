@@ -57,7 +57,11 @@ void admitDefinitions(inout Runtime s,uint input)
             s.durationEnabled = 1;
         }
         else if (d.durationGroup != 0 || d.durationCast != 0) { s.error = 64; break; }
-        if (d.enemyBuff > 1 || d.buffEvent > 3 || d.kind != 0 && d.kind != 4 && d.buffEvent != 0) { s.error = 64; break; }
+        // Low bits retain the named-event/audience policy. Higher bits hold an
+        // optional stat-applied event name plus one, authored by the compiler.
+        uint statNotice = d.buffEvent >> 2;
+        if (d.enemyBuff > 1 || d.kind != 0 && d.kind != 4 && d.buffEvent != 0 ||
+            statNotice > P_DEFINITIONS || statNotice != 0 && (d.kind != 0 || d.stat != S_dot_dmg_pct && d.stat != S_split_dmg_pct)) { s.error = 64; break; }
         if (d.healthScaling > 1) { s.error = 64; break; }
         if (d.kind == 0 && d.stat == S_cover_hp_pct) s.coverMask |= 1;
         if ((d.kind == 7 || d.kind == 30) && (f64Less(d.value,0) || d.kind == 30 && f64Zero(d.value))) { s.error = 64; break; }

@@ -495,6 +495,16 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
                 }
                 return;
             }
+            if (f.event == 2 && (buff.buffEvent >> 2) != 0)
+            {
+                frames[depth].event = 3;
+                // Native activation keeps its eagerly selected local target
+                // list across named/stack callbacks, even if they remove or
+                // replace the carrier. Lazy targets remain unresolved here.
+                if (buff.lazyGroup == 0 && f.value != 0)
+                    pushFrame(s,frames,depth,12,31,buff.owner,int((buff.buffEvent >> 2)-1),f.time,f.value);
+                return;
+            }
             if (f.repeatLeft!=0 && s.entryOrder[slot]==f.repeatPassive && s.carrierDefinition[slot]==f.repeatRow) captureBuffReference(s,slot,f.cursor-1);
             rechargeImmunity(s,f.cursor-1,packedRecipientMask(buff.enemyBuff!=0 ? 0 : f.value)|(buff.enemyBuff!=0 ? uint(f.value>>16) : 0));
             depth--;
@@ -1024,7 +1034,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             bool namedNotice = namedCandidate && (s.namedEventOwners & packedRecipientMask(audienceOrder)) != 0;
             bool stackNotice = (d.buffEvent & 1) != 0 && previousStack != s.stacks[row] && (s.stackEventOwners & (1U << d.owner)) != 0;
             if (live && !namedNotice && !stackNotice) captureBuffReference(s,row,sourceRow);
-            if (namedNotice || stackNotice || immunityPolicy(s.inputBase,sourceRow)==3 || (protectionPolicy(s,sourceRow)&255)==1 || (protectionPolicy(s,sourceRow)&255)==2)
+            if (namedNotice || stackNotice || (d.buffEvent >> 2) != 0 || immunityPolicy(s.inputBase,sourceRow)==3 || (protectionPolicy(s,sourceRow)&255)==1 || (protectionPolicy(s,sourceRow)&255)==2)
             {
                 pushFrame(s,frames,depth,13,0,d.owner,int(row),f.time,d.enemyBuff!=0 ? uint64_t(recipientMask&~31U)<<16 : recipientOrder);
                 if (s.error == 0)

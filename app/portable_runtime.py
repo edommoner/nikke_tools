@@ -320,7 +320,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             for matched in duration_extend_members(effects[index][0],effects):words[force+matched//32]|=1<<(matched%32)
         health=L['HEALTH_DEFINITION_BASE']+index*L['HEALTH_DEFINITION_WORDS']
         words[health:health+4]=[int(row[50]),int(effects[index][0].get('stat')=='def_pct') | (int(effects[index][0].get('stat')=='received_dmg_pct')<<1),
-                              (int(bool(eff.get('name'))) | (int(eff.get('event_scope')=='recipients')<<1)) if eff.get('type')=='buff' and stack is None else 0,int(enemy_buff_plan(eff) is not None)]
+                              (int(bool(eff.get('name'))) | (int(eff.get('event_scope')=='recipients')<<1) | ((int(row[204])+1)<<2)) if eff.get('type')=='buff' and stack is None else 0,int(enemy_buff_plan(eff) is not None)]
         if enemy_buff_plan(eff) is not None:
             route,count=enemy_buff_plan(eff);packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS']
             words[packet:packet+8]=[route,count,0,0,0,0,0,0]

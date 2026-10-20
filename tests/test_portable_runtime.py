@@ -282,6 +282,7 @@ class PortableAmmoInputTests(unittest.TestCase):
 
     def test_named_events_keep_reserved_builtin_semantics(self):
         from portable_trigger_specs import validate_input
+        validate_input(dict(trigger=dict(timing=['event:foo:bar'],condition=[])))
         validate_input(dict(trigger=dict(timing=['event:custom cartridge completion'],condition=[])))
-        for value in ('event:', 'event:enemy_spawn', 'event:enemy_spawn', 'event:foo:bar'):
+        for value in ('event:', 'event:enemy_spawn', 'event:part_destroy', 'event:state_end:', 'event:ally_hp_below:bad'):
             with self.subTest(value=value),self.assertRaises(ValueError):validate_input(dict(trigger=dict(timing=[value],condition=[])))
