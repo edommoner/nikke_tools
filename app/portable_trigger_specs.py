@@ -6,7 +6,7 @@ import re
 from world_condition_specs import ENEMY_COUNT_ABOVE,ENEMY_COUNT_BELOW,TARGET_IS_BOSS,TARGET_IS_ADD
 from portable_code_specs import TARGET_CODE,PREFIX as CODE_PREFIX,condition_id
 
-CONDITIONS=dict(PROB=26,SHIELD=12,GAUGE_ABOVE=18,GAUGE_BELOW=19,GAUGE_EQ=20,GAUGE_MOD=21,COVER_ALIVE=36,COVER_BROKEN=37,FULL=1,NOT_FULL=2,SELF_STATE=3,NOT_SELF_STATE=4,SELF_STACK=5,
+CONDITIONS=dict(CORE=35,OPTIMAL_RANGE=33,PROB=26,SHIELD=12,GAUGE_ABOVE=18,GAUGE_BELOW=19,GAUGE_EQ=20,GAUGE_MOD=21,COVER_ALIVE=36,COVER_BROKEN=37,FULL=1,NOT_FULL=2,SELF_STATE=3,NOT_SELF_STATE=4,SELF_STACK=5,
                 BACK_ROW=7,STAT_ABOVE=8,HP_ABOVE=9,HP_BELOW=10,HP_MAX=11,NOT_SELF_HEAL=13,CAST=14,NOT_CAST=15,STATIC=25,CHARGING=29,
                 BURST1_ALLY=31,NO_BURST1_ALLY=32,ALLY_HP_BELOW=34,TARGET_CODE=TARGET_CODE,ENEMIES_ABOVE=ENEMY_COUNT_ABOVE,
                 ENEMIES_BELOW=ENEMY_COUNT_BELOW,TARGET_BOSS=TARGET_IS_BOSS,TARGET_ADD=TARGET_IS_ADD)
@@ -20,7 +20,7 @@ HP_TIMING=rf'hp_below:{HP_NUMBER}|hp_below_count:{HP_NUMBER}:[1-9][0-9]*|event:(
 # Reserve structured event prefixes so malformed HP/end descriptors and unported
 # accumulator/counter events cannot fall through to the generic named event.
 TIMING=rf'every_stack:[^:]+:[1-9][0-9]*|event:(?!(?:state_end|ally_hp_below|adjacent_hp_below|accum_full|target_counter_complete):)[\s\S]+|{HP_TIMING}|{SIMPLE}|{COUNTERS}|burst_enter:[123]|burst_enter_count:[123]:{COUNT}|event:state_end:[\s\S]+|hit_count:[^:]+:{COUNT}|stack_reach:[^:]+:[1-9][0-9]*'
-CONDITION=rf'prob:[\s\S]+|during_shield|gauge_(?:above|below|eq):[^:]+:{HP_NUMBER}|gauge_mod:[^:]+:[1-9][0-9]*:[+-]?[0-9]+|self_cover_alive|not_self_cover_alive|not_self_caused_heal|self_hp_max|(?:self_hp_above|self_hp_below|ally_hp_below):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)|during_full_burst|not_during_full_burst|during_charge|burst_casted|burst_not_casted|has_burst1_ally|no_burst1_ally|has_defender_ally|no_defender_ally|squad_ally_exists|back_row|target_is_boss|target_is_add|target_code:[\s\S]*|(?:self_state|not_self_state):[\s\S]*|self_stack_above:[^:]+:[0-9]+|enemy_count_(?:above|below):[+-]?[0-9]+|self_stat_above:(?:atk_pct|crit_rate|crit_dmg):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
+CONDITION=rf'core_hit|optimal_range|prob:[\s\S]+|during_shield|gauge_(?:above|below|eq):[^:]+:{HP_NUMBER}|gauge_mod:[^:]+:[1-9][0-9]*:[+-]?[0-9]+|self_cover_alive|not_self_cover_alive|not_self_caused_heal|self_hp_max|(?:self_hp_above|self_hp_below|ally_hp_below):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)|during_full_burst|not_during_full_burst|during_charge|burst_casted|burst_not_casted|has_burst1_ally|no_burst1_ally|has_defender_ally|no_defender_ally|squad_ally_exists|back_row|target_is_boss|target_is_add|target_code:[\s\S]*|(?:self_state|not_self_state):[\s\S]*|self_stack_above:[^:]+:[0-9]+|enemy_count_(?:above|below):[+-]?[0-9]+|self_stat_above:(?:atk_pct|crit_rate|crit_dmg):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
 
 
 def validate_input(eff):

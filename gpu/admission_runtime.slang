@@ -17,6 +17,7 @@ void admitDefinitions(inout Runtime s,uint input)
         for(uint slot=0;slot<d.conditionCount;slot++)
         {
             uint at=input+P_CONDITION_BASE+j*P_CONDITION_WORDS+slot*4;
+            if((commands[at]==C_CORE || commands[at]==C_OPTIMAL_RANGE) && (!hasRangeGeometry(s) || commands[at+1]!=0 || !f64Zero(loadNumber(at+2)))) { s.error=64;break; }
             if(commands[at]==C_PROB && (commands[at+1]!=0 || !f64Finite(loadNumber(at+2)) || f64Less(loadNumber(at+2),0) || f64Less(ONE,loadNumber(at+2)))) { s.error=64;break; }
             if(commands[at]==22) { s.error=64;break; } // Legacy CPU-folded code predicate is not a portable condition.
             if(commands[at]==C_TARGET_CODE && (commands[at+1]==0 || commands[at+1]>codeNames || !f64Zero(loadNumber(at+2)))) { s.error=64;break; }
@@ -43,6 +44,7 @@ void admitDefinitions(inout Runtime s,uint input)
             }
             else s.lazyGroupDefinition[d.lazyGroup-1] = j+1;
         }
+        if((d.stat==S_optimal_range_min || d.stat==S_optimal_range_max_pct) && (d.kind!=0 || d.enemyBuff!=0 || !hasRangeGeometry(s))) { s.error=64;break; }
         uint packet = input+P_DAMAGE_DEFINITION_BASE+j*P_DAMAGE_DEFINITION_WORDS;
         if(d.stat==S_element_code_override)
         {

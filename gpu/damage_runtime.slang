@@ -44,6 +44,7 @@ uint64_t damageValue(inout Runtime s, uint who, uint64_t coefficient, uint64_t w
     uint64_t critRate = b[normal ? S_crit_rate : S_crit_rate_skill], critDamage = b[normal ? S_crit_dmg : S_crit_dmg_skill];
     uint64_t f3 = f64Add(ONE,f64Mul(critRate,larger(0,f64Add(s.baseCritDamage,f64Div(critDamage,HUNDRED)))));
     if (s.phase == 5) f3 = f64Add(f3,uint64_t(0x3fe00000) << 32);
+    if(normal && hasRangeGeometry(s)) optimal=geometryRange(s,who,true,b[S_optimal_range_min],b[S_optimal_range_max_pct]);
     if (normal && optimal) f3 = f64Add(f3,uint64_t(0x3fd33333) << 32 | 0x33333333);
     uint64_t core = (flags & H_CORE) != 0 ? ONE : normal ? normalProbability(s,who,b[S_accuracy_pct]) : 0;
     if (!f64Zero(core)) f3 = f64Add(f3,f64Mul(core,f64Add(coreBonus,f64Div(b[S_core_dmg_pct],HUNDRED))));

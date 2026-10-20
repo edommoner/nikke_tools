@@ -31,6 +31,7 @@ def main():
     tracked += ['app/portable_protection_specs.py','app/protection_runtime.py','scripts/portable_protection_oracle.py','tests/fixtures/portable-protection.json']
     tracked += ['app/portable_code_specs.py','scripts/portable_code_oracle.py','scripts/portable_removal_oracle.py','scripts/portable_stack_oracle.py','scripts/portable_instant_list_oracle.py','tests/fixtures/portable-enemy-codes.json']
     tracked += ['app/portable_element_specs.py','scripts/portable_element_oracle.py','scripts/portable_enemy_oracle.py','scripts/portable_weapon_oracle.py','tests/fixtures/portable-element-overrides.json']
+    tracked += ['app/portable_geometry_specs.py','scripts/portable_geometry_oracle.py','tests/fixtures/portable-geometry.json']
     tracked += ['app/portable_probability_specs.py','scripts/portable_probability_oracle.py','tests/fixtures/portable-probability.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases'][0]
@@ -581,6 +582,24 @@ def main():
         if 'combat' in c:body['combat']=c['combat']
         actual=request(body);assert actual['gpu_execution_verified'];compare_probability(c,actual['results'][0],verifier.contains)
         result['probability_execution'].append(dict(name=name,execution=actual))
+    from portable_geometry_oracle import compare as compare_geometry
+    geometry_cases=json.loads((ROOT/'tests/fixtures/portable-geometry.json').read_text())['cases']
+    geometry_names=['geometry-core-0-0','geometry-core-4-1.0','geometry-range-2-50-20-0',
+                    'geometry-range-2-100-100-1','geometry-ordered-optimal_range-prob:20',
+                    'geometry-endpoint-prob:100-prob:99.99999999999999-prob:0']
+    geometry_names += [c['name'] for c in geometry_cases if c.get('geometry_physical_reference') and c['effects'][0]['type']=='weapon_change'][-2:]
+    assert len(set(geometry_names))==8
+    result['geometry_execution']=[]
+    for name in geometry_names:
+        c=next(c for c in geometry_cases if c['name']==name)
+        chars=copy.deepcopy(payload['chars'])
+        if 'combat' in c:
+            for char,weapon in zip(chars,c['combat']['weapons']):char['_weapon']['reload_time']=weapon.get('reload',1)
+        body=dict(chars=chars,effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(c['effects'],c['owners'])],
+                  script=c['script'],base_atk=[1000]*5,environment=c['environment'],backend=args.backend)
+        if 'combat' in c:body['combat']=c['combat']
+        actual=request(body);assert actual['gpu_execution_verified'];compare_geometry(c,actual['results'][0],verifier.contains)
+        result['geometry_execution'].append(dict(name=name,execution=actual))
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in hashes}
     result.update(passed=True,api_status=200,unsupported_status=400,unsupported_error=detail['error'],adapter_sha256=hashes)
     path.write_text(json.dumps(result,indent=2)+'\n', encoding='utf-8')

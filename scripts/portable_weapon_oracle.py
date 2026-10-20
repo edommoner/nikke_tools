@@ -54,9 +54,15 @@ def _observe(case):
     bs={n:dict(atk=1000,defense=0,hp=1000000) for n in names}
     enemy=dict(defense=0,core_px=w.get('core_diameter',0),code=None,optimal_range_weapons=[weapon['weapon_type']] if w.get('optimal',False) else [])
     if case.get('element_physical_reference'):enemy['code']=case.get('environment',{}).get('enemy_code')
+    if case.get('geometry_physical_reference'):
+        geometry=case['environment']['geometry']
+        enemy.update(core_px=geometry.get('core_px',0),optimal_range_weapons=geometry.get('optimal_weapons',[]))
+        if geometry.get('distance') is not None:enemy['distance']=geometry['distance']
     # The engine uses 'def', while the public fixture avoids reserved identifiers.
     enemy['def']=case['combat']['targets'][0].get('defense',0)
     bm=BM(chars,state=dict(base_stats=bs,enemy=enemy,full_burst=False,rng_acc={},rng_expected=True,camera=set()))
+    if case.get('geometry_physical_reference'):
+        bm.state.update(burst_gauge=case['combat'].get('initial_gauge',0),burst_gauge_charging=True)
     st=authored_weapon_state(chars[0],w)
     if case.get('element_physical_reference'):st.enemy_code=enemy['code']
     total=0;shots=0;gauge=0;queries=[];started=False
@@ -77,7 +83,8 @@ def _observe(case):
             bm.tick(t)
             hits=st.tick(t,bm,enemy,{'rng_mode':'expected'})
             total+=sum(h.damage for h in hits);shots+=int(bool(hits))
-            if hits:gauge=min(100,gauge+st._burst_gain(bm.get_buffs(names[0],'__enemy__',t),len(hits),full_charge=st.fire_mode=='charge' and case.get('weapon_reference_context',{}).get('camera',False)))
+            if case.get('geometry_physical_reference'):gauge=bm.state['burst_gauge']
+            elif hits:gauge=min(100,gauge+st._burst_gain(bm.get_buffs(names[0],'__enemy__',t),len(hits),full_charge=st.fire_mode=='charge' and case.get('weapon_reference_context',{}).get('camera',False)))
         elif op==2:queries.append(dict(damage=[total,0,0,0,0],combat={'gauge':gauge,'clock':'accumulated' if accumulated else 'grid','weapons':[dict(ammo=st.ammo,shots=shots,next=observed_next_fire(st,bm),reload_until=st.reloading_until)]}))
         else:raise ValueError('Oracle accepts frame/query fixtures only')
     return queries,dict(warm=st.warmup_shots,last_interval=st._last_inter)

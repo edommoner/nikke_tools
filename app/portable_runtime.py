@@ -137,7 +137,7 @@ def validate_effect(eff, *, combat=None):
             raise ValueError('Invalid '+key)
 
 
-def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None):
+def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None):
     import detail_gpu as legacy
     from portable_stack_specs import plan as stack_plan,operation as stack_operation,value as stack_value,pack_metadata as pack_stack_metadata
     check_schema()
@@ -150,7 +150,10 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     from portable_staged_specs import descriptors as staged_descriptors,pack as pack_staged
     staged=staged_descriptors(effects)
     from portable_element_specs import enabled as element_override,STAT as ELEMENT_OVERRIDE_STAT,code_tag,legacy_effect
-    program=legacy.compile_effects(chars,[(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e),owner) for e,owner in effects])
+    from portable_geometry_specs import compiler_chars,required as geometry_required
+    if geometry is None and geometry_required(effects):raise UnsupportedPortable('Core/range effects require literal geometry input')
+    geometry_chars=compiler_chars(chars,geometry)
+    program=legacy.compile_effects(geometry_chars,[(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e),owner) for e,owner in effects])
     source_query_indices={}
     for command in script:
         if len(command)==8 and command[1]==29:
@@ -348,6 +351,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             if row[7]<0 and row[14]>0:raise UnsupportedPortable('Infinite conditional weapon mode is not ported')
             from portable_combat import pack_mode
             pack_mode(words,index,row,double_words)
+    from portable_geometry_specs import pack as pack_geometry
+    pack_geometry(words,geometry,effects,program['effects'],chars,L,double_words)
     pack_stack_metadata(words,L,effects,double_words)
     from portable_staged_specs import pack_index
     pack_index(words,staged,L)

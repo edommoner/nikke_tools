@@ -100,6 +100,7 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#include "geometry_runtime.slang"
 
 bool hasProtection(inout Runtime s,uint who,uint kind);
 
@@ -161,6 +162,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
         uint kind = commands[at]; int name = int(commands[at+1]); uint64_t arg = loadNumber(at+2);
         if (runtime && kind != C_GAUGE_ABOVE && kind != C_GAUGE_BELOW && kind != C_FULL && kind != C_NOT_FULL && kind != C_SELF_STATE && kind != C_NOT_SELF_STATE && kind != C_SELF_STACK && kind != C_CAST && kind != C_NOT_CAST && kind != C_CHARGING && kind != C_ENEMIES_ABOVE && kind != C_ENEMIES_BELOW && kind != C_HP_ABOVE && kind != C_HP_BELOW && kind != C_HP_MAX && kind != C_ALLY_HP_BELOW && kind != C_COVER_ALIVE && kind != C_COVER_BROKEN && kind != C_SHIELD && kind != C_TARGET_CODE) continue;
         if (kind >= C_GAUGE_ABOVE && kind <= C_GAUGE_MOD && !resourceCondition(s,owner,kind,uint(name),arg,int(commands[s.inputBase+P_RESOURCE_CONDITION_BASE+definition*3+i]))) return false;
+        if (kind == C_CORE && !geometryCore(s)) return false;
         if (kind == C_TARGET_CODE)
         {
             uint code=commands[s.inputBase+P_WORLD_META_BASE];
@@ -331,6 +333,13 @@ bool activationConditions(inout Runtime s, uint row, uint64_t when)
         if (commands[at] == C_STAT_ABOVE)
         {
             if(!f64Less(loadNumber(at+2),readStat(s,owner,commands[at+1],when))) return false;
+        }
+        else if(commands[at] == C_OPTIMAL_RANGE)
+        {
+            uint64_t values[64];
+            if((commands[s.inputBase+P_GEOMETRY_BASE]&2)!=0) collectStats(s,owner,when,values);
+            else { values[S_optimal_range_min]=0;values[S_optimal_range_max_pct]=0; }
+            if(!geometryRange(s,owner,false,values[S_optimal_range_min],values[S_optimal_range_max_pct])) return false;
         }
         else if(commands[at] == C_PROB)
         {
@@ -1389,6 +1398,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if (s.error != 0) { results[output] = s.error; return; }
     uint numericStatus; s.probability = coreProbability(loadNumber(input+20),numericStatus);
     if (numericStatus != 0) { results[output] = 128; return; }
+    if(!validGeometry(s)) { results[output]=64;return; }
     admitDefinitions(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
     if(!validProtection(s)) { results[output]=64;return; }
