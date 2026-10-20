@@ -23,10 +23,12 @@ def observe(case):
  metadata={}
  for n,w in zip(NAMES,case['combat']['weapons']):
   metadata[n]=dict(timeline._NIKKE[n],weapon_type='AR',is_charge=False,input_type='DOWN',burst_stage='0',fire_rate=1/w['interval'],fire_rate_max=1/w['interval'],damage_coeff=100,max_ammo=w['capacity'],reload_time=w['reload'],burst_energy=0,muzzles=1,pellets=1,core_dmg_mult=200)
+ for n in NAMES:metadata[n].update(copy.deepcopy(case.get('weapon_metadata',{})))
  def stats(char):
   i=NAMES.index(char['name']);a=case['environment']['allies'][i]
   return {'atk':case['base_atk'][i],'hp':a['base_hp'],'def':a['base_defense']}
  enemy={'def':0,'code':None,'core_px':0,'optimal_range_weapons':[],'patterns':copy.deepcopy(case['patterns'])}
+ enemy.update(copy.deepcopy(case.get('enemy',{})))
  with patch.dict(timeline._NIKKE,metadata),patch.dict(buff_manager._NIKKE,metadata),patch.object(timeline,'calc_base_stats',stats),patch.object(buff_manager.BuffManager,'_register_all',register),patch.object(timeline,'CharState',Character),patch.object(timeline,'BurstController',Controller),patch.object(timeline,'BossScript',Boss),patch.object(timeline.random,'Random',ObservedRNG),patch.dict(timeline._DELAYS['_exceptions'],{},clear=True),patch.dict(timeline._DELAYS['_defaults_by_weapon_type'],{'AR':{'post_reload_delay':0}},clear=True):
   result=timeline.simulate([dict(name=n,skill_levels={'1':10,'2':10,'3':10}) for n in NAMES],config=dict(duration=case['duration'],rng_mode='expected',burst_gauge_mode='accumulate',cover_hp=1000,camera_mode='single',camera=[]),enemy=enemy,seed=19)
  state=capture['state'];bm=capture['bm'];rng=capture['boss']._rng
