@@ -1,0 +1,31 @@
+{
+  "stage": "Native overlay contract and full-simulation witnesses fixed;GPU connection not implemented",
+  "source_commit": "d0244db",
+  "contracts": 14,
+  "full_native_profiles": 7,
+  "old_native_results_preserved": 17,
+  "reports": {
+    "research/portable-world-overlay-native.json": {
+      "bytes": 261448,
+      "sha256": "c04d7e05dac665195ec15f431cea7f8772d5f8727e9b6aa04df0ad08a0078807"
+    },
+    "research/portable-world-overlay-oracle-parity.json": {
+      "bytes": 2398,
+      "sha256": "9427f7fd8b84977ee63eac9f1f18167206b196b184afab96bf7ed7b94fb63a6c"
+    }
+  },
+  "initial_authoring_error": {
+    "path": "/Users/edo/.codex/worktrees/world-overlays/nikke_tools/research/portable-build/overlay-native-authoring-error/report.json",
+    "sha256": "e427e696126b268695104b48f0c782a10f1622c5fe6fe7653fb2b73a56bd56af",
+    "issue": "until.after fixture used string instead of node dict;corrected before any GPU run"
+  },
+  "pending_v80_source": "86f66858e24f051fe3a617ddb13661adc5af9614",
+  "v80_source_untouched": true,
+  "windows_jobs_started": 0,
+  "gpu_jobs_started": 0,
+  "efficiency_started": false,
+  "next_step": "Connect shared world overlay descriptors,frame snapshots,enemy effect lifetime,geometry and gate/gauge accounting;validate all kinds and old programs on Metal in this worktree",
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "updated_at": "2026-10-20T17:35:08.569648+00:00"
+}

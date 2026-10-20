@@ -1,0 +1,101 @@
+{
+  "passed": true,
+  "source_commit": "d0244db2522444f4604f4c41f67e35f3d159ea40",
+  "source_sha256": {
+    "research/world_frame_native.py": "1655fd2699c8a22ec3afce16634e0f59505e6ade887b2b431fa0901d67663227",
+    "research/verify-world-overlay-oracle.py": "333536781777ee80a599c94e6f362c633dc044aafb3bbcb41b0e146905078e17",
+    "research/verify-world-frame.py": "05e4ebaaecb1af7e859c9d7d69b8c2c33180cfdbc690610d06e1f4076abdf4e8"
+  },
+  "prior_report_sha256": "709342814f923327e93f0498e018fe33e962158f84bb07731728468a762ee419",
+  "cases": [
+    {
+      "name": "initial-zero-before-own-shot",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "taunt-slot:2-0",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "taunt-slot:2-4",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "taunt-top_atk:2-0",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "taunt-top_atk:2-4",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "taunt-random:2-0",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "taunt-random:2-4",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "layer-shield_from_max_hp_pct",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "layer-decoy",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "layer-received_dmg_split_even",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "layer-invincible",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "lethal-before-own-zero-shot",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "automatic-reload-cover",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "received-hit-buff-next-attacker-order",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "expiry-cancels-pending",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "cyclic-frame-attacks",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "rank-before-exact-expiry-boundary",
+      "passed": true,
+      "changed": []
+    }
+  ],
+  "gpu_executions": 0,
+  "scope": "All17 previous native full simulations exactly preserved after optional authored enemy/weapon inputs;does not reexecute or certify GPU overlays",
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}
