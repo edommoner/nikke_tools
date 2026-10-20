@@ -1,6 +1,6 @@
 {
-  "stage": "Native overlay contract and full-simulation witnesses fixed;GPU connection not implemented",
-  "source_commit": "d0244db",
+  "stage": "ABI75 shared defense/core/range and ordered enemy effects passed Metal74;gates/cleanse/actors pending",
+  "source_commit": "a0e936a2b5edb80a74375947dfdb348a87c699a7",
   "contracts": 14,
   "full_native_profiles": 7,
   "old_native_results_preserved": 17,
@@ -24,8 +24,22 @@
   "windows_jobs_started": 0,
   "gpu_jobs_started": 0,
   "efficiency_started": false,
-  "next_step": "Connect shared world overlay descriptors,frame snapshots,enemy effect lifetime,geometry and gate/gauge accounting;validate all kinds and old programs on Metal in this worktree",
+  "next_step": "Connect shield/vanish landing and gauge accounting and enemy_buff_cleanse lifecycle;then shared tests and short CUDA overlay verification;actors remain required",
   "full_character_verified": 0,
   "full_goal_complete": false,
-  "updated_at": "2026-10-20T17:35:08.569648+00:00"
+  "updated_at": "2026-10-20T17:53:56.122660+00:00",
+  "gpu_metal_positive_native": 9,
+  "gpu_metal_raw_rejected": 16,
+  "prior_world_outputs_preserved": 49,
+  "first9_all_input_output_bytes_preserved": true,
+  "capture": "/Users/edo/.codex/worktrees/world-overlays/nikke_tools/research/portable-build/world-overlay-body-20261020T175230783255Z",
+  "source_hashes_verified": true,
+  "normal_cuda_and_msl_generated_exact_v79": true,
+  "normal_packing_constants_and_five_packers_exact_v79": true,
+  "portable_unit_tests": 293,
+  "portable_unit_source": "267406f",
+  "later_changes_only": "Conditional Slang provider placement;no Python changes after293 unit test",
+  "windows_base_v80_completed_on_primary": true,
+  "windows_overlay_verified": false,
+  "gpu_jobs_active": 0
 }
