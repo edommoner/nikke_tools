@@ -1,0 +1,117 @@
+{
+  "commit": "db8f4c87c54c29b9c1fbf0e5764ded5fdbfe6a86",
+  "parent": "6c8aaa5a10e9baf86397675f18c3651977775c2c",
+  "source_snapshot": "7f20ccd02a2217f5ded4fe6b28e0ec15a09eab5d",
+  "branch": "codex/cuda-world-v82-source",
+  "files": 20,
+  "total_bytes": 331359,
+  "rows": [
+    {
+      "path": "app/portable_specs.py",
+      "bytes": 11398,
+      "sha256": "c5993d9f64b66e39a1a4402e30add3eb7d1aa9a67bd9b7b93b44be6758db4802"
+    },
+    {
+      "path": "app/portable_world_overlay_specs.py",
+      "bytes": 3525,
+      "sha256": "97014af04ee929532e1519069cd1ff87a15069fe3258d6a86f22bb88f930d1fb"
+    },
+    {
+      "path": "gpu/admission_runtime.slang",
+      "bytes": 12553,
+      "sha256": "c9f16fd54e0c81b4a5de0bbe8d44bf2ef1718d7d0e4a1306d0bc6be3ed4a9b47"
+    },
+    {
+      "path": "gpu/combat_runtime.slang",
+      "bytes": 25099,
+      "sha256": "18a6b59be0eff630f2317cbe535b3774457a1f1ceda75ee20a5c9802ff482d2b"
+    },
+    {
+      "path": "gpu/damage_runtime.slang",
+      "bytes": 5613,
+      "sha256": "732187295c6d98090c213dae755442a598b8a16d817272ce371817da8fdac7e7"
+    },
+    {
+      "path": "gpu/event_runtime.slang",
+      "bytes": 101294,
+      "sha256": "fd2a9116e6e053e98ab3bdbae06f111192de9c7c21106827e109e41b3a5c635d"
+    },
+    {
+      "path": "gpu/portable_schema.slang",
+      "bytes": 15197,
+      "sha256": "9c5d27e04c4f2625361470df8cf9a2d39acc3c87c8b64eed7896eaa2c2e883cd"
+    },
+    {
+      "path": "gpu/world_overlay_runtime.slang",
+      "bytes": 12157,
+      "sha256": "c212ded55ab5047ffbb7c30b2e6195c467482eb82109b37373b7f483a3fcac6b"
+    },
+    {
+      "path": "gpu/world_overlay_weapon.slang",
+      "bytes": 3389,
+      "sha256": "111d2f3569a5347e8c61752591fe0e3081be5050a521e549d1956c61e0c056f7"
+    },
+    {
+      "path": "research/world_frame_native.py",
+      "bytes": 6352,
+      "sha256": "c3a24a3e6fc0ddd5ffb8395dd8903a7e459229e37ab6a0698f3ff37ab0111634"
+    },
+    {
+      "path": "research/world_overlay_skill_mode_cases.py",
+      "bytes": 3114,
+      "sha256": "f1517febc88aae9cdc3c36329ab85350e597354a2f414081d97aae9bf59a5342"
+    },
+    {
+      "path": "research/world_overlay_charge_hold_cases.py",
+      "bytes": 2920,
+      "sha256": "39fc1f9019f7453214d03306f2bc738f7e9f056b964b9cfe0c5f8ef469c02b6d"
+    },
+    {
+      "path": "research/verify-world-overlay-body.py",
+      "bytes": 17597,
+      "sha256": "7979323f91dafb05a164b555d40f8db9bd9873b3a5988c812cf37990f7a59abf"
+    },
+    {
+      "path": "research/summarize-world-overlay.py",
+      "bytes": 3529,
+      "sha256": "c7b30b6d582d3196605c85cb7848c9460b9ed0c7068c024b0d98fa28a86203e9"
+    },
+    {
+      "path": "research/run-world-overlay-bounded.py",
+      "bytes": 2922,
+      "sha256": "082c16b9b314cf8aed8b30149ad58df3828a01df782e1883dccead0d6f78017f"
+    },
+    {
+      "path": "research/portable-world-charge-hold-expected.json",
+      "bytes": 79009,
+      "sha256": "41008b565e0e9bb4bab01afce480d8ffa131436cac1241dd96406d67de1d78bd"
+    },
+    {
+      "path": "research/portable-world-charge-hold-validation.json",
+      "bytes": 869,
+      "sha256": "1e632f70a23dec4620112f06e548b0761ae629d0b88045b7eb0b420f616ac2c4"
+    },
+    {
+      "path": "research/portable-world-charge-hold-default-generated-parity.json",
+      "bytes": 6050,
+      "sha256": "bc548ea70c0acfbe3e517baef23aaf50f469797be9849764fa1774db830652a6"
+    },
+    {
+      "path": "tests/test_portable_world_overlay_input.py",
+      "bytes": 3531,
+      "sha256": "f81aea14cda09b91df924ef51df4347c14d3313ab92a4867166685c7b9a4f584"
+    },
+    {
+      "path": "docs/portable-world-overlays.md",
+      "bytes": 15241,
+      "sha256": "1624e3d86b0a2763d369de60b67ac5bf9f62731dbb8a286d749983b82cf7b54b"
+    }
+  ],
+  "contains_private_settings": false,
+  "contains_raw": false,
+  "contains_large_reports": false,
+  "user_approval": "\u4eca\u5f8cgithub\u3078\u306e\u5171\u6709\u3092\u3053\u306e\u30b4\u30fc\u30eb\u3092\u9054\u6210\u3059\u308b\u307e\u3067\u8a31\u53ef\u3057\u307e\u3059",
+  "validation": "CPU11 containment+literal input tests and full208 input SHA first;then one shared208 CUDA run BelowNormal180s;no normal4682 rerun,no GPU retry",
+  "shared": true,
+  "windows_request_dispatched": true
+}
