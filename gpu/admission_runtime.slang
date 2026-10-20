@@ -10,15 +10,29 @@ void admitDefinitions(inout Runtime s,uint input)
     for(uint word=3;word<P_WORLD_META_WORDS;word++) if(commands[world+word]!=0) { s.error=64;return; }
     if(commands[input+P_RECIPIENT_META_BASE]>P_RECIPIENT_NODES) { s.error=64;return; }
     for(uint word=1;word<8;word++) if(commands[input+P_RECIPIENT_META_BASE+word]!=0) { s.error=64;return; }
+    uint refs=input+P_BURST_REFERENCE_BASE;
+    if(commands[refs]>1 || commands[refs+1]>31 || commands[refs]!=0 && s.combat==0) { s.error=64;return; }
+    for(uint word=2;word<8;word++) if(commands[refs+word]!=0) { s.error=64;return; }
+    for(uint word=28;word<P_BURST_REFERENCE_WORDS;word++) if(commands[refs+word]!=0) { s.error=64;return; }
+    if(commands[refs]==0)
+    { for(uint word=1;word<P_BURST_REFERENCE_WORDS;word++) if(commands[refs+word]!=0) { s.error=64;return; } }
+    else for(uint who=0;who<5;who++)
+    {
+        uint64_t energy=loadNumber(refs+8+who*4),raw=loadNumber(refs+10+who*4);
+        if(!f64Finite(energy) || !f64Finite(raw) || f64Less(energy,0) || f64Less(raw,0) || f64Less(f64FromI64(1000000),energy) || f64Less(f64FromI64(1000000),raw) ||
+           (commands[refs+1] & (1U<<who))==0 && !f64Zero(raw)) { s.error=64;return; }
+    }
     for (uint j = 0; j < s.count; j++)
     {
         Definition d=readDefinition(input,j);
-        if(d.stat==S_pierce_enabled || d.stat==S_armor_break_enabled)
+        if(d.stat==S_pierce_enabled || d.stat==S_armor_break_enabled || d.stat==S_burst_charge_speed_pct)
         {
             if(d.kind!=0 || d.enemyBuff!=0 || !f64Finite(d.value) || d.damageFlags!=0) { s.error=64;break; }
             for(uint word=0;word<P_DAMAGE_DEFINITION_WORDS;word++)
                 if(commands[input+P_DAMAGE_DEFINITION_BASE+j*P_DAMAGE_DEFINITION_WORDS+word]!=0) { s.error=64;break; }
             if(s.error!=0) break;
+            if(d.stat==S_burst_charge_speed_pct)
+            { if(commands[refs]!=1) { s.error=64;break; } s.quantityMask|=128; }
         }
         if (d.owner >= 5 || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; }
         for(uint slot=0;slot<d.conditionCount;slot++)

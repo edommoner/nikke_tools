@@ -13,6 +13,7 @@ BUFFS=frozenset(('pierce_enabled','armor_break_enabled','optimal_range_min','opt
     'normal_atk_crit_rate','normal_atk_crit_dmg','split_dmg_pct','pierce_dmg_pct',
     'dot_dmg_pct','armor_break_dmg_pct','part_dmg_pct','intercept_dmg_pct',
     'burst_dmg_aoe_pct','burst_dmg_single_pct'))
+BUFFS=BUFFS | {'burst_charge_speed_pct'}
 STATS={k:v for k,v in {**DETAIL_STAT,**EXTRA_STAT}.items() if k in BUFFS or k in ('lifesteal_pct','atk_flat','element_bonus','crit_rate_skill','crit_dmg_skill','enemy_def_down_pct','enemy_def_down_flat','received_dmg_pct')}
 DAMAGE_FAMILIES=frozenset(('damage','bonus_damage','burst_damage','split_damage','dot_damage',
     'auto_damage','armor_break_damage','armor_break_burst_damage','sequential_damage',

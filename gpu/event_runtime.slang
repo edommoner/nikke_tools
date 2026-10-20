@@ -38,7 +38,7 @@ struct Frame
 {
     uint mode, event, owner, cursor, target, repeatRow, repeatLeft, repeatPassive;
     int argument;
-    uint64_t value, time, healthValue, healthPrevious, healthNext;
+    uint64_t value, time, healthValue, healthPrevious, healthNext, gaugeFlat;
 };
 struct Runtime
 {
@@ -87,7 +87,7 @@ struct Runtime
     uint frameAmmoActive[5], frameAmmoBase[5], infiniteRowCount, infiniteRows[P_CARRIERS];
     uint enemyBuffCount, enemyBuffRows[P_CARRIERS], enemyCaptureGeneration[P_CARRIERS], enemyEpoch, enemyBirth[8];
     uint namedEventOwners, stackEventOwners; uint phase, castMask, traceMode, traceTotal, burstTraceTotal, nextFrame, frameCount, clockMode; uint64_t frameTime;
-    uint burstModifierMask, cooldownWaitMask, gaugeCharging; uint64_t cooldownApplied[5];
+    uint burstModifierMask, cooldownWaitMask, gaugeCharging, normalLandedMask; uint64_t cooldownApplied[5];
     uint64_t coefficient[5], interval[5], reloadTime[5], chargeTime[5], gain[5], cooldown[5];
     uint64_t nextShot[5], reloadUntil[5], ready[5], chargeUntil[5], gauge, action, fullEnd;
     uint count, error, timerClock, entryClock, traceCount, maxDepth, generation;
@@ -333,6 +333,14 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
         else if (d.stat == S_crit_dmg || d.stat == S_normal_atk_crit_dmg)
         { addSum(critical,value); if (d.stat == S_crit_dmg) addSum(skillCritical,value); }
         else if (d.stat == S_atk_caster_based_pct) values[S_atk_flat] = f64Add(values[S_atk_flat],f64Mul(s.baseAttack[d.owner],f64Div(value,HUNDRED)));
+        else if(d.stat==S_burst_charge_speed_pct)
+        {
+            uint at=s.inputBase+P_BURST_REFERENCE_BASE+8+d.owner*4;
+            uint64_t reference=loadNumber(at);
+            if((s.normalLandedMask & (1U<<d.owner))==0)
+                reference=(commands[s.inputBase+P_BURST_REFERENCE_BASE+1] & (1U<<d.owner))!=0 ? loadNumber(at+2) : f64Div(reference,f64FromI64(2));
+            values[d.stat]=f64Add(values[d.stat],f64Div(f64Mul(reference,value),HUNDRED));
+        }
         else values[d.stat] = f64Add(values[d.stat],value);
     }
     if ((s.quantityMask & 1) != 0) values[S_max_ammo_pct] = quantityTotals(s,who,S_max_ammo_pct,when,0,ONE).percent;
@@ -695,7 +703,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 if (s.combat != 0 && f.value != 0)
                 {
                     uint64_t gain = f64Less(damage.damageGauge,0) ? s.gain[damage.owner] : damage.damageGauge;
-                    addBurstGauge(s,f64Mul(gain,f64FromI64(f.value)));
+                    addBurstGauge(s,f64Add(f64Mul(gain,f64FromI64(f.value)),f64Mul(f.gaugeFlat,f64FromI64(f.value))));
                 }
                 continue;
             }
@@ -1245,7 +1253,13 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 uint64_t coefficient=activationDamageCoefficient(s,row);
                 uint hits=f64Zero(coefficient) ? 0 : activationHitCount(s,row);
                 if (s.error==0) pushFrame(s,frames,depth,10,0,d.owner,int(row),f.time);
-                if (s.error==0) { frames[depth].repeatLeft=hits; frames[depth].healthValue=coefficient; }
+                if (s.error==0)
+                {
+                    frames[depth].repeatLeft=hits; frames[depth].healthValue=coefficient;
+                    // Native skill damage captures buffs before named-hit children.
+                    // Unlike physical firing, later callbacks do not resample this gain.
+                    if(hits!=0 && (s.quantityMask & 128)!=0) frames[depth].gaugeFlat=readStat(s,d.owner,S_burst_charge_speed_pct,f.time);
+                }
             }
         }
         else s.error = 32;

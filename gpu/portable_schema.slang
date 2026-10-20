@@ -1,5 +1,5 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721391U;
+static const uint PORTABLE_ABI = 1346721392U;
 static const uint P_PROTECTION_OBJECTS = 1024U;
 static const uint P_PROTECTION_OBJECT_WORDS = 24U;
 static const uint P_REMOVALS = 4096U;
@@ -95,6 +95,8 @@ static const uint P_WORLD_META_BASE = 51913U;
 static const uint P_WORLD_META_WORDS = 7U;
 static const uint P_GEOMETRY_BASE = 83976U;
 static const uint P_GEOMETRY_WORDS = 1592U;
+static const uint P_BURST_REFERENCE_BASE = 85568U;
+static const uint P_BURST_REFERENCE_WORDS = 32U;
 static const uint P_QUERY_BASE = 16U;
 static const uint P_TRACE_BASE = 2064U;
 static const uint P_STATE_BASE = 3088U;
@@ -286,6 +288,7 @@ static const uint S_intercept_dmg_pct = 55U;
 static const uint S_burst_dmg_aoe_pct = 56U;
 static const uint S_burst_dmg_single_pct = 57U;
 static const uint S_infinite_ammo = 59U;
+static const uint S_burst_charge_speed_pct = 60U;
 static const uint S_optimal_range_min = 61U;
 static const uint S_optimal_range_max_pct = 62U;
 static const uint S_invincible = 67U;

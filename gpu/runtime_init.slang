@@ -82,6 +82,7 @@ void initializeRuntime(inout Runtime s)
     s.burstModifierMask = 0;
     s.cooldownWaitMask = 0;
     s.gaugeCharging = 0;
+    s.normalLandedMask = 0;
     s.gauge = 0;
     s.action = 0;
     s.fullEnd = 0;

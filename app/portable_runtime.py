@@ -84,6 +84,8 @@ def validate_effect(eff, *, combat=None):
     try:validate_input(eff)
     except ValueError as error:raise UnsupportedPortable(str(error)) from error
     kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
+    if stat=='burst_charge_speed_pct' and combat is None:
+        raise UnsupportedPortable('Burst charge speed requires combat-owned normal-hit history')
     if stat in ('pierce_enabled','armor_break_enabled'):
         # Presence ignores magnitude, but malformed authored quantities still fail closed.
         if 'fixed_value' in eff:double_words(eff['fixed_value'])
@@ -143,7 +145,7 @@ def validate_effect(eff, *, combat=None):
             raise ValueError('Invalid '+key)
 
 
-def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None):
+def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None, burst_references=None):
     import detail_gpu as legacy
     from portable_stack_specs import plan as stack_plan,operation as stack_operation,value as stack_value,pack_metadata as pack_stack_metadata
     check_schema()
@@ -362,6 +364,11 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             pack_mode(words,index,row,double_words)
     from portable_geometry_specs import pack as pack_geometry
     pack_geometry(words,geometry,effects,program['effects'],chars,L,double_words)
+    from portable_burst_charge_specs import required as needs_burst_references,from_roster as burst_references_from_roster,pack as pack_burst_references
+    if needs_burst_references(effects):
+        if burst_references is None:burst_references=burst_references_from_roster(chars)
+        pack_burst_references(words,burst_references,L,double_words)
+    elif burst_references is not None:raise UnsupportedPortable('Burst references require a charge-speed effect')
     pack_stack_metadata(words,L,effects,double_words)
     from portable_staged_specs import pack_index
     pack_index(words,staged,L)

@@ -313,12 +313,16 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
         if (w.mode != 1 || count > 1) dispatch(s,0,20,who,0,when,output);
     }
     s.shots[who] = completedShots;
-    addBurstGauge(s,f64Mul(f64Mul(w.gain,f64FromI64(count)),w.gaugeMultiplier));
+    bool burstSpeed=(s.quantityMask & 128)!=0;
+    if(burstSpeed && w.mode!=1) s.normalLandedMask|=1U<<who;
+    if(!burstSpeed || w.mode!=1) addBurstGauge(s,burstHitGain(s,who,w.gain,count,w.gaugeMultiplier,when));
     if (w.mode == 1 && w.infinite == 0) { if (!changedWeaponSession(s,who,epoch,mode)) s.ammo[who]--; dispatch(s,0,26,who,0,when,output); }
     dispatch(s,0,7,who,0,when,output);
     if (w.mode == 1) dispatch(s,0,11,who,0,when,output);
     for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,8,who,0,when,output);
     if (w.mode == 1) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,12,who,0,when,output);
+    if(burstSpeed && w.mode==1)
+    { s.normalLandedMask|=1U<<who;addBurstGauge(s,burstHitGain(s,who,w.gain,count,w.gaugeMultiplier,when)); }
     if (s.bulletCount != 0) consumeBulletBuffs(s,who,when,output);
     if (last) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,14,who,0,when,output);
     if (changedWeaponSession(s,who,epoch,mode)) return; // Preserve a callback's new session.
