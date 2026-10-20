@@ -15,7 +15,7 @@
   "combined_short_inputs": 68,
   "combined_native_oracles": 56,
   "combined_raw_rejections": 12,
-  "windows_status": "not_dispatched_yet",
+  "windows_status": "requested68_after_cpu21",
   "normal_ui": "CPU",
   "canonical_world_admission": false,
   "full_character_verified": 0,
@@ -31,5 +31,6 @@
     "Hit-only max-HP rank native TypeError",
     "Capacity/long simulations/full203 certification",
     "Efficiency after required validation"
-  ]
+  ],
+  "cuda_source": "f988d15ceb36f8715981afc69cbe77e92612138c"
 }

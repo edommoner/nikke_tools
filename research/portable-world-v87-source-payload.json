@@ -1,0 +1,158 @@
+{
+  "branch": "codex/cuda-world-v87-source",
+  "source_commit": "f988d15ceb36f8715981afc69cbe77e92612138c",
+  "parent": "4271202f6b39e7c27b6de250141b506178ecd1b0",
+  "file_count": 29,
+  "bytes": 299952,
+  "authorization": "User authorized all GitHub sharing until current goal achieved",
+  "files": [
+    {
+      "path": "app/portable_backend.py",
+      "bytes": 15419,
+      "sha256": "c1c6c5a5f25a31ae5401559a9e8d8da43ff80e6b5ccebbadaaa0a173e7900a6c"
+    },
+    {
+      "path": "app/portable_specs.py",
+      "bytes": 15783,
+      "sha256": "45b781c54d751f98bc24372600677ed4f90ea426fc9f0fd32a30d10d46bcfdc2"
+    },
+    {
+      "path": "gpu/event_runtime.slang",
+      "bytes": 114527,
+      "sha256": "7b615f2ab93e5f61342a1126202eb65fdc24866ff989655551fde6d6c76f1663"
+    },
+    {
+      "path": "gpu/portable_schema.slang",
+      "bytes": 18577,
+      "sha256": "841799f7e373d352b887b654765a992c6f700130a2ff7b9c7fa065b01538466e"
+    },
+    {
+      "path": "gpu/stack_runtime.slang",
+      "bytes": 10277,
+      "sha256": "0658e7193d53970f10b3dfbe4419aeadeafb432e7f3bfabe1d0e891eb0a4fbb7"
+    },
+    {
+      "path": "gpu/status_runtime.slang",
+      "bytes": 7267,
+      "sha256": "6646639edfbfda07d2ef4d2b32183aa617d447621b1b17bf548f3e2b3233b6f7"
+    },
+    {
+      "path": "gpu/world_actor_fields.slang",
+      "bytes": 9145,
+      "sha256": "cb13ff9f0f4c29554c70dc61552a489296dd81711b1e5fbdfbefd5cbb5faef90"
+    },
+    {
+      "path": "gpu/world_actor_mutation.slang",
+      "bytes": 2170,
+      "sha256": "e866d0145e275dffd0ec17577d04177471c2d360bed0d493f6c93a2d9c12151c"
+    },
+    {
+      "path": "gpu/world_actor_recipient_entry.slang",
+      "bytes": 306,
+      "sha256": "7513b6451b86b83ad5d4baa4ba2a327c1faad0a82dcfe90ee9e465d23173ed2f"
+    },
+    {
+      "path": "gpu/world_actor_recipients.slang",
+      "bytes": 4258,
+      "sha256": "f7eb33cbe737cd6e6c729f6ca8c15d015256c2844f9d9a44fd1f6c646e34cab7"
+    },
+    {
+      "path": "gpu/world_actor_state.slang",
+      "bytes": 6589,
+      "sha256": "85306f42ff6e057e7d82c5a0fa86d1790eee547abc438567762b4c9302ecebc9"
+    },
+    {
+      "path": "gpu/world_actor_status.slang",
+      "bytes": 2937,
+      "sha256": "2b69a68baed2cc32a6fe420f39c400174c6e80a59043ef6c317b727ab43585b1"
+    },
+    {
+      "path": "gpu/world_actor_status_entry.slang",
+      "bytes": 342,
+      "sha256": "95f15a6b1f75d22fb03627431290ee7efd8ea52d895f02564bf2fecc01b35641"
+    },
+    {
+      "path": "scripts/run-metal-probe.swift",
+      "bytes": 7969,
+      "sha256": "5500334827c7ee83fa59ffe8ef38c635ef12de6429bdf5b09fd65bcaf701cdd9"
+    },
+    {
+      "path": "research/world_actor_fields_native.py",
+      "bytes": 3114,
+      "sha256": "e13ecc7d2ef1d5615965110d241faa2fb72becb3941cd4cb0629d6627dfd5792"
+    },
+    {
+      "path": "research/characterize-world-actor-status.py",
+      "bytes": 6432,
+      "sha256": "555b31207f65b8e9260b90b867444ffa8a86da1cf0f97914faf558361330ba1d"
+    },
+    {
+      "path": "research/characterize-world-actor-status-generation.py",
+      "bytes": 2648,
+      "sha256": "b4780992047c75331cb4d83eb686e27d5d2449ee0bab4229c09b3651caffebb0"
+    },
+    {
+      "path": "research/world_actor_recipient_cases.py",
+      "bytes": 2282,
+      "sha256": "bc1b057b88361f2bfed45f51263f771993c8fb34c47dc003c90d5c563c02bcf3"
+    },
+    {
+      "path": "research/verify-world-actor-recipients.py",
+      "bytes": 6255,
+      "sha256": "b9a264b00132dca6b1974dbcfbf88e5765dd8bcce1fa50786a769649c4fe5ad4"
+    },
+    {
+      "path": "research/world_actor_status_cases.py",
+      "bytes": 2728,
+      "sha256": "3e4d7f2fb48c5be249d36b3b07319786b8d89c03256c083945c1ffb9e227c4fb"
+    },
+    {
+      "path": "research/verify-world-actor-status.py",
+      "bytes": 6327,
+      "sha256": "4e4a8317350fbf38897ef4e4c6f43f9b6f9642de54417dc1dce07265a00d7f79"
+    },
+    {
+      "path": "research/verify-world-actor-status-short.py",
+      "bytes": 5505,
+      "sha256": "97c5d6cdbdf82db6d8a06cb6a32abd7057d3b2c15cb98a25ebcf566bdf687c89"
+    },
+    {
+      "path": "tests/test_portable_actor_recipient_input.py",
+      "bytes": 3329,
+      "sha256": "72ff6ab80f069c9a5b24b5b023e26a4a749437a37c10875e82b48641ab678a85"
+    },
+    {
+      "path": "tests/test_portable_actor_status_input.py",
+      "bytes": 2833,
+      "sha256": "b8eb67e42192705be79d8129136267880777f39e89905f660f5cd405fbcbec1c"
+    },
+    {
+      "path": "research/portable-world-actor-status-short-expected.json",
+      "bytes": 30470,
+      "sha256": "c00d256f9d1cc8763264e55269dd5d5edc12c581852c6ee478827e4ecb280a81"
+    },
+    {
+      "path": "research/portable-world-actor-recipient-validation.json",
+      "bytes": 969,
+      "sha256": "7a9d05c6f2b7ee3ed3bc4937cfd98df582643c4b1788e986965c5267e935b96a"
+    },
+    {
+      "path": "research/portable-world-actor-status-validation.json",
+      "bytes": 1036,
+      "sha256": "c55ed6f761377902565d7e66a80bca097c62fb3556a9715280703c9d387b7f09"
+    },
+    {
+      "path": "research/portable-world-actor-status-generation-contract.json",
+      "bytes": 2629,
+      "sha256": "5972643575d12bc8f8b8256e57a5266eb23e8df6bb8706fa010779d92b1917c2"
+    },
+    {
+      "path": "docs/portable-world-actor-status.md",
+      "bytes": 7829,
+      "sha256": "96a9f2cc7b77a3c9623a175a57f2d955748989b33dd8e3692de1603a8238ac3e"
+    }
+  ],
+  "private_data": false,
+  "raw": false,
+  "large_detail_reports": false
+}
