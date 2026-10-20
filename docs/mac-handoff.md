@@ -6,7 +6,7 @@
 
 通常版の固定ソース4c07f45はMac全52検査・単体286件・Node4件・実編成158条件を通過しました。通知接続版も通常4682入力をMetalで実行し、全出力・全CPU比較項目が一致しました。新しいworld版は38成功条件・2容量拒否・34不正入力、旧4682入力の全出力保持、単体288件を確認しました。初期0秒を二重に処理する追加境界差は失敗rawを保持し、別ソースで4回帰条件を通して解消しました。旧原因未特定Metal差分は未解決のままです。
 
-Windowsの短い検証用に、個別実証済みworld49入力を同じ1セッションへまとめ、Metalで全byte一致を確認しました。通常4682入力とworld49入力の全出力・全CPU参照・ソース・生成コードを比較する基準は約44KBです。新ソースのCUDA実行・効率測定はまだ未実施です。両GPUで最後に完了した版は7357045です。
+Windowsの短い検証用に、個別実証済みworld49入力を同じ1セッションへまとめ、Metalで全byte一致を確認しました。通常4682入力とworld49入力の全出力・全CPU参照・ソース・生成コードを比較する基準は約44KBです。許可済みの最小42ファイルを固定6f54193としてGitHubへ共有し、Windows v79をBelowNormal・全体180秒上限で1回実行しました。通常4682入力は141.942秒で成功し、Macで全入力・全出力・CPU参照・共通ソース・生成コードのfingerprint一致を確認しました。続くworld49入力は全体上限で終了し、readbackとevidenceがありません。GPU投入段階は不明のためCUDA未検証を維持します。保存済み4ファイルを既存接続で取得してbyte数とSHAを照合し、GPU再実行0・残存検証0・元Windows作業とサービスの保持を確認しました。効率測定は未実施、worldを含む両GPUの完了版はまだありません。通常版の前回完了ソースは7357045です。`research/portable-cross-v79-partial-validation.json`を参照してください。
 
 世界overlay・debuff／継続被弾・部位・召喚・操作・復活・通常画面・全変種の接続は未完了で、全変種認証0/203を維持します。[共通通知と証拠](portable-world-notices.md)、`research/portable-world-notices-validation.json` と `research/portable-world-provider-global-validation.json` を参照してください。以下は段階ごとの履歴です。
 

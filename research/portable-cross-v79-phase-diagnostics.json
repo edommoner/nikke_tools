@@ -1,0 +1,135 @@
+{
+  "source_commit": "6f54193636f2e44e59a588e208528f099419ac6e",
+  "cpu_only": true,
+  "gpu_reexecutions": 0,
+  "world_verified": false,
+  "last_completed_step": {
+    "command": [
+      "python",
+      "research/verify-enemy-target-regression.py",
+      "--backend",
+      "cuda"
+    ],
+    "elapsed_seconds": 141.94163969997317,
+    "exit_code": 0,
+    "stdout": "{\"passed\": true, \"cases\": 4112, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\nAll4070 and adopted4658 input/output/decoded cases preserved;three finite-HP CPU exceptions resolved,other native groups preserved\n",
+    "stderr": ""
+  },
+  "world_stage": {
+    "input_saved": true,
+    "generated_cuda_and_metal_present": true,
+    "dispatch_temporary_input_present": true,
+    "readback_saved": false,
+    "evidence_saved": false,
+    "precise_nvrtc_phase": "unknown",
+    "cuLaunchKernel_reached": "unknown",
+    "gpu_submitted": "unknown",
+    "explanation": "Saved input/generated files and a dispatch temporary input exist. execute() builds before creating its dispatch temporary input;NVRTC/PTX are in-memory and no persisted stage marker proves compile completion or cuLaunchKernel. No inference of GPU submission is made."
+  },
+  "previous_world_gpu_calls_started": {
+    "value": 1,
+    "kind": "world execute call inferred from driver control flow and dispatch input;not a cuLaunchKernel observation",
+    "instrumented_execute_count": false,
+    "instrumented_launch_count": false
+  },
+  "timeout": {
+    "whole_sequence_limit_seconds": 180,
+    "timed_out": true,
+    "elapsed_seconds": null,
+    "reason": "Outer runner raises on cleanup communicate before recording its perf_counter duration",
+    "cleanup_communicate_timeout_seconds": 10,
+    "taskkill_return_code_and_output_saved": false,
+    "outer_traceback": "TimeoutExpired(windows-v79-sequence.py,180), then TimeoutExpired(windows-v79-sequence.py,10)",
+    "exact_termination_stage": "unknown"
+  },
+  "residual_verification_process_count": 0,
+  "existing_gpu_service_preserved": true,
+  "file_observations": [
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-6f54193\\research\\portable-build\\world-suite-20261020T171336437283Z\\input.bin",
+      "exists": true,
+      "bytes": 17414212,
+      "mtime_utc": "2026-10-20T17:13:36.443015+00:00",
+      "mtime_ns": 1792516416443015100,
+      "sha256": "5847f07fc130203b6233f916032b6f19438b1ac3a1ddfc43fb2f554fd3054fa9"
+    },
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-6f54193\\research\\portable-build\\world-suite-20261020T171336437283Z\\readback.bin",
+      "exists": false
+    },
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-6f54193\\research\\portable-build\\world-suite-20261020T171336437283Z\\evidence.json",
+      "exists": false
+    },
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-6f54193\\research\\portable-build\\world_frame_entry.cu",
+      "exists": true,
+      "bytes": 1304649,
+      "mtime_utc": "2026-10-20T17:13:37.958863+00:00",
+      "mtime_ns": 1792516417958863500,
+      "sha256": "7e4b1d0aa64fdd88c95c035f3109cd60197e123ebf3919281f0202351ef28118"
+    },
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-6f54193\\research\\portable-build\\world_frame_entry.metal",
+      "exists": true,
+      "bytes": 1316370,
+      "mtime_utc": "2026-10-20T17:13:39.399854+00:00",
+      "mtime_ns": 1792516419399853900,
+      "sha256": "568213c0d6259430981e382682c93ccfb3128c2d45ba84ad9081e4f2809821b6"
+    },
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-6f54193\\research\\windows-v79-steps.json",
+      "exists": true,
+      "bytes": 484,
+      "mtime_utc": "2026-10-20T17:13:33.848325+00:00",
+      "mtime_ns": 1792516413848325100,
+      "sha256": "6b53e7e9cda91b80dca99cebc18b0ee75c1bfbc3b69315271bf1488261479db9"
+    },
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-6f54193\\research\\windows-run-bounded.py",
+      "exists": true,
+      "bytes": 3031,
+      "mtime_utc": "2026-10-20T17:11:11.185551+00:00",
+      "mtime_ns": 1792516271185551300,
+      "sha256": "e4ca44c007661e0389205a4f0aa83a3addaa022c97bb93ee029e2ffbd4213ebb"
+    },
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-6f54193\\research\\windows-v79-sequence.py",
+      "exists": true,
+      "bytes": 887,
+      "mtime_utc": "2026-10-20T17:11:11.152854+00:00",
+      "mtime_ns": 1792516271152854300,
+      "sha256": "8401422e6cab93641875bdce9c3712bb6130920aeaf1282d49d42d0091ca2a1f"
+    },
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-6f54193\\research\\windows-postcheck.json",
+      "exists": true,
+      "bytes": 237,
+      "mtime_utc": "2026-10-20T17:15:12.393993+00:00",
+      "mtime_ns": 1792516512393993100,
+      "sha256": "547e11a1b0ac808ab851dbd4aac386eae403904c4cde22b2b7d0e1aa8603b986"
+    },
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-6f54193\\research\\windows-no-trace-preflight.json",
+      "exists": true,
+      "bytes": 141,
+      "mtime_utc": "2026-10-20T17:11:11.411931+00:00",
+      "mtime_ns": 1792516271411931300,
+      "sha256": "50f7aa9cfff002679525b88b444be5fd7ae32dfcce349a27219825475e65c3ac"
+    },
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-combat-6f54193\\research\\portable-build\\dispatch-ypdx0u2u\\input.bin",
+      "exists": true,
+      "bytes": 17414212,
+      "mtime_utc": "2026-10-20T17:13:39.501261+00:00",
+      "mtime_ns": 1792516419501260900,
+      "sha256": "5847f07fc130203b6233f916032b6f19438b1ac3a1ddfc43fb2f554fd3054fa9"
+    }
+  ],
+  "persistent_log_files": [],
+  "persistent_ptx_files": [],
+  "existing_artifacts_unchanged": {
+    "research\\windows-portable-cross-v79-summary.json": true,
+    "research\\portable-cross-v79-execution.json": true
+  }
+}
