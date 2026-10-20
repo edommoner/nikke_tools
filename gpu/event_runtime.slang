@@ -1479,8 +1479,10 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #ifdef PORTABLE_WORLD_ACTORS
 #include "world_actor_registry.slang"
 #define WORLD_ACTORS_INIT(s,output) if(!initializeWorldActors(s)) { results[output]=64;return; }
+#define WORLD_ACTOR_COMMAND(s,at) else if(op==33) { uint kind=commands[at+3],identity=commands[at+4],generation=commands[at+5],root=commands[at+6],query=commands[at+7]; if(kind>5 || identity>=0x10000000U || generation==0 || generation>=0x80000000U || root>1 || query>=P_COMMANDS || !worldActorsEnabled(s)) { s.error=64;break; } worldActorQuery(s,kind,identity,generation,root,query); }
 #else
 #define WORLD_ACTORS_INIT(s,output)
+#define WORLD_ACTOR_COMMAND(s,at)
 #endif
 #ifdef PORTABLE_WORLD_FRAME
 #include "world_frame_runtime.slang"
@@ -1567,15 +1569,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             dispatch(s,0,event,commands[at+4],int(commands[at+5]),when,output);
         }
         else if (op == 4 && s.combat != 0) { if (s.clockMode != 0) { s.error = 64; break; } squadFrame(s,when,output); s.frameCount++; }
-#ifdef PORTABLE_WORLD_ACTORS
-        else if(op==33)
-        {
-            uint kind=commands[at+3],identity=commands[at+4],generation=commands[at+5],root=commands[at+6],query=commands[at+7];
-            if(kind>5 || identity>=0x10000000U || generation==0 || generation>=0x80000000U || root>1 || query>=P_COMMANDS || !worldActorsEnabled(s)) { s.error=64;break; }
-            worldActorQuery(s,kind,identity,generation,root,query);
-        }
-#endif
-        else if (op == 26)
+        WORLD_ACTOR_COMMAND(s,at) else if (op == 26)
         {
             uint mask = commands[at+5]; uint64_t amount = loadNumber(at+6);
             if (commands[at+3] != 0 || commands[at+4] != 0 || mask == 0 || mask > 31 || !f64Finite(amount) || f64Less(amount,0)) { s.error = 64; break; }

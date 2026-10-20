@@ -1,15 +1,15 @@
 {
-  "passed": false,
+  "passed": true,
   "actual": {
-    "cuda": "ec000fdbff70237f3001ba3243d281b19bdb96048cae7dfba2e0c9bf6496251b",
-    "metal": "3867b1216fdbbe1380edb48e36df4c073bb5cd20878cc9805e57ea9546939b72"
+    "cuda": "e9c368f169736fc8282845a44ea9d0bc0c5c4ec76c4b5d6bda6ccf121b22f882",
+    "metal": "571dd80e5ec6c3d21e011f6e939b02b152f19df4d73c84403f4f23080588dd46"
   },
   "expected": {
     "cuda": "e9c368f169736fc8282845a44ea9d0bc0c5c4ec76c4b5d6bda6ccf121b22f882",
     "metal": "571dd80e5ec6c3d21e011f6e939b02b152f19df4d73c84403f4f23080588dd46"
   },
   "source_sha256": {
-    "gpu/event_runtime.slang": "7601185c68c55093ff25556a84fce63639df1f062c6ae80c8ffe4b185c3c36b7",
+    "gpu/event_runtime.slang": "082a749816ec4767bd2a954aafde9fad2339469d4116dab1fd53ad98ec35a7b7",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/portable_schema.slang": "9054884a7b3166bf2f3867444123e31539e7d3973bc856a1fff3c1e462c20faf",

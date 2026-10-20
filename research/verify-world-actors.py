@@ -74,6 +74,9 @@ def negatives(programs):
  seed=programs[0][0];base=L['WORLD_ACTOR_INPUT_BASE'];binding=L['WORLD_ACTOR_BINDING_BASE'];node=L['WORLD_ACTOR_NODE_BASE'];rows=[]
  for name,at,value in [('bad-magic',base,0x57413032),('empty-registry',base+1,0),('capacity129',base+1,129),('wrong-node-count',base+2,1),('reserved-header',base+7,1),('bad-source-kind',node,3),('empty-source-count',node+1,0),('unused-node',node+31*4,1),('bad-body-kind',binding,5),('bad-body-generation-source',binding+3,0),('bad-body-parent',binding+5,0),('noncanonical-part-id',binding+8+1,9),('wrong-source-slot',binding+8+4,1),('cyclic-part-parent',binding+8+5,1),('reserved-binding',binding+8+7,1),('unused-binding',binding+127*8,1),('disabled-nonzero-payload',base,0)]:
   words=list(seed);words[at]=value;rows.append((name,words))
+ query=L['COMMAND_BASE']+8
+ for name,at,value in [('query-generation-zero',query+5,0),('query-invalid-kind',query+3,6),('query-identity-overflow',query+4,0x10000000),('query-invalid-root',query+6,2),('query-output-overflow',query+7,L['COMMANDS'])]:
+  words=list(seed);words[at]=value;rows.append((name,words))
  return rows
 
 def main():
@@ -98,5 +101,5 @@ def main():
  for i,c in enumerate(oldrows):
   at=(len(programs)+len(bad)+i)*ow;h=hashlib.sha256(raw[at:at+ow]).hexdigest();prior.append(dict(name=c['name'],passed=h==c['output_sha256'],output_sha256=h,expected_sha256=c['output_sha256']))
  report=dict(passed=all(x['passed'] for x in results+rejected+prior),cases=results,rejected_cases=rejected,preserved208=prior,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),captured=str(folder),evidence=evidence,scope='128 typed registry identities/parent roots/generations driven by common GPU world frame versus actual native BossScript and ActorRegistry;not full battle/HP/landing certification',actor_hp_landing_connected=False,actor_enemy_count_policy_connected=False,full_character_verified=0,normal_ui='CPU',full_goal_complete=False)
- (ROOT/f'research/portable-world-actors-{args.backend}.json').write_text(json.dumps(report,indent=2)+'\n');assert report['passed'],[x['name'] for x in results+rejected+prior if not x['passed']];print('Actor lifecycle12/native,raw17,old208 full outputs preserved',args.backend)
+ (ROOT/f'research/portable-world-actors-{args.backend}.json').write_text(json.dumps(report,indent=2)+'\n');assert report['passed'],[x['name'] for x in results+rejected+prior if not x['passed']];print('Actor lifecycle',len(results),'native,raw',len(rejected),'old208 full outputs preserved',args.backend)
 if __name__=='__main__':main()
