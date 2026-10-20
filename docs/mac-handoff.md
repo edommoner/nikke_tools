@@ -1,3 +1,9 @@
+## 2026-10-21 対象別カウンター：入力とnative基準を固定（GPU未接続）
+
+前段のMetal590/CUDA61成功を保持し、CounterSpec/Impactを使う共通literal sidecarとCPU参照器を追加しました。既存10ケース・48段階、共通compilerの11 policy row、子イベント内のdamage0/credit1着弾で即完了する実CPU witnessが成功し、portable CPU363検査も成功しました。GPUソース・通常受付・実験ABI7Dは変更していません。今回GPU0・Windows追加依頼0、通常画面CPU・world公開無効・全変種認証0/203です。
+
+重要な接続順として、counter prepareはcarrier登録/refresh直後、名前付き/stack子イベントの前に必要です。CPU AST挿入と実際の子でresourceが見えることを確認しました。入力は5,128 words（256定義/64 action）、native途中状態を含めません。`research/portable-world-target-counter-native-contract.json`と`docs/portable-world-target-counters.md`を参照し、次はprivate entryへresource/epoch/dead/ready queue/event58を接続してください。着弾bridge、Metal/CUDA照合、skill/pending/DoTと全変種対応はまだ未完了です。GitHub共有はゴール達成まで許可済みです。
+
 # Mac側で開発を続けるための引き継ぎ
 
 ## 2026-10-21 128対象・共有バフのスタック操作をMetalへ接続

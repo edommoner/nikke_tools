@@ -1,0 +1,1867 @@
+{
+  "passed": true,
+  "scope": "Literal input encoding and actual native resource/event oracle; GPU executor not connected",
+  "source_parent": "973d9a919a574b419fe5d7b1a79142831b8fbf22",
+  "schema": {
+    "magic": 1464021041,
+    "version": 1,
+    "input_words": 5128,
+    "policy_base": 8,
+    "policy_words": 16,
+    "action_base": 4104,
+    "action_words": 16
+  },
+  "inputs": [
+    {
+      "name": "credit-families-outcomes-and-actor-generation",
+      "words": 5128,
+      "sha256": "c148dc0c33d2a1f7e6b4a1bc4c8c78ce45b41c93dfe1a33f9e007ad5c6d6470d"
+    },
+    {
+      "name": "refresh-reset",
+      "words": 5128,
+      "sha256": "1cd12a76e85d6cdde151ed8d42cf900a30d3fe2718577368712dbd7a29c4fa32"
+    },
+    {
+      "name": "refresh-preserve",
+      "words": 5128,
+      "sha256": "ca12f0b9f379c28ca10230dde6386d2f13b15387ca9570a7a9dbc78d9dd6482d"
+    },
+    {
+      "name": "expiry-does-not-preserve-progress",
+      "words": 5128,
+      "sha256": "c5b6e03cee29c7fac7a2220d11995b8ebdb8548f833532ae74fc64090dab9f4c"
+    },
+    {
+      "name": "death-or-threshold-completes-once",
+      "words": 5128,
+      "sha256": "9c7c40e9d8e00f789a9e620576a12f15d65349abb2a18bb08c22076efcea2b96"
+    },
+    {
+      "name": "completion-refresh-survives-parent-retirement",
+      "words": 5128,
+      "sha256": "a2ea1d28cef86a564f53e7126e33e56a6933b4345eb8bf588de9ad36e7cdb3c5"
+    },
+    {
+      "name": "siblings-latch-before-child-refresh",
+      "words": 5128,
+      "sha256": "7e42c98e6f5409527e11a68cbffc98330d6d30fb258cd5651b8b57198edb4e2a"
+    },
+    {
+      "name": "owner-only-credit",
+      "words": 5128,
+      "sha256": "d725e2cf160867a4f1e3d9b74ce4a12be12ed4e2969b98dbb691104aac08b9bd"
+    },
+    {
+      "name": "explicit-blocked-credit-policy",
+      "words": 5128,
+      "sha256": "8fa949626a69f6a11699dfe8dbcfaf79c123d6be6dba3acb3d097a1e2345e158"
+    },
+    {
+      "name": "death-without-reward-retires-the-marker",
+      "words": 5128,
+      "sha256": "3b62d6526f063bb2ef31ecc2aab541cfaa4a80d9919e2aec4f8f40243a2c7aad"
+    }
+  ],
+  "cases": [
+    {
+      "name": "credit-families-outcomes-and-actor-generation",
+      "steps": [
+        {
+          "time": 0,
+          "summary": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.1,
+          "summary": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.2,
+          "summary": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.3,
+          "summary": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.4,
+          "summary": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.5,
+          "summary": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.6,
+          "summary": [
+            1,
+            0.75,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0.75,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.7,
+          "summary": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "resources": [],
+          "completions": [
+            {
+              "epoch": 1,
+              "owner": "리타",
+              "name": "marker",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 2.5,
+              "reason": "threshold",
+              "impact": {
+                "attacker": "앨리스",
+                "target": {
+                  "kind": 0,
+                  "identity": 0,
+                  "generation": 1
+                },
+                "family": 2,
+                "outcome": 2,
+                "damage": 13,
+                "credit": 1.75,
+                "attack_id": 0
+              },
+              "uid_ordinal": 1,
+              "time": 0.7
+            }
+          ],
+          "dead_actors": []
+        },
+        {
+          "time": 0.8,
+          "summary": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "resources": [],
+          "completions": [
+            {
+              "epoch": 1,
+              "owner": "리타",
+              "name": "marker",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 2.5,
+              "reason": "threshold",
+              "impact": {
+                "attacker": "앨리스",
+                "target": {
+                  "kind": 0,
+                  "identity": 0,
+                  "generation": 1
+                },
+                "family": 2,
+                "outcome": 2,
+                "damage": 13,
+                "credit": 1.75,
+                "attack_id": 0
+              },
+              "uid_ordinal": 1,
+              "time": 0.7
+            }
+          ],
+          "dead_actors": [
+            {
+              "kind": 0,
+              "identity": 0,
+              "generation": 1
+            }
+          ]
+        },
+        {
+          "time": 0.9,
+          "summary": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "resources": [],
+          "completions": [
+            {
+              "epoch": 1,
+              "owner": "리타",
+              "name": "marker",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 2.5,
+              "reason": "threshold",
+              "impact": {
+                "attacker": "앨리스",
+                "target": {
+                  "kind": 0,
+                  "identity": 0,
+                  "generation": 1
+                },
+                "family": 2,
+                "outcome": 2,
+                "damage": 13,
+                "credit": 1.75,
+                "attack_id": 0
+              },
+              "uid_ordinal": 1,
+              "time": 0.7
+            }
+          ],
+          "dead_actors": [
+            {
+              "kind": 0,
+              "identity": 0,
+              "generation": 1
+            }
+          ]
+        }
+      ],
+      "latch_checks": [
+        {
+          "event": "event:target_counter_complete:marker",
+          "time": 0.7,
+          "ready_count": 1,
+          "all_ready_latched": true
+        }
+      ]
+    },
+    {
+      "name": "refresh-reset",
+      "steps": [
+        {
+          "time": 0,
+          "summary": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.1,
+          "summary": [
+            1,
+            0.75,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0.75,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.2,
+          "summary": [
+            1,
+            0,
+            0,
+            2
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 2,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10.2,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.3,
+          "summary": [
+            1,
+            1.25,
+            0,
+            2
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 2,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 1.25,
+              "expires": 10.2,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        }
+      ],
+      "latch_checks": []
+    },
+    {
+      "name": "refresh-preserve",
+      "steps": [
+        {
+          "time": 0,
+          "summary": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.1,
+          "summary": [
+            1,
+            0.75,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0.75,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.2,
+          "summary": [
+            1,
+            0.75,
+            0,
+            2
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 2,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0.75,
+              "expires": 10.2,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.3,
+          "summary": [
+            0,
+            0,
+            1,
+            2
+          ],
+          "resources": [],
+          "completions": [
+            {
+              "epoch": 2,
+              "owner": "리타",
+              "name": "marker",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 2,
+              "reason": "threshold",
+              "impact": {
+                "attacker": "앨리스",
+                "target": {
+                  "kind": 0,
+                  "identity": 0,
+                  "generation": 1
+                },
+                "family": 0,
+                "outcome": 2,
+                "damage": 13,
+                "credit": 1.25,
+                "attack_id": 0
+              },
+              "uid_ordinal": 1,
+              "time": 0.3
+            }
+          ],
+          "dead_actors": []
+        }
+      ],
+      "latch_checks": [
+        {
+          "event": "event:target_counter_complete:marker",
+          "time": 0.3,
+          "ready_count": 1,
+          "all_ready_latched": true
+        }
+      ]
+    },
+    {
+      "name": "expiry-does-not-preserve-progress",
+      "steps": [
+        {
+          "time": 0,
+          "summary": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 0.2,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.1,
+          "summary": [
+            1,
+            0.75,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0.75,
+              "expires": 0.2,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.2,
+          "summary": [
+            1,
+            0,
+            0,
+            2
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 2,
+              "epoch": 2,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 0.4,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.3,
+          "summary": [
+            1,
+            1.25,
+            0,
+            2
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 2,
+              "epoch": 2,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 1.25,
+              "expires": 0.4,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        }
+      ],
+      "latch_checks": []
+    },
+    {
+      "name": "death-or-threshold-completes-once",
+      "steps": [
+        {
+          "time": 0,
+          "summary": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.1,
+          "summary": [
+            1,
+            3,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 3,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.2,
+          "summary": [
+            1,
+            3,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 3,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": [
+            {
+              "kind": 0,
+              "identity": 0,
+              "generation": 2
+            }
+          ]
+        },
+        {
+          "time": 0.3,
+          "summary": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "resources": [],
+          "completions": [
+            {
+              "epoch": 1,
+              "owner": "리타",
+              "name": "marker",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 3,
+              "reason": "death",
+              "impact": null,
+              "uid_ordinal": 1,
+              "time": 0.3
+            }
+          ],
+          "dead_actors": [
+            {
+              "kind": 0,
+              "identity": 0,
+              "generation": 1
+            },
+            {
+              "kind": 0,
+              "identity": 0,
+              "generation": 2
+            }
+          ]
+        },
+        {
+          "time": 0.4,
+          "summary": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "resources": [],
+          "completions": [
+            {
+              "epoch": 1,
+              "owner": "리타",
+              "name": "marker",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 3,
+              "reason": "death",
+              "impact": null,
+              "uid_ordinal": 1,
+              "time": 0.3
+            }
+          ],
+          "dead_actors": [
+            {
+              "kind": 0,
+              "identity": 0,
+              "generation": 1
+            },
+            {
+              "kind": 0,
+              "identity": 0,
+              "generation": 2
+            }
+          ]
+        },
+        {
+          "time": 0.5,
+          "summary": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "resources": [],
+          "completions": [
+            {
+              "epoch": 1,
+              "owner": "리타",
+              "name": "marker",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 3,
+              "reason": "death",
+              "impact": null,
+              "uid_ordinal": 1,
+              "time": 0.3
+            }
+          ],
+          "dead_actors": [
+            {
+              "kind": 0,
+              "identity": 0,
+              "generation": 1
+            },
+            {
+              "kind": 0,
+              "identity": 0,
+              "generation": 2
+            }
+          ]
+        }
+      ],
+      "latch_checks": [
+        {
+          "event": "event:target_counter_complete:marker",
+          "time": 0.3,
+          "ready_count": 0,
+          "all_ready_latched": true
+        }
+      ]
+    },
+    {
+      "name": "completion-refresh-survives-parent-retirement",
+      "steps": [
+        {
+          "time": 0,
+          "summary": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.1,
+          "summary": [
+            1,
+            0,
+            1,
+            2
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 2,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10.1,
+              "done": false
+            }
+          ],
+          "completions": [
+            {
+              "epoch": 1,
+              "owner": "리타",
+              "name": "marker",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 1,
+              "reason": "threshold",
+              "impact": {
+                "attacker": "앨리스",
+                "target": {
+                  "kind": 0,
+                  "identity": 0,
+                  "generation": 1
+                },
+                "family": 0,
+                "outcome": 2,
+                "damage": 13,
+                "credit": 1,
+                "attack_id": 0
+              },
+              "uid_ordinal": 1,
+              "time": 0.1
+            }
+          ],
+          "dead_actors": []
+        },
+        {
+          "time": 0.2,
+          "summary": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "resources": [],
+          "completions": [
+            {
+              "epoch": 1,
+              "owner": "리타",
+              "name": "marker",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 1,
+              "reason": "threshold",
+              "impact": {
+                "attacker": "앨리스",
+                "target": {
+                  "kind": 0,
+                  "identity": 0,
+                  "generation": 1
+                },
+                "family": 0,
+                "outcome": 2,
+                "damage": 13,
+                "credit": 1,
+                "attack_id": 0
+              },
+              "uid_ordinal": 1,
+              "time": 0.1
+            },
+            {
+              "epoch": 2,
+              "owner": "리타",
+              "name": "marker",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 1,
+              "reason": "threshold",
+              "impact": {
+                "attacker": "앨리스",
+                "target": {
+                  "kind": 0,
+                  "identity": 0,
+                  "generation": 1
+                },
+                "family": 0,
+                "outcome": 2,
+                "damage": 13,
+                "credit": 1,
+                "attack_id": 0
+              },
+              "uid_ordinal": 1,
+              "time": 0.2
+            }
+          ],
+          "dead_actors": []
+        },
+        {
+          "time": 0.3,
+          "summary": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "resources": [],
+          "completions": [
+            {
+              "epoch": 1,
+              "owner": "리타",
+              "name": "marker",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 1,
+              "reason": "threshold",
+              "impact": {
+                "attacker": "앨리스",
+                "target": {
+                  "kind": 0,
+                  "identity": 0,
+                  "generation": 1
+                },
+                "family": 0,
+                "outcome": 2,
+                "damage": 13,
+                "credit": 1,
+                "attack_id": 0
+              },
+              "uid_ordinal": 1,
+              "time": 0.1
+            },
+            {
+              "epoch": 2,
+              "owner": "리타",
+              "name": "marker",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 1,
+              "reason": "threshold",
+              "impact": {
+                "attacker": "앨리스",
+                "target": {
+                  "kind": 0,
+                  "identity": 0,
+                  "generation": 1
+                },
+                "family": 0,
+                "outcome": 2,
+                "damage": 13,
+                "credit": 1,
+                "attack_id": 0
+              },
+              "uid_ordinal": 1,
+              "time": 0.2
+            }
+          ],
+          "dead_actors": []
+        }
+      ],
+      "latch_checks": [
+        {
+          "event": "event:target_counter_complete:marker",
+          "time": 0.1,
+          "ready_count": 1,
+          "all_ready_latched": true
+        },
+        {
+          "event": "event:target_counter_complete:marker",
+          "time": 0.2,
+          "ready_count": 1,
+          "all_ready_latched": true
+        }
+      ]
+    },
+    {
+      "name": "siblings-latch-before-child-refresh",
+      "steps": [
+        {
+          "time": 0,
+          "summary": [
+            2,
+            0,
+            0,
+            2
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "first",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            },
+            {
+              "uid_ordinal": 2,
+              "epoch": 2,
+              "name": "second",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.1,
+          "summary": [
+            1,
+            0,
+            2,
+            3
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 2,
+              "epoch": 3,
+              "name": "second",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10.1,
+              "done": false
+            }
+          ],
+          "completions": [
+            {
+              "epoch": 1,
+              "owner": "리타",
+              "name": "first",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 1,
+              "reason": "threshold",
+              "impact": {
+                "attacker": "앨리스",
+                "target": {
+                  "kind": 0,
+                  "identity": 0,
+                  "generation": 1
+                },
+                "family": 0,
+                "outcome": 2,
+                "damage": 13,
+                "credit": 1,
+                "attack_id": 0
+              },
+              "uid_ordinal": 1,
+              "time": 0.1
+            },
+            {
+              "epoch": 2,
+              "owner": "리타",
+              "name": "second",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 1,
+              "reason": "threshold",
+              "impact": {
+                "attacker": "앨리스",
+                "target": {
+                  "kind": 0,
+                  "identity": 0,
+                  "generation": 1
+                },
+                "family": 0,
+                "outcome": 2,
+                "damage": 13,
+                "credit": 1,
+                "attack_id": 0
+              },
+              "uid_ordinal": 2,
+              "time": 0.1
+            }
+          ],
+          "dead_actors": []
+        },
+        {
+          "time": 0.2,
+          "summary": [
+            0,
+            0,
+            3,
+            3
+          ],
+          "resources": [],
+          "completions": [
+            {
+              "epoch": 1,
+              "owner": "리타",
+              "name": "first",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 1,
+              "reason": "threshold",
+              "impact": {
+                "attacker": "앨리스",
+                "target": {
+                  "kind": 0,
+                  "identity": 0,
+                  "generation": 1
+                },
+                "family": 0,
+                "outcome": 2,
+                "damage": 13,
+                "credit": 1,
+                "attack_id": 0
+              },
+              "uid_ordinal": 1,
+              "time": 0.1
+            },
+            {
+              "epoch": 2,
+              "owner": "리타",
+              "name": "second",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 1,
+              "reason": "threshold",
+              "impact": {
+                "attacker": "앨리스",
+                "target": {
+                  "kind": 0,
+                  "identity": 0,
+                  "generation": 1
+                },
+                "family": 0,
+                "outcome": 2,
+                "damage": 13,
+                "credit": 1,
+                "attack_id": 0
+              },
+              "uid_ordinal": 2,
+              "time": 0.1
+            },
+            {
+              "epoch": 3,
+              "owner": "리타",
+              "name": "second",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 1,
+              "reason": "threshold",
+              "impact": {
+                "attacker": "앨리스",
+                "target": {
+                  "kind": 0,
+                  "identity": 0,
+                  "generation": 1
+                },
+                "family": 0,
+                "outcome": 2,
+                "damage": 13,
+                "credit": 1,
+                "attack_id": 0
+              },
+              "uid_ordinal": 2,
+              "time": 0.2
+            }
+          ],
+          "dead_actors": []
+        }
+      ],
+      "latch_checks": [
+        {
+          "event": "event:target_counter_complete:first",
+          "time": 0.1,
+          "ready_count": 2,
+          "all_ready_latched": true
+        },
+        {
+          "event": "event:target_counter_complete:second",
+          "time": 0.1,
+          "ready_count": 0,
+          "all_ready_latched": true
+        },
+        {
+          "event": "event:target_counter_complete:second",
+          "time": 0.2,
+          "ready_count": 1,
+          "all_ready_latched": true
+        }
+      ]
+    },
+    {
+      "name": "owner-only-credit",
+      "steps": [
+        {
+          "time": 0,
+          "summary": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.1,
+          "summary": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.2,
+          "summary": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 1,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.3,
+          "summary": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "resources": [],
+          "completions": [
+            {
+              "epoch": 1,
+              "owner": "리타",
+              "name": "marker",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 2,
+              "reason": "threshold",
+              "impact": {
+                "attacker": "리타",
+                "target": {
+                  "kind": 0,
+                  "identity": 0,
+                  "generation": 1
+                },
+                "family": 0,
+                "outcome": 2,
+                "damage": 13,
+                "credit": 1,
+                "attack_id": 0
+              },
+              "uid_ordinal": 1,
+              "time": 0.3
+            }
+          ],
+          "dead_actors": []
+        }
+      ],
+      "latch_checks": [
+        {
+          "event": "event:target_counter_complete:marker",
+          "time": 0.3,
+          "ready_count": 1,
+          "all_ready_latched": true
+        }
+      ]
+    },
+    {
+      "name": "explicit-blocked-credit-policy",
+      "steps": [
+        {
+          "time": 0,
+          "summary": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.1,
+          "summary": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.2,
+          "summary": [
+            1,
+            0.75,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0.75,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.3,
+          "summary": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "resources": [],
+          "completions": [
+            {
+              "epoch": 1,
+              "owner": "리타",
+              "name": "marker",
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 2,
+              "reason": "threshold",
+              "impact": {
+                "attacker": "앨리스",
+                "target": {
+                  "kind": 0,
+                  "identity": 0,
+                  "generation": 1
+                },
+                "family": 0,
+                "outcome": 1,
+                "damage": 0,
+                "credit": 1.25,
+                "attack_id": 0
+              },
+              "uid_ordinal": 1,
+              "time": 0.3
+            }
+          ],
+          "dead_actors": []
+        }
+      ],
+      "latch_checks": [
+        {
+          "event": "event:target_counter_complete:marker",
+          "time": 0.3,
+          "ready_count": 1,
+          "all_ready_latched": true
+        }
+      ]
+    },
+    {
+      "name": "death-without-reward-retires-the-marker",
+      "steps": [
+        {
+          "time": 0,
+          "summary": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 0,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.1,
+          "summary": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "resources": [
+            {
+              "uid_ordinal": 1,
+              "epoch": 1,
+              "name": "marker",
+              "owner": 0,
+              "actor": {
+                "kind": 0,
+                "identity": 0,
+                "generation": 1
+              },
+              "credit": 1,
+              "expires": 10,
+              "done": false
+            }
+          ],
+          "completions": [],
+          "dead_actors": []
+        },
+        {
+          "time": 0.2,
+          "summary": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "resources": [],
+          "completions": [],
+          "dead_actors": [
+            {
+              "kind": 0,
+              "identity": 0,
+              "generation": 1
+            }
+          ]
+        },
+        {
+          "time": 0.3,
+          "summary": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "resources": [],
+          "completions": [],
+          "dead_actors": [
+            {
+              "kind": 0,
+              "identity": 0,
+              "generation": 1
+            }
+          ]
+        },
+        {
+          "time": 0.4,
+          "summary": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "resources": [],
+          "completions": [],
+          "dead_actors": [
+            {
+              "kind": 0,
+              "identity": 0,
+              "generation": 1
+            }
+          ]
+        }
+      ],
+      "latch_checks": []
+    }
+  ],
+  "activation_child_witness": {
+    "passed": true,
+    "events": [
+      {
+        "event": "event:marker",
+        "before_impact": [
+          {
+            "epoch": 1,
+            "credit": 0,
+            "done": false
+          }
+        ]
+      }
+    ],
+    "final_live_carriers": 0,
+    "completions": 1,
+    "epoch": 1,
+    "preparation_precedes_named_activation_children": true,
+    "zero_damage_positive_credit": true
+  },
+  "common_compiler_policy_rows_checked": 11,
+  "cpu_state_used_as_gpu_input": false,
+  "gpu_executions": 0,
+  "normal_ui": "CPU",
+  "canonical_world_admission": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}
