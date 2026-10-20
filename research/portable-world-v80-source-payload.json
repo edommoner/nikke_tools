@@ -1,0 +1,49 @@
+{
+  "commit": "86f66858e24f051fe3a617ddb13661adc5af9614",
+  "parent": "6f54193636f2e44e59a588e208528f099419ac6e",
+  "source_snapshot": "f63d97c2a2123d6a17b633fbd8620eb6e98a6583",
+  "branch": "codex/cuda-world-v80-source",
+  "files": 5,
+  "total_bytes": 22967,
+  "rows": [
+    {
+      "path": "research/run-world-bounded.py",
+      "bytes": 7921,
+      "sha256": "f0ba2e20e1200d7a2875df5c9e9b5be218a36808241ff1e93ba5d0fa4a9a62fc",
+      "blob": "f9ee7976496b6439c38d1e2a9c85b273f9cb53c5"
+    },
+    {
+      "path": "research/portable_phase_audit.py",
+      "bytes": 3626,
+      "sha256": "20876dc410217473aa5a7cd9ad27368c41fcb2a9254b396ea1c53feaf205a727",
+      "blob": "ba1e107687c9f1c5c2f5c782666f2ab374f061f1"
+    },
+    {
+      "path": "tests/test_portable_phase_audit.py",
+      "bytes": 6505,
+      "sha256": "e42c0a86805d51f563a6366ee373780ddc97e481b67880fa16bd9705a561b147",
+      "blob": "f17ce73f99eb3e1bda33011137e60f897f309221"
+    },
+    {
+      "path": "docs/portable-world-phase-audit.md",
+      "bytes": 2732,
+      "sha256": "ae802ba0749b87913d60debfe0b69932b9f1129dd662affe073d1956643b2f68",
+      "blob": "caa7eb20b3380ec02fca383b199b94e8ea9ac61e"
+    },
+    {
+      "path": "research/portable-world-phase-validation.json",
+      "bytes": 2183,
+      "sha256": "07568d6f8e47bebefb7b18686e8454efed74a3c842e44257c95a852ee4b23ef9",
+      "blob": "d2d7261c96e7711fd994bfae33e7d0a9f5168a97"
+    }
+  ],
+  "contains_private_settings": false,
+  "contains_raw": false,
+  "contains_large_reports": false,
+  "shared": false,
+  "next_validation": "CPU-only fault tests first;only if Windows containment passes,one world49 GPU check BelowNormal independent180s;no normal4682 repeat,no GPU retry",
+  "approval_pending": true,
+  "auto_review_rejected": true,
+  "rejection_reason": "New distinct5-file external disclosure not covered by prior42-file approval",
+  "updated_at": "2026-10-20T17:29:12.664871+00:00"
+}
