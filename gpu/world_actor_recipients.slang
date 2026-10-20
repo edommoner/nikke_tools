@@ -1,7 +1,7 @@
 // Canonical persistent recipient sets:one stack and lifetime per resident.
 // Binding slots are static input identities;generations are captured on GPU.
 bool actorRecipientsEnabled(inout Runtime s)
-{ return actorFieldsEnabled(s)&&commands[s.inputBase+P_WORLD_ACTOR_POOL_INPUT_BASE+4]==0x57523031; }
+{ return WORLD_STATUS_POLICY(s,actorFieldsEnabled(s)&&commands[s.inputBase+P_WORLD_ACTOR_POOL_INPUT_BASE+4]==0x57523031); }
 uint actorRecipientAt(inout Runtime s,uint row)
 { return s.resourceOutput+P_WORLD_ACTOR_RECIPIENT_BASE+16+row*P_WORLD_ACTOR_RECIPIENT_WORDS; }
 bool actorRecipientHas(inout Runtime s,uint row,uint slot)

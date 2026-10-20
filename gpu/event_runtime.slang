@@ -182,10 +182,47 @@ struct Runtime
 #define WORLD_FIELDS_INIT(s,output)
 #define WORLD_FIELDS_COMMAND(s,at)
 #endif
+#ifdef PORTABLE_WORLD_ACTOR_STATUS
+#define WORLD_STATUS_POLICY(s,legacy) ((legacy)||actorStatusEnabled(s))
+#define WORLD_STATUS_HEADER(value,legacy) ((legacy)&&value!=0x57493031)
+#define WORLD_STATUS_KIND(s,d,legacy) ((legacy)&&!(actorStatusEnabled(s)&&d.kind==26))
+#define WORLD_STATUS_FIELD_INVALID(s,d,legacy) (actorStatusEnabled(s) ? actorStatusFieldInvalid(s,d) : (legacy))
+#define WORLD_STATUS_FIELD_GUARD(s,d) if(actorStatusEnabled(s)&&!actorStatusScopeValid(s,d)) return false;
+#define WORLD_STATUS_USED(s,who,name,legacy) actorStatusUsed(s,who,name)
+#define WORLD_STATUS_BIT(s,who,legacy) (actorStatusEnabled(s)&&who>=5 ? 32U : (legacy))
+#define WORLD_STATUS_MEMBER_INVALID(s,row,who,legacy) actorStatusMemberInvalid(s,row,who)
+#define WORLD_STATUS_VISIBLE(s,row,who,legacy) actorStatusVisible(s,row,who)
+#define WORLD_STATUS_COUNT_MEMBER_INVALID(s,row,who,legacy) actorStatusCountMemberInvalid(s,row,who)
+#define WORLD_STATUS_FILTER(s,d,mask,order) if(actorStatusEnabled(s)&&d.enemyBuff!=0) return harmfulBlocked(s,5+(s.target&127U),d) ? 0U : mask;
+#define WORLD_STATUS_RECHARGE(s,definition,mask,name) if(actorStatusEnabled(s)&&definition_enemyBuff(s.inputBase,definition)!=0) { if((mask&32)!=0) storeNumber(immunityUsed(s,5+(s.target&127U),name),0);return; }
+#define WORLD_STATUS_CLEANSE_BEGIN(s,row) uint statusSet=P_WORLD_ACTOR_SETS;ActorBits statusScope=actorBitsEmpty();if(actorStatusEnabled(s)&&definition_target(s.inputBase,row)==2) { statusSet=actorStatusScope(s,row,statusScope);if(s.error!=0) return; }
+#define WORLD_STATUS_CLEANSE_COUNT(s,legacy) (actorStatusEnabled(s) ? 5+actorPoolCount(s) : (legacy))
+#define WORLD_STATUS_CLEANSE_SCOPE_MISS(s,scope,who,legacy) (actorStatusEnabled(s)&&who>=5 ? !actorBitsHas(statusScope,who-5) : (legacy))
+#define WORLD_STATUS_CLEANSE_MEMBERS(s,row,who,bit,legacy) actorStatusCleanseMembers(s,row,who,bit)
+#define WORLD_STATUS_CLEANSE_END(s) if(statusSet<P_WORLD_ACTOR_SETS) { results[actorPoolSet(s,statusSet)+5]=0;results[actorPoolHead(s)+7]--; }
+#else
+#define WORLD_STATUS_POLICY(s,legacy) legacy
+#define WORLD_STATUS_HEADER(value,legacy) legacy
+#define WORLD_STATUS_KIND(s,d,legacy) legacy
+#define WORLD_STATUS_FIELD_INVALID(s,d,legacy) legacy
+#define WORLD_STATUS_FIELD_GUARD(s,d)
+#define WORLD_STATUS_USED(s,who,name,legacy) legacy
+#define WORLD_STATUS_BIT(s,who,legacy) legacy
+#define WORLD_STATUS_MEMBER_INVALID(s,row,who,legacy) legacy
+#define WORLD_STATUS_VISIBLE(s,row,who,legacy) legacy
+#define WORLD_STATUS_COUNT_MEMBER_INVALID(s,row,who,legacy) legacy
+#define WORLD_STATUS_FILTER(s,d,mask,order)
+#define WORLD_STATUS_RECHARGE(s,definition,mask,name)
+#define WORLD_STATUS_CLEANSE_BEGIN(s,row)
+#define WORLD_STATUS_CLEANSE_COUNT(s,legacy) legacy
+#define WORLD_STATUS_CLEANSE_SCOPE_MISS(s,scope,who,legacy) legacy
+#define WORLD_STATUS_CLEANSE_MEMBERS(s,row,who,bit,legacy) legacy
+#define WORLD_STATUS_CLEANSE_END(s)
+#endif
 #ifdef PORTABLE_WORLD_ACTOR_RECIPIENTS
 #define WORLD_RECIPIENT_STATE(s,legacy) ((legacy)||actorRecipientsEnabled(s))
-#define WORLD_RECIPIENT_HEADER(value,legacy) ((legacy)&&value!=0x57523031)
-#define WORLD_RECIPIENT_KIND(s,d,legacy) ((legacy)&&!(actorRecipientsEnabled(s)&&d.kind==18))
+#define WORLD_RECIPIENT_HEADER(value,legacy) WORLD_STATUS_HEADER(value,((legacy)&&value!=0x57523031))
+#define WORLD_RECIPIENT_KIND(s,d,legacy) WORLD_STATUS_KIND(s,d,((legacy)&&!(actorRecipientsEnabled(s)&&d.kind==18)))
 #define WORLD_RECIPIENT_RESET(s,row) resetActorRecipients(s,row);
 #define WORLD_RECIPIENT_BIND(s,row,target,gen) bindActorRecipient(s,row,target,gen);
 #define WORLD_RECIPIENT_MEMBER(s,row,target,legacy) (actorRecipientsEnabled(s) ? actorRecipientMember(s,row,target) : (legacy))
@@ -1601,6 +1638,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "world_actor_mutation.slang"
 #ifdef PORTABLE_WORLD_ACTOR_RECIPIENTS
 #include "world_actor_recipients.slang"
+#ifdef PORTABLE_WORLD_ACTOR_STATUS
+#include "world_actor_status.slang"
+#endif
 #endif
 #endif
 #endif

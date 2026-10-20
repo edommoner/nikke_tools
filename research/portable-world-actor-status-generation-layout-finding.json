@@ -1,0 +1,12 @@
+{
+  "scope": "Compiler-only generation regression before any new status GPU dispatch",
+  "initial_failed_entry_count": 5,
+  "initial_msl_all_equal": true,
+  "cuda_difference": "One blank line after statement macro in cleanseResidents",
+  "normalizer_unchanged": true,
+  "resolution": "Keep the assignment at the original statement location and provide only its RHS",
+  "final_normal_fields_state_mutation_recipient_generated_equal": true,
+  "initial_report": "research/portable-build/world-actor-status-generation-initial.json",
+  "diff": "research/portable-build/world-actor-status-event_runtime-cu-first.diff",
+  "gpu_dispatches_before_fix": 0
+}

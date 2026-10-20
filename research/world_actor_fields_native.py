@@ -34,4 +34,7 @@ def observe_before_finish(case,boss,manager,names,when):
    if ab.effect.get('_boss_bound') or enemy_buff_plan(ab.effect) is None:continue
    key=getattr(ab,'enemy_recipient_key',None);assert key is not None
    answer['recipient_memberships'].append([[int(x.actor.kind),x.actor.identity,x.actor.generation] for x in key.bindings if x.label in (ab.target_chars or [])])
+ if case.get('observe_actor_status'):
+  lookup={b.label:[int(b.kind),b.identity] for b in bindings};lookup.update({n:[-1,i] for i,n in enumerate(names)})
+  answer['nonzero_immunity_used']=sorted([dict(actor=lookup[label],name=name,used=value) for (label,name),value in manager._immune_used.items() if value!=0],key=lambda x:(x['actor'],x['name']))
  return answer
