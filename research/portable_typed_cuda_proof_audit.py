@@ -3,7 +3,7 @@ import hashlib,json,re,subprocess
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def sha(b):return hashlib.sha256(b).hexdigest()
-def audit(*,version,source,expected_file,inputs,native_oracles,test_counts,phase_suite,old_replays,payload_files,payload_bytes):
+def audit(*,version,source,expected_file,inputs,native_oracles,test_counts,phase_suite,old_replays,payload_files,payload_bytes,single_suite_replay_names=(),single_suite_command=None):
  def load(p):return json.loads((ROOT/'research'/p).read_text())
  def blob(p):return subprocess.check_output(['git','show',source+':'+p],cwd=ROOT)
  summary_name=f'windows-portable-world-v{version}-summary.json';execution_name=f'portable-world-v{version}-execution.json';receipt_name=f'portable-cross-v{version}-receipt.json'
@@ -21,7 +21,16 @@ def audit(*,version,source,expected_file,inputs,native_oracles,test_counts,phase
  assert e['passed'] and not e['timed_out'] and e['child_exit_code']==e['final_child_exit_code']==0 and e['error'] is None and e['cleanup_error'] is None and e['below_normal_priority'] and e['timeout_seconds']==180 and e['cleanup_wait_seconds']==5 and e['elapsed_seconds']<180
  assert r['passed'] and r['original_head_equal'] and r['original_status_equal'] and r['existing_gpu_service_preserved'] and r['residual_verification_process_count']==0 and r['actual_gpu_execution_count']==1
  assert r['gpu_retry_count']==e['gpu_retry_count']==0
- for n in old_replays:assert r[n+'_execution_count']==s[n+'_reexecutions']==0
+ derived=[]
+ for n in old_replays:
+  assert s[n+'_reexecutions']==0
+  if n+'_execution_count' in r:assert r[n+'_execution_count']==0
+  else:
+   # A missing redundant per-suite counter is never treated as zero. Require
+   # the actual one-dispatch journal and the pinned command's exact input count.
+   assert n in single_suite_replay_names and single_suite_command is not None
+   assert r['bounded_driver']['shared_gpu_command']==single_suite_command and evidence['transport']['cases']==inputs and r['actual_gpu_execution_count']==1
+   derived.append(n)
  pre=r['cpu_preflight'];assert pre['source_commit']==source and pre['passed'] and pre['cpu_short']['exit_code']==0 and pre['original_head_before']=='61a43e91301841c272badce519e4d8984bb5efae'
  cpu=pre['cpu_short_report'];assert cpu['passed'] and cpu['input_count']==inputs and cpu['native_oracles']==native_oracles and cpu['input_sha256']==g['input_sha256'] and cpu['source_sha256']==g['source_sha256'] and cpu['gpu_calls']==dict(build=0,execute=0)
  tests=pre['cpu_tests'];assert [(x['pattern'],x['expected_count']) for x in tests]==test_counts
@@ -32,4 +41,7 @@ def audit(*,version,source,expected_file,inputs,native_oracles,test_counts,phase
   hits=[(i,p) for i,p in enumerate(phases) if p['stage']==stage];assert len(hits)==2 and hits[0][1]['state']=='entered' and hits[1][1]['state']=='returned' and hits[1][1]['return_code']==0 and hits[0][0]>last;last=hits[1][0]
  assert phases[-1]['stage']==phase_suite and phases[-1]['state']=='returned'
  assert all(e['phase'][k] for k in ['nvrtc_compile_returned_success','cuda_launch_returned_success','cuda_synchronize_returned_success','cuda_readback_returned_success'])
- return dict(passed=True,source_commit=source,inputs=inputs,all_input_output_bytes_native_and_generated_fingerprints_equal=True,actual_cuda_executions=1,cuda_elapsed_seconds=e['elapsed_seconds'],cpu_tests=sum(n for _,n in test_counts),cpu_native_oracles=native_oracles,cpu_gpu_calls=0,phase_events=50,**{n+'_reexecutions':0 for n in old_replays},gpu_retries=0,residual_processes=0,original_windows_work_and_service_preserved=True,imported_bytes=sum(a['bytes'] for a in receipt['artifacts']),source_payload_bytes=payload_bytes,audit_gpu_calls=0,full_character_verified=0,canonical_world_admission=False,normal_ui='CPU',full_goal_complete=False)
+ result=dict(passed=True,source_commit=source,inputs=inputs,all_input_output_bytes_native_and_generated_fingerprints_equal=True,actual_cuda_executions=1,cuda_elapsed_seconds=e['elapsed_seconds'],cpu_tests=sum(n for _,n in test_counts),cpu_native_oracles=native_oracles,cpu_gpu_calls=0,phase_events=50,**{n+'_reexecutions':0 for n in old_replays},gpu_retries=0,residual_processes=0,original_windows_work_and_service_preserved=True,imported_bytes=sum(a['bytes'] for a in receipt['artifacts']),source_payload_bytes=payload_bytes,audit_gpu_calls=0,full_character_verified=0,canonical_world_admission=False,normal_ui='CPU',full_goal_complete=False)
+
+ if derived:result['reexecution_absence_derived_from_single_dispatch']=derived
+ return result

@@ -6,7 +6,7 @@ private ABI78の共通実行器へ、def_pct・def_caster_based_pct・received_d
 
 初回保持verifierは、初期化後のコマンド拒否6件でも新領域zeroを期待したため失敗しました。旧285の既存領域と新72は全成功しており、初回report/rawを残して、固定旧GPUのpool-ready markerに従う期待値へ修正し、同じ読み戻しをCPUで再監査しました。GPU retry0です。通常生成差もCPU段階で式/行位置を修正し、厳密一致と314件成功を確認後にGPUへ進みました。後続typed query入力テストを含む315件も成功しています。計算source c2425e5、証拠 `research/portable-world-actor-fields-validation.json` と各findingを参照。
 
-Windowsへ最小18ファイル250,128 bytesを固定8be669d、`codex/cuda-world-v84-source`へ共有し、CPU11件＋GPU禁止の全72入力/52 native事前照合後、新72入力だけをBelowNormal・180秒上限で1回依頼しました。現在結果待ちです。旧285/旧208/通常4682を繰り返しません。個人設定/raw/巨大詳細は共有せず、利用者のゴール達成までのGitHub共有許可を反映しています。
+Windows CUDA72も成功しました。最小18ファイル250,128 bytesを固定8be669d、`codex/cuda-world-v84-source`へ共有し、CPU11件＋GPU禁止の72入力/52 native事前照合後、BelowNormal・180秒上限の実GPU1回で72.631秒、exit0でした。全input/output/native・生成fingerprintがMetal保存基準と一致し、NVRTC/launch/sync/readbackを実測50eventsで確認しました。接続の一時失敗と別質問への応答でカプセルが未出力になりましたが、検証を再実行せず保存済み3JSON計53,844 bytesだけを取得し、固定Git blob・輸送SHA・CPU事前結果・全fingerprintをMacで再監査しました。旧285の専用countはreceiptに無いため、source固定の72-input command・transport cases72・実測kernel launch1回・actual execution1回とsummaryの0から非再実行を確認しています。旧208/通常4682/GPU retry0、残存0、元Windows作業/サービス保持、Windowsは待機中です。`research/portable-world-v84-cuda-validation.json` を参照。個人設定/raw/巨大詳細は共有せず、利用者のゴール達成までのGitHub共有許可を反映しています。
 
 wide enemyのその他条件、immunity/cleanse/counter、skill/pending/DoT、mixed target、interrupt/source attacks、自動制御/復活、容量/長時間条件、全変種認証と必要検証後の効率化は未完了です。pure hit-HP召喚のmax-HP順位は元nativeでTypeErrorになることをCPU実証して保存し、この組み合わせはまだ受け付けません。通常画面CPU/public受付false/全変種0/203を維持します。
 

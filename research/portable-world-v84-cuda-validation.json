@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "source_commit": "8be669df1cac6e349bc676b73792b62386ac795d",
+  "inputs": 72,
+  "all_input_output_bytes_native_and_generated_fingerprints_equal": true,
+  "actual_cuda_executions": 1,
+  "cuda_elapsed_seconds": 72.6308677000925,
+  "cpu_tests": 11,
+  "cpu_native_oracles": 52,
+  "cpu_gpu_calls": 0,
+  "phase_events": 50,
+  "normal4682_reexecutions": 0,
+  "old208_reexecutions": 0,
+  "old285_reexecutions": 0,
+  "gpu_retries": 0,
+  "residual_processes": 0,
+  "original_windows_work_and_service_preserved": true,
+  "imported_bytes": 53844,
+  "source_payload_bytes": 250128,
+  "audit_gpu_calls": 0,
+  "full_character_verified": 0,
+  "canonical_world_admission": false,
+  "normal_ui": "CPU",
+  "full_goal_complete": false,
+  "reexecution_absence_derived_from_single_dispatch": [
+    "old285"
+  ],
+  "complete_native_battles": 52,
+  "raw_rejections": 20
+}
