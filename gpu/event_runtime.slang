@@ -100,6 +100,21 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_COUNTER_FIELDS
+#define COUNTER_FIELDS_CONTEXT(s,legacy) ((legacy)||counterFieldsEnabled(s))
+#define COUNTER_FIELDS_DEFINITION(s,row,d,legacy) counterFieldDefinitionInvalid(s,row,d,legacy)
+#define COUNTER_FIELDS_FIRST(s,route,legacy) counterFieldFirst(s,route,legacy)
+#define COUNTER_FIELDS_WORK_LIMIT(s,legacy) (counterFieldsEnabled(s) ? P_CARRIERS*P_DEPTH : (legacy))
+#define COUNTER_FIELDS_WORK_RECORD(s,work) recordCounterFieldWork(s,work);
+#define COUNTER_FIELDS_WORK_INIT(s) initializeCounterFieldWork(s);
+#else
+#define COUNTER_FIELDS_CONTEXT(s,legacy) legacy
+#define COUNTER_FIELDS_DEFINITION(s,row,d,legacy) legacy
+#define COUNTER_FIELDS_FIRST(s,route,legacy) legacy
+#define COUNTER_FIELDS_WORK_LIMIT(s,legacy) legacy
+#define COUNTER_FIELDS_WORK_RECORD(s,work)
+#define COUNTER_FIELDS_WORK_INIT(s)
+#endif
 #ifdef PORTABLE_COUNTER_CONTEXT
 #define COUNTER_CONTEXT_MODE(s,legacy) ((legacy)||counterContextEnabled(s))
 #define COUNTER_CONTEXT_CONDITIONS(s,row,d,legacy) ((legacy)&&!counterContextEnabled(s))
@@ -921,7 +936,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
     uint work = 0;
     while (depth >= 0 && s.error == 0)
     {
-        if (++work > 4096) { s.error = 4; break; }
+        if (++work > COUNTER_FIELDS_WORK_LIMIT(s,4096)) { s.error = 4; break; }
         if (s.hpPendingMask != 0 && s.hpEdgeGuard == 0)
         {
             uint who = 0; while ((s.hpPendingMask & (1U << who)) == 0) who++;
@@ -1593,7 +1608,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (d.kind == 1 && (s.healthMask&32)==0) syncHealth(s,f.time);
 #endif
     }
-    COUNTER_CONTEXT_END(s) WORLD_STATE_DISPATCH_END(s) s.target = entryTarget;
+    COUNTER_FIELDS_WORK_RECORD(s,work) COUNTER_CONTEXT_END(s) WORLD_STATE_DISPATCH_END(s) s.target = entryTarget;
 }
 
 void timerPass(inout Runtime s, uint64_t when, bool damagePass, uint output)
@@ -1744,6 +1759,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "counter_landing_runtime.slang"
 #ifdef PORTABLE_COUNTER_CONTEXT
 #include "counter_context_runtime.slang"
+#ifdef PORTABLE_COUNTER_FIELDS
+#include "counter_field_runtime.slang"
+#endif
 #endif
 #endif
 #endif

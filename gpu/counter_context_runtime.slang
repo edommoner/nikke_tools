@@ -2,7 +2,7 @@
 // Event targets inherit only through canonical hit_count/counter completion
 // notifications. Generic named/HP/resource notifications start without one.
 bool counterContextEnabled(inout Runtime s)
-{ return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==3; }
+{ return COUNTER_FIELDS_CONTEXT(s,targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==3); }
 uint counterContextHead(inout Runtime s) { return s.resourceOutput+P_COUNTER_CONTEXT_BASE; }
 uint counterContextFrameAt(inout Runtime s,uint depth)
 { return counterContextHead(s)+72+(results[counterContextHead(s)]-1)*32+depth; }
