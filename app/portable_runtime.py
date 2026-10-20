@@ -84,6 +84,7 @@ def validate_effect(eff, *, combat=None):
     try:validate_input(eff)
     except ValueError as error:raise UnsupportedPortable(str(error)) from error
     kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
+    if stat in ('taunt','stealth') and combat is None:raise UnsupportedPortable('Enemy target markers require combat-owned allied health and state')
     if stat=='burst_charge_speed_pct' and combat is None:
         raise UnsupportedPortable('Burst charge speed requires combat-owned normal-hit history')
     if stat in ('pierce_enabled','armor_break_enabled'):
@@ -145,7 +146,7 @@ def validate_effect(eff, *, combat=None):
             raise ValueError('Invalid '+key)
 
 
-def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None, burst_references=None):
+def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None, burst_references=None, enemy_targeting=None):
     import detail_gpu as legacy
     from portable_stack_specs import plan as stack_plan,operation as stack_operation,value as stack_value,pack_metadata as pack_stack_metadata
     check_schema()
@@ -406,6 +407,14 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             if not 0<=extra<=1e30:raise ValueError('Invalid cover-layer damage')
             at=L['COMMAND_BASE']+i*8;words[at:at+8]=[op,*double_words(t),0,0,arg,*double_words(extra)]
             continue
+        if op==32:
+            if combat is None:raise UnsupportedPortable('Enemy victim selection requires combat-owned state')
+            if any(type(v) is not int for v in (op,event,owner,arg,query)) or event not in (0,1) or owner or arg or query!=-1:raise ValueError('Enemy target/cover masks are GPU owned')
+            double_words(extra);double_words(extra2)
+            if not 0<=extra<=1e30 or not 0<=extra2<=1e6:raise ValueError('Invalid enemy attack/coefficient')
+            at=L['COMMAND_BASE']+i*8;words[at:at+8]=[op,*double_words(t),event,0,0,0,0]
+            at=L['INCOMING_BASE']+i*L['INCOMING_WORDS'];words[at:at+4]=[*double_words(extra),*double_words(extra2)]
+            continue
         if op==31:
             if any(type(v) is not int for v in (op,event,owner,arg,query)) or event not in (0,1) or not 0<=owner<=31 or query!=-1 or not 1<=arg<=31:raise ValueError('Invalid layered incoming descriptor')
             double_words(extra);double_words(extra2)
@@ -468,10 +477,12 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         at=L['COMMAND_BASE']+i*8
         words[at:at+8]=[op,*double_words(t),event,owner,*(double_words(extra) if op==18 else [arg & 0xffffffff,query & 0xffffffff]),0]
     if words[6] and frame_mode!=24:raise UnsupportedPortable('Accumulated clock requires GPU-generated frames')
+    from portable_enemy_target_specs import pack as pack_enemy_targeting
+    target_metadata=pack_enemy_targeting(words,enemy_targeting,script,effects)
     from portable_trigger_specs import pack_event_candidates
     pack_event_candidates(words,L)
     from portable_probability_specs import definitions as probability_definitions
-    return words,dict(mode_entry_enabled=any(words[L['MODE_BASE']+j*L['MODE_WORDS']+30] for j in range(len(effects))),probability_definitions=probability_definitions(effects),ordered_recipients=bool(nodes),protection_enabled=bool(words[L['PROTECTION_META_BASE']] or any(c[1]==31 for c in script)),status_policy=words[L['STATUS_META_BASE']],status_names=program['states'],stack_operators=any(stack_operation(e) for e,_ in effects),enemy_buff_definitions=[enemy_buff_plan(e) is not None for e,_ in effects],native_landing=native_landing,source_definitions=[dict(name=next((k for k,v in program['states'].items() if v==int(row[304])),None),owner=int(row[0]),legacy=bool(row[137])) if int(row[1])==35 else None for row in program['effects']],source_query_indices=source_query_indices,resource_names=list(resource_keys),resource_query_indices=sorted(resource_query_indices),states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
+    return words,dict(enemy_targeting=target_metadata,mode_entry_enabled=any(words[L['MODE_BASE']+j*L['MODE_WORDS']+30] for j in range(len(effects))),probability_definitions=probability_definitions(effects),ordered_recipients=bool(nodes),protection_enabled=bool(words[L['PROTECTION_META_BASE']] or any(c[1] in (31,32) for c in script)),status_policy=words[L['STATUS_META_BASE']],status_names=program['states'],stack_operators=any(stack_operation(e) for e,_ in effects),enemy_buff_definitions=[enemy_buff_plan(e) is not None for e,_ in effects],native_landing=native_landing,source_definitions=[dict(name=next((k for k,v in program['states'].items() if v==int(row[304])),None),owner=int(row[0]),legacy=bool(row[137])) if int(row[1])==35 else None for row in program['effects']],source_query_indices=source_query_indices,resource_names=list(resource_keys),resource_query_indices=sorted(resource_query_indices),states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
 
 
 def decode(words,metadata):
@@ -631,17 +642,31 @@ def decode(words,metadata):
                 if used:immunity_usage.append(dict(recipient=who,name=name,used=used))
     protection_hits=[]
     if metadata.get('protection_enabled'):
-        for index in range(L['COMMANDS']*5):
-            records=[(L['PROTECTION_HIT_BASE']+index*16,index%5)]
-            records += [(L['SPLIT_HIT_BASE']+(index*4+k)*16,None) for k in range(4)]
-            for at,owner in records:
-                if words[at+2]:protection_hits.append(dict(time=number(at),owner=(words[at+3]>>3)&7 if owner is None else owner,pierce=bool(words[at+3]&1),down=bool(words[at+3]&4),damage=number(at+4),shield=number(at+6),cover=number(at+8),decoy=number(at+10),hp=number(at+12),hp_after=number(at+14)))
+        target_steps=metadata.get('enemy_targeting',{}).get('steps',[])
+        for step in range(L['COMMANDS']):
+            if step in target_steps:
+                order=words[L['ENEMY_TARGET_QUERY_BASE']+step*8+1]
+                victims=[((order>>(3*i))&7)-1 for i in range(5) if ((order>>(3*i))&7)!=0]
+            else:victims=range(5)
+            for who in victims:
+                index=step*5+who
+                records=[(L['PROTECTION_HIT_BASE']+index*16,who)]
+                records += [(L['SPLIT_HIT_BASE']+(index*4+k)*16,None) for k in range(4)]
+                for at,owner in records:
+                    if words[at+2]:protection_hits.append(dict(time=number(at),owner=(words[at+3]>>3)&7 if owner is None else owner,pierce=bool(words[at+3]&1),down=bool(words[at+3]&4),damage=number(at+4),shield=number(at+6),cover=number(at+8),decoy=number(at+10),hp=number(at+12),hp_after=number(at+14)))
+    enemy_state={}
+    if metadata.get('enemy_targeting',{}).get('enabled'):
+        selection=[]
+        for step in metadata['enemy_targeting']['steps']:
+            at=L['ENEMY_TARGET_QUERY_BASE']+step*8;order=words[at+1]
+            selection.append(dict(step=step,mask=words[at],order=order,targets=[((order>>(3*i))&7)-1 for i in range(5) if ((order>>(3*i))&7)!=0],taunt_mask=words[at+2],pool_mask=words[at+3],draws_before=words[at+4],draws_after=words[at+5],rejects_after=words[at+6],valid=words[at+7]))
+        at=L['ENEMY_RNG_BASE'];enemy_state=dict(enemy_selection=selection,enemy_rng=dict(index=words[at],draws=words[at+1],samples=words[at+2],rejects=words[at+3],state=list(words[at+8:at+632])))
     probability=[]
     for definition in metadata.get('probability_definitions',[]):
         for owner in range(5):
             at=L['PROBABILITY_STATE_BASE']+(definition*5+owner)*2
             probability.append(dict(definition=definition,owner=owner,value=number(at),bits=f'{words[at]|words[at+1]<<32:016x}'))
-    return dict(**(dict(mode_entry_wait_until=[number(L['MODE_ENTRY_STATE_BASE']+who*2) for who in range(5)]) if metadata.get('mode_entry_enabled') else {}),**(dict(probability=probability) if probability else {}),**(dict(protection=protection_summary(L['PROTECTION_STATE_BASE']),protection_hits=protection_hits) if metadata.get('protection_enabled') else {}),**(dict(immunity_usage=immunity_usage) if metadata.get('status_policy',0) else {}),landing_queue=dict(native=bool(metadata.get('native_landing')),enqueued=words[landing+2],landed=words[landing+3],drains=words[landing+4],peak=words[landing+5],entries=pending_landings),staged_applications=staged_rows,periodic_sources=sources,source_queries=source_queries,reference_captures=captures,**resource_state,periodic_bindings=periodic,pending_burst=dict(count=count,enqueued=words[pending+1],fired=words[pending+2],entries=queue),covers=covers,body_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+20+2*k) for k in range(5)],add_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+30+2*k) for k in range(5)],scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+2*k) for k in range(5)],add_overkill=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+10+2*k) for k in range(5)],target_scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+40+2*k) for k in range(len((metadata.get('combat') or {}).get('targets',[])))],bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
+    return dict(**enemy_state,**(dict(mode_entry_wait_until=[number(L['MODE_ENTRY_STATE_BASE']+who*2) for who in range(5)]) if metadata.get('mode_entry_enabled') else {}),**(dict(probability=probability) if probability else {}),**(dict(protection=protection_summary(L['PROTECTION_STATE_BASE']),protection_hits=protection_hits) if metadata.get('protection_enabled') else {}),**(dict(immunity_usage=immunity_usage) if metadata.get('status_policy',0) else {}),landing_queue=dict(native=bool(metadata.get('native_landing')),enqueued=words[landing+2],landed=words[landing+3],drains=words[landing+4],peak=words[landing+5],entries=pending_landings),staged_applications=staged_rows,periodic_sources=sources,source_queries=source_queries,reference_captures=captures,**resource_state,periodic_bindings=periodic,pending_burst=dict(count=count,enqueued=words[pending+1],fired=words[pending+2],entries=queue),covers=covers,body_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+20+2*k) for k in range(5)],add_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+30+2*k) for k in range(5)],scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+2*k) for k in range(5)],add_overkill=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+10+2*k) for k in range(5)],target_scored_damage=[number(L['DAMAGE_ACCOUNTING_STATE_BASE']+40+2*k) for k in range(len((metadata.get('combat') or {}).get('targets',[])))],bullet_lifetimes=dict(active_carriers=words[15]),lazy_cache=dict(entries=words[10],evaluations=words[11],reuses=words[12],pending=words[13],mapped_pending=words[14]),carriers=carriers,allies=health,weapons=weapon_states,status=words[0],queries=queries,trace=trace,timers=timers,targets=targets,burst_trace=burst_trace,trace_total=words[6],burst_trace_total=words[7],frames=words[8],max_stack_depth=words[3])
 
 
 def pack_programs(programs):

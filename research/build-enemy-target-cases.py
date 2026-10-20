@@ -89,5 +89,20 @@ def main():
  for owner in range(5):
   for value in (-100,100):
    cases.append(make(f'enemy-taunt-not-outgoing-damage-{owner}-{value}',[marker('taunt','taunt',owner,'boss',value)],[dict(target='random:1')]*3,weapon=(owner,dict(enabled=True,mode='auto',coefficient=100,capacity=100,interval=.1,reload=1))))
- (R/'research/portable-enemy-target-inputs.json').write_text(json.dumps(dict(cases=cases),ensure_ascii=False,indent=2)+'\n');print(len(cases),'authored enemy victim inputs')
+ # Decimal text is the exact integer wire encoding across JSON/JavaScript.
+ for seed in (0,1,19,2**32,2**64-1):
+  c=copy.deepcopy(next(c for c in cases if c['name']=='enemy-random-sequence-'+str(seed)));c['name']='enemy-decimal-seed-'+str(seed);c['enemy_targeting']['seed']=str(seed);cases.append(c)
+ #63 attacks consume627 MT words for these authored seeds,crossing the624-word boundary.
+ for seed in (190,765):
+  c=make('enemy-long-rng-'+str(seed),[marker('anchor','',0)],[],seed)
+  for i in range(63):
+   index=len(c['script']);c['enemy_targeting']['attacks'][str(index)]=dict(target='random:5');c['script'].append([0,32,1,0,0,-1,1000,100])
+  cases.append(c)
+ # Victim selection can occur between weapon frames;source references use the attack time.
+ source=dict(name='refresh bird',source='스킬1',type='instant',stat='periodic_source_refresh',target='self',trigger=dict(timing=['battle_start'],condition=[]),periodic_source=dict(name='bird',slots=[.05,.1,-1],base_interval=1,population_reduction_pct=0))
+ attack,owner=marker('source-atk','atk_pct',0,value=20);attack.update(scaling='stack_count',scaling_ref='bird')
+ c=make('enemy-source-time-between-frames',[(source,0),(attack,0)],[])
+ c['base_atk']=[1000,1400,1100,1000,1000];c['script'] += [[0,32,1,0,0,-1,1000,100],[0,2,0,0,0,0,0,0],[.125,32,1,0,0,-1,1000,100],[.125,2,0,0,0,1,0,0]];c['expected_queries']=[{},{}];c['enemy_targeting']['attacks']={'1':dict(target='top_atk:1'),'3':dict(target='top_atk:1')};cases.append(c)
+ for c in cases:c['enemy_target_reference']=True
+ (R/'tests/fixtures/portable-enemy-targets.json').write_text(json.dumps(dict(cases=cases),ensure_ascii=False,indent=2)+'\n');print(len(cases),'authored enemy victim inputs')
 if __name__=='__main__':main()

@@ -1,9 +1,9 @@
 {
-  "stage": "Isolated candidate540 positive+40 raw rejects and prior4070 exact Metal parity passed;production adoption not started",
+  "stage": "Canonical ABI73 adopted locally;270 Python and4 Node units passed;fresh4658-input Metal proof pending",
   "updated_at": "2026-10-20T12:14:02.319045+00:00",
   "production_source_commit": "39bce8aa5c9c5f29f0653e80fc69855f19ad5ad6",
   "production_proof_commit": "89c19e3",
-  "production_abi": "0x50455672",
+  "production_abi": "0x50455673",
   "candidate_abi": "0x50455673",
   "candidate_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/enemy-target-candidate-20261020T115159399973Z",
   "candidate_shader": "research/portable-build/enemy-target-candidate-20261020T115159399973Z/enemy_target_candidate_runtime.slang",
@@ -41,7 +41,7 @@
       "sha256": "2e1b2705ac49b40448c0d7256cec7ca3826d0a39787197a641f875941169c37f"
     }
   },
-  "production_adopted": false,
+  "production_adopted": true,
   "metal_positive_cases": 540,
   "metal_raw_rejections": 40,
   "old4070_full_output_words_preserved": true,
@@ -78,9 +78,14 @@
     "CPython small pool uses n.bit_length and rejection;singleton randbelow still consumes/rejects bits. MT state lives in GPU output scratch133840..134471",
     "Candidate32 uses original ordered layered/split/notification executor;actual automatic reloading cover is GPU-derived",
     "Enemy taunt must be excluded from numeric collectEnemyModifiers even for nonzero magnitude",
-    "Root production files remain untouched;candidate packer temporarily opens host marker admission and replaces32 with31 only internally,then final wire32 has mask fields0. Canonical integration must remove this temporary path",
-    "Current helper STATS literals65/66 should read canonical effect_spec.DETAIL_STAT upon adoption,avoiding circular import through portable_specs/portable_damage_specs",
     "New core report may exceedGitHub100MiB if duplicate results kept;assert results==all cases.actual then store one canonical copy,as done for Windows artifacts",
     "No current candidate CUDA or speed claim;initial unrelated Metal finding remains open"
-  ]
+  ],
+  "adoption_verified": false,
+  "last_complete_source_commit": "39bce8aa5c9c5f29f0653e80fc69855f19ad5ad6",
+  "canonical_positive_cases": 4088,
+  "canonical_raw_rejections": 570,
+  "canonical_enemy_target_cases": 548,
+  "source_time_boundary_finding": "research/portable-enemy-target-time-initial-finding.json",
+  "source_time_boundary_fix": "Select victims inside event dispatch after sourceTime and HP-edge updates;fresh full verification required"
 }

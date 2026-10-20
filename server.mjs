@@ -1,5 +1,6 @@
 import {createEvaluator,advanceCases} from './app/evaluation-queue.mjs';
 import {resolvePython} from './app/python-runtime.mjs';
+import {portableEventRequest} from './app/portable_http_policy.mjs';
 import {candidatePool,bestDisjoint,rankCombatPool} from './app/optimizer.mjs';
 import http from 'node:http';
 import {spawn} from 'node:child_process';
@@ -175,7 +176,7 @@ const server=http.createServer(async(req,res)=>{
     if(req.method==='GET' && url.pathname==='/api/hardware')return json(res,await worker({action:'gpu_probe'}));
     if(req.method==='GET' && url.pathname==='/api/catalog')return json(res,await worker({action:'catalog'}));
     if(req.method==='GET' && url.pathname==='/api/demo')return json(res,await worker({action:'demo',expanded:url.searchParams.get('expanded')==='true',gpu_detail:url.searchParams.get('gpu_detail')==='true'}));
-    if(req.method==='POST' && url.pathname==='/api/portable-events')return json(res,await worker({...await body(req),action:'evaluate_portable_events'}));
+    if(req.method==='POST' && url.pathname==='/api/portable-events')return json(res,await worker(portableEventRequest(await body(req))));
     if(req.method==='POST' && url.pathname==='/api/import'){const data=await body(req);return json(res,await worker({action:'import',data}));}
     if(req.method==='POST' && url.pathname==='/api/jobs') {
       const b=await body(req);

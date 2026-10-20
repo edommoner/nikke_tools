@@ -31,3 +31,7 @@ STATS['element_code_override']=ELEMENT_OVERRIDE_STAT
 from portable_hp_attack_specs import STAT as HP_ATTACK_STAT
 BUFFS=BUFFS | {'atk_from_hp_pct'}
 STATS['atk_from_hp_pct']=HP_ATTACK_STAT
+
+# Presence markers retain the canonical compiler identities outside64 numeric slots.
+BUFFS=BUFFS | {'taunt','stealth'}
+STATS.update({name:{**DETAIL_STAT,**EXTRA_STAT}[name] for name in ('stealth','taunt')})

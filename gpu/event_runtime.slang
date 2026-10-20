@@ -103,6 +103,7 @@ struct Runtime
 #include "geometry_runtime.slang"
 
 bool hasProtection(inout Runtime s,uint who,uint kind);
+void chooseEnemyVictims(inout Runtime s,uint step,uint64_t when);
 
 [ForceInline]
 Definition residentDefinition(inout Runtime s, uint slot) { return readDefinition(s.inputBase,s.carrierDefinition[slot]); }
@@ -838,14 +839,37 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             }
             if (f.event == 0)
             {
-                uint who = frames[depth].cursor, mask = commands[at+5] & ~s.downMask;
-                while (who < 5 && (mask & (1U << who)) == 0) who++;
-                if (who == 5) { depth--; continue; }
-                frames[depth].cursor = who+1; frames[depth].owner = who;
+                // Selection is part of this event frame:sourceTime and HP edges
+                // are current before choosing the frozen,ordered victim list.
+                if(f.mode==8 && commands[at]==32 && f.cursor==0)
+                {
+                    chooseEnemyVictims(s,uint(f.argument),f.time);
+                    if(s.error!=0) break;
+                }
+                uint who;
+                if(commands[at]==32)
+                {
+                    uint order=results[s.resourceOutput+P_ENEMY_TARGET_QUERY_BASE+uint(f.argument)*8+1],cursor=frames[depth].cursor,encoded=0;
+                    while(cursor<5)
+                    {
+                        encoded=(order>>(3*cursor++))&7;
+                        if(encoded==0 || (s.downMask&(1U<<(encoded-1)))==0) break;
+                    }
+                    if(encoded==0 || (s.downMask&(1U<<(encoded-1)))!=0) { depth--;continue; }
+                    who=encoded-1;frames[depth].cursor=cursor;
+                }
+                else
+                {
+                    uint mask=commands[at+5] & ~s.downMask;who=frames[depth].cursor;
+                    while(who<5 && (mask&(1U<<who))==0) who++;
+                    if(who==5) { depth--;continue; }
+                    frames[depth].cursor=who+1;
+                }
+                frames[depth].owner=who;
                 uint input = s.inputBase+P_INCOMING_BASE+uint(f.argument)*P_INCOMING_WORDS;
                 frames[depth].healthValue = incomingBodyDamage(s,who,loadNumber(input),loadNumber(input+2),f.time);
                 frames[depth].event = 1;
-                if(commands[at]==31)
+                if((commands[at]==31 || commands[at]==32))
                 {
                     uint64_t amount=frames[depth].healthValue;
                     uint group=incomingSplitGroup(s,who,f.time);
@@ -875,7 +899,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 uint64_t amount = f.healthValue;
                 if (!f64Zero(amount) && !f64Less(amount,s.hp[f.owner]) && liveMarker(s,f.owner,S_undying,f.time)) amount = larger(0,f64Add(s.hp[f.owner],ONE ^ F64_SIGN));
                 bool fell = !f64Zero(amount) && !f64Less(amount,s.hp[f.owner]);
-                if(commands[at]==31) frames[depth].healthValue=amount;
+                if((commands[at]==31 || commands[at]==32)) frames[depth].healthValue=amount;
                 s.receivedDamage[f.owner] = f64Add(s.receivedDamage[f.owner],amount);
                 if (!f64Finite(s.receivedDamage[f.owner])) { s.error = 16; break; }
                 if (s.receivedHits[f.owner] == 0x7fffffff) { s.error = 2; break; }
@@ -887,7 +911,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             }
             if(f.event==3 && f64Less(0,f.healthPrevious))
             { frames[depth].event=4;pushFrame(s,frames,depth,0,36,f.owner,0,f.time);continue; }
-            if(commands[at]==31)
+            if((commands[at]==31 || commands[at]==32))
             {
                 uint hit=output+f.repeatRow;
                 storeNumber(hit+12,f.healthValue);storeNumber(hit+14,f.value!=0 && (s.downMask&(1U<<f.owner))==0 ? 0 : s.hp[f.owner]);
@@ -1407,6 +1431,8 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "combat_runtime.slang"
 
 #include "admission_runtime.slang"
+#include "portable_mt19937.slang"
+#include "enemy_target_runtime.slang"
 
 [shader("compute")]
 [numthreads(1,1,1)]
@@ -1451,6 +1477,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if(!validGeometry(s)) { results[output]=64;return; }
     admitDefinitions(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
+    if(!validEnemyTargeting(s)) { results[output]=64;return; }
     if(!validProtection(s)) { results[output]=64;return; }
     if (!validStatusDefinitions(s)) { results[output]=64;return; }
     if (!validStackDefinitions(s)) { results[output]=64;return; }
@@ -1463,6 +1490,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if(!initializeStaged(s)) { results[output]=64;return; }
     if (!initializeLandings(s)) { results[output]=64;return; }
     for(uint word=0;word<P_PROBABILITY_STATE_WORDS;word++) results[output+P_PROBABILITY_STATE_BASE+word]=0;
+    if(commands[input+P_ENEMY_TARGET_META_BASE]!=0) mtSeed(output+P_ENEMY_RNG_BASE,uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+1])|(uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+2])<<32));
     initializeHPWatches(s);
     uint queries = 0;
     for (uint step = 0; step < commands[input+2] && s.error == 0; step++)
@@ -1498,6 +1526,12 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             uint owner=commands[at+4], name=commands[at+5], index=commands[at+6];
             if (owner>=5 || name>=P_DEFINITIONS || index>=P_COMMANDS || commands[at+3]!=0 || commands[at+7]!=0) { s.error=64; break; }
             writeSourceQuery(s,owner,name,index,when);
+        }
+        else if(op==32)
+        {
+            uint raw=s.inputBase+P_INCOMING_BASE+step*P_INCOMING_WORDS;
+            if(commands[at+3]>1 || commands[at+4]!=0 || commands[at+5]!=0 || commands[at+6]!=0 || commands[at+7]!=0 || !f64Finite(loadNumber(raw)) || !f64Finite(loadNumber(raw+2)) || f64Less(loadNumber(raw),0) || f64Less(loadNumber(raw+2),0) || f64Less((uint64_t(0x46293e59)<<32)|uint64_t(0x39a08cea),loadNumber(raw)) || f64Less(f64FromI64(1000000),loadNumber(raw+2))) { s.error=64;break; }
+            dispatch(s,8,0,0,int(step),when,output);
         }
         else if(op==31)
         {

@@ -172,7 +172,8 @@ void advanceProtectionHit(inout Runtime s,inout Frame frames[32],inout int depth
     {
         uint hit=s.resourceOutput+f.repeatPassive;
         storeNumber(hit,f.time);results[hit+2]=1;storeNumber(hit+4,f.healthValue);
-        bool covered=(commands[command+4]&(1U<<f.owner))!=0 && f64Less(0,s.coverHP[f.owner]) && !protectionMarker(s,f.owner,7,f.time);
+        bool automaticCover=commands[command]==32 ? f64Less(0,s.reloadUntil[f.owner]) : (commands[command+4]&(1U<<f.owner))!=0;
+        bool covered=automaticCover && f64Less(0,s.coverHP[f.owner]) && !protectionMarker(s,f.owner,7,f.time);
         frames[depth].value=commands[command+3]|(uint(covered)<<1);results[hit+3]=frames[depth].value|(f.repeatPassive>=P_SPLIT_HIT_BASE ? f.owner<<3 : 0);
         frames[depth].repeatLeft=captureShields(s,f.owner,f.time,commands[command+3]!=0);frames[depth].event=1;return;
     }

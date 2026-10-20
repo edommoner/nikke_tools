@@ -28,7 +28,7 @@ class ModeEntryContracts(unittest.TestCase):
   self.core.contains(n['queries'],c['expected_queries'],c['name']);self.assertEqual(len(n['packets']),1);self.assertEqual(n['packets'][0]['delivered_amount'],50)
  def test_initializer_tail_and_malformed_admission_contract(self):
   from portable_mode_entry_validation import rejection_programs
-  self.assertEqual(ABI,0x50455672);self.assertEqual((L['INPUT_WORDS'],L['OUTPUT_WORDS']),(86016,159744));self.assertLessEqual(L['MODE_ENTRY_STATE_BASE']+10,L['OUTPUT_WORDS'])
+  self.assertEqual(ABI,0x50455673);self.assertEqual((L['INPUT_WORDS'],L['OUTPUT_WORDS']),(86016,159744));self.assertLessEqual(L['MODE_ENTRY_STATE_BASE']+10,L['OUTPUT_WORDS'])
   generated=runtime_initializer();self.assertIn('s.modeEntryUntil[index] = 0;',generated);self.assertEqual(generated,(ROOT/'gpu/runtime_init.slang').read_text())
   before=copy.deepcopy(self.entries);bad,rows=rejection_programs(self.entries,self.core.compile_case);self.assertEqual(len(bad),11);self.assertEqual([r['status'] for r in rows],[64]*11);self.assertEqual(self.entries,before)
 if __name__=='__main__':unittest.main()

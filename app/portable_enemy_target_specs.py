@@ -1,15 +1,21 @@
 """Boss victim rules and seed input; no CPU-resolved targets or RNG state."""
 import re
-from portable_specs import LIMITS as L
-ABI=0x50455673
-META_BASE=L['BURST_REFERENCE_BASE']+L['BURST_REFERENCE_WORDS']
-COMMAND_BASE=META_BASE+8
-RNG_BASE=(L['PROTECTION_BUILD_BASE']+10+7)//8*8
-RNG_WORDS=632
-QUERY_BASE=RNG_BASE+RNG_WORDS
-assert COMMAND_BASE+L['COMMANDS']*4<=L['INPUT_WORDS']
-assert QUERY_BASE+L['COMMANDS']*8<=L['SPLIT_HIT_BASE']
-STATS={'stealth':65,'taunt':66}
+from portable_specs import LIMITS as L,ABI
+from effect_spec import DETAIL_STAT,EXTRA_STAT
+META_BASE=L['ENEMY_TARGET_META_BASE']
+COMMAND_BASE=L['ENEMY_TARGET_COMMAND_BASE']
+RNG_BASE=L['ENEMY_RNG_BASE']
+RNG_WORDS=L['ENEMY_RNG_WORDS']
+QUERY_BASE=L['ENEMY_TARGET_QUERY_BASE']
+STATS={name:{**DETAIL_STAT,**EXTRA_STAT}[name] for name in ('stealth','taunt')}
+
+def normalize_seed(seed):
+ # Decimal text is an integer wire encoding for JSON/JavaScript,not a hashed string seed.
+ if isinstance(seed,str):
+  if not re.fullmatch(r'0|[1-9][0-9]*',seed):raise ValueError('Enemy RNG seed needs canonical unsigned decimal text')
+  seed=int(seed)
+ if type(seed) is not int or not 0<=seed<2**64:raise ValueError('Enemy RNG seed must be an unsigned64 integer')
+ return seed
 
 def target_rule(spec):
  if not isinstance(spec,dict) or set(spec)-{'target','ignore_taunt'}:raise ValueError('Invalid enemy victim rule')
@@ -40,8 +46,7 @@ def pack(words,config,script,effects):
   return dict(enabled=False,steps=[])
  if config is None:config={}
  if not isinstance(config,dict) or set(config)-{'seed','attacks'}:raise ValueError('Invalid GPU enemy targeting configuration')
- seed=config.get('seed',0)
- if type(seed) is not int or not 0<=seed<2**64:raise ValueError('Enemy RNG seed must be an unsigned64 integer')
+ seed=normalize_seed(config.get('seed',0))
  authored=config.get('attacks',{})
  if not isinstance(authored,dict):raise ValueError('Enemy attack rules must be indexed by command')
  rules={}

@@ -28,7 +28,7 @@ def damage_plan(effect):
     return route,count,hits
 
 
-ENEMY_BUFF_STATS=frozenset(('def_pct','def_caster_based_pct','received_dmg_pct','stack_change_immune','buff_max_stack_add'))
+ENEMY_BUFF_STATS=frozenset(('taunt','def_pct','def_caster_based_pct','received_dmg_pct','stack_change_immune','buff_max_stack_add'))
 
 def enemy_buff_plan(effect):
     """Same enemy selectors as damaging packets; current-target keeps context."""
