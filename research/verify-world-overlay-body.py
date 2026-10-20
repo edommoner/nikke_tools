@@ -62,7 +62,7 @@ def negative_inputs(programs):
  return rows
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--backend',choices=('metal','cuda'),default='metal');p.add_argument('--replay',type=Path);p.add_argument('--gates',action='store_true');args=p.parse_args();rows=cases();
+ p=argparse.ArgumentParser();p.add_argument('--backend',choices=('metal','cuda'),default='metal');p.add_argument('--replay',type=Path);p.add_argument('--gates',action='store_true');p.add_argument('--reuse',type=Path);args=p.parse_args();rows=cases();
  if args.gates:rows+=module('overlay_gates','research/world_overlay_gate_cases.py').fixtures()
  programs=[compile_case(c) for c in rows]
  negative=negative_inputs(programs);suite=module('overlay_previous_suite','research/verify-world-suite.py');prior=suite.cases();golden=json.loads(suite.GOLDEN.read_text());assert len(prior)==len(golden['cases'])==49
@@ -78,6 +78,25 @@ def main():
  data=packed.tobytes()
  if args.replay:
   folder=args.replay.resolve();raw=(folder/'readback.bin').read_bytes();evidence=json.loads((folder/'evidence.json').read_text());assert (folder/'input.bin').read_bytes()==data and evidence['source_sha256']==source_hashes(SOURCE) and hashlib.sha256(raw).hexdigest()==evidence['output_sha256'] and evidence['backend']==args.backend
+ elif args.reuse:
+  previous=args.reuse.resolve();old_input=(previous/'input.bin').read_bytes();old_raw=(previous/'readback.bin').read_bytes();old_evidence=json.loads((previous/'evidence.json').read_text())
+  assert old_evidence['source_sha256']==source_hashes(SOURCE) and old_evidence['backend']==args.backend
+  assert hashlib.sha256(old_input).hexdigest()==old_evidence['input_sha256'] and hashlib.sha256(old_raw).hexdigest()==old_evidence['output_sha256']
+  assert len(old_input)==len(data) and old_input[:4]==data[:4]
+  count=int.from_bytes(data[:4],'little');iw=L['WORLD_OVERLAY_INPUT_WORDS']*4;ow=L['WORLD_FRAME_OUTPUT_WORDS']*4
+  assert len(old_raw)==count*ow
+  changed=[i for i in range(count) if data[4+i*iw:4+(i+1)*iw]!=old_input[4+i*iw:4+(i+1)*iw]]
+  assert 0<len(changed)<count,changed
+  dispatch_data=struct.pack('<I',len(changed))+b''.join(data[4+i*iw:4+(i+1)*iw] for i in changed)
+  folder=ROOT/'research/portable-build'/('world-overlay-incremental-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ'));folder.mkdir(parents=True);(folder/'input.bin').write_bytes(data);(folder/'dispatch-input.bin').write_bytes(dispatch_data)
+  fresh,fresh_evidence=execute(SOURCE,'portableEvents',dispatch_data,L['WORLD_OVERLAY_INPUT_WORDS'],L['WORLD_FRAME_OUTPUT_WORDS'],args.backend)
+  (folder/'dispatch-readback.bin').write_bytes(fresh);(folder/'dispatch-evidence.json').write_text(json.dumps(fresh_evidence,indent=2)+'\n')
+  assert fresh_evidence['source_sha256']==old_evidence['source_sha256'] and fresh_evidence['generated_sha256']==old_evidence['generated_sha256']
+  assembled=bytearray(old_raw)
+  for j,i in enumerate(changed):assembled[i*ow:(i+1)*ow]=fresh[j*ow:(j+1)*ow]
+  raw=bytes(assembled)
+  evidence=dict(backend=args.backend,gpu_execution_verified=True,source_sha256=fresh_evidence['source_sha256'],generated_sha256=fresh_evidence['generated_sha256'],input_sha256=hashlib.sha256(data).hexdigest(),output_sha256=hashlib.sha256(raw).hexdigest(),transport=dict(backend=args.backend,cases=count,command_status='completed',composed=True,source_identical=True,reused_inputs=count-len(changed),fresh_inputs=len(changed)),execution_composition=dict(prior_capture=str(previous),prior_input_sha256=old_evidence['input_sha256'],prior_output_sha256=old_evidence['output_sha256'],fresh_dispatch_evidence='dispatch-evidence.json',fresh_input_sha256=fresh_evidence['input_sha256'],fresh_output_sha256=fresh_evidence['output_sha256'],changed_indices=changed,physical_gpu_sessions_this_invocation=1,scope='Only identical source and byte-identical per-case inputs reuse prior GPU readbacks;all changed inputs execute on the GPU once.No CPU output substitution.'))
+  (folder/'readback.bin').write_bytes(raw);(folder/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
  else:
   folder=ROOT/'research/portable-build'/('world-overlay-body-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ'));folder.mkdir(parents=True);(folder/'input.bin').write_bytes(data)
   try:raw,evidence=execute(SOURCE,'portableEvents',data,L['WORLD_OVERLAY_INPUT_WORDS'],L['WORLD_FRAME_OUTPUT_WORDS'],args.backend)
@@ -98,7 +117,7 @@ def main():
  preserved=[]
  for i,expected in enumerate(golden['cases']):
   offset=(len(rows)+len(negative)+i)*L['WORLD_FRAME_OUTPUT_WORDS']*4;block=raw[offset:offset+L['WORLD_FRAME_OUTPUT_WORDS']*4];digest=hashlib.sha256(block).hexdigest();preserved.append(dict(name=expected['name'],passed=digest==expected['output_sha256'],output_sha256=digest,expected_sha256=expected['output_sha256']))
- report=dict(passed=all(r['passed'] for r in results+rejected+preserved),preserved_world49=preserved,rejected_cases=rejected,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),cases=results,captured=str(folder),evidence=evidence,scope='Shared executor frame->ordered overlay snapshot->defense/core/range/ordered boss+character enemy effects versus complete native simulate;gates are opt-in fixture coverage;skill_damage weapon mode/cleanse/actors remain closed',full_character_verified=0,canonical_world_admission=False,full_goal_complete=False)
+ report=dict(passed=all(r['passed'] for r in results+rejected+preserved),preserved_world49=preserved,rejected_cases=rejected,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),cases=results,captured=str(folder),evidence=evidence,gpu_execution_composed=bool(evidence.get('execution_composition')),scope='Shared executor frame->ordered overlay snapshot->defense/core/range/ordered boss+character enemy effects versus complete native simulate;gates are opt-in fixture coverage;skill_damage weapon mode/cleanse/actors remain closed',full_character_verified=0,canonical_world_admission=False,full_goal_complete=False)
  (ROOT/f'research/portable-world-overlay-{"gates" if args.gates else "body"}-{args.backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[(r['name'],r.get('changed'),r.get('status',r.get('actual',{}).get('status'))) for r in results+rejected+preserved if not r['passed']]
  print(len(rows),'world overlay body cases match complete native simulate;',len(rejected),'raw descriptors rejected;49 old outputs preserved',args.backend)
 if __name__=='__main__':main()

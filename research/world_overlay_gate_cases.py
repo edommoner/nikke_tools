@@ -36,8 +36,8 @@ def fixtures():
  c=add('shield-pellets-and-muzzles-account-each-hit',[sh()],b.f.NAMES)
  for w in c['combat']['weapons']:w.update(pellets=3,muzzles=2)
  for camera in ((),b.f.NAMES):
-  c=add('vanish-charge-'+('camera' if camera else 'unobserved'),[v()],camera);c['duration']=1.2
-  for w in c['combat']['weapons']:w.update(mode='charge',base_weapon_type='SR',charge=.2,interval=.2,min_cycle=.2,full_charge_mult=300,gauge_mult=300 if camera else 100)
+  c=add('vanish-charge-'+('camera' if camera else 'unobserved'),[v()],camera);c['duration']=1.2;c['weapon_metadata'].update(fire_rate=5,fire_rate_max=5)
+  for w in c['combat']['weapons']:w.update(mode='charge',base_weapon_type='SR',charge=.2,interval=.4,min_cycle=.2,full_charge_mult=300,gauge_mult=300 if camera else 100)
  c=add('vanish-mg-warmup-cools-by-actual-idle',[v(delay=.55)]);c['duration']=1.5
  from calculator import timeline
  for w in c['combat']['weapons']:w.update(mode='auto_warmup',base_weapon_type='MG',rate=5,rate_max=10,warmup=5,cooldown_time=timeline._MECHANICS['weapon_type_defaults']['MG']['cooldown_time'],interval=.2,reload=.2,capacity=5)

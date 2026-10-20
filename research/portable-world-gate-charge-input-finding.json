@@ -1,0 +1,125 @@
+{
+  "passed": false,
+  "classification": "Authored charge-cycle mismatch between literal CPU weapon fallback and GPU interval;not diagnosed as a GPU numeric defect",
+  "source_commit": "c2bb868c41f5e725db96ba2771716f6e7f5b694d",
+  "capture": "/Users/edo/.codex/worktrees/world-overlays/nikke_tools/research/portable-build/world-overlay-body-20261020T180716922925Z",
+  "failures": [
+    {
+      "name": "vanish-charge-unobserved",
+      "changed": [
+        "damage",
+        "shots",
+        "ammo",
+        "gauge"
+      ],
+      "actual": {
+        "damage": [
+          11608.0,
+          12900.0,
+          14192.0,
+          15480.0,
+          16768.0
+        ],
+        "shots": [
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "ammo": [
+          995,
+          995,
+          995,
+          995,
+          995
+        ],
+        "gauge": 5.0
+      },
+      "native": {
+        "damage": [
+          5804,
+          6450,
+          7096,
+          7740,
+          8384
+        ],
+        "shots": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "ammo": [
+          997,
+          997,
+          997,
+          997,
+          997
+        ],
+        "gauge": 2.5
+      }
+    },
+    {
+      "name": "vanish-charge-camera",
+      "changed": [
+        "damage",
+        "shots",
+        "ammo",
+        "gauge"
+      ],
+      "actual": {
+        "damage": [
+          11608.0,
+          12900.0,
+          14192.0,
+          15480.0,
+          16768.0
+        ],
+        "shots": [
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "ammo": [
+          995,
+          995,
+          995,
+          995,
+          995
+        ],
+        "gauge": 15.0
+      },
+      "native": {
+        "damage": [
+          5804,
+          6450,
+          7096,
+          7740,
+          8384
+        ],
+        "shots": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "ammo": [
+          997,
+          997,
+          997,
+          997,
+          997
+        ],
+        "gauge": 7.5
+      }
+    }
+  ],
+  "gpu_retry": false,
+  "initial_input_sha256": "53640285b4831fdc4b9dec9e835b3e042dda9d03baa1b9be06dfd87b6dcc401e",
+  "initial_output_sha256": "38d4a7f1c19e3eaf0b60550cb909d7266223ef8b3661305f9a1d4ae2228c9fde"
+}
