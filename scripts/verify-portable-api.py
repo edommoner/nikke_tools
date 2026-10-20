@@ -31,6 +31,7 @@ def main():
     tracked += ['app/portable_protection_specs.py','app/protection_runtime.py','scripts/portable_protection_oracle.py','tests/fixtures/portable-protection.json']
     tracked += ['app/portable_code_specs.py','scripts/portable_code_oracle.py','scripts/portable_removal_oracle.py','scripts/portable_stack_oracle.py','scripts/portable_instant_list_oracle.py','tests/fixtures/portable-enemy-codes.json']
     tracked += ['app/portable_element_specs.py','scripts/portable_element_oracle.py','scripts/portable_enemy_oracle.py','scripts/portable_weapon_oracle.py','tests/fixtures/portable-element-overrides.json']
+    tracked += ['app/portable_probability_specs.py','scripts/portable_probability_oracle.py','tests/fixtures/portable-probability.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases'][0]
     payload=dict(chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES],
@@ -570,6 +571,16 @@ def main():
         body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(c['effects'],owners)],script=c['script'],base_atk=c.get('base_atk',[1000]*5),environment=c['environment'],combat=c['combat'],backend=args.backend)
         actual=request(body);assert actual['gpu_execution_verified'];compare_elements(c,actual['results'][0],verifier.contains)
         result['element_override_execution'].append(dict(name=name,execution=actual))
+    from portable_probability_oracle import compare as compare_probability
+    probability_cases=json.loads((ROOT/'tests/fixtures/portable-probability.json').read_text())['cases']
+    result['probability_execution']=[]
+    probability_names=('probability-rate-0-owner-0','probability-rate-10-owner-0','probability-rate-100-owner-4','probability-order-self_stat_above-atk_pct-1-20-True','probability-order-self_stat_above-atk_pct-1-20-False','probability-multiple-50-50','probability-instance-True-True','probability-physical4096-10')
+    for name in probability_names:
+        c=next(c for c in probability_cases if c['name']==name);owners=c['owners']
+        body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(c['effects'],owners)],script=c['script'],base_atk=[1000]*5,backend=args.backend)
+        if 'combat' in c:body['combat']=c['combat']
+        actual=request(body);assert actual['gpu_execution_verified'];compare_probability(c,actual['results'][0],verifier.contains)
+        result['probability_execution'].append(dict(name=name,execution=actual))
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in hashes}
     result.update(passed=True,api_status=200,unsupported_status=400,unsupported_error=detail['error'],adapter_sha256=hashes)
     path.write_text(json.dumps(result,indent=2)+'\n', encoding='utf-8')

@@ -14,7 +14,7 @@ from portable_runtime import compile_program,run_programs,PortableExecutionError
 
 
 def fixtures():
-    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json','portable-quantities.json','portable-charge-control.json','portable-health.json','portable-hp-edges.json','portable-incoming.json','portable-capacity.json','portable-recipients.json','portable-carriers.json','portable-lazy.json','portable-bullets.json','portable-burst-resources.json','portable-enemy-damage.json','portable-cover.json','portable-pending-burst.json','portable-burst-duration.json','portable-ammo-instants.json','portable-ammo-modes.json','portable-mode-sessions.json','portable-buff-notices.json','portable-enemy-buffs.json','portable-event-candidates.json','portable-enemy-attack-ranks.json','portable-enemy-spawn-order.json','portable-enemy-auto-aim.json','portable-periodic-targets.json','portable-resources.json','portable-hit-references.json','portable-reference-scales.json','portable-sources.json','portable-staged.json','portable-lifesteal-prototype.json','portable-landings.json','portable-removal.json','portable-duration-extend.json','portable-stacks.json','portable-status.json','portable-protection.json','portable-split.json','portable-instant-lists.json','portable-named-states.json','portable-enemy-codes.json','portable-element-overrides.json')),[])
+    return sum((json.loads((ROOT/'tests/fixtures'/name).read_text(encoding='utf-8'))['cases'] for name in ('portable-combat.json','portable-combat-extensions.json','portable-autonomous.json','portable-triggers.json','portable-damage.json','portable-weapons.json','portable-quantities.json','portable-charge-control.json','portable-health.json','portable-hp-edges.json','portable-incoming.json','portable-capacity.json','portable-recipients.json','portable-carriers.json','portable-lazy.json','portable-bullets.json','portable-burst-resources.json','portable-enemy-damage.json','portable-cover.json','portable-pending-burst.json','portable-burst-duration.json','portable-ammo-instants.json','portable-ammo-modes.json','portable-mode-sessions.json','portable-buff-notices.json','portable-enemy-buffs.json','portable-event-candidates.json','portable-enemy-attack-ranks.json','portable-enemy-spawn-order.json','portable-enemy-auto-aim.json','portable-periodic-targets.json','portable-resources.json','portable-hit-references.json','portable-reference-scales.json','portable-sources.json','portable-staged.json','portable-lifesteal-prototype.json','portable-landings.json','portable-removal.json','portable-duration-extend.json','portable-stacks.json','portable-status.json','portable-protection.json','portable-split.json','portable-instant-lists.json','portable-named-states.json','portable-enemy-codes.json','portable-element-overrides.json','portable-probability.json')),[])
 
 
 def compile_case(case):
@@ -131,6 +131,7 @@ def main():
     tracked += ['app/portable_weapon_input.py','scripts/portable_named_state_oracle.py','scripts/portable_named_state_validation.py','tests/fixtures/portable-named-states.json']
     tracked += ['scripts/verify-portable-real-battle.py','app/portable_code_specs.py','scripts/portable_code_oracle.py','scripts/portable_code_validation.py','tests/fixtures/portable-enemy-codes.json']
     tracked += ['app/portable_element_specs.py','app/portable_damage_specs.py','scripts/portable_element_oracle.py','scripts/portable_enemy_oracle.py','scripts/portable_element_validation.py','tests/fixtures/portable-element-overrides.json']
+    tracked += ['app/portable_probability_specs.py','scripts/portable_probability_oracle.py','scripts/portable_probability_validation.py','tests/fixtures/portable-probability.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     cases=fixtures();programs=[compile_case(c) for c in cases]
     # The same identity may be re-used only with a new bounded generation.
@@ -408,6 +409,9 @@ def main():
     from portable_element_validation import rejection_programs as element_rejections
     element_bad,element_rejected=element_rejections(cases,compile_case)
     rejections += enemy_rejections+stack_rejected+status_rejected+protection_rejected+split_rejected+instant_rejected+named_rejected+code_rejected+element_rejected;negative_programs += enemy_bad+stack_bad+status_bad+protection_bad+split_bad+instant_bad+named_bad+code_bad+element_bad
+    from portable_probability_validation import rejection_programs as probability_rejections
+    probability_bad,probability_rejected=probability_rejections(cases,compile_case)
+    rejections += probability_rejected;negative_programs += probability_bad
     indices=list(range(len(cases),len(cases)+len(rejections)))
     statuses=[0]*len(cases)+[c['status'] for c in rejections]
     try:
@@ -424,7 +428,7 @@ def main():
                   batch_layout=dict(positive_count=len(cases),rejection_indices=indices),
                   expected_statuses=statuses)
     # Preserve raw evidence even if a later expectation fails.
-    path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    path.write_text(json.dumps(result,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
     assert result['actual_statuses']==statuses,result['actual_statuses']
     negative={**evidence_subset(result), 'case_indices':indices}
     rows=[]
@@ -469,7 +473,7 @@ def main():
             contains(resident,c['expected_carriers'],c['name']+'.carriers')
         rows.append(dict(name=c['name'],passed=True,actual=r))
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
-    reference=verify_trigger_reference([c for c in cases if not c.get('health_reference') and not c.get('capacity_reference') and not c.get('cover_reference') and not c.get('named_buff_reference') and not c.get('enemy_buff_reference')])
+    reference=verify_trigger_reference([c for c in cases if not c.get('health_reference') and not c.get('capacity_reference') and not c.get('cover_reference') and not c.get('named_buff_reference') and not c.get('enemy_buff_reference') and not c.get('probability_reference')])
     damage_reference=verify_damage_reference(cases)
     from portable_capacity_oracle import observe as capacity_observe
     capacity_reference=[]
@@ -689,10 +693,15 @@ def main():
     for case,gpu in zip(cases,result['results']):
         if case.get('element_override_reference'):
             compare_elements(case,gpu,contains);element_reference.append(case['name'])
-    result.update(element_override_cpu_regressions=element_reference,enemy_code_cpu_regressions=code_reference,named_state_cpu_regressions=named_state_reference,instant_list_cpu_regressions=instant_reference,protection_cpu_regressions=protection_reference,status_cpu_regressions=status_reference,stack_cpu_regressions=stack_reference,duration_extend_cpu_regressions=duration_extend_reference,removal_cpu_regressions=removal_reference,landing_cpu_regressions=landing_reference,lifesteal_cpu_regressions=lifesteal_reference,staged_cpu_regressions=staged_reference,source_cpu_regressions=source_reference,scale_reference_cpu_regressions=scale_reference,hit_reference_cpu_regressions=[c['name'] for c in cases if c.get('hit_reference')],resource_cpu_regressions=resource_reference,periodic_target_cpu_regressions=[c['name'] for c in cases if c.get('periodic_reference')],enemy_buff_cpu_regressions=enemy_buff_reference,named_buff_cpu_regressions=named_buff_reference,mode_session_cpu_regressions=mode_reference,known_mode_cpu_differences=mode_differences,ammo_instant_cpu_regressions=ammo_reference,burst_duration_cpu_regressions=duration_reference,pending_controller_cpu_regressions=pending_reference,cover_cpu_regressions=cover_reference,enemy_component_cpu_regressions=enemy_reference,burst_cpu_regressions=burst_reference,bullet_cpu_regressions=bullet_reference,lazy_cpu_regressions=[c['name'] for c in cases if c.get('lazy_reference')],carrier_cpu_regressions=carrier_reference,capacity_cpu_regressions=capacity_reference,health_cpu_regressions=health_reference,known_health_cpu_differences=health_differences,known_cpu_differences=cpu_differences,weapon_cpu_regressions=weapon_reference,damage_cpu_regressions=damage_reference,trigger_cpu_regressions=reference,passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
+    from portable_probability_oracle import compare as compare_probability
+    probability_reference=[]
+    for case,gpu in zip(cases,result['results']):
+        if case.get('probability_reference'):
+            compare_probability(case,gpu,contains);probability_reference.append(case['name'])
+    result.update(probability_cpu_regressions=probability_reference,element_override_cpu_regressions=element_reference,enemy_code_cpu_regressions=code_reference,named_state_cpu_regressions=named_state_reference,instant_list_cpu_regressions=instant_reference,protection_cpu_regressions=protection_reference,status_cpu_regressions=status_reference,stack_cpu_regressions=stack_reference,duration_extend_cpu_regressions=duration_extend_reference,removal_cpu_regressions=removal_reference,landing_cpu_regressions=landing_reference,lifesteal_cpu_regressions=lifesteal_reference,staged_cpu_regressions=staged_reference,source_cpu_regressions=source_reference,scale_reference_cpu_regressions=scale_reference,hit_reference_cpu_regressions=[c['name'] for c in cases if c.get('hit_reference')],resource_cpu_regressions=resource_reference,periodic_target_cpu_regressions=[c['name'] for c in cases if c.get('periodic_reference')],enemy_buff_cpu_regressions=enemy_buff_reference,named_buff_cpu_regressions=named_buff_reference,mode_session_cpu_regressions=mode_reference,known_mode_cpu_differences=mode_differences,ammo_instant_cpu_regressions=ammo_reference,burst_duration_cpu_regressions=duration_reference,pending_controller_cpu_regressions=pending_reference,cover_cpu_regressions=cover_reference,enemy_component_cpu_regressions=enemy_reference,burst_cpu_regressions=burst_reference,bullet_cpu_regressions=bullet_reference,lazy_cpu_regressions=[c['name'] for c in cases if c.get('lazy_reference')],carrier_cpu_regressions=carrier_reference,capacity_cpu_regressions=capacity_reference,health_cpu_regressions=health_reference,known_health_cpu_differences=health_differences,known_cpu_differences=cpu_differences,weapon_cpu_regressions=weapon_reference,damage_cpu_regressions=damage_reference,trigger_cpu_regressions=reference,passed=True,stage='verified',cases=rows,validation_sha256=hashes,cpu_trace_used_as_gpu_input=False,
                   rejection_execution=negative,rejected_cases=rejections,
                   scope='Shared event/combat mechanics, enemy packets, allied cover state and pending B3 bonuses; independent components are not full battle or catalog certification')
-    path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    path.write_text(json.dumps(result,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
     print(json.dumps(dict(passed=True,cases=len(rows),device=result['transport']['device'],backend=args.backend)))
 
 

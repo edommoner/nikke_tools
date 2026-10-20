@@ -6,7 +6,7 @@ from portable_trigger_specs import CONDITIONS
 from portable_damage_specs import STATS, FLAGS
 from world_condition_specs import target_inheritance_events
 
-ABI = 0x5045566B
+ABI = 0x5045566C
 LIMITS = dict(PROTECTION_OBJECTS=1024, PROTECTION_OBJECT_WORDS=24, REMOVALS=4096, LANDINGS=2048, LANDING_WORDS=8, SOURCES=64, SOURCE_SLOTS=32, SOURCE_DEFINITION_WORDS=72, SOURCE_STATE_WORDS=12, RESOURCE_KEYS=256, BATCH=2048, PENDING=512, TRIGGERS=8, CONDITIONS=3, DEFINITIONS=256, CARRIERS=512, LAZY_CACHE=1024, COMMANDS=64, DEPTH=32, TRACE=128, BURST_TRACE=128,
               DEFINITION_WORDS=32, DAMAGE_DEFINITION_WORDS=8, CARRIER_WORDS=23, QUERY_WORDS=32, TRACE_WORDS=8,
               INCOMING_WORDS=4, INCOMING_QUERY_WORDS=20, HEALTH_WORDS=8,
@@ -51,6 +51,12 @@ LIMITS['OUTPUT_WORDS']=_place_blocks(16,[
 # Keep every prior output word fixed; append full five-by-five split traces.
 LIMITS['OUTPUT_WORDS']=_place_blocks(LIMITS['OUTPUT_WORDS'],[('SPLIT_HIT_BASE',_q*5*4*16),('RECIPIENT_ORDER_BASE',LIMITS['CARRIERS']*2)])
 
+# Expected probability state uses existing aligned output tail; no stride growth.
+LIMITS['PROBABILITY_STATE_BASE']=LIMITS['RECIPIENT_ORDER_BASE']+LIMITS['CARRIERS']*2
+LIMITS['PROBABILITY_STATE_WORDS']=LIMITS['DEFINITIONS']*5*2
+assert LIMITS['PROBABILITY_STATE_BASE']==156672
+assert LIMITS['PROBABILITY_STATE_BASE']+LIMITS['PROBABILITY_STATE_WORDS']<=LIMITS['OUTPUT_WORDS']==159744
+
 FIELDS = dict(OWNER=0, KIND=1, STAT=2, NAME=3, MAX_STACK=4, BUDGET=5,
               VALUE=6, DURATION=8, INTERVAL=10, IMMEDIATE=12, PRESERVE=13,
               EVENT=14, THRESHOLD=15, COUNT_MODE=16, EVENT_NAME=17,
@@ -62,7 +68,7 @@ def shader_schema():
              f'static const uint PORTABLE_ABI = {ABI}U;']
     for prefix, mapping in [('P_', LIMITS), ('D_', FIELDS), ('C_', CONDITIONS), ('S_', STATS), ('H_', FLAGS)]:
         for name,value in mapping.items():
-            if prefix=='P_' and name in ('LANDING_WORDS','OUTPUT_WORDS','REMOVAL_QUEUE_BASE','STACK_NOTICE_VALUE_BASE'):
+            if prefix=='P_' and name in ('LANDING_WORDS','OUTPUT_WORDS','REMOVAL_QUEUE_BASE','STACK_NOTICE_VALUE_BASE','PROBABILITY_STATE_BASE'):
                 delta=LIMITS['LANDINGS']*4
                 wide=12 if name=='LANDING_WORDS' else value+delta
                 lines += ['#ifdef PORTABLE_WIDE_LANDINGS',f'static const uint {prefix}{name} = {wide}U;','#else',f'static const uint {prefix}{name} = {value}U;','#endif']

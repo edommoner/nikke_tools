@@ -149,11 +149,13 @@ bool stateMember(inout Runtime s, uint who, int name, uint flags)
     return flags == 2;
 }
 [noinline]
-bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uint recipient = 0xffffffff)
+bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uint recipient = 0xffffffff, uint conditionSlot = 0xffffffff)
 {
     uint definition = s.carrierDefinition[row]; Definition d = readDefinition(s.inputBase,definition);
     if (runtime && (referenceCaptureFlags(s,row)&4)==0 && (!f64Less(d.duration,0) || (d.flags & 2) == 0)) return true;
-    for (uint i = 0; i < d.conditionCount; i++)
+    uint first=conditionSlot==0xffffffff ? 0 : conditionSlot;
+    uint last=conditionSlot==0xffffffff ? d.conditionCount : conditionSlot+1;
+    for (uint i = first; i < last; i++)
     {
         uint at = s.inputBase+P_CONDITION_BASE+definition*P_CONDITION_WORDS+i*4;
         uint kind = commands[at]; int name = int(commands[at+1]); uint64_t arg = loadNumber(at+2);
@@ -322,11 +324,25 @@ uint64_t readStat(inout Runtime s, uint who, uint key, uint64_t when)
 [noinline]
 bool activationConditions(inout Runtime s, uint row, uint64_t when)
 {
-    if (!basicConditions(s,row,when,false)) return false;
+    uint owner=definition_owner(s.inputBase,row);
     for (uint i = 0; i < definition_conditionCount(s.inputBase,row); i++)
     {
         uint at = s.inputBase+P_CONDITION_BASE+row*P_CONDITION_WORDS+i*4;
-        if (commands[at] == C_STAT_ABOVE && !f64Less(loadNumber(at+2),readStat(s,definition_owner(s.inputBase,row),commands[at+1],when))) return false;
+        if (commands[at] == C_STAT_ABOVE)
+        {
+            if(!f64Less(loadNumber(at+2),readStat(s,owner,commands[at+1],when))) return false;
+        }
+        else if(commands[at] == C_PROB)
+        {
+            uint address=s.resourceOutput+P_PROBABILITY_STATE_BASE+(row*5+owner)*2;
+            uint64_t value=uint64_t(results[address]) | uint64_t(results[address+1])<<32;
+            value=f64Add(value,loadNumber(at+2));
+            bool passed=!f64Less(value,ONE);
+            if(passed) value=f64Add(value,ONE ^ F64_SIGN);
+            storeNumber(address,value);
+            if(!passed) return false;
+        }
+        else if(!basicConditions(s,row,when,false,0xffffffff,i)) return false;
     }
     return true;
 }
@@ -1386,6 +1402,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if (!initializeSources(s)) { results[output]=64; return; }
     if(!initializeStaged(s)) { results[output]=64;return; }
     if (!initializeLandings(s)) { results[output]=64;return; }
+    for(uint word=0;word<P_PROBABILITY_STATE_WORDS;word++) results[output+P_PROBABILITY_STATE_BASE+word]=0;
     initializeHPWatches(s);
     uint queries = 0;
     for (uint step = 0; step < commands[input+2] && s.error == 0; step++)
