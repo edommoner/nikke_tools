@@ -1,5 +1,6 @@
 import copy
 import math
+import importlib.util
 import struct
 import sys
 import unittest
@@ -87,6 +88,24 @@ class CounterInputContracts(unittest.TestCase):
         e = marker(); e['target'] = 'all_enemies'
         with self.assertRaisesRegex(ValueError, 'sentinel'):
             wire.pack([(e, 0)], [(0, ('activate',))], NAMES, {'marker': 0})
+
+    def test_private_compiler_uses_literal_table_and_separate_nonnumeric_carriers(self):
+        from portable_specs import LIMITS as L, FIELDS as F, check_schema
+        check_schema()
+        spec=importlib.util.spec_from_file_location('counter_driver_test',ROOT/'research/verify-world-target-counters.py')
+        driver=importlib.util.module_from_spec(spec);spec.loader.exec_module(driver)
+        for case in clone_cases():
+            words,meta=driver.compile_case(case)
+            self.assertEqual(len(words),97464)
+            self.assertEqual(words[0],L['TARGET_COUNTER_ABI'])
+            self.assertEqual(words[2],len(case['actions']))
+            for i,e in enumerate(case['effects']):
+                at=L['DEFINITION_BASE']+i*L['DEFINITION_WORDS']
+                self.assertEqual([words[at+F['KIND']],words[at+F['STAT']]],[4,0])
+                self.assertEqual(words[L['HEALTH_DEFINITION_BASE']+i*4+3],1)
+                self.assertEqual(words[L['TARGET_COUNTER_INPUT_BASE']+wire.POLICY_BASE+i*16+10],meta['states'][e['name']])
+            poisoned=copy.deepcopy(case);poisoned['expected']=['CPU state forbidden'];poisoned['native']={'credit':1000000}
+            self.assertEqual(words,driver.compile_case(poisoned)[0])
 
 
 if __name__ == '__main__': unittest.main()
