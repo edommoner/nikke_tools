@@ -84,6 +84,12 @@ def validate_effect(eff, *, combat=None):
     try:validate_input(eff)
     except ValueError as error:raise UnsupportedPortable(str(error)) from error
     kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
+    if stat in ('pierce_enabled','armor_break_enabled'):
+        # Presence ignores magnitude, but malformed authored quantities still fail closed.
+        if 'fixed_value' in eff:double_words(eff['fixed_value'])
+        quantities=eff.get('values',{})
+        if not isinstance(quantities,dict):raise ValueError('Flag quantities must be a level mapping')
+        for value in quantities.values():double_words(value)
     if protection and not recipient_admitted(target,instant=(protection&255) in (5,6)):raise UnsupportedPortable('Unported protection recipient selector')
     if kind=='damage' and 'scaling' in eff and (eff['scaling']!='stack_count' or stat.split(':')[0]=='dot_damage' and (stat!='dot_damage' or not eff.get('tick_interval'))):raise UnsupportedPortable('Periodic damage scaling requires an own-stack DoT clock')
     if stat=='cover_hp_pct' and eff.get('scaling') not in (None,'max_hp','stack_count'):raise UnsupportedPortable('Unported cover HP basis')

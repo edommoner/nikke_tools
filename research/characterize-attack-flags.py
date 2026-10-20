@@ -65,7 +65,7 @@ def main():
         source_review_note='Pinned timeline physical attacks read boolean buffs;skill handler5015/5016 sets flags from damage family. Do not apply physical flags to every normal-type skill. Skill routing is source review here,not a full native-handler execution proof.',
         scope='40 presence+30 expiry+20 runtime gates and12 simple-boss physical cases;no coordinate piercing/parts/add geometry certification',
         source_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths})
-    (ROOT/'research/portable-attack-flags-native.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+    (ROOT/'research/portable-attack-flags-native-study.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
     print('Native flags40 presence,30 expiry,20 runtime and12 physical cases verified;GPU admission remains disabled')
 
 

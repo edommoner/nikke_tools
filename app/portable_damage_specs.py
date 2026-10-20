@@ -3,7 +3,7 @@ Stat identities remain the existing effect compiler's identities.
 """
 from effect_spec import DETAIL_STAT, EXTRA_STAT
 
-BUFFS=frozenset(('optimal_range_min','optimal_range_max_pct','lifesteal_pct','infinite_ammo','fullburst_duration','cover_hp_pct','burst_cooldown','invincible','undying','received_dmg_pct','def_pct','def_caster_based_pct','max_hp_pct','max_hp_only_pct','hp_caster_based_pct','hp_only_caster_based_pct','max_hp_from_max_hp_pct','heal_received_pct','outgoing_heal_pct','atk_pct','atk_caster_based_pct','def_ignore_pct','crit_rate','crit_dmg',
+BUFFS=frozenset(('pierce_enabled','armor_break_enabled','optimal_range_min','optimal_range_max_pct','lifesteal_pct','infinite_ammo','fullburst_duration','cover_hp_pct','burst_cooldown','invincible','undying','received_dmg_pct','def_pct','def_caster_based_pct','max_hp_pct','max_hp_only_pct','hp_caster_based_pct','hp_only_caster_based_pct','max_hp_from_max_hp_pct','heal_received_pct','outgoing_heal_pct','atk_pct','atk_caster_based_pct','def_ignore_pct','crit_rate','crit_dmg',
     'max_ammo_pct','max_ammo_flat','charge_speed_pct','charge_speed_caster_based_pct','charge_time_flat','charge_time_fixed',
     'charge_speed_buff_immune','charge_speed_debuff_immune','charge_speed_overflow_conversion_pct',
     'attack_speed_pct','mg_warmup_speed_pct','reload_speed_pct','reload_ratio_pct','accuracy_pct',

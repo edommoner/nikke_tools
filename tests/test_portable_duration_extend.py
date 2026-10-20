@@ -21,7 +21,7 @@ class DurationTests(unittest.TestCase):
   self.assertEqual(members(c['effects'][-1],list(zip(c['effects'],c['owners']))),[0,1])
  def test_high_definition_membership_and_no_layout_growth(self):
   c=case('definition-255-mask-boundary');w,_=v.compile_case(c);at=L['FORCE_BASE']
-  self.assertEqual(ABI,0x5045566E);self.assertEqual((L['INPUT_WORDS'],L['OUTPUT_WORDS']),(86016,159744))
+  self.assertEqual(ABI,0x5045566F);self.assertEqual((L['INPUT_WORDS'],L['OUTPUT_WORDS']),(86016,159744))
   self.assertEqual(w[at:at+L['MASK_WORDS']],[0]*7+[1<<31])
  def test_shared_ally_instance_extends_for_all_members(self):
   r=observe(case('shared-instance-whole-expiry'));self.assertEqual(len(r['carriers']),1)

@@ -1,1264 +1,6668 @@
 {
   "passed": true,
-  "cpu_only": true,
-  "gpu_execution_performed": false,
-  "gpu_admission_enabled": false,
-  "presence": [
+  "cases": [
     {
-      "owner": 0,
-      "stat": "pierce_enabled",
-      "literal_value": null,
-      "actual": [
-        true,
-        false,
-        false,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-0-pierce_enabled-0-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 0,
-      "stat": "pierce_enabled",
-      "literal_value": 0,
-      "actual": [
-        true,
-        false,
-        false,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-0-pierce_enabled-0-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 0,
-      "stat": "pierce_enabled",
-      "literal_value": -100,
-      "actual": [
-        true,
-        false,
-        false,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-0-pierce_enabled-1-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 0,
-      "stat": "pierce_enabled",
-      "literal_value": 100,
-      "actual": [
-        true,
-        false,
-        false,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-0-pierce_enabled-1-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 0,
-      "stat": "armor_break_enabled",
-      "literal_value": null,
-      "actual": [
-        true,
-        false,
-        false,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-0-pierce_enabled-2-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 0,
-      "stat": "armor_break_enabled",
-      "literal_value": 0,
-      "actual": [
-        true,
-        false,
-        false,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-0-pierce_enabled-2-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 0,
-      "stat": "armor_break_enabled",
-      "literal_value": -100,
-      "actual": [
-        true,
-        false,
-        false,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-0-pierce_enabled-3-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 0,
-      "stat": "armor_break_enabled",
-      "literal_value": 100,
-      "actual": [
-        true,
-        false,
-        false,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-0-pierce_enabled-3-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 1,
-      "stat": "pierce_enabled",
-      "literal_value": null,
-      "actual": [
-        false,
-        true,
-        false,
-        false,
-        false
-      ]
+      "name": "attack-flag-expiry-0-pierce_enabled",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 1.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3600,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3600,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 1,
-      "stat": "pierce_enabled",
-      "literal_value": 0,
-      "actual": [
-        false,
-        true,
-        false,
-        false,
-        false
-      ]
+      "name": "attack-flag-gate-0-pierce_enabled--1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              3150,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 1,
-      "stat": "pierce_enabled",
-      "literal_value": -100,
-      "actual": [
-        false,
-        true,
-        false,
-        false,
-        false
-      ]
+      "name": "attack-flag-gate-0-pierce_enabled-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              4050,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 1,
-      "stat": "pierce_enabled",
-      "literal_value": 100,
-      "actual": [
-        false,
-        true,
-        false,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-0-armor_break_enabled-0-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 1,
-      "stat": "armor_break_enabled",
-      "literal_value": null,
-      "actual": [
-        false,
-        true,
-        false,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-0-armor_break_enabled-0-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 1,
-      "stat": "armor_break_enabled",
-      "literal_value": 0,
-      "actual": [
-        false,
-        true,
-        false,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-0-armor_break_enabled-1-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 1,
-      "stat": "armor_break_enabled",
-      "literal_value": -100,
-      "actual": [
-        false,
-        true,
-        false,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-0-armor_break_enabled-1-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 1,
-      "stat": "armor_break_enabled",
-      "literal_value": 100,
-      "actual": [
-        false,
-        true,
-        false,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-0-armor_break_enabled-2-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 2,
-      "stat": "pierce_enabled",
-      "literal_value": null,
-      "actual": [
-        false,
-        false,
-        true,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-0-armor_break_enabled-2-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 2,
-      "stat": "pierce_enabled",
-      "literal_value": 0,
-      "actual": [
-        false,
-        false,
-        true,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-0-armor_break_enabled-3-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 2,
-      "stat": "pierce_enabled",
-      "literal_value": -100,
-      "actual": [
-        false,
-        false,
-        true,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-0-armor_break_enabled-3-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 2,
-      "stat": "pierce_enabled",
-      "literal_value": 100,
-      "actual": [
-        false,
-        false,
-        true,
-        false,
-        false
-      ]
+      "name": "attack-flag-expiry-0-armor_break_enabled",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 1.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 2,
-      "stat": "armor_break_enabled",
-      "literal_value": null,
-      "actual": [
-        false,
-        false,
-        true,
-        false,
-        false
-      ]
+      "name": "attack-flag-gate-0-armor_break_enabled--1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              3200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 2,
-      "stat": "armor_break_enabled",
-      "literal_value": 0,
-      "actual": [
-        false,
-        false,
-        true,
-        false,
-        false
-      ]
+      "name": "attack-flag-gate-0-armor_break_enabled-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              4200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 2,
-      "stat": "armor_break_enabled",
-      "literal_value": -100,
-      "actual": [
-        false,
-        false,
-        true,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-1-pierce_enabled-0-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 2,
-      "stat": "armor_break_enabled",
-      "literal_value": 100,
-      "actual": [
-        false,
-        false,
-        true,
-        false,
-        false
-      ]
+      "name": "attack-flag-presence-1-pierce_enabled-0-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 3,
-      "stat": "pierce_enabled",
-      "literal_value": null,
-      "actual": [
-        false,
-        false,
-        false,
-        true,
-        false
-      ]
+      "name": "attack-flag-presence-1-pierce_enabled-1-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 3,
-      "stat": "pierce_enabled",
-      "literal_value": 0,
-      "actual": [
-        false,
-        false,
-        false,
-        true,
-        false
-      ]
+      "name": "attack-flag-presence-1-pierce_enabled-1-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 3,
-      "stat": "pierce_enabled",
-      "literal_value": -100,
-      "actual": [
-        false,
-        false,
-        false,
-        true,
-        false
-      ]
+      "name": "attack-flag-presence-1-pierce_enabled-2-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 3,
-      "stat": "pierce_enabled",
-      "literal_value": 100,
-      "actual": [
-        false,
-        false,
-        false,
-        true,
-        false
-      ]
+      "name": "attack-flag-presence-1-pierce_enabled-2-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 3,
-      "stat": "armor_break_enabled",
-      "literal_value": null,
-      "actual": [
-        false,
-        false,
-        false,
-        true,
-        false
-      ]
+      "name": "attack-flag-presence-1-pierce_enabled-3-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 3,
-      "stat": "armor_break_enabled",
-      "literal_value": 0,
-      "actual": [
-        false,
-        false,
-        false,
-        true,
-        false
-      ]
+      "name": "attack-flag-presence-1-pierce_enabled-3-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 3,
-      "stat": "armor_break_enabled",
-      "literal_value": -100,
-      "actual": [
-        false,
-        false,
-        false,
-        true,
-        false
-      ]
+      "name": "attack-flag-expiry-1-pierce_enabled",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 1.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3600,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3600,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 3,
-      "stat": "armor_break_enabled",
-      "literal_value": 100,
-      "actual": [
-        false,
-        false,
-        false,
-        true,
-        false
-      ]
+      "name": "attack-flag-gate-1-pierce_enabled--1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              3150,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 4,
-      "stat": "pierce_enabled",
-      "literal_value": null,
-      "actual": [
-        false,
-        false,
-        false,
-        false,
-        true
-      ]
+      "name": "attack-flag-gate-1-pierce_enabled-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              4050,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 4,
-      "stat": "pierce_enabled",
-      "literal_value": 0,
-      "actual": [
-        false,
-        false,
-        false,
-        false,
-        true
-      ]
+      "name": "attack-flag-presence-1-armor_break_enabled-0-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 4,
-      "stat": "pierce_enabled",
-      "literal_value": -100,
-      "actual": [
-        false,
-        false,
-        false,
-        false,
-        true
-      ]
+      "name": "attack-flag-presence-1-armor_break_enabled-0-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 4,
-      "stat": "pierce_enabled",
-      "literal_value": 100,
-      "actual": [
-        false,
-        false,
-        false,
-        false,
-        true
-      ]
+      "name": "attack-flag-presence-1-armor_break_enabled-1-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 4,
-      "stat": "armor_break_enabled",
-      "literal_value": null,
-      "actual": [
-        false,
-        false,
-        false,
-        false,
-        true
-      ]
+      "name": "attack-flag-presence-1-armor_break_enabled-1-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 4,
-      "stat": "armor_break_enabled",
-      "literal_value": 0,
-      "actual": [
-        false,
-        false,
-        false,
-        false,
-        true
-      ]
+      "name": "attack-flag-presence-1-armor_break_enabled-2-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 4,
-      "stat": "armor_break_enabled",
-      "literal_value": -100,
-      "actual": [
-        false,
-        false,
-        false,
-        false,
-        true
-      ]
+      "name": "attack-flag-presence-1-armor_break_enabled-2-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     },
     {
-      "owner": 4,
-      "stat": "armor_break_enabled",
-      "literal_value": 100,
-      "actual": [
-        false,
-        false,
-        false,
-        false,
-        true
-      ]
+      "name": "attack-flag-presence-1-armor_break_enabled-3-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-1-armor_break_enabled-3-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-expiry-1-armor_break_enabled",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 1.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-gate-1-armor_break_enabled--1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              3200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-gate-1-armor_break_enabled-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              4200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-2-pierce_enabled-0-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-2-pierce_enabled-0-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-2-pierce_enabled-1-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-2-pierce_enabled-1-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-2-pierce_enabled-2-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-2-pierce_enabled-2-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-2-pierce_enabled-3-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-2-pierce_enabled-3-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-expiry-2-pierce_enabled",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 1.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3600,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3600,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-gate-2-pierce_enabled--1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              3150,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-gate-2-pierce_enabled-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              4050,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-2-armor_break_enabled-0-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-2-armor_break_enabled-0-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-2-armor_break_enabled-1-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-2-armor_break_enabled-1-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-2-armor_break_enabled-2-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-2-armor_break_enabled-2-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-2-armor_break_enabled-3-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-2-armor_break_enabled-3-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-expiry-2-armor_break_enabled",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 1.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-gate-2-armor_break_enabled--1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              3200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-gate-2-armor_break_enabled-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              4200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-3-pierce_enabled-0-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-3-pierce_enabled-0-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-3-pierce_enabled-1-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-3-pierce_enabled-1-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-3-pierce_enabled-2-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-3-pierce_enabled-2-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-3-pierce_enabled-3-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-3-pierce_enabled-3-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-expiry-3-pierce_enabled",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 1.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3600,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3600,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-gate-3-pierce_enabled--1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              3150,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-gate-3-pierce_enabled-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              4050,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-3-armor_break_enabled-0-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-3-armor_break_enabled-0-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-3-armor_break_enabled-1-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-3-armor_break_enabled-1-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-3-armor_break_enabled-2-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-3-armor_break_enabled-2-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-3-armor_break_enabled-3-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-3-armor_break_enabled-3-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-expiry-3-armor_break_enabled",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 1.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-gate-3-armor_break_enabled--1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              3200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-gate-3-armor_break_enabled-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              4200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-4-pierce_enabled-0-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-4-pierce_enabled-0-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-4-pierce_enabled-1-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-4-pierce_enabled-1-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-4-pierce_enabled-2-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-4-pierce_enabled-2-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-4-pierce_enabled-3-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-4-pierce_enabled-3-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-expiry-4-pierce_enabled",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 1.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3600,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3600,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-gate-4-pierce_enabled--1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              3150,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-gate-4-pierce_enabled-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              4050,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-4-armor_break_enabled-0-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-4-armor_break_enabled-0-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-4-armor_break_enabled-1-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-4-armor_break_enabled-1-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-4-armor_break_enabled-2-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-4-armor_break_enabled-2-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-4-armor_break_enabled-3-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              1800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-presence-4-armor_break_enabled-3-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-expiry-4-armor_break_enabled",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 1.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          },
+          {
+            "damage": [
+              3700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-gate-4-armor_break_enabled--1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              3200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-gate-4-armor_break_enabled-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              4200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 97,
+                  "shots": 3,
+                  "next": 1.5,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-alias-pierce_enabled-0-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-alias-pierce_enabled-0-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-alias-pierce_enabled-1-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-alias-pierce_enabled-1-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-alias-pierce_enabled-2-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-alias-pierce_enabled-2-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-alias-armor_break_enabled-0-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-alias-armor_break_enabled-0-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-alias-armor_break_enabled-1-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-alias-armor_break_enabled-1-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-alias-armor_break_enabled-2-self",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-alias-armor_break_enabled-2-all_allies",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-both-AR",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              3800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-both-SMG",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              3800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-both-SG",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              3800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-both-SR",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              3800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-both-RL",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              3800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-both-MG",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              3800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 1.0,
+            "last_interval": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-ignored-scaling-pierce_enabled--1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-ignored-scaling-pierce_enabled-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2700,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-ignored-scaling-armor_break_enabled--1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-ignored-scaling-armor_break_enabled-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-muzzles-AR",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              7600,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-muzzles-SG",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              7600,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-mode-0",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              12597,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 28.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 95,
+                  "shots": 5,
+                  "next": 1.25,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-mode-1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              12597,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 28.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 95,
+                  "shots": 5,
+                  "next": 1.25,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-mode-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              9690,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 28.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 95,
+                  "shots": 5,
+                  "next": 1.25,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-mode-3",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              12350,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 28.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 95,
+                  "shots": 5,
+                  "next": 1.25,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-damage-0",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-damage-1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-damage-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-damage-3",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-auto_damage-0",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-auto_damage-1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-auto_damage-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-auto_damage-3",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-pierce_damage-0",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              1350,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              1350,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              1350,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-pierce_damage-1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              1350,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              1350,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              1350,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-pierce_damage-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              1350,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              1350,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              1350,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-pierce_damage-3",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              1350,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              1350,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              1350,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-armor_break_damage-0",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-armor_break_damage-1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-armor_break_damage-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-armor_break_damage-3",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-armor_break_burst_damage-0",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-armor_break_burst_damage-1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-armor_break_burst_damage-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-skill-armor_break_burst_damage-3",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              1400,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-external-normal-packet",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              900,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-pellet-parent-1",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2250,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-pellet-parent-2",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2300,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "attack-flag-pellet-parent-3",
+      "passed": true,
+      "native": {
+        "queries": [
+          {
+            "damage": [
+              2800,
+              0,
+              0,
+              0,
+              0
+            ],
+            "combat": {
+              "gauge": 0.0,
+              "clock": "grid",
+              "weapons": [
+                {
+                  "ammo": 98,
+                  "shots": 2,
+                  "next": 2.0,
+                  "reload_until": -1.0
+                }
+              ]
+            }
+          }
+        ],
+        "weapons": [
+          {
+            "warm": 0.0,
+            "last_interval": 0.0
+          }
+        ]
+      }
     }
   ],
-  "expiry": [
+  "rejected_cases": [
     {
-      "owner": 0,
-      "stat": "pierce_enabled",
-      "time": 0.999999,
-      "actual": true
+      "name": "attack-flag-invalid-pierce_enabled-kind-1",
+      "status": 64
     },
     {
-      "owner": 0,
-      "stat": "pierce_enabled",
-      "time": 1.0,
-      "actual": false
+      "name": "attack-flag-invalid-pierce_enabled-kind-2",
+      "status": 64
     },
     {
-      "owner": 0,
-      "stat": "pierce_enabled",
-      "time": 1.000001,
-      "actual": false
+      "name": "attack-flag-invalid-pierce_enabled-kind-3",
+      "status": 64
     },
     {
-      "owner": 0,
-      "stat": "armor_break_enabled",
-      "time": 0.999999,
-      "actual": true
+      "name": "attack-flag-invalid-pierce_enabled-kind-4",
+      "status": 64
     },
     {
-      "owner": 0,
-      "stat": "armor_break_enabled",
-      "time": 1.0,
-      "actual": false
+      "name": "attack-flag-invalid-pierce_enabled-enemy",
+      "status": 64
     },
     {
-      "owner": 0,
-      "stat": "armor_break_enabled",
-      "time": 1.000001,
-      "actual": false
+      "name": "attack-flag-invalid-pierce_enabled-damage-flags",
+      "status": 64
     },
     {
-      "owner": 1,
-      "stat": "pierce_enabled",
-      "time": 0.999999,
-      "actual": true
+      "name": "attack-flag-invalid-pierce_enabled-nan",
+      "status": 64
     },
     {
-      "owner": 1,
-      "stat": "pierce_enabled",
-      "time": 1.0,
-      "actual": false
+      "name": "attack-flag-invalid-pierce_enabled-infinity",
+      "status": 64
     },
     {
-      "owner": 1,
-      "stat": "pierce_enabled",
-      "time": 1.000001,
-      "actual": false
+      "name": "attack-flag-invalid-pierce_enabled-negative-infinity",
+      "status": 64
     },
     {
-      "owner": 1,
-      "stat": "armor_break_enabled",
-      "time": 0.999999,
-      "actual": true
+      "name": "attack-flag-invalid-pierce_enabled-packet-0",
+      "status": 64
     },
     {
-      "owner": 1,
-      "stat": "armor_break_enabled",
-      "time": 1.0,
-      "actual": false
+      "name": "attack-flag-invalid-pierce_enabled-packet-1",
+      "status": 64
     },
     {
-      "owner": 1,
-      "stat": "armor_break_enabled",
-      "time": 1.000001,
-      "actual": false
+      "name": "attack-flag-invalid-pierce_enabled-packet-2",
+      "status": 64
     },
     {
-      "owner": 2,
-      "stat": "pierce_enabled",
-      "time": 0.999999,
-      "actual": true
+      "name": "attack-flag-invalid-pierce_enabled-packet-3",
+      "status": 64
     },
     {
-      "owner": 2,
-      "stat": "pierce_enabled",
-      "time": 1.0,
-      "actual": false
+      "name": "attack-flag-invalid-pierce_enabled-packet-4",
+      "status": 64
     },
     {
-      "owner": 2,
-      "stat": "pierce_enabled",
-      "time": 1.000001,
-      "actual": false
+      "name": "attack-flag-invalid-pierce_enabled-packet-5",
+      "status": 64
     },
     {
-      "owner": 2,
-      "stat": "armor_break_enabled",
-      "time": 0.999999,
-      "actual": true
+      "name": "attack-flag-invalid-pierce_enabled-packet-6",
+      "status": 64
     },
     {
-      "owner": 2,
-      "stat": "armor_break_enabled",
-      "time": 1.0,
-      "actual": false
+      "name": "attack-flag-invalid-pierce_enabled-packet-7",
+      "status": 64
     },
     {
-      "owner": 2,
-      "stat": "armor_break_enabled",
-      "time": 1.000001,
-      "actual": false
+      "name": "attack-flag-invalid-armor_break_enabled-kind-1",
+      "status": 64
     },
     {
-      "owner": 3,
-      "stat": "pierce_enabled",
-      "time": 0.999999,
-      "actual": true
+      "name": "attack-flag-invalid-armor_break_enabled-kind-2",
+      "status": 64
     },
     {
-      "owner": 3,
-      "stat": "pierce_enabled",
-      "time": 1.0,
-      "actual": false
+      "name": "attack-flag-invalid-armor_break_enabled-kind-3",
+      "status": 64
     },
     {
-      "owner": 3,
-      "stat": "pierce_enabled",
-      "time": 1.000001,
-      "actual": false
+      "name": "attack-flag-invalid-armor_break_enabled-kind-4",
+      "status": 64
     },
     {
-      "owner": 3,
-      "stat": "armor_break_enabled",
-      "time": 0.999999,
-      "actual": true
+      "name": "attack-flag-invalid-armor_break_enabled-enemy",
+      "status": 64
     },
     {
-      "owner": 3,
-      "stat": "armor_break_enabled",
-      "time": 1.0,
-      "actual": false
+      "name": "attack-flag-invalid-armor_break_enabled-damage-flags",
+      "status": 64
     },
     {
-      "owner": 3,
-      "stat": "armor_break_enabled",
-      "time": 1.000001,
-      "actual": false
+      "name": "attack-flag-invalid-armor_break_enabled-nan",
+      "status": 64
     },
     {
-      "owner": 4,
-      "stat": "pierce_enabled",
-      "time": 0.999999,
-      "actual": true
+      "name": "attack-flag-invalid-armor_break_enabled-infinity",
+      "status": 64
     },
     {
-      "owner": 4,
-      "stat": "pierce_enabled",
-      "time": 1.0,
-      "actual": false
+      "name": "attack-flag-invalid-armor_break_enabled-negative-infinity",
+      "status": 64
     },
     {
-      "owner": 4,
-      "stat": "pierce_enabled",
-      "time": 1.000001,
-      "actual": false
+      "name": "attack-flag-invalid-armor_break_enabled-packet-0",
+      "status": 64
     },
     {
-      "owner": 4,
-      "stat": "armor_break_enabled",
-      "time": 0.999999,
-      "actual": true
+      "name": "attack-flag-invalid-armor_break_enabled-packet-1",
+      "status": 64
     },
     {
-      "owner": 4,
-      "stat": "armor_break_enabled",
-      "time": 1.0,
-      "actual": false
+      "name": "attack-flag-invalid-armor_break_enabled-packet-2",
+      "status": 64
     },
     {
-      "owner": 4,
-      "stat": "armor_break_enabled",
-      "time": 1.000001,
-      "actual": false
+      "name": "attack-flag-invalid-armor_break_enabled-packet-3",
+      "status": 64
+    },
+    {
+      "name": "attack-flag-invalid-armor_break_enabled-packet-4",
+      "status": 64
+    },
+    {
+      "name": "attack-flag-invalid-armor_break_enabled-packet-5",
+      "status": 64
+    },
+    {
+      "name": "attack-flag-invalid-armor_break_enabled-packet-6",
+      "status": 64
+    },
+    {
+      "name": "attack-flag-invalid-armor_break_enabled-packet-7",
+      "status": 64
     }
   ],
-  "runtime_conditions": [
-    {
-      "owner": 0,
-      "stat": "pierce_enabled",
-      "duration": -1,
-      "before": true,
-      "after": false
-    },
-    {
-      "owner": 0,
-      "stat": "pierce_enabled",
-      "duration": 2,
-      "before": true,
-      "after": true
-    },
-    {
-      "owner": 0,
-      "stat": "armor_break_enabled",
-      "duration": -1,
-      "before": true,
-      "after": false
-    },
-    {
-      "owner": 0,
-      "stat": "armor_break_enabled",
-      "duration": 2,
-      "before": true,
-      "after": true
-    },
-    {
-      "owner": 1,
-      "stat": "pierce_enabled",
-      "duration": -1,
-      "before": true,
-      "after": false
-    },
-    {
-      "owner": 1,
-      "stat": "pierce_enabled",
-      "duration": 2,
-      "before": true,
-      "after": true
-    },
-    {
-      "owner": 1,
-      "stat": "armor_break_enabled",
-      "duration": -1,
-      "before": true,
-      "after": false
-    },
-    {
-      "owner": 1,
-      "stat": "armor_break_enabled",
-      "duration": 2,
-      "before": true,
-      "after": true
-    },
-    {
-      "owner": 2,
-      "stat": "pierce_enabled",
-      "duration": -1,
-      "before": true,
-      "after": false
-    },
-    {
-      "owner": 2,
-      "stat": "pierce_enabled",
-      "duration": 2,
-      "before": true,
-      "after": true
-    },
-    {
-      "owner": 2,
-      "stat": "armor_break_enabled",
-      "duration": -1,
-      "before": true,
-      "after": false
-    },
-    {
-      "owner": 2,
-      "stat": "armor_break_enabled",
-      "duration": 2,
-      "before": true,
-      "after": true
-    },
-    {
-      "owner": 3,
-      "stat": "pierce_enabled",
-      "duration": -1,
-      "before": true,
-      "after": false
-    },
-    {
-      "owner": 3,
-      "stat": "pierce_enabled",
-      "duration": 2,
-      "before": true,
-      "after": true
-    },
-    {
-      "owner": 3,
-      "stat": "armor_break_enabled",
-      "duration": -1,
-      "before": true,
-      "after": false
-    },
-    {
-      "owner": 3,
-      "stat": "armor_break_enabled",
-      "duration": 2,
-      "before": true,
-      "after": true
-    },
-    {
-      "owner": 4,
-      "stat": "pierce_enabled",
-      "duration": -1,
-      "before": true,
-      "after": false
-    },
-    {
-      "owner": 4,
-      "stat": "pierce_enabled",
-      "duration": 2,
-      "before": true,
-      "after": true
-    },
-    {
-      "owner": 4,
-      "stat": "armor_break_enabled",
-      "duration": -1,
-      "before": true,
-      "after": false
-    },
-    {
-      "owner": 4,
-      "stat": "armor_break_enabled",
-      "duration": 2,
-      "before": true,
-      "after": true
-    }
-  ],
-  "physical_cases": [
-    {
-      "weapon": "AR",
-      "mode": "auto",
-      "pierce": false,
-      "armor": false,
-      "shots": 2,
-      "damage": 1800,
-      "expected_damage_per_shot": 900,
-      "native": [
-        {
-          "damage": [
-            1800,
-            0,
-            0,
-            0,
-            0
-          ],
-          "combat": {
-            "gauge": 0.0,
-            "clock": "grid",
-            "weapons": [
-              {
-                "ammo": 98,
-                "shots": 2,
-                "next": 2.0,
-                "reload_until": -1.0
-              }
-            ]
-          }
-        }
-      ],
-      "weapon_state": {
-        "warm": 0.0,
-        "last_interval": 0.0
-      }
-    },
-    {
-      "weapon": "AR",
-      "mode": "auto",
-      "pierce": true,
-      "armor": false,
-      "shots": 2,
-      "damage": 2700,
-      "expected_damage_per_shot": 1350,
-      "native": [
-        {
-          "damage": [
-            2700,
-            0,
-            0,
-            0,
-            0
-          ],
-          "combat": {
-            "gauge": 0.0,
-            "clock": "grid",
-            "weapons": [
-              {
-                "ammo": 98,
-                "shots": 2,
-                "next": 2.0,
-                "reload_until": -1.0
-              }
-            ]
-          }
-        }
-      ],
-      "weapon_state": {
-        "warm": 0.0,
-        "last_interval": 0.0
-      }
-    },
-    {
-      "weapon": "AR",
-      "mode": "auto",
-      "pierce": false,
-      "armor": true,
-      "shots": 2,
-      "damage": 2800,
-      "expected_damage_per_shot": 1400,
-      "native": [
-        {
-          "damage": [
-            2800,
-            0,
-            0,
-            0,
-            0
-          ],
-          "combat": {
-            "gauge": 0.0,
-            "clock": "grid",
-            "weapons": [
-              {
-                "ammo": 98,
-                "shots": 2,
-                "next": 2.0,
-                "reload_until": -1.0
-              }
-            ]
-          }
-        }
-      ],
-      "weapon_state": {
-        "warm": 0.0,
-        "last_interval": 0.0
-      }
-    },
-    {
-      "weapon": "AR",
-      "mode": "auto",
-      "pierce": true,
-      "armor": true,
-      "shots": 2,
-      "damage": 3800,
-      "expected_damage_per_shot": 1900,
-      "native": [
-        {
-          "damage": [
-            3800,
-            0,
-            0,
-            0,
-            0
-          ],
-          "combat": {
-            "gauge": 0.0,
-            "clock": "grid",
-            "weapons": [
-              {
-                "ammo": 98,
-                "shots": 2,
-                "next": 2.0,
-                "reload_until": -1.0
-              }
-            ]
-          }
-        }
-      ],
-      "weapon_state": {
-        "warm": 0.0,
-        "last_interval": 0.0
-      }
-    },
-    {
-      "weapon": "SR",
-      "mode": "charge",
-      "pierce": false,
-      "armor": false,
-      "shots": 2,
-      "damage": 1800,
-      "expected_damage_per_shot": 900,
-      "native": [
-        {
-          "damage": [
-            1800,
-            0,
-            0,
-            0,
-            0
-          ],
-          "combat": {
-            "gauge": 0.0,
-            "clock": "grid",
-            "weapons": [
-              {
-                "ammo": 98,
-                "shots": 2,
-                "next": 2.0,
-                "reload_until": -1.0
-              }
-            ]
-          }
-        }
-      ],
-      "weapon_state": {
-        "warm": 0.0,
-        "last_interval": 0.0
-      }
-    },
-    {
-      "weapon": "SR",
-      "mode": "charge",
-      "pierce": true,
-      "armor": false,
-      "shots": 2,
-      "damage": 2700,
-      "expected_damage_per_shot": 1350,
-      "native": [
-        {
-          "damage": [
-            2700,
-            0,
-            0,
-            0,
-            0
-          ],
-          "combat": {
-            "gauge": 0.0,
-            "clock": "grid",
-            "weapons": [
-              {
-                "ammo": 98,
-                "shots": 2,
-                "next": 2.0,
-                "reload_until": -1.0
-              }
-            ]
-          }
-        }
-      ],
-      "weapon_state": {
-        "warm": 0.0,
-        "last_interval": 0.0
-      }
-    },
-    {
-      "weapon": "SR",
-      "mode": "charge",
-      "pierce": false,
-      "armor": true,
-      "shots": 2,
-      "damage": 2800,
-      "expected_damage_per_shot": 1400,
-      "native": [
-        {
-          "damage": [
-            2800,
-            0,
-            0,
-            0,
-            0
-          ],
-          "combat": {
-            "gauge": 0.0,
-            "clock": "grid",
-            "weapons": [
-              {
-                "ammo": 98,
-                "shots": 2,
-                "next": 2.0,
-                "reload_until": -1.0
-              }
-            ]
-          }
-        }
-      ],
-      "weapon_state": {
-        "warm": 0.0,
-        "last_interval": 0.0
-      }
-    },
-    {
-      "weapon": "SR",
-      "mode": "charge",
-      "pierce": true,
-      "armor": true,
-      "shots": 2,
-      "damage": 3800,
-      "expected_damage_per_shot": 1900,
-      "native": [
-        {
-          "damage": [
-            3800,
-            0,
-            0,
-            0,
-            0
-          ],
-          "combat": {
-            "gauge": 0.0,
-            "clock": "grid",
-            "weapons": [
-              {
-                "ammo": 98,
-                "shots": 2,
-                "next": 2.0,
-                "reload_until": -1.0
-              }
-            ]
-          }
-        }
-      ],
-      "weapon_state": {
-        "warm": 0.0,
-        "last_interval": 0.0
-      }
-    },
-    {
-      "weapon": "RL",
-      "mode": "charge",
-      "pierce": false,
-      "armor": false,
-      "shots": 2,
-      "damage": 1800,
-      "expected_damage_per_shot": 900,
-      "native": [
-        {
-          "damage": [
-            1800,
-            0,
-            0,
-            0,
-            0
-          ],
-          "combat": {
-            "gauge": 0.0,
-            "clock": "grid",
-            "weapons": [
-              {
-                "ammo": 98,
-                "shots": 2,
-                "next": 2.0,
-                "reload_until": -1.0
-              }
-            ]
-          }
-        }
-      ],
-      "weapon_state": {
-        "warm": 0.0,
-        "last_interval": 0.0
-      }
-    },
-    {
-      "weapon": "RL",
-      "mode": "charge",
-      "pierce": true,
-      "armor": false,
-      "shots": 2,
-      "damage": 2700,
-      "expected_damage_per_shot": 1350,
-      "native": [
-        {
-          "damage": [
-            2700,
-            0,
-            0,
-            0,
-            0
-          ],
-          "combat": {
-            "gauge": 0.0,
-            "clock": "grid",
-            "weapons": [
-              {
-                "ammo": 98,
-                "shots": 2,
-                "next": 2.0,
-                "reload_until": -1.0
-              }
-            ]
-          }
-        }
-      ],
-      "weapon_state": {
-        "warm": 0.0,
-        "last_interval": 0.0
-      }
-    },
-    {
-      "weapon": "RL",
-      "mode": "charge",
-      "pierce": false,
-      "armor": true,
-      "shots": 2,
-      "damage": 2800,
-      "expected_damage_per_shot": 1400,
-      "native": [
-        {
-          "damage": [
-            2800,
-            0,
-            0,
-            0,
-            0
-          ],
-          "combat": {
-            "gauge": 0.0,
-            "clock": "grid",
-            "weapons": [
-              {
-                "ammo": 98,
-                "shots": 2,
-                "next": 2.0,
-                "reload_until": -1.0
-              }
-            ]
-          }
-        }
-      ],
-      "weapon_state": {
-        "warm": 0.0,
-        "last_interval": 0.0
-      }
-    },
-    {
-      "weapon": "RL",
-      "mode": "charge",
-      "pierce": true,
-      "armor": true,
-      "shots": 2,
-      "damage": 3800,
-      "expected_damage_per_shot": 1900,
-      "native": [
-        {
-          "damage": [
-            3800,
-            0,
-            0,
-            0,
-            0
-          ],
-          "combat": {
-            "gauge": 0.0,
-            "clock": "grid",
-            "weapons": [
-              {
-                "ammo": 98,
-                "shots": 2,
-                "next": 2.0,
-                "reload_until": -1.0
-              }
-            ]
-          }
-        }
-      ],
-      "weapon_state": {
-        "warm": 0.0,
-        "last_interval": 0.0
-      }
-    }
-  ],
-  "physical_crit_rate_reduction_pct": -15,
-  "physical_expected_crit_rate": 0,
-  "rules": [
-    "Boolean buffs are presence markers:missing,zero and negative values still enable them",
-    "Finite/infinite conditions follow native query/expiry rules",
-    "Physical AR/SR/RL attacks receive pierce/armor classification and their distinct damage bonuses;crit_rate-15 removes the native15percent baseline",
-    "Armor flag removes defense before attack-minus-defense;both damage bonuses add in the same layer"
-  ],
-  "source_review_note": "Pinned timeline physical attacks read boolean buffs;skill handler5015/5016 sets flags from damage family. Do not apply physical flags to every normal-type skill. Skill routing is source review here,not a full native-handler execution proof.",
-  "scope": "40 presence+30 expiry+20 runtime gates and12 simple-boss physical cases;no coordinate piercing/parts/add geometry certification",
-  "source_sha256": {
-    "research/characterize-attack-flags.py": "dbe859a18fd4615b1e578b67c0801112603cf758c033d7faa520ef36f8e11346",
-    "tests/test_target_counter_runtime.py": "67aae222254b5e64d7b277dd9ba1336f1fabf08b4e9bd2a029d7bfdf72f3bacb",
+  "actual_rejection_statuses": [],
+  "raw_rejections_verified": false,
+  "captured": null,
+  "cpu_trace_used_as_gpu_input": false,
+  "validation_sha256": {
+    "app/portable_damage_specs.py": "c3add38c40d863680fb1c737d55df881c92fa176c18932289c3de6ff87edccd8",
+    "app/portable_runtime.py": "2b4e1217386521eff487d6e62bdfa0319b6f45689440e30d75cbd1a7ab887d81",
+    "app/portable_specs.py": "65f1fd26e9b306c59d3dafac35fcf3f918c398f2ddf9f246f967760aa39f4c46",
+    "scripts/portable_attack_flag_oracle.py": "8f082add07ad031ce18b2a1a3f0b305e3aa2e7147d3870b97ae1bcb4c50f7757",
+    "scripts/portable_attack_flag_validation.py": "d22c093f605f95d83d63b09c7406b392df2ab875750e4bf460cf30d8c1a77c10",
+    "tests/fixtures/portable-attack-flags.json": "aa195e95de6f84c7969e6cd54bf76e7470078ae10e8ab716ea3c74bfca30b185",
+    "research/verify-attack-flags.py": "56af30b67fdc8a5833ab36ff736fa3347f6b56472b88fbb563057102836f76d2",
     "scripts/portable_weapon_oracle.py": "51f98ad5464fdff70e050eb9be4a973727c7ba13d27f3b5acb0f1b9e508330a6",
-    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
-    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
-    "research/upstream/nikke-calc-master/calculator/damage.py": "7884a1aeb2d2d03dd192434e11f21bc1af5d61d7cdb7a65bf39185899c968e2b"
+    "scripts/portable_enemy_oracle.py": "7b86436e89e946960f843c50e646802cae494502f269fbb5290b2fee806f5ba7"
   }
 }

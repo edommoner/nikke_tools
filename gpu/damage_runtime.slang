@@ -29,9 +29,16 @@ uint64_t normalProbability(inout Runtime s, uint who, uint64_t accuracy)
 [noinline]
 uint64_t damageValue(inout Runtime s, uint who, uint64_t coefficient, uint64_t when,
     bool normal, uint64_t coreBonus, uint flags = 0, uint64_t fullChargeMult = ONE,
-    bool optimal = false)
+    bool optimal = false, bool physical = false)
 {
     uint64_t b[64]; collectStats(s,who,when,b);
+    // Physical weapon flags also apply to weapon-mode skill packets. A skill
+    // labelled normal/auto_damage still derives its flags from its own family.
+    if(physical)
+    {
+        if(!f64Zero(b[S_pierce_enabled])) flags|=H_PIERCE;
+        if(!f64Zero(b[S_armor_break_enabled])) flags|=H_ARMOR;
+    }
     uint64_t enemyModifiers[3]; collectEnemyModifiers(s,who,s.target,when,enemyModifiers);
     b[S_enemy_def_down_pct] = f64Add(b[S_enemy_def_down_pct],enemyModifiers[0]);
     b[S_enemy_def_down_flat] = f64Add(b[S_enemy_def_down_flat],enemyModifiers[1]);

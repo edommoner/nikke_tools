@@ -320,6 +320,10 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
 #endif
         if (d.alliedFlags != 0 || d.kind != 0 || d.stat >= 64 || d.stat == S_infinite_ammo || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
             !queryRecipient(s,selected,who,when)) continue;
+        // Native boolean flags ignore their numeric value and stack scaling.
+        // Reuse their existing slots in the64-value vector, with no new query.
+        if(d.stat==S_pierce_enabled || d.stat==S_armor_break_enabled)
+        { values[d.stat]=ONE;continue; }
         uint64_t value = d.stat == S_atk_caster_based_pct ? scalarValue(s,selected,who) : recipientValue(s,selected,who);
         if (d.stat == S_crit_rate || d.stat == S_normal_atk_crit_rate)
         {

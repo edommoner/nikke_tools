@@ -31,6 +31,7 @@ def main():
     tracked += ['app/portable_protection_specs.py','app/protection_runtime.py','scripts/portable_protection_oracle.py','tests/fixtures/portable-protection.json']
     tracked += ['app/portable_code_specs.py','scripts/portable_code_oracle.py','scripts/portable_removal_oracle.py','scripts/portable_stack_oracle.py','scripts/portable_instant_list_oracle.py','tests/fixtures/portable-enemy-codes.json']
     tracked += ['app/portable_element_specs.py','scripts/portable_element_oracle.py','scripts/portable_enemy_oracle.py','scripts/portable_weapon_oracle.py','tests/fixtures/portable-element-overrides.json']
+    tracked += ['app/portable_damage_specs.py','scripts/portable_attack_flag_oracle.py','tests/fixtures/portable-attack-flags.json']
     tracked += ['app/portable_target_state_specs.py','scripts/portable_target_state_oracle.py','tests/fixtures/portable-target-states.json']
     tracked += ['app/portable_geometry_specs.py','scripts/portable_geometry_oracle.py','tests/fixtures/portable-geometry.json']
     tracked += ['app/portable_probability_specs.py','scripts/portable_probability_oracle.py','tests/fixtures/portable-probability.json']
@@ -615,6 +616,20 @@ def main():
                   script=c['script'],base_atk=[1000]*5,combat=c['combat'],backend=args.backend)
         actual=request(body);assert actual['gpu_execution_verified'];compare_target_state(c,actual['results'][0],verifier.contains)
         result['target_state_execution'].append(dict(name=name,execution=actual))
+    from portable_attack_flag_oracle import compare as compare_attack_flag
+    flag_cases=json.loads((ROOT/'tests/fixtures/portable-attack-flags.json').read_text())['cases']
+    flag_names=['attack-flag-presence-0-pierce_enabled-1-self','attack-flag-presence-4-armor_break_enabled-2-all_allies',
+                'attack-flag-expiry-2-armor_break_enabled','attack-flag-gate-1-pierce_enabled--1',
+                'attack-flag-skill-auto_damage-3','attack-flag-external-normal-packet',
+                'attack-flag-pellet-parent-3','attack-flag-mode-0']
+    result['attack_flag_execution']=[]
+    for name in flag_names:
+        c=next(c for c in flag_cases if c['name']==name);chars=copy.deepcopy(payload['chars'])
+        for char,weapon in zip(chars,c['combat']['weapons']):char['_weapon']['reload_time']=weapon.get('reload',1)
+        body=dict(chars=chars,effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(c['effects'],c['owners'])],
+                  script=c['script'],base_atk=[1000]*5,combat=c['combat'],environment=c.get('environment',{}),backend=args.backend)
+        actual=request(body);assert actual['gpu_execution_verified'];compare_attack_flag(c,actual['results'][0],verifier.contains)
+        result['attack_flag_execution'].append(dict(name=name,execution=actual))
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in hashes}
     result.update(passed=True,api_status=200,unsupported_status=400,unsupported_error=detail['error'],adapter_sha256=hashes)
     path.write_text(json.dumps(result,indent=2)+'\n', encoding='utf-8')

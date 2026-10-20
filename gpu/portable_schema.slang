@@ -1,5 +1,5 @@
 // Generated from app/portable_specs.py; do not hand-edit.
-static const uint PORTABLE_ABI = 1346721390U;
+static const uint PORTABLE_ABI = 1346721391U;
 static const uint P_PROTECTION_OBJECTS = 1024U;
 static const uint P_PROTECTION_OBJECT_WORDS = 24U;
 static const uint P_REMOVALS = 4096U;
@@ -267,6 +267,7 @@ static const uint S_burst_cooldown = 32U;
 static const uint S_max_ammo_flat = 33U;
 static const uint S_charge_time_flat = 34U;
 static const uint S_pierce_dmg_pct = 35U;
+static const uint S_pierce_enabled = 36U;
 static const uint S_charge_speed_caster_based_pct = 37U;
 static const uint S_max_hp_pct = 38U;
 static const uint S_hp_caster_based_pct = 39U;
@@ -278,6 +279,7 @@ static const uint S_def_caster_based_pct = 46U;
 static const uint S_reload_ratio_pct = 49U;
 static const uint S_dot_dmg_pct = 50U;
 static const uint S_armor_break_dmg_pct = 51U;
+static const uint S_armor_break_enabled = 52U;
 static const uint S_charge_time_fixed = 53U;
 static const uint S_part_dmg_pct = 54U;
 static const uint S_intercept_dmg_pct = 55U;
