@@ -54,7 +54,7 @@ bool initializeWorldFrame(inout Runtime s)
         if(commands[at]==24)
         { uint64_t t=loadNumber(at+1);if(!f64Finite(t)||f64Less(t,0)||f64Less(through,t)) return false;if(f64Equal(t,through)) reached=true; }
     }
-    if(!reached) return false;
+    if(!COUNTER_WORLD_LITERAL(s,through,reached)) return false;
     for(uint n=0;n<32;n++)
     {
         uint p=s.inputBase+WF_PAYLOAD+n*16,d=start+16+n*64;

@@ -100,6 +100,25 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_TARGET_COUNTERS
+#define COUNTER_WORLD_LITERAL(s,through,legacy) targetCounterLiteralRoot(s,through,legacy)
+#define COUNTER_PREPARE(s,row,when) prepareTargetCounter(s,row,when);
+#define COUNTER_GUARD(s,row) if(targetCounterDeadDefinition(s,row)) continue;
+#define COUNTER_FRAME(s,frames,depth) if(frames[depth].mode==26) { advanceTargetCounter(s,frames,depth);continue; }
+#define COUNTER_ROOT(s,frames,depth,mode) if(mode==26) frames[depth].value=results[counterHead(s)+4];
+#define COUNTER_NAMED(s,event,legacy) ((legacy)||(targetCountersEnabled(s)&&event==58))
+#define COUNTER_INIT(s,output) if(!initializeTargetCounters(s)) { results[output]=64;return; }
+#define COUNTER_COMMAND(s,at) else if(op==43) { if(!targetCounterCommand(s,at,step,when,output)) { s.error=64;break; } }
+#else
+#define COUNTER_WORLD_LITERAL(s,through,legacy) legacy
+#define COUNTER_PREPARE(s,row,when)
+#define COUNTER_GUARD(s,row)
+#define COUNTER_FRAME(s,frames,depth)
+#define COUNTER_ROOT(s,frames,depth,mode)
+#define COUNTER_NAMED(s,event,legacy) legacy
+#define COUNTER_INIT(s,output)
+#define COUNTER_COMMAND(s,at)
+#endif
 #ifdef PORTABLE_WORLD_OVERLAYS
 #include "world_overlay_runtime.slang"
 #define WORLD_OVERLAY_INIT(s,output) if(!initializeWorldOverlays(s)) { results[output]=64;return; }
@@ -842,7 +861,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
     Frame frames[32]; int depth = -1;
     if ((s.healthMask&32)!=0) pushFrame(s,frames,depth,16,0,0,0,when);
     pushFrame(s,frames,depth,mode,event,owner,argument,when);
-    if (mode == 17 && s.error == 0) frames[depth].healthValue=landingAmount;
+    COUNTER_ROOT(s,frames,depth,mode) if (mode == 17 && s.error == 0) frames[depth].healthValue=landingAmount;
     uint work = 0;
     while (depth >= 0 && s.error == 0)
     {
@@ -861,7 +880,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             uint who = 0; while ((s.hpDirtyMask & (1U << who)) == 0) who++;
             s.hpDirtyMask &= ~(1U << who); syncHealthActor(s,who,frames[depth].time); continue;
         }
-        WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = frames[depth]; s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; uint row = s.count, passive = 0;
+        COUNTER_FRAME(s,frames,depth) WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = frames[depth]; s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; uint row = s.count, passive = 0;
         if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
             (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
         { depth--; continue; }
@@ -1241,7 +1260,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                     uint event = commands[at], mode = commands[at+3]; int tag = int(commands[at+4]), stage = int(commands[at+7]);
                     if (event != f.event) continue;
                     if (event == 4 && stage != f.argument || event == 6 && int(j) != f.argument) continue;
-                    if ((event == 9 || event == 29 || event == 30 || event == 31 || event == 48 || event == 49 || event == 59) && tag != f.argument) continue;
+                    if (COUNTER_NAMED(s,event,(event == 9 || event == 29 || event == 30 || event == 31 || event == 48 || event == 49 || event == 59)) && tag != f.argument) continue;
                     if (event == 9 && commands[at+5] != f.value) continue;
                     multiplicity++; bool ok = event != 30 || resourceModulo(f.healthValue,uint(f64ToPositiveStep(loadNumber(at+1)))) == 0;
                     if (mode != 0 || event == 7 || event == 8)
@@ -1287,7 +1306,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (d.budget >= 0 && recipientMask == 0 && (!lazy || d.kind==15)) continue;
         }
         uint stagedTotal=0;
-        bool stageRegister=s.stagedEnabled!=0 && isStaged(s,row) && (f.event!=28 || (d.flags&1)!=0 && s.alive[row]==0);
+        COUNTER_GUARD(s,row) bool stageRegister=s.stagedEnabled!=0 && isStaged(s,row) && (f.event!=28 || (d.flags&1)!=0 && s.alive[row]==0);
         if(stageRegister) { stagedTotal=stagedCount(s,row);if(s.error!=0) break;if(stagedTotal==0) continue; }
         if (f.mode!=19 && (f.event != 28 || (d.flags & 1) != 0 && ((s.stagedEnabled==0 || !isStaged(s,row)) || stageRegister)))
         {
@@ -1344,7 +1363,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (s.error!=0) break;
             WORLD_FIELDS_BIND(s,row,d,f) s.alive[row] = 1; s.activated[row] = f.time;
             s.end[row] = f64Less(duration,0) ? F64_INF : f64Add(f.time,duration);
-            if (d.enemyBuff != 0) s.enemyCaptureGeneration[row] = capturedGeneration;
+            COUNTER_PREPARE(s,row,f.time) if (d.enemyBuff != 0) s.enemyCaptureGeneration[row] = capturedGeneration;
             if (d.bulletDuration != 0) prepareBulletActivation(s,row,recipientMask,live,activationLazy,previousStack);
             bool namedCandidate = (d.buffEvent & 1) != 0 && (!live || d.maxStack != 1) && s.namedEventOwners != 0;
 #ifdef PORTABLE_BUFF_AUDIENCE_SCAN_REFERENCE
@@ -1663,6 +1682,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "world_actor_status.slang"
 #ifdef PORTABLE_WORLD_ACTOR_STACKS
 #include "world_actor_stacks.slang"
+#ifdef PORTABLE_TARGET_COUNTERS
+#include "target_counter_runtime.slang"
+#endif
 #endif
 #endif
 #endif
@@ -1735,7 +1757,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if(!validGeometry(s)) { results[output]=64;return; }
     admitDefinitions(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
-    if(!initializeWorldFrame(s)) { results[output]=64;return; } WORLD_OVERLAY_INIT(s,output) WORLD_ACTORS_INIT(s,output) WORLD_POOL_INIT(s,output) WORLD_FIELDS_INIT(s,output) WORLD_STATE_INIT(s,output)
+    if(!initializeWorldFrame(s)) { results[output]=64;return; } WORLD_OVERLAY_INIT(s,output) WORLD_ACTORS_INIT(s,output) WORLD_POOL_INIT(s,output) WORLD_FIELDS_INIT(s,output) WORLD_STATE_INIT(s,output) COUNTER_INIT(s,output)
     if(!validEnemyTargeting(s)) { results[output]=64;return; }
     if(!validProtection(s)) { results[output]=64;return; }
     if (!validStatusDefinitions(s)) { results[output]=64;return; }
@@ -1768,7 +1790,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             dispatch(s,0,event,commands[at+4],int(commands[at+5]),when,output);
         }
         else if (op == 4 && s.combat != 0) { if (s.clockMode != 0) { s.error = 64; break; } squadFrame(s,when,output); s.frameCount++; }
-        WORLD_ACTOR_COMMAND(s,at) WORLD_POOL_COMMAND(s,at) WORLD_FIELDS_COMMAND(s,at) WORLD_STATE_COMMAND(s,at) else if (op == 26)
+        WORLD_ACTOR_COMMAND(s,at) WORLD_POOL_COMMAND(s,at) WORLD_FIELDS_COMMAND(s,at) WORLD_STATE_COMMAND(s,at) COUNTER_COMMAND(s,at) else if (op == 26)
         {
             uint mask = commands[at+5]; uint64_t amount = loadNumber(at+6);
             if (commands[at+3] != 0 || commands[at+4] != 0 || mask == 0 || mask > 31 || !f64Finite(amount) || f64Less(amount,0)) { s.error = 64; break; }

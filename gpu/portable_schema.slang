@@ -2,7 +2,9 @@
 #if defined(PORTABLE_WORLD_FRAME) && defined(PORTABLE_WIDE_LANDINGS)
 #error World and wide-landing diagnostic layouts cannot be combined.
 #endif
-#ifdef PORTABLE_WORLD_ACTOR_STACKS
+#ifdef PORTABLE_TARGET_COUNTERS
+static const uint PORTABLE_ABI = 1346721406U;
+#elif defined(PORTABLE_WORLD_ACTOR_STACKS)
 static const uint PORTABLE_ABI = 1346721405U;
 #elif defined(PORTABLE_WORLD_ACTOR_STATUS)
 static const uint PORTABLE_ABI = 1346721404U;
@@ -113,7 +115,9 @@ static const uint P_LANDING_META_BASE = 77792U;
 static const uint P_STATUS_META_BASE = 77800U;
 static const uint P_PROTECTION_META_BASE = 77808U;
 static const uint P_PROTECTION_DEFINITION_BASE = 77816U;
-#ifdef PORTABLE_WORLD_ACTOR_STATE
+#ifdef PORTABLE_TARGET_COUNTERS
+static const uint P_INPUT_WORDS = 97464U;
+#elif defined(PORTABLE_WORLD_ACTOR_STATE)
 static const uint P_INPUT_WORDS = 92336U;
 #elif defined(PORTABLE_WORLD_ACTOR_POOLS)
 static const uint P_INPUT_WORDS = 92208U;
@@ -249,6 +253,15 @@ static const uint P_WORLD_ACTOR_INPUT_WORDS = 90536U;
 static const uint P_WORLD_ACTOR_STATE_BASE = 216192U;
 static const uint P_WORLD_ACTOR_QUERY_BASE = 217224U;
 static const uint P_WORLD_ACTOR_STATE_WORDS = 1544U;
+static const uint P_TARGET_COUNTER_ABI = 1346721406U;
+static const uint P_TARGET_COUNTER_INPUT_BASE = 92336U;
+static const uint P_TARGET_COUNTER_INPUT_WORDS = 97464U;
+static const uint P_TARGET_COUNTER_HEAD = 413712U;
+static const uint P_TARGET_COUNTER_RESOURCE_BASE = 413744U;
+static const uint P_TARGET_COUNTER_READY_BASE = 421936U;
+static const uint P_TARGET_COUNTER_DEAD_BASE = 503856U;
+static const uint P_TARGET_COUNTER_TRACE_BASE = 505392U;
+static const uint P_TARGET_COUNTER_QUERY_BASE = 508464U;
 static const uint P_WORLD_ACTOR_STACK_ABI = 1346721405U;
 static const uint P_WORLD_ACTOR_STATUS_ABI = 1346721404U;
 static const uint P_WORLD_ACTOR_RECIPIENT_ABI = 1346721403U;
