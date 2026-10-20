@@ -7,7 +7,7 @@ import unittest
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
-from portable_specs import LIMITS as L
+from portable_specs import LIMITS as L, FIELDS as F
 from portable_target_state_specs import parse
 from portable_trigger_specs import validate_input
 
@@ -30,6 +30,19 @@ class TargetStateContracts(unittest.TestCase):
         at=L['CONDITION_BASE']+L['CONDITION_WORDS']
         self.assertEqual(words[at:at+2],[6,metadata['states']['A:B:C']])
         self.assertEqual(case,before)
+
+    def test_stack_placeholder_preserves_native_runtime_and_merge_policy(self):
+        spec=importlib.util.spec_from_file_location('target_flags',ROOT/'scripts/verify-portable-combat.py')
+        core=importlib.util.module_from_spec(spec);spec.loader.exec_module(core)
+        cases=json.loads((ROOT/'tests/fixtures/portable-target-states.json').read_text())['cases']
+        case=copy.deepcopy(next(c for c in cases if c['name']=='target-state-alias-0-self--1'))
+        words,_=core.compile_case(case)
+        self.assertEqual(words[L['DEFINITION_BASE']+F['FLAGS']]&2,0)
+        self.assertEqual(words[L['RECIPIENT_BASE']+7]&1,1)
+        case['effects'][0]['trigger']['condition'].append('during_full_burst')
+        words,_=core.compile_case(case)
+        self.assertEqual(words[L['DEFINITION_BASE']+F['FLAGS']]&2,2)
+        self.assertEqual(words[L['RECIPIENT_BASE']+7]&1,0)
 
 
 if __name__=='__main__':unittest.main()

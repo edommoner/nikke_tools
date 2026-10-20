@@ -104,6 +104,21 @@ def main():
     for threshold, expected in [(0,1),(2147483647,0)]:
         marker = effect('marker', 'self', [f'target_stack_above:absent:{threshold}'], duration=2, timing='event:full_reload', stat='atk_pct')
         rows.append(case('integer-bound-' + str(threshold), [marker], [0], [notify(0,19,0),query(0)], [expected]))
+    # Activation-only conditions must preserve the native same-name merge.
+    # Runtime-condition placeholders would retain two separate10/20 entries.
+    for owner in range(5):
+        for target in ('self','all_allies','allies_top_atk:1'):
+            for duration in (-1,1):
+                aliases=[]
+                for value in (10,20):
+                    alias=effect('alias',target,['target_stack_above:absent:0'],duration=duration,stat='atk_pct')
+                    alias.update(fixed_value=value,max_stack=2);aliases.append(alias)
+                script=[notify(0,7,owner),query(0),notify(1,8,owner),query(1,1)]
+                row=case(f'alias-{owner}-{target}-{duration}',aliases,[owner,owner],script,[20,20 if duration==-1 else 0],owner)
+                members=range(5) if target=='all_allies' else [0] if target=='allies_top_atk:1' else [owner]
+                values=[20 if i in members else 0 for i in range(5)]
+                row['expected_queries']=[dict(attack_buffs=values),dict(attack_buffs=values if duration==-1 else [0]*5)]
+                rows.append(row)
     for row in rows:
         row['effects'] = copy.deepcopy(row['effects'])
     path = ROOT / 'tests/fixtures/portable-target-states.json'

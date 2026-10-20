@@ -26,9 +26,18 @@ def compiler_effect(effect):
     if not any(c.startswith('target_stack_above:') for c in conditions):
         return effect
     result = copy.deepcopy(effect)
-    # The legacy compiler allocates the exact name ID but cannot encode this
-    # newer predicate. Only immutable descriptor packing replaces its opcode.
+    # This activation-only placeholder preserves native runtime/merge flags.
+    # Exact names are allocated separately after legacy compilation. A runtime
+    # predicate such as target_state would silently disable alias merging.
     result['trigger']['condition'] = [
-        'target_state:' + parse(c)[1] if c.startswith('target_stack_above:') else c
+        'prob:100' if c.startswith('target_stack_above:') else c
         for c in conditions]
     return result
+
+
+def allocate_names(effects, states):
+    for effect, owner in effects:
+        for condition in effect.get('trigger', {}).get('condition', []):
+            parsed = parse(condition)
+            if parsed is not None and parsed[0] == TARGET_STACK:
+                states.setdefault(parsed[1], len(states))

@@ -155,6 +155,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     geometry_chars=compiler_chars(chars,geometry)
     from portable_target_state_specs import compiler_effect as target_compiler_effect
     program=legacy.compile_effects(geometry_chars,[(target_compiler_effect(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e)),owner) for e,owner in effects])
+    from portable_target_state_specs import allocate_names as target_state_names
+    target_state_names(effects,program['states'])
     source_query_indices={}
     for command in script:
         if len(command)==8 and command[1]==29:

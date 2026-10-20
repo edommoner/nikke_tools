@@ -606,7 +606,8 @@ def main():
     target_names=['target-state-exact-4-2-target_stack_above:', 'target-state-lifetime-0--1-target_state:',
                   'target-state-lifetime-0--1-not_target_state:', 'target-state-max-3-5',
                   'target-state-retire-reuse-target_state:', 'target-state-dot-target_state:',
-                  'target-state-any-live-enemy', 'target-state-integer-bound-0']
+                  'target-state-any-live-enemy', 'target-state-integer-bound-0',
+                  'target-state-alias-4-self--1', 'target-state-alias-4-allies_top_atk:1--1']
     result['target_state_execution']=[]
     for name in target_names:
         c=next(c for c in target_cases if c['name']==name)
