@@ -1,0 +1,2608 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "gpu_execution_performed": false,
+  "gpu_admission_enabled": false,
+  "expected_mode": [
+    {
+      "conditions": [
+        "prob:0"
+      ],
+      "events": [
+        {
+          "event": 1,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 2,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 3,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 4,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 5,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 6,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 7,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 8,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 9,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 10,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 11,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 12,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 13,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 14,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 15,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 16,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 17,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 18,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 19,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 20,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 21,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 22,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 23,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 24,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 25,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 26,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 27,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 28,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 29,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 30,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 31,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 32,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 33,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 34,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 35,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 36,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 37,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 38,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 39,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 40,
+          "passed": false,
+          "accumulator": 0.0
+        }
+      ],
+      "runtime_condition_result": true
+    },
+    {
+      "conditions": [
+        "prob:5"
+      ],
+      "events": [
+        {
+          "event": 1,
+          "passed": false,
+          "accumulator": 0.05
+        },
+        {
+          "event": 2,
+          "passed": false,
+          "accumulator": 0.1
+        },
+        {
+          "event": 3,
+          "passed": false,
+          "accumulator": 0.15000000000000002
+        },
+        {
+          "event": 4,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 5,
+          "passed": false,
+          "accumulator": 0.25
+        },
+        {
+          "event": 6,
+          "passed": false,
+          "accumulator": 0.3
+        },
+        {
+          "event": 7,
+          "passed": false,
+          "accumulator": 0.35
+        },
+        {
+          "event": 8,
+          "passed": false,
+          "accumulator": 0.39999999999999997
+        },
+        {
+          "event": 9,
+          "passed": false,
+          "accumulator": 0.44999999999999996
+        },
+        {
+          "event": 10,
+          "passed": false,
+          "accumulator": 0.49999999999999994
+        },
+        {
+          "event": 11,
+          "passed": false,
+          "accumulator": 0.5499999999999999
+        },
+        {
+          "event": 12,
+          "passed": false,
+          "accumulator": 0.6
+        },
+        {
+          "event": 13,
+          "passed": false,
+          "accumulator": 0.65
+        },
+        {
+          "event": 14,
+          "passed": false,
+          "accumulator": 0.7000000000000001
+        },
+        {
+          "event": 15,
+          "passed": false,
+          "accumulator": 0.7500000000000001
+        },
+        {
+          "event": 16,
+          "passed": false,
+          "accumulator": 0.8000000000000002
+        },
+        {
+          "event": 17,
+          "passed": false,
+          "accumulator": 0.8500000000000002
+        },
+        {
+          "event": 18,
+          "passed": false,
+          "accumulator": 0.9000000000000002
+        },
+        {
+          "event": 19,
+          "passed": false,
+          "accumulator": 0.9500000000000003
+        },
+        {
+          "event": 20,
+          "passed": true,
+          "accumulator": 2.220446049250313e-16
+        },
+        {
+          "event": 21,
+          "passed": false,
+          "accumulator": 0.050000000000000225
+        },
+        {
+          "event": 22,
+          "passed": false,
+          "accumulator": 0.10000000000000023
+        },
+        {
+          "event": 23,
+          "passed": false,
+          "accumulator": 0.15000000000000024
+        },
+        {
+          "event": 24,
+          "passed": false,
+          "accumulator": 0.20000000000000023
+        },
+        {
+          "event": 25,
+          "passed": false,
+          "accumulator": 0.2500000000000002
+        },
+        {
+          "event": 26,
+          "passed": false,
+          "accumulator": 0.3000000000000002
+        },
+        {
+          "event": 27,
+          "passed": false,
+          "accumulator": 0.3500000000000002
+        },
+        {
+          "event": 28,
+          "passed": false,
+          "accumulator": 0.4000000000000002
+        },
+        {
+          "event": 29,
+          "passed": false,
+          "accumulator": 0.4500000000000002
+        },
+        {
+          "event": 30,
+          "passed": false,
+          "accumulator": 0.5000000000000002
+        },
+        {
+          "event": 31,
+          "passed": false,
+          "accumulator": 0.5500000000000003
+        },
+        {
+          "event": 32,
+          "passed": false,
+          "accumulator": 0.6000000000000003
+        },
+        {
+          "event": 33,
+          "passed": false,
+          "accumulator": 0.6500000000000004
+        },
+        {
+          "event": 34,
+          "passed": false,
+          "accumulator": 0.7000000000000004
+        },
+        {
+          "event": 35,
+          "passed": false,
+          "accumulator": 0.7500000000000004
+        },
+        {
+          "event": 36,
+          "passed": false,
+          "accumulator": 0.8000000000000005
+        },
+        {
+          "event": 37,
+          "passed": false,
+          "accumulator": 0.8500000000000005
+        },
+        {
+          "event": 38,
+          "passed": false,
+          "accumulator": 0.9000000000000006
+        },
+        {
+          "event": 39,
+          "passed": false,
+          "accumulator": 0.9500000000000006
+        },
+        {
+          "event": 40,
+          "passed": true,
+          "accumulator": 6.661338147750939e-16
+        }
+      ],
+      "runtime_condition_result": true
+    },
+    {
+      "conditions": [
+        "prob:10"
+      ],
+      "events": [
+        {
+          "event": 1,
+          "passed": false,
+          "accumulator": 0.1
+        },
+        {
+          "event": 2,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 3,
+          "passed": false,
+          "accumulator": 0.30000000000000004
+        },
+        {
+          "event": 4,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 5,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 6,
+          "passed": false,
+          "accumulator": 0.6
+        },
+        {
+          "event": 7,
+          "passed": false,
+          "accumulator": 0.7
+        },
+        {
+          "event": 8,
+          "passed": false,
+          "accumulator": 0.7999999999999999
+        },
+        {
+          "event": 9,
+          "passed": false,
+          "accumulator": 0.8999999999999999
+        },
+        {
+          "event": 10,
+          "passed": false,
+          "accumulator": 0.9999999999999999
+        },
+        {
+          "event": 11,
+          "passed": true,
+          "accumulator": 0.09999999999999987
+        },
+        {
+          "event": 12,
+          "passed": false,
+          "accumulator": 0.19999999999999987
+        },
+        {
+          "event": 13,
+          "passed": false,
+          "accumulator": 0.2999999999999999
+        },
+        {
+          "event": 14,
+          "passed": false,
+          "accumulator": 0.3999999999999999
+        },
+        {
+          "event": 15,
+          "passed": false,
+          "accumulator": 0.4999999999999999
+        },
+        {
+          "event": 16,
+          "passed": false,
+          "accumulator": 0.5999999999999999
+        },
+        {
+          "event": 17,
+          "passed": false,
+          "accumulator": 0.6999999999999998
+        },
+        {
+          "event": 18,
+          "passed": false,
+          "accumulator": 0.7999999999999998
+        },
+        {
+          "event": 19,
+          "passed": false,
+          "accumulator": 0.8999999999999998
+        },
+        {
+          "event": 20,
+          "passed": false,
+          "accumulator": 0.9999999999999998
+        },
+        {
+          "event": 21,
+          "passed": true,
+          "accumulator": 0.09999999999999987
+        },
+        {
+          "event": 22,
+          "passed": false,
+          "accumulator": 0.19999999999999987
+        },
+        {
+          "event": 23,
+          "passed": false,
+          "accumulator": 0.2999999999999999
+        },
+        {
+          "event": 24,
+          "passed": false,
+          "accumulator": 0.3999999999999999
+        },
+        {
+          "event": 25,
+          "passed": false,
+          "accumulator": 0.4999999999999999
+        },
+        {
+          "event": 26,
+          "passed": false,
+          "accumulator": 0.5999999999999999
+        },
+        {
+          "event": 27,
+          "passed": false,
+          "accumulator": 0.6999999999999998
+        },
+        {
+          "event": 28,
+          "passed": false,
+          "accumulator": 0.7999999999999998
+        },
+        {
+          "event": 29,
+          "passed": false,
+          "accumulator": 0.8999999999999998
+        },
+        {
+          "event": 30,
+          "passed": false,
+          "accumulator": 0.9999999999999998
+        },
+        {
+          "event": 31,
+          "passed": true,
+          "accumulator": 0.09999999999999987
+        },
+        {
+          "event": 32,
+          "passed": false,
+          "accumulator": 0.19999999999999987
+        },
+        {
+          "event": 33,
+          "passed": false,
+          "accumulator": 0.2999999999999999
+        },
+        {
+          "event": 34,
+          "passed": false,
+          "accumulator": 0.3999999999999999
+        },
+        {
+          "event": 35,
+          "passed": false,
+          "accumulator": 0.4999999999999999
+        },
+        {
+          "event": 36,
+          "passed": false,
+          "accumulator": 0.5999999999999999
+        },
+        {
+          "event": 37,
+          "passed": false,
+          "accumulator": 0.6999999999999998
+        },
+        {
+          "event": 38,
+          "passed": false,
+          "accumulator": 0.7999999999999998
+        },
+        {
+          "event": 39,
+          "passed": false,
+          "accumulator": 0.8999999999999998
+        },
+        {
+          "event": 40,
+          "passed": false,
+          "accumulator": 0.9999999999999998
+        }
+      ],
+      "runtime_condition_result": true
+    },
+    {
+      "conditions": [
+        "prob:20"
+      ],
+      "events": [
+        {
+          "event": 1,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 2,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 3,
+          "passed": false,
+          "accumulator": 0.6000000000000001
+        },
+        {
+          "event": 4,
+          "passed": false,
+          "accumulator": 0.8
+        },
+        {
+          "event": 5,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 6,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 7,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 8,
+          "passed": false,
+          "accumulator": 0.6000000000000001
+        },
+        {
+          "event": 9,
+          "passed": false,
+          "accumulator": 0.8
+        },
+        {
+          "event": 10,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 11,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 12,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 13,
+          "passed": false,
+          "accumulator": 0.6000000000000001
+        },
+        {
+          "event": 14,
+          "passed": false,
+          "accumulator": 0.8
+        },
+        {
+          "event": 15,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 16,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 17,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 18,
+          "passed": false,
+          "accumulator": 0.6000000000000001
+        },
+        {
+          "event": 19,
+          "passed": false,
+          "accumulator": 0.8
+        },
+        {
+          "event": 20,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 21,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 22,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 23,
+          "passed": false,
+          "accumulator": 0.6000000000000001
+        },
+        {
+          "event": 24,
+          "passed": false,
+          "accumulator": 0.8
+        },
+        {
+          "event": 25,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 26,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 27,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 28,
+          "passed": false,
+          "accumulator": 0.6000000000000001
+        },
+        {
+          "event": 29,
+          "passed": false,
+          "accumulator": 0.8
+        },
+        {
+          "event": 30,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 31,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 32,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 33,
+          "passed": false,
+          "accumulator": 0.6000000000000001
+        },
+        {
+          "event": 34,
+          "passed": false,
+          "accumulator": 0.8
+        },
+        {
+          "event": 35,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 36,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 37,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 38,
+          "passed": false,
+          "accumulator": 0.6000000000000001
+        },
+        {
+          "event": 39,
+          "passed": false,
+          "accumulator": 0.8
+        },
+        {
+          "event": 40,
+          "passed": true,
+          "accumulator": 0.0
+        }
+      ],
+      "runtime_condition_result": true
+    },
+    {
+      "conditions": [
+        "prob:30"
+      ],
+      "events": [
+        {
+          "event": 1,
+          "passed": false,
+          "accumulator": 0.3
+        },
+        {
+          "event": 2,
+          "passed": false,
+          "accumulator": 0.6
+        },
+        {
+          "event": 3,
+          "passed": false,
+          "accumulator": 0.8999999999999999
+        },
+        {
+          "event": 4,
+          "passed": true,
+          "accumulator": 0.19999999999999996
+        },
+        {
+          "event": 5,
+          "passed": false,
+          "accumulator": 0.49999999999999994
+        },
+        {
+          "event": 6,
+          "passed": false,
+          "accumulator": 0.7999999999999999
+        },
+        {
+          "event": 7,
+          "passed": true,
+          "accumulator": 0.09999999999999987
+        },
+        {
+          "event": 8,
+          "passed": false,
+          "accumulator": 0.39999999999999986
+        },
+        {
+          "event": 9,
+          "passed": false,
+          "accumulator": 0.6999999999999998
+        },
+        {
+          "event": 10,
+          "passed": false,
+          "accumulator": 0.9999999999999998
+        },
+        {
+          "event": 11,
+          "passed": true,
+          "accumulator": 0.2999999999999998
+        },
+        {
+          "event": 12,
+          "passed": false,
+          "accumulator": 0.5999999999999999
+        },
+        {
+          "event": 13,
+          "passed": false,
+          "accumulator": 0.8999999999999999
+        },
+        {
+          "event": 14,
+          "passed": true,
+          "accumulator": 0.19999999999999996
+        },
+        {
+          "event": 15,
+          "passed": false,
+          "accumulator": 0.49999999999999994
+        },
+        {
+          "event": 16,
+          "passed": false,
+          "accumulator": 0.7999999999999999
+        },
+        {
+          "event": 17,
+          "passed": true,
+          "accumulator": 0.09999999999999987
+        },
+        {
+          "event": 18,
+          "passed": false,
+          "accumulator": 0.39999999999999986
+        },
+        {
+          "event": 19,
+          "passed": false,
+          "accumulator": 0.6999999999999998
+        },
+        {
+          "event": 20,
+          "passed": false,
+          "accumulator": 0.9999999999999998
+        },
+        {
+          "event": 21,
+          "passed": true,
+          "accumulator": 0.2999999999999998
+        },
+        {
+          "event": 22,
+          "passed": false,
+          "accumulator": 0.5999999999999999
+        },
+        {
+          "event": 23,
+          "passed": false,
+          "accumulator": 0.8999999999999999
+        },
+        {
+          "event": 24,
+          "passed": true,
+          "accumulator": 0.19999999999999996
+        },
+        {
+          "event": 25,
+          "passed": false,
+          "accumulator": 0.49999999999999994
+        },
+        {
+          "event": 26,
+          "passed": false,
+          "accumulator": 0.7999999999999999
+        },
+        {
+          "event": 27,
+          "passed": true,
+          "accumulator": 0.09999999999999987
+        },
+        {
+          "event": 28,
+          "passed": false,
+          "accumulator": 0.39999999999999986
+        },
+        {
+          "event": 29,
+          "passed": false,
+          "accumulator": 0.6999999999999998
+        },
+        {
+          "event": 30,
+          "passed": false,
+          "accumulator": 0.9999999999999998
+        },
+        {
+          "event": 31,
+          "passed": true,
+          "accumulator": 0.2999999999999998
+        },
+        {
+          "event": 32,
+          "passed": false,
+          "accumulator": 0.5999999999999999
+        },
+        {
+          "event": 33,
+          "passed": false,
+          "accumulator": 0.8999999999999999
+        },
+        {
+          "event": 34,
+          "passed": true,
+          "accumulator": 0.19999999999999996
+        },
+        {
+          "event": 35,
+          "passed": false,
+          "accumulator": 0.49999999999999994
+        },
+        {
+          "event": 36,
+          "passed": false,
+          "accumulator": 0.7999999999999999
+        },
+        {
+          "event": 37,
+          "passed": true,
+          "accumulator": 0.09999999999999987
+        },
+        {
+          "event": 38,
+          "passed": false,
+          "accumulator": 0.39999999999999986
+        },
+        {
+          "event": 39,
+          "passed": false,
+          "accumulator": 0.6999999999999998
+        },
+        {
+          "event": 40,
+          "passed": false,
+          "accumulator": 0.9999999999999998
+        }
+      ],
+      "runtime_condition_result": true
+    },
+    {
+      "conditions": [
+        "prob:33.3333"
+      ],
+      "events": [
+        {
+          "event": 1,
+          "passed": false,
+          "accumulator": 0.333333
+        },
+        {
+          "event": 2,
+          "passed": false,
+          "accumulator": 0.666666
+        },
+        {
+          "event": 3,
+          "passed": false,
+          "accumulator": 0.999999
+        },
+        {
+          "event": 4,
+          "passed": true,
+          "accumulator": 0.33333199999999996
+        },
+        {
+          "event": 5,
+          "passed": false,
+          "accumulator": 0.666665
+        },
+        {
+          "event": 6,
+          "passed": false,
+          "accumulator": 0.9999979999999999
+        },
+        {
+          "event": 7,
+          "passed": true,
+          "accumulator": 0.3333309999999998
+        },
+        {
+          "event": 8,
+          "passed": false,
+          "accumulator": 0.6666639999999998
+        },
+        {
+          "event": 9,
+          "passed": false,
+          "accumulator": 0.9999969999999998
+        },
+        {
+          "event": 10,
+          "passed": true,
+          "accumulator": 0.3333299999999997
+        },
+        {
+          "event": 11,
+          "passed": false,
+          "accumulator": 0.6666629999999997
+        },
+        {
+          "event": 12,
+          "passed": false,
+          "accumulator": 0.9999959999999997
+        },
+        {
+          "event": 13,
+          "passed": true,
+          "accumulator": 0.33332899999999954
+        },
+        {
+          "event": 14,
+          "passed": false,
+          "accumulator": 0.6666619999999995
+        },
+        {
+          "event": 15,
+          "passed": false,
+          "accumulator": 0.9999949999999995
+        },
+        {
+          "event": 16,
+          "passed": true,
+          "accumulator": 0.3333279999999994
+        },
+        {
+          "event": 17,
+          "passed": false,
+          "accumulator": 0.6666609999999994
+        },
+        {
+          "event": 18,
+          "passed": false,
+          "accumulator": 0.9999939999999994
+        },
+        {
+          "event": 19,
+          "passed": true,
+          "accumulator": 0.33332699999999926
+        },
+        {
+          "event": 20,
+          "passed": false,
+          "accumulator": 0.6666599999999993
+        },
+        {
+          "event": 21,
+          "passed": false,
+          "accumulator": 0.9999929999999992
+        },
+        {
+          "event": 22,
+          "passed": true,
+          "accumulator": 0.3333259999999991
+        },
+        {
+          "event": 23,
+          "passed": false,
+          "accumulator": 0.6666589999999991
+        },
+        {
+          "event": 24,
+          "passed": false,
+          "accumulator": 0.9999919999999991
+        },
+        {
+          "event": 25,
+          "passed": true,
+          "accumulator": 0.333324999999999
+        },
+        {
+          "event": 26,
+          "passed": false,
+          "accumulator": 0.666657999999999
+        },
+        {
+          "event": 27,
+          "passed": false,
+          "accumulator": 0.999990999999999
+        },
+        {
+          "event": 28,
+          "passed": true,
+          "accumulator": 0.33332399999999884
+        },
+        {
+          "event": 29,
+          "passed": false,
+          "accumulator": 0.6666569999999988
+        },
+        {
+          "event": 30,
+          "passed": false,
+          "accumulator": 0.9999899999999988
+        },
+        {
+          "event": 31,
+          "passed": true,
+          "accumulator": 0.3333229999999987
+        },
+        {
+          "event": 32,
+          "passed": false,
+          "accumulator": 0.6666559999999987
+        },
+        {
+          "event": 33,
+          "passed": false,
+          "accumulator": 0.9999889999999987
+        },
+        {
+          "event": 34,
+          "passed": true,
+          "accumulator": 0.33332199999999856
+        },
+        {
+          "event": 35,
+          "passed": false,
+          "accumulator": 0.6666549999999986
+        },
+        {
+          "event": 36,
+          "passed": false,
+          "accumulator": 0.9999879999999985
+        },
+        {
+          "event": 37,
+          "passed": true,
+          "accumulator": 0.3333209999999984
+        },
+        {
+          "event": 38,
+          "passed": false,
+          "accumulator": 0.6666539999999984
+        },
+        {
+          "event": 39,
+          "passed": false,
+          "accumulator": 0.9999869999999984
+        },
+        {
+          "event": 40,
+          "passed": true,
+          "accumulator": 0.3333199999999983
+        }
+      ],
+      "runtime_condition_result": true
+    },
+    {
+      "conditions": [
+        "prob:50"
+      ],
+      "events": [
+        {
+          "event": 1,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 2,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 3,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 4,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 5,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 6,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 7,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 8,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 9,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 10,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 11,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 12,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 13,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 14,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 15,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 16,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 17,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 18,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 19,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 20,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 21,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 22,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 23,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 24,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 25,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 26,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 27,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 28,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 29,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 30,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 31,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 32,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 33,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 34,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 35,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 36,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 37,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 38,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 39,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 40,
+          "passed": true,
+          "accumulator": 0.0
+        }
+      ],
+      "runtime_condition_result": true
+    },
+    {
+      "conditions": [
+        "prob:100"
+      ],
+      "events": [
+        {
+          "event": 1,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 2,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 3,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 4,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 5,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 6,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 7,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 8,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 9,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 10,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 11,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 12,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 13,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 14,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 15,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 16,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 17,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 18,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 19,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 20,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 21,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 22,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 23,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 24,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 25,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 26,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 27,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 28,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 29,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 30,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 31,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 32,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 33,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 34,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 35,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 36,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 37,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 38,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 39,
+          "passed": true,
+          "accumulator": 0.0
+        },
+        {
+          "event": 40,
+          "passed": true,
+          "accumulator": 0.0
+        }
+      ],
+      "runtime_condition_result": true
+    }
+  ],
+  "ordered_conditions": [
+    {
+      "conditions": [
+        "self_state:absent",
+        "prob:20"
+      ],
+      "events": [
+        {
+          "event": 1,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 2,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 3,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 4,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 5,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 6,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 7,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 8,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 9,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 10,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 11,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 12,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 13,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 14,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 15,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 16,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 17,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 18,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 19,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 20,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 21,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 22,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 23,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 24,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 25,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 26,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 27,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 28,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 29,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 30,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 31,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 32,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 33,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 34,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 35,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 36,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 37,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 38,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 39,
+          "passed": false,
+          "accumulator": 0
+        },
+        {
+          "event": 40,
+          "passed": false,
+          "accumulator": 0
+        }
+      ],
+      "runtime_condition_result": false
+    },
+    {
+      "conditions": [
+        "prob:20",
+        "self_state:absent"
+      ],
+      "events": [
+        {
+          "event": 1,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 2,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 3,
+          "passed": false,
+          "accumulator": 0.6000000000000001
+        },
+        {
+          "event": 4,
+          "passed": false,
+          "accumulator": 0.8
+        },
+        {
+          "event": 5,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 6,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 7,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 8,
+          "passed": false,
+          "accumulator": 0.6000000000000001
+        },
+        {
+          "event": 9,
+          "passed": false,
+          "accumulator": 0.8
+        },
+        {
+          "event": 10,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 11,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 12,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 13,
+          "passed": false,
+          "accumulator": 0.6000000000000001
+        },
+        {
+          "event": 14,
+          "passed": false,
+          "accumulator": 0.8
+        },
+        {
+          "event": 15,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 16,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 17,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 18,
+          "passed": false,
+          "accumulator": 0.6000000000000001
+        },
+        {
+          "event": 19,
+          "passed": false,
+          "accumulator": 0.8
+        },
+        {
+          "event": 20,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 21,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 22,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 23,
+          "passed": false,
+          "accumulator": 0.6000000000000001
+        },
+        {
+          "event": 24,
+          "passed": false,
+          "accumulator": 0.8
+        },
+        {
+          "event": 25,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 26,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 27,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 28,
+          "passed": false,
+          "accumulator": 0.6000000000000001
+        },
+        {
+          "event": 29,
+          "passed": false,
+          "accumulator": 0.8
+        },
+        {
+          "event": 30,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 31,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 32,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 33,
+          "passed": false,
+          "accumulator": 0.6000000000000001
+        },
+        {
+          "event": 34,
+          "passed": false,
+          "accumulator": 0.8
+        },
+        {
+          "event": 35,
+          "passed": false,
+          "accumulator": 0.0
+        },
+        {
+          "event": 36,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 37,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 38,
+          "passed": false,
+          "accumulator": 0.6000000000000001
+        },
+        {
+          "event": 39,
+          "passed": false,
+          "accumulator": 0.8
+        },
+        {
+          "event": 40,
+          "passed": false,
+          "accumulator": 0.0
+        }
+      ],
+      "runtime_condition_result": false
+    },
+    {
+      "conditions": [
+        "prob:50",
+        "prob:50"
+      ],
+      "events": [
+        {
+          "event": 1,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 2,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 3,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 4,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 5,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 6,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 7,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 8,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 9,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 10,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 11,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 12,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 13,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 14,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 15,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 16,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 17,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 18,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 19,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 20,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 21,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 22,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 23,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 24,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 25,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 26,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 27,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 28,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 29,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 30,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 31,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 32,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 33,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 34,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 35,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 36,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 37,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 38,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 39,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 40,
+          "passed": false,
+          "accumulator": 0.5
+        }
+      ],
+      "runtime_condition_result": true
+    },
+    {
+      "conditions": [
+        "prob:10",
+        "prob:100"
+      ],
+      "events": [
+        {
+          "event": 1,
+          "passed": false,
+          "accumulator": 0.1
+        },
+        {
+          "event": 2,
+          "passed": false,
+          "accumulator": 0.2
+        },
+        {
+          "event": 3,
+          "passed": false,
+          "accumulator": 0.30000000000000004
+        },
+        {
+          "event": 4,
+          "passed": false,
+          "accumulator": 0.4
+        },
+        {
+          "event": 5,
+          "passed": false,
+          "accumulator": 0.5
+        },
+        {
+          "event": 6,
+          "passed": false,
+          "accumulator": 0.6
+        },
+        {
+          "event": 7,
+          "passed": false,
+          "accumulator": 0.7
+        },
+        {
+          "event": 8,
+          "passed": false,
+          "accumulator": 0.7999999999999999
+        },
+        {
+          "event": 9,
+          "passed": false,
+          "accumulator": 0.8999999999999999
+        },
+        {
+          "event": 10,
+          "passed": false,
+          "accumulator": 0.9999999999999999
+        },
+        {
+          "event": 11,
+          "passed": true,
+          "accumulator": 0.09999999999999987
+        },
+        {
+          "event": 12,
+          "passed": false,
+          "accumulator": 0.19999999999999987
+        },
+        {
+          "event": 13,
+          "passed": false,
+          "accumulator": 0.2999999999999999
+        },
+        {
+          "event": 14,
+          "passed": false,
+          "accumulator": 0.3999999999999999
+        },
+        {
+          "event": 15,
+          "passed": false,
+          "accumulator": 0.4999999999999999
+        },
+        {
+          "event": 16,
+          "passed": false,
+          "accumulator": 0.5999999999999999
+        },
+        {
+          "event": 17,
+          "passed": false,
+          "accumulator": 0.6999999999999998
+        },
+        {
+          "event": 18,
+          "passed": false,
+          "accumulator": 0.7999999999999998
+        },
+        {
+          "event": 19,
+          "passed": false,
+          "accumulator": 0.8999999999999998
+        },
+        {
+          "event": 20,
+          "passed": false,
+          "accumulator": 0.9999999999999998
+        },
+        {
+          "event": 21,
+          "passed": true,
+          "accumulator": 0.09999999999999987
+        },
+        {
+          "event": 22,
+          "passed": false,
+          "accumulator": 0.19999999999999987
+        },
+        {
+          "event": 23,
+          "passed": false,
+          "accumulator": 0.2999999999999999
+        },
+        {
+          "event": 24,
+          "passed": false,
+          "accumulator": 0.3999999999999999
+        },
+        {
+          "event": 25,
+          "passed": false,
+          "accumulator": 0.4999999999999999
+        },
+        {
+          "event": 26,
+          "passed": false,
+          "accumulator": 0.5999999999999999
+        },
+        {
+          "event": 27,
+          "passed": false,
+          "accumulator": 0.6999999999999998
+        },
+        {
+          "event": 28,
+          "passed": false,
+          "accumulator": 0.7999999999999998
+        },
+        {
+          "event": 29,
+          "passed": false,
+          "accumulator": 0.8999999999999998
+        },
+        {
+          "event": 30,
+          "passed": false,
+          "accumulator": 0.9999999999999998
+        },
+        {
+          "event": 31,
+          "passed": true,
+          "accumulator": 0.09999999999999987
+        },
+        {
+          "event": 32,
+          "passed": false,
+          "accumulator": 0.19999999999999987
+        },
+        {
+          "event": 33,
+          "passed": false,
+          "accumulator": 0.2999999999999999
+        },
+        {
+          "event": 34,
+          "passed": false,
+          "accumulator": 0.3999999999999999
+        },
+        {
+          "event": 35,
+          "passed": false,
+          "accumulator": 0.4999999999999999
+        },
+        {
+          "event": 36,
+          "passed": false,
+          "accumulator": 0.5999999999999999
+        },
+        {
+          "event": 37,
+          "passed": false,
+          "accumulator": 0.6999999999999998
+        },
+        {
+          "event": 38,
+          "passed": false,
+          "accumulator": 0.7999999999999998
+        },
+        {
+          "event": 39,
+          "passed": false,
+          "accumulator": 0.8999999999999998
+        },
+        {
+          "event": 40,
+          "passed": false,
+          "accumulator": 0.9999999999999998
+        }
+      ],
+      "runtime_condition_result": true
+    }
+  ],
+  "instance_caster_independence": [
+    {
+      "effect_index": 0,
+      "owner": 0,
+      "passed": [
+        false,
+        true
+      ]
+    },
+    {
+      "effect_index": 0,
+      "owner": 4,
+      "passed": [
+        false,
+        true
+      ]
+    },
+    {
+      "effect_index": 1,
+      "owner": 0,
+      "passed": [
+        false,
+        true
+      ]
+    },
+    {
+      "effect_index": 1,
+      "owner": 4,
+      "passed": [
+        false,
+        true
+      ]
+    }
+  ],
+  "actual_random_boundaries": [
+    {
+      "percent": 0,
+      "rolls": [
+        0,
+        0.199999999,
+        0.2,
+        0.999999999
+      ],
+      "passed": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "draws": 4
+    },
+    {
+      "percent": 20,
+      "rolls": [
+        0,
+        0.199999999,
+        0.2,
+        0.999999999
+      ],
+      "passed": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "draws": 4
+    },
+    {
+      "percent": 100,
+      "rolls": [
+        0,
+        0.199999999,
+        0.2,
+        0.999999999
+      ],
+      "passed": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "draws": 4
+    }
+  ],
+  "rules": [
+    "Expected mode uses binary64 accumulator per(effect instance,caster), not integer percent arithmetic",
+    "All probability conditions in one effect share that accumulator and retain list short-circuit order",
+    "10percent first triggers on event11 due to native floating-point accumulation",
+    "Runtime queries do not re-roll or advance probability",
+    "Actual mode draws even at0 or100percent; equality of roll and probability fails"
+  ],
+  "source_sha256": {
+    "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "tests/test_target_counter_runtime.py": "67aae222254b5e64d7b277dd9ba1336f1fabf08b4e9bd2a029d7bfdf72f3bacb",
+    "research/characterize-probability.py": "b6bd3c9ac7e9f9f6f5cbfbb47ad5f3e441f9bae7a4d8486e3d7c7970c5144448"
+  }
+}

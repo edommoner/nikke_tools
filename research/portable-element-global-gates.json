@@ -1,0 +1,21 @@
+{
+  "passed": false,
+  "complete": false,
+  "gates": [
+    {
+      "name": "element-native",
+      "source_commit": "14c8e2e61fd6eeb9950a13c76f217ae62ca82fd9",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8375670840032399,
+      "log": "/tmp/nikke-element-gate-element-native.log"
+    },
+    {
+      "name": "core",
+      "source_commit": "14c8e2e61fd6eeb9950a13c76f217ae62ca82fd9",
+      "exit_code": 1,
+      "elapsed_seconds": 10.962612499948591,
+      "log": "/tmp/nikke-element-gate-core.log"
+    }
+  ],
+  "source_commit": "14c8e2e61fd6eeb9950a13c76f217ae62ca82fd9"
+}

@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "all_current_gates_passed": true,
+  "source_commit": "14c8e2e61fd6eeb9950a13c76f217ae62ca82fd9",
+  "mac_gates": 31,
+  "unit_tests": 237,
+  "real_profiles": 86,
+  "old_profiles_preserved": 86,
+  "core_programs": 2182,
+  "prior_core_inputs_preserved": 2006,
+  "element_native_cases": 156,
+  "element_api_cases": 9,
+  "unit_groups": {
+    "unit": {
+      "tests": 237,
+      "output": ".............................................................................................................................................................................................................................................\n----------------------------------------------------------------------\nRan 237 tests in 6.506s\n\nOK\n"
+    },
+    "staged-native": {
+      "tests": 9,
+      "output": "../Users/edo/Documents/ChatGPT/nikke_tools/research/upstream/nikke-calc-master/scraper/profile_fetch.py:187: ResourceWarning: unclosed file <_io.TextIOWrapper name='/Users/edo/Documents/ChatGPT/nikke_tools/research/upstream/nikke-calc-master/scraper/nikke_scraped.json' mode='r' encoding='utf-8'>\n  d = json.load(open(os.path.join(HERE, \"nikke_scraped.json\"), encoding=\"utf-8\"))\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n.......\n----------------------------------------------------------------------\nRan 9 tests in 0.652s\n\nOK\n"
+    },
+    "source-native": {
+      "tests": 6,
+      "output": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n"
+    },
+    "native-mode-spec": {
+      "tests": 4,
+      "output": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.004s\n\nOK\n"
+    },
+    "native-mode-input": {
+      "tests": 3,
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.012s\n\nOK\n"
+    },
+    "reference-rewrite": {
+      "tests": 3,
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
+    }
+  },
+  "all_compute_sources_frozen": true,
+  "initial_metal_finding_open": true,
+  "initial_metal_finding": "portable-element-initial-core-finding.json",
+  "scope": "Current required gates pass; first unretained raw mismatch is unlocalized and remains documented, not claimed fixed.",
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

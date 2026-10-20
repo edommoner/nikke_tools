@@ -1,0 +1,583 @@
+{
+  "stage": "native_characterization_before_gpu",
+  "gpu_execution_performed": false,
+  "finding": "Native periodic damage runs before active-buff expiry cleanup. Presence-only element_override_match sees an expired carrier for that pre-cleanup callback, unlike numeric stat queries which compare expires_at. GPU must consult live carrier membership, not independently compare its end timestamp.",
+  "cases": [
+    {
+      "name": "element-packet-dot_damage-전격",
+      "initial_expected": [
+        {
+          "damage": [
+            1100,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            2100,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            3100,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            4100,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              1100,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              1100,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              1100,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          },
+          {
+            "body_damage": [
+              2200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              2200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              2200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          },
+          {
+            "body_damage": [
+              3200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              3200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              3200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          },
+          {
+            "body_damage": [
+              4200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              4200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              4200,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ],
+        "packets": [
+          {
+            "target_order": [
+              0
+            ],
+            "effect": "packet",
+            "time": 0.35,
+            "target_mask": 1,
+            "hit_index": 1,
+            "hit_count": 1,
+            "weighted_amount": 1100.0,
+            "delivered_amount": 1100
+          },
+          {
+            "target_order": [
+              0
+            ],
+            "effect": "packet",
+            "time": 0.6,
+            "target_mask": 1,
+            "hit_index": 1,
+            "hit_count": 1,
+            "weighted_amount": 1100.0,
+            "delivered_amount": 1100
+          },
+          {
+            "target_order": [
+              0
+            ],
+            "effect": "packet",
+            "time": 0.85,
+            "target_mask": 1,
+            "hit_index": 1,
+            "hit_count": 1,
+            "weighted_amount": 1000.0,
+            "delivered_amount": 1000
+          },
+          {
+            "target_order": [
+              0
+            ],
+            "effect": "packet",
+            "time": 1.0999,
+            "target_mask": 1,
+            "hit_index": 1,
+            "hit_count": 1,
+            "weighted_amount": 1000.0,
+            "delivered_amount": 1000
+          }
+        ],
+        "target_scored_damage": [
+          4200
+        ],
+        "periodic_snapshots": [],
+        "staged_state": []
+      }
+    },
+    {
+      "name": "element-packet-dot_damage-작열",
+      "initial_expected": [
+        {
+          "damage": [
+            1000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            2000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            3000,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "damage": [
+            4000,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "native": {
+        "queries": [
+          {
+            "body_damage": [
+              1000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              1000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              1000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          },
+          {
+            "body_damage": [
+              2000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              2000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              2000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          },
+          {
+            "body_damage": [
+              3000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              3000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              3000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          },
+          {
+            "body_damage": [
+              4000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_damage": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "damage": [
+              4000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scored_damage": [
+              4000,
+              0,
+              0,
+              0,
+              0
+            ],
+            "add_overkill": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "attack_buffs": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "combat": {
+              "gauge": 0
+            }
+          }
+        ],
+        "packets": [
+          {
+            "target_order": [
+              0
+            ],
+            "effect": "packet",
+            "time": 0.35,
+            "target_mask": 1,
+            "hit_index": 1,
+            "hit_count": 1,
+            "weighted_amount": 1000.0,
+            "delivered_amount": 1000
+          },
+          {
+            "target_order": [
+              0
+            ],
+            "effect": "packet",
+            "time": 0.6,
+            "target_mask": 1,
+            "hit_index": 1,
+            "hit_count": 1,
+            "weighted_amount": 1000.0,
+            "delivered_amount": 1000
+          },
+          {
+            "target_order": [
+              0
+            ],
+            "effect": "packet",
+            "time": 0.85,
+            "target_mask": 1,
+            "hit_index": 1,
+            "hit_count": 1,
+            "weighted_amount": 1000.0,
+            "delivered_amount": 1000
+          },
+          {
+            "target_order": [
+              0
+            ],
+            "effect": "packet",
+            "time": 1.0999,
+            "target_mask": 1,
+            "hit_index": 1,
+            "hit_count": 1,
+            "weighted_amount": 1000.0,
+            "delivered_amount": 1000
+          }
+        ],
+        "target_scored_damage": [
+          4000
+        ],
+        "periodic_snapshots": [],
+        "staged_state": []
+      }
+    }
+  ]
+}

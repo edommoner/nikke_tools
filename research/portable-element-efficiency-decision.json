@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "source_commit": "14c8e2e61fd6eeb9950a13c76f217ae62ca82fd9",
+  "efficiency_evaluated": true,
+  "selected_for_adoption": true,
+  "production_change_adopted": false,
+  "adoption_stage": "Selected;optimized-source CUDA/Metal validation still required",
+  "candidate": "Filter live recipients then read kind/stat/code through immutable scalar definition accessors",
+  "all_2182_input_output_bytes_equal": true,
+  "workloads": {
+    "ordinary": {
+      "ratio": 0.9437169332465388,
+      "ranges_overlap": false,
+      "ranges": {
+        "control": [
+          0.007424999959766865,
+          0.0077578750206157565
+        ],
+        "accessors": [
+          0.004660500097088516,
+          0.007119374931789935
+        ]
+      }
+    },
+    "matching": {
+      "ratio": 0.9964209607727661,
+      "ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.008372875046916306,
+          0.008416124968789518
+        ],
+        "accessors": [
+          0.008140416699461639,
+          0.008423375082202256
+        ]
+      }
+    },
+    "many-miss": {
+      "ratio": 0.9874979338989751,
+      "ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.0692458749981597,
+          0.07035687507595867
+        ],
+        "accessors": [
+          0.06941625010222197,
+          0.0721628749743104
+        ]
+      }
+    },
+    "late-match": {
+      "ratio": 0.9867500709712047,
+      "ranges_overlap": false,
+      "ranges": {
+        "control": [
+          0.07017725007608533,
+          0.07029766659252346
+        ],
+        "accessors": [
+          0.06863299990072846,
+          0.06939850002527237
+        ]
+      }
+    },
+    "rank-bullets": {
+      "ratio": 1.0090202291504333,
+      "ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.006413041613996029,
+          0.006946083274669945
+        ],
+        "accessors": [
+          0.006609375006519258,
+          0.0069795416202396154
+        ]
+      }
+    }
+  },
+  "reason": "Two observed workloads improve with disjoint sample ranges;other three overlap and show no resolved regression. Simpler immutable field loads avoid full Definition materialization without adding state. Full-roster and CUDA speed remain unmeasured.",
+  "benchmark_sha256": "eddaa709d215090cb09b858e6dbed342d26ce162cbeb7184e22f16809baeb151",
+  "initial_metal_finding_open": true,
+  "scope": "Sequential warmup plus3 samples per variant,32 programs per workload on Apple M5. Initial unlocalized raw mismatch remains documented. No CUDA-speed/full-roster/physical-peak-memory claim; desktop GPU activity not excluded."
+}

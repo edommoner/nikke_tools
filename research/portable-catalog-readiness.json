@@ -49,7 +49,6 @@
     "Unported predicate: not_target_state:예고장": 2,
     "Unported effect fields: duration_scaling, duration_scaling_ref": 2,
     "Unported predicate: target_state:안티 AT 필드": 2,
-    "Unported effect fields: target_code": 1,
     "Stack operation has the wrong effect kind": 1,
     "Unported trigger timing: weapon_hit:부착형 유탄 4": 1,
     "Unported predicate: self_stun_immune": 1,
@@ -125,7 +124,6 @@
     "Unported predicate: not_target_state:예고장": 2,
     "Unported effect fields: duration_scaling, duration_scaling_ref": 2,
     "Unported predicate: target_state:안티 AT 필드": 2,
-    "Unported effect fields: target_code": 1,
     "Stack operation has the wrong effect kind": 1,
     "Unported trigger timing: weapon_hit:부착형 유탄 4": 1,
     "Unported predicate: self_stun_immune": 1,
@@ -161,7 +159,7 @@
   },
   "missing_families": {
     "damage_modifiers": 103,
-    "weapon": 68,
+    "weapon": 67,
     "damage": 50,
     "control_survival": 44,
     "effect_lifecycle": 37,
@@ -1632,13 +1630,10 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported effect fields: target_code",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported effect fields: target_code"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "부착형 유탄 2",
@@ -62876,7 +62871,7 @@
     "app/periodic_target_runtime.py": "b2475507525e8f06b9139142fb662d831f73a72cbb8e99b087dd0c6a1ae3d188",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
     "app/portable_combat.py": "aeb209d1d7b05d1d7954e34c7d674b52157c0aff663cde951affaea023d8f98a",
-    "app/portable_damage_specs.py": "62d322155e688a5e428b4cf56550216c6d050c0605487d39331d4306d47b14bb",
+    "app/portable_damage_specs.py": "8e2433b1720f24bf6d5e70e8a59e5230fac309977170356753506922da69243c",
     "app/portable_duration_extend_specs.py": "f3909d1ce0a448090fd853a8fbb44f64bf6acdbb1803742812a2fb84bd42f9a8",
     "app/portable_enemy_specs.py": "34cfe5234f5ed216af3cf3cbdde5c6b777a48eed2a81676294f2ed96d1ab6e49",
     "app/portable_lifesteal_reference.py": "eeb7dd998fce96afbc032e95b5f9b7454cb0f408d4472bfd6dae9f23a64a1104",
@@ -62886,9 +62881,9 @@
     "app/portable_removal_specs.py": "65eeea6e89b54a4215ec93c6658d26231f4c8a656d3ac8b2ddd52ef5bcec0fcf",
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
     "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
-    "app/portable_runtime.py": "9b8d7c63b63ae2bbbc244f965a1b7fc9978956c4021a8445ab852a8a87efbf22",
+    "app/portable_runtime.py": "a1af4682b8155d4aa9e25ce5bdd8e8930a8a795c898734704906602a2dfa89e9",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "9ba6c94e6bf0773b9c7dd10e6463b830367ccfeee0fa5f3c1fe39b53cb99d2ae",
+    "app/portable_specs.py": "b7c3352ce5d8eb57529aed4e43461e841bf3a98ed07af816fa7ee49f93d2aee0",
     "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
     "app/portable_trigger_specs.py": "cb331314acba871bc8a66b18829d75fac459373c4af75a770c30284727b8f6c9",
     "app/portable_weapon_input.py": "f5b6a332f60bde4382f7579eb32bbf8df2e93116de443c824b8826390136e43b",
