@@ -1,5 +1,17 @@
 # 敵世界overlayの接続契約
 
+## 2026-10-21 shield／vanishの着弾・ゲージ接続
+
+共通計算ソースfe684eeで、shield／vanishを通常射撃、通常攻撃式を含む名前付きスキル、保留B3、lifestealの入口へ接続しました。遮断分は最初のノードだけに計上します。shieldは全てへの優越を要求し、基底コードとelement_code_overrideの現在のpresenceを使います。vanishは通常攻撃を先に遮断し、通常ゲージを止めます。shieldは通常ゲージを通し、遮断されたスキルのゲージを止めます。
+
+静的cameraを入力へ追加し、非camera自動射撃の休止・射撃借金の廃棄・部分弾倉の再装填・MGの実停止時間に基づく冷却も接続しました。dynamic controlとHeavyarms固有のcharge hold、skill_damage武器変更モードは今回の認証に含めません。通常武器変更モードとcharge射撃は検証しました。
+
+Metalの全100入力は、元CPU完全simulateとの35正例、raw拒否16件、旧world49の全出力保持です。初期の追加charge2件では、nativeのcharge.2秒＋待機.2秒に対しGPU入力の周期を.2秒にしていたfixtureの不整合を検出しました。元CPU35辞書を一切変えず、GPU周期を.4秒へ修正しました。GPUソースと98入力のbyte一致を確認して保存readbackを保持し、変わった2入力だけを新規実行しています。合成readbackの全100件について、各byteのGPU由来をCPU auditで追跡しました。失敗rawも保持しています。
+
+通常CUDA／MSLは従来の限定正規化後にv79と厳密一致、共通portable単体293件と旧native17辞書も成功しました。証拠は `research/portable-world-gate-validation.json` と `research/portable-world-overlay-gates-metal.json`。`research/seal-world-gate-metal.py` はGPUなしで固定ソース・入力・全readback・CPU比較・合成の由来を再監査します。
+
+enemy_buff_cleanse、skill_damageモード、Actor、dynamic control・復活、全変種の認証は引き続き未完了です。新gateのCUDA検証は、残るoverlay接続とMetal検証後に短くまとめて行います。通常受付CPU・全変種認証0/203を維持します。
+
 ## 2026-10-21 実験ABI75の本体接続
 
 固定計算ソースa0e936a、入力89,376／出力225,280 words。GPUフレームで開閉したworldノードを開始時刻と宣言順で合成し、共通ダメージ本体の防御・core・適正距離へ渡しました。boss由来のreceived_dmg_pctはキャラ所有者を作らず、既存carrierと同じentryClockで挿入順にmergeします。キャラ敵バフを間に挟む1e16の相殺も元CPUと一致します。
