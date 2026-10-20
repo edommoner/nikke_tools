@@ -112,5 +112,5 @@ def main():
  for i in range(oldcount):
   start=(len(rows)+len(bad)+i)*nw;block=raw[start:start+nw];before=oldraw[i*ow:(i+1)*ow];prior.append(dict(index=i,passed=block[:ow]==before and not any(block[ow:]),output_sha256=hashlib.sha256(block).hexdigest(),prior_output_sha256=hashlib.sha256(before).hexdigest()))
  report=dict(passed=all(r['passed'] for r in results+rejected+prior),cases=results,rejected_cases=rejected,preserved242=prior,captured=str(folder),evidence=evidence,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),full_character_verified=0,normal_ui='CPU',full_goal_complete=False,canonical_world_admission=False)
- out=ROOT/f'research/portable-world-actor-pools-{args.backend}.json';out.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[r.get('name',r.get('index')) for r in results+rejected+prior if not r['passed']];print('Actor HP full native',len(rows),'raw',len(bad),'old242 exact',args.backend)
+ out=ROOT/f'research/portable-world-actor-pools-{args.backend}.json';out.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[r.get('name',r.get('index')) for r in results+rejected+prior if not r['passed']];print('Actor HP native battles14 + typed pools10,raw',len(bad),'old242 exact',args.backend)
 if __name__=='__main__':main()

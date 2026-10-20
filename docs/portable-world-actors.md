@@ -24,3 +24,17 @@ Metal242入力が成功しました。native BossScript/ActorRegistryの識別�
 - HPとhit制HPの数量、世代を跨ぐpool再初期化、死亡通知と再出現する子効果、parts/interruptのcleared、召喚の攻撃/自爆をGPUが所有します。手動cleared maskやCPUで作った死亡予定表を実戦入力へ渡しません。
 - 味方の通常射撃・スキル・保留着弾・DoTと、Actorへの状態付与・解除・順位対象解決を同じ本体へ接続します。registry問い合わせだけの成功を命中対応やキャラ対応へ数えません。
 - 通常生成物と保存済み208/242入力の保持、native完全simulateとの新規battle比較、Metal、必要な短いCUDAを確認し、最終的に全203変種・全効果を認証します。その後に新規共通処理の効率を測定します。
+
+## 2026-10-21 private ABI77: HPと型付き命中
+
+固定822c559のMetal285入力で、実戦native14・型付きpool/set10・raw拒否19・旧242全出力の保持を確認した。実GPUはApple M5、readbackと入力をassert前に保存した。CPU portable309件、通常CUDA/MSL生成コードの厳密一致、固定Git blobと全rawのCPU再監査が成功した。`portable-world-actor-pools-validation.json` が証拠である。
+
+128枠のcanonical poolを追加し、既存Runtimeの8対象配列へ128を流用しない。型付きrefの命中は既存共通land入口で解決し、body/parts/addを識別する。通常武器の計算基準はnative CharStateと同じbodyで、最終の受取先は実際に生きている最古の召喚へ各pelletごとに解決する。これは召喚IDをbodyへ置換する方式ではない。召喚はbodyのshield/vanish着弾ゲートを通らない一方、非cameraの射撃休止とゲージ規約は従来の共通処理を使う。
+
+HP制addは受け取った量だけ、hit制addはnative同様1発ずつ（0ダメージでも）数える。HP→hit移行はGPUの出現時刻とEPSで判定する。部位は超過分も記録し、同世代の死亡済み部位への命中は総ダメージへ残すがpoolを変更しない。召喚の超過分は専用会計へ、部位scoreはuint64へ記録する。死亡通知は次の異なるframeで通常の開始・終了通知より先に配信する。期限退場は死亡通知を出さない。targets_clearedは128bitのrequired/live集合で判定し、次frameの再出現を共通schedulerが処理する。
+
+対象集合は32個の所有slot、それぞれ128bit＋順序付き128個の型・ID・世代を保持する。capture時の順序と世代を固定し、実行時の古い世代を読み替えない。同世代の死亡済みaddへの命中はnativeのoverkill規約を維持する。127add＋bodyの全128対象、出生順が設定IDと異なるケース、期限退場・再出現を検証した。
+
+ABI77のinputは92,208 words、outputは253,952 words。pool inputは90,536、12word定義は90,544、命中量sidecarは92,080。output headerは225,280、16word poolは225,304、32×520word集合は227,352、queryは243,992、receiptは245,016、notice tripleは245,528から。通常ABI73とregistry ABI76のlayoutは変更しない。
+
+現時点で広いenemy効果carrier・skill packet・pending/DoT・Actor-bound callbackは未接続のため、このprivate入口はenemy buff・条件付き効果・未接続damage種を拒否する。interrupt・召喚自身の攻撃/自爆・dynamic control・復活も未完了。通常画面CPU、public world受付false、全変種認証0/203を維持する。Windowsは新しい43入力と前段registry34入力だけを共有driverで検証し、通常4682と旧208は再実行しない。
