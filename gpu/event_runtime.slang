@@ -87,7 +87,7 @@ struct Runtime
     uint frameAmmoActive[5], frameAmmoBase[5], infiniteRowCount, infiniteRows[P_CARRIERS];
     uint enemyBuffCount, enemyBuffRows[P_CARRIERS], enemyCaptureGeneration[P_CARRIERS], enemyEpoch, enemyBirth[8];
     uint namedEventOwners, stackEventOwners; uint phase, castMask, traceMode, traceTotal, burstTraceTotal, nextFrame, frameCount, clockMode; uint64_t frameTime;
-    uint burstModifierMask, cooldownWaitMask, gaugeCharging, normalLandedMask; uint64_t cooldownApplied[5];
+    uint burstModifierMask, cooldownWaitMask, gaugeCharging, normalLandedMask, physicalGaugeOwner; uint64_t cooldownApplied[5], physicalGaugeGain;
     uint64_t coefficient[5], interval[5], reloadTime[5], chargeTime[5], gain[5], cooldown[5];
     uint64_t nextShot[5], reloadUntil[5], ready[5], chargeUntil[5], gauge, action, fullEnd;
     uint count, error, timerClock, entryClock, traceCount, maxDepth, generation;
@@ -702,7 +702,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 depth--;
                 if (s.combat != 0 && f.value != 0)
                 {
-                    uint64_t gain = f64Less(damage.damageGauge,0) ? s.gain[damage.owner] : damage.damageGauge;
+                    uint64_t gain = f64Less(damage.damageGauge,0) ? (s.physicalGaugeOwner==damage.owner+1 ? s.physicalGaugeGain : s.gain[damage.owner]) : damage.damageGauge;
                     addBurstGauge(s,f64Add(f64Mul(gain,f64FromI64(f.value)),f64Mul(f.gaugeFlat,f64FromI64(f.value))));
                 }
                 continue;

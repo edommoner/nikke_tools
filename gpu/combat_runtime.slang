@@ -254,6 +254,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
         s.postReloadUntil[who] = F64_SIGN | ONE; s.nextShot[who] = when;
     }
     s.frameAmmoActive[who] = 1;
+    s.physicalGaugeOwner=who+1;s.physicalGaugeGain=w.gain;
     s.frameAmmoBase[who] = s.modeIndex[who] < 0 ? s.capacity[who] : w.sentinelMode != 0 ? 999999 : commands[s.inputBase+P_MODE_BASE+uint(s.modeIndex[who])*P_MODE_WORDS+1];
     coolWeapon(s,w,who,when);
     uint epoch = s.modeEpoch[who], modeShots = s.modeShots[who]; int mode = s.modeIndex[who];
@@ -330,7 +331,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     {
         s.modeShots[who]++;
         if (w.shotLimit >= 0 && s.modeShots[who] >= uint(w.shotLimit))
-        { uint name = definition_name(s.inputBase,mode); s.frameAmmoActive[who] = 0; clearMode(s,who,when); dispatch(s,0,29,who,int(name),when,output); return; }
+        { uint name = definition_name(s.inputBase,mode); s.frameAmmoActive[who] = 0;s.physicalGaugeOwner=0; clearMode(s,who,when); dispatch(s,0,29,who,int(name),when,output); return; }
     }
     if (w.mode == 1)
     { s.pendingAutoReload[who] = uint(scheduleAutoReload); s.charging[who] = 0; s.nextShot[who] = larger(f64Add(when,f64Add(w.interval,w.chargeTime ^ F64_SIGN)),f64Add(s.chargeStartedAt[who],w.minCycle)); }
@@ -338,10 +339,10 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
 }
 void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
 {
-    s.frameAmmoActive[who] = 0;
+    s.frameAmmoActive[who] = 0;s.physicalGaugeOwner=0;
     uint64_t landedAmount;uint landedCount,landedTarget;
     weaponFrameBody(s,who,when,output,landedAmount,landedCount,landedTarget);
-    s.frameAmmoActive[who] = 0;
+    s.frameAmmoActive[who] = 0;s.physicalGaugeOwner=0;
     if (s.landingPolicy!=0 || (s.healthMask&64)!=0) for (uint hit=0;hit<landedCount && s.error==0;hit++)
     {
         if (s.landingPolicy!=0) land(s,who,landedTarget,landedAmount);

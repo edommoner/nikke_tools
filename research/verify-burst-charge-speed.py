@@ -21,7 +21,7 @@ def main():
     args=parser.parse_args()
     spec=importlib.util.spec_from_file_location('burst_charge_core',ROOT/'scripts/verify-portable-combat.py')
     core=importlib.util.module_from_spec(spec);spec.loader.exec_module(core)
-    cases=json.loads((ROOT/'tests/fixtures/portable-burst-charge-speed.json').read_text())['cases']
+    cases=sum((json.loads((ROOT/'tests/fixtures'/name).read_text())['cases'] for name in ('portable-burst-charge-speed.json','portable-burst-charge-skills.json')),[])
     programs=[core.compile_case(c) for c in cases];bad,rejects=rejection_programs(cases,core.compile_case)
     captured=None;output=None;evidence={}
     if not args.native_only:

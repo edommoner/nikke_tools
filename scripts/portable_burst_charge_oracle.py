@@ -8,6 +8,9 @@ from timer_registry_cases import NAMES
 
 
 def observe(case):
+    if case.get('burst_charge_skill_reference'):
+        from portable_burst_charge_skill_oracle import observe as skill
+        return skill(case)
     who=case['burst_charge_context']['shooter']
     chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=copy.deepcopy(engine_worker.META[n])) for n in NAMES]
     w=case['combat']['weapons'][who];authored_weapon(chars[who],w)

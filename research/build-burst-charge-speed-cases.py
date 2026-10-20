@@ -67,6 +67,9 @@ def main():
             row['script']=sum(([[t,24,0,0,0,-1,0,0],[t,2,0,0,-1,t,0,0]] for t in (0,1,2)),[])
             row['expected_queries']=[dict(combat=dict(gauge=g)) for g in ([2.5,3,3.5] if scenario=='expiry' else [.5,3,7.5])]
             rows.append(row)
+    rows += [case(o,r,s,pct) for o in range(5)
+             for r in (dict(burst_energy=2,burst_energy_raw=0),dict(burst_energy=0,burst_energy_raw=.25))
+             for s in ('auto','other-actor','pellets') for pct in (-33.3,33.3)]
     (ROOT/'tests/fixtures/portable-burst-charge-speed.json').write_text(json.dumps(dict(cases=rows),ensure_ascii=False,indent=2)+'\n')
     print(len(rows),'shared burst charge cases authored')
 

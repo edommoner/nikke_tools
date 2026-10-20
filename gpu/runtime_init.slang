@@ -83,6 +83,8 @@ void initializeRuntime(inout Runtime s)
     s.cooldownWaitMask = 0;
     s.gaugeCharging = 0;
     s.normalLandedMask = 0;
+    s.physicalGaugeOwner = 0;
+    s.physicalGaugeGain = 0;
     s.gauge = 0;
     s.action = 0;
     s.fullEnd = 0;

@@ -1,7 +1,8 @@
 import argparse,json,subprocess,time
 from pathlib import Path
 root=Path(__file__).resolve().parents[1];python=str(root/'.venv/bin/python')
-CORE_REPLAY='/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/burst-charge-core-20261020T084035806876Z'
+parser=argparse.ArgumentParser();parser.add_argument('--core-replay',required=True);args=parser.parse_args()
+CORE_REPLAY=args.core_replay
 jobs=[('staged-native',['-m','unittest','discover','-s','tests','-p','test_staged_dot_runtime.py']),('source-native',['-m','unittest','discover','-s','tests','-p','test_periodic_source_runtime.py']),('native-mode-spec',['-m','unittest','discover','-s','tests','-p','test_weapon_mode_specs.py']),('native-mode-input',['-m','unittest','discover','-s','tests','-p','test_mode_input_policy.py']),('reference-rewrite',['-m','unittest','discover','-s','tests','-p','test_reference_rewrite.py']),('duration-native',['research/verify-duration-extend.py','--backend','metal']),('definition-input',['research/verify-definition-input.py']),('definition-scalar',['research/verify-definition-input.py','--scalar-accessor-control']),('definition-out',['research/verify-definition-input.py','--out-parameter-control']),('removal-queue',['research/verify-removal-queue.py']),('numeric',['scripts/verify-portable-numeric.py','--backend','metal']),('probe',['scripts/verify-portable-probe.py','--backend','metal']),('events',['scripts/verify-portable-events.py','--backend','metal']),('roster',['scripts/verify-portable-roster-battles.py','--backend','metal']),('catalog-weapons',['scripts/verify-portable-catalog-weapons.py','--backend','metal']),('equipment',['scripts/verify-portable-real-equipment.py','--backend','metal']),('real-battle',['scripts/verify-portable-real-battle.py','--backend','metal']),('api',['scripts/verify-portable-api.py','--backend','metal']),('pipeline-lock',['scripts/verify-portable-metal-lock.py']),('catalog-audit',['scripts/audit-portable-catalog.py']),('unit',['-m','unittest','discover','-s','tests','-p','test_portable*.py'])]
 jobs.insert(0,('stack-foundation',['research/verify-stack-foundation.py','--backend','metal']))
 jobs.insert(0,('status-native',['research/verify-status-native-contract.py']))
@@ -21,6 +22,8 @@ jobs.insert(0,('attack-flag-native',['research/verify-attack-flags.py','--native
 jobs.insert(0,('health-runtime',['research/verify-health-runtime.py','--backend','metal']))
 jobs.insert(0,('burst-charge-native',['research/verify-burst-charge-speed.py','--native-only']))
 jobs.insert(0,('burst-charge-firing-native',['research/characterize-burst-charge-firing.py']))
+jobs.insert(0,('burst-reference-catalog',['research/audit-burst-reference-inputs.py']))
+jobs.insert(0,('burst-charge-skill-native',['research/characterize-burst-charge-skills.py']))
 source=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip();total=len(jobs);rows=[]
 for name,args in jobs:
  subprocess.run(['git','diff','--exit-code',source,'--','app','scripts','gpu','tests'],cwd=root,check=True,stdout=subprocess.DEVNULL)
