@@ -1,12 +1,12 @@
 # MacBookへの開発環境の移行
 
-## 2026-10-21 型付き128対象の名前指定解除（CUDA検証待ち）
+## 2026-10-21 型付き128対象の名前指定解除（Metal／CUDA一致）
 
 実験ABI7A・固定af7aae6で、共通resident解除処理に名前指定のglobal／味方scope／敵scopeを接続しました。敵scopeは既存128対象集合を一度だけ捕捉し、全対象の解除を終えてから既存の状態終了通知列を実行します。新しい同名バフを通知から再付与しても、終了した走査で再削除しません。世代の照合は既存actorFieldMemberを使います。効果計算の別コピーはありません。
 
 Metal461入力で完全native30件・不正入力7件・旧424入力の全262144出力word保持が成功しました。初回は29/30件が一致し、再出現直後に旧世代の空carrierを誤って解除する差が1件ありました。失敗rawを保持し、実CPUのmutation_targetsで重複ラベル45件の旧世代除外を確認後、共通の世代照合を追加した別GPUソースで検証しています。同一ソース・入力の再試行はありません。CPU332件、通常／fields／stateのCUDA・MSL生成物が厳密一致しました。
 
-Windowsは新規37入力（native30＋不正7）だけをCPU事前検査後にBelowNormal・180秒上限で1回確認します。旧424・通常4682は再実行しません。通常画面CPU・world公開無効・全変種認証0/203です。条件付き永続味方HP/防御のCPU不整合、広域免疫/stack/counter、skill/pending/DoT、操作・復活・容量・全変種の認証と必要検証後の効率化は未完了です。証拠はportable-world-actor-mutation-validation.json、監査器はseal-world-actor-mutation-metal.pyです。
+Windows v86は固定4271202の共通driverで新規37入力（native30＋不正7）を78.29秒、BelowNormal・180秒上限の1回で成功しました。CPU事前13検査・GPU禁止37入力と30参照、NVRTC／launch／同期／readbackの50記録、全input/output/native/generated SHAをMacで監査しました。旧424・通常4682の再実行0・GPU retry0・残存検証0で元checkoutとサービスを保持しています。保存済み3JSON 56,848bytesだけを取得し、bytes／SHAと固定Git sourceを照合しました。証拠はportable-world-v86-cuda-validation.jsonです。通常画面CPU・world公開無効・全変種認証0/203です。条件付き永続味方HP/防御のCPU不整合、広域免疫/stack/counter、skill/pending/DoT、操作・復活・容量・全変種の認証と必要検証後の効率化は未完了です。証拠はportable-world-actor-mutation-validation.json、監査器はseal-world-actor-mutation-metal.pyです。
 
 
 ## 2026-10-21 型付き対象の名前付き状態条件（Metal／CUDA一致）

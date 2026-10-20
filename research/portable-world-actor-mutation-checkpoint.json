@@ -10,7 +10,7 @@
   "normal_fields_state_generated_exact": true,
   "physical_metal_sessions": 2,
   "unchanged_gpu_retries": 0,
-  "windows_status": "requested37_after_cpu13",
+  "windows_status": "completed/audited",
   "windows_new_inputs": 37,
   "normal_ui": "CPU",
   "canonical_world_admission": false,
@@ -18,5 +18,24 @@
   "full_goal_complete": false,
   "efficiency_started": false,
   "cuda_source": "4271202f6b39e7c27b6de250141b506178ecd1b0",
-  "windows_cpu_tests": 13
+  "windows_cpu_tests": 13,
+  "windows_gpu_executions": 1,
+  "windows_elapsed_seconds": 78.2915728003718,
+  "windows_idle": true,
+  "gpu_jobs_active": 0,
+  "proofs": [
+    "portable-world-actor-mutation-validation.json",
+    "portable-world-v86-cuda-validation.json"
+  ],
+  "legacy_unexplained_metal14c8e2e_finding": "OPEN",
+  "remaining": [
+    "Typed128 immunity/charge pools/cleanse/stack mutations/counters",
+    "Typed skill/pending/DoT and mixed ally/enemy selection",
+    "Source attacks/selfdestruct/interrupt",
+    "Dynamic control/revive",
+    "Conditional permanent ally HP/defense native inconsistency",
+    "Hit-only actor max-HP rank native TypeError",
+    "Capacity/long simulations/full203 certification",
+    "Efficiency after required validation"
+  ]
 }
