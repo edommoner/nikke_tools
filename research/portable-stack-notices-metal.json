@@ -73,12 +73,12 @@
     "command_status": "completed",
     "configured_max_threads_per_threadgroup": 1,
     "device": "Apple M5",
-    "gpu_seconds": 0.007018666714429855,
+    "gpu_seconds": 0.00709175004158169,
     "input_bytes": 3096580,
-    "library_compile_seconds": 0.45886802673339844,
+    "library_compile_seconds": 0.45222699642181396,
     "output_bytes": 5750784,
-    "pipeline_compile_seconds": 1.810629963874817,
-    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_compile_seconds": 1.815798044204712,
+    "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
     "pipeline_max_threads_per_threadgroup": 1,
     "registry_id": "4294968313",
     "threads_per_threadgroup": 1,
@@ -111,7 +111,7 @@
     "gpu/recipient_runtime.slang": "c9a5acde13e4a7f43dcb3b5ebebdafdce5c6b730e848eeb49e26e35d1cb051bf",
     "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
     "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
-    "gpu/element_runtime.slang": "c9e52d30e496a461a69b29a37ec3a889675254d4ece527d9e6144f5807a93cfe",
+    "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
     "gpu/damage_runtime.slang": "ba3d66138f9533b377ca67ee13a89fe16c0937ba325f378e77bcb5f3cc71dcd6",
     "gpu/incoming_runtime.slang": "bde3b172675e137dea190196aeeb2b81e2608115756da932e2642d410c57cf68",
     "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
@@ -134,8 +134,8 @@
     "gpu/admission_runtime.slang": "e0b458871570b27d01cb359c86455e5f995f04e14f810add9a46369b20063db0"
   },
   "generated_sha256": {
-    "cuda": "1652d076b5101c37fadeb03e7faa3532f5af6bbd19fd4d21a5bbe6751be9adf0",
-    "metal": "2318a30339e4d5013710722259d7e2fbd0bfeaf562de73349c254ba582c25856"
+    "cuda": "359e8597e9d1ca578c5a34b423d5c7e55ac02c5da646fed33e51404b1bdbe45e",
+    "metal": "585a10ee19c4868e7585710e3ddd68d3898a82ec0fc527bb455ec22864546b4e"
   },
   "input_sha256": "acc539a784c1e7c9aa9fd83f0f547a5ffc521c7585d97aff0a7e073a8c9a9a29",
   "output_sha256": "a9c019be1bad02e73cbcd2b7d4bab1d5a64e690e5d82c355d9537df971e6835c",

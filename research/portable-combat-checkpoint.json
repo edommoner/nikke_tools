@@ -1,9 +1,9 @@
 {
   "wire_abi": "0x5045566B",
-  "verified_commit": "14c8e2e61fd6eeb9950a13c76f217ae62ca82fd9",
+  "verified_commit": "32653b09d597f0443c0df11f2076b249ec33dbd7",
   "previous_checkpoint": {
-    "report": "portable-combat-v64-checkpoint.json",
-    "proof_commit": "ce01fad"
+    "proof_commit": "80170c3b922b666eadb1f72bec22331c183a89b4",
+    "report": "Git baseline portable-combat-checkpoint.json"
   },
   "positive_cases": 1848,
   "rejections": 334,
@@ -14,13 +14,13 @@
   "cuda_verified": true,
   "metal_report": "portable-combat-metal.json",
   "cuda_report": "portable-combat-cuda.json",
-  "windows_report": "windows-portable-element-v65.json",
+  "windows_report": "windows-portable-element-v66.json",
   "windows_execution": {
-    "command": "python research/verify-element-regression.py --backend cuda --batch-size 1024",
-    "commit": "14c8e2e61fd6eeb9950a13c76f217ae62ca82fd9",
+    "command": "python research/verify-element-optimized.py --backend cuda --batch-size 1024",
+    "commit": "32653b09d597f0443c0df11f2076b249ec33dbd7",
     "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_before": [],
-    "gpu_before": "28, 4192",
+    "gpu_before": "22, 3725",
     "below_normal_priority": true,
     "python_utf8": true,
     "python_dontwritebytecode": true,
@@ -38,26 +38,27 @@
     "busy_skip_disabled_by_explicit_instruction": true,
     "exit_code": 0,
     "timed_out": false,
-    "elapsed_seconds": 88.5821234001778,
+    "elapsed_seconds": 93.48370839981362,
     "stdout": "{\"passed\": true, \"cases\": 1848, \"device\": \"NVIDIA GeForce RTX 3070 Ti\", \"backend\": \"cuda\"}\nAll2006 previous inputs,output words and CPU regression groups preserved\n",
     "stderr": ""
   },
   "windows_postcheck": {
-    "remaining_verification_processes": 0,
     "original_head_after": "61a43e91301841c272badce519e4d8984bb5efae",
     "original_status_after": [],
+    "residual_verification_processes": [],
+    "residual_verification_process_count": 0,
     "existing_gpu_service_preserved": true
   },
-  "windows_checks_this_stage": 1,
+  "windows_checks_this_stage": 2,
   "cuda_verification_mode": "all2182_current_inputs_in_three_dispatches",
   "source_provenance": {
-    "fixed_shared_source_commit": "14c8e2e61fd6eeb9950a13c76f217ae62ca82fd9",
-    "metal_core_source_commit": "14c8e2e61fd6eeb9950a13c76f217ae62ca82fd9",
-    "windows_source_commit": "14c8e2e61fd6eeb9950a13c76f217ae62ca82fd9",
-    "raw_prior_core_preserved_from_proof": "ce01fad"
+    "fixed_shared_source_commit": "32653b09d597f0443c0df11f2076b249ec33dbd7",
+    "metal_core_source_commit": "32653b09d597f0443c0df11f2076b249ec33dbd7",
+    "windows_source_commit": "32653b09d597f0443c0df11f2076b249ec33dbd7",
+    "baseline_proof_commit": "80170c3b922b666eadb1f72bec22331c183a89b4"
   },
-  "validation_receipt": "portable-element-baseline-validation.json",
-  "generated_source_comparison": "portable-element-transfer-completed.json",
+  "validation_receipt": "portable-element-optimized-validation.json",
+  "generated_source_comparison": "portable-element-optimized-validation.json",
   "existing_parity": "portable-element-existing-metal-parity.json",
   "mac_gates": 31,
   "unit_tests": 237,
@@ -2157,7 +2158,6 @@
   },
   "historical_measurement_scope": "Earlier metrics retain their original source and proof provenance in the previous checkpoint; the current experiment is separate.",
   "next_work": [
-    "Adopt the selected scalar element accessors and verify the optimized source on both GPUs",
     "Connect probability and remaining effects/world scheduling;certify all203 characters and all variants",
     "Keep strict readback capture;initial mismatch is unlocalized and not claimed fixed"
   ],
@@ -2281,7 +2281,7 @@
     "gpu/recipient_runtime.slang": "c9a5acde13e4a7f43dcb3b5ebebdafdce5c6b730e848eeb49e26e35d1cb051bf",
     "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
     "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
-    "gpu/element_runtime.slang": "c9e52d30e496a461a69b29a37ec3a889675254d4ece527d9e6144f5807a93cfe",
+    "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
     "gpu/damage_runtime.slang": "ba3d66138f9533b377ca67ee13a89fe16c0937ba325f378e77bcb5f3cc71dcd6",
     "gpu/incoming_runtime.slang": "bde3b172675e137dea190196aeeb2b81e2608115756da932e2642d410c57cf68",
     "gpu/burst_runtime.slang": "9fbc64535b2d69e30e4d674820567381fec6b7c8bc89f27b2217a5bf6762f5b6",
@@ -2898,8 +2898,8 @@
       "source_commit": "14c8e2e61fd6eeb9950a13c76f217ae62ca82fd9",
       "efficiency_evaluated": true,
       "selected_for_adoption": true,
-      "production_change_adopted": false,
-      "adoption_stage": "Selected;optimized-source CUDA/Metal validation still required",
+      "production_change_adopted": true,
+      "adoption_stage": "Adopted after exact2182-input CUDA/Metal parity and all31 Mac gates",
       "candidate": "Filter live recipients then read kind/stat/code through immutable scalar definition accessors",
       "all_2182_input_output_bytes_equal": true,
       "workloads": {
@@ -2977,8 +2977,10 @@
       "reason": "Two observed workloads improve with disjoint sample ranges;other three overlap and show no resolved regression. Simpler immutable field loads avoid full Definition materialization without adding state. Full-roster and CUDA speed remain unmeasured.",
       "benchmark_sha256": "eddaa709d215090cb09b858e6dbed342d26ce162cbeb7184e22f16809baeb151",
       "initial_metal_finding_open": true,
-      "scope": "Sequential warmup plus3 samples per variant,32 programs per workload on Apple M5. Initial unlocalized raw mismatch remains documented. No CUDA-speed/full-roster/physical-peak-memory claim; desktop GPU activity not excluded."
+      "scope": "Sequential warmup plus3 samples per variant,32 programs per workload on Apple M5. Initial unlocalized raw mismatch remains documented. No CUDA-speed/full-roster/physical-peak-memory claim; desktop GPU activity not excluded.",
+      "optimized_source_commit": "32653b09d597f0443c0df11f2076b249ec33dbd7",
+      "adoption_validation": "portable-element-optimized-validation.json"
     },
-    "optimized_source_verification_pending": true
+    "optimized_source_verification_pending": false
   }
 }

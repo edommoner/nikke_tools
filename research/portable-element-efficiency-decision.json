@@ -3,8 +3,8 @@
   "source_commit": "14c8e2e61fd6eeb9950a13c76f217ae62ca82fd9",
   "efficiency_evaluated": true,
   "selected_for_adoption": true,
-  "production_change_adopted": false,
-  "adoption_stage": "Selected;optimized-source CUDA/Metal validation still required",
+  "production_change_adopted": true,
+  "adoption_stage": "Adopted after exact2182-input CUDA/Metal parity and all31 Mac gates",
   "candidate": "Filter live recipients then read kind/stat/code through immutable scalar definition accessors",
   "all_2182_input_output_bytes_equal": true,
   "workloads": {
@@ -82,5 +82,7 @@
   "reason": "Two observed workloads improve with disjoint sample ranges;other three overlap and show no resolved regression. Simpler immutable field loads avoid full Definition materialization without adding state. Full-roster and CUDA speed remain unmeasured.",
   "benchmark_sha256": "eddaa709d215090cb09b858e6dbed342d26ce162cbeb7184e22f16809baeb151",
   "initial_metal_finding_open": true,
-  "scope": "Sequential warmup plus3 samples per variant,32 programs per workload on Apple M5. Initial unlocalized raw mismatch remains documented. No CUDA-speed/full-roster/physical-peak-memory claim; desktop GPU activity not excluded."
+  "scope": "Sequential warmup plus3 samples per variant,32 programs per workload on Apple M5. Initial unlocalized raw mismatch remains documented. No CUDA-speed/full-roster/physical-peak-memory claim; desktop GPU activity not excluded.",
+  "optimized_source_commit": "32653b09d597f0443c0df11f2076b249ec33dbd7",
+  "adoption_validation": "portable-element-optimized-validation.json"
 }
