@@ -15,11 +15,11 @@
   "typed_target_child_conditions": false,
   "cuda_source": "03383d90d5eda28c4eb8c15529365b33add0190e",
   "cuda_inputs": 41,
-  "windows_status": "v90 dispatched; awaiting saved results",
+  "windows_status": "v90 CPU18/input41/native26/source67 preflight passed; CUDA dispatched once; host unavailable before result retrieval; do not rerun",
   "windows_thread": "01a140bc-5f3b-7661-b720-50c945596eaa",
   "windows_host": "remote-control:env_e_6ac12920046c8331afb50b0234aeba48",
-  "windows_turn": "01a15b67-4fba-7982-b0ad-033e5cf20c5a",
-  "windows_cursor": "09b5d983-892a-4318-b2cf-37e3aa661d1e:130",
+  "windows_turn": "01a15b9e-ae4f-7693-9f09-9263cc3a83e0",
+  "windows_cursor": "09b5d983-892a-4318-b2cf-37e3aa661d1e:133",
   "normal_ui": "CPU",
   "canonical_world_admission": false,
   "full_character_verified": 0,
@@ -56,5 +56,11 @@
   "windows_physical_counters_verified": false,
   "physical_abi": "0x5045567f",
   "part_extra_accounting_verified": true,
-  "body_plus127_parts_verified": true
+  "body_plus127_parts_verified": true,
+  "windows_v90_cpu_preflight_tests": 18,
+  "windows_v90_cpu_native_oracles": 26,
+  "windows_v90_source_hashes": 67,
+  "windows_v90_actual_execution_result": "unknown until saved evidence retrieved",
+  "windows_v90_dispatch_count": 1,
+  "windows_v90_result_retrieved": false
 }
