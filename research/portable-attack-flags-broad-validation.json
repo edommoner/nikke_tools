@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "all_current_gates_passed": true,
+  "source_commit": "7492d8b191471f820989dc760bc4adc91494cf6a",
+  "previous_proof_commit": "13c9bdf734fde4325db7376165fcc904b549a242",
+  "checked_at": "2026-10-20T08:12:35.242213+00:00",
+  "mac_gates": 37,
+  "core_programs": 2950,
+  "positive_cases": 2525,
+  "rejections": 425,
+  "attack_flag_native_cases": 162,
+  "attack_flag_api_cases": 8,
+  "target_state_native_cases": 233,
+  "geometry_native_cases": 190,
+  "probability_native_cases": 92,
+  "geometry_physical_cases": 8,
+  "probability_physical_4096_cases": 5,
+  "target_state_api_cases": 10,
+  "geometry_api_cases": 8,
+  "probability_api_cases": 8,
+  "unit_tests": 251,
+  "unit_groups": {
+    "unit": {
+      "tests": 251,
+      "output": "...........................................................................................................................................................................................................................................................\n----------------------------------------------------------------------\nRan 251 tests in 7.364s\n\nOK\n"
+    },
+    "staged-native": {
+      "tests": 9,
+      "output": "../Users/edo/Documents/ChatGPT/nikke_tools/research/upstream/nikke-calc-master/scraper/profile_fetch.py:187: ResourceWarning: unclosed file <_io.TextIOWrapper name='/Users/edo/Documents/ChatGPT/nikke_tools/research/upstream/nikke-calc-master/scraper/nikke_scraped.json' mode='r' encoding='utf-8'>\n  d = json.load(open(os.path.join(HERE, \"nikke_scraped.json\"), encoding=\"utf-8\"))\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n.......\n----------------------------------------------------------------------\nRan 9 tests in 0.679s\n\nOK\n"
+    },
+    "source-native": {
+      "tests": 6,
+      "output": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n"
+    },
+    "native-mode-spec": {
+      "tests": 4,
+      "output": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.004s\n\nOK\n"
+    },
+    "native-mode-input": {
+      "tests": 3,
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.012s\n\nOK\n"
+    },
+    "reference-rewrite": {
+      "tests": 3,
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
+    }
+  },
+  "conditional_hp_contract_cases": 20,
+  "native_projection_exact_profiles": 124,
+  "known_native_hp_gap_profiles": 2,
+  "real_profiles": 126,
+  "old_profiles_preserved": 108,
+  "own_effect_preflight_passed": 63,
+  "initial_unlocalized_metal_finding_open": true,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "efficiency_evaluated": false,
+  "cuda_evidence_report": "portable-attack-flags-transfer-completed.json",
+  "scope": "Completed fixed-source Mac gates only;CUDA evidence is sealed separately"
+}

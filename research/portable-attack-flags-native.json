@@ -6656,7 +6656,7 @@
   "cpu_trace_used_as_gpu_input": false,
   "validation_sha256": {
     "app/portable_damage_specs.py": "c3add38c40d863680fb1c737d55df881c92fa176c18932289c3de6ff87edccd8",
-    "app/portable_runtime.py": "2b4e1217386521eff487d6e62bdfa0319b6f45689440e30d75cbd1a7ab887d81",
+    "app/portable_runtime.py": "10f43aa651493c043288794fdee247bf95b106d7c7b844dd88f7e2fd54924a40",
     "app/portable_specs.py": "65f1fd26e9b306c59d3dafac35fcf3f918c398f2ddf9f246f967760aa39f4c46",
     "scripts/portable_attack_flag_oracle.py": "8f082add07ad031ce18b2a1a3f0b305e3aa2e7147d3870b97ae1bcb4c50f7757",
     "scripts/portable_attack_flag_validation.py": "d22c093f605f95d83d63b09c7406b392df2ab875750e4bf460cf30d8c1a77c10",

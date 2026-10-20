@@ -1,0 +1,24 @@
+{
+  "source_commit": "7492d8b191471f820989dc760bc4adc91494cf6a",
+  "execution": {
+    "commit": "7492d8b191471f820989dc760bc4adc91494cf6a",
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 50.30351059976965,
+    "below_normal_priority": true,
+    "timeout_seconds": 120
+  },
+  "actual_gpu_execution_count": 1,
+  "original_head_equal": true,
+  "original_status_equal": true,
+  "residual_verification_process_count": 0,
+  "existing_gpu_service_preserved": true,
+  "generated_normalization": {
+    "cuda": {
+      "no_line_directives_portable_prelude_sha256": "db3d4fd9c6104385e2d76b7cfce1e623fdf30afc1d90e3087b4ce5e57e3ffa3a"
+    },
+    "metal": {
+      "no_line_directives_portable_prelude_sha256": "8445e3506f67d54239f3152d6a9ad61a73a6e4e7d91f4ddc9a0852764ba124ac"
+    }
+  }
+}

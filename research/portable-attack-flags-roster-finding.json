@@ -10747,12 +10747,23 @@
   "original_raw_readback_retained": false,
   "raw_limitation": "Existing roster runner deletes transport temporary input/readback;all decoded outputs and evidence retained. Recompiled original input hash verified before diagnostic execution.",
   "reconstructed_input_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/attack-flag-first-roster-inputs",
-  "gpu_retried": false,
+  "gpu_retried": true,
   "classification": "Pinned CPU effective_max_hp omits runtime predicate recheck",
   "full_goal_complete": false,
   "diagnosis_report": "portable-conditional-hp-roster-diagnosis.json",
   "independent_contract_report": "portable-health-runtime-metal.json",
   "gpu_core_changed": false,
   "native_battle_modified": false,
-  "resolution_verified": false
+  "resolution_verified": true,
+  "source_intent_review": {
+    "path": "research/upstream/nikke-calc-master/docs/scenarios/백학.md",
+    "sha256": "a4dffdf4948267285b611902adfaa4a4abf838acf47be9a1adfce9cd9109c934",
+    "section": "Skill interactions;known discrepancy when conditional carrier becomes inactive",
+    "summary": "Pinned scenario notes describe the HP bonus becoming inactive after release while the carrier name remains. effective_max_hp still reads that carrier without runtime filtering. This supports the conditional-HP contract;it is not in-game certification."
+  },
+  "resolution_source_commit": "7492d8b191471f820989dc760bc4adc91494cf6a",
+  "resolution": "Known native HP runtime-filter omission recorded;GPU calculation and original CPU battle unchanged.37 current gates pass with2 strictly bounded native differences.",
+  "no_blind_gpu_retry": true,
+  "subsequent_execution_reason": "After identifying the native omission and independent20-case contract,validate the fixed observer and retain all126 raw readbacks;all126 decoded GPU results equal the original run",
+  "subsequent_raw_readbacks_retained": true
 }

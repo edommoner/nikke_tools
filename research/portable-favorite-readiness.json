@@ -3,8 +3,8 @@
   "catalog_characters": 203,
   "audited_contexts": 812,
   "stage0_matches_current_audit": true,
-  "own_effect_preflight_contexts_passed": 210,
-  "all_four_stages_preflight_characters": 52,
+  "own_effect_preflight_contexts_passed": 249,
+  "all_four_stages_preflight_characters": 62,
   "all_four_stages_preflight_names": [
     "아니스",
     "네온 : 블루 오션",
@@ -19,18 +19,23 @@
     "엠마",
     "은화",
     "드레이크",
+    "맥스웰",
     "N102",
     "메어리",
     "메어리 : 베이 갓데스",
     "슈가",
     "밀크",
+    "프림",
     "미하라",
     "율하",
     "애드미",
+    "앨리스",
     "토브",
+    "네베",
     "루피",
     "도라",
     "노벨",
+    "스노우 화이트",
     "홍련",
     "이사벨",
     "리버렐리오",
@@ -47,16 +52,21 @@
     "iDoll 썬",
     "에이드",
     "소다 : 트윙클링 바니",
+    "에이드 : 에이전트 바니",
     "헬름",
+    "츠바이",
     "퀀시 : 이스케이프 퀸",
     "플로라",
     "아리아",
+    "나가",
     "팬텀",
     "민트",
+    "백학",
     "히메노",
     "파스칼",
     "사쿠라 (SR)",
     "클레어",
+    "치사토",
     "쿠루미"
   ],
   "cpu_simulation_executed": false,
@@ -64,7 +74,7 @@
   "full_character_verified": 0,
   "scope": "Favorite stages0..3,default skill levels,no cube,same fixed five-member squad;preflight only;not GPU support certification",
   "issues": {
-    "Unported buff or recipient selector": 767,
+    "Unported buff or recipient selector": 622,
     "Unported trigger timing: event:part_destroy": 60,
     "Unported instant or recipient selector": 57,
     "Unported enemy damage selector": 53,
@@ -124,10 +134,10 @@
   },
   "missing_families": {
     "damage_modifiers": 362,
-    "weapon": 253,
     "control_survival": 176,
     "damage": 161,
     "effect_lifecycle": 124,
+    "weapon": 108,
     "resource_accumulation": 64,
     "burst_cooldown": 56,
     "charge": 48,
@@ -2662,21 +2672,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "캄 스나이핑",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire_count:3"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "타겟 섬멸 코어",
           "type": "buff",
           "stat": "core_dmg_pct",
@@ -2726,21 +2721,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "캄 스나이핑",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire_count:3"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "타겟 섬멸 코어",
           "type": "buff",
@@ -2792,21 +2772,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "캄 스나이핑",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire_count:3"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "타겟 섬멸 코어",
           "type": "buff",
           "stat": "core_dmg_pct",
@@ -2856,21 +2821,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "캄 스나이핑",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire_count:3"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "타겟 섬멸 코어",
           "type": "buff",
@@ -5188,42 +5138,6 @@
             "note"
           ],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "카모플라쥬 스카프",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:카모플라쥬"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "내부 폭발탄 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -5265,42 +5179,6 @@
           "conditions": [
             "during_full_burst"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "카모플라쥬 스카프",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:카모플라쥬"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "내부 폭발탄 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
           "preflight_passed": false,
           "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
@@ -5356,42 +5234,6 @@
             "note"
           ],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "카모플라쥬 스카프",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:카모플라쥬"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "내부 폭발탄 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -5433,42 +5275,6 @@
           "conditions": [
             "during_full_burst"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "카모플라쥬 스카프",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:카모플라쥬"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "내부 폭발탄 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
           "preflight_passed": false,
           "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
@@ -5522,25 +5328,6 @@
             "note"
           ],
           "issue": "Unported trigger timing: part_hit_count:1"
-        },
-        {
-          "name": "라플라스 버스터 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:라플라스 버스터"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -5588,25 +5375,6 @@
             "favorite"
           ],
           "issue": "Unported trigger timing: part_hit_count:1"
-        },
-        {
-          "name": "라플라스 버스터 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:라플라스 버스터"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -5654,47 +5422,6 @@
             "favorite"
           ],
           "issue": "Unported trigger timing: part_hit_count:1"
-        },
-        {
-          "name": "라플라스 버스터 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:라플라스 버스터"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "라플라스 버스터 3",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:라플라스 버스터",
-            "self_stack_above:히어로 비전:5"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -5743,47 +5470,6 @@
             "favorite"
           ],
           "issue": "Unported trigger timing: part_hit_count:1"
-        },
-        {
-          "name": "라플라스 버스터 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:라플라스 버스터"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "라플라스 버스터 3",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:라플라스 버스터",
-            "self_stack_above:히어로 비전:5"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -5835,109 +5521,45 @@
       "character": "맥스웰",
       "favorite_stage": 0,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "피어스 샷 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "맥스웰",
       "favorite_stage": 1,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "피어스 샷 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "맥스웰",
       "favorite_stage": 2,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "피어스 샷 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "맥스웰",
       "favorite_stage": 3,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "피어스 샷 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "라플라스 : 얼티밋 히어로",
@@ -5965,25 +5587,6 @@
             "note"
           ],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "일렉트릭 파워 풀 풀 차지 3",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:일렉트릭 파워 풀 풀 차지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -6006,25 +5609,6 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "일렉트릭 파워 풀 풀 차지 3",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:일렉트릭 파워 풀 풀 차지"
-          ],
           "preflight_passed": false,
           "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
@@ -6061,25 +5645,6 @@
             "note"
           ],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "일렉트릭 파워 풀 풀 차지 3",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:일렉트릭 파워 풀 풀 차지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -6102,25 +5667,6 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "일렉트릭 파워 풀 풀 차지 3",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:일렉트릭 파워 풀 풀 차지"
-          ],
           "preflight_passed": false,
           "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
@@ -6339,21 +5885,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "메티스 버스트 버스터 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -6372,21 +5903,6 @@
           "type": "buff",
           "stat": "atk_from_hp_pct",
           "family": "damage_modifiers",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "메티스 버스트 버스터 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
           "timings": [
             "burst_cast"
           ],
@@ -6423,21 +5939,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "메티스 버스트 버스터 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -6456,21 +5957,6 @@
           "type": "buff",
           "stat": "atk_from_hp_pct",
           "family": "damage_modifiers",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "메티스 버스트 버스터 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
           "timings": [
             "burst_cast"
           ],
@@ -8055,97 +7541,34 @@
       "character": "프림",
       "favorite_stage": 1,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "일어남",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_hit_count:6"
-          ],
-          "conditions": [
-            "target_stack_above:잠 옴:5"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "프림",
       "favorite_stage": 2,
       "own_effects": 16,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "일어남",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_hit_count:6"
-          ],
-          "conditions": [
-            "target_stack_above:잠 옴:5"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "프림",
       "favorite_stage": 3,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "일어남",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_hit_count:6"
-          ],
-          "conditions": [
-            "target_stack_above:잠 옴:5"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note",
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "밀크 : 블루밍 바니",
@@ -8157,21 +7580,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "부끄러움 참기",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "부끄러움 2",
           "type": "damage",
@@ -8299,21 +7707,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "부끄러움 참기",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "부끄러움 2",
           "type": "damage",
           "stat": "split_damage",
@@ -8440,21 +7833,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "부끄러움 참기",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "부끄러움 2",
           "type": "damage",
           "stat": "split_damage",
@@ -8580,21 +7958,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "부끄러움 참기",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "부끄러움 2",
           "type": "damage",
@@ -10349,117 +9712,45 @@
       "character": "앨리스",
       "favorite_stage": 0,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "건강한 당근",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_hp_above:80"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "앨리스",
       "favorite_stage": 1,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "건강한 당근",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_hp_above:80"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "앨리스",
       "favorite_stage": 2,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "건강한 당근",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_hp_above:80"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "앨리스",
       "favorite_stage": 3,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "건강한 당근",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_hp_above:80"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "토브",
@@ -10509,109 +9800,45 @@
       "character": "네베",
       "favorite_stage": 0,
       "own_effects": 14,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "북극곰의 겨울잠",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "네베",
       "favorite_stage": 1,
       "own_effects": 14,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "북극곰의 겨울잠",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "네베",
       "favorite_stage": 2,
       "own_effects": 14,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "북극곰의 겨울잠",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "네베",
       "favorite_stage": 3,
       "own_effects": 14,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "북극곰의 겨울잠",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "루드밀라 : 윈터 오너",
@@ -11597,109 +10824,45 @@
       "character": "스노우 화이트",
       "favorite_stage": 0,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "세븐스 드워프 : I 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "스노우 화이트",
       "favorite_stage": 1,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "세븐스 드워프 : I 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "스노우 화이트",
       "favorite_stage": 2,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "세븐스 드워프 : I 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "스노우 화이트",
       "favorite_stage": 3,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "세븐스 드워프 : I 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "라푼젤",
@@ -12601,23 +11764,6 @@
             "note"
           ],
           "issue": "Unported trigger timing: enemy_death"
-        },
-        {
-          "name": "포식",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "포식 3",
@@ -12666,23 +11812,6 @@
           "issue": "Unported trigger timing: enemy_death"
         },
         {
-          "name": "포식",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "포식 3",
           "type": "buff",
           "stat": "atk_pct",
@@ -12729,23 +11858,6 @@
           "issue": "Unported trigger timing: enemy_death"
         },
         {
-          "name": "포식",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "포식 3",
           "type": "buff",
           "stat": "atk_pct",
@@ -12790,23 +11902,6 @@
             "note"
           ],
           "issue": "Unported trigger timing: enemy_death"
-        },
-        {
-          "name": "포식",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "포식 3",
@@ -13122,21 +12217,6 @@
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "실낙원",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
         },
         {
@@ -13203,21 +12283,6 @@
           "issue": "Unported buff or recipient selector"
         },
         {
-          "name": "실낙원",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "낙인",
           "type": "buff",
           "stat": "dmg_accum_received_atk_pct",
@@ -13281,21 +12346,6 @@
           "issue": "Unported buff or recipient selector"
         },
         {
-          "name": "실낙원",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "낙인",
           "type": "buff",
           "stat": "dmg_accum_received_atk_pct",
@@ -13356,21 +12406,6 @@
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "실낙원",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
         },
         {
@@ -13419,21 +12454,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "섬광",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "pellet_hit_count:80"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "섬광 4",
           "type": "buff",
@@ -13492,21 +12512,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "섬광",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "pellet_hit_count:80"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "섬광 4",
           "type": "buff",
           "stat": "pellet_count_fixed",
@@ -13564,21 +12569,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "섬광",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "pellet_hit_count:80"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "섬광 4",
           "type": "buff",
           "stat": "pellet_count_fixed",
@@ -13635,21 +12625,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "섬광",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "pellet_hit_count:80"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "섬광 4",
           "type": "buff",
@@ -14231,23 +13206,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "버닝 샷",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "버닝 샷 2",
           "type": "buff",
@@ -14295,23 +13253,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "버닝 샷",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "버닝 샷 2",
           "type": "buff",
           "stat": "pierce_range",
@@ -14358,23 +13299,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "버닝 샷",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "버닝 샷 2",
           "type": "buff",
           "stat": "pierce_range",
@@ -14420,23 +13344,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "버닝 샷",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge_fire"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "버닝 샷 2",
           "type": "buff",
@@ -17230,117 +16137,45 @@
       "character": "에이드 : 에이전트 바니",
       "favorite_stage": 0,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "요원의 움직임 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_stack_above:스파이 렌즈:10"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "에이드 : 에이전트 바니",
       "favorite_stage": 1,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "요원의 움직임 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_stack_above:스파이 렌즈:10"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "에이드 : 에이전트 바니",
       "favorite_stage": 2,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "요원의 움직임 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_stack_above:스파이 렌즈:10"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "에이드 : 에이전트 바니",
       "favorite_stage": 3,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "요원의 움직임 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_stack_above:스파이 렌즈:10"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "벨벳",
@@ -19550,115 +18385,45 @@
       "character": "츠바이",
       "favorite_stage": 0,
       "own_effects": 16,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "과충전 공식 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "츠바이",
       "favorite_stage": 1,
       "own_effects": 16,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "과충전 공식 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "츠바이",
       "favorite_stage": 2,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "과충전 공식 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "츠바이",
       "favorite_stage": 3,
       "own_effects": 18,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "과충전 공식 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "favorite"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "아인",
@@ -20495,44 +19260,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: charge_hold:1"
-        },
-        {
-          "name": "체인 릴리즈",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:바니 모드 : 인게이지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "체인 릴리즈 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:바니 모드 : 인게이지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -20627,44 +19354,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: charge_hold:1"
-        },
-        {
-          "name": "체인 릴리즈",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:바니 모드 : 인게이지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "체인 릴리즈 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:바니 모드 : 인게이지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -20759,44 +19448,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: charge_hold:1"
-        },
-        {
-          "name": "체인 릴리즈",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:바니 모드 : 인게이지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "체인 릴리즈 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:바니 모드 : 인게이지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -20891,44 +19542,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: charge_hold:1"
-        },
-        {
-          "name": "체인 릴리즈",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:바니 모드 : 인게이지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "체인 릴리즈 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:바니 모드 : 인게이지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -21019,44 +19632,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: charge_hold:1"
-        },
-        {
-          "name": "노이즈 불렛",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:바니 모드 : 인게이지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "노이즈 불렛 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:바니 모드 : 인게이지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -21147,44 +19722,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: charge_hold:1"
-        },
-        {
-          "name": "노이즈 불렛",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:바니 모드 : 인게이지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "노이즈 불렛 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:바니 모드 : 인게이지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -21275,44 +19812,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: charge_hold:1"
-        },
-        {
-          "name": "노이즈 불렛",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:바니 모드 : 인게이지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "노이즈 불렛 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:바니 모드 : 인게이지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -21403,44 +19902,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: charge_hold:1"
-        },
-        {
-          "name": "노이즈 불렛",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:바니 모드 : 인게이지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "노이즈 불렛 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:바니 모드 : 인게이지"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -22292,109 +20753,45 @@
       "character": "나가",
       "favorite_stage": 0,
       "own_effects": 16,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "친구들과 함께라면!",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "나가",
       "favorite_stage": 1,
       "own_effects": 16,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "친구들과 함께라면!",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "나가",
       "favorite_stage": 2,
       "own_effects": 16,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "친구들과 함께라면!",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "나가",
       "favorite_stage": 3,
       "own_effects": 16,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "친구들과 함께라면!",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "티아",
@@ -22583,21 +20980,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "와일드 투스",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "비스트 케이지",
           "type": "buff",
           "stat": "atk_caster_based_pct",
@@ -22729,21 +21111,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "와일드 투스",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "비스트 케이지",
           "type": "buff",
@@ -22877,21 +21244,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "와일드 투스",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "비스트 케이지",
           "type": "buff",
           "stat": "atk_caster_based_pct",
@@ -23023,21 +21375,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "와일드 투스",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "비스트 케이지",
           "type": "buff",
@@ -23220,21 +21557,6 @@
           "issue": "Unported enemy damage selector"
         },
         {
-          "name": "어나더 화이트 관통특화",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "세븐스 드워프 풀 액티브 5",
           "type": "buff",
           "stat": "effect_target_count_add",
@@ -23326,21 +21648,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported enemy damage selector"
-        },
-        {
-          "name": "어나더 화이트 관통특화",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "세븐스 드워프 풀 액티브 5",
@@ -23436,21 +21743,6 @@
           "issue": "Unported enemy damage selector"
         },
         {
-          "name": "어나더 화이트 관통특화",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "세븐스 드워프 풀 액티브 5",
           "type": "buff",
           "stat": "effect_target_count_add",
@@ -23542,21 +21834,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported enemy damage selector"
-        },
-        {
-          "name": "어나더 화이트 관통특화",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "full_charge"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "세븐스 드워프 풀 액티브 5",
@@ -25214,21 +23491,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "미래 예지 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -25253,21 +23515,6 @@
           "conditions": [
             "self_state:방열"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "미래 예지 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
           "preflight_passed": false,
           "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
@@ -25302,21 +23549,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "미래 예지 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -25341,21 +23573,6 @@
           "conditions": [
             "self_state:방열"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "미래 예지 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
           "preflight_passed": false,
           "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
@@ -25375,25 +23592,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "저격 모드 관통특화",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "event:full_reload"
-          ],
-          "conditions": [
-            "self_state:변경 준비"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "저격 모드 탄 소비 집계",
           "type": "instant",
           "stat": "squad_ammo_consume_as",
@@ -25459,25 +23657,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "저격 모드 관통특화",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "event:full_reload"
-          ],
-          "conditions": [
-            "self_state:변경 준비"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "저격 모드 탄 소비 집계",
           "type": "instant",
@@ -25545,25 +23724,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "저격 모드 관통특화",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "event:full_reload"
-          ],
-          "conditions": [
-            "self_state:변경 준비"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "저격 모드 탄 소비 집계",
           "type": "instant",
           "stat": "squad_ammo_consume_as",
@@ -25629,25 +23789,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "저격 모드 관통특화",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "event:full_reload"
-          ],
-          "conditions": [
-            "self_state:변경 준비"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "저격 모드 탄 소비 집계",
           "type": "instant",
@@ -26797,23 +24938,6 @@
             "note"
           ],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "GO! GO! VICTORY! 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -26838,23 +24962,6 @@
           "conditions": [
             "during_full_burst"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "GO! GO! VICTORY! 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
           "preflight_passed": false,
           "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
@@ -26893,23 +25000,6 @@
             "note"
           ],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "GO! GO! VICTORY! 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -26934,23 +25024,6 @@
           "conditions": [
             "during_full_burst"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "GO! GO! VICTORY! 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
           "preflight_passed": false,
           "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
@@ -28316,23 +26389,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "무대, 시작할게. 5",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:퍼포먼스"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "무대 파트 : 보컬",
           "type": "buff",
           "stat": null,
@@ -28361,23 +26417,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "무대, 시작할게. 5",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:퍼포먼스"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "무대 파트 : 보컬",
           "type": "buff",
@@ -28408,23 +26447,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "무대, 시작할게. 5",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:퍼포먼스"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "무대 파트 : 보컬",
           "type": "buff",
           "stat": null,
@@ -28454,23 +26476,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "무대, 시작할게. 5",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:퍼포먼스"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "무대 파트 : 보컬",
           "type": "buff",
           "stat": null,
@@ -28493,109 +26498,45 @@
       "character": "백학",
       "favorite_stage": 0,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "특약 효력 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "백학",
       "favorite_stage": 1,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "특약 효력 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "백학",
       "favorite_stage": 2,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "특약 효력 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "백학",
       "favorite_stage": 3,
       "own_effects": 17,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "특약 효력 2",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "마키마",
@@ -28622,21 +26563,6 @@
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "조용히 해주겠니?",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
         },
         {
@@ -28688,21 +26614,6 @@
           "issue": "Unported buff or recipient selector"
         },
         {
-          "name": "조용히 해주겠니?",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "조용히 해주겠니? 3",
           "type": "buff",
           "stat": "heal_received_pct",
@@ -28751,21 +26662,6 @@
           "issue": "Unported buff or recipient selector"
         },
         {
-          "name": "조용히 해주겠니?",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "조용히 해주겠니? 3",
           "type": "buff",
           "stat": "heal_received_pct",
@@ -28811,21 +26707,6 @@
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "조용히 해주겠니?",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
         },
         {
@@ -29837,21 +27718,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "관통 특화 탄환",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -29872,21 +27738,6 @@
           "family": "damage_modifiers",
           "timings": [
             "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "관통 특화 탄환",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
           ],
           "conditions": [],
           "preflight_passed": false,
@@ -29921,21 +27772,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "관통 특화 탄환",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -29963,21 +27799,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "관통 특화 탄환",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -30132,23 +27953,6 @@
             "note"
           ],
           "issue": "Unported trigger timing: core_hit_count:1"
-        },
-        {
-          "name": "정신 집중",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "every:10.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -30195,23 +27999,6 @@
             "note"
           ],
           "issue": "Unported trigger timing: core_hit_count:1"
-        },
-        {
-          "name": "정신 집중",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "every:10.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -30258,23 +28045,6 @@
             "note"
           ],
           "issue": "Unported trigger timing: core_hit_count:1"
-        },
-        {
-          "name": "정신 집중",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "every:10.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -30321,23 +28091,6 @@
             "note"
           ],
           "issue": "Unported trigger timing: core_hit_count:1"
-        },
-        {
-          "name": "정신 집중",
-          "type": "buff",
-          "stat": "pierce_enabled",
-          "family": "weapon",
-          "timings": [
-            "every:10.0s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -31176,21 +28929,6 @@
             "note"
           ],
           "issue": "Unported instant or recipient selector"
-        },
-        {
-          "name": "슈퍼 캅 6",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -31237,21 +28975,6 @@
             "note"
           ],
           "issue": "Unported instant or recipient selector"
-        },
-        {
-          "name": "슈퍼 캅 6",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -31298,21 +29021,6 @@
             "note"
           ],
           "issue": "Unported instant or recipient selector"
-        },
-        {
-          "name": "슈퍼 캅 6",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -31359,21 +29067,6 @@
             "note"
           ],
           "issue": "Unported instant or recipient selector"
-        },
-        {
-          "name": "슈퍼 캅 6",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -32353,109 +30046,45 @@
       "character": "치사토",
       "favorite_stage": 0,
       "own_effects": 19,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "방어 관통 사격",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "치사토",
       "favorite_stage": 1,
       "own_effects": 19,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "방어 관통 사격",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "치사토",
       "favorite_stage": 2,
       "own_effects": 19,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "방어 관통 사격",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "치사토",
       "favorite_stage": 3,
       "own_effects": 19,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "방어 관통 사격",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "타키나",
@@ -32481,21 +30110,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "제압 개시 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -32516,21 +30130,6 @@
           "family": "control_survival",
           "timings": [
             "every:15s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "제압 개시 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
           ],
           "conditions": [],
           "preflight_passed": false,
@@ -32565,21 +30164,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "제압 개시 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -32600,21 +30184,6 @@
           "family": "control_survival",
           "timings": [
             "every:15s"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "제압 개시 2",
-          "type": "buff",
-          "stat": "armor_break_enabled",
-          "family": "weapon",
-          "timings": [
-            "burst_cast"
           ],
           "conditions": [],
           "preflight_passed": false,
@@ -33156,13 +30725,13 @@
   ],
   "source_sha256": {
     "research/audit-portable-favorites.py": "e2e9a7d747f966b8805f29ad0307e5d8a5c376c1550614d3994b288a0216835b",
-    "research/portable-catalog-readiness.json": "d050a1eca4e27dff05bd4905bb3670804986c4731e01b47562e988dc77c90212",
+    "research/portable-catalog-readiness.json": "1349b24cdeddc2c4035f8db876730433ad88ea4f1d059d5d02ef8300e8b1a9ab",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
-    "app/portable_runtime.py": "2b4e1217386521eff487d6e62bdfa0319b6f45689440e30d75cbd1a7ab887d81",
+    "app/portable_runtime.py": "10f43aa651493c043288794fdee247bf95b106d7c7b844dd88f7e2fd54924a40",
     "app/portable_roster_input.py": "cf569da9faababe07f9c1c16111da2f64936d5da562b123ea0ed67b7847bd024",
     "app/portable_trigger_specs.py": "cb51cde60865323c4f077687d8d2c8b8fac7d9572945ed0cf8f6f64034876b77",
     "app/portable_probability_specs.py": "77becccd2a7cf2b046ad4422958952d843d76a4aa2800f9fcb6dd7ce35c75f61",
-    "app/portable_damage_specs.py": "7515fd480d6abbc09f34c4543c8ccc597154b031ca029ada63e85d179a918197",
+    "app/portable_damage_specs.py": "c3add38c40d863680fb1c737d55df881c92fa176c18932289c3de6ff87edccd8",
     "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
     "scripts/detail_coverage.py": "eef94f7675f270e8a4870323cb1e55e8506f2e5fe47e6fa4b1645d9aaf71dc40",
     "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
