@@ -1,3 +1,15 @@
+## 2026-10-21 実着弾のCPU23実戦と共通入力adapter（物理GPU entry未実装）
+
+前回の「body/partはlifesteal後」という引き継ぎは誤りでした。実CPUのイベント列とinstalled ASTを確認し、body/part/add全てでImpact→同期counter完了子→counterへの死亡登録→lifestealと訂正しました。23実戦でbody/addとも同じ着弾の吸血10%→50%変更が効き、HP500→984。body/partのImpactは元damage968、HP50 addはclipped50、hit-HP addは1です。partではbody回復後596.8でcounter子が動き、その後part回復で1000になります。part全件のHP/死亡を先に更新し、それから個別partのcallbackを回すnative順を維持してください。
+
+skill_damage武器変更も物理tagはnormal/pellet/full_chargeで、CounterSpecのfamilyはWEAPONです。式のskill/normalやworldPhysicalNormalからcredit familyを推測しないでください。単発modeのSKILL-only counterは0、WEAPON-onlyは完了を実証しました。遮断はBLOCKED Impactを発行せず、基礎攻撃0でも物理damage下限1です。未知ID/古い世代をbodyへ読み替えません。実戦counter carrierはtarget=bossを明示し、数えるadd/part等はCounterSpecに保持します。target selectorは実addへ解決されてnative prepareに拒否されるため、この差を混同しないでください。
+
+app/portable_target_counter_program.pyへcounterの非数値carrier/event58変換を共通化し、全定義のstat identityを保持しました。既存32入力/native10のSHA完全保持、旧53 native辞書完全一致、portable CPU368が成功しました。research/compile-world-target-counter-battles.pyは23実戦のliteral定義と128 bindingのpart reachをmode1 sidecar/pending ABI7Fへ符号化します。CPU途中状態を入力にせず、現literal ABI7Eはmode1を拒否します。GPUソース変更0・今回GPU実行0・Windows追加依頼0です。
+
+次は新private entryで実際のActor receiptからcredit/死亡を既存collect/latch/frame26/event58へ渡し、lifesteal前に完了子を実行します。part damage/reachは射撃callback前に既存damageValueから捕捉し、body回復後にpart全HPを更新してから個別part callbackへ進みます。旧8entry生成物と旧622全出力を保持してからMetalで実証してください。詳細はdocs/portable-world-target-counters.md、CPU証拠はportable-world-target-counter-battle-native-contract.json/input-validation.json、訂正証拠はlanding-order-finding.jsonです。
+
+前回Metal622/CUDA32は引き続き有効で、Windowsはv89完了・idle、cursor130です。通常画面CPU/public world false・全203変種認証0・legacy unexplained Metal14c8e2e finding OPEN。物理bridge、typed child context、skill/pending/DoT、操作/復活、容量/長時間、全変種対応と必要検証後の効率化は未完了です。
+
 ## 2026-10-21 対象別counterの共通resource/event:Metal622／CUDA32一致
 
 計算source98427c0・private ABI7Eで、credit/UID/refresh epoch/expiry/dead Actor、immutable ready queue、全siblings先行latch、共通event58の同期子と同epochだけの終了処理を接続しました。正常10ケース・48段階のUID/epoch/credit/完了snapshot、不正22、旧590全524288word保持に成功し、保存rawのCPU再監査も成功しました。通常＋6旧private entryのCUDA/MSL生成物は厳密一致、portable CPU364（unit revision a27f308）も成功しています。
@@ -6,7 +18,7 @@
 
 source packet61c7a884c3d687c486017d71e84e560d6b0a46e9、codex/cuda-world-v89-source（13ファイル233071bytes）でWindows新32入力だけを検証し、Mac監査まで成功しました。CPU phase5＋target_counter8、GPU禁止の32入力/native10照合後、BelowNormal/JobObject/start gate/独立180秒/cleanup5秒でCUDA1回・92.3588146秒・exit0。3JSON計50092bytesのsource/name/bytes/SHA、全input/output/native/generated fingerprint、50 phase、元checkout/service保持・残存0を確認しました。旧590/通常4682/旧各suite再実行0、GPU retry0です。Windows turn01a15b67-4fba-7982-b0ad-033e5cf20c5aはcompleted、cursor130、idle。再実行依頼は不要です。GitHub共有はゴール達成まで許可済みです。
 
-Mac証拠:portable-world-target-counter-validation.json、portable-world-target-counter-metal.json、初回失敗/root-finding、監査器seal-world-target-counter-metal.py。次は実武器/散弾/部位/召喚のImpact bridge（body/partはlifesteal後、addはlifesteal前のreceipt callback、致死credit先行）、型付き対象条件/子context、skill/pending/DoTへ接続します。このphaseはliteral resource/eventのみで、未接続のdamage子/runtime条件/通常enemy field子をcounter有効時に拒否します。通常画面CPU・world公開無効・全変種認証0/203、効率化は必要検証後です。
+Mac証拠:portable-world-target-counter-validation.json、portable-world-target-counter-metal.json、初回失敗/root-finding、監査器seal-world-target-counter-metal.py。次は実武器/散弾/部位/召喚のImpact bridge（body/part/addはいずれもlifesteal前、addはclipped receipt callback、致死credit先行）、型付き対象条件/子context、skill/pending/DoTへ接続します。このphaseはliteral resource/eventのみで、未接続のdamage子/runtime条件/通常enemy field子をcounter有効時に拒否します。通常画面CPU・world公開無効・全変種認証0/203、効率化は必要検証後です。
 
 ## 2026-10-21 対象別カウンター：入力とnative基準を固定（GPU未接続）
 
@@ -710,4 +722,4 @@ Windows PCは他作業に影響が出ているため、常時のCUDAテストや
 
 上記v89依頼は完了・Mac監査成功です。固定61c7a884のCUDA32はCPU13＋GPU禁止のnative10/48段階照合後、独立180秒/BelowNormalの1回で92.3588146秒、exit0。3JSON計50092bytesを取得し、source/name/bytes/SHAと共通監査器の全fingerprint・50 phase・元環境保持・残存0を確認しました。旧590/通常4682再実行0、GPU retry0です。Windows turn01a15b67-4fba-7982-b0ad-033e5cf20c5aはcompleted、cursor130、idle。再実行依頼は不要です。
 
-現在の10ケースはbody0/gen1にcounterをbindするliteral resource/event検証です。他Actorへのbind、実着弾、target条件/child contextは次の段階で実証します。addはnative Boss.hit_add内のreceiptでcounter→death通知、その後にlifestealが動き、body/partのlifesteal後と順序が異なります。次の実戦witnessではこの違いとclipped damageを検証してください。全変種0/203・通常CPU/public false・legacy unexplained Metal14c8e2e finding OPENを維持します。
+現在の10ケースはbody0/gen1にcounterをbindするliteral resource/event検証です。他Actorへのbind、実着弾、target条件/child contextは次の段階で実証します。実戦測定ではbody/part/addの全てでcounter通知がlifesteal前でした。以前のbody/partをlifesteal後とした記録は誤りです。addのclipped damage、body/partの元damage、part全体のHP更新と個別callbackの順を検証してください。全変種0/203・通常CPU/public false・legacy unexplained Metal14c8e2e finding OPENを維持します。

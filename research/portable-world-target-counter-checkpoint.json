@@ -1,12 +1,12 @@
 {
-  "stage": "Private target-counter resource/event Metal622 and CUDA32 sealed",
+  "stage": "Physical counter full CPU23 witnesses and literal input adapter prepared; actual GPU landing bridge pending",
   "calculation_source": "98427c056db45a53ccbc23c8186ed12ee92eb768",
   "metal_inputs": 622,
   "native_literal_cases": 10,
   "native_action_steps": 48,
   "raw_rejections": 22,
   "old590_all_output_words_exact": true,
-  "portable_cpu_tests": 364,
+  "portable_cpu_tests": 368,
   "seven_prior_entries_generated_exact": true,
   "actual_metal_executions": 2,
   "unchanged_gpu_retries": 0,
@@ -43,5 +43,15 @@
   "windows_gpu_executions": 1,
   "windows_imported_json_bytes": 50092,
   "gpu_jobs_active": 0,
-  "counter_binding_scope": "Literal body0/gen1;other bound Actors and real landing bridge pending"
+  "counter_binding_scope": "Literal body0/gen1;other bound Actors and real landing bridge pending",
+  "physical_native_battle_cases": 23,
+  "old53_native_dictionaries_exact": true,
+  "old32_literal_fingerprints_preserved": true,
+  "publish_and_complete_before_lifesteal": true,
+  "physical_skill_mode_credit_family": "WEAPON, independent of formula and skill_name",
+  "prior_handoff_lifesteal_order_corrected": true,
+  "pending_physical_abi": "0x5045567f",
+  "physical_sidecar_mode": 1,
+  "gpu_executions_this_stage": 0,
+  "windows_additional_runs_this_stage": 0
 }

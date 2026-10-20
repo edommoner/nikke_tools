@@ -46,7 +46,7 @@ def policy_words(effect, owner, name):
         return [0] * POLICY_WORDS
     # The marker belongs to the enemy sentinel; its explicit Actor is unrelated
     # to that recipient. Other selectors need their own native binding proof.
-    if effect.get('target', 'self') != 'target':
+    if effect.get('target', 'self') not in ('target', 'boss'):
         raise ValueError('Private counter carrier must use the enemy sentinel')
     _index(owner, 5, 'owner'); _index(name, 256, 'name')
     flags = int(spec.preserve) | int(spec.on_death) << 1 | int(spec.owner_only) << 2 | int(spec.single_body) << 3
@@ -123,4 +123,31 @@ def pack(effects, actions, names, state_names):
         previous = time
         at = ACTION_BASE + i * ACTION_WORDS
         words[at:at + ACTION_WORDS] = row
+    return words
+
+
+def pack_battle(effects, command_count, names, state_names, bindings, patterns):
+    """Pending physical-world sidecar: authored policies and static part reach.
+
+    Mode1 is rejected by the existing literal-only GPU entry. This encoder
+    cannot enable that entry or the public application adapter.
+    """
+    if type(command_count) is not int or not 1 <= command_count <= COMMANDS:
+        raise ValueError('Invalid world counter command count')
+    for effect, owner in effects:
+        if specification(effect) is not None and effect.get('target') != 'boss':
+            raise ValueError('World counter carrier must explicitly bind the boss sentinel')
+    words = pack(effects, [(0, ('activate',))] * command_count, names, state_names)
+    words[6] = 1
+    words[ACTION_BASE:] = [0] * (COMMANDS * ACTION_WORDS)
+    if not 1 <= len(bindings) <= 128:
+        raise ValueError('Invalid world counter Actor binding count')
+    for slot, binding in enumerate(bindings):
+        if int(binding.kind) != 1:
+            continue
+        reach = patterns[binding.run].targets[binding.slot].reach
+        if type(reach) is not int or not 0 <= reach <= 5:
+            raise ValueError('Invalid physical part reach')
+        at = ACTION_BASE + slot * 8
+        words[at:at + 2] = [1, reach]
     return words

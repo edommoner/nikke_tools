@@ -23,7 +23,7 @@ refresh時はepochを進め、preserve指定・同じActor・未完了・期限�
 
 ## 着弾側の接続点
 
-現nativeのbody/partはlifesteal処理の後に `publish_landing`、addは `BossScript.hit_add` のreceiptから `publish_impact`、続いてkilledなら `target_death` を呼びます。致死着弾も死亡登録より先にcreditを集計します。既存Slangのland/actorPoolLandだけでbody/part/addの前後関係が同一とは仮定せず、各呼出元の実測を追加します。
+実CPUの観測とinstalled ASTでは、body/partもlifestealより前に `publish_landing` と同期完了子を実行します。addは `BossScript.hit_add` のreceiptから `publish_impact`、続いてkilledなら `target_death` を呼び、その後にlifestealします。致死着弾も死亡登録より先にcreditを集計します。以前の「body/partはlifesteal後」という記録は誤りでした。`portable-world-target-counter-landing-order-finding.json` と実戦23ケースを基準にしてください。
 
 nativeの実着弾bridgeが発行するoutcomeはDAMAGINGです。明示ImpactのBLOCKED policyを、worldの遮断時に勝手に発火する規則へ変えません。ゼロdamageでも正のcreditを持てます。武器モードやnormal-labelled skillはダメージ式の種類とHitFamilyが必ずしも一致しません。分類はcanonicalなタグ/impact規則に従い、既存のnormal/skill判定を検証して使います。
 
@@ -51,7 +51,7 @@ WC01/version1のsidecarは5,128 wordsです。8-word header、256定義×16 word
 
 追加の実CPU witnessでは、最初のevent:marker子でepoch1・credit0・done=falseのresourceが既に存在し、その子のdamage0/credit1の着弾だけで完了しました。`effect_runtime.ActivationPreparation`は新carrierのappend直後、refreshのtrigger_count更新直後にprepareを挿入します。したがってSlangのprepareをadvanceBuffActivationの終了側へ置くと遅すぎます。carrierの登録/expiry更新後、named/stack子frameをpushする前に準備する必要があります。旧expiryを別resourceに保持してpreserveを判定し、全readyをlatchしてから子を回す設計を維持します。
 
-portable CPU363検査が成功しました。最初のsandbox内検査は終了確認のpsだけがPermissionErrorで失敗したため、process確認を許可した環境で全検査を再実行しています。今回GPU実行0、Windows追加依頼0です。次はこのsidecarを新private entryへ結合し、resource/epoch/dead registry/immutable ready queueと共通event58の継続frameを実装します。実武器/部位/召喚の着弾順、lifesteal後の通知、skill/pending/DoT、新Actor種、全変種認証は未完了です。
+portable CPU363検査が成功しました。最初のsandbox内検査は終了確認のpsだけがPermissionErrorで失敗したため、process確認を許可した環境で全検査を再実行しています。今回GPU実行0、Windows追加依頼0です。次はこのsidecarを新private entryへ結合し、resource/epoch/dead registry/immutable ready queueと共通event58の継続frameを実装します。実武器/部位/召喚の着弾とlifestealの通知順、skill/pending/DoT、新Actor種、全変種認証は未完了です。
 
 ## 2026-10-21 private resource/event phase:Metal622
 
@@ -71,4 +71,26 @@ Windows v89は固定61c7a884の共通short driverで新規32入力（native10/ra
 
 この10ケースのcounter bindingは固定body0/gen1です。不一致Actor/family/outcome/genの無視、明示blocked credit、death登録は検証しましたが、他Actorにbindしたcounterと実Actor poolによる着弾/死亡は今後の検証です。入力encoderの最大ID/世代テストを、全ActorのGPU動作証明には読み替えません。
 
-次の着弾bridgeでは順序を分ける必要があります。実CPUソースの_land_boss/_land_targetはlifesteal直後にpublish_landingを挿入します。一方、addはBossScript.hit_add内のreceipt callbackでpublish_impact/deathを通知し、その呼出しが返った後に_landがlifestealします。addのcounter完了子は同じ着弾のlifestealより先に動きます。body/partは元event.damage、addはreceiptのclipped tookをImpactに持つため、共通landの一律な後処理へ接続するだけでは一致しません。次のCPU実戦witnessとGPU fixtureでこの差を固定してください。
+実戦測定により、body/partもaddもcounter通知・同期完了子がその着弾のlifestealより先に動くことを確認しました。元のAST visit_Exprは[通知statement,元の_apply_lifesteal node]の順で挿入しており、以前の静的な読み取りが誤っていました。一方、body/partは元event.damage、addはreceiptのclipped tookをImpactに持ちます。body Impact→body lifesteal→到達part集合の全HP/死亡更新→各partのImpact/death/lifesteal、という複合順は保持する必要があります。
+
+## 2026-10-21 実着弾のCPU契約23ケース（物理GPU接続前）
+
+`world_target_counter_battle_cases.py` の同一fixtureを、元のfull native simulateと次のprivate入力adapterで使います。新観測器はopt-inで実際のpublish_impact、同期complete、heal_received、UID作成順、credit/expiry/dead Actorを観測します。旧53 native辞書は全て完全一致し、既存32 literal入力/native10のfingerprintも保持しました。GPUソースの変更/実行、Windows追加依頼はありません。
+
+23実戦にはbody/add/part、HP/命中HP召喚、死亡完了/報酬なし取消、owner以外の致死着弾、期限切れ、未知ID/古い世代、遮断、散弾、skill_damage武器変更を含みます。完了子でlifestealを10%→50%へ変えるケースでは、body/addともHP500から同じ着弾で984へ回復します。bodyのImpactは968、HP50 addは50、hit-HP addは1を持ちます。部位HP50へのImpactは超過分を含む968で、body回復後のHP596.8でpart完了子が動き、part回復で1000になります。基礎攻撃0でもnative物理ダメージの下限は1です。遮断はBLOCKED Impactを発行しません。
+
+`skill_damage`武器変更でも物理HitEventのtagはnormal/pellet/full_chargeで、canonical classify_hitのfamilyはWEAPONです。単発modeのSKILL-only counterはcredit0、WEAPON-only counterは完了します。これは式のnormal/skillや既存worldPhysicalNormal（skill_nameによる分類）と別の契約です。後者をcounter familyの代用にしてはいけません。standalone damage handlerのnormal_skill tagは別途SKILLなので、skill/pending/DoT接続時にそのcanonical分類を使います。
+
+召喚が存在する実戦でtarget selectorは実際のaddを返すため、counter carrierがenemy sentinelを要求するnative prepareで拒否されます。実戦fixtureはtarget=bossを明記し、数えるActorはCounterSpecのadd/part等をそのまま持ちます。`portable_target_counter_program.py` は全定義のevent58とcounter carrierを共通compilerへ写像し、元のstat identityを保持します。`pack_battle` はboss sentinelを要求し、mode1 sidecarへ元の128 bindingのpart reachだけを追加します。CPU観測を入力には渡しません。
+
+`compile-world-target-counter-battles.py` は全23入力をpending ABI7Fとして生成します。既存literal ABI7Eはmode1を拒否し、新しい物理entryはまだありません。`characterize-world-target-counter-landings.py` とnative-contract.jsonが実戦結果とliteral入力SHAを保存します。共通portable CPU368検査が成功しています。これはGPU実装済みという証拠ではありません。
+
+次の実装は新private entryで開始し、以下を共通Slangへ接続します。
+- GPU poolの着弾receiptから正確なkind/ID/gen、took/killedを捕捉し、再aimで死亡対象を読み替えないこと。
+- 既存collect/latch/frame26/event58を共用し、credit→同期子→死亡登録/完了→lifestealの順を守ること。body/partは元damage、addはclipped took、武器creditは1・family WEAPONです。
+- part damage/reachは射撃のcallback前に既存damageValueから捕捉し、body lifestealの後に到達part全件のHP/死亡を先に更新してから個別part callbackを回すこと。partのcore寄与は0、critとnormal/skill式は元packetのものを使います。
+- 旧8entryの生成物と旧622の全出力を保持し、事前CPU検査・source固定・input/readback/evidence保存の後にMetalへ進むこと。必要な新規CUDAだけを短く検証します。
+
+型付き子context、damage子、skill/pending/DoT、source攻撃、操作/復活、容量/長時間と全203変種認証は未完了で、public world false・通常CPU・全変種0/203を維持します。
+
+観測器ON/OFFでも23ケース全ての戦闘出力（追加したcounter観測欄以外）が完全一致しました。致死receiptではActor poolのaliveが既にfalseでも着弾creditを配る必要があります。counterのdead Actor集合への登録はImpactと同期完了子の後です。
