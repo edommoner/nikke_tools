@@ -1,0 +1,20 @@
+{
+  "kind": "source-audit-finding",
+  "initial_component_passed": true,
+  "initial_cases": 190,
+  "finding": "The first Metal component source added normalLandedMask but had not regenerated runtime_init.slang. Passing readback is insufficient evidence for initialized mutable history.",
+  "initial_source_sha256": {
+    "gpu/event_runtime.slang": "50ff797ac9deb67b5c9c1d26550855018b79ec69ce75bba0ec6eb78e3334cfda",
+    "gpu/runtime_init.slang": "16ff0e0b07763fd8b50b620b672eecad7650f5a0b6799e4c639f3c093d26c13d"
+  },
+  "initial_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/burst-charge-component-20261020T083646529328Z",
+  "resolution": "Regenerated the initializer; added a unit contract for all generated Runtime initialization; reran expanded 210 positive and71 raw rejection inputs on Metal.",
+  "resolved_component_passed": true,
+  "resolved_source_sha256": {
+    "gpu/event_runtime.slang": "483b23ad9ba1efa2d7036e9adb5280c1014acb3829cfd063196847631e8b338e",
+    "gpu/runtime_init.slang": "5304cc63cc6a42c0117dc28a9427ef71adfc367d5f34dea2b64153d260d0a9f9"
+  },
+  "resolved_capture": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/burst-charge-component-20261020T083858886294Z",
+  "gpu_mismatch_observed": false,
+  "initial_result_used_for_certification": false
+}

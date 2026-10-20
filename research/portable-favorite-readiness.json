@@ -3,8 +3,8 @@
   "catalog_characters": 203,
   "audited_contexts": 812,
   "stage0_matches_current_audit": true,
-  "own_effect_preflight_contexts_passed": 249,
-  "all_four_stages_preflight_characters": 62,
+  "own_effect_preflight_contexts_passed": 257,
+  "all_four_stages_preflight_characters": 64,
   "all_four_stages_preflight_names": [
     "아니스",
     "네온 : 블루 오션",
@@ -12,6 +12,7 @@
     "폴리",
     "미란다",
     "미카",
+    "미카 : 스노우 버디",
     "브리드",
     "솔린",
     "솔린 : 프로스트 티켓",
@@ -59,6 +60,7 @@
     "플로라",
     "아리아",
     "나가",
+    "그레이브",
     "팬텀",
     "민트",
     "백학",
@@ -74,7 +76,7 @@
   "full_character_verified": 0,
   "scope": "Favorite stages0..3,default skill levels,no cube,same fixed five-member squad;preflight only;not GPU support certification",
   "issues": {
-    "Unported buff or recipient selector": 622,
+    "Unported buff or recipient selector": 582,
     "Unported trigger timing: event:part_destroy": 60,
     "Unported instant or recipient selector": 57,
     "Unported enemy damage selector": 53,
@@ -140,13 +142,13 @@
     "weapon": 108,
     "resource_accumulation": 64,
     "burst_cooldown": 56,
-    "charge": 48,
     "ammo_reload": 45,
     "healing_buffers": 38,
     "hp": 24,
     "protection": 24,
     "healing": 16,
-    "character_state": 12
+    "character_state": 12,
+    "charge": 8
   },
   "contexts": [
     {
@@ -964,21 +966,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "스타 폴",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "스타더스트 3",
           "type": "buff",
           "stat": "projectile_explosion_dmg_pct",
@@ -1037,21 +1024,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "스타 폴",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "스타더스트 3",
           "type": "buff",
@@ -1112,21 +1084,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "스타 폴",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "스타더스트 3",
           "type": "buff",
           "stat": "projectile_explosion_dmg_pct",
@@ -1186,21 +1143,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "스타 폴",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "스타더스트 3",
           "type": "buff",
           "stat": "projectile_explosion_dmg_pct",
@@ -1260,23 +1202,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "버스트 속도 증폭",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [
-            "gauge_above:화력 게이지:1"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "화력 강화 1",
           "type": "buff",
           "stat": "explosion_range",
@@ -1303,23 +1228,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "버스트 속도 증폭",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [
-            "gauge_above:화력 게이지:1"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "화력 강화 1",
           "type": "buff",
@@ -1348,23 +1256,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "버스트 속도 증폭",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [
-            "gauge_above:화력 게이지:1"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "화력 강화 1",
           "type": "buff",
           "stat": "explosion_range",
@@ -1392,23 +1283,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "버스트 속도 증폭",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [
-            "gauge_above:화력 게이지:1"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "화력 강화 1",
           "type": "buff",
           "stat": "explosion_range",
@@ -3145,109 +3019,45 @@
       "character": "미카 : 스노우 버디",
       "favorite_stage": 0,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "응원의 축포 2",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "미카 : 스노우 버디",
       "favorite_stage": 1,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "응원의 축포 2",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "미카 : 스노우 버디",
       "favorite_stage": 2,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "응원의 축포 2",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "미카 : 스노우 버디",
       "favorite_stage": 3,
       "own_effects": 15,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "응원의 축포 2",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "벨로타 : 펌킨 위치",
@@ -9959,21 +9769,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "좀 더 많은 당근",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "소중한 큰 당근",
           "type": "instant",
           "stat": "burst_reentry",
@@ -10002,21 +9797,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "좀 더 많은 당근",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "소중한 큰 당근",
           "type": "instant",
@@ -10047,21 +9827,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "좀 더 많은 당근",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "소중한 큰 당근",
           "type": "instant",
           "stat": "burst_reentry",
@@ -10090,21 +9855,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "좀 더 많은 당근",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "소중한 큰 당근",
           "type": "instant",
@@ -10344,25 +10094,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: event:ally_burst_cast"
-        },
-        {
-          "name": "VIP 기프트",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [
-            "self_stack_above:쇼핑:4"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "주목",
@@ -10426,25 +10157,6 @@
           "issue": "Unported trigger timing: event:ally_burst_cast"
         },
         {
-          "name": "VIP 기프트",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [
-            "self_stack_above:쇼핑:4"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "주목",
           "type": "buff",
           "stat": "taunt",
@@ -10506,25 +10218,6 @@
           "issue": "Unported trigger timing: event:ally_burst_cast"
         },
         {
-          "name": "VIP 기프트",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [
-            "self_stack_above:쇼핑:4"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "주목",
           "type": "buff",
           "stat": "taunt",
@@ -10584,25 +10277,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported trigger timing: event:ally_burst_cast"
-        },
-        {
-          "name": "VIP 기프트",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [
-            "self_stack_above:쇼핑:4"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "주목",
@@ -14633,40 +14307,6 @@
             "note"
           ],
           "issue": "Unported instant or recipient selector"
-        },
-        {
-          "name": "매터 시그마",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "매터 시그마",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [
-            "burst_casted"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -14698,40 +14338,6 @@
             "note"
           ],
           "issue": "Unported instant or recipient selector"
-        },
-        {
-          "name": "매터 시그마",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "매터 시그마",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [
-            "burst_casted"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -14763,40 +14369,6 @@
             "note"
           ],
           "issue": "Unported instant or recipient selector"
-        },
-        {
-          "name": "매터 시그마",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "매터 시그마",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [
-            "burst_casted"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -14828,40 +14400,6 @@
             "note"
           ],
           "issue": "Unported instant or recipient selector"
-        },
-        {
-          "name": "매터 시그마",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "매터 시그마",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [
-            "burst_casted"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -18808,21 +18346,6 @@
             "note"
           ],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "허리 온",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -18868,21 +18391,6 @@
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "허리 온",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
         }
       ]
@@ -18930,21 +18438,6 @@
             "note"
           ],
           "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "허리 온",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -18990,21 +18483,6 @@
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
-          "name": "허리 온",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "full_burst_end"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
           "issue": "Unported buff or recipient selector"
         }
       ]
@@ -23469,117 +22947,45 @@
       "character": "그레이브",
       "favorite_stage": 0,
       "own_effects": 29,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "방열 5",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:방열"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "그레이브",
       "favorite_stage": 1,
       "own_effects": 29,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "방열 5",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:방열"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "그레이브",
       "favorite_stage": 2,
       "own_effects": 29,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "방열 5",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:방열"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "그레이브",
       "favorite_stage": 3,
       "own_effects": 29,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "방열 5",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:방열"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "신데렐라 : 크리스탈 웨이브",
@@ -25745,23 +25151,6 @@
             "note"
           ],
           "issue": "Unported effect fields: duration_scaling, duration_scaling_ref"
-        },
-        {
-          "name": "연애의 달콤함(상상) 2",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:망상"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -25808,23 +25197,6 @@
             "note"
           ],
           "issue": "Unported effect fields: duration_scaling, duration_scaling_ref"
-        },
-        {
-          "name": "연애의 달콤함(상상) 2",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:망상"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -25871,23 +25243,6 @@
             "note"
           ],
           "issue": "Unported effect fields: duration_scaling, duration_scaling_ref"
-        },
-        {
-          "name": "연애의 달콤함(상상) 2",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:망상"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -25934,23 +25289,6 @@
             "note"
           ],
           "issue": "Unported effect fields: duration_scaling, duration_scaling_ref"
-        },
-        {
-          "name": "연애의 달콤함(상상) 2",
-          "type": "buff",
-          "stat": "burst_charge_speed_pct",
-          "family": "charge",
-          "timings": [
-            "passive"
-          ],
-          "conditions": [
-            "self_state:망상"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -30725,13 +30063,13 @@
   ],
   "source_sha256": {
     "research/audit-portable-favorites.py": "e2e9a7d747f966b8805f29ad0307e5d8a5c376c1550614d3994b288a0216835b",
-    "research/portable-catalog-readiness.json": "1349b24cdeddc2c4035f8db876730433ad88ea4f1d059d5d02ef8300e8b1a9ab",
+    "research/portable-catalog-readiness.json": "c0a107831b7cedebdf35ecff93d125523a40fff57bbcb6a6117c62bc5f5da0a0",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
-    "app/portable_runtime.py": "10f43aa651493c043288794fdee247bf95b106d7c7b844dd88f7e2fd54924a40",
+    "app/portable_runtime.py": "f7ae23af098d154f4c33c5ff725a83fb1cd1a66d6beedc3f51998db291889bca",
     "app/portable_roster_input.py": "cf569da9faababe07f9c1c16111da2f64936d5da562b123ea0ed67b7847bd024",
     "app/portable_trigger_specs.py": "cb51cde60865323c4f077687d8d2c8b8fac7d9572945ed0cf8f6f64034876b77",
     "app/portable_probability_specs.py": "77becccd2a7cf2b046ad4422958952d843d76a4aa2800f9fcb6dd7ce35c75f61",
-    "app/portable_damage_specs.py": "c3add38c40d863680fb1c737d55df881c92fa176c18932289c3de6ff87edccd8",
+    "app/portable_damage_specs.py": "55eb159c82817851b8fc547829fb796a225c6ec686ba8195401cfc1e06d6db36",
     "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
     "scripts/detail_coverage.py": "eef94f7675f270e8a4870323cb1e55e8506f2e5fe47e6fa4b1645d9aaf71dc40",
     "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
