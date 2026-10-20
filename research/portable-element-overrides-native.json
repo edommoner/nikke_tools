@@ -30107,7 +30107,7 @@
   "validation_sha256": {
     "app/portable_element_specs.py": "b46475dbf9ba590a8b031814b2f008224a9079aad87caff93b2ec49eab1c0af8",
     "app/portable_code_specs.py": "b53cd9cee83bf1cf6442c72db6a1fd65cc4408f2471c9fd504de54cb42cd86ab",
-    "app/portable_runtime.py": "0bad65b29ba281ccd54320fa62e3d1abcaaa5bc4ab278c7cb7a11beaa68bb2d7",
+    "app/portable_runtime.py": "d27e1daef25679113769d43999973de54223eac7f8816faf76af93239b099303",
     "app/portable_damage_specs.py": "4d43bf86347ecb62e04254e3318318559bf440539ec34d7c300edafd30855610",
     "scripts/portable_element_oracle.py": "20e90d9f97e9a16a45d6857ea041bf8a45d3cab328d9c92e36a94518aaebd0c6",
     "scripts/portable_enemy_oracle.py": "7b86436e89e946960f843c50e646802cae494502f269fbb5290b2fee806f5ba7",

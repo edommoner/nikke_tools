@@ -1,0 +1,20 @@
+{
+  "resolved": true,
+  "first_real_report": "portable-mode-entry-first-real-candidate-metal.json",
+  "captured_first": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/mode-entry-real-20261020T102806549079Z",
+  "short_diagnosis": "portable-mode-entry-real-diagnosis.json",
+  "native_state_diagnosis": "portable-mode-entry-native-state-diagnosis.json",
+  "all_1_to20_second_damage_totals_equal": true,
+  "attack_and_hp_flat_values_match": true,
+  "diagnosis": "Pending B3 bonus_damage with scaling:stack_count is multiplied by the live reference at full-burst firing,before rounding. Existing pending GPU path used the unscaled captured base coefficient. The prior3539 inputs contain no pending+referenceMode1 combination.",
+  "secondary": "Native entry wait completion records charge_started_at even for auto modes;GPU retained the earlier base-charge timestamp.",
+  "no_unchanged_gpu_retry": true,
+  "production_adopted": true,
+  "production_source_commit": "39bce8aa5c9c5f29f0653e80fc69855f19ad5ad6",
+  "resolved_component": true,
+  "production_core_passed": true,
+  "production_core_inputs": 4070,
+  "full_roster_resolution_verified": true,
+  "final_proof": "portable-mode-entry-broad-validation.json",
+  "unrelated_initial_metal_finding_resolved": false
+}

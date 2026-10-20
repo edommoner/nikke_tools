@@ -1,4 +1,6 @@
-# HP由来攻撃力の短いCUDA検証（まだ依頼していない）
+# HP由来攻撃力の旧CUDA検証案（未実行・後続案に統合）
+
+この0ae6a14単独案は実行せず、HP・武器変更待機・保留倍率をまとめた固定39bce8aのv76へ統合しました。v76は4070入力・133.46秒・GPU1回で成功し、保存結果の共有とMac照合まで完了しています。現在の手順は `windows-mode-entry-check.md`、証拠は `portable-mode-entry-transfer-completed.json` です。以下は当時の計画として保持します。
 
 固定ソース: `0ae6a14`（完全なIDは `git rev-parse 0ae6a14` で解決）。ABI `0x50455671`。
 

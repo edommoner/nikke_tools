@@ -16893,8 +16893,8 @@
   "validation_sha256": {
     "app/portable_target_state_specs.py": "b85bc65b10cd396b1c4ed19a095d3c657fd2862b395cd7be1172e5d89596adb1",
     "app/portable_trigger_specs.py": "cb51cde60865323c4f077687d8d2c8b8fac7d9572945ed0cf8f6f64034876b77",
-    "app/portable_runtime.py": "0bad65b29ba281ccd54320fa62e3d1abcaaa5bc4ab278c7cb7a11beaa68bb2d7",
-    "app/portable_specs.py": "c30cf1540d1cf6b0206c5aedb28d29cdabc156c714672c17823ad73b106ac3e0",
+    "app/portable_runtime.py": "d27e1daef25679113769d43999973de54223eac7f8816faf76af93239b099303",
+    "app/portable_specs.py": "258aa154f63de4f864a2e965fb571eb7cf6d5d9ae4cd125032b2b5cc2257f78d",
     "scripts/portable_target_state_oracle.py": "49fa8bf4f0764e19fe0be76849232e6392f120d5a4782125703292988bd8da74",
     "scripts/portable_target_state_validation.py": "21947bcbab4c9f04ccbe42a2048d01c829706b84cf315293f84e185bec6b4c96",
     "tests/fixtures/portable-target-states.json": "c44e5d3719f56335a733ad44a6634121a4a6d0be46cff8a52f9d7bf583a7c9d6",

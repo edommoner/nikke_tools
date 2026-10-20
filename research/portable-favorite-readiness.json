@@ -29662,9 +29662,9 @@
   ],
   "source_sha256": {
     "research/audit-portable-favorites.py": "e2e9a7d747f966b8805f29ad0307e5d8a5c376c1550614d3994b288a0216835b",
-    "research/portable-catalog-readiness.json": "176950d9bc0167be72d163cff260261af9c1f40d41940c337ae43fe36e282749",
+    "research/portable-catalog-readiness.json": "d268c6fcdb9582f1dd8230ad878a6aab84d9882f37ad486975eebbdf4a3ca812",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
-    "app/portable_runtime.py": "0bad65b29ba281ccd54320fa62e3d1abcaaa5bc4ab278c7cb7a11beaa68bb2d7",
+    "app/portable_runtime.py": "d27e1daef25679113769d43999973de54223eac7f8816faf76af93239b099303",
     "app/portable_roster_input.py": "cf569da9faababe07f9c1c16111da2f64936d5da562b123ea0ed67b7847bd024",
     "app/portable_trigger_specs.py": "cb51cde60865323c4f077687d8d2c8b8fac7d9572945ed0cf8f6f64034876b77",
     "app/portable_probability_specs.py": "77becccd2a7cf2b046ad4422958952d843d76a4aa2800f9fcb6dd7ce35c75f61",

@@ -1,132 +1,165 @@
 {
   "passed": true,
-  "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
-  "previous_proof_commit": "3c3cd7d4fe3731a66587ea3577bf0496ef74a458",
-  "checked_at": "2026-10-20T09:35:57.852087+00:00",
-  "mac_gates": 41,
-  "unit_tests": 254,
-  "core_programs": 3331,
-  "positive_cases": 2835,
-  "rejections": 496,
-  "burst_charge_native_cases": 310,
-  "real_profiles": 130,
-  "native_projection_exact_profiles": 128,
-  "known_native_hp_gap_profiles": 2,
+  "source_commit": "39bce8aa5c9c5f29f0653e80fc69855f19ad5ad6",
+  "previous_partial_proof_commit": "d181fcd9ec57734bac2b3e08c75d828509a8b668",
+  "previous_complete_proof_commit": "ba9015c41157c4fa698422ee3638a1ba4f4fba19",
+  "checked_at": "2026-10-20T11:32:24.539230+00:00",
+  "mac_gates": 47,
+  "unit_tests": 263,
+  "core_programs": 4070,
+  "positive_cases": 3540,
+  "rejections": 530,
+  "hp_attack_native_cases": 185,
+  "mode_entry_native_cases": 400,
+  "pending_reference_native_cases": 120,
+  "additional_metal_physical_cases": 80,
   "conditional_hp_metal_cases": 20,
-  "cuda_core_inputs": 3331,
-  "windows_v75_actual_gpu_sessions": 1,
-  "windows_v75_elapsed_seconds": 110.51998510025442,
-  "windows_v74_superseded_gpu_sessions": 1,
-  "windows_v74_used_for_current_certification": false,
+  "real_profiles": 136,
+  "native_projection_exact_profiles": 134,
+  "known_native_hp_gap_profiles": 2,
+  "prior3539_input_projection_outputs_decoded_native_preserved": true,
+  "prior134_successful_profiles_preserved": true,
+  "prior2_refused_laplace_profiles_now_verified": true,
+  "cuda_core_inputs": 4070,
+  "windows_v76_actual_gpu_sessions": 1,
+  "windows_v76_elapsed_seconds": 133.46083929995075,
   "transfer_complete": true,
-  "all3331_cross_backend_input_output_bytes_equal": true,
-  "old2950_input_projection_output_words_preserved": true,
-  "initial3231_input_output_words_preserved": true,
+  "artifact_commit": "8eee91b575d0e8a37e37bd89af62bc688e1b2d44",
+  "all4070_cross_backend_input_output_bytes_equal": true,
   "efficiency_evaluated": true,
   "production_optimization_adopted": false,
   "efficiency_decision": {
     "passed": true,
-    "source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
+    "source_commit": "39bce8aa5c9c5f29f0653e80fc69855f19ad5ad6",
     "evaluated": true,
-    "adoption_criteria": "At least one feature workload median improves by2% with disjoint ranges; no workload regresses by2% with disjoint ranges. Otherwise reject.",
+    "adoption_criteria": "At least one feature workload median improves2% with disjoint ranges; no workload regresses2% with disjoint ranges.",
     "criteria_met": false,
     "production_change_adopted": false,
+    "adoption_pending_new_fixed_source_verification": false,
     "workloads": {
       "ordinary": {
-        "ratio": 1.0058689073391163,
+        "ratio": 1.000565428650226,
         "improves": false,
-        "regresses": false
+        "regresses": false,
+        "ranges": {
+          "control": [
+            0.07017600000835955,
+            0.07557975000236183
+          ],
+          "candidate": [
+            0.069717500009574,
+            0.07119987497571856
+          ]
+        }
       },
-      "charge-first": {
-        "ratio": 0.9971778938150623,
+      "hp-single": {
+        "ratio": 1.0168404857881872,
         "improves": false,
-        "regresses": false
+        "regresses": false,
+        "ranges": {
+          "control": [
+            0.11349754163529724,
+            0.11572137498296797
+          ],
+          "candidate": [
+            0.11598800006322563,
+            0.12561420840211213
+          ]
+        }
       },
-      "charge-last": {
-        "ratio": 1.004724035171311,
+      "hp-multiple": {
+        "ratio": 0.9919993189953918,
         "improves": false,
-        "regresses": false
+        "regresses": false,
+        "ranges": {
+          "control": [
+            0.06269962491933256,
+            0.06366583332419395
+          ],
+          "candidate": [
+            0.06237191671971232,
+            0.06269533338490874
+          ]
+        }
       },
-      "mode-callback": {
-        "ratio": 0.9934722732222979,
+      "hp-fresh-rank": {
+        "ratio": 1.0076308042818174,
         "improves": false,
-        "regresses": false
+        "regresses": false,
+        "ranges": {
+          "control": [
+            0.10593499999959022,
+            0.10887124994769692
+          ],
+          "candidate": [
+            0.10564666660502553,
+            0.11263637500815094
+          ]
+        }
       },
-      "conditional-hp": {
-        "ratio": 0.9943550049592292,
+      "mode-entry": {
+        "ratio": 1.0078250344481714,
         "improves": false,
-        "regresses": false
+        "regresses": false,
+        "ranges": {
+          "control": [
+            0.13581258337944746,
+            0.136707124998793
+          ],
+          "candidate": [
+            0.1365022499812767,
+            0.1380265000043437
+          ]
+        }
+      },
+      "pending-reference": {
+        "ratio": 1.0173672387534691,
+        "improves": false,
+        "regresses": false,
+        "ranges": {
+          "control": [
+            0.07900254160631448,
+            0.08080350002273917
+          ],
+          "candidate": [
+            0.07951374992262572,
+            0.08073112496640533
+          ]
+        }
+      },
+      "hp-sg-physical": {
+        "ratio": 0.9999400548942086,
+        "improves": false,
+        "regresses": false,
+        "ranges": {
+          "control": [
+            0.13049875001888722,
+            0.1328066666610539
+          ],
+          "candidate": [
+            0.12927675002720207,
+            0.1307997916592285
+          ]
+        }
       }
     },
-    "scope": "Alternating variant order,warmup plus3 samples per variant,1024 programs per workload on Apple M5. Initial unlocalized raw mismatch remains documented. No CUDA-speed/full-roster/physical-peak-memory claim; desktop GPU activity not excluded."
+    "scope": "Apple M5 isolated local workloads, alternating order,warmup+3 samples. No CUDA speed/full-roster speed/physical memory claim. No production adoption before fresh verification.",
+    "all4070_plus80_plus20_input_output_equal": true
   },
-  "own_effect_preflight_passed": 65,
-  "unadmitted_effects": 300,
-  "favorite_preflight_contexts": 257,
-  "all_four_stages_preflight_characters": 64,
+  "own_effect_preflight_passed": 68,
+  "unadmitted_effects": 294,
+  "favorite_preflight_contexts": 269,
+  "all_four_stages_preflight_characters": 67,
   "full_character_verified": 0,
   "full_goal_complete": false,
   "normal_ui": "CPU",
   "initial_unlocalized_metal_finding_open": true,
-  "scope": "Current-source CUDA core3331 only;Mac41 broad gates and20 HP inputs separate. Known2 strict native HP gaps retained;no blanket CPU equality or all-variant certification.",
-  "evidence_sha256": {
-    "portable-burst-charge-broad-validation": "2df8a6089acb91f349a2a7e9d786a3998d767e7ea14680da37abadbcbbcbb480",
-    "portable-burst-charge-transfer-completed": "f5032bbd36fdb7410d2c3e1590137ac81b9207b19766d19f74ee83de0a887783",
-    "portable-burst-charge-global-gates": "ae9de84c0d04fa12718a75240f19d910077084b658c6c6a0c63f85142bcf2783",
-    "portable-burst-charge-timing-order": "c062a558c0569375199a5349afc946cb325a8b9a2971a245854171ea6480162f",
-    "portable-burst-charge-benchmark-plan": "cfe4231450f8e58e2a630bd5190aa32230106d27b2a1933250959f4f0da078ce",
-    "portable-burst-charge-candidate-parity": "de1ec3694b3290974571acd704984950e7a3074db714db5f99863768951ec6a7",
-    "portable-burst-charge-benchmark": "90b06d27921bf76f7aa9336f815ad00f02aad9de353447903ce6900cbb7bec68",
-    "portable-burst-charge-efficiency-decision": "1ec532f3308a5b740d878404497669914e34a8895311b6005144ae23131b0614",
-    "portable-burst-charge-skill-finding": "b95cff8c07b2ce9c931ba4804e20eadca091ff33627cb3039b3d1a229f50a2c9",
-    "portable-burst-charge-mode-fix-existing-parity": "90da3a2b8c48cb648d359114d5c80b0dcc63fbc0abe9731c03751d7b52dcb6e3"
-  },
-  "wire_abi": "0x50455670",
-  "verified_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
-  "previous_checkpoint": {
-    "proof_commit": "3c3cd7d4fe3731a66587ea3577bf0496ef74a458",
-    "report": "Git baseline portable-combat-checkpoint.json"
-  },
-  "input_words": 86016,
-  "output_words": 159744,
-  "input_sha256": "669ff6ae767d4e4f0b7fd8e5ca9a599a8f6fd556f67a8669728a9916ebda3be3",
-  "output_sha256": "22cd00fbb070e25be3c4c1773758d146bb3832e796f4c3d45f01cabe68075e84",
-  "metal_verified": true,
-  "cuda_verified": true,
-  "metal_report": "portable-combat-metal.json",
-  "cuda_report": "windows-portable-burst-charge-v75.json",
-  "windows_report": "windows-portable-burst-charge-v75.json",
-  "windows_execution_metadata": "portable-burst-charges-v75-execution.json",
-  "windows_execution": {
-    "commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
-    "exit_code": 0,
-    "timed_out": false,
-    "elapsed_seconds": 110.51998510025442,
-    "timeout_seconds": 120,
-    "below_normal_priority": true
-  },
-  "cuda_verification_mode": "fresh current-source full3331 core;Mac broad and HP20 separate",
-  "windows_checks_this_stage": {
-    "current_gpu_sessions": 1,
-    "superseded_v74_gpu_sessions": 1,
-    "transfer_gpu_sessions": 0
-  },
-  "source_provenance": {
-    "fixed_shared_source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
-    "windows_source_commit": "20e213bf28544a3ad2709fdc852d239eed108b5e",
-    "previous_proof_commit": "3c3cd7d4fe3731a66587ea3577bf0496ef74a458"
-  },
-  "validation_receipt": "portable-burst-charge-validation.json",
-  "generated_source_comparison": {
-    "cuda": "aa44e5d67288bc7af9a4292a21360b8086a5d4d1794c17d378244f195f56512c",
-    "metal": "1e9f10e0f6f0b967b69ba3cd51bee6da6ed89ecb3d5b2c29e4a4cad7bfccce9b"
-  },
-  "normal_ui_backend": "cpu",
-  "normal_ui_connected": false,
-  "all_characters_supported": false,
-  "next_work": [
-    "Connect HP-derived attack preserving native arithmetic/selector semantics",
-    "Connect remaining controls and enemy world scheduling",
-    "Certify all203 characters and variants"
-  ]
+  "proof_reports": [
+    "portable-mode-entry-broad-validation.json",
+    "portable-mode-entry-transfer-completed.json",
+    "portable-mode-entry-hp-cache-parity.json",
+    "portable-mode-entry-hp-cache-benchmark.json",
+    "portable-mode-entry-efficiency-decision.json"
+  ],
+  "scope": "Shared runtime mechanics,136 fixed simple-boss profiles and existing API regression. Full characters/variants and general enemy-world scheduling remain incomplete. Additional80 physical and20 conditional-HP fresh execution is Mac only."
 }
