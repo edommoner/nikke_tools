@@ -145,8 +145,23 @@ def main():
     result = json.loads(path.read_text())
     assert result['passed'] and result['rejected_cases'][:len(prior['rejected_cases'])] == prior['rejected_cases']
     assert result['cases'][:len(prior['cases'])] == prior['cases']
+    resolved_health={'max-hp-expiry-clamps-to-current-maximum','maximum-hp-expiry-can-reach-adjacent-full','lazy-max-hp-first-consumption-and-derived-percentage'}
     for key in prior:
-        if key.endswith('_cpu_regressions') or key.startswith('known_'):
+        if key=='known_health_cpu_differences':
+            resolved=[r for r in prior[key] if r['name'] in resolved_health]
+            assert {r['name'] for r in resolved}==resolved_health
+            assert result[key]==[r for r in prior[key] if r['name'] not in resolved_health]
+            from portable_health_oracle import observe as observe_health
+            resolved_rows=[]
+            for case in cases:
+                if case['name'] not in resolved_health:continue
+                assert 'known_health_cpu_difference' not in case
+                native=observe_health(case);gpu=result['cases'][next(i for i,c in enumerate(cases) if c['name']==case['name'])]['actual']
+                assert len(native)==len(gpu['queries'])
+                for n,g in zip(native,gpu['queries']):verifier.contains(g['allies'],n['allies'],case['name']+'.resolved-native-HP')
+                resolved_rows.append(dict(name=case['name'],passed=True,native=native))
+            assert len(resolved_rows)==len(resolved_health);result['resolved_native_hp_differences']=resolved_rows
+        elif key.endswith('_cpu_regressions') or key.startswith('known_'):
             assert result[key] == prior[key], key
     canonical_hash=lambda value:hashlib.sha256(json.dumps(value,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
     assert canonical_hash(result['cases'][:adoption['positive_inputs']])==adoption['positive_decoded_sha256']
@@ -154,7 +169,7 @@ def main():
     projection['adoption4658_parity']['decoded_cases_and_rejections_preserved']=True
     result['enemy_target_existing_parity'] = projection
     path.write_text(json.dumps(result, ensure_ascii=False, separators=(',', ':')) + '\n')
-    print('All4070 prior input bytes,output words,decoded cases and native groups preserved')
+    print('All4070 and adopted4658 input/output/decoded cases preserved;three finite-HP CPU exceptions resolved,other native groups preserved')
 
 
 if __name__ == '__main__':

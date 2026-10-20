@@ -1,4 +1,4 @@
-import sys,unittest
+import json,sys,unittest
 from pathlib import Path
 R=Path(__file__).resolve().parents[1];sys.path[:0]=[str(R/'app'),str(R/'scripts')]
 import engine_worker,reference_health_runtime as health
@@ -14,6 +14,10 @@ class FiniteHealthSynchronization(unittest.TestCase):
  def test_finite_maximum_only_does_not_grant_current_hp(self):
   for stat in ('max_hp_only_pct','hp_only_caster_based_pct'):
    rows=observe(self.case(stat,0));self.assertEqual([(q['allies'][0]['hp'],q['allies'][0]['max_hp']) for q in rows],[(1000,1200),(1000,1200),(1000,1000)])
+ def test_finite_lazy_resolution_publishes_derived_percentage(self):
+  cases=json.loads((R/'tests/fixtures/portable-lazy.json').read_text())['cases']
+  c=next(c for c in cases if c['name']=='lazy-max-hp-first-consumption-and-derived-percentage')
+  row=observe(c)[1]['allies'][1];self.assertEqual((row['hp'],row['max_hp'],row['hp_pct']),(200,1100,200/1100*100))
  def test_infinite_plain_hp_keeps_existing_compatibility_policy(self):
   for duration in (-1,None):
    manager=type('Manager',(),{'_effects':[(dict(type='buff',stat='max_hp_pct',duration=duration),'owner')]})()

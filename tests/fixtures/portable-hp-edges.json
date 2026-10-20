@@ -2244,44 +2244,7 @@
       "owners": [
         0,
         1
-      ],
-      "known_health_cpu_difference": {
-        "reason": "Pinned CPU leaves stale hp_pct after max_hp_only_pct expiry and misses adjacent-full transition",
-        "expected_queries": [
-          {
-            "attack_buffs": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "allies": [
-              {
-                "hp": 1000,
-                "max_hp": 2000,
-                "hp_pct": 50
-              }
-            ]
-          },
-          {
-            "attack_buffs": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "allies": [
-              {
-                "hp": 1000,
-                "max_hp": 1000,
-                "hp_pct": 50
-              }
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "name": "team-hp-loss-processes-all-five-physical-crossings",

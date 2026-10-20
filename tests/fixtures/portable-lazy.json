@@ -3468,37 +3468,6 @@
       "expected_lazy_cache": {
         "evaluations": 1
       },
-      "known_health_cpu_difference": {
-        "reason": "Pinned CPU does not resynchronize hp_pct after a lazy maximum-HP buff resolves during get_buffs; GPU synchronizes the derived percentage on the next observation.",
-        "expected_queries": [
-          {
-            "attack_buffs": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ]
-          },
-          {
-            "attack_buffs": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "allies": [
-              {},
-              {
-                "hp": 200,
-                "max_hp": 1100,
-                "hp_pct": 20
-              }
-            ]
-          }
-        ]
-      },
       "lazy_reference": true
     },
     {

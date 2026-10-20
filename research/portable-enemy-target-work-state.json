@@ -1,6 +1,6 @@
 {
-  "stage": "Initial canonical4658 Metal pass,52 gates complete50 pass;fixing six new roster failures and stale API negative;277 units passed,new4682 frozen verification pending",
-  "updated_at": "2026-10-20T13:15:19.139011+00:00",
+  "stage": "Fixed4682 Metal readback plus CPU-only replay passed;three old finite-HP exceptions now exact native/GPU equality;new frozen broad52 gates pending",
+  "updated_at": "2026-10-20T13:19:32.121390+00:00",
   "production_source_commit": "39bce8aa5c9c5f29f0653e80fc69855f19ad5ad6",
   "production_proof_commit": "89c19e3",
   "production_abi": "0x50455673",
@@ -95,5 +95,7 @@
   "initial_roster_conditions": 158,
   "old136_profiles_exactly_preserved": true,
   "mode_enemy_name_cases": 24,
-  "python_units": 277
+  "python_units": 278,
+  "resolved_finite_hp_cpu_exceptions": 3,
+  "last_metal_capture": "research/portable-build/enemy-target-core-20261020T131543904262Z"
 }

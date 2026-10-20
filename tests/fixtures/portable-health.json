@@ -1641,28 +1641,7 @@
           ]
         }
       ],
-      "health_reference": true,
-      "known_health_cpu_difference": {
-        "reason": "Pinned CPU does not clamp current HP when a max_hp_pct carrier expires",
-        "expected_queries": [
-          {
-            "allies": [
-              {
-                "hp": 1500,
-                "max_hp": 1500
-              }
-            ]
-          },
-          {
-            "allies": [
-              {
-                "hp": 1500,
-                "max_hp": 1000
-              }
-            ]
-          }
-        ]
-      }
+      "health_reference": true
     },
     {
       "name": "allied-defense-percent-is-not-enemy-defense",
