@@ -100,6 +100,33 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_COUNTER_LANDINGS
+#define COUNTER_PACKET_WORD(at,legacy) counterPacketWord(at)
+#define COUNTER_PACKET_NUMBER(at,legacy) counterPacketNumber(at)
+#define COUNTER_MODE_INVALID(s,base,legacy) ((legacy)&&!counterLandingsEnabled(s))
+#define COUNTER_FIELD_KIND(s,d,legacy) (counterLandingsEnabled(s)&&d.kind==24 ? false : (legacy))
+#define COUNTER_DEFINITION_INVALID(s,row,d,legacy) counterLandingDefinitionInvalid(s,row,d,legacy)
+#define COUNTER_PART_INPUT(s,base,step) if(counterLandingsEnabled(s)) { if(!validCounterLandingInput(s,base,step)) return false;continue; }
+#define COUNTER_SHOT(s,who,w,coefficient,when) sampleCounterPartShot(s,who,f64Div(coefficient,f64FromI64(w.pellets)),WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode==1 ? H_CHARGE|((s.attackContext[who]&4)!=0 ? H_EXPLOSION : 0) : 0)),w.fullChargeMult,w.optimal!=0,when);
+#define COUNTER_CAPTURE(s,who,target) uint counterLandingTarget=actorPhysicalTarget(s,who,target);
+#define COUNTER_TARGET(s,legacy) (counterLandingsEnabled(s) ? counterLandingTarget : (legacy))
+#define COUNTER_IMPACT(s,who,amount,when,output) if(counterLandingsEnabled(s)&&s.error==0) publishCounterLanding(s,who,counterLandingTarget,amount,when,output);
+#define COUNTER_PARTS(s,who,when,output) if(counterLandingsEnabled(s)&&s.error==0) deliverCounterParts(s,who,counterLandingTarget,when,output);
+#define COUNTER_PART_CORE(s,flags,legacy) (counterLandingsEnabled(s)&&(flags&H_PART)!=0 ? uint64_t(0) : (legacy))
+#else
+#define COUNTER_PACKET_WORD(at,legacy) legacy
+#define COUNTER_PACKET_NUMBER(at,legacy) legacy
+#define COUNTER_MODE_INVALID(s,base,legacy) legacy
+#define COUNTER_FIELD_KIND(s,d,legacy) legacy
+#define COUNTER_DEFINITION_INVALID(s,row,d,legacy) legacy
+#define COUNTER_PART_INPUT(s,base,step)
+#define COUNTER_SHOT(s,who,w,coefficient,when)
+#define COUNTER_CAPTURE(s,who,target)
+#define COUNTER_TARGET(s,legacy) legacy
+#define COUNTER_IMPACT(s,who,amount,when,output)
+#define COUNTER_PARTS(s,who,when,output)
+#define COUNTER_PART_CORE(s,flags,legacy) legacy
+#endif
 #ifdef PORTABLE_TARGET_COUNTERS
 #define COUNTER_WORLD_LITERAL(s,through,legacy) targetCounterLiteralRoot(s,through,legacy)
 #define COUNTER_PREPARE(s,row,when) prepareTargetCounter(s,row,when);
@@ -1684,6 +1711,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "world_actor_stacks.slang"
 #ifdef PORTABLE_TARGET_COUNTERS
 #include "target_counter_runtime.slang"
+#ifdef PORTABLE_COUNTER_LANDINGS
+#include "counter_landing_runtime.slang"
+#endif
 #endif
 #endif
 #endif
