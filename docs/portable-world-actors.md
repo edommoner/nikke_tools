@@ -1,6 +1,6 @@
 # 共通world Actorの接続
 
-## 2026-10-21 型付き対象の名前付き状態条件（CUDA検証待ち）
+## 2026-10-21 型付き対象の名前付き状態条件（Metal／CUDA一致）
 
 共通計算ソース8c5a09b、実験ABI79で、target_state／not_target_state／target_stack、self_state／not_self_state／self_stackを128対象のresidentへ接続しました。条件の評価対象は味方数値照会・イベント所有者・明示対象の文脈を保存復元し、死亡・期限切れの対象解除は通知の後に行います。空のenemy carrierも期限通知まで残します。通常受付CPU・world公開無効・全変種認証0/203を維持します。
 
@@ -8,7 +8,7 @@ Metal424入力はnative完全戦闘49件、不正入力18件、旧357入力の�
 
 残課題として、元CPUが永続味方HP/防御効果のruntime条件を無視する実例を保存しました。今回の実験policyでは該当入力を拒否し、対応済みには数えません。旧Metal差分・広範な免疫/解除/カウンター、skill/pending/DoT、interrupt/source攻撃、操作/復活、容量と全203変種の統合も未完了です。効率化は必要な検証後です。
 
-Windowsでは共通driverの新規67入力（native49＋不正18）だけを、CPU事前検査後にBelowNormal・180秒上限で1回検証します。旧357・通常4682入力は再実行しません。GitHub共有はゴール達成まで利用者が許可しています。個人設定・raw・巨大詳細は共有しません。証拠はportable-world-actor-state-validation.json、CPU監査器はseal-world-actor-state-metal.pyです。
+Windows v85は固定c9ecd4dの共通driverで新規67入力（native49＋不正18）を76.693秒、BelowNormal・180秒上限の1回で成功しました。CPU事前14検査・GPU禁止67入力と49参照、NVRTC／launch／同期／readbackの50記録、全input/output/native/generated SHAをMacで監査しました。旧357・通常4682入力の再実行0・GPU retry0・残存検証0で、元checkoutとサービスを保持しています。保存済み3JSON 61,096bytesだけを取得し、各bytes／SHAと固定Git sourceを照合しました。証拠はportable-world-v85-cuda-validation.jsonです。GitHub共有はゴール達成まで利用者が許可しています。個人設定・raw・巨大詳細は共有しません。証拠はportable-world-actor-state-validation.json、CPU監査器はseal-world-actor-state-metal.pyです。
 
 
 ## 現在の実証

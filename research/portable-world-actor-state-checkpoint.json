@@ -12,7 +12,7 @@
   "physical_metal_sessions": 2,
   "unchanged_gpu_retries": 0,
   "portable_cpu_tests": 324,
-  "windows_status": "requested67_after_cpu14",
+  "windows_status": "completed/audited",
   "normal_ui": "CPU",
   "canonical_world_admission": false,
   "full_character_verified": 0,
@@ -28,5 +28,15 @@
     "Pure hit-HP max-HP ranking native TypeError",
     "Capacity/full203 certification",
     "Efficiency after required validation"
+  ],
+  "cuda_inputs": 67,
+  "windows_cpu_tests": 14,
+  "windows_gpu_executions": 1,
+  "windows_gpu_seconds": 76.69242319976911,
+  "windows_idle": true,
+  "gpu_jobs_active": 0,
+  "proofs": [
+    "portable-world-actor-state-validation.json",
+    "portable-world-v85-cuda-validation.json"
   ]
 }
