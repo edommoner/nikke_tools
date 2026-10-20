@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "source_commit": "dd7d62b98a63f9fa99892dd964809775b136a9d6",
+  "efficiency_evaluated": true,
+  "production_change_adopted": false,
+  "candidate": "Evaluate integer enemy-code predicate before loading unused binary64 argument",
+  "all_2006_outputs_equal": true,
+  "reason": "Ordinary workload median regressed32.38% with non-overlapping observed sample ranges; all four code workloads had overlapping ranges. No demonstrated general benefit; retain verified production source.",
+  "workloads": {
+    "ordinary": {
+      "early_to_control_ratio": 1.3238448115287125,
+      "sample_ranges_overlap": false,
+      "ranges": {
+        "control": [
+          0.007629916653968394,
+          0.012575499946251512
+        ],
+        "early": [
+          0.012700874940492213,
+          0.012743874918669462
+        ]
+      }
+    },
+    "one-match": {
+      "early_to_control_ratio": 1.0002229396214488,
+      "sample_ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.012675500009208918,
+          0.012736791628412902
+        ],
+        "early": [
+          0.012707125046290457,
+          0.012759124976582825
+        ]
+      }
+    },
+    "three-match": {
+      "early_to_control_ratio": 0.9824907751248729,
+      "sample_ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.012828791746869683,
+          0.012985416688024998
+        ],
+        "early": [
+          0.012688374961726367,
+          0.012869291589595377
+        ]
+      }
+    },
+    "one-miss": {
+      "early_to_control_ratio": 0.9910431943598677,
+      "sample_ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.007734749931842089,
+          0.010285249911248684
+        ],
+        "early": [
+          0.010030125034973025,
+          0.010328833246603608
+        ]
+      }
+    },
+    "unspecified": {
+      "early_to_control_ratio": 0.9830559725113068,
+      "sample_ranges_overlap": true,
+      "ranges": {
+        "control": [
+          0.01043854164890945,
+          0.012828374980017543
+        ],
+        "early": [
+          0.012488874956034124,
+          0.012730458285659552
+        ]
+      }
+    }
+  },
+  "benchmark_sha256": "f673d441e99ca9bd9db2ad8300df8713bdba1ff808fbd9abf7a19cc16a1f8862",
+  "scope": "Sequential warmup and3 samples per variant on Apple M5,32 activations/queries per program. No full-roster/CUDA-speed/peak-memory claim; desktop GPU activity is not excluded."
+}

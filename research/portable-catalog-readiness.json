@@ -3,21 +3,19 @@
   "audited_characters": 203,
   "full_character_verified": 0,
   "weapon_input_preflight_passed": 203,
-  "own_effect_preflight_passed": 42,
+  "own_effect_preflight_passed": 43,
   "assumptions": "favorite stage 0, no cube, fixed five-member real roster; definition preflight only; not battle compatibility",
   "cpu_simulation_executed": false,
   "gpu_execution_performed": false,
   "issues": {
-    "Unported buff or recipient selector": 185,
+    "Unported buff or recipient selector": 189,
     "Unported trigger timing: event:part_destroy": 15,
     "Unported instant or recipient selector": 14,
     "Unported enemy damage selector": 12,
     "Unported trigger timing: charge_hold:1": 11,
     "Unported trigger timing: event:enemy_spawn": 10,
     "Unported trigger timing: enemy_death": 9,
-    "Unported predicate: target_code:전격": 7,
     "Unported trigger timing: charge_hold:0.5": 6,
-    "Unported predicate: target_code:풍압": 5,
     "Unported trigger timing: event:projectile_destroy": 4,
     "Unported predicate: prob:20": 4,
     "Unported predicate: target_state:사슬 감기": 4,
@@ -51,7 +49,6 @@
     "Unported predicate: not_target_state:예고장": 2,
     "Unported effect fields: duration_scaling, duration_scaling_ref": 2,
     "Unported predicate: target_state:안티 AT 필드": 2,
-    "Unported predicate: target_code:작열": 1,
     "Unported effect fields: target_code": 1,
     "Stack operation has the wrong effect kind": 1,
     "Unported trigger timing: weapon_hit:부착형 유탄 4": 1,
@@ -84,20 +81,17 @@
     "Unported trigger timing: core_hit_count:1": 1,
     "Unported trigger timing: crit_hit_count:44": 1,
     "Unported predicate: no_broken_cover_ally": 1,
-    "Unported predicate: target_state:해킹": 1,
-    "Unported predicate: target_code:수냉": 1
+    "Unported predicate: target_state:해킹": 1
   },
   "diagnostic_semantic_issues": {
-    "Unported buff or recipient selector": 185,
+    "Unported buff or recipient selector": 189,
     "Unported trigger timing: event:part_destroy": 15,
     "Unported instant or recipient selector": 14,
     "Unported enemy damage selector": 12,
     "Unported trigger timing: charge_hold:1": 11,
     "Unported trigger timing: event:enemy_spawn": 10,
     "Unported trigger timing: enemy_death": 9,
-    "Unported predicate: target_code:전격": 7,
     "Unported trigger timing: charge_hold:0.5": 6,
-    "Unported predicate: target_code:풍압": 5,
     "Unported trigger timing: event:projectile_destroy": 4,
     "Unported predicate: prob:20": 4,
     "Unported predicate: target_state:사슬 감기": 4,
@@ -131,7 +125,6 @@
     "Unported predicate: not_target_state:예고장": 2,
     "Unported effect fields: duration_scaling, duration_scaling_ref": 2,
     "Unported predicate: target_state:안티 AT 필드": 2,
-    "Unported predicate: target_code:작열": 1,
     "Unported effect fields: target_code": 1,
     "Stack operation has the wrong effect kind": 1,
     "Unported trigger timing: weapon_hit:부착형 유탄 4": 1,
@@ -164,18 +157,17 @@
     "Unported trigger timing: core_hit_count:1": 1,
     "Unported trigger timing: crit_hit_count:44": 1,
     "Unported predicate: no_broken_cover_ally": 1,
-    "Unported predicate: target_state:해킹": 1,
-    "Unported predicate: target_code:수냉": 1
+    "Unported predicate: target_state:해킹": 1
   },
   "missing_families": {
-    "damage_modifiers": 110,
+    "damage_modifiers": 103,
     "weapon": 68,
-    "damage": 52,
+    "damage": 50,
     "control_survival": 44,
     "effect_lifecycle": 37,
     "resource_accumulation": 16,
-    "ammo_reload": 14,
     "burst_cooldown": 13,
+    "ammo_reload": 13,
     "charge": 12,
     "healing_buffers": 9,
     "hp": 6,
@@ -1058,13 +1050,10 @@
           "conditions": [
             "target_code:작열"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_code:작열",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_code:작열"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -1241,7 +1230,7 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 87,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
@@ -7545,10 +7534,10 @@
             "target_code:풍압"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_code:풍압",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_code:풍압"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "기동 2",
@@ -7576,10 +7565,10 @@
             "target_code:풍압"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_code:풍압",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_code:풍압"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "전도 2",
@@ -30422,13 +30411,10 @@
           "conditions": [
             "target_code:풍압"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_code:풍압",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_code:풍압"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "앵화난만 2",
@@ -36573,12 +36559,12 @@
             "target_code:전격"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_code:전격",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [
             "note"
           ],
-          "issue": "Unported predicate: target_code:전격"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "장비 옵션",
@@ -38235,11 +38221,10 @@
           "conditions": [
             "target_code:전격"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_code:전격",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_code:전격"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "이지스 캐논 오버로드",
@@ -38266,11 +38251,10 @@
           "conditions": [
             "target_code:전격"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_code:전격",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_code:전격"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -52225,13 +52209,10 @@
           "conditions": [
             "target_code:전격"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_code:전격",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_code:전격"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "연애의 달콤함(상상) 2",
@@ -52278,11 +52259,10 @@
             "self_state:망상",
             "target_code:전격"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_code:전격",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_code:전격"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "연애의 달콤함(상상) 5",
@@ -60023,10 +60003,10 @@
             "target_code:전격"
           ],
           "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_code:전격",
+          "diagnostic_semantic_issue": "Unported buff or recipient selector",
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_code:전격"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "이글아이 타입 엑소스파인",
@@ -60067,11 +60047,10 @@
           "conditions": [
             "target_code:전격"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_code:전격",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_code:전격"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "카운터 체인",
@@ -61991,13 +61970,10 @@
           "conditions": [
             "target_code:풍압"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_code:풍압",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_code:풍압"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -62300,11 +62276,10 @@
           "conditions": [
             "target_code:수냉"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_code:수냉",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported predicate: target_code:수냉"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "메디라마",
@@ -62392,13 +62367,10 @@
           "conditions": [
             "target_code:풍압"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported predicate: target_code:풍압",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported predicate: target_code:풍압"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "장비 옵션",
@@ -62914,11 +62886,11 @@
     "app/portable_removal_specs.py": "65eeea6e89b54a4215ec93c6658d26231f4c8a656d3ac8b2ddd52ef5bcec0fcf",
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
     "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
-    "app/portable_runtime.py": "77970ae0a5f25183b66cf046ac2df8f8c6f933d8603df7a88052f371f8f1687a",
+    "app/portable_runtime.py": "7f35f03f10339fd25ff6f5d8bb812be756d36804369e89a2ca6d2b8553d03e3e",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "8492d6efe9c114133b67b750bb087390f14272d46eeee05da9043a5617ecc6f3",
+    "app/portable_specs.py": "9ba6c94e6bf0773b9c7dd10e6463b830367ccfeee0fa5f3c1fe39b53cb99d2ae",
     "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
-    "app/portable_trigger_specs.py": "c7c71372d6c6316554a108ae53fc2e13b663a950967f03c63b05d6b03a4f3dc5",
+    "app/portable_trigger_specs.py": "cb331314acba871bc8a66b18829d75fac459373c4af75a770c30284727b8f6c9",
     "app/portable_weapon_input.py": "f5b6a332f60bde4382f7579eb32bbf8df2e93116de443c824b8826390136e43b",
     "app/protection_runtime.py": "1ddbb6134b1deea1e9fee295d0171b380098ca2211f109a20224f2d369a91f92",
     "app/reference_count_runtime.py": "009b8bbee5523994861860c6101416bc1ff1e72b04a7da46e78f6ce9a5d571ef",
@@ -62971,7 +62943,7 @@
     "scripts/portable_duration_extend_oracle.py": "6d68ed922e60c67690b613de36d74753d4ac660e35e9132519b58aff3fff2d77",
     "scripts/portable_landing_oracle.py": "318d4436c3636724112025866cd8e21f692772b96a83450e7bf3fae020484b45",
     "scripts/portable_lifesteal_oracle.py": "082a9149627a837f0efd0ff966af6de8868be3a7b776bdc7b8b21dc13ae0d531",
-    "scripts/portable_removal_oracle.py": "e759261912f0f99a9b6f0ba879accbbacf45b75467d0d7e5eec1c2eb90d92f1d",
+    "scripts/portable_removal_oracle.py": "90df643a74a72d71c5cdb5478f5e36d343ae1aa31ecb8c33d343dae6482c9b81",
     "scripts/portable_source_oracle.py": "97475bdc1a97ddb67281c08bbfb7ee95978826e3f834f271155933fc4e631970",
     "tests/fixtures/portable-duration-extend.json": "32f301f32116ebf38f9ccd198240cd4efedc0afa37aaba82a0888c5e3c83d4fc",
     "tests/fixtures/portable-landings.json": "351c697e09cc503a03c91910b2b902e84c20acb6ad110d8532409f4036100a1b",
