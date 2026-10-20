@@ -9,10 +9,12 @@ bool elementMatch(inout Runtime s,uint who)
     if(code==0 || commands[world+2]==0) return false;
     for(uint pass=0;pass<s.orderedCount;pass++)
     {
-        uint row=s.orderedRows[pass];Definition d=residentDefinition(s,row);
-        if(d.kind==0 && d.stat==S_element_code_override && s.alive[row]!=0 &&
-           d.damageRoute==code &&
-           (s.activeRecipients[row]&(1U<<who))!=0) return true;
+        uint row=s.orderedRows[pass];
+        if(s.alive[row]==0 || (s.activeRecipients[row]&(1U<<who))==0) continue;
+        uint definition=s.carrierDefinition[row];
+        if(definition_kind(s.inputBase,definition)==0 &&
+           definition_stat(s.inputBase,definition)==S_element_code_override &&
+           definition_damageRoute(s.inputBase,definition)==code) return true;
     }
     return false;
 }
