@@ -1,5 +1,14 @@
 # 型付き128対象の免疫・共有スタックの接続設計
 
+## 2026-10-21 128対象・共有バフのスタック操作をMetalへ接続
+
+実験ABI7D・計算source50522a9で、buff_stack_add/remove/init、buff_max_stack_add、debuff_stack_add/removeを共通実行器へ接続しました。対象集合と世代・免疫だけを拡張し、整数変換・符号・ゼロの既定値・有限/無限上限・期限更新・遅延通知は既存stack_runtime/stack_numericを共用します。共有バフは65対象への操作でも1個のstackだけを1回更新し、対象ごとへ分割しません。共有バフに一部免疫があっても、nativeと同じ共有stackへの影響を保持します。
+
+Metal590入力はnative53件・拒否8件・旧529入力の全524288出力word保持で成功しました。単体356件と、通常/fields/state/mutation/recipient/statusのCUDA・MSL生成物厳密一致を確認しました。小数・正負ゼロ・正負巨大値、named/unnamedの0/1下限、無限上限、2147483647の最終許容値、参照stack、所有者の違い、共有対象・免疫・再出現、期限更新とstack_reach子通知を含みます。31bit保持域を超える結果はstatus2で拒否し、許容範囲と混同しません。GPU実行1回・再試行0です。
+
+証拠はportable-world-actor-stack-validation.json、CPU監査器はseal-world-actor-stacks-metal.py。新規61入力/53 native参照の全fingerprintを保存し、GPU関数禁止のCPU照合も成功しました。Windowsではこの61入力だけを低優先度・180秒上限で1回確認します。通常4682・旧529全件は再実行しません。target_hit_counterと完了/死亡/refresh epoch、skill/pending/DoT、mixed target、source攻撃/interrupt、操作/復活、容量/全203認証は未完了で、通常画面CPU・world公開無効・全変種認証0/203・効率化未開始を維持します。
+
+
 ## 2026-10-21 128対象の免疫・回数プール・解除をMetalへ接続
 
 計算source0873bd9・実験ABI7Cで、既存status_runtimeの免疫走査・容量最大・使用数加算・再補充・解除順を共用し、対象参照と保存先を128対象へ拡張しました。通常/名前指定免疫は捕捉世代と生存を照合します。回数免疫はnativeのtarget_chars契約に従い、再出現通知中の旧世代でも実際に対象一覧から除かれるまで容量を参照します。この差は完全CPUの通知トレース3件で実測して保存しました。容量を整数へ丸めず、0.5/1.5の防御回数も一致します。

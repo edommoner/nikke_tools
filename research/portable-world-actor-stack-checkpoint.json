@@ -1,0 +1,33 @@
+{
+  "stage": "Typed128 stack scope routed to common numeric/lifetime/notice executor",
+  "source": "50522a9",
+  "metal_inputs": 590,
+  "native_battles": 53,
+  "raw_rejections": 8,
+  "old529_all_output_words_exact": true,
+  "portable_cpu_tests": 356,
+  "six_prior_entries_generated_exact": true,
+  "output_words": 524288,
+  "input_words": 92336,
+  "actual_metal_executions": 1,
+  "gpu_retries": 0,
+  "new_cuda_inputs": 61,
+  "new_cuda_native_oracles": 53,
+  "windows_status": "not_dispatched_yet",
+  "normal_ui": "CPU",
+  "canonical_world_admission": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "efficiency_started": false,
+  "legacy_unexplained_metal14c8e2e_finding": "OPEN",
+  "remaining": [
+    "Target counters:exact Actor/family/outcome/credit/refresh epoch/latch/complete/death",
+    "Typed skill/pending/DoT and mixed ally/enemy selection",
+    "Source attacks/selfdestruct/interrupt",
+    "Dynamic control/revive",
+    "Conditional permanent ally HP/defense native inconsistency",
+    "Hit-only max-HP rank native TypeError",
+    "Capacity/long simulations/full203 certification",
+    "Efficiency after required validation"
+  ]
+}
