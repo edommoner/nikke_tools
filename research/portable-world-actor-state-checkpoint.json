@@ -1,0 +1,32 @@
+{
+  "stage": "Typed128 named-state predicates and post-notice recipient removal",
+  "calculation_source": "8c5a09b1b92c3fa80f4ecd19ef70adc9d8fa7bc1",
+  "input_packer_source": "3bf0881",
+  "cuda_source": "c9ecd4d28b67c4638d63cff4e5067ee8384472b8",
+  "metal_inputs": 424,
+  "new_native_battles": 49,
+  "raw_rejections": 18,
+  "old357_full_output_preserved": true,
+  "corrected_literal_input_index": 37,
+  "reused_unchanged_inputs": 423,
+  "physical_metal_sessions": 2,
+  "unchanged_gpu_retries": 0,
+  "portable_cpu_tests": 324,
+  "windows_status": "requested67_after_cpu14",
+  "normal_ui": "CPU",
+  "canonical_world_admission": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "efficiency_started": false,
+  "legacy_unexplained_metal14c8e2e_finding": "OPEN",
+  "remaining": [
+    "Conditional permanent allied HP/defense native inconsistency",
+    "Wide typed immunity/cleanse/counters/callbacks",
+    "Typed skill/pending/DoT and mixed selection",
+    "Source attacks/selfdestruct/interrupt",
+    "Dynamic control/revive",
+    "Pure hit-HP max-HP ranking native TypeError",
+    "Capacity/full203 certification",
+    "Efficiency after required validation"
+  ]
+}
