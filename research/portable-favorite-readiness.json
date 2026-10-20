@@ -3,8 +3,8 @@
   "catalog_characters": 203,
   "audited_contexts": 812,
   "stage0_matches_current_audit": true,
-  "own_effect_preflight_contexts_passed": 257,
-  "all_four_stages_preflight_characters": 64,
+  "own_effect_preflight_contexts_passed": 269,
+  "all_four_stages_preflight_characters": 67,
   "all_four_stages_preflight_names": [
     "아니스",
     "네온 : 블루 오션",
@@ -21,6 +21,8 @@
     "은화",
     "드레이크",
     "맥스웰",
+    "라플라스 : 얼티밋 히어로",
+    "맥스웰 : 오디너리 미케닉",
     "N102",
     "메어리",
     "메어리 : 베이 갓데스",
@@ -65,6 +67,7 @@
     "민트",
     "백학",
     "히메노",
+    "2B",
     "파스칼",
     "사쿠라 (SR)",
     "클레어",
@@ -76,7 +79,7 @@
   "full_character_verified": 0,
   "scope": "Favorite stages0..3,default skill levels,no cube,same fixed five-member squad;preflight only;not GPU support certification",
   "issues": {
-    "Unported buff or recipient selector": 582,
+    "Unported buff or recipient selector": 558,
     "Unported trigger timing: event:part_destroy": 60,
     "Unported instant or recipient selector": 57,
     "Unported enemy damage selector": 53,
@@ -135,7 +138,7 @@
     "Unported predicate: target_stunned": 2
   },
   "missing_families": {
-    "damage_modifiers": 362,
+    "damage_modifiers": 338,
     "control_survival": 176,
     "damage": 161,
     "effect_lifecycle": 124,
@@ -5375,117 +5378,45 @@
       "character": "라플라스 : 얼티밋 히어로",
       "favorite_stage": 0,
       "own_effects": 26,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "일렉트릭 파워 풀 풀 차지 2",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "라플라스 : 얼티밋 히어로",
       "favorite_stage": 1,
       "own_effects": 26,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "일렉트릭 파워 풀 풀 차지 2",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "라플라스 : 얼티밋 히어로",
       "favorite_stage": 2,
       "own_effects": 26,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "일렉트릭 파워 풀 풀 차지 2",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "라플라스 : 얼티밋 히어로",
       "favorite_stage": 3,
       "own_effects": 26,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "일렉트릭 파워 풀 풀 차지 2",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "드레이크 : 그레이트 빌런",
@@ -5513,23 +5444,6 @@
             "note"
           ],
           "issue": "Unported effect fields: entry_reload"
-        },
-        {
-          "name": "지각",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -5559,23 +5473,6 @@
             "note"
           ],
           "issue": "Unported effect fields: entry_reload"
-        },
-        {
-          "name": "지각",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -5605,23 +5502,6 @@
             "note"
           ],
           "issue": "Unported effect fields: entry_reload"
-        },
-        {
-          "name": "지각",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -5651,23 +5531,6 @@
             "note"
           ],
           "issue": "Unported effect fields: entry_reload"
-        },
-        {
-          "name": "지각",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -5675,109 +5538,45 @@
       "character": "맥스웰 : 오디너리 미케닉",
       "favorite_stage": 0,
       "own_effects": 23,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "출력 전환 시퀀스",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "맥스웰 : 오디너리 미케닉",
       "favorite_stage": 1,
       "own_effects": 23,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "출력 전환 시퀀스",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "맥스웰 : 오디너리 미케닉",
       "favorite_stage": 2,
       "own_effects": 23,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "출력 전환 시퀀스",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "맥스웰 : 오디너리 미케닉",
       "favorite_stage": 3,
       "own_effects": 23,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "출력 전환 시퀀스",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "burst_cast"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "크로우",
@@ -9190,23 +8989,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported effect fields: scaling, scaling_hp_pct"
-        },
-        {
-          "name": "블레스 유 4",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [
-            "gauge_eq:MP:0"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -9234,23 +9016,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported effect fields: scaling, scaling_hp_pct"
-        },
-        {
-          "name": "블레스 유 4",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [
-            "gauge_eq:MP:0"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -9278,23 +9043,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported effect fields: scaling, scaling_hp_pct"
-        },
-        {
-          "name": "블레스 유 4",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [
-            "gauge_eq:MP:0"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -9322,23 +9070,6 @@
           "diagnostic_metadata_stripped": true,
           "diagnostic_removed_fields": [],
           "issue": "Unported effect fields: scaling, scaling_hp_pct"
-        },
-        {
-          "name": "블레스 유 4",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "full_burst_start"
-          ],
-          "conditions": [
-            "gauge_eq:MP:0"
-          ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
         }
       ]
     },
@@ -22414,21 +22145,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "무결한 유리",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "burst_enter:3"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "유리 구두 풀 컨텍트",
           "type": "damage",
           "stat": "sequential_damage:10",
@@ -22455,21 +22171,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "무결한 유리",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "burst_enter:3"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "유리 구두 풀 컨텍트",
           "type": "damage",
@@ -22498,21 +22199,6 @@
       ],
       "unadmitted_effects": [
         {
-          "name": "무결한 유리",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "burst_enter:3"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
-        {
           "name": "유리 구두 풀 컨텍트",
           "type": "damage",
           "stat": "sequential_damage:10",
@@ -22539,21 +22225,6 @@
         "normal_ui_full_battle_adapter_not_connected"
       ],
       "unadmitted_effects": [
-        {
-          "name": "무결한 유리",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "burst_enter:3"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
-        },
         {
           "name": "유리 구두 풀 컨텍트",
           "type": "damage",
@@ -26240,117 +25911,45 @@
       "character": "2B",
       "favorite_stage": 0,
       "own_effects": 16,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "클러스터 봄 2",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "2B",
       "favorite_stage": 1,
       "own_effects": 16,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "클러스터 봄 2",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "2B",
       "favorite_stage": 2,
       "own_effects": 16,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "클러스터 봄 2",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "2B",
       "favorite_stage": 3,
       "own_effects": 16,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "weapon_input_preflight_passed": true,
       "weapon_gaps": [
         "normal_ui_full_battle_adapter_not_connected"
       ],
-      "unadmitted_effects": [
-        {
-          "name": "클러스터 봄 2",
-          "type": "buff",
-          "stat": "atk_from_hp_pct",
-          "family": "damage_modifiers",
-          "timings": [
-            "battle_start"
-          ],
-          "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
-        }
-      ]
+      "unadmitted_effects": []
     },
     {
       "character": "A2",
@@ -30063,13 +29662,13 @@
   ],
   "source_sha256": {
     "research/audit-portable-favorites.py": "e2e9a7d747f966b8805f29ad0307e5d8a5c376c1550614d3994b288a0216835b",
-    "research/portable-catalog-readiness.json": "c0a107831b7cedebdf35ecff93d125523a40fff57bbcb6a6117c62bc5f5da0a0",
+    "research/portable-catalog-readiness.json": "176950d9bc0167be72d163cff260261af9c1f40d41940c337ae43fe36e282749",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
-    "app/portable_runtime.py": "f7ae23af098d154f4c33c5ff725a83fb1cd1a66d6beedc3f51998db291889bca",
+    "app/portable_runtime.py": "0bad65b29ba281ccd54320fa62e3d1abcaaa5bc4ab278c7cb7a11beaa68bb2d7",
     "app/portable_roster_input.py": "cf569da9faababe07f9c1c16111da2f64936d5da562b123ea0ed67b7847bd024",
     "app/portable_trigger_specs.py": "cb51cde60865323c4f077687d8d2c8b8fac7d9572945ed0cf8f6f64034876b77",
     "app/portable_probability_specs.py": "77becccd2a7cf2b046ad4422958952d843d76a4aa2800f9fcb6dd7ce35c75f61",
-    "app/portable_damage_specs.py": "55eb159c82817851b8fc547829fb796a225c6ec686ba8195401cfc1e06d6db36",
+    "app/portable_damage_specs.py": "4d43bf86347ecb62e04254e3318318559bf440539ec34d7c300edafd30855610",
     "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
     "scripts/detail_coverage.py": "eef94f7675f270e8a4870323cb1e55e8506f2e5fe47e6fa4b1645d9aaf71dc40",
     "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",

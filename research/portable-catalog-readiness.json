@@ -3,12 +3,12 @@
   "audited_characters": 203,
   "full_character_verified": 0,
   "weapon_input_preflight_passed": 203,
-  "own_effect_preflight_passed": 65,
+  "own_effect_preflight_passed": 68,
   "assumptions": "favorite stage 0, no cube, fixed five-member real roster; definition preflight only; not battle compatibility",
   "cpu_simulation_executed": false,
   "gpu_execution_performed": false,
   "issues": {
-    "Unported buff or recipient selector": 144,
+    "Unported buff or recipient selector": 138,
     "Unported trigger timing: event:part_destroy": 15,
     "Unported instant or recipient selector": 14,
     "Unported enemy damage selector": 13,
@@ -64,7 +64,7 @@
     "Unported predicate: no_broken_cover_ally": 1
   },
   "diagnostic_semantic_issues": {
-    "Unported buff or recipient selector": 144,
+    "Unported buff or recipient selector": 138,
     "Unported trigger timing: event:part_destroy": 15,
     "Unported instant or recipient selector": 14,
     "Unported enemy damage selector": 13,
@@ -120,7 +120,7 @@
     "Unported predicate: no_broken_cover_ally": 1
   },
   "missing_families": {
-    "damage_modifiers": 89,
+    "damage_modifiers": 83,
     "control_survival": 44,
     "damage": 39,
     "effect_lifecycle": 31,
@@ -11795,13 +11795,10 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "예열",
@@ -12224,7 +12221,7 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 96,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
@@ -12317,13 +12314,10 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "빌런 웹 스페셜",
@@ -12576,11 +12570,10 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "과전류",
@@ -12921,7 +12914,7 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 93,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
@@ -19652,11 +19645,10 @@
           "conditions": [
             "gauge_eq:MP:0"
           ],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "블레스 유 5",
@@ -47567,11 +47559,10 @@
             "burst_enter:3"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "무결한 유리 2",
@@ -55130,13 +55121,10 @@
             "battle_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "diagnostic_semantic_issue": "Unported buff or recipient selector",
-          "diagnostic_metadata_stripped": true,
-          "diagnostic_removed_fields": [
-            "note"
-          ],
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "diagnostic_semantic_issue": null,
+          "diagnostic_metadata_stripped": false,
+          "diagnostic_removed_fields": []
         },
         {
           "name": "연속 공격",
@@ -55341,7 +55329,7 @@
       "weapon_input_preflight_passed": true,
       "weapon_adapter_issue": null,
       "squad_effects": 86,
-      "all_effects_preflight_passed": false,
+      "all_effects_preflight_passed": true,
       "experimental_static_battle_input_adapter_available": true,
       "actual_battle_adapter_connected": false,
       "normal_ui_metal_connected": false,
@@ -62697,7 +62685,7 @@
     "app/periodic_target_runtime.py": "b2475507525e8f06b9139142fb662d831f73a72cbb8e99b087dd0c6a1ae3d188",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
     "app/portable_combat.py": "aeb209d1d7b05d1d7954e34c7d674b52157c0aff663cde951affaea023d8f98a",
-    "app/portable_damage_specs.py": "55eb159c82817851b8fc547829fb796a225c6ec686ba8195401cfc1e06d6db36",
+    "app/portable_damage_specs.py": "4d43bf86347ecb62e04254e3318318559bf440539ec34d7c300edafd30855610",
     "app/portable_duration_extend_specs.py": "f3909d1ce0a448090fd853a8fbb44f64bf6acdbb1803742812a2fb84bd42f9a8",
     "app/portable_enemy_specs.py": "34cfe5234f5ed216af3cf3cbdde5c6b777a48eed2a81676294f2ed96d1ab6e49",
     "app/portable_lifesteal_reference.py": "eeb7dd998fce96afbc032e95b5f9b7454cb0f408d4472bfd6dae9f23a64a1104",
@@ -62707,9 +62695,9 @@
     "app/portable_removal_specs.py": "65eeea6e89b54a4215ec93c6658d26231f4c8a656d3ac8b2ddd52ef5bcec0fcf",
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
     "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
-    "app/portable_runtime.py": "f7ae23af098d154f4c33c5ff725a83fb1cd1a66d6beedc3f51998db291889bca",
+    "app/portable_runtime.py": "0bad65b29ba281ccd54320fa62e3d1abcaaa5bc4ab278c7cb7a11beaa68bb2d7",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "06e5ab0dc78800ba754a522c46f7f4632851e37d7495b126fd150b2142bcffd5",
+    "app/portable_specs.py": "c30cf1540d1cf6b0206c5aedb28d29cdabc156c714672c17823ad73b106ac3e0",
     "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
     "app/portable_trigger_specs.py": "cb51cde60865323c4f077687d8d2c8b8fac7d9572945ed0cf8f6f64034876b77",
     "app/portable_weapon_input.py": "f5b6a332f60bde4382f7579eb32bbf8df2e93116de443c824b8826390136e43b",

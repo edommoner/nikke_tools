@@ -1,0 +1,4593 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "gpu_execution_performed": false,
+  "cases": [
+    {
+      "owner": 0,
+      "target": "self",
+      "shooter": 0,
+      "weapon_type": "AR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 2150,
+          "expected": 2150
+        },
+        {
+          "time": 1.0,
+          "damage": 2150,
+          "expected": 2150
+        },
+        {
+          "time": 2.0,
+          "damage": 2150,
+          "expected": 2150
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 0,
+      "target": "self",
+      "shooter": 0,
+      "weapon_type": "AR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 2150,
+          "expected": 2150
+        },
+        {
+          "time": 1.0,
+          "damage": 1075,
+          "expected": 1075
+        },
+        {
+          "time": 2.0,
+          "damage": 1075,
+          "expected": 1075
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 0,
+      "target": "self",
+      "shooter": 0,
+      "weapon_type": "SG",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 0,
+      "target": "self",
+      "shooter": 0,
+      "weapon_type": "SG",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 0,
+      "target": "self",
+      "shooter": 0,
+      "weapon_type": "SR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 6450,
+          "expected": 6450
+        },
+        {
+          "time": 1.5,
+          "damage": 6450,
+          "expected": 6450
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 0,
+      "target": "self",
+      "shooter": 0,
+      "weapon_type": "SR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 6450,
+          "expected": 6450
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 0,
+      "target": "self",
+      "shooter": 0,
+      "weapon_type": "RL",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 6450,
+          "expected": 6450
+        },
+        {
+          "time": 1.5,
+          "damage": 6450,
+          "expected": 6450
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 0,
+      "target": "self",
+      "shooter": 0,
+      "weapon_type": "RL",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 6450,
+          "expected": 6450
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 0,
+      "target": "all_allies",
+      "shooter": 1,
+      "weapon_type": "AR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 2365,
+          "expected": 2365
+        },
+        {
+          "time": 1.0,
+          "damage": 2365,
+          "expected": 2365
+        },
+        {
+          "time": 2.0,
+          "damage": 2365,
+          "expected": 2365
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 0,
+      "target": "all_allies",
+      "shooter": 1,
+      "weapon_type": "AR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 2365,
+          "expected": 2365
+        },
+        {
+          "time": 1.0,
+          "damage": 1075,
+          "expected": 1075
+        },
+        {
+          "time": 2.0,
+          "damage": 1075,
+          "expected": 1075
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 0,
+      "target": "all_allies",
+      "shooter": 1,
+      "weapon_type": "SG",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 0,
+      "target": "all_allies",
+      "shooter": 1,
+      "weapon_type": "SG",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 0,
+      "target": "all_allies",
+      "shooter": 1,
+      "weapon_type": "SR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 7095,
+          "expected": 7095
+        },
+        {
+          "time": 1.5,
+          "damage": 7095,
+          "expected": 7095
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 0,
+      "target": "all_allies",
+      "shooter": 1,
+      "weapon_type": "SR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 7095,
+          "expected": 7095
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 0,
+      "target": "all_allies",
+      "shooter": 1,
+      "weapon_type": "RL",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 7095,
+          "expected": 7095
+        },
+        {
+          "time": 1.5,
+          "damage": 7095,
+          "expected": 7095
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 0,
+      "target": "all_allies",
+      "shooter": 1,
+      "weapon_type": "RL",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 7095,
+          "expected": 7095
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 1,
+      "target": "self",
+      "shooter": 1,
+      "weapon_type": "AR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 2365,
+          "expected": 2365
+        },
+        {
+          "time": 1.0,
+          "damage": 2365,
+          "expected": 2365
+        },
+        {
+          "time": 2.0,
+          "damage": 2365,
+          "expected": 2365
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 1,
+      "target": "self",
+      "shooter": 1,
+      "weapon_type": "AR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 2365,
+          "expected": 2365
+        },
+        {
+          "time": 1.0,
+          "damage": 1075,
+          "expected": 1075
+        },
+        {
+          "time": 2.0,
+          "damage": 1075,
+          "expected": 1075
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 1,
+      "target": "self",
+      "shooter": 1,
+      "weapon_type": "SG",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 2.0,
+          "damage": 236,
+          "expected": 236
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 1,
+      "target": "self",
+      "shooter": 1,
+      "weapon_type": "SG",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 0.0,
+          "damage": 236,
+          "expected": 236
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 1,
+      "target": "self",
+      "shooter": 1,
+      "weapon_type": "SR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 7095,
+          "expected": 7095
+        },
+        {
+          "time": 1.5,
+          "damage": 7095,
+          "expected": 7095
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 1,
+      "target": "self",
+      "shooter": 1,
+      "weapon_type": "SR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 7095,
+          "expected": 7095
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 1,
+      "target": "self",
+      "shooter": 1,
+      "weapon_type": "RL",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 7095,
+          "expected": 7095
+        },
+        {
+          "time": 1.5,
+          "damage": 7095,
+          "expected": 7095
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 1,
+      "target": "self",
+      "shooter": 1,
+      "weapon_type": "RL",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 7095,
+          "expected": 7095
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 1,
+      "target": "all_allies",
+      "shooter": 2,
+      "weapon_type": "AR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 2580,
+          "expected": 2580
+        },
+        {
+          "time": 1.0,
+          "damage": 2580,
+          "expected": 2580
+        },
+        {
+          "time": 2.0,
+          "damage": 2580,
+          "expected": 2580
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 1,
+      "target": "all_allies",
+      "shooter": 2,
+      "weapon_type": "AR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 2580,
+          "expected": 2580
+        },
+        {
+          "time": 1.0,
+          "damage": 1075,
+          "expected": 1075
+        },
+        {
+          "time": 2.0,
+          "damage": 1075,
+          "expected": 1075
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 1,
+      "target": "all_allies",
+      "shooter": 2,
+      "weapon_type": "SG",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 1,
+      "target": "all_allies",
+      "shooter": 2,
+      "weapon_type": "SG",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 1,
+      "target": "all_allies",
+      "shooter": 2,
+      "weapon_type": "SR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 7740,
+          "expected": 7740
+        },
+        {
+          "time": 1.5,
+          "damage": 7740,
+          "expected": 7740
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 1,
+      "target": "all_allies",
+      "shooter": 2,
+      "weapon_type": "SR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 7740,
+          "expected": 7740
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 1,
+      "target": "all_allies",
+      "shooter": 2,
+      "weapon_type": "RL",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 7740,
+          "expected": 7740
+        },
+        {
+          "time": 1.5,
+          "damage": 7740,
+          "expected": 7740
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 1,
+      "target": "all_allies",
+      "shooter": 2,
+      "weapon_type": "RL",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 7740,
+          "expected": 7740
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 2,
+      "target": "self",
+      "shooter": 2,
+      "weapon_type": "AR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 2580,
+          "expected": 2580
+        },
+        {
+          "time": 1.0,
+          "damage": 2580,
+          "expected": 2580
+        },
+        {
+          "time": 2.0,
+          "damage": 2580,
+          "expected": 2580
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 2,
+      "target": "self",
+      "shooter": 2,
+      "weapon_type": "AR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 2580,
+          "expected": 2580
+        },
+        {
+          "time": 1.0,
+          "damage": 1075,
+          "expected": 1075
+        },
+        {
+          "time": 2.0,
+          "damage": 1075,
+          "expected": 1075
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 2,
+      "target": "self",
+      "shooter": 2,
+      "weapon_type": "SG",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 2.0,
+          "damage": 258,
+          "expected": 258
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 2,
+      "target": "self",
+      "shooter": 2,
+      "weapon_type": "SG",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 0.0,
+          "damage": 258,
+          "expected": 258
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 2,
+      "target": "self",
+      "shooter": 2,
+      "weapon_type": "SR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 7740,
+          "expected": 7740
+        },
+        {
+          "time": 1.5,
+          "damage": 7740,
+          "expected": 7740
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 2,
+      "target": "self",
+      "shooter": 2,
+      "weapon_type": "SR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 7740,
+          "expected": 7740
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 2,
+      "target": "self",
+      "shooter": 2,
+      "weapon_type": "RL",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 7740,
+          "expected": 7740
+        },
+        {
+          "time": 1.5,
+          "damage": 7740,
+          "expected": 7740
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 2,
+      "target": "self",
+      "shooter": 2,
+      "weapon_type": "RL",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 7740,
+          "expected": 7740
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 2,
+      "target": "all_allies",
+      "shooter": 3,
+      "weapon_type": "AR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 2795,
+          "expected": 2795
+        },
+        {
+          "time": 1.0,
+          "damage": 2795,
+          "expected": 2795
+        },
+        {
+          "time": 2.0,
+          "damage": 2795,
+          "expected": 2795
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 2,
+      "target": "all_allies",
+      "shooter": 3,
+      "weapon_type": "AR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 2795,
+          "expected": 2795
+        },
+        {
+          "time": 1.0,
+          "damage": 1075,
+          "expected": 1075
+        },
+        {
+          "time": 2.0,
+          "damage": 1075,
+          "expected": 1075
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 2,
+      "target": "all_allies",
+      "shooter": 3,
+      "weapon_type": "SG",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 2,
+      "target": "all_allies",
+      "shooter": 3,
+      "weapon_type": "SG",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 2,
+      "target": "all_allies",
+      "shooter": 3,
+      "weapon_type": "SR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 8385,
+          "expected": 8385
+        },
+        {
+          "time": 1.5,
+          "damage": 8385,
+          "expected": 8385
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 2,
+      "target": "all_allies",
+      "shooter": 3,
+      "weapon_type": "SR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 8385,
+          "expected": 8385
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 2,
+      "target": "all_allies",
+      "shooter": 3,
+      "weapon_type": "RL",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 8385,
+          "expected": 8385
+        },
+        {
+          "time": 1.5,
+          "damage": 8385,
+          "expected": 8385
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 2,
+      "target": "all_allies",
+      "shooter": 3,
+      "weapon_type": "RL",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 8385,
+          "expected": 8385
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 3,
+      "target": "self",
+      "shooter": 3,
+      "weapon_type": "AR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 2795,
+          "expected": 2795
+        },
+        {
+          "time": 1.0,
+          "damage": 2795,
+          "expected": 2795
+        },
+        {
+          "time": 2.0,
+          "damage": 2795,
+          "expected": 2795
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 3,
+      "target": "self",
+      "shooter": 3,
+      "weapon_type": "AR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 2795,
+          "expected": 2795
+        },
+        {
+          "time": 1.0,
+          "damage": 1075,
+          "expected": 1075
+        },
+        {
+          "time": 2.0,
+          "damage": 1075,
+          "expected": 1075
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 3,
+      "target": "self",
+      "shooter": 3,
+      "weapon_type": "SG",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 2.0,
+          "damage": 280,
+          "expected": 280
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 3,
+      "target": "self",
+      "shooter": 3,
+      "weapon_type": "SG",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 0.0,
+          "damage": 280,
+          "expected": 280
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 3,
+      "target": "self",
+      "shooter": 3,
+      "weapon_type": "SR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 8385,
+          "expected": 8385
+        },
+        {
+          "time": 1.5,
+          "damage": 8385,
+          "expected": 8385
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 3,
+      "target": "self",
+      "shooter": 3,
+      "weapon_type": "SR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 8385,
+          "expected": 8385
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 3,
+      "target": "self",
+      "shooter": 3,
+      "weapon_type": "RL",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 8385,
+          "expected": 8385
+        },
+        {
+          "time": 1.5,
+          "damage": 8385,
+          "expected": 8385
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 3,
+      "target": "self",
+      "shooter": 3,
+      "weapon_type": "RL",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 8385,
+          "expected": 8385
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 3,
+      "target": "all_allies",
+      "shooter": 4,
+      "weapon_type": "AR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 3010,
+          "expected": 3010
+        },
+        {
+          "time": 1.0,
+          "damage": 3010,
+          "expected": 3010
+        },
+        {
+          "time": 2.0,
+          "damage": 3010,
+          "expected": 3010
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 3,
+      "target": "all_allies",
+      "shooter": 4,
+      "weapon_type": "AR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 3010,
+          "expected": 3010
+        },
+        {
+          "time": 1.0,
+          "damage": 1075,
+          "expected": 1075
+        },
+        {
+          "time": 2.0,
+          "damage": 1075,
+          "expected": 1075
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 3,
+      "target": "all_allies",
+      "shooter": 4,
+      "weapon_type": "SG",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 3,
+      "target": "all_allies",
+      "shooter": 4,
+      "weapon_type": "SG",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 3,
+      "target": "all_allies",
+      "shooter": 4,
+      "weapon_type": "SR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 9030,
+          "expected": 9030
+        },
+        {
+          "time": 1.5,
+          "damage": 9030,
+          "expected": 9030
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 3,
+      "target": "all_allies",
+      "shooter": 4,
+      "weapon_type": "SR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 9030,
+          "expected": 9030
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 3,
+      "target": "all_allies",
+      "shooter": 4,
+      "weapon_type": "RL",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 9030,
+          "expected": 9030
+        },
+        {
+          "time": 1.5,
+          "damage": 9030,
+          "expected": 9030
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 3,
+      "target": "all_allies",
+      "shooter": 4,
+      "weapon_type": "RL",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 9030,
+          "expected": 9030
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 4,
+      "target": "self",
+      "shooter": 4,
+      "weapon_type": "AR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 3010,
+          "expected": 3010
+        },
+        {
+          "time": 1.0,
+          "damage": 3010,
+          "expected": 3010
+        },
+        {
+          "time": 2.0,
+          "damage": 3010,
+          "expected": 3010
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 4,
+      "target": "self",
+      "shooter": 4,
+      "weapon_type": "AR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 3010,
+          "expected": 3010
+        },
+        {
+          "time": 1.0,
+          "damage": 1075,
+          "expected": 1075
+        },
+        {
+          "time": 2.0,
+          "damage": 1075,
+          "expected": 1075
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 4,
+      "target": "self",
+      "shooter": 4,
+      "weapon_type": "SG",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 2.0,
+          "damage": 301,
+          "expected": 301
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 4,
+      "target": "self",
+      "shooter": 4,
+      "weapon_type": "SG",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 0.0,
+          "damage": 301,
+          "expected": 301
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 4,
+      "target": "self",
+      "shooter": 4,
+      "weapon_type": "SR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 9030,
+          "expected": 9030
+        },
+        {
+          "time": 1.5,
+          "damage": 9030,
+          "expected": 9030
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 4,
+      "target": "self",
+      "shooter": 4,
+      "weapon_type": "SR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 9030,
+          "expected": 9030
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 4,
+      "target": "self",
+      "shooter": 4,
+      "weapon_type": "RL",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 9030,
+          "expected": 9030
+        },
+        {
+          "time": 1.5,
+          "damage": 9030,
+          "expected": 9030
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 4,
+      "target": "self",
+      "shooter": 4,
+      "weapon_type": "RL",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 9030,
+          "expected": 9030
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 4,
+      "target": "all_allies",
+      "shooter": 0,
+      "weapon_type": "AR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 2150,
+          "expected": 2150
+        },
+        {
+          "time": 1.0,
+          "damage": 2150,
+          "expected": 2150
+        },
+        {
+          "time": 2.0,
+          "damage": 2150,
+          "expected": 2150
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 4,
+      "target": "all_allies",
+      "shooter": 0,
+      "weapon_type": "AR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 2150,
+          "expected": 2150
+        },
+        {
+          "time": 1.0,
+          "damage": 1075,
+          "expected": 1075
+        },
+        {
+          "time": 2.0,
+          "damage": 1075,
+          "expected": 1075
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 4,
+      "target": "all_allies",
+      "shooter": 0,
+      "weapon_type": "SG",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 2.0,
+          "damage": 215,
+          "expected": 215
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 4,
+      "target": "all_allies",
+      "shooter": 0,
+      "weapon_type": "SG",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 0.0,
+          "damage": 215,
+          "expected": 215
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 1.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        },
+        {
+          "time": 2.0,
+          "damage": 108,
+          "expected": 108
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 4,
+      "target": "all_allies",
+      "shooter": 0,
+      "weapon_type": "SR",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 6450,
+          "expected": 6450
+        },
+        {
+          "time": 1.5,
+          "damage": 6450,
+          "expected": 6450
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 4,
+      "target": "all_allies",
+      "shooter": 0,
+      "weapon_type": "SR",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 6450,
+          "expected": 6450
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 4,
+      "target": "all_allies",
+      "shooter": 0,
+      "weapon_type": "RL",
+      "duration": -1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 6450,
+          "expected": 6450
+        },
+        {
+          "time": 1.5,
+          "damage": 6450,
+          "expected": 6450
+        }
+      ],
+      "bad": []
+    },
+    {
+      "owner": 4,
+      "target": "all_allies",
+      "shooter": 0,
+      "weapon_type": "RL",
+      "duration": 1,
+      "passed": true,
+      "hits": [
+        {
+          "time": 0.5,
+          "damage": 6450,
+          "expected": 6450
+        },
+        {
+          "time": 1.5,
+          "damage": 3225,
+          "expected": 3225
+        }
+      ],
+      "bad": []
+    }
+  ],
+  "scope": "Actual native CharState.tick,AR/SG/SR/RL,self/other-recipient,finite/infinite HP conversion. No GPU or full-character certification.",
+  "source_sha256": {
+    "research/characterize-hp-attack-physical.py": "abe44f7112887f2dfa562ed3bf48d967201a7be8fdbddb3ae117f656d5550aa8",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "source_commit": "0ae6a14ab1abec9f7c60179f5910c721d7a8d239",
+  "stage": "planned-not-executed",
+  "prerequisites": [
+    "All44 fixed-source Mac gates terminal and passed",
+    "Current-source CUDA verification and artifact comparison terminal",
+    "Verification processes0;explicit timing barrier recorded"
+  ],
+  "candidate": {
+    "file": "gpu/hp_attack_runtime.slang",
+    "source_sha256": "2bb2bdcca7a86353ad8cff2de5908037fd344e4091e07eb92abcaac9093e1a21",
+    "change": "Cache nativeAttackMaxHP per collectHPAttack invocation,on its first eligible HP term. Reuse for later HP terms,keeping value calculation before first basis calculation and preserving term addition order.",
+    "state": "Function-local scalars only;no Runtime/Frame/ABI growth",
+    "proof_needed": "Inspect scalarValue/reference helpers for mutations before adopting cache"
+  },
+  "correctness": [
+    "Control/candidate full3539 input and output bytes equal fixed-source capture",
+    "Separate80 physical input/output bytes equal retained capture",
+    "Separate20 conditional-HP input/output bytes equal current Mac capture",
+    "Retain full workload input/readback before comparison;stop on mismatch without unchanged retry"
+  ],
+  "workloads": [
+    "Ordinary no-HP",
+    "Single HP effect",
+    "Multiple HP effects with maximum-HP sources",
+    "Fresh ranked HP/caster effects",
+    "Actual SG physical firing"
+  ],
+  "timing": {
+    "programs_per_workload": 1024,
+    "warmups_per_variant": 1,
+    "measured_samples_per_variant": 3,
+    "order": "alternate control/candidate then candidate/control"
+  },
+  "adoption": "Require at least one HP workload median improvement of2% with disjoint sample ranges,and no workload regression of2% with disjoint ranges. Otherwise retain current code.",
+  "scope": "Local Apple M5 workloads only;no CUDA-speed,full-roster-speed or physical-peak-memory claim.",
+  "gpu_runs_started": 0,
+  "full_goal_complete": false
+}

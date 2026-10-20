@@ -1,0 +1,282 @@
+{
+  "passed": true,
+  "scope": "Completed Mac3539 core plus185+23 component and80 physical cases;incomplete broad validation",
+  "source_commit": "0ae6a14ab1abec9f7c60179f5910c721d7a8d239",
+  "previous_completed_proof_commit": "ba9015c41157c4fa698422ee3638a1ba4f4fba19",
+  "full_verification_complete": false,
+  "full_goal_complete": false,
+  "windows_current_source_verified": false,
+  "efficiency_evaluated": false,
+  "mac_gates_passed": 35,
+  "mac_gates_roster_exit_code": 1,
+  "real_profiles_verified": 134,
+  "required_real_profiles": 136,
+  "real_profile_compile_failures": 2,
+  "prior130_profiles_preserved": true,
+  "known_hp_gap_profiles": 2,
+  "files": {
+    "docs/portable-atk-from-hp-design.md": {
+      "bytes": 6255,
+      "sha256": "d081a8db874f25fb395a8b6220c70ba7727068ab2a3d37c9962b67ce99953928"
+    },
+    "docs/portable-mode-entry-delay-design.md": {
+      "bytes": 2541,
+      "sha256": "120698fc3d8607be8ad69ca26067b7dbdc96d62e8c343fc898cde70895ab2df3"
+    },
+    "docs/portable-taunt-design.md": {
+      "bytes": 4564,
+      "sha256": "aedfd4a386914cb4e7a7f025c2e044e3ab73e6539948ca2eb4ab377a498436e7"
+    },
+    "research/characterize-hp-attack-physical.py": {
+      "bytes": 3209,
+      "sha256": "abe44f7112887f2dfa562ed3bf48d967201a7be8fdbddb3ae117f656d5550aa8"
+    },
+    "research/characterize-taunt-boss-native.py": {
+      "bytes": 4448,
+      "sha256": "ba9e6ac31bfe589c62a868ba48694d11669c1507606bc678d586ef511b5bbf71"
+    },
+    "research/characterize-taunt-native.py": {
+      "bytes": 4254,
+      "sha256": "b70e8690fd26e95f69c95263b98e04ef7474d2a2b046a5ebf8bf209951ebf032"
+    },
+    "research/portable-attack-flags-native.json": {
+      "bytes": 136915,
+      "sha256": "50d440b53ef6e92eb86b82e98ccc36de89f22f3b434108fd89e359989d3df2da"
+    },
+    "research/portable-catalog-readiness.json": {
+      "bytes": 1870922,
+      "sha256": "176950d9bc0167be72d163cff260261af9c1f40d41940c337ae43fe36e282749"
+    },
+    "research/portable-combat-metal.json": {
+      "bytes": 63718508,
+      "sha256": "cef84cee8ca565d0a89efdb907f9a49d88708ead5657d71715a065d89341cba7"
+    },
+    "research/portable-conditional-mode-candidate-compile-finding.json": {
+      "bytes": 1811,
+      "sha256": "36f80a9d5373c4118b4a0c98ff1a7fb67a837676b6ee5a75d4dbbb14f8ec456b"
+    },
+    "research/portable-definition-input-metal.json": {
+      "bytes": 6450,
+      "sha256": "2a87ea03b9eacf61d2b5bd7e75d7e446ef111f4bed1dd1db8de5c399bc0e6491"
+    },
+    "research/portable-definition-out-metal.json": {
+      "bytes": 6440,
+      "sha256": "e2a325df6955dc4b8db874f1127eab04043479d3778dbdbc372d9a139e0e1f50"
+    },
+    "research/portable-definition-scalar-metal.json": {
+      "bytes": 6452,
+      "sha256": "048655e5987d6465b6c33cae296f1105cda5a7a56ba3aa1f0dca7046741365ff"
+    },
+    "research/portable-duration-extend-metal.json": {
+      "bytes": 1104001,
+      "sha256": "5a60e83e3b3462a15da8d53753833775f58efb2a7b4ab88b35b70a6fb72fffe3"
+    },
+    "research/portable-element-overrides-native.json": {
+      "bytes": 590477,
+      "sha256": "1fc15426bb83eac037daf279cb94a91e9c1ae7bcef14984fcdc0b00042936d17"
+    },
+    "research/portable-enemy-code-real-metal.json": {
+      "bytes": 824247,
+      "sha256": "eacfa881d26387a9e74a465cab0ab5b573028993a86a8b1c8de5e6d8c5c752b8"
+    },
+    "research/portable-enemy-codes-native.json": {
+      "bytes": 541384,
+      "sha256": "b8eb490ea2884beac0c418904408471a3bc0444eb019a93a457a0bdf37846868"
+    },
+    "research/portable-events-metal.json": {
+      "bytes": 737639,
+      "sha256": "51f362ed1fb880c09058c5076dc34735226f2e29c4d13f6abe94bf7208ca9236"
+    },
+    "research/portable-favorite-readiness.json": {
+      "bytes": 923435,
+      "sha256": "154ccf2a86b6b86a2f993159a47e4c664c1ac4cfd44c84b35a13824611bced5f"
+    },
+    "research/portable-geometry-native.json": {
+      "bytes": 73204,
+      "sha256": "f469cb30c06ae4fddf266c0a3a56a4fb8cd36563e442d85c0c789c3d96190a5f"
+    },
+    "research/portable-health-runtime-metal.json": {
+      "bytes": 373462,
+      "sha256": "88c90563f9bc0b56d57e6b3d85f5e11fbac3f372e4e6756db577fe3eb923ffaf"
+    },
+    "research/portable-hp-attack-efficiency-plan.json": {
+      "bytes": 1946,
+      "sha256": "6db7a87eddc7d2b77bca93a3a6a7b5379feb9c82c44f421af50849919150e94e"
+    },
+    "research/portable-hp-attack-existing-metal-parity.json": {
+      "bytes": 20642,
+      "sha256": "a17b95ceed761dd0f00b41bd60d5b0d79c82524e7f6915bb9ff420c8c346083c"
+    },
+    "research/portable-hp-attack-expiry-finding.json": {
+      "bytes": 11002,
+      "sha256": "a8d6e8177ea8b175d73974511c5899ddc04831d1b2b3c8d073b03408d1ae8be3"
+    },
+    "research/portable-hp-attack-expiry-fixed-metal.json": {
+      "bytes": 4978244,
+      "sha256": "4b812bfd52e657390f69ced434f8c4aecf6388f9213d4a7b019bd9e77c97ef47"
+    },
+    "research/portable-hp-attack-first-global-gates.json": {
+      "bytes": 8821,
+      "sha256": "19ace2d8322bdcc1c812e1205d0dac81879e9a84e214830dca81799258797387"
+    },
+    "research/portable-hp-attack-first-metal.json": {
+      "bytes": 4982156,
+      "sha256": "c8ae86498bd8ae8eb10d44d9cad007ded86ea5fff0420fdd5624103c31abf59c"
+    },
+    "research/portable-hp-attack-first-roster-metal.json": {
+      "bytes": 16884732,
+      "sha256": "92138f399350fb7b0fd13a66875e9c02a7088d958b102bf352c3659f21506611"
+    },
+    "research/portable-hp-attack-global-gates.json": {
+      "bytes": 8821,
+      "sha256": "19ace2d8322bdcc1c812e1205d0dac81879e9a84e214830dca81799258797387"
+    },
+    "research/portable-hp-attack-metal.json": {
+      "bytes": 8428544,
+      "sha256": "19017b8b0bceedce02e0b2d837c16c967d16b8381ad23905214f330f1a7dd32b"
+    },
+    "research/portable-hp-attack-native.json": {
+      "bytes": 1021667,
+      "sha256": "bab9ff80dc1815fcab73d05bf5123bc261340c4849b84ea84ddbc4df2e66f50e"
+    },
+    "research/portable-hp-attack-physical-first-native.json": {
+      "bytes": 144658,
+      "sha256": "136f8936fed3fe33d1bc6847fe237e5886fa8bb4817537ab22806613b9f4ce1c"
+    },
+    "research/portable-hp-attack-physical-fixture-finding.json": {
+      "bytes": 969,
+      "sha256": "5cf1fe25201007e98e453b864fd9bfedb31b9ff24fe567e1ac3f11aed46022ab"
+    },
+    "research/portable-hp-attack-physical-metal.json": {
+      "bytes": 1233553,
+      "sha256": "b6322b89e4c584bdbba59b9e09bfef06b7b2edf3b47b8dedb83371a0c4a608da"
+    },
+    "research/portable-hp-attack-physical-native.json": {
+      "bytes": 86317,
+      "sha256": "acc948bb128275c4562dd8f5927a2367bb8fce15704da378e20a67487ed1a651"
+    },
+    "research/portable-hp-attack-rank-finding.json": {
+      "bytes": 10581,
+      "sha256": "cb2f20ae76480228abeb33ab8b748496f2bd610b58144d3fdffea6efd0dbd914"
+    },
+    "research/portable-hp-attack-rank-first-metal.json": {
+      "bytes": 7210203,
+      "sha256": "38a2c8a56e59fae31a14b465ba059d4fac758d6c98125da8b37e5388e5d445c7"
+    },
+    "research/portable-hp-attack-rank-fixed-metal.json": {
+      "bytes": 7209362,
+      "sha256": "82afa9c0a1b60a44e1629a95b18fb8b49bf965f27e15deff1c97cf765bfa04da"
+    },
+    "research/portable-hp-attack-roster-admission-finding.json": {
+      "bytes": 1103,
+      "sha256": "c0828587581f71ece477d76093dc45960687c5ed595fa3a7fb7b35de2aa54be8"
+    },
+    "research/portable-hp-attack-stage-receipt.json": {
+      "bytes": 12420,
+      "sha256": "3ecd2815eeb0a2491dc8c514f4bd95fa1c0f4c1bbe32c4daa7fc6b59d42a0aac"
+    },
+    "research/portable-hp-attack-work-state.json": {
+      "bytes": 3739,
+      "sha256": "b141543147ae877588d0d2c67e63804faa9c225e31229270a12f6a7ebd449c33"
+    },
+    "research/portable-instant-lists-native.json": {
+      "bytes": 205279,
+      "sha256": "6cf81d091a37923a69e3be4b740ba7c1de35b9ba19fc788ba089158ba71c6299"
+    },
+    "research/portable-named-states-native.json": {
+      "bytes": 459382,
+      "sha256": "5e0cb0a8eb2916d307f25f8db09f6021629620946f3dabb5bf489e8e068894c2"
+    },
+    "research/portable-numeric-metal.json": {
+      "bytes": 3600,
+      "sha256": "7fcd72a0ff16ae5d6cce53db7820f7a1ea972254556f489ba7719046b400d028"
+    },
+    "research/portable-probability-native.json": {
+      "bytes": 3129072,
+      "sha256": "fdbe503b8883b05690da4ec4810186d8affa8e9fec039015c5599be8e8aaf325"
+    },
+    "research/portable-probe-metal.json": {
+      "bytes": 2905,
+      "sha256": "468a93091f009df44867ed40c092ed953d598f798b8b6758b88cbf0d643d3195"
+    },
+    "research/portable-protection-native.json": {
+      "bytes": 602416,
+      "sha256": "90951ca2a657df3ba5a7e286034b03d038a54ff63162c459d86f578b9cd11053"
+    },
+    "research/portable-removal-queue-metal.json": {
+      "bytes": 6627,
+      "sha256": "6e31e425be17e72bce6d5c67e260ea086a9f79193d6639dd7cfd489e0b92585f"
+    },
+    "research/portable-roster-battles-metal.json": {
+      "bytes": 16884732,
+      "sha256": "92138f399350fb7b0fd13a66875e9c02a7088d958b102bf352c3659f21506611"
+    },
+    "research/portable-split-native.json": {
+      "bytes": 362682,
+      "sha256": "464af44c8ef02afc4707d542dab238964d7739f03a80e99c8cab056579f88688"
+    },
+    "research/portable-stack-notices-metal.json": {
+      "bytes": 7204,
+      "sha256": "cc3d71ba29f01be03ff41458641485a0d0f23756db1389b6e340894eda59a9cb"
+    },
+    "research/portable-stack-numeric-metal.json": {
+      "bytes": 1619,
+      "sha256": "e09baa2683db9520d3004c61cdf7c5c00973a721f9b0831e8a5fedbec87d8681"
+    },
+    "research/portable-target-states-native.json": {
+      "bytes": 311365,
+      "sha256": "d142329f9b7a4b41db150cf318f61b6b33d21393a25937ff3203a2d6cf0c318a"
+    },
+    "research/portable-taunt-boss-105-native-study.json": {
+      "bytes": 84744,
+      "sha256": "aa959f401b9344c706bfd5dfda7dd7fae6a9357f0f02797b74de0256eca090d5"
+    },
+    "research/portable-taunt-boss-first-native-study.json": {
+      "bytes": 84175,
+      "sha256": "c28caf2ba208bae8f754bc2855013e469a9ed16854be3673d1744f3f44b84485"
+    },
+    "research/portable-taunt-boss-native-study.json": {
+      "bytes": 346667,
+      "sha256": "d0f06ed64419af8abe33a14131e88aec3186529a151fa363e8fd434a1c01550f"
+    },
+    "research/portable-taunt-native-study.json": {
+      "bytes": 281603,
+      "sha256": "7d4981397cef957e8b900554ce18adb97cc35b0ffeb45ef95002a654e3ea83d6"
+    },
+    "research/run-hp-attack-gates.py": {
+      "bytes": 4866,
+      "sha256": "9fd40888829d1929119e72749f59702b286fcd3a3aeec97cb78983d32920b673"
+    },
+    "research/seal-hp-attack-gates.py": {
+      "bytes": 6397,
+      "sha256": "51bd9a67958a4ad92beaf9412a5359d1d036327a00bb51fa4f5b2e4ac0bc5978"
+    },
+    "research/verify-conditional-mode-candidate.py": {
+      "bytes": 4043,
+      "sha256": "d31a9457f230c95ce0f8859e8b6ab433a5174ac294e93a09b2ca39976cbad4ce"
+    },
+    "research/verify-hp-attack-physical.py": {
+      "bytes": 4211,
+      "sha256": "5e3daad48e51492ea2b9e6701699c2014d207fb70f5707a2490804038cf0a8af"
+    },
+    "research/windows-hp-attack-check.md": {
+      "bytes": 2332,
+      "sha256": "58bad60d22877b48e515d9f4d1ebb8723ce9a4ae14653acb0dc798009a6b0dbf"
+    }
+  },
+  "file_count": 62,
+  "file_bytes": 145996019,
+  "header_exceptions": [
+    {
+      "index": 3525,
+      "abi": "0x50455670",
+      "rejection": {
+        "name": "hp-attack-invalid-old-abi",
+        "status": 64
+      }
+    }
+  ],
+  "raw_and_private_files_excluded": true,
+  "normal_ui": "CPU",
+  "full_character_verified": 0
+}
