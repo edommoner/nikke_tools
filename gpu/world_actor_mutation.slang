@@ -20,9 +20,9 @@ void actorMutationRemoveNamed(inout Runtime s,uint row,uint target,uint64_t when
         uint bound=results[actorFieldKey(s,slot)];
         if(d.target==2)
         {
-            // Scope matches labels in native target_chars, even before a gone
-            // binding is physically dropped. Generation filtering is a query rule.
-            if(bound==0||(s.activeRecipients[slot]&32)==0||!actorBitsHas(enemies,bound-1)) continue;
+            // Native mutation_targets requires both current scope membership and
+            // the canonical captured generation;old empty carriers survive.
+            if(bound==0||!actorFieldMember(s,slot,ACTOR_REF|(bound-1))||!actorBitsHas(enemies,bound-1)) continue;
             s.activeRecipients[slot]&=~32U;
         }
         else if(d.target==1)
