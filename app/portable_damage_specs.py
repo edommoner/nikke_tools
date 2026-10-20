@@ -20,3 +20,8 @@ DAMAGE_FAMILIES=frozenset(('damage','bonus_damage','burst_damage','split_damage'
 FLAGS=dict(BURST=1,SEQUENTIAL=2,ATTACHMENT=4,EXPLOSION=8,SPLIT=16,CHARGE=32,
     PIERCE=64,DOT=128,ARMOR=512,PART=1024,INTERCEPT=2048,AOE_BURST=4096,
     SINGLE_BURST=8192,CORE=16384)
+
+# Non-numeric presence marker; excluded from the64-entry numeric stat vector.
+from portable_element_specs import STAT as ELEMENT_OVERRIDE_STAT
+BUFFS=BUFFS | {'element_code_override'}
+STATS['element_code_override']=ELEMENT_OVERRIDE_STAT

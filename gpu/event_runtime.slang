@@ -430,6 +430,7 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
     frames[depth] = f; s.maxDepth = max(s.maxDepth,uint(depth+1));
 }
 
+#include "element_runtime.slang"
 #include "damage_runtime.slang"
 #include "incoming_runtime.slang"
 #include "burst_runtime.slang"

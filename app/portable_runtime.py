@@ -54,9 +54,12 @@ def validate_effect(eff, *, combat=None):
     from portable_status_specs import cleanse_plan,immunity
     cleansing=cleanse_plan(eff,combat=combat)
     if eff.get('type')=='damage' and not isinstance(eff.get('stat',''),str):raise UnsupportedPortable('Damage family must be a string')
+    from portable_element_specs import enabled as element_override,validate as validate_element
+    validate_element(eff)
     allowed = {'name','source','type','stat','fixed_value','values','duration','duration_values',
                'target','trigger','note','polarity','favorite','_source_tag','_quant_group','max_ammo_reduction_exclusive','trigger_values','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
     if eff.get('type')=='damage' and eff.get('stat')=='dot_damage':allowed |= {'ramp_interval','ramp_damage_stack','post_ramp_tick_delay'}
+    if element_override(eff):allowed |= {'target_code'}
     if removal is not None:allowed |= {'remove_scope'}
     if protection&255==1:allowed |= {'end_on_shield_consumed'}
     if source_spec:allowed |= {'periodic_source','feather_id','feather_slots','feather_interval_base','feather_interval_step_pct'}
@@ -146,7 +149,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     validate_sources(effects)
     from portable_staged_specs import descriptors as staged_descriptors,pack as pack_staged
     staged=staged_descriptors(effects)
-    program=legacy.compile_effects(chars,[(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else e,owner) for e,owner in effects])
+    from portable_element_specs import enabled as element_override,STAT as ELEMENT_OVERRIDE_STAT,code_tag,legacy_effect
+    program=legacy.compile_effects(chars,[(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e),owner) for e,owner in effects])
     source_query_indices={}
     for command in script:
         if len(command)==8 and command[1]==29:
@@ -183,7 +187,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     if not 1<=len(script)<=L['COMMANDS'] or len(base_atk)!=5:
         raise ValueError('Invalid portable command/base-stat dimensions')
     words=[0]*L['INPUT_WORDS'];words[0:3]=[ABI,len(effects),len(script)];words[5]=1
-    words[L['WORLD_META_BASE']:L['WORLD_META_BASE']+2]=[world_code,world_name_count]
+    words[L['WORLD_META_BASE']:L['WORLD_META_BASE']+3]=[world_code,world_name_count,sum(element_override(e) for e,_ in effects)]
     if type(cover_sync) is not bool:raise ValueError('Cover synchronization policy must be boolean')
     words[7]=int(cover_sync)
     if type(native_landing) is not bool or native_landing and combat is None:raise ValueError('Native landing phases require combat and a boolean policy')
@@ -293,8 +297,13 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
                 'FORCE_MASK':int(row[legacy.B3_MASK]),'RECIPIENTS':31 if row[4]==1 else 1<<int(row[0]),
                 'TARGET':cleansing[0] if cleansing is not None else stack[1] if stack is not None else extension[0] if extension is not None else removal[0] if removal is not None else int(bool(effects[index][0].get('name'))) if row[1] in (2,13) else int(effects[index][0].get('target')=='boss'), 'STAGE_ARG':int(row[151]),
                 'STAGE_OVERRIDE':int(row[252]),'REENTRY':int(row[253]),'TOGGLE':int(bool(int(row[213]) & 128)), 'DAMAGE_FLAGS':int(row[39])}
+        if element_override(eff):fields.update(KIND=0,STAT=ELEMENT_OVERRIDE_STAT)
         for key,value in fields.items():compact[F[key]]=value & 0xffffffff
         for key,offset in [('VALUE',6),('DURATION',7),('INTERVAL',59)]:compact[F[key]:F[key]+2]=double_words(row[offset])
+        if element_override(eff):
+            compact[F['VALUE']:F['VALUE']+2]=[0,0]
+            packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS']
+            words[packet:packet+8]=[code_tag(eff,program['states']),0,0,0,0,0,0,0]
         if stack is not None:
             if stack[0] in (18,20,21) and not effects[index][0].get('target_effect'):compact[F['TARGET_NAME']]=0xffffffff
             compact[F['VALUE']:F['VALUE']+2]=double_words(stack_value(effects[index][0],chars[int(row[0])]))

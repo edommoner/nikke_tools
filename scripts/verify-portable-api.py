@@ -30,6 +30,7 @@ def main():
              'tests/fixtures/portable-capacity.json','tests/fixtures/portable-incoming.json','tests/fixtures/portable-hp-edges.json','tests/fixtures/portable-health.json','tests/fixtures/portable-charge-control.json','tests/fixtures/portable-quantities.json','tests/fixtures/portable-weapons.json','tests/fixtures/portable-damage.json','tests/fixtures/portable-combat.json','tests/fixtures/portable-combat-extensions.json','tests/fixtures/portable-autonomous.json']
     tracked += ['app/portable_protection_specs.py','app/protection_runtime.py','scripts/portable_protection_oracle.py','tests/fixtures/portable-protection.json']
     tracked += ['app/portable_code_specs.py','scripts/portable_code_oracle.py','scripts/portable_removal_oracle.py','scripts/portable_stack_oracle.py','scripts/portable_instant_list_oracle.py','tests/fixtures/portable-enemy-codes.json']
+    tracked += ['app/portable_element_specs.py','scripts/portable_element_oracle.py','scripts/portable_enemy_oracle.py','scripts/portable_weapon_oracle.py','tests/fixtures/portable-element-overrides.json']
     hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in tracked}
     case=json.loads((ROOT/'tests/fixtures/portable-events.json').read_text(encoding='utf-8'))['cases'][0]
     payload=dict(chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=engine_worker.META[n]) for n in NAMES],
@@ -562,6 +563,13 @@ def main():
         actual=request(body);assert actual['gpu_execution_verified'];compare_codes(c,actual['results'][0],verifier.contains)
         verifier.contains(actual['results'][0]['queries'],c['expected_queries'],name+'.api.hand')
         result['enemy_code_execution'].append(dict(name=name,execution=actual))
+    from portable_element_oracle import compare as compare_elements
+    element_cases=json.loads((ROOT/'tests/fixtures/portable-element-overrides.json').read_text())['cases'];result['element_override_execution']=[]
+    for name in ('element-matrix-2-2-False','element-matrix-3-2-False','element-matrix-0-2-False','element-packet-dot_damage-전격','element-condition--1-passive-False-0','element-authored-라피 : 레드 후드-전격','element-authored-슈가-작열','element-alias-True-False-작열','element-physical-bullets-전격-4-allies_top_atk:1'):
+        c=next(c for c in element_cases if c['name']==name);owners=c.get('owners',[0]*len(c['effects']))
+        body=dict(chars=payload['chars'],effects=[dict(effect=e,owner=NAMES[o]) for e,o in zip(c['effects'],owners)],script=c['script'],base_atk=c.get('base_atk',[1000]*5),environment=c['environment'],combat=c['combat'],backend=args.backend)
+        actual=request(body);assert actual['gpu_execution_verified'];compare_elements(c,actual['results'][0],verifier.contains)
+        result['element_override_execution'].append(dict(name=name,execution=actual))
     assert hashes=={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in hashes}
     result.update(passed=True,api_status=200,unsupported_status=400,unsupported_error=detail['error'],adapter_sha256=hashes)
     path.write_text(json.dumps(result,indent=2)+'\n', encoding='utf-8')

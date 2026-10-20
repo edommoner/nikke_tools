@@ -65,7 +65,7 @@ uint64_t damageValue(inout Runtime s, uint who, uint64_t coefficient, uint64_t w
     if ((flags & H_INTERCEPT) != 0) f5 = f64Add(f5,f64Div(b[S_intercept_dmg_pct],HUNDRED));
     uint64_t f6 = f64Add(ONE,f64Div(b[S_received_dmg_pct],HUNDRED));
     if ((flags & H_SPLIT) != 0) f6 = f64Add(f6,f64Div(b[S_split_dmg_pct],HUNDRED));
-    uint64_t f7 = (s.attackContext[who] & 2) != 0 ? f64Add(uint64_t(0x3ff19999) << 32 | 0x9999999a,f64Div(b[S_element_bonus],HUNDRED)) : ONE;
+    uint64_t f7 = elementMatch(s,who) ? f64Add(uint64_t(0x3ff19999) << 32 | 0x9999999a,f64Div(b[S_element_bonus],HUNDRED)) : ONE;
     uint64_t raw = f64Mul(f64Div(f1,HUNDRED),f2);
     raw = f64Mul(raw,f3); raw = f64Mul(raw,f4); raw = f64Mul(raw,f5); raw = f64Mul(raw,f6); raw = f64Mul(raw,f7);
     uint status; uint64_t rounded = f64ToI64(raw,0,status);

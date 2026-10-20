@@ -23,6 +23,7 @@ def observe(case):
         def _register_all(self):self._effects=raw;self._build_notify_index()
         def char_effects(self,name):return [e for e,n in raw if n==name]
     enemy=dict(**{'def':targets[0].get('defense',0)},core_px=0,code=None,optimal_range_weapons=[],atk=targets[0].get('attack',DEFAULT_BOSS_ATK))
+    if case.get('element_override_reference'):enemy['code']=case.get('environment',{}).get('enemy_code')
     bm=BM(chars,state=dict(base_stats={n:dict(atk=a,hp=1000000,**{'def':case.get('environment',{}).get('allies',[{} for _ in NAMES])[NAMES.index(n)].get('base_defense',0)}) for n,a in zip(NAMES,attacks)},enemy=enemy,
                          full_burst=False,rng_acc={},rng_expected=True))
     actors=[authored_weapon_state(char,weapon,attack) for char,weapon,attack in zip(chars,config['weapons'],attacks)] if physical else []
@@ -33,6 +34,12 @@ def observe(case):
     if any(source_specification(e) for e,_ in raw):
         from calculator import timeline
         timeline._register_instant_handlers(bm,{n:object() for n in NAMES},None)
+    element_states=[]
+    if case.get('element_override_reference'):
+        from calculator.timeline import CharState
+        for i,n in enumerate(NAMES):
+            cs=object.__new__(CharState);cs.name=n;cs.enemy_code=enemy['code'];cs.base_element_match=config['weapons'][i].get('element_match',False);element_states.append(cs)
+        for actor in actors:actor.enemy_code=enemy['code']
     pattern=Pattern(idx=0,id='authored-adds',kind='summon',after=())
     boss=BossScript([pattern],enemy,lambda *_:False);run=boss._runs[0];run.active=True
     run.adds=[_Add(id=f'__enemy__:{i}',name=f'__enemy__:{i}',spec=SummonSpec(name=f'__enemy__:{i}',hp=t['hp'],atk=t.get('attack',0)),order=i,gone='' if t.get('active',True) else '퇴장') for i,t in enumerate(targets) if i]
@@ -63,6 +70,7 @@ def observe(case):
             value=bm.ref_count(caster,effect.get('scaling_ref',''));hits=value if value is not None else 1
         for hit in range(hits):
             buffs=bm.get_buffs(caster,'__enemy__',t)
+            if element_states:buffs['is_element_match']=element_states[who].element_match(bm)
             ht=default_hit_type(is_normal_atk=kind=='auto_damage',coeff=coefficient,is_final_atk=True,is_full_burst=bm.state['full_burst'],
                 is_burst_damage=kind in ('burst_damage','armor_break_burst_damage'),
                 is_aoe_burst=kind in ('burst_damage','armor_break_burst_damage') and target=='all_enemies',

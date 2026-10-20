@@ -5,7 +5,9 @@ void admitDefinitions(inout Runtime s,uint input)
 {
     uint world=input+P_WORLD_META_BASE,codeNames=commands[world+1];
     if(codeNames>P_DEFINITIONS || commands[world]>codeNames) { s.error=64;return; }
-    for(uint word=2;word<P_WORLD_META_WORDS;word++) if(commands[world+word]!=0) { s.error=64;return; }
+    if(commands[world+2]>s.count) { s.error=64;return; }
+    uint elementDefinitions=0;
+    for(uint word=3;word<P_WORLD_META_WORDS;word++) if(commands[world+word]!=0) { s.error=64;return; }
     if(commands[input+P_RECIPIENT_META_BASE]>P_RECIPIENT_NODES) { s.error=64;return; }
     for(uint word=1;word<8;word++) if(commands[input+P_RECIPIENT_META_BASE+word]!=0) { s.error=64;return; }
     for (uint j = 0; j < s.count; j++)
@@ -41,6 +43,13 @@ void admitDefinitions(inout Runtime s,uint input)
             else s.lazyGroupDefinition[d.lazyGroup-1] = j+1;
         }
         uint packet = input+P_DAMAGE_DEFINITION_BASE+j*P_DAMAGE_DEFINITION_WORDS;
+        if(d.stat==S_element_code_override)
+        {
+            elementDefinitions++;
+            if(d.kind!=0 || d.enemyBuff!=0 || d.damageRoute>codeNames || d.damageFlags!=0 || !f64Zero(d.value)) { s.error=64;break; }
+            for(uint word=1;word<P_DAMAGE_DEFINITION_WORDS;word++) if(commands[packet+word]!=0) { s.error=64;break; }
+            if(s.error!=0) break;
+        }
         uint periodic = input+P_PERIODIC_DEFINITION_BASE+j*2;
         if (d.enemyBuff != 0 && (d.enemyBuff != 1 || !(d.kind==0 || d.kind==4 && (d.flags&56)!=0 || d.kind==4 && d.stat==0 || d.kind==19) || s.combat == 0 || d.lazyGroup != 0 ||
             !(d.stat == S_enemy_def_down_pct || d.stat == S_def_caster_based_pct || d.stat == S_received_dmg_pct || d.kind==4 && (d.flags&56)!=0 || d.kind==4 && d.stat==0 || d.kind==19) ||
@@ -96,4 +105,5 @@ void admitDefinitions(inout Runtime s,uint input)
         if ((d.quantityFlags & 64) != 0) s.quantityMask |= 4;
         if (d.kind == 0 && d.stat == S_charge_time_fixed) s.quantityMask |= 8;
     }
+    if(s.error==0 && elementDefinitions!=commands[world+2]) s.error=64;
 }

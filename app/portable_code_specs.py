@@ -6,7 +6,10 @@ def code_names(effects, enemy_code, states, capacity):
     if enemy_code is not None and not isinstance(enemy_code,str):
         raise ValueError('Enemy code must be a string or null')
     required=[c[len(PREFIX):] for effect,_ in effects for c in effect.get('trigger',{}).get('condition',[]) if c.startswith(PREFIX)]
-    if not required:return 0,0
+    from portable_element_specs import enabled
+    overrides=[e for e,_ in effects if enabled(e)]
+    required += [e['target_code'] for e in overrides if e.get('target_code') is not None]
+    if not required and not overrides:return 0,0
     for name in required + ([enemy_code] if enemy_code else []):
         states.setdefault(name,len(states))
     if len(states)>capacity:raise ValueError('Enemy-code reference capacity exceeded')

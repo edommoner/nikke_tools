@@ -53,10 +53,12 @@ def _observe(case):
         def _register_all(self):self._effects=raw;self._build_notify_index()
     bs={n:dict(atk=1000,defense=0,hp=1000000) for n in names}
     enemy=dict(defense=0,core_px=w.get('core_diameter',0),code=None,optimal_range_weapons=[weapon['weapon_type']] if w.get('optimal',False) else [])
+    if case.get('element_physical_reference'):enemy['code']=case.get('environment',{}).get('enemy_code')
     # The engine uses 'def', while the public fixture avoids reserved identifiers.
     enemy['def']=case['combat']['targets'][0].get('defense',0)
     bm=BM(chars,state=dict(base_stats=bs,enemy=enemy,full_burst=False,rng_acc={},rng_expected=True,camera=set()))
     st=authored_weapon_state(chars[0],w)
+    if case.get('element_physical_reference'):st.enemy_code=enemy['code']
     total=0;shots=0;gauge=0;queries=[];started=False
     # Canonical charge next means the post-shot availability clock; the native
     # auto-fire clock is unused while charge uses _post_delay_end_t.
