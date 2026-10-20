@@ -19,7 +19,12 @@ bool initializeWorldOverlays(inout Runtime s)
     if(commands[at]!=0x574f3031 || commands[s.inputBase+P_WORLD_FRAME_INPUT_BASE]!=0x57533031 || s.targetCount!=1 || commands[s.inputBase+P_LANDING_META_BASE]!=1 || commands[s.inputBase+P_GEOMETRY_BASE]==0) return false;
     if(commands[at+1]>31) return false;
     for(uint i=2;i<7;i++) if(commands[at+i]>5) return false;
-    for(uint i=7;i<16;i++) if(commands[at+i]!=0) return false;
+    if(commands[at+7]!=0) return false;
+    for(uint row=0;row<P_DEFINITIONS;row++)
+    {
+        if((commands[at+8+row/32]&(1U<<(row%32)))==0) continue;
+        if(row>=s.count || definition_kind(s.inputBase,row)!=26) return false;
+    }
     uint count=commands[s.inputBase+P_WORLD_FRAME_INPUT_BASE+1];
     for(uint n=0;n<32;n++)
     {
@@ -161,3 +166,38 @@ bool worldOverlayLand(inout Runtime s,uint who,uint target,uint64_t amount,bool 
     if(!f64Finite(blocked)) { s.error=16;return false; }storeNumber(at,blocked);return false;
 }
 bool worldSkillGauge(inout Runtime s,uint who) { return worldGateNode(s,who,false)==32; }
+
+bool worldCleanseDefinition(inout Runtime s,uint row)
+{ return worldOverlayEnabled(s) && (commands[s.inputBase+WO_IN+8+row/32]&(1U<<(row%32)))!=0; }
+void worldDispelLog(inout Runtime s,uint node,uint64_t when);
+[noinline]
+void worldDispel(inout Runtime s,uint row,uint scope,uint64_t when)
+{
+    // Native: int(value or 1),then max(n,0). Clamp only after preserving
+    // zero's default and truncation;huge positive counts need no i64 cast.
+    if((scope&32)==0) return;
+    uint64_t value=definition_value(s.inputBase,row);uint limit=0;
+    if(f64Zero(value)) limit=1;
+    else if(f64Less(0,value))
+    {
+        if(!f64Less(value,f64FromI64(32))) limit=32;
+        else { uint status;limit=uint(f64ToI64(value,0,status));if(status!=0) { s.error=16;return; } }
+    }
+    uint count=commands[s.inputBase+P_WORLD_FRAME_INPUT_BASE+1];
+    for(uint pass=0;pass<limit && s.error==0;pass++)
+    {
+        uint selected=32;uint64_t latest=0;
+        for(uint n=0;n<count;n++)
+        {
+            uint node=woNode(s,n),state=woState(s,n),graph=woGraphState(s,n);
+            if(results[graph]==0 || commands[node]!=1 || commands[node+1]!=0 || results[state+1]!=0) continue;
+            uint64_t start=woRead(graph+2);
+            if(selected==32 || f64Less(latest,start) || f64Equal(start,latest) && n>selected) { selected=n;latest=start; }
+        }
+        if(selected==32) break;
+        uint state=woState(s,selected);if(results[state+6]==0x7fffffff) { s.error=2;return; }
+        results[state+1]=1;results[state+6]++;worldDispelLog(s,selected,when);
+        // Do not change the sampled defense or resident contribution here.
+        // The next distinct world frame owns release/application.
+    }
+}

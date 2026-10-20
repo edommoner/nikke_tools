@@ -38,3 +38,18 @@ def compile_payload(patterns,*,camera_mask=0,element_codes=(),code_tags=None):
   elif p.kind=='vanish':words[at]=6
   else:raise ValueError('World overlay payload still needs actor connection: '+p.kind)
  return words
+
+def compiler_effect(effect):
+ """Use the existing typed instant selector;the overlay flag owns semantics."""
+ if effect.get('stat')!='enemy_buff_cleanse':return effect
+ if effect.get('type')!='instant':raise ValueError('Enemy beneficial cleanse requires instant type')
+ return dict(effect,stat='debuff_cleanse')
+
+def pack_cleanse_flags(words,effects,limits):
+ header=limits['WORLD_OVERLAY_INPUT_BASE']
+ for row,effect in enumerate(effects):
+  if effect.get('stat')!='enemy_buff_cleanse':continue
+  compiler_effect(effect)
+  at=limits['DEFINITION_BASE']+row*limits['DEFINITION_WORDS']
+  if words[at+1]!=26:raise ValueError('Unexpected compiled cleanse kind')
+  words[header+8+row//32]|=1<<(row%32)

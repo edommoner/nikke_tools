@@ -53,3 +53,8 @@ void worldFrameFinish(inout Runtime s)
     if(!worldFrameEnabled(s) || s.error!=0) return;
     WorldSchedule w=frameSchedule(s);wsFinish(w,wsLoad(w.input+6));s.error=w.error;
 }
+
+#ifdef PORTABLE_WORLD_OVERLAYS
+void worldDispelLog(inout Runtime s,uint node,uint64_t when)
+{ WorldSchedule w=frameSchedule(s);wsLog(w,4,node,0,when);s.error=w.error; }
+#endif
