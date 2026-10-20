@@ -164,7 +164,7 @@ struct Runtime
 #define WORLD_FIELDS_RESET(s,row) actorFieldReset(s,row);
 #define WORLD_FIELDS_BIND(s,row,d,f) if(actorFieldsEnabled(s)&&d.enemyBuff!=0) actorFieldBind(s,row,f.target,f.repeatPassive);
 #define WORLD_FIELDS_FRAME(s,frames,depth,f) if(f.mode==25) { advanceActorFields(s,frames,depth);continue; }
-#define WORLD_FIELDS_FANOUT(s,frames,depth,d,row,f) if(actorFieldsEnabled(s)&&d.enemyBuff!=0&&f.mode!=19) { beginActorFields(s,frames,depth,row,f);continue; }
+#define WORLD_FIELDS_FANOUT(s,frames,depth,d,row,f) if(actorFieldsEnabled(s)&&WORLD_STACK_FIELD_FANOUT(s,d,d.enemyBuff!=0)&&f.mode!=19) { beginActorFields(s,frames,depth,row,f);continue; }
 #define WORLD_FIELDS_TARGET_INVALID(s,who,kind,legacy) (actorFieldsEnabled(s) ? actorFieldTargetMismatch(s,who,kind) : (legacy))
 #define WORLD_FIELDS_INIT(s,output) if(!initializeActorFields(s)) { results[output]=64;return; }
 #define WORLD_FIELDS_COMMAND(s,at) else if(op==39||op==40) { if(!actorFieldCommand(s,at,op,when)) { s.error=64;break; } }
@@ -182,11 +182,32 @@ struct Runtime
 #define WORLD_FIELDS_INIT(s,output)
 #define WORLD_FIELDS_COMMAND(s,at)
 #endif
+#ifdef PORTABLE_WORLD_ACTOR_STACKS
+#define WORLD_STACK_POLICY(s,legacy) ((legacy)||actorStacksEnabled(s))
+#define WORLD_STACK_HEADER(value,legacy) ((legacy)&&value!=0x57543031)
+#define WORLD_STACK_KIND(s,d,legacy) ((legacy)&&!(actorStacksEnabled(s)&&stackOperation(d.kind)))
+#define WORLD_STACK_FIELD_INVALID(s,d,legacy) (actorStacksEnabled(s)&&d.kind==19 ? false : (legacy))
+#define WORLD_STACK_FIELD_FANOUT(s,d,legacy) ((legacy)&&(!actorStacksEnabled(s)||d.kind==0||d.kind==4))
+#define WORLD_STACK_IMMUNITY_MEMBERS(s,row,legacy) (actorStacksEnabled(s)&&results[actorRecipientAt(s,row)]!=0 ? 0U : (legacy))
+#define WORLD_STACK_SCOPE_BEGIN(s,row,d,own,maximum) uint stackSet=P_WORLD_ACTOR_SETS;ActorBits stackScope=actorBitsEmpty();bool stackWideScope=actorStacksEnabled(s)&&d.target==2&&!own&&!maximum;if(stackWideScope) { stackSet=actorStatusScope(s,row,stackScope);if(s.error!=0) return; }
+#define WORLD_STACK_SCOPE_MISS(s,row,scope,legacy) (stackWideScope ? !actorStackAffected(s,row,stackScope) : (legacy))
+#define WORLD_STACK_SCOPE_END(s) if(stackSet<P_WORLD_ACTOR_SETS) { results[actorPoolSet(s,stackSet)+5]=0;results[actorPoolHead(s)+7]--; }
+#else
+#define WORLD_STACK_POLICY(s,legacy) legacy
+#define WORLD_STACK_HEADER(value,legacy) legacy
+#define WORLD_STACK_KIND(s,d,legacy) legacy
+#define WORLD_STACK_FIELD_INVALID(s,d,legacy) legacy
+#define WORLD_STACK_FIELD_FANOUT(s,d,legacy) legacy
+#define WORLD_STACK_IMMUNITY_MEMBERS(s,row,legacy) legacy
+#define WORLD_STACK_SCOPE_BEGIN(s,row,d,own,maximum)
+#define WORLD_STACK_SCOPE_MISS(s,row,scope,legacy) legacy
+#define WORLD_STACK_SCOPE_END(s)
+#endif
 #ifdef PORTABLE_WORLD_ACTOR_STATUS
 #define WORLD_STATUS_POLICY(s,legacy) ((legacy)||actorStatusEnabled(s))
-#define WORLD_STATUS_HEADER(value,legacy) ((legacy)&&value!=0x57493031)
-#define WORLD_STATUS_KIND(s,d,legacy) ((legacy)&&!(actorStatusEnabled(s)&&d.kind==26))
-#define WORLD_STATUS_FIELD_INVALID(s,d,legacy) (actorStatusEnabled(s) ? actorStatusFieldInvalid(s,d) : (legacy))
+#define WORLD_STATUS_HEADER(value,legacy) WORLD_STACK_HEADER(value,((legacy)&&value!=0x57493031))
+#define WORLD_STATUS_KIND(s,d,legacy) WORLD_STACK_KIND(s,d,((legacy)&&!(actorStatusEnabled(s)&&d.kind==26)))
+#define WORLD_STATUS_FIELD_INVALID(s,d,legacy) WORLD_STACK_FIELD_INVALID(s,d,(actorStatusEnabled(s) ? actorStatusFieldInvalid(s,d) : (legacy)))
 #define WORLD_STATUS_FIELD_GUARD(s,d) if(actorStatusEnabled(s)&&!actorStatusScopeValid(s,d)) return false;
 #define WORLD_STATUS_USED(s,who,name,legacy) actorStatusUsed(s,who,name)
 #define WORLD_STATUS_BIT(s,who,legacy) (actorStatusEnabled(s)&&who>=5 ? 32U : (legacy))
@@ -1640,6 +1661,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "world_actor_recipients.slang"
 #ifdef PORTABLE_WORLD_ACTOR_STATUS
 #include "world_actor_status.slang"
+#ifdef PORTABLE_WORLD_ACTOR_STACKS
+#include "world_actor_stacks.slang"
+#endif
 #endif
 #endif
 #endif

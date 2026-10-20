@@ -1,7 +1,7 @@
 // Receiver routing only:status arithmetic,caps,scratch order,and retirement
 // remain in the one common status_runtime loop used by CUDA and Metal.
 bool actorStatusEnabled(inout Runtime s)
-{ return actorFieldsEnabled(s)&&commands[s.inputBase+P_WORLD_ACTOR_POOL_INPUT_BASE+4]==0x57493031; }
+{ return WORLD_STACK_POLICY(s,actorFieldsEnabled(s)&&commands[s.inputBase+P_WORLD_ACTOR_POOL_INPUT_BASE+4]==0x57493031); }
 bool actorStatusFieldInvalid(inout Runtime s,Definition d)
 {
     return d.kind!=0&&d.kind!=4 || d.kind==4&&d.stat!=0 || d.kind==0&&d.stat!=S_enemy_def_down_pct&&d.stat!=S_def_caster_based_pct&&d.stat!=S_received_dmg_pct;
