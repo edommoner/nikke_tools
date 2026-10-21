@@ -1,0 +1,25 @@
+{
+  "source_commit": "1b46b977e8bf7b970e62d4db25dc4b7aa4e35770",
+  "purpose": "CPU-only NVRTC lazy-loader and saved exact cache verification",
+  "files": [
+    {
+      "path": "app/portable_backend.py",
+      "bytes": 20236,
+      "sha256": "20d1e164b8617ca2028f7e23d3b7bb4d41c46be08c53a99a9e243d63e5e07194"
+    },
+    {
+      "path": "app/portable_compile_cache.py",
+      "bytes": 3433,
+      "sha256": "b901df8c8f241ea9d22c691df6207512e91c381d7b71157735e0c7b534a5bdec"
+    },
+    {
+      "path": "tests/test_portable_cuda_artifact.py",
+      "bytes": 10493,
+      "sha256": "0df0f3048f508084e799c9046558cfa3cc67c58c3969d3026d22224924bfceb9"
+    }
+  ],
+  "gpu_calls_allowed": 0,
+  "nvrtc_compile_calls_allowed": 0,
+  "driver_calls_allowed": 0,
+  "max_seconds": 30
+}
