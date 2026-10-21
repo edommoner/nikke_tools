@@ -44,7 +44,7 @@ void initializeWorldTeam(inout Runtime s)
         if(team!=(origin!=0)) { s.error=64;return; }
         if(origin==0) continue;
         uint first=key-1;
-        if(first+5>s.count||row<first||row>=first+5||d.owner!=row-first||!f64Zero(d.interval)||(d.kind!=0&&d.kind!=2&&d.kind!=3&&d.kind!=4&&d.kind!=5&&d.kind!=6&&d.kind!=7&&d.kind!=8)) { s.error=64;return; }
+        if(first+5>s.count||row<first||row>=first+5||d.owner!=row-first||!f64Zero(d.interval)||(d.kind!=0&&d.kind!=2&&d.kind!=3&&d.kind!=4&&d.kind!=5&&d.kind!=6&&d.kind!=7&&d.kind!=8&&d.kind!=24)) { s.error=64;return; }
         for(uint member=first;member<first+5;member++) if(commands[input+8+member*2]!=origin||commands[input+9+member*2]!=key||definition_owner(s.inputBase,member)!=member-first) { s.error=64;return; }
         Definition root=readDefinition(s.inputBase,first);
         if(d.name!=root.name||d.kind!=root.kind||d.stat!=root.stat||d.budget!=root.budget||d.triggerCount!=root.triggerCount||commands[input+8+first*2]!=origin||commands[input+9+first*2]!=key) { s.error=64;return; }
