@@ -103,6 +103,13 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_WORLD_PROJECTILE_DIAGNOSTIC
+#define PROJECTILE_ADMIT_ROW(s,row,d) { uint diagnostic=s.resourceOutput+786416;results[diagnostic]=0x57504144;results[diagnostic+1]=4;results[diagnostic+2]=row+1;results[diagnostic+3]=d.kind;results[diagnostic+4]=d.stat; }
+#define PROJECTILE_ADMIT_STAGE(s,value) results[s.resourceOutput+786416]=0x57504144;results[s.resourceOutput+786417]=value;
+#else
+#define PROJECTILE_ADMIT_ROW(s,row,d)
+#define PROJECTILE_ADMIT_STAGE(s,value)
+#endif
 #ifdef PORTABLE_WORLD_PROJECTILE
 #define WORLD_PROJECTILE_INIT(s) initializeProjectiles(s);
 #define WORLD_PROJECTILE_KIND(d,legacy) (d.kind==1||d.kind==9||d.kind==10 ? false : (legacy))
@@ -2127,9 +2134,9 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     uint numericStatus; s.probability = coreProbability(loadNumber(input+20),numericStatus);
     if (numericStatus != 0) { results[output] = 128; return; }
     if(!validGeometry(s)) { results[output]=64;return; }
-    admitDefinitions(s,input);
+    PROJECTILE_ADMIT_STAGE(s,4) admitDefinitions(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
-    if(!initializeWorldFrame(s)) { results[output]=64;return; } WORLD_OVERLAY_INIT(s,output) WORLD_ACTORS_INIT(s,output) WORLD_POOL_INIT(s,output) WORLD_FIELDS_INIT(s,output) WORLD_STATE_INIT(s,output) COUNTER_INIT(s,output)
+    PROJECTILE_ADMIT_STAGE(s,5) if(!initializeWorldFrame(s)) { results[output]=64;return; } WORLD_OVERLAY_INIT(s,output) WORLD_ACTORS_INIT(s,output) WORLD_POOL_INIT(s,output) WORLD_FIELDS_INIT(s,output) WORLD_STATE_INIT(s,output) COUNTER_INIT(s,output)
     if(!validEnemyTargeting(s)) { results[output]=64;return; }
     if(!validProtection(s)) { results[output]=64;return; }
     if (!validStatusDefinitions(s)) { results[output]=64;return; }
