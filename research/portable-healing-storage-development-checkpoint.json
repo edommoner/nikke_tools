@@ -36,7 +36,13 @@
     "last_compile_failed": "ptxas Memory allocation failure",
     "same_compile_retried": false,
     "saved_ptx_parser_cpu_tests_passed": true,
-    "saved_windows_ptx_analysis_pending": true
+    "saved_windows_ptx_analysis_pending": false,
+    "saved_windows_ptx_analysis_complete": true,
+    "saved_windows_ptx_functions": 188,
+    "saved_windows_ptx_analysis_seconds": 1.1564357997849584,
+    "windows_analysis_nvrtc_calls": 0,
+    "windows_analysis_gpu_calls": 0,
+    "physical_registers_or_compiler_memory_cause_verified": false
   },
   "protected_baselines_changed": [],
   "normal_ui": "CPU",
