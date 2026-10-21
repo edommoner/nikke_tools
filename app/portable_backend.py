@@ -176,9 +176,19 @@ def compile_cuda_source(source, *, artifact_kind=None):
     if os.name != 'nt':raise RuntimeError('CUDA compiler requires Windows')
     artifact_kind=cuda_artifact_kind() if artifact_kind is None else artifact_kind
     cuda_bin = Path(os.environ.get('CUDA_PATH', r'C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.3'))/'bin'
+    compiler_files=sorted(cuda_bin.glob('nvrtc*.dll'))
+    libraries=[p for p in compiler_files if p.name.lower().startswith('nvrtc64_')]
+    builtins=[p for p in compiler_files if p.name.lower().startswith('nvrtc-builtins64_')]
+    if len(libraries)!=1 or len(builtins)!=1:
+        raise RuntimeError('CUDA compiler root requires exactly one NVRTC and one builtins DLL')
     with os.add_dll_directory(str(cuda_bin)):
         def load_compiler():
-            lib = C.WinDLL(str(next(cuda_bin.glob('nvrtc64_*.dll'))))
+            lib = C.WinDLL(str(libraries[0]))
+            # NVRTC's internal bare-name LoadLibrary need not use Python's
+            # AddDllDirectory search context. Load the fingerprinted companion
+            # explicitly, and retain it for the entire compilation lifetime.
+            # This factory is never invoked for cache hits or required misses.
+            lib._nikke_builtins = C.WinDLL(str(builtins[0]))
             signatures = dict(nvrtcCreateProgram=[C.POINTER(C.c_void_p),C.c_char_p,C.c_char_p,C.c_int,C.c_void_p,C.c_void_p],
                           nvrtcCompileProgram=[C.c_void_p,C.c_int,C.POINTER(C.c_char_p)],
                           nvrtcGetProgramLogSize=[C.c_void_p,C.POINTER(C.c_size_t)], nvrtcGetPTXSize=[C.c_void_p,C.POINTER(C.c_size_t)],
@@ -191,7 +201,7 @@ def compile_cuda_source(source, *, artifact_kind=None):
             return lib
         # Exact-byte cache validation precedes DLL loading. Hits and required
         # misses need file reads only, without activating NVRTC at all.
-        artifact_bytes,compile_receipt=compile_cuda_artifact(None,source.read_bytes(),list(cuda_bin.glob('nvrtc*.dll')),artifact_kind=artifact_kind,library_factory=load_compiler)
+        artifact_bytes,compile_receipt=compile_cuda_artifact(None,source.read_bytes(),compiler_files,artifact_kind=artifact_kind,library_factory=load_compiler)
         # Capture exact compiled bytes for independent local audits, including hits.
         source.with_suffix('.'+artifact_kind).write_bytes(artifact_bytes)
     return artifact_bytes,compile_receipt

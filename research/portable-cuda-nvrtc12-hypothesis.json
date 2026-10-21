@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "prepared_not_executed",
+  "status": "v119_builtins_load_failure_memory_hypothesis_unverified",
   "hypothesis": "A newer isolated NVRTC/ptxas may complete shared CUBIN O1 below existing 60s/2GiB cap; no size-to-memory inference.",
   "change": "Compiler bytes only; no numerical/GPU source or compilation flag change",
   "package": "nvidia-cuda-nvrtc-cu12",
@@ -20,5 +20,21 @@
   "kernel_calls": 0,
   "retry_policy": "No same source/runtime/options retry or limit increase",
   "install_policy": "Extract pinned wheel into dedicated new directory; no pip install, global toolkit/driver/PATH or parent CUDA_PATH modifications",
-  "success_criterion": "Verified nonempty ELF CUBIN and exact compiler/source/header/option cache receipt; independent audit. This does not prove CUDA calculation or performance improvement."
+  "success_criterion": "Verified nonempty ELF CUBIN and exact compiler/source/header/option cache receipt; independent audit. This does not prove CUDA calculation or performance improvement.",
+  "first_result": "research/portable-world-v119-compiler-sanitized.json",
+  "next_change": "Explicit absolute-path same-distribution builtins preload, retain handle; reject ambiguous/missing companions before compiler/cache work. Runtime loader change, not same-condition retry.",
+  "loader_fix_cpu": {
+    "artifact_tests": 12,
+    "compiler_cli_tests": 8,
+    "cache_tests": 12,
+    "full_cpu_before_journal_fix": {
+      "discovered": 745,
+      "passed": 744,
+      "skipped": 1,
+      "failed": 0,
+      "elapsed_seconds": 54.154,
+      "log_sha256": "9c0f60ec270d1c27ab7279cdf2beaf9532f3ae1141148ab166906d7025b4ddf8"
+    },
+    "scope": "Fake NVRTC and loader functions; actual Windows dependency resolution and CUBIN remain unverified"
+  }
 }

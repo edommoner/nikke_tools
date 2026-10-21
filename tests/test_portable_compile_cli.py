@@ -75,6 +75,16 @@ class CompileCLITests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError,'Only the NVRTC'):cli.compile_child(self.m,self.capture,'cuda')
         self.loader.assert_not_called();self.assertFalse((self.capture/'compiler.json').exists())
 
+    def test_failed_compiler_library_load_is_not_reported_as_loaded(self):
+        self.loader.side_effect=OSError('Dependency could not be loaded')
+        with self.context(),self.assertRaisesRegex(OSError,'Dependency could not be loaded'):
+            cli.compile_child(self.m,self.capture,'cuda')
+        rows=[json.loads(line) for line in (self.capture/'phases.jsonl').read_text().splitlines()]
+        libraries=[r for r in rows if r['stage']=='cuda_compiler_library']
+        self.assertEqual([r['state'] for r in libraries],['entered','raised'])
+        self.assertEqual(libraries[-1]['exception'],'OSError')
+        self.assertEqual(self.native.calls,[]);self.assertFalse((self.capture/'compiler.json').exists())
+
     def test_codegen_drift_is_rejected_before_compiler(self):
         self.m['golden']['generated_normalized']['cuda']='changed'
         with self.context(),self.assertRaisesRegex(ValueError,'sealed Metal proof'):cli.compile_child(self.m,self.capture,'cuda')

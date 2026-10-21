@@ -777,8 +777,12 @@ def compile_child(m,capture,backend):
         basename=str(name).replace('\\','/').rsplit('/',1)[-1].lower()
         if not basename.startswith('nvrtc') or not basename.endswith('.dll'):
             journal.emit('cuda_driver_load_forbidden','rejected');raise RuntimeError('Only the NVRTC compiler library is allowed')
+        journal.emit('cuda_compiler_library','entered',name=basename)
+        try:library=loader(name,*args,**kwargs)
+        except BaseException as error:
+            journal.emit('cuda_compiler_library','raised',name=basename,exception=type(error).__name__);raise
         journal.emit('cuda_compiler_library','loaded',name=basename)
-        return loader(name,*args,**kwargs)
+        return library
     def forbidden(*a,**k):raise RuntimeError('GPU dispatch forbidden in compile-only mode')
     with patch.object(portable_backend.C,'WinDLL',guarded_library,create=True),patch.object(portable_backend,'execute',forbidden),patch.object(portable_backend,'execute_batches',forbidden),observe(portable_backend,journal):
         outputs,hashes=portable_backend.build(SUITES[m['suite']]['source'],'portableEvents')

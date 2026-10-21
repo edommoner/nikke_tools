@@ -49,3 +49,13 @@ rawEffectiveChargeの共通noinline候補はMetal327で検証し、全nativeと�
 次の候補は、既存共通GPUソース・O1・60秒／2GiBを維持し、compiler binaryだけをNVIDIA配布のNVRTC12.4.127へ変える1回のcompiler-only検証です。NVIDIAの[Windows導入文書](https://docs.nvidia.com/cuda/archive/12.5.0/cuda-installation-guide-microsoft-windows/index.html)にあるcomponent wheelを使い、[固定配布metadata](https://pypi.org/pypi/nvidia-cuda-nvrtc-cu12/12.4.127/json)のWindows wheel19,751,955byte・SHAを固定しました。global導入せず専用フォルダーへ展開し、子プロセスだけCUDA_PATHを指定します。元toolkit／driver／PATH／親環境は変えません。
 
 成功条件はELF CUBINと厳密cache receiptの取得・独立監査であり、最新版CUDA計算一致や速度改善ではありません。版変更がcompilerメモリを下げる保証はありません。失敗時の別版巡回、PTX-only fallback、同条件retry、上限拡大は行いません。既存成功cacheとのキー互換性を偽装せず、compiler DLLの実byte identityで別cacheにします。準備と実行結果をportable-cuda-nvrtc12-hypothesis.jsonで区別します。
+
+## v119のbuiltins依存と共通loader修正
+
+固定f7b42e7でwheel／1823file manifest／CPU21件は一致しましたが、NVRTC12.4はreturn7「failed to open nvrtc-builtins64_124.dll」で停止しました。1回・13.351秒、Job peak473,661,440byte、post空、driver／context／kernel0、artifact0／cache-checkなし。これは依存ロード失敗であり、メモリ改善の成功・失敗ではありません。process欠落0・元workspace／親環境保持が報告されましたが、service未識別なので環境保持はfalseです。原報告をportable-world-v119-compiler-sanitized.jsonに残しました。
+
+PythonのAddDllDirectoryだけでは、NVRTC内部の名前による依存ロードへ検索範囲が伝わらない可能性があります。共通portable_backendはcompiler rootにNVRTC／builtinsが各1個あることを確認し、primaryの後でbuiltinsも絶対パスから読み込み、handleをコンパイル終了まで保持するようにしました。同じ配布元の対応libraryが必要という[NVIDIAの規約](https://docs.nvidia.com/cuda/archive/12.4.1/nvrtc/index.html#nvrtc-builtins-library)を維持し、pin済みwheelの2 DLLを使います。別配布物を混ぜたりPATHを変えたりしません。
+
+既存のsource／compiler全DLL／header／flagsのbyte identity、cache schema/key、compile中のhash再検査は変えません。cache hit／required missではfactoryを呼ばず、DLL load0を保持します。欠落／複数候補はcache／DLL前、明示ロード失敗はnvrtcCreateProgram前に止まります。単一候補の検査だけで任意の2 libraryのversion互換性を証明したとは扱いません。
+
+全CPU745件中744成功・Windows専用1skip。DLL失敗をloadedと先に記録する既存journalも、entered→成功時loaded／失敗時raisedへ修正し、compiler CLI8・artifact12・cache12のCPU故障注入を確認しました。ここまでfake DLLであり、Windowsの実依存ロードは未確認です。次の固定packageだけを新しいloader条件で最大1回確認します。元v119を再実行・上書きせず、同じ上限・O1・compiler byteを維持します。

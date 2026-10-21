@@ -30,11 +30,12 @@ class ArtifactTests(unittest.TestCase):
         import json
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder);(root/'bin').mkdir();dll=root/'bin/nvrtc64_dummy.dll';dll.write_bytes(b'compiler')
+            builtins=root/'bin/nvrtc-builtins64_dummy.dll';builtins.write_bytes(b'companion')
             source=root/'generated.cu';source.write_bytes(b'cuda');cache=root/'cache'
             env=dict(CUDA_PATH=str(root),NIKKE_CUDA_COMPILE_CACHE=str(cache),NIKKE_CUDA_CACHE_REQUIRED='0',NIKKE_CUDA_PTXAS_OPT_LEVEL='')
             fake_os=types.SimpleNamespace(name='nt',environ=env,add_dll_directory=lambda path:contextlib.nullcontext())
             with patch.dict(os.environ,env):
-                artifact,receipt=compile_cuda_artifact(NVRTC(),b'cuda',[dll],artifact_kind='cubin')
+                artifact,receipt=compile_cuda_artifact(NVRTC(),b'cuda',[dll,builtins],artifact_kind='cubin')
                 with patch.object(backend,'os',fake_os),patch.object(C,'WinDLL',side_effect=AssertionError('DLL load forbidden'),create=True) as loader:
                     actual,hit=backend.compile_cuda_source(source,artifact_kind='cubin')
                     self.assertEqual(actual,artifact);self.assertTrue(hit['hit'])
@@ -51,14 +52,45 @@ class ArtifactTests(unittest.TestCase):
         import portable_backend as backend
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder);(root/'bin').mkdir();dll=root/'bin/nvrtc64_dummy.dll';dll.write_bytes(b'compiler')
+            builtins=root/'bin/nvrtc-builtins64_dummy.dll';builtins.write_bytes(b'companion')
             source=root/'generated.cu';source.write_bytes(b'cuda');native=NVRTC()
             library=types.SimpleNamespace(**{name:Mock(wraps=getattr(native,name)) for name in dir(native) if name.startswith('nvrtc')})
             env=dict(CUDA_PATH=str(root),NIKKE_CUDA_COMPILE_CACHE='',NIKKE_CUDA_CACHE_REQUIRED='0')
             fake_os=types.SimpleNamespace(name='nt',environ=env,add_dll_directory=lambda path:contextlib.nullcontext())
-            with patch.object(backend,'os',fake_os),patch.object(C,'WinDLL',return_value=library,create=True) as loader:
+            companion=object()
+            with patch.object(backend,'os',fake_os),patch.object(C,'WinDLL',side_effect=[library,companion],create=True) as loader:
                 artifact,receipt=backend.compile_cuda_source(source,artifact_kind='cubin')
-            loader.assert_called_once_with(str(dll));self.assertEqual(source.with_suffix('.cubin').read_bytes(),native.payload)
+            self.assertEqual([call.args[0] for call in loader.call_args_list],[str(dll),str(builtins)])
+            self.assertIs(library._nikke_builtins,companion)
+            self.assertEqual(set(receipt['identity']['compiler_files']),{dll.name,builtins.name})
+            self.assertEqual(source.with_suffix('.cubin').read_bytes(),native.payload)
             self.assertEqual(artifact,native.payload);self.assertFalse(receipt['hit'])
+
+    def test_missing_or_ambiguous_companions_stop_before_library_load_or_cache_work(self):
+        import portable_backend as backend
+        for names in (['nvrtc64_dummy.dll'],['nvrtc64_a.dll','nvrtc64_b.dll','nvrtc-builtins64_a.dll'],['nvrtc64_a.dll','nvrtc-builtins64_a.dll','nvrtc-builtins64_b.dll']):
+            with self.subTest(names=names),tempfile.TemporaryDirectory() as folder:
+                root=Path(folder);(root/'bin').mkdir()
+                for name in names:(root/'bin'/name).write_bytes(b'dll')
+                source=root/'generated.cu';source.write_bytes(b'cuda')
+                fake_os=types.SimpleNamespace(name='nt',environ=dict(CUDA_PATH=str(root)))
+                with patch.object(backend,'os',fake_os),patch.object(C,'WinDLL',create=True) as loader,patch.object(backend,'compile_cuda_artifact') as compile:
+                    with self.assertRaisesRegex(RuntimeError,'exactly one'):backend.compile_cuda_source(source,artifact_kind='cubin')
+                loader.assert_not_called();compile.assert_not_called()
+
+    def test_companion_load_failure_stops_before_create_program_and_preserves_error(self):
+        import portable_backend as backend
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);(root/'bin').mkdir()
+            for name in ('nvrtc64_dummy.dll','nvrtc-builtins64_dummy.dll'):(root/'bin'/name).write_bytes(b'dll')
+            source=root/'generated.cu';source.write_bytes(b'cuda');native=NVRTC()
+            library=types.SimpleNamespace(**{name:Mock(wraps=getattr(native,name)) for name in dir(native) if name.startswith('nvrtc')})
+            env=dict(CUDA_PATH=str(root),NIKKE_CUDA_COMPILE_CACHE=str(root/'cache'),NIKKE_CUDA_CACHE_REQUIRED='0')
+            fake_os=types.SimpleNamespace(name='nt',environ=env,add_dll_directory=lambda p:contextlib.nullcontext())
+            with patch.dict(os.environ,env),patch.object(backend,'os',fake_os),patch.object(C,'WinDLL',side_effect=[library,OSError('Companion dependency missing')],create=True):
+                with self.assertRaisesRegex(OSError,'Companion dependency missing'):backend.compile_cuda_source(source,artifact_kind='cubin')
+            self.assertEqual(native.calls,[]);self.assertEqual(list((root/'cache').iterdir()),[])
+            self.assertFalse(source.with_suffix('.cubin').exists())
 
     def test_required_cache_miss_never_creates_a_compiler_program(self):
         with tempfile.TemporaryDirectory() as folder,patch.dict(os.environ,{'NIKKE_CUDA_COMPILE_CACHE':folder,'NIKKE_CUDA_CACHE_REQUIRED':'1'}):
