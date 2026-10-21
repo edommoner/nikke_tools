@@ -105,12 +105,13 @@ struct Runtime
 #include "definition_runtime.slang"
 #ifdef PORTABLE_WORLD_RELOAD
 #define WORLD_RELOAD_FORCE_KIND(kind) (kind==23)
-#define WORLD_RELOAD_KIND(d,legacy) (d.kind==23 ? false : (legacy))
-#define WORLD_RELOAD_ORIGIN(input,row,legacy) ((legacy)||definition_kind(input,row)==23||definition_stat(input,row)==S_reload_time_fixed)
+#define WORLD_RELOAD_KIND(d,legacy) (d.kind==23||d.kind==13||d.kind==14 ? false : (legacy))
+#define WORLD_RELOAD_ORIGIN(input,row,legacy) ((legacy)||definition_kind(input,row)==23||definition_kind(input,row)==13||definition_kind(input,row)==14||definition_stat(input,row)==S_reload_time_fixed)
 #define WORLD_RELOAD_INIT(s) initializeWorldReload(s);
 #define WORLD_RELOAD_DURATION(s,w,who,when) uint64_t reloadFixed;if(fixedReloadDuration(s,who,when,reloadFixed)) return reloadFixed;
 #define WORLD_RELOAD_RECORD(s,who,when,kind) recordWorldReload(s,who,when,kind);
 #define WORLD_RELOAD_ACTIVE(s,who,legacy) f64Less(0,s.reloadUntil[who])
+#define WORLD_RELOAD_PHASE_EXPIRE(s,who) (!f64Less(0,s.reloadUntil[who]))
 #define WORLD_RELOAD_AFTER_COMPLETE(s,who) if(f64Less(0,s.reloadUntil[who])) return;
 #define WORLD_RELOAD_ACTIVATE(s,d,when) if(d.kind==23) recordForcedReload(s,d,when);
 #define WORLD_RELOAD_DISPATCH(s,d,order,when) else if(d.kind==23) applyForcedReload(s,order,when);
@@ -124,6 +125,7 @@ struct Runtime
 #define WORLD_RELOAD_DURATION(s,w,who,when)
 #define WORLD_RELOAD_RECORD(s,who,when,kind)
 #define WORLD_RELOAD_ACTIVE(s,who,legacy) legacy
+#define WORLD_RELOAD_PHASE_EXPIRE(s,who) true
 #define WORLD_RELOAD_AFTER_COMPLETE(s,who)
 #define WORLD_RELOAD_ACTIVATE(s,d,when)
 #define WORLD_RELOAD_DISPATCH(s,d,order,when)

@@ -52,4 +52,6 @@ def fixtures():
   c=add('catalog-'+name,effects);c['names']=roster;c['controls'][0]['sequence'][0]['until']=1.2
   if name=='\uc9c8':
    c['combat']['weapons'][0]['stage']=1;c['effects'].append(dict(name='initial-gauge',source='\uc2a4\ud0ac1',type='instant',stat='burst_charge_pct',fixed_value=100,target='all_allies',trigger=dict(timing=['battle_start'],condition=[])));c['owners'].append(0)
+ for stat,value,timing in (('ammo_charge_pct',-100,'every:0.3s'),('ammo_charge_pct',50,'every:0.9s'),('ammo_charge_flat',1,'every:0.9s')):
+  add('ordinary-ammo-'+stat+'-'+str(value),[fixed(.3),dict(force(timing),stat=stat,fixed_value=value)])
  return rows

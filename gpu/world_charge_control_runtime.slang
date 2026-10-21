@@ -198,7 +198,7 @@ void advanceChargeControl(inout Runtime s,uint who,uint64_t when)
         }
         results[a+1]=index;
     }
-    if(results[a+24]==2&&!f64Less(when,s.nextShot[who])) results[a+24]=0;
+    if(results[a+24]==2&&!f64Less(when,s.nextShot[who])&&WORLD_RELOAD_PHASE_EXPIRE(s,who)) results[a+24]=0;
 }
 bool waitChargeControl(inout Runtime s,uint who,uint64_t charge,uint64_t when)
 {
