@@ -11,7 +11,7 @@ suite=module('physical_counter_short_suite','research/verify-world-fraction.py')
 def sha(b):return hashlib.sha256(b).hexdigest()
 def prepare():
  rows,programs,bad=suite.prepare();entries=[('native/'+c['name'],w,(c,meta,bindings)) for c,(w,meta,bindings) in zip(rows,programs)]
- entries.extend(('reject/'+name,w,None) for name,w in bad);assert len(entries)==29
+ entries.extend(('reject/'+name,w,None) for name,w in bad);assert len(entries)==35
  packed=array.array('I',[len(entries)])
  for _,w,_ in entries:packed.extend(w)
  if sys.byteorder!='little':packed.byteswap()
@@ -23,9 +23,9 @@ def compare(block,domain):
  assert suite.periodic.skill_trace(block)==trace,case['name']
  return dict(battle=native,skill_trace=trace)
 def main():
- ap=argparse.ArgumentParser();ap.add_argument('--backend',choices=('cuda','metal'),default='cuda');ap.add_argument('--cpu-only',action='store_true');ap.add_argument('--from-metal',action='store_true');a=ap.parse_args();entries,data=prepare();iw=L['TARGET_COUNTER_INPUT_WORDS']*4;ow=655360*4
+ ap=argparse.ArgumentParser();ap.add_argument('--backend',choices=('cuda','metal'),default='cuda');ap.add_argument('--cpu-only',action='store_true');ap.add_argument('--from-metal',action='store_true');a=ap.parse_args();entries,data=prepare();iw=suite.INPUT*4;ow=655360*4
  if a.from_metal:
-  r=json.loads((ROOT/'research/portable-world-fraction-metal.json').read_text());p=Path(r['captured']);before=(p/'input.bin').read_bytes();raw=(p/'readback.bin').read_bytes()[:29*ow];assert r['passed'] and data[4:]==before[4:4+29*iw];evidence=r['evidence'];golden=dict(input_sha256=sha(data),output_sha256=sha(raw),source_sha256=evidence['source_sha256'])
+  r=json.loads((ROOT/'research/portable-world-fraction-metal.json').read_text());p=Path(r['captured']);before=(p/'input.bin').read_bytes();raw=(p/'readback.bin').read_bytes()[:35*ow];assert r['passed'] and data[4:]==before[4:4+35*iw];evidence=r['evidence'];golden=dict(input_sha256=sha(data),output_sha256=sha(raw),source_sha256=evidence['source_sha256'])
  else:
   golden=json.loads(GOLDEN.read_text());assert golden['input_sha256']==sha(data) and golden['source_sha256']==source_hashes(suite.SOURCE)
   for i,(name,w,_) in enumerate(entries):assert golden['entries'][i]['name']==name and golden['entries'][i]['input_sha256']==sha(data[4+i*iw:4+(i+1)*iw])
@@ -39,10 +39,10 @@ def main():
     again,repacked=prepare();assert data==repacked
     for i,(_,_,case) in enumerate(again):
      if case is not None:assert cross.digest(dict(zip(('battle','skill_trace'),suite.inspect_native(case[0]))))==golden['entries'][i]['native_sha256']
-   result=dict(passed=True,input_count=29,native_oracles=24,input_sha256=sha(data),source_sha256=source_hashes(suite.SOURCE),gpu_calls=calls)
-   (ROOT/'research/portable-world-fraction-short-cpu.json').write_text(json.dumps(result,indent=2)+'\n');print('CPU29 inputs/native24 full battles exact;GPU build/execute0');return
+   result=dict(passed=True,input_count=35,native_oracles=24,input_sha256=sha(data),source_sha256=source_hashes(suite.SOURCE),gpu_calls=calls)
+   (ROOT/'research/portable-world-fraction-short-cpu.json').write_text(json.dumps(result,indent=2)+'\n');print('CPU35 inputs/native24 full battles exact;GPU build/execute0');return
   folder=ROOT/'research/portable-build'/'world-fraction-cuda-short';folder.mkdir(parents=True,exist_ok=False);(folder/'input.bin').write_bytes(data)
-  try:raw,evidence=execute(suite.SOURCE,'portableEvents',data,L['TARGET_COUNTER_INPUT_WORDS'],655360,a.backend)
+  try:raw,evidence=execute(suite.SOURCE,'portableEvents',data,suite.INPUT,655360,a.backend)
   except Exception as error:(folder/'failure.json').write_text(json.dumps(dict(error=repr(error)),indent=2)+'\n');raise
   (folder/'readback.bin').write_bytes(raw);(folder/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
  values=array.array('I');values.frombytes(raw)
@@ -55,7 +55,7 @@ def main():
   results.append(dict(name=name,input_sha256=sha(data[4+i*iw:4+(i+1)*iw]),output_sha256=sha(raw[i*ow:(i+1)*ow]),native_sha256=cross.digest(native)))
  generated={b:cross.normalized((ROOT/'research/portable-build'/('world_fraction_entry.'+suffix)).read_bytes()) for b,suffix in [('cuda','cu'),('metal','metal')]}
  if a.from_metal:
-  golden.update(entries=results,generated_normalized=generated);GOLDEN.write_text(json.dumps(golden,indent=2)+'\n');print('29 inputs/native24 projected from saved Metal29;GPU0');return
- answer=dict(passed=results==golden['entries'] and sha(raw)==golden['output_sha256'] and generated==golden['generated_normalized'],input_count=29,input_sha256=sha(data),output_sha256=sha(raw),entries=results,generated_normalized=generated,evidence=evidence,normal4682_reexecutions=0,old208_reexecutions=0,old285_reexecutions=0,old357_reexecutions=0,old424_reexecutions=0,old461_reexecutions=0,old484_reexecutions=0,old529_reexecutions=0,old590_reexecutions=0,old622_reexecutions=0,old663_reexecutions=0,old721_reexecutions=0,old783_reexecutions=0,old833_reexecutions=0,old841_reexecutions=0,old878_reexecutions=0,old923_reexecutions=0,full_character_verified=0,canonical_world_admission=False)
- (ROOT/'research/portable-world-fraction-short-summary.json').write_text(json.dumps(answer,indent=2)+'\n');assert answer['passed'];print('CUDA/Metal29 input/output/native24/generated exact')
+  golden.update(entries=results,generated_normalized=generated);GOLDEN.write_text(json.dumps(golden,indent=2)+'\n');print('35 inputs/native24 projected from saved Metal35;GPU0');return
+ answer=dict(passed=results==golden['entries'] and sha(raw)==golden['output_sha256'] and generated==golden['generated_normalized'],input_count=35,input_sha256=sha(data),output_sha256=sha(raw),entries=results,generated_normalized=generated,evidence=evidence,normal4682_reexecutions=0,old208_reexecutions=0,old285_reexecutions=0,old357_reexecutions=0,old424_reexecutions=0,old461_reexecutions=0,old484_reexecutions=0,old529_reexecutions=0,old590_reexecutions=0,old622_reexecutions=0,old663_reexecutions=0,old721_reexecutions=0,old783_reexecutions=0,old833_reexecutions=0,old841_reexecutions=0,old878_reexecutions=0,old923_reexecutions=0,full_character_verified=0,canonical_world_admission=False)
+ (ROOT/'research/portable-world-fraction-short-summary.json').write_text(json.dumps(answer,indent=2)+'\n');assert answer['passed'];print('CUDA/Metal35 input/output/native24/generated exact')
 if __name__=='__main__':main()

@@ -103,6 +103,7 @@ struct Runtime
 #ifdef PORTABLE_WORLD_FRACTION
 bool worldFractionEnabled(inout Runtime s) { return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==17; }
 #define WORLD_FRACTION_MODE(s) worldFractionEnabled(s)
+#define WORLD_FRACTION_POST_DELAY(s,who,mode,legacy) (worldFractionEnabled(s) ? loadNumber(mode>=0 ? s.inputBase+P_MODE_BASE+uint(mode)*P_MODE_WORDS+18 : s.inputBase+P_WORLD_FRACTION_CLOCK_BASE+4+who*2) : (legacy))
 #define WORLD_FRACTION_INIT(s) initializeWorldFraction(s);
 #define WORLD_FRACTION_SAMPLE(s,who,critical,core,physical,flags) if(worldFractionEnabled(s)&&physical&&(flags&H_PART)==0) sampleWorldFraction(s,who,critical,core);
 #define WORLD_FRACTION_AUTO(s,w,who,when,output) if(worldFractionEnabled(s)&&w.mode!=1) { notifyWorldFraction(s,who,0,when,output);notifyWorldFraction(s,who,1,when,output); }
@@ -110,6 +111,7 @@ bool worldFractionEnabled(inout Runtime s) { return targetCountersEnabled(s)&&co
 #define WORLD_FRACTION_VALIDATE(s,d,input,j) for(uint fractionSlot=0;fractionSlot<d.triggerCount;fractionSlot++) { uint fractionAt=input+P_EVENT_BASE+j*P_EVENT_WORDS+fractionSlot*8; if((commands[fractionAt]==22||commands[fractionAt]==23)&&!worldFractionEnabled(s)) { s.error=64;break; } } if(s.error!=0) break;
 #else
 #define WORLD_FRACTION_MODE(s) false
+#define WORLD_FRACTION_POST_DELAY(s,who,mode,legacy) legacy
 #define WORLD_FRACTION_INIT(s)
 #define WORLD_FRACTION_SAMPLE(s,who,critical,core,physical,flags)
 #define WORLD_FRACTION_AUTO(s,w,who,when,output)

@@ -10,13 +10,15 @@ import world_fraction_cases as cases
 s=importlib.util.spec_from_file_location('fraction_spawn','research/verify-world-spawn.py');spawn=importlib.util.module_from_spec(s);s.loader.exec_module(spawn)
 physical=spawn.physical;periodic=spawn.periodic
 
-SOURCE='gpu/world_fraction_entry.slang';OUTPUT=L['WORLD_PERIODIC_OUTPUT_WORDS']
+INPUT=L['WORLD_FRACTION_INPUT_WORDS'];SOURCE='gpu/world_fraction_entry.slang';OUTPUT=L['WORLD_PERIODIC_OUTPUT_WORDS']
 def fixtures():return cases.fixtures()
 def compile_case(case):
  w,m,b=physical.pack.compile_case(case,allow_no_counter=True);w[0]=L['WORLD_FRACTION_ABI'];w[L['TARGET_COUNTER_INPUT_BASE']+6]=17
  from portable_enemy_specs import damage_plan
  for i,e in enumerate(case['effects']):
   if e.get('type')=='damage' and damage_plan(e)[0]==2:w[L['DAMAGE_DEFINITION_BASE']+i*8+1]=128
+ from portable_charge_clock_specs import compile_clock
+ w.extend(compile_clock(case['combat']['weapons'],case['post_fire_delays']));assert len(w)==INPUT
  return w,m,b
 def decoded(block,meta,case,bindings):
  r=spawn.decoded(block,meta,case,bindings);head=L['WORLD_FRACTION_HEAD_BASE'];count=block[head+1];mask=block[head+2];assert block[head]==0x57465231 and count<=2048 and mask<1024 and not any(block[head+3:head+8]);notes=[]
@@ -27,6 +29,9 @@ def decoded(block,meta,case,bindings):
 def prepare():
  rows=fixtures();programs=[compile_case(c) for c in rows];seed=programs[0][0];bad=[]
  for name,at,value in [('fraction-old-mode15',L['TARGET_COUNTER_INPUT_BASE']+6,15),('fraction-unknown-mode18',L['TARGET_COUNTER_INPUT_BASE']+6,18),('fraction-without-landings',L['LANDING_META_BASE'],0),('fraction-invalid-owner',L['DEFINITION_BASE']+F['OWNER'],5),('fraction-missing-candidate-mask',L['EVENT_CANDIDATE_BASE']+22*L['MASK_WORDS'],0)]:
+  w=list(seed);w[at]=value;bad.append((name,w))
+ clock=L['WORLD_FRACTION_CLOCK_BASE']
+ for name,at,value in [('clock-magic',clock,0),('clock-version',clock+1,2),('clock-reserved',clock+15,1),('clock-nan',clock+5,0x7ff80000),('clock-negative',clock+5,0xbff00000),('clock-noncharge-delay',clock+5,0x3ff00000)]:
   w=list(seed);w[at]=value;bad.append((name,w))
  return rows,programs,bad
 def sha(b):return hashlib.sha256(b).hexdigest()
@@ -43,7 +48,7 @@ def main():
   folder=a.replay;assert (folder/'input.bin').read_bytes()==data;raw=(folder/'readback.bin').read_bytes();e=json.loads((folder/'evidence.json').read_text());assert e['source_sha256']==source_hashes(SOURCE)
  else:
   folder=ROOT/'research/portable-build'/('world-fraction-'+datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ'));folder.mkdir();(folder/'input.bin').write_bytes(data)
-  try:raw,e=execute(SOURCE,'portableEvents',data,97464,OUTPUT,a.backend)
+  try:raw,e=execute(SOURCE,'portableEvents',data,INPUT,OUTPUT,a.backend)
   except Exception as error:(folder/'failure.json').write_text(json.dumps(dict(error=repr(error),source_sha256=source_hashes(SOURCE)),indent=2)+'\n');raise
   (folder/'readback.bin').write_bytes(raw);(folder/'evidence.json').write_text(json.dumps(e,indent=2)+'\n')
  checked=[]

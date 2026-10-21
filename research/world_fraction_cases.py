@@ -28,4 +28,8 @@ def fixtures():
  c=add('core-unit-probability',[effect('core_hit')]);c['enemy']['core_px']=100
  c=copy.deepcopy(next(c for c in rows if c['name']=='charge-skill-crit_hit'));c['name']='skill-mode-excludes-normal-critical';c['effects'].append(field('normal_atk_crit_rate',85,'self','normal-rate','battle_start'));c['owners'].append(0);rows.append(c)
  c=add('bullet-critical-buff-expiry-order',[effect('crit_hit'),dict(field('crit_rate',85,'self','bullet-rate','battle_start'),duration_bullets=1)]);c['combat']['weapons'][0].update(mode='charge',base_weapon_type='SR',charge=.2,interval=.4,min_cycle=.2,full_charge_mult=300,gauge_mult=100);c['duration']=1.4
+ for c in rows:
+  c['post_fire_delays']=[.215 if w.get('mode')=='charge' else 0 for w in c['combat']['weapons']]
+  for w in c['combat']['weapons']:
+   if w.get('mode')=='charge':w['min_cycle']=.4
  return rows

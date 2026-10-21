@@ -3,6 +3,13 @@
 void initializeWorldFraction(inout Runtime s)
 {
     if(!worldFractionEnabled(s)) return;
+    uint clock=s.inputBase+P_WORLD_FRACTION_CLOCK_BASE;
+    if(commands[clock]!=0x57464331||commands[clock+1]!=1||commands[clock+2]!=5||commands[clock+3]!=0||commands[clock+14]!=0||commands[clock+15]!=0) { s.error=64;return; }
+    for(uint who=0;who<5;who++)
+    {
+        uint64_t delay=loadNumber(clock+4+who*2);
+        if(!f64Finite(delay)||f64Less(delay,0)||f64Less(f64FromI64(180),delay)||commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+1]!=1&&!f64Zero(delay)) { s.error=64;return; }
+    }
     for(uint i=P_WORLD_FRACTION_STATE_BASE;i<P_WORLD_FRACTION_TRACE_BASE+P_WORLD_FRACTION_TRACE_COUNT*8;i++) results[s.resourceOutput+i]=0;
     results[s.resourceOutput+P_WORLD_FRACTION_HEAD_BASE]=0x57465231;
 }

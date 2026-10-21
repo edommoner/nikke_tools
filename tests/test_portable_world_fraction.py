@@ -24,6 +24,18 @@ class FractionContracts(unittest.TestCase):
  def test_core_unit_probability_does_not_create_accumulator(self):self.assertTrue(all(r['fraction']==1 and r['fired']==1 and not r['created'] for r in self.samples('core-unit-probability',23)))
  def test_gpu_input_is_authored_not_observed_credit(self):
   c=copy.deepcopy(self.rows['fraction-crit_hit']);w=suite.compile_case(c)[0];c['fractional_hits']=[dict(fraction=1)];self.assertEqual(w,suite.compile_case(c)[0]);self.assertEqual(w[0],suite.L['WORLD_FRACTION_ABI']);self.assertEqual(w[suite.L['TARGET_COUNTER_INPUT_BASE']+6],17)
+ def test_post_fire_delay_is_packed_without_sum_then_subtract(self):
+  import struct
+  from portable_charge_clock_specs import compile_clock
+  c=self.rows['charge-normal-crit_hit'];words=compile_clock(c['combat']['weapons'],c['post_fire_delays']);self.assertEqual(words[4:6],list(struct.unpack('<II',struct.pack('<d',.215))))
+ def test_real_static_normalizer_reads_native_delay_without_a_battle(self):
+  from unittest.mock import patch
+  from calculator import timeline
+  from world_frame_native import authored_metadata,roster_names
+  from portable_charge_clock_specs import normalize_static_clock
+  c=self.rows['charge-normal-crit_hit'];names=roster_names(c)
+  with patch.dict(timeline._NIKKE,authored_metadata(c)),patch.dict(timeline._DELAYS['_exceptions'],{},clear=True),patch.dict(timeline._DELAYS['_defaults_by_weapon_type'],{'AR':{'post_reload_delay':0}},clear=True),patch.object(timeline,'simulate',side_effect=AssertionError('CPU battle forbidden during normalization')):
+   self.assertEqual(normalize_static_clock([dict(name=n,skill_levels={'1':10,'2':10,'3':10}) for n in names],c['base_atk'],{}),c['post_fire_delays'])
  def test_fraction_banks_follow_spawn_bank_without_overlap(self):
   L=suite.L;self.assertEqual(L['WORLD_FRACTION_STATE_BASE'],L['WORLD_SPAWN_TRACE_BASE']+4096*4);self.assertEqual(L['WORLD_FRACTION_HEAD_BASE'],L['WORLD_FRACTION_STATE_BASE']+5*8);self.assertLessEqual(L['WORLD_FRACTION_TRACE_BASE']+2048*8,L['WORLD_PERIODIC_OUTPUT_WORDS'])
 if __name__=='__main__':unittest.main()

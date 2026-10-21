@@ -165,7 +165,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -3450,7 +3457,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -6735,7 +6749,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -10020,7 +10041,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -13330,7 +13358,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -16640,7 +16675,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -19966,7 +20008,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -23262,7 +23311,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -26573,7 +26629,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -29884,7 +29947,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -33190,7 +33260,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -36499,7 +36576,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -39706,7 +39790,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -43422,7 +43513,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -46633,7 +46731,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -46647,7 +46745,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -46661,7 +46759,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -46675,7 +46773,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -46689,7 +46787,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             }
@@ -46772,7 +46870,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0.215,
+          0.215,
+          0.215,
+          0.215,
+          0.215
+        ]
       },
       "native": {
         "graph_states": [
@@ -48972,7 +49077,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -48986,7 +49091,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -49000,7 +49105,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -49014,7 +49119,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -49028,7 +49133,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             }
@@ -49111,7 +49216,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0.215,
+          0.215,
+          0.215,
+          0.215,
+          0.215
+        ]
       },
       "native": {
         "graph_states": [
@@ -51339,7 +51451,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -51353,7 +51465,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -51367,7 +51479,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -51381,7 +51493,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -51395,7 +51507,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             }
@@ -51478,7 +51590,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0.215,
+          0.215,
+          0.215,
+          0.215,
+          0.215
+        ]
       },
       "native": {
         "graph_states": [
@@ -54023,7 +54142,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -54037,7 +54156,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -54051,7 +54170,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -54065,7 +54184,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -54079,7 +54198,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             }
@@ -54162,7 +54281,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0.215,
+          0.215,
+          0.215,
+          0.215,
+          0.215
+        ]
       },
       "native": {
         "graph_states": [
@@ -56796,7 +56922,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -60194,7 +60327,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -63517,7 +63657,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -66812,7 +66959,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -70032,7 +70186,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -70046,7 +70200,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -70060,7 +70214,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -70074,7 +70228,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -70088,7 +70242,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             }
@@ -70171,7 +70325,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0.215,
+          0.215,
+          0.215,
+          0.215,
+          0.215
+        ]
       },
       "native": {
         "graph_states": [
@@ -72715,7 +72876,7 @@
               "mode": "charge",
               "base_weapon_type": "SR",
               "charge": 0.2,
-              "min_cycle": 0.2,
+              "min_cycle": 0.4,
               "full_charge_mult": 300,
               "gauge_mult": 100
             },
@@ -72830,7 +72991,14 @@
         "observe_enemy_spawn": true,
         "observe_periodic_skills": true,
         "observe_target_counters": true,
-        "observe_fractional_hits": true
+        "observe_fractional_hits": true,
+        "post_fire_delays": [
+          0.215,
+          0,
+          0,
+          0,
+          0
+        ]
       },
       "native": {
         "graph_states": [
@@ -75670,7 +75838,7 @@
   "source_sha256": {
     "research/world_frame_native.py": "d416540b51c2802f39cb55014061dbc227fc3e639da0aac4f3871ed99acd5fe9",
     "research/world_fraction_native.py": "6916e5dd7bb6218080f0e17adbff786c0333e67cbdda418a3e992c147c17ec00",
-    "research/world_fraction_cases.py": "19d107d0bba6bbef4a68176ee7230c2702bb0f5b7c226ccc2da8d8ebf20c39a5",
+    "research/world_fraction_cases.py": "90f01636b6b3f9fd6210e44c66b4682615451b37c93835bd77bfce156757ee55",
     "research/characterize-world-fraction.py": "e28b59c9a8ac22b45d41ed1a36354563e25afb44996fb424f5ca50318ffc8ca5"
   },
   "full_goal_complete": false,

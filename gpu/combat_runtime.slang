@@ -353,7 +353,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
         { uint name = definition_name(s.inputBase,mode); s.frameAmmoActive[who] = 0;s.physicalGaugeOwner=0; clearMode(s,who,when); dispatch(s,0,29,who,int(name),when,output); return; }
     }
     if (w.mode == 1)
-    { s.pendingAutoReload[who] = uint(scheduleAutoReload); s.charging[who] = 0; s.nextShot[who] = larger(f64Add(when,f64Add(w.interval,w.chargeTime ^ F64_SIGN)),f64Add(s.chargeStartedAt[who],w.minCycle)); }
+    { s.pendingAutoReload[who] = uint(scheduleAutoReload); s.charging[who] = 0; s.nextShot[who] = larger(f64Add(when,WORLD_FRACTION_POST_DELAY(s,who,mode,f64Add(w.interval,w.chargeTime ^ F64_SIGN))),f64Add(s.chargeStartedAt[who],w.minCycle)); }
     else s.nextShot[who] = larger(when,f64Add(s.nextShot[who],shotInterval));
 }
 void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
