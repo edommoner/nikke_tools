@@ -814,7 +814,7 @@ def job_contained(capture,rows,*,memory_limit_bytes=None):
     return bool(good),pid
 
 
-MODULE_DRIVER_APIS=('cuInit','cuDeviceGet','cuDeviceGetName','cuCtxCreate_v2','cuModuleLoadData','cuModuleGetFunction','cuModuleGetGlobal_v2','cuCtxDestroy_v2')
+MODULE_DRIVER_APIS=('cuInit','cuDeviceGet','cuDeviceGetName','cuCtxCreate_v2','cuModuleLoadData','cuModuleLoadDataEx','cuModuleGetFunction','cuModuleGetGlobal_v2','cuCtxDestroy_v2')
 
 
 def module_child(m,capture,backend):
@@ -826,6 +826,17 @@ def module_child(m,capture,backend):
     class DriverOnly:
         def __init__(self,driver):self.driver=driver
         def __getattr__(self,name):
+            if name=='cuModuleLoadDataEx':
+                native=getattr(self.driver,name)
+                class CheckedLoader:
+                    def __getattr__(self,key):return getattr(native,key)
+                    def __setattr__(self,key,value):setattr(native,key,value)
+                    def __call__(self,*args):
+                        if level is None or args[2]!=1 or args[3][0]!=7 or args[4][0]!=(level or None):
+                            raise ValueError('Driver JIT native arguments differ from requested configuration')
+                        journal.emit('cuda_jit_native_options','verified',optimization_level=level,option=7)
+                        return native(*args)
+                return CheckedLoader()
             if name in MODULE_DRIVER_APIS:return getattr(self.driver,name)
             def forbidden(*args):
                 journal.emit('cuda_module_forbidden_api','rejected',api=name)
@@ -853,7 +864,11 @@ def module_child(m,capture,backend):
         if plan:
             for path in outputs.values():
                 (capture/('generated'+path.suffix+'.reflection.json')).write_bytes(Path(str(path)+'.reflection.json').read_bytes())
-        checked=journal.invoke('shared_cuda_module_check',portable_backend.inspect_cuda_module,outputs['cuda'],'portableEvents',resident=plan)
+        value=os.environ.get('NIKKE_CUDA_JIT_OPT_LEVEL','')
+        level=int(value) if value else None
+        if value and (value not in tuple(str(i) for i in range(5))):raise ValueError('Invalid driver JIT optimization level')
+        journal.emit('cuda_jit_configuration','verified',optimization_level=level)
+        checked=journal.invoke('shared_cuda_module_check',portable_backend.inspect_cuda_module,outputs['cuda'],'portableEvents',resident=plan,jit_opt_level=level)
     copy_generated(capture,m['suite'])
     write(capture/'module.json',dict(source_sha256=hashes,generated_sha256={k:sha(p.read_bytes()) for k,p in outputs.items()},
           generated_normalized=generated,resident_runtime=plan,transport=checked))
@@ -871,8 +886,15 @@ def audit_module_capture(m,capture,*,verify_artifacts=True):
         if any(r['stage'].startswith('nvrtc') or r['stage'].startswith('cuda_module_forbidden') or r['stage'].startswith('cu') and len(r['stage'])>2 and r['stage'][2].isupper() and r['stage'] not in MODULE_DRIVER_APIS for r in rows):raise ValueError('Forbidden module check operation')
         span=[(i,r) for i,r in enumerate(rows) if r['stage']=='shared_cuda_module_check']
         if [r['state'] for _,r in span]!=['entered','returned']:raise ValueError('Module check did not return')
+        level=run.get('jit_optimization_level')
+        if level is not None and (type(level) is not int or level not in range(5)):raise ValueError('Invalid recorded JIT level')
+        configs=[r for r in rows if r['stage']=='cuda_jit_configuration']
+        if len(configs)!=1 or configs[0].get('optimization_level')!=level:raise ValueError('JIT configuration mismatch')
+        load_api='cuModuleLoadData' if level is None else 'cuModuleLoadDataEx'
+        other_api='cuModuleLoadDataEx' if level is None else 'cuModuleLoadData'
+        if any(r['stage']==other_api for r in rows):raise ValueError('Unexpected module loader')
         previous=-1;first_api=None
-        for stage in ('cuInit','cuDeviceGet','cuDeviceGetName','cuCtxCreate_v2','cuModuleLoadData','cuModuleGetFunction','cuModuleGetGlobal_v2','cuCtxDestroy_v2'):
+        for stage in ('cuInit','cuDeviceGet','cuDeviceGetName','cuCtxCreate_v2',load_api,'cuModuleGetFunction','cuModuleGetGlobal_v2','cuCtxDestroy_v2'):
             hits=[(i,r) for i,r in enumerate(rows) if r['stage']==stage]
             if len(hits)!=2 or hits[0][1]['state']!='entered' or hits[1][1]['state']!='returned' or hits[1][1].get('return_code')!=0 or hits[0][0]<=previous:raise ValueError('Module API return missing: '+stage)
             if first_api is None:first_api=hits[0][0]
@@ -883,6 +905,13 @@ def audit_module_capture(m,capture,*,verify_artifacts=True):
         loaded=[(i,r) for i,r in enumerate(rows) if r['stage']=='cuda_module_driver_load']
         if [r['state'] for _,r in loaded]!=['entered','returned'] or not cached[0][0]<loaded[0][0]<loaded[1][0]<first_api:raise ValueError('Driver load must follow the verified cache hit')
         proof=load(capture/'module.json');t=proof['transport'];receipt=t['compile_artifact'];kind=receipt['identity']['artifact']
+        if t.get('jit_optimization_level')!=level:raise ValueError('Module JIT receipt mismatch')
+        native_options=[(i,r) for i,r in enumerate(rows) if r['stage']=='cuda_jit_native_options']
+        if level is None:
+            if native_options:raise ValueError('Unexpected native JIT options')
+        else:
+            calls=[i for i,r in enumerate(rows) if r['stage']=='cuModuleLoadDataEx']
+            if len(native_options)!=1 or native_options[0][1].get('optimization_level')!=level or native_options[0][1].get('option')!=7 or not calls[0]<native_options[0][0]<calls[1]:raise ValueError('Native JIT options not verified')
         if kind!='ptx' or cached[0][1]['receipt']!=receipt:raise ValueError('Wrong module artifact receipt')
         from portable_backend import cuda_compile_options
         if receipt['identity']['options']!=cuda_compile_options('ptx'):raise ValueError('Wrong PTX compiler options')
@@ -914,18 +943,19 @@ def audit_module_capture(m,capture,*,verify_artifacts=True):
         buffer_allocations=0 if not any(r['stage']=='cuMemAlloc_v2' for r in rows) else None,error=error,gpu_retry_count=0)
 
 
-def module_capture(capture,timeout,original_workspace):
+def module_capture(capture,timeout,original_workspace,jit_opt_level=None):
+    if jit_opt_level is not None and (type(jit_opt_level) is not int or jit_opt_level not in range(5)):raise ValueError('Invalid driver JIT optimization level')
     if os.name!='nt':raise ValueError('Module check requires Windows')
     if type(timeout) is not int or not 1<=timeout<=60:raise ValueError('Module check budget must be1..60 seconds')
     if not original_workspace or not os.environ.get('NIKKE_CUDA_COMPILE_CACHE'):raise ValueError('Original workspace and dedicated compiler cache required')
     m=verify_package(ROOT)
     if is_development(m):raise ValueError('Module check requires a sealed Metal package')
     capture.mkdir(parents=True,exist_ok=False)
-    write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode='module-only',status='loading',memory_limit_mb=2048,gpu_retry_count=0))
+    write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode='module-only',status='loading',jit_optimization_level=jit_opt_level,memory_limit_mb=2048,gpu_retry_count=0))
     try:
         with (ROOT/'module-claimed-cuda.json').open('x',encoding='utf-8') as stream:
             json.dump(dict(package_id=m['package_id'],capture=str(capture)),stream)
-        with patch.dict(os.environ,dict(NIKKE_CUDA_ARTIFACT='ptx',NIKKE_CUDA_PTXAS_OPT_LEVEL='',NIKKE_CUDA_CACHE_REQUIRED='1',NIKKE_VALIDATION_JOB_MEMORY_MB='2048')):
+        with patch.dict(os.environ,dict(NIKKE_CUDA_JIT_OPT_LEVEL='' if jit_opt_level is None else str(jit_opt_level),NIKKE_CUDA_ARTIFACT='ptx',NIKKE_CUDA_PTXAS_OPT_LEVEL='',NIKKE_CUDA_CACHE_REQUIRED='1',NIKKE_VALIDATION_JOB_MEMORY_MB='2048')):
             run_job(capture,'cuda',timeout,original_workspace,module_only=True)
         copy_generated(capture,m['suite'],partial=True)
         result=audit_module_capture(m,capture,verify_artifacts=False);write(capture/'result.json',result)
@@ -1140,7 +1170,7 @@ def main(argv=None):
     a=sub.add_parser('compile');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--artifact-kind',choices=('cubin','ptx'),default='cubin')
     a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--memory-limit-mb',type=int,default=2048);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path)
-    a=sub.add_parser('module-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
+    a=sub.add_parser('module-check');a.add_argument('--jit-opt-level',type=int,choices=range(5));a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path,required=True)
     a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
@@ -1185,7 +1215,7 @@ def main(argv=None):
     elif a.command=='module-check':
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
         os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())
-        result=module_capture(a.capture,a.timeout,a.original_workspace)
+        result=module_capture(a.capture,a.timeout,a.original_workspace,a.jit_opt_level)
     elif a.command=='seal':result=seal_development(a.package_root,a.capture,a.out)
     elif a.command=='cases':
         with forbid_gpu():

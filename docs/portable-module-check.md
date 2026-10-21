@@ -29,3 +29,16 @@ CPU故障注入14検査で、cache miss、codegen drift、JITエラー、ABI不�
 共通GPU source closure、Metal側のbuild／実行、数値比較・cache identity・protected CPU baseline・normalizerは変更していません。関数AST／file byteの保持確認をportable-module-check-source-retention.jsonへ保存しました。Metal759の保存証拠を再利用し、同じGPU検証を再実行しません。Windowsではorchestration変更に対するrun --smokeを先に行い、登録CPU検査とfresh Jobが成功した場合だけmodule-checkを一度実行します。失敗時の同条件retry、NVRTCへのfallback、上限拡大は行いません。
 
 通常UI CPU、全キャラGPU認定0、entry_reloadはCPU契約35件まで、目標未完了を維持します。
+
+## 明示的なdriver JIT最適化
+
+`module-check --jit-opt-level 1`で、同じ必須PTX cacheを`cuModuleLoadDataEx`へ渡します。省略時は従来の`cuModuleLoadData`です。`CU_JIT_OPTIMIZATION_LEVEL=7`、値0〜4（既定4）の仕様と、値を`void*`へcastするAPI契約に従います。NVRTCのPTX生成オプション・cache key・共通Slang・Metal goldenは変更しません。
+
+- 公式enum／範囲: https://nvidia.github.io/cuda-python/cuda-bindings/latest/module/driver.html
+- 公式module API: https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__MODULE.html
+
+設定はrun.jsonとmodule receipt、journalに保存し、native呼出し直前にもoption番号・件数・scalar値を照合します。監査は選択したloaderだけを許可し、明示設定のnative照合記録も必須とします。JIT失敗時に既定設定へfallbackしません。通常の戦闘実行は従来設定のままです。明示JITでmoduleが成功しても、通常CUDA経路や計算一致の成功にはなりません。
+
+Windows v126から受信した途中報告では、81 CPU smoke成功、PTX cache hit、driver／context作成成功の後、moduleロードがCUDA error218と`ptxas fatal: Memory allocation failure`で失敗しています。context破棄戻り値0・Job終了後空との報告ですが、接続断で最終保存JSONを未取得のため、独立監査済み結果とは扱いません。同条件の再実行は依頼しません。明示レベル1は別条件の候補で、CPU確認後もWindowsでの成功は未確認です。
+
+明示JIT追加後の固定パッケージではportable系781件中779成功・Windows専用1skip・ps権限による1errorでした。同じ展開先の監査5件をプロセス観測権限付きで検証し全成功。元errorは保存しています。追加後のmodule故障注入は19件です。結果はportable-jit-level-development-checkpoint.jsonを参照してください。Windowsの明示JIT実行はまだありません。

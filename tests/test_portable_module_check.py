@@ -1,7 +1,7 @@
 """CPU fault injection for cache-only module JIT; no allocations or dispatch."""
 import contextlib,ctypes as C,importlib.util,json,os,sys,time,types,unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import Mock,patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','tests')]
 import portable_backend as backend
 import test_portable_resident_transport as transport_test
@@ -41,9 +41,10 @@ class ModuleCheckTests(unittest.TestCase):
         stack.enter_context(patch.object(cli,'module',return_value=types.SimpleNamespace(normalized=cli.sha)))
         return stack
 
-    def proof(self):
-        with self.context():cli.module_child(self.m,self.capture,'cuda')
-        cli.write(self.capture/'run.json',dict(mode='module-only',package_id=self.m['package_id'],backend='cuda',memory_limit_mb=2048))
+    def proof(self,level=None):
+        with self.context(),patch.dict(os.environ,NIKKE_CUDA_JIT_OPT_LEVEL='' if level is None else str(level)):
+            cli.module_child(self.m,self.capture,'cuda')
+        cli.write(self.capture/'run.json',dict(mode='module-only',package_id=self.m['package_id'],backend='cuda',memory_limit_mb=2048,jit_optimization_level=level))
         cli.write(self.capture/'execution.json',dict(passed=True,timeout_seconds=60,observation_error=None,wait_completed_unix_ns=time.time_ns()))
         pre=dict(child_pid=os.getpid(),child_ppid=17,job_members=[os.getpid()],child_creation_filetime_ticks='100',observed_unix_ns=1,job_memory_limit_bytes=2048*1024*1024)
         cli.write(self.capture/'job.json',dict(records=[dict(child_pid=os.getpid(),wrapper_pid=17,pre_gate_verified=True,inspection_error=None,pre_gate=pre,post_wait=dict(pre,job_members=[],observed_unix_ns=time.time_ns()))]))
@@ -57,6 +58,46 @@ class ModuleCheckTests(unittest.TestCase):
         self.assertEqual(result['kernel_calls'],0);self.assertEqual(self.base.allocations,[])
         self.base.driver.cuCtxDestroy_v2.assert_called_once();self.base.driver.cuLaunchKernel.assert_not_called()
         self.base.driver.cuMemcpyHtoD_v2.assert_not_called();self.base.driver.cuCtxSynchronize.assert_not_called()
+
+    def test_explicit_jit_level_passes_scalar_option_and_preserves_cleanup(self):
+        self.base.driver.cuModuleLoadDataEx=Mock(return_value=0)
+        for level in (0,1,4):
+            with self.subTest(level=level),self.context():
+                result=backend.inspect_cuda_module(self.cuda,'portableEvents',resident=self.base.plan,jit_opt_level=level)
+                args=self.base.driver.cuModuleLoadDataEx.call_args.args
+                self.assertEqual(args[2],1);self.assertEqual(args[3][0],7)
+                self.assertEqual(args[4][0],level or None)
+                self.assertEqual(result['jit_optimization_level'],level)
+                self.assertEqual(self.base.allocations,[])
+        self.base.driver.cuModuleLoadData.assert_not_called()
+        self.assertEqual(self.base.driver.cuCtxDestroy_v2.call_count,3)
+
+    def test_explicit_jit_failure_cleans_context_and_does_not_fallback(self):
+        self.base.driver.cuModuleLoadDataEx=Mock(return_value=218)
+        with self.context(),self.assertRaisesRegex(RuntimeError,'cuModuleLoadDataEx: CUDA error 218'):
+            backend.inspect_cuda_module(self.cuda,'portableEvents',resident=self.base.plan,jit_opt_level=1)
+        self.base.driver.cuModuleLoadData.assert_not_called()
+        self.base.driver.cuCtxDestroy_v2.assert_called_once();self.assertEqual(self.base.allocations,[])
+
+    def test_invalid_jit_configuration_stops_before_driver(self):
+        for level in (-1,5,True,'1'):
+            with self.subTest(level=level),self.context(),self.assertRaises(ValueError):
+                backend.inspect_cuda_module(self.cuda,'portableEvents',resident=self.base.plan,jit_opt_level=level)
+        self.base.driver.cuInit.assert_not_called()
+
+    def test_explicit_jit_module_journal_and_audit_match_native_arguments(self):
+        self.base.driver.cuModuleLoadDataEx=Mock(return_value=0)
+        self.proof(level=1);self.assertTrue(self.audit()['module_verified'])
+        self.assertEqual(len(self.base.driver.cuModuleLoadDataEx.argtypes),5)
+        self.assertIs(self.base.driver.cuModuleLoadDataEx.restype,C.c_int)
+        self.base.driver.cuModuleLoadData.assert_not_called()
+        path=self.capture/'phases.jsonl';rows=[json.loads(line) for line in path.read_text().splitlines()]
+        path.write_text('\n'.join(json.dumps(r) for r in rows if r['stage']!='cuda_jit_native_options')+'\n')
+        self.assertFalse(self.audit()['module_verified'])
+
+    def test_jit_audit_rejects_changed_configuration(self):
+        self.proof();path=self.capture/'run.json';run=cli.load(path);run['jit_optimization_level']=1;cli.write(path,run)
+        self.assertFalse(self.audit()['module_verified'])
 
     def test_required_cache_miss_stops_before_driver(self):
         self.receipt['hit']=False

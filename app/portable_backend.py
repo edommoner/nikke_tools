@@ -226,8 +226,10 @@ def execute_batches(source, entry, batches, input_words, output_words, backend='
 
 
 @contextlib.contextmanager
-def _cuda_module(artifact_bytes,entry,artifact_kind,resident):
+def _cuda_module(artifact_bytes,entry,artifact_kind,resident,*,jit_opt_level=None):
     """Shared driver/context/module lifecycle, with no battle allocations."""
+    if jit_opt_level is not None and (type(jit_opt_level) is not int or jit_opt_level not in range(5) or artifact_kind!='ptx'):
+        raise ValueError('Driver JIT optimization requires PTX and integer0..4')
     artifact_buffer=C.create_string_buffer(artifact_bytes)
     driver=C.WinDLL('nvcuda.dll')
     signatures=dict(cuInit=[C.c_uint],cuDeviceGet=[C.POINTER(C.c_int),C.c_int],cuDeviceGetName=[C.c_char_p,C.c_int,C.c_int],
@@ -240,6 +242,9 @@ def _cuda_module(artifact_bytes,entry,artifact_kind,resident):
         cuLaunchKernel=[C.c_void_p,*([C.c_uint]*7),C.c_void_p,C.c_void_p,C.c_void_p])
     for name, signature in signatures.items():
         getattr(driver,name).argtypes=signature;getattr(driver,name).restype=C.c_int
+    if jit_opt_level is not None:
+        driver.cuModuleLoadDataEx.argtypes=[C.POINTER(C.c_void_p),C.c_void_p,C.c_uint,C.POINTER(C.c_int),C.POINTER(C.c_void_p)]
+        driver.cuModuleLoadDataEx.restype=C.c_int
     def call(name,*args):
         code=getattr(driver,name)(*args)
         if code:raise RuntimeError(f'{name}: CUDA error {code}')
@@ -251,7 +256,13 @@ def _cuda_module(artifact_bytes,entry,artifact_kind,resident):
     name=C.create_string_buffer(256);call('cuDeviceGetName',name,256,device)
     try:
         call('cuCtxCreate_v2',C.byref(context),0,device)
-        module=C.c_void_p();function=C.c_void_p();call('cuModuleLoadData',C.byref(module),C.cast(artifact_buffer,C.c_void_p))
+        module=C.c_void_p();function=C.c_void_p()
+        if jit_opt_level is None:
+            call('cuModuleLoadData',C.byref(module),C.cast(artifact_buffer,C.c_void_p))
+        else:
+            # CU_JIT_OPTIMIZATION_LEVEL=7; scalar option values are cast to void*, not pointers to scalars.
+            options=(C.c_int*1)(7);values=(C.c_void_p*1)(jit_opt_level)
+            call('cuModuleLoadDataEx',C.byref(module),C.cast(artifact_buffer,C.c_void_p),1,options,values)
         call('cuModuleGetFunction',C.byref(function),module,entry.encode())
         global_ptr=C.c_uint64();global_size=C.c_size_t()
         call('cuModuleGetGlobal_v2',C.byref(global_ptr),C.byref(global_size),module,b'SLANG_globalParams')
@@ -343,7 +354,7 @@ def execute_cuda_batches(source, entry, batches, output_sizes, counts,*,resident
         return results,transports
 
 
-def inspect_cuda_module(source,entry,*,resident=None):
+def inspect_cuda_module(source,entry,*,resident=None,jit_opt_level=None):
     """Load/JIT an exact cached PTX; never allocate, copy, sync or launch."""
     if os.name!='nt':raise RuntimeError('CUDA module check requires Windows')
     if os.environ.get('NIKKE_CUDA_CACHE_REQUIRED')!='1' or cuda_artifact_kind()!='ptx':
@@ -354,9 +365,9 @@ def inspect_cuda_module(source,entry,*,resident=None):
     artifact,receipt=compile_cuda_source(source,artifact_kind='ptx')
     if receipt.get('enabled') is not True or receipt.get('hit') is not True or receipt.get('identity',{}).get('artifact')!='ptx':
         raise ValueError('CUDA module check did not obtain a verified PTX cache hit')
-    with _cuda_module(artifact,entry,'ptx',resident) as loaded:
+    with _cuda_module(artifact,entry,'ptx',resident,jit_opt_level=jit_opt_level) as loaded:
         metadata=dict(loaded[3],module_verified=True,artifact_kind='ptx',compile_artifact=receipt,
-                      kernel_calls=0,buffer_allocations=0,calculation_verified=False)
+                      kernel_calls=0,buffer_allocations=0,calculation_verified=False,jit_optimization_level=jit_opt_level)
     return metadata
 
 def cuda_artifact_kind():
