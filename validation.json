@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "purpose": "Sealed shared CUDA compiler-only charge boundary candidate",
+  "source_commit": "13ac26305ea843829e7c84bb1b9a3afc88e199ca",
+  "package_id": "7e09b1d3640b448aae0a2780fe0ab1dd75fcca78b3f77129c06a07c7fa6eb330",
+  "archive": {
+    "path": "validation-package.zip",
+    "bytes": 4498786,
+    "sha256": "3a6c1c30d35a1e54af039988f0412ffde811d27fb9902bf9c1f330b3cb0655a9"
+  },
+  "bootstrap": {
+    "path": "scripts/nikke_gpu.py",
+    "bytes": 63124,
+    "sha256": "d5d1c37fc56f6e6d95d86dfa7f83d41d55815c96f281dccf77f777e9bf137046"
+  },
+  "metal_inputs": 327,
+  "metal_native": 262,
+  "raw_reject": 65,
+  "compiler": {
+    "artifact": "cubin",
+    "ptxas_level": 1,
+    "timeout_seconds": 60,
+    "memory_limit_mb": 2048,
+    "attempts": 1,
+    "driver_context_kernel_forbidden": true
+  },
+  "personal_settings_and_raw_included": false
+}
