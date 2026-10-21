@@ -2057,7 +2057,7 @@ void tick(inout Runtime s, uint64_t when, uint output)
         {
             uint at = s.inputBase+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8;
             if (commands[at] != 6) continue;
-            uint64_t interval = loadNumber(at+1), next = s.periodInitialized[j] != 0 ? s.periodDue[j] : interval;
+            uint64_t interval = periodicSkillInterval(s,j,loadNumber(at+1),when), next = s.periodInitialized[j] != 0 ? s.periodDue[j] : interval;
             if (s.periodInitialized[j] != 0 && !f64Equal(interval,s.periodPrevious[j]))
                 next = f64Add(when,f64Mul(larger(0,f64Add(next,when ^ F64_SIGN)),f64Div(interval,s.periodPrevious[j])));
             s.periodInitialized[j] = 1; s.periodDue[j] = next; s.periodPrevious[j] = interval;

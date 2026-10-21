@@ -1,3 +1,13 @@
+<!-- skill-interval-current -->
+## 2026-10-21 周期割合補正・分類の観測・NVRTC読込み省略
+
+現在の通常CLIはregression361（native292／拒否69）、goldenはportable-world-skill-interval-regression-short-expected.jsonです。skill_cooldown_pctを共通時計へ接続し、28native＋4拒否と実イサベル3秒／30秒を追加。Metal361全一致、旧327のinput／全raw／native維持を確認し明示sealしました。静的packing192/266、base133/203、分類112。通常画面CPU・全キャラ実戦認定0・最終目標未完了です。
+
+分類へstructured reason／文言fallback件数を追加し、既知の境界・audience・scalingを明示分類。CUDA cacheはexact identityを維持し、hit／必須miss／破損でNVRTC DLLを読まないCPU経路へ改善しました。Windows実測の高速化は未確認です。
+
+依頼済みv112 compiler-onlyはallocation failure（NVRTC30.344秒、Job2GiB／60秒、kernel0／retry0）。保存結果だけを回収し再送0。noinlineの改善は未立証、環境保持もservice未識別でfalseを維持、新版CUDA数値一致は未確認です。次は保存結果からコンパイル仮説を絞る作業とflat周期変更等へ進みます。詳細portable-skill-interval.md、portable-skill-interval-development-checkpoint.json、portable-world-v112-compiler-sanitized.json。GitHub共有はゴール中利用者許可済みです。
+<!-- /skill-interval-current -->
+
 <!-- readiness-cli-development -->
 ## 2026-10-21 レビュー反映：未対応分類・開発CLI・失HP防御
 

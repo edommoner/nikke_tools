@@ -25,6 +25,28 @@ class NVRTC:
     def nvrtcDestroyProgram(self,p):self.calls.append('destroy');return 0
 
 class ArtifactTests(unittest.TestCase):
+    def test_source_cache_hit_required_miss_and_corruption_do_not_load_nvrtc(self):
+        import portable_backend as backend
+        import json
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);(root/'bin').mkdir();dll=root/'bin/nvrtc64_dummy.dll';dll.write_bytes(b'compiler')
+            source=root/'generated.cu';source.write_bytes(b'cuda');cache=root/'cache'
+            env=dict(CUDA_PATH=str(root),NIKKE_CUDA_COMPILE_CACHE=str(cache),NIKKE_CUDA_CACHE_REQUIRED='0',NIKKE_CUDA_PTXAS_OPT_LEVEL='')
+            fake_os=types.SimpleNamespace(name='nt',environ=env,add_dll_directory=lambda path:contextlib.nullcontext())
+            with patch.dict(os.environ,env):
+                artifact,receipt=compile_cuda_artifact(NVRTC(),b'cuda',[dll],artifact_kind='cubin')
+                with patch.object(backend,'os',fake_os),patch.object(C,'WinDLL',side_effect=AssertionError('DLL load forbidden'),create=True) as loader:
+                    actual,hit=backend.compile_cuda_source(source,artifact_kind='cubin')
+                    self.assertEqual(actual,artifact);self.assertTrue(hit['hit'])
+                    self.assertEqual(source.with_suffix('.cubin').read_bytes(),artifact)
+                    with patch.dict(env,{'NIKKE_CUDA_CACHE_REQUIRED':'1'}):
+                        source.write_bytes(b'different')
+                        with self.assertRaisesRegex(RuntimeError,'required cache miss'):backend.compile_cuda_source(source,artifact_kind='cubin')
+                    source.write_bytes(b'cuda')
+                    path=cache/(receipt['key']+'.json');saved=json.loads(path.read_text());saved['artifact_bytes']+=1;path.write_text(json.dumps(saved))
+                    with self.assertRaisesRegex(ValueError,'integrity'):backend.compile_cuda_source(source,artifact_kind='cubin')
+                    loader.assert_not_called()
+
     def test_shared_source_compiler_loads_only_nvrtc_and_publishes_native_bytes(self):
         import portable_backend as backend
         with tempfile.TemporaryDirectory() as folder:

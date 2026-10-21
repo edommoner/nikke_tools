@@ -7,7 +7,7 @@ import unittest
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
-from portable_readiness import issue, summarize, inspect_effects
+from portable_readiness import issue, summarize, inspect_effects, diagnostic_sources
 from portable_runtime import validate_effect, UnsupportedPortable
 from portable_readiness_cases import fixtures
 from world_projectile_native import observe
@@ -15,6 +15,25 @@ spec=importlib.util.spec_from_file_location('readiness_cli',ROOT/'scripts/nikke_
 cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 class ReadinessTests(unittest.TestCase):
+    def test_bounds_and_audience_are_not_missing_trigger_operators(self):
+        base=dict(type='buff',stat='atk_pct',target='self',fixed_value=1,
+                  trigger=dict(timing=['battle_start'],condition=[]))
+        for changes,category in [(dict(max_trigger=1.5),'bounds'),
+                                 (dict(event_scope='unknown'),'event_scope'),
+                                 (dict(scaling='stack_count',scaling_ref=[]),'scaling')]:
+            with self.assertRaises(UnsupportedPortable) as caught:
+                validate_effect(dict(base,**changes),combat={},world_frame=True)
+            diagnostic=issue(caught.exception,base)
+            self.assertEqual(diagnostic['category'],category)
+            self.assertEqual(diagnostic['diagnostic_source'],'structured_reason')
+        structured=issue(UnsupportedPortable('trigger in wording',reason='bounds'))
+        fallback=issue(ValueError('Unported trigger timing: future'))
+        rows=[dict(effect_blockers=[dict(issue=structured),dict(issue=fallback)],program_issue=fallback)]
+        self.assertEqual(diagnostic_sources(rows),dict(
+            effect=dict(structured_reason=1,message_fallback=1),
+            program=dict(structured_reason=0,message_fallback=1)))
+        self.assertEqual(diagnostic_sources([])['effect']['message_fallback'],0)
+
     def test_stat_and_recipient_failures_have_independent_structured_reasons(self):
         for effect,category in [
             (dict(type='buff',stat='missing',target='all_allies'),'effect'),

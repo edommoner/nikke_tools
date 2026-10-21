@@ -40,6 +40,15 @@ void admitDefinitions(inout Runtime s,uint input)
         }
         if((d.damageFlags&H_NAMED_SKILL)!=0 && (d.kind!=3 || commands[world+3]==0 || d.name>=P_DEFINITIONS)) { s.error=64;break; }
         PROJECTILE_ADMIT_STAGE(s,4000)
+        if(d.stat==S_skill_cooldown_pct)
+        {
+#ifndef PORTABLE_WORLD_ROSTER
+            s.error=64;break;
+#else
+            if(s.combat==0 || d.kind!=0 || d.enemyBuff!=0 || !f64Finite(d.value)) { s.error=64;break; }
+            s.quantityMask|=2048;
+#endif
+        }
         if(d.kind==22 && (s.combat==0 || d.stat!=0 || d.enemyBuff!=0 || !f64Finite(d.value))) { s.error=64;break; }
         PROJECTILE_ADMIT_STAGE(s,4001) if(d.stat==S_stun)
         { if(d.kind!=0 || s.combat==0 || !f64Equal(d.value,ONE)) { s.error=64;break; }s.incomingMask|=8; }

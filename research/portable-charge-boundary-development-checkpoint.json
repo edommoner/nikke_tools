@@ -22,14 +22,16 @@
     "gpu_calls": 0
   },
   "cuda": {
-    "compiler_validation_pending": true,
+    "compiler_validation_pending": false,
     "calculation_verified": false,
-    "cold_compile_attempts_this_candidate": 0,
+    "cold_compile_attempts_this_candidate": 1,
     "planned_budget_seconds": 60,
     "planned_memory_limit_mb": 2048,
     "planned_artifact": "cubin",
     "planned_ptxas_level": 1,
-    "compiler_memory_or_speed_improvement_verified": false
+    "compiler_memory_or_speed_improvement_verified": false,
+    "compiler_verified": false,
+    "saved_report": "research/portable-world-v112-compiler-sanitized.json"
   },
   "normalizer_changed": false,
   "software_binary64_changed": false,

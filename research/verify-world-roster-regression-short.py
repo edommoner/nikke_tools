@@ -22,6 +22,7 @@ PROFILES = [('D',0), *[('프리바티',stage) for stage in range(4)],
 PROFILES += [('센티',2), ('센티',3), ('마르차나',0), ('앵커 : 이노센트 메이드',0), ('소라',0)]
 PROFILES += [('스노우 화이트 : 이노센트 데이즈',0), ('홍련 : 흑영',0)]
 PROFILES += [('율리아',1), ('율리아',2)]
+PROFILES += [('이사벨',0)]
 DURATIONS = (3,30)
 suite = SimpleNamespace(INPUT=real.INPUT_WORDS, OUTPUT=real.OUTPUT_WORDS,
                         inspect_native=lambda case: real.native_reference(case['body']))

@@ -536,6 +536,7 @@ static const uint S_pierce_range = 63U;
 static const uint S_explosion_range = 64U;
 static const uint S_stun = 28U;
 static const uint S_heal_overcharge_store = 74U;
+static const uint S_skill_cooldown_pct = 58U;
 static const uint H_NAMED_SKILL = 131072U;
 static const uint H_BURST = 1U;
 static const uint H_SEQUENTIAL = 2U;

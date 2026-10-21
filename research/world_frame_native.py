@@ -83,12 +83,16 @@ def observe(case):
    if case.get('observe_skill_critical'):
     from world_skill_critical_native import before_finish
     capture['skill_critical']=before_finish(capture['bm'],NAMES)
+   if case.get('observe_skill_clocks'):
+    manager=capture['bm']
+    capture['skill_clocks']=[dict(row=effect['_portable_observer_row'],due=manager._next_fire[id(effect)][0],interval=manager._next_fire[id(effect)][1])
+      for effect,_ in manager._effects if id(effect) in manager._next_fire]
    return super().finish(t)
   def _close(self,run,t,outcome,events):
    super()._close(run,t,outcome,events);ends.append([run.p.idx,{'cleared':1,'expired':2,'followed':3,'end':4}[outcome],*bits(t)])
  def register(bm):
   bm._effects=copy.deepcopy(effects);bm._build_notify_index()
-  if case.get('observe_periodic_skills') or case.get('observe_healing_storage'):
+  if case.get('observe_periodic_skills') or case.get('observe_healing_storage') or case.get('observe_skill_clocks'):
    for index,(effect,_) in enumerate(bm._effects):effect['_portable_observer_row']=index
   if case.get('observe_authored_effect_lookup'):
    # The authored roster replaces registration, so native ordered lookups
@@ -144,6 +148,7 @@ def observe(case):
  if case.get('observe_fractional_hits'):answer.update(fractional_hits=capture['fractional_hits'],fractional_accumulators=capture['fractional_accumulators'])
  if case.get('observe_enemy_spawn'):answer['enemy_spawn_notifications']=capture['enemy_spawn_notifications']
  if case.get('observe_periodic_skills'):answer['periodic_runtime']=capture['periodic_runtime']
+ if case.get('observe_skill_clocks'):answer['skill_clocks']=capture['skill_clocks']
  if case.get('observe_skill_critical'):answer['skill_critical']=capture['skill_critical']
  if case.get('observe_healing_storage'):answer['healing_storage']=capture['healing_storage']
  if case.get('observe_pending_skills'):

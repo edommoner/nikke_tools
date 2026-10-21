@@ -52,25 +52,25 @@ SUITES['stun']=dict(script='research/verify-world-stun-short.py',golden='researc
 SUITES['burst-recipients-diagnostic']=dict(SUITES['burst-recipients'],source='gpu/world_projectile_admission_entry.slang',development_only=True)
 SUITES['roster-regression']=dict(script='research/verify-world-roster-regression-short.py',
     golden='research/portable-world-roster-regression-short-expected.json',
-    source='gpu/world_projectile_entry.slang',inputs=40,native=40,
+    source='gpu/world_projectile_entry.slang',inputs=42,native=42,
     tests=['test_portable_roster_regression.py','test_portable_real_binding_proof.py'])
 SUITES['skill-cooldown']=dict(script='research/verify-world-skill-cooldown-short.py',
     golden='research/portable-world-skill-cooldown-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=25,native=21,
     tests=['test_portable_skill_cooldown.py','test_portable_typed_recipient_delegation.py'])
 SUITES['regression']=dict(script='research/verify-world-regression-short.py',
-    golden='research/portable-world-charge-boundary-regression-short-expected.json',
-    source='gpu/world_projectile_entry.slang',inputs=327,native=262,
+    golden='research/portable-world-skill-interval-regression-short-expected.json',
+    source='gpu/world_projectile_entry.slang',inputs=361,native=292,
     tests=['test_portable_regression_adapter.py','test_portable_roster_regression.py',
            'test_portable_readiness.py','test_portable_stun.py','test_portable_typed_recipient_delegation.py',
-           'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py'])
+           'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py','test_portable_skill_interval.py'])
 SUITES['healing-storage']=dict(script='research/verify-world-healing-storage-short.py',
     golden='research/portable-world-healing-storage-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=51,native=39,development_only=True,
     tests=['test_portable_healing_storage.py'])
 SUITES['roster-admission-diagnostic']=dict(script='research/verify-world-roster-regression-short.py',
     golden='research/portable-world-roster-regression-short-expected.json',
-    source='gpu/world_projectile_admission_entry.slang',inputs=40,native=40,development_only=True,
+    source='gpu/world_projectile_admission_entry.slang',inputs=42,native=42,development_only=True,
     tests=['test_portable_real_binding_proof.py'])
 SUITES['trigger-reduction']=dict(script='research/verify-world-trigger-reduction-short.py',
     golden='research/portable-world-trigger-reduction-short-expected.json',
@@ -80,6 +80,10 @@ SUITES['skill-critical']=dict(script='research/verify-world-skill-critical-short
     golden='research/portable-world-skill-critical-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=36,native=26,development_only=True,
     tests=['test_portable_skill_critical.py'])
+SUITES['skill-interval']=dict(script='research/verify-world-skill-interval-short.py',
+    golden='research/portable-world-skill-interval-short-expected.json',
+    source='gpu/world_projectile_entry.slang',inputs=32,native=28,development_only=True,
+    tests=['test_portable_skill_interval.py'])
 
 SCHEMA = 1
 

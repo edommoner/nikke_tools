@@ -177,17 +177,21 @@ def compile_cuda_source(source, *, artifact_kind=None):
     artifact_kind=cuda_artifact_kind() if artifact_kind is None else artifact_kind
     cuda_bin = Path(os.environ.get('CUDA_PATH', r'C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.3'))/'bin'
     with os.add_dll_directory(str(cuda_bin)):
-        lib = C.WinDLL(str(next(cuda_bin.glob('nvrtc64_*.dll'))))
-        signatures = dict(nvrtcCreateProgram=[C.POINTER(C.c_void_p),C.c_char_p,C.c_char_p,C.c_int,C.c_void_p,C.c_void_p],
+        def load_compiler():
+            lib = C.WinDLL(str(next(cuda_bin.glob('nvrtc64_*.dll'))))
+            signatures = dict(nvrtcCreateProgram=[C.POINTER(C.c_void_p),C.c_char_p,C.c_char_p,C.c_int,C.c_void_p,C.c_void_p],
                           nvrtcCompileProgram=[C.c_void_p,C.c_int,C.POINTER(C.c_char_p)],
                           nvrtcGetProgramLogSize=[C.c_void_p,C.POINTER(C.c_size_t)], nvrtcGetPTXSize=[C.c_void_p,C.POINTER(C.c_size_t)],
                           nvrtcGetProgramLog=[C.c_void_p,C.c_void_p], nvrtcGetPTX=[C.c_void_p,C.c_void_p],
                           nvrtcDestroyProgram=[C.POINTER(C.c_void_p)])
-        if artifact_kind=='cubin':
-            signatures.update(nvrtcGetCUBINSize=[C.c_void_p,C.POINTER(C.c_size_t)],nvrtcGetCUBIN=[C.c_void_p,C.c_void_p])
-        for name, signature in signatures.items():
-            getattr(lib,name).argtypes=signature; getattr(lib,name).restype=C.c_int
-        artifact_bytes,compile_receipt=compile_cuda_artifact(lib,source.read_bytes(),list(cuda_bin.glob('nvrtc*.dll')),artifact_kind=artifact_kind)
+            if artifact_kind=='cubin':
+                signatures.update(nvrtcGetCUBINSize=[C.c_void_p,C.POINTER(C.c_size_t)],nvrtcGetCUBIN=[C.c_void_p,C.c_void_p])
+            for name, signature in signatures.items():
+                getattr(lib,name).argtypes=signature; getattr(lib,name).restype=C.c_int
+            return lib
+        # Exact-byte cache validation precedes DLL loading. Hits and required
+        # misses need file reads only, without activating NVRTC at all.
+        artifact_bytes,compile_receipt=compile_cuda_artifact(None,source.read_bytes(),list(cuda_bin.glob('nvrtc*.dll')),artifact_kind=artifact_kind,library_factory=load_compiler)
         # Capture exact compiled bytes for independent local audits, including hits.
         source.with_suffix('.'+artifact_kind).write_bytes(artifact_bytes)
     return artifact_bytes,compile_receipt
@@ -272,7 +276,7 @@ def cuda_compile_options(kind, ptxas_level=None):
     return options
 
 
-def compile_cuda_artifact(lib, source, compiler_files, *, artifact_kind=None):
+def compile_cuda_artifact(lib, source, compiler_files, *, artifact_kind=None, library_factory=None):
     from portable_compile_cache import get_or_compile,quoted_headers
     artifact_kind=cuda_artifact_kind() if artifact_kind is None else artifact_kind
     level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL')
@@ -283,7 +287,9 @@ def compile_cuda_artifact(lib, source, compiler_files, *, artifact_kind=None):
     directory=os.environ.get('NIKKE_CUDA_COMPILE_CACHE') or None
     if required=='1' and directory is None:raise ValueError('Required CUDA cache directory is missing')
     def compile_now():
+        nonlocal lib
         if required=='1':raise RuntimeError('Cold CUDA compilation forbidden; required cache miss')
+        if lib is None:lib=library_factory()
         def check(code):
             if code: raise RuntimeError(f'NVRTC error {code}')
         program=C.c_void_p()

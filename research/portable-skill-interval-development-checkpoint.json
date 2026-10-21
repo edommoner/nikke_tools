@@ -1,0 +1,71 @@
+{
+  "full_goal_complete": false,
+  "source_baseline": "13ac26305ea843829e7c84bb1b9a3afc88e199ca",
+  "working_tree_development": true,
+  "feature": "Shared persistent skill_cooldown_pct, canonical stat58/kind0, direct native clock observation",
+  "metal": {
+    "package_id": "18e97b7a9be2aafa1df86db23d824f209f2e53f22105ae1399c98526d238e176",
+    "archive_bytes": 4498054,
+    "archive_sha256": "930bedb94d16e99838e9c5021aeea2f3031c2fae43a58ccf87faf2e00a207df5",
+    "inputs": 361,
+    "native_positive": 292,
+    "raw_reject": 69,
+    "calculation_verified": true,
+    "explicit_seal": true,
+    "old_inputs_retained": 327,
+    "old_all_output_words_retained": true,
+    "transport": {
+      "backend": "metal",
+      "cases": 361,
+      "command_status": "completed",
+      "configured_max_threads_per_threadgroup": 1,
+      "device": "Apple M5",
+      "gpu_seconds": 8.071477125049569,
+      "input_bytes": 150753604,
+      "library_compile_seconds": 1.0874929428100586,
+      "output_bytes": 1135607808,
+      "pipeline_compile_seconds": 9.769499897956848,
+      "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+      "pipeline_max_threads_per_threadgroup": 1,
+      "registry_id": "4294968313",
+      "threads_per_threadgroup": 1,
+      "compile_timeout_seconds": 300,
+      "gpu_timeout_seconds": 120
+    },
+    "bounded_elapsed_seconds": 47.87819800002035
+  },
+  "cpu": {
+    "tests_run": 677,
+    "skipped": 1,
+    "failures": 0,
+    "errors": 0,
+    "log_sha256": "8860bebaea3603b6ce75fe4f36e68af30593e5e02599887697a889a0fbfb0cd4",
+    "registered_test_groups": 10,
+    "source_cache_dll_loading_cases_cpu_verified": true
+  },
+  "static_inventory": {
+    "packed_profiles": 192,
+    "total_profiles": 266,
+    "packed_base": 133,
+    "total_base": 203,
+    "priority_categories": 112
+  },
+  "cuda": {
+    "new_feature_calculation_verified": false,
+    "v112_compiler_verified": false,
+    "v112_source": "13ac26305ea843829e7c84bb1b9a3afc88e199ca",
+    "v112_report": "research/portable-world-v112-compiler-sanitized.json",
+    "cold_compile_attempts_new_feature": 0,
+    "gpu_dispatches_this_turn": 0,
+    "cache_change": "Defer NVRTC DLL loading until a verified exact-identity cache miss is allowed to compile",
+    "cache_windows_speedup_verified": false
+  },
+  "unchanged": {
+    "normalizer": true,
+    "software_binary64": true,
+    "integer_pow_contracts": true,
+    "protected_reference_files": true
+  },
+  "normal_ui": "CPU",
+  "full_character_verified": 0
+}

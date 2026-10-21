@@ -4,7 +4,7 @@ Each effect is independently lowered and validated. A validator can report only
 its first failure for that effect; hidden downstream requirements remain unknown.
 Whole-program compilation is retained as the authoritative packing check.
 """
-from collections import defaultdict
+from collections import Counter, defaultdict
 import json
 
 
@@ -31,7 +31,24 @@ def issue(error, effect=None, *, phase='effect'):
     if message.startswith('Unported effect fields: '):
         signature['fields'] = message.split(': ', 1)[1].split(', ')
     return dict(signature, code=json.dumps(signature, sort_keys=True, ensure_ascii=False),
+                diagnostic_source='structured_reason' if getattr(error,'reason',None) is not None else 'message_fallback',
                 error_type=type(error).__name__, message=message)
+
+
+def diagnostic_sources(rows):
+    """Count actual observations, including program failures hidden by priorities.
+
+    A definition failure and a whole-program failure can describe the same
+    missing feature; these counts are diagnostics, never distinct blockers.
+    """
+    counts={phase:Counter() for phase in ('effect','program')}
+    for row in rows:
+        for entry in row.get('effect_blockers',[]):
+            counts['effect'][entry['issue']['diagnostic_source']]+=1
+        if row.get('program_issue'):
+            counts['program'][row['program_issue']['diagnostic_source']]+=1
+    return {phase:{name:counter[name] for name in ('structured_reason','message_fallback')}
+            for phase,counter in counts.items()}
 
 
 def inspect_effects(prepared):

@@ -53,3 +53,7 @@ STATS['stun']={**DETAIL_STAT,**EXTRA_STAT}['stun']
 # A typed overheal object, never a numeric damage-vector entry.
 BUFFS=BUFFS | {'heal_overcharge_store'}
 STATS['heal_overcharge_store']=EXTRA_STAT['heal_overcharge_store']
+
+# Native periodic-skill interval percentage, not a one-shot remaining-time cut.
+BUFFS=BUFFS | {'skill_cooldown_pct'}
+STATS['skill_cooldown_pct']=EXTRA_STAT['skill_cooldown_pct']

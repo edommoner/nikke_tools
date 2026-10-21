@@ -86,7 +86,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
         allowed |= {'scaling','scaling_ref'}
         from portable_reference_specs import scale_reference
         try:scale_reference(eff)
-        except ValueError as error:raise UnsupportedPortable(str(error)) from error
+        except ValueError as error:raise UnsupportedPortable(str(error),reason='scaling') from error
     if stack is not None and stack[0] in (20,21):allowed |= {'scaling','scaling_ref'}
     if resource_op in (2,3):allowed |= {'minimum_remaining'}
     if eff.get('type')=='buff':allowed=allowed | {'duration_bullets','event_scope'}
@@ -101,6 +101,8 @@ def validate_effect(eff, *, combat=None, world_frame=False):
         raise UnsupportedPortable('Overheal storage requires a private combat world',reason='effect')
     if stat=='skill_cooldown_reduce_pct' and (kind!='instant' or combat is None or not world_frame):
         raise UnsupportedPortable('Remaining skill cooldown reduction requires a private combat world instant',reason='effect')
+    if stat=='skill_cooldown_pct' and (kind!='buff' or combat is None or not world_frame):
+        raise UnsupportedPortable('Periodic skill interval percentage requires a private combat world buff',reason='effect')
     if stat in ('stun','stun_immune') and (combat is None or not world_frame):
         raise UnsupportedPortable('Stun state requires private combat-owned status', reason='effect')
     if set(eff.get('trigger',{}).get('condition',[])) & {'target_stunned','self_stun_immune'} and (combat is None or not world_frame):
@@ -130,7 +132,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     if combat is None and set(eff.get('trigger',{}).get('condition',[])) & {'during_charge','burst_casted','burst_not_casted','has_burst1_ally','no_burst1_ally'}:
         raise UnsupportedPortable('Predicate requires combat-owned charge/burst state')
     if 'event_scope' in eff and eff['event_scope'] not in ('squad','recipients'):
-        raise UnsupportedPortable('Invalid named event audience')
+        raise UnsupportedPortable('Invalid named event audience',reason='event_scope')
     if kind=='buff':
         if stat not in BUFFS and stat not in (None,'','stack_change_immune','stun_immune','trigger_count_reduce') and not immunity(eff) and not protection and stack is None and resource_op not in (4,5) and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat)):
             raise UnsupportedPortable('Unported buff stat', reason='effect')
@@ -176,7 +178,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     for key in ('max_stack','max_trigger'):
         value=eff.get(key,1 if key=='max_stack' else -1)
         if type(value) is not int or not -1<=value<=2**31-1 or key=='max_stack' and value==0:
-            raise ValueError('Invalid '+key)
+            raise UnsupportedPortable('Invalid '+key,reason='bounds')
 
 
 def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None, burst_references=None, enemy_targeting=None, world_frame=False, world_notice_names=()):

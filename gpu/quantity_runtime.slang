@@ -115,6 +115,29 @@ uint64_t plainQuantity(inout Runtime s, uint who, uint key, uint64_t when)
     }
     return result;
 }
+[noinline]
+uint64_t periodicSkillInterval(inout Runtime s,uint definition,uint64_t base,uint64_t when)
+{
+    if((s.quantityMask&2048)==0) return base;
+    uint who=definition_owner(s.inputBase,definition);Sum sum={};
+    for(uint pass=0;pass<s.orderedCount;pass++)
+    {
+        uint row=s.orderedRows[pass];Definition d=residentDefinition(s,row);
+        if(d.kind!=0 || d.stat!=S_skill_cooldown_pct || s.alive[row]==0 || !f64Less(when,s.end[row])) continue;
+        // Native _by_stat reads the current container without querying buffs:
+        // unresolved target_chars=None applies to every caster; runtime
+        // predicates are not rechecked for this percentage operation.
+        if(s.lazyPending[row]==0 && (s.activeRecipients[row]&(1U<<who))==0) continue;
+        addSum(sum,scalarValue(s,row,who));
+    }
+    // Python3.12 float sum retains a finite Neumaier correction. An overflow
+    // in the running total must not turn an infinite result into NaN merely
+    // because the auxiliary correction became unordered.
+    uint64_t percent=sum.total;
+    if(f64Finite(sum.correction) && !f64Zero(sum.correction)) percent=f64Add(percent,sum.correction);
+    uint64_t factor=larger(0,f64Add(ONE,f64Div(percent,HUNDRED)));
+    return larger(f64Mul(base,factor),f64Mul(base,f64Div(f64FromI64(5),HUNDRED)));
+}
 uint64_t chargeOverflow(inout Runtime s, uint who, uint64_t when)
 {
     uint64_t result = 0;
