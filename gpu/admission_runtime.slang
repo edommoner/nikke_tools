@@ -7,7 +7,11 @@ void admitDefinitions(inout Runtime s,uint input)
     if(codeNames>P_DEFINITIONS || commands[world]>codeNames) { s.error=64;return; }
     if(commands[world+2]>s.count) { s.error=64;return; }
     uint elementDefinitions=0;
-    for(uint word=3;word<P_WORLD_META_WORDS;word++) if(commands[world+word]!=0) { s.error=64;return; }
+    if(commands[world+3]>1) { s.error=64;return; }
+#ifndef PORTABLE_WORLD_ROSTER
+    if(commands[world+3]!=0) { s.error=64;return; }
+#endif
+    for(uint word=4;word<P_WORLD_META_WORDS;word++) if(commands[world+word]!=0) { s.error=64;return; }
     if(commands[input+P_RECIPIENT_META_BASE]>P_RECIPIENT_NODES) { s.error=64;return; }
     for(uint word=1;word<8;word++) if(commands[input+P_RECIPIENT_META_BASE+word]!=0) { s.error=64;return; }
     uint refs=input+P_BURST_REFERENCE_BASE;
@@ -25,6 +29,16 @@ void admitDefinitions(inout Runtime s,uint input)
     for (uint j = 0; j < s.count; j++)
     {
         Definition d;loadDefinition(input,j,d); PROJECTILE_ADMIT_ROW(s,j,d)
+        if(d.kind==33)
+        {
+            if(d.stat!=0 || d.enemyBuff!=0 || d.target!=0 || d.damageFlags!=0 || d.healthScaling!=0 || d.quantityFlags!=0) { s.error=64;break; }
+            uint forced=input+P_FORCE_BASE+j*P_MASK_WORDS;
+            for(uint word=0;word<P_MASK_WORDS;word++)
+                for(uint bit=0;bit<32;bit++) if((commands[forced+word]&(1U<<bit))!=0)
+                { uint target=word*32+bit;if(target>=s.count || target==j || definition_owner(input,target)!=d.owner) { s.error=64;break; } }
+            if(s.error!=0) break;
+        }
+        if((d.damageFlags&H_NAMED_SKILL)!=0 && (d.kind!=3 || commands[world+3]==0 || d.name>=P_DEFINITIONS)) { s.error=64;break; }
         PROJECTILE_ADMIT_STAGE(s,4000)
         if(d.kind==22 && (s.combat==0 || d.stat!=0 || d.enemyBuff!=0 || !f64Finite(d.value))) { s.error=64;break; }
         PROJECTILE_ADMIT_STAGE(s,4001) if(d.stat==S_stun)
@@ -68,6 +82,11 @@ void admitDefinitions(inout Runtime s,uint input)
         for(uint slot=0;slot<d.conditionCount;slot++)
         {
             uint at=input+P_CONDITION_BASE+j*P_CONDITION_WORDS+slot*4;
+            if(commands[at]==C_TRIGGER_HIT_CRIT)
+            {
+                if(s.combat==0 || commands[world+3]!=1 || commands[input+P_LANDING_META_BASE]!=1 || commands[at+1]!=0 || !f64Zero(loadNumber(at+2))) { s.error=64;break; }
+                s.incomingMask|=32;
+            }
             if((commands[at]==C_TARGET_STUNNED || commands[at]==C_SELF_STUN_IMMUNE) &&
                (s.combat==0 || commands[at+1]!=0 || !f64Zero(loadNumber(at+2)))) { s.error=64;break; }
             if(commands[at]==C_TARGET_STATE || commands[at]==C_NOT_TARGET_STATE || commands[at]==C_TARGET_STACK)
@@ -174,5 +193,5 @@ void admitDefinitions(inout Runtime s,uint input)
         if ((d.quantityFlags & 64) != 0) s.quantityMask |= 4;
         if (d.kind == 0 && d.stat == S_charge_time_fixed) s.quantityMask |= 8;
     }
-    if(s.error==0 && elementDefinitions!=commands[world+2]) s.error=64;
+    if(s.error==0 && (elementDefinitions!=commands[world+2] || uint((s.incomingMask&32)!=0)!=commands[world+3])) s.error=64;
 }

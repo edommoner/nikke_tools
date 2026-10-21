@@ -28,29 +28,6 @@
     {
       "issue": {
         "phase": "effect",
-        "category": "trigger",
-        "kind": "damage",
-        "stat": "bonus_damage",
-        "target": "same_target",
-        "scaling": null,
-        "operator": {
-          "domain": "condition",
-          "descriptor": "trigger_hit_crit"
-        },
-        "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"trigger_hit_crit\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"same_target\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported predicate: trigger_hit_crit"
-      },
-      "messages": [
-        "Unported predicate: trigger_hit_crit"
-      ],
-      "affected_profiles": 3,
-      "blocked_definitions": 3,
-      "single_observed_category_profiles": 2
-    },
-    {
-      "issue": {
-        "phase": "effect",
         "category": "effect",
         "kind": "buff",
         "stat": "shield_dmg_pct",
@@ -580,6 +557,25 @@
         "target": "enemies_random:1",
         "scaling": null,
         "code": "{\"category\": \"recipient\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"damage\", \"target\": \"enemies_random:1\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported enemy damage selector"
+      },
+      "messages": [
+        "Unported enemy damage selector"
+      ],
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 1
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "recipient",
+        "kind": "damage",
+        "stat": "sequential_damage:5",
+        "target": "enemies_random",
+        "scaling": null,
+        "code": "{\"category\": \"recipient\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"sequential_damage:5\", \"target\": \"enemies_random\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported enemy damage selector"
       },
@@ -1795,25 +1791,6 @@
         "target": "enemies_random",
         "scaling": null,
         "code": "{\"category\": \"recipient\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"sequential_damage:4\", \"target\": \"enemies_random\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported enemy damage selector"
-      },
-      "messages": [
-        "Unported enemy damage selector"
-      ],
-      "affected_profiles": 1,
-      "blocked_definitions": 1,
-      "single_observed_category_profiles": 0
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "recipient",
-        "kind": "damage",
-        "stat": "sequential_damage:5",
-        "target": "enemies_random",
-        "scaling": null,
-        "code": "{\"category\": \"recipient\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"sequential_damage:5\", \"target\": \"enemies_random\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported enemy damage selector"
       },
@@ -4413,94 +4390,40 @@
     {
       "character": "율리아",
       "favorite_stage": 1,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 5,
-          "owner": "율리아",
-          "name": "마르카토 2",
-          "issue": {
-            "phase": "effect",
-            "category": "trigger",
-            "kind": "damage",
-            "stat": "bonus_damage",
-            "target": "same_target",
-            "scaling": null,
-            "operator": {
-              "domain": "condition",
-              "descriptor": "trigger_hit_crit"
-            },
-            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"trigger_hit_crit\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"same_target\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported predicate: trigger_hit_crit"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "0d27e4e0b74df1acdea62ea0f144d566ad6f217313c6d6a32238f29810896f76",
+      "squad": [
+        "율리아",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported predicate: trigger_hit_crit",
-      "program_issue": {
-        "phase": "program",
-        "category": "trigger",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "operator": {
-          "domain": "condition",
-          "descriptor": "trigger_hit_crit"
-        },
-        "reason": "Unported predicate: trigger_hit_crit",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"operator\": {\"descriptor\": \"trigger_hit_crit\", \"domain\": \"condition\"}, \"phase\": \"program\", \"reason\": \"Unported predicate: trigger_hit_crit\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported predicate: trigger_hit_crit"
-      }
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
     },
     {
       "character": "율리아",
       "favorite_stage": 2,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 4,
-          "owner": "율리아",
-          "name": "마르카토 2",
-          "issue": {
-            "phase": "effect",
-            "category": "trigger",
-            "kind": "damage",
-            "stat": "bonus_damage",
-            "target": "same_target",
-            "scaling": null,
-            "operator": {
-              "domain": "condition",
-              "descriptor": "trigger_hit_crit"
-            },
-            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"trigger_hit_crit\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"same_target\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported predicate: trigger_hit_crit"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "64c5f750b241c7852eaca167a6334cb96240805398c396a35c7326c561b740fa",
+      "squad": [
+        "율리아",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported predicate: trigger_hit_crit",
-      "program_issue": {
-        "phase": "program",
-        "category": "trigger",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "operator": {
-          "domain": "condition",
-          "descriptor": "trigger_hit_crit"
-        },
-        "reason": "Unported predicate: trigger_hit_crit",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"operator\": {\"descriptor\": \"trigger_hit_crit\", \"domain\": \"condition\"}, \"phase\": \"program\", \"reason\": \"Unported predicate: trigger_hit_crit\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported predicate: trigger_hit_crit"
-      }
+      "prepared_effects": 79,
+      "bound_effects": 79,
+      "input_words": 104400
     },
     {
       "character": "율리아",
@@ -4509,26 +4432,6 @@
       "gpu_admission_verified": false,
       "full_character_verified": false,
       "effect_blockers": [
-        {
-          "index": 2,
-          "owner": "율리아",
-          "name": "마르카토 2",
-          "issue": {
-            "phase": "effect",
-            "category": "trigger",
-            "kind": "damage",
-            "stat": "bonus_damage",
-            "target": "same_target",
-            "scaling": null,
-            "operator": {
-              "domain": "condition",
-              "descriptor": "trigger_hit_crit"
-            },
-            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"trigger_hit_crit\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"same_target\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported predicate: trigger_hit_crit"
-          }
-        },
         {
           "index": 7,
           "owner": "율리아",
@@ -4546,22 +4449,18 @@
           }
         }
       ],
-      "error": "Unported predicate: trigger_hit_crit",
+      "error": "Unported enemy damage selector",
       "program_issue": {
         "phase": "program",
-        "category": "trigger",
+        "category": "recipient",
         "kind": null,
         "stat": null,
         "target": "self",
         "scaling": null,
-        "operator": {
-          "domain": "condition",
-          "descriptor": "trigger_hit_crit"
-        },
-        "reason": "Unported predicate: trigger_hit_crit",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"operator\": {\"descriptor\": \"trigger_hit_crit\", \"domain\": \"condition\"}, \"phase\": \"program\", \"reason\": \"Unported predicate: trigger_hit_crit\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "reason": "Unported enemy damage selector",
+        "code": "{\"category\": \"recipient\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported enemy damage selector\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
-        "message": "Unported predicate: trigger_hit_crit"
+        "message": "Unported enemy damage selector"
       }
     },
     {
@@ -10124,13 +10023,12 @@
   ],
   "profile_count": 266,
   "base_count": 203,
-  "packed_profiles": 189,
+  "packed_profiles": 191,
   "packed_base": 132,
   "issues": {
     "Unported buff stat": 29,
-    "Unported enemy damage selector": 8,
+    "Unported enemy damage selector": 9,
     "Unported buff recipient selector": 6,
-    "Unported predicate: trigger_hit_crit": 3,
     "Unported instant stat": 3,
     "Unported effect fields: copy_from": 3,
     "Unported effect fields: hits_parts": 2,

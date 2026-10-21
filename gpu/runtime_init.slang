@@ -3,6 +3,8 @@
 [noinline]
 void initializeRuntime(inout Runtime s)
 {
+    s.triggerHitCrit = 0;
+    s.lastDamageCritRate = 0;
     s.sourceEnabled = 0;
     s.sourceTime = 0;
     s.stagedEnabled = 0;

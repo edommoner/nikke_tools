@@ -12,6 +12,21 @@ cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class CompilerStatisticsTests(unittest.TestCase):
+    def test_call_graph_is_lexical_bounded_and_stops_at_noinline(self):
+        raw=b'''void leaf() {}
+void __noinline__ boundary() { leaf(); }
+void middle() { boundary(); leaf(); }
+void root() { middle(); middle(); /* leaf(); */ const char* s="leaf()"; }
+'''
+        graph=cuda_statistics(raw,caller='root')['call_graph']
+        edges={(e['caller'],e['callee']):e for e in graph['edges']}
+        self.assertEqual(edges[('root','middle')]['calls'],2)
+        self.assertNotIn(('root','leaf'),edges);self.assertNotIn(('boundary','leaf'),edges)
+        self.assertTrue(edges[('middle','boundary')]['noinline'])
+        for name in ('absent',''):
+            with self.assertRaises(ValueError):cuda_statistics(raw,caller=name)
+        with self.assertRaises(ValueError):cuda_statistics(raw+b'void root(int x) {}',caller='root')
+
     def test_spans_ignore_comment_string_braces_and_forward_declarations(self):
         source=b'''void forward(int x);
 static __device__ __noinline__ void largest(int x) {

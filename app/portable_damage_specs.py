@@ -18,7 +18,7 @@ STATS={k:v for k,v in {**DETAIL_STAT,**EXTRA_STAT}.items() if k in BUFFS or k in
 DAMAGE_FAMILIES=frozenset(('damage','bonus_damage','burst_damage','split_damage','dot_damage',
     'auto_damage','armor_break_damage','armor_break_burst_damage','sequential_damage',
     'projectile_attachment_damage','projectile_explosion_damage','pierce_damage','core_damage'))
-FLAGS=dict(BURST=1,SEQUENTIAL=2,ATTACHMENT=4,EXPLOSION=8,SPLIT=16,CHARGE=32,
+FLAGS=dict(NAMED_SKILL=131072,BURST=1,SEQUENTIAL=2,ATTACHMENT=4,EXPLOSION=8,SPLIT=16,CHARGE=32,
     PIERCE=64,DOT=128,ARMOR=512,PART=1024,INTERCEPT=2048,AOE_BURST=4096,
     SINGLE_BURST=8192,CORE=16384)
 

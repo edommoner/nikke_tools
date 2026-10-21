@@ -186,6 +186,9 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     if type(world_frame) is not bool:raise ValueError("Invalid world-frame trigger policy")
     if not isinstance(world_notice_names,tuple) or any(n!='target_spawn' for n in world_notice_names) or world_notice_names and not world_frame:raise ValueError("Invalid world notice namespace")
     effects = list(effects)
+    hit_critical=any('trigger_hit_crit' in e.get('trigger',{}).get('condition',[]) for e,_ in effects)
+    if hit_critical and (not world_frame or combat is None or not native_landing):
+        raise UnsupportedPortable('Hit-critical context requires native combat world landing')
     if not 1<=len(effects)<=L['DEFINITIONS']:raise UnsupportedPortable('Portable definition capacity exceeded')
     if any(e.get('stat')=='lifesteal_pct' for e,_ in effects) and (not native_landing or combat is None):raise UnsupportedPortable('Lifesteal requires native landing phases')
     for eff, owner in effects:validate_effect(eff,combat=combat,world_frame=world_frame)
@@ -246,6 +249,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         raise ValueError('Invalid portable command/base-stat dimensions')
     words=[0]*L['INPUT_WORDS'];words[0:3]=[ABI,len(effects),len(script)];words[5]=1
     words[L['WORLD_META_BASE']:L['WORLD_META_BASE']+3]=[world_code,world_name_count,sum(element_override(e) for e,_ in effects)]
+    words[L['WORLD_META_BASE']+3]=int(hit_critical)
     if type(cover_sync) is not bool:raise ValueError('Cover synchronization policy must be boolean')
     words[7]=int(cover_sync)
     if type(native_landing) is not bool or native_landing and combat is None:raise ValueError('Native landing phases require combat and a boolean policy')
@@ -356,6 +360,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
                 'TARGET':cleansing[0] if cleansing is not None else stack[1] if stack is not None else extension[0] if extension is not None else removal[0] if removal is not None else int(bool(effects[index][0].get('name'))) if row[1] in (2,13) else int(effects[index][0].get('target')=='boss'), 'STAGE_ARG':int(row[151]),
                 'STAGE_OVERRIDE':int(row[252]),'REENTRY':int(row[253]),'TOGGLE':int(bool(int(row[213]) & 128)), 'DAMAGE_FLAGS':int(row[39])}
         if world_frame and eff.get('type')=='damage' and words[L['DAMAGE_DEFINITION_BASE']+index*8+6]!=0:fields['DAMAGE_FLAGS'] &= ~256
+        if hit_critical and eff.get('type')=='damage' and eff.get('name') and words[L['DAMAGE_DEFINITION_BASE']+index*8+6]==0:fields['DAMAGE_FLAGS'] |= 131072
         if element_override(eff):fields.update(KIND=0,STAT=ELEMENT_OVERRIDE_STAT)
         if hp_attack(eff):fields.update(KIND=0,STAT=HP_ATTACK_STAT)
         from portable_reload_specs import fixed as reload_fixed,STAT as RELOAD_FIXED_STAT

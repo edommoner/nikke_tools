@@ -14,12 +14,13 @@ uint64_t teamConditionTarget(inout Runtime s,uint row,int name,out bool present)
     uint previous=actorStatePushQuery(s,actorPhysicalTarget(s,teamBindingOwner(s.inputBase,row)-1,0));uint64_t count=actorNamedTargetStack(s,name,present);actorStatePopQuery(s,previous);return count;
 }
 bool teamAdditionalCondition(uint kind)
-{ return kind==C_HP_ABOVE||kind==C_HP_BELOW||kind==C_HP_MAX||kind==C_PROB||kind==C_FULL||kind==C_NOT_FULL||kind==C_STATIC; }
+{ return kind==C_HP_ABOVE||kind==C_HP_BELOW||kind==C_HP_MAX||kind==C_PROB||kind==C_FULL||kind==C_NOT_FULL||kind==C_STATIC||kind==C_TRIGGER_HIT_CRIT; }
 bool validTeamAdditionalCondition(uint at,uint kind,uint64_t arg)
 {
     if(commands[at+1]!=0||!f64Finite(arg)) return false;
     // Static roster predicates are already evaluated by basicConditions.
     if(kind==C_STATIC) return f64Zero(arg)||f64Equal(arg,ONE);
+    if(kind==C_TRIGGER_HIT_CRIT) return f64Zero(arg);
     if(kind==C_HP_MAX||kind==C_FULL||kind==C_NOT_FULL) return f64Zero(arg);
     if(kind==C_PROB) return !f64Less(arg,0)&&!f64Less(ONE,arg);
     return !f64Less(arg,0)&&!f64Less(HUNDRED,arg);

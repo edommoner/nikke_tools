@@ -80,6 +80,9 @@ def observe(case):
    if case.get('observe_healing_storage'):
     from world_healing_storage_native import before_finish
     capture['healing_storage']=before_finish(capture['bm'],NAMES)
+   if case.get('observe_skill_critical'):
+    from world_skill_critical_native import before_finish
+    capture['skill_critical']=before_finish(capture['bm'],NAMES)
    return super().finish(t)
   def _close(self,run,t,outcome,events):
    super()._close(run,t,outcome,events);ends.append([run.p.idx,{'cleared':1,'expired':2,'followed':3,'end':4}[outcome],*bits(t)])
@@ -141,6 +144,7 @@ def observe(case):
  if case.get('observe_fractional_hits'):answer.update(fractional_hits=capture['fractional_hits'],fractional_accumulators=capture['fractional_accumulators'])
  if case.get('observe_enemy_spawn'):answer['enemy_spawn_notifications']=capture['enemy_spawn_notifications']
  if case.get('observe_periodic_skills'):answer['periodic_runtime']=capture['periodic_runtime']
+ if case.get('observe_skill_critical'):answer['skill_critical']=capture['skill_critical']
  if case.get('observe_healing_storage'):answer['healing_storage']=capture['healing_storage']
  if case.get('observe_pending_skills'):
   answer['pending_burst']=dict(count=len(capture['burst_controller']._pending_burst_dmg),enqueued=capture.get('pending_enqueued',0),fired=capture.get('pending_fired',0))

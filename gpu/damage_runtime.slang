@@ -49,6 +49,7 @@ uint64_t damageValue(inout Runtime s, uint who, uint64_t coefficient, uint64_t w
     uint64_t attack = f64Add(f64Mul(s.baseAttack[who],f64Add(ONE,f64Div(b[S_atk_pct],HUNDRED))),b[S_atk_flat]);
     uint64_t f2 = larger(0,f64Add(attack,defense ^ F64_SIGN));
     uint64_t critRate = b[normal ? S_crit_rate : S_crit_rate_skill], critDamage = b[normal ? S_crit_dmg : S_crit_dmg_skill];
+    if((s.incomingMask&32)!=0) s.lastDamageCritRate=critRate;
     uint64_t f3 = f64Add(ONE,f64Mul(critRate,larger(0,f64Add(s.baseCritDamage,f64Div(critDamage,HUNDRED)))));
     if (s.phase == 5) f3 = f64Add(f3,uint64_t(0x3fe00000) << 32);
     if(normal && hasRangeGeometry(s)) optimal=geometryRange(s,who,true,b[S_optimal_range_min],b[S_optimal_range_max_pct]);

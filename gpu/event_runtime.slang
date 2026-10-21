@@ -36,12 +36,16 @@ struct Definition
 };
 struct Frame
 {
+    uint hitCrit;
+    uint64_t skillCritRate;
     uint mode, event, owner, cursor, target, repeatRow, repeatLeft, repeatPassive;
     int argument;
     uint64_t value, time, healthValue, healthPrevious, healthNext, gaugeFlat;
 };
 struct Runtime
 {
+    uint triggerHitCrit;
+    uint64_t lastDamageCritRate;
 #ifdef PORTABLE_WORLD_TEAM
     uint teamEvent;
 #endif
@@ -245,7 +249,7 @@ bool worldTeamEnabled(inout Runtime s) { return true; }
 #define WORLD_TEAM_PELLET(s,w,who,when,output) if(worldTeamEnabled(s)&&w.mode!=1) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_CHARGE(s,w,who,count,when,output) if(worldTeamEnabled(s)&&w.mode==1) for(uint teamHit=0;teamHit<count;teamHit++) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_VALIDATE(s,d,input,j) for(uint teamSlot=0;teamSlot<d.triggerCount;teamSlot++) { uint teamEvent=commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+teamSlot*8];if((teamEvent==44||teamEvent==45)&&!worldTeamEnabled(s)) { s.error=64;break; } } if(s.error!=0) break;
-#define WORLD_TEAM_KIND(s,d,legacy) (worldTeamEnabled(s)&&(d.kind==25||d.kind==22) ? false : WORLD_PROJECTILE_KIND(d,WORLD_RELOAD_KIND(d,(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8||WORLD_CONTROL_AMMO(s.inputBase,row,d.kind)) ? false : (legacy)))))
+#define WORLD_TEAM_KIND(s,d,legacy) (worldTeamEnabled(s)&&(d.kind==25||d.kind==22) ? false : WORLD_PROJECTILE_KIND(d,WORLD_RELOAD_KIND(d,(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8||d.kind==33||WORLD_CONTROL_AMMO(s.inputBase,row,d.kind)) ? false : (legacy)))))
 #define WORLD_TEAM_CONDITION(s,d,at,kind,arg) WORLD_PROJECTILE_CONDITION(s,at,kind,arg) if(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&WORLD_CONTROL_CONDITION_KIND(kind,teamAdditionalCondition(kind))) { if(!WORLD_CONTROL_CONDITION_VALID(at,kind,arg,validTeamAdditionalCondition(at,kind,arg))) return false;continue; }
 #else
 #define WORLD_TEAM_INPUT(input,output)
@@ -799,6 +803,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
         if (kind == C_CORE && !geometryCore(s)) return false;
         if (kind == C_TARGET_STUNNED && !statusStunned(s,WORLD_TEAM_STUN_TARGET(s,definition,runtime,WORLD_STATE_STUN_TARGET(s,5U+s.target)))) return false;
         if (kind == C_SELF_STUN_IMMUNE && !statusStunImmune(s,owner)) return false;
+        if (kind == C_TRIGGER_HIT_CRIT && s.triggerHitCrit==0) return false;
         if (kind == C_TARGET_CODE)
         {
             uint code=commands[s.inputBase+P_WORLD_META_BASE];
@@ -1105,6 +1110,7 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
     if (depth == 31) { s.error = 1; return; }
     depth++;
     Frame f = {};
+    f.hitCrit=mode==0 ? 0 : s.triggerHitCrit;
     if (mode == 9) { f.value = uint(argument); f.repeatLeft = s.removalCount-uint(argument); }
     f.mode = mode; f.event = event; f.owner = owner; f.argument = argument; f.time = when; f.value = mode == 9 ? uint(argument) : value;
     uint inherited = event < 32 ? P_TARGET_INHERIT_0 : P_TARGET_INHERIT_1;
@@ -1113,6 +1119,7 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
 }
 
 #include "element_runtime.slang"
+#include "skill_critical_runtime.slang"
 #include "damage_runtime.slang"
 #include "incoming_runtime.slang"
 #include "burst_runtime.slang"
@@ -1238,6 +1245,7 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
 void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, uint64_t when, uint output, uint64_t landingAmount = 0)
 {
     if (owner >= 5) { s.error = 64; return; }
+    uint previousHitCrit=s.triggerHitCrit;
     WORLD_INITIAL_SPAWN_OBSERVE(s,mode,event,owner,when) s.sourceTime=when; syncHealth(s,when);
     WORLD_TEAM_BEGIN(s) COUNTER_CONTEXT_BEGIN(s) WORLD_STATE_DISPATCH_BEGIN(s) uint entryTarget = s.target;
     Frame frames[32]; int depth = -1;
@@ -1262,7 +1270,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             uint who = 0; while ((s.hpDirtyMask & (1U << who)) == 0) who++;
             s.hpDirtyMask &= ~(1U << who); syncHealthActor(s,who,frames[depth].time); continue;
         }
-        COUNTER_FRAME(s,frames,depth) COUNTER_CONTEXT_SAMPLE(s,depth) WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = frames[depth]; s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; uint row = s.count, passive = 0; WORLD_TEAM_FRAME(s,f)
+        COUNTER_FRAME(s,frames,depth) COUNTER_CONTEXT_SAMPLE(s,depth) WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = frames[depth]; s.triggerHitCrit=f.hitCrit; s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; uint row = s.count, passive = 0; WORLD_TEAM_FRAME(s,f)
         if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
             (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
         { depth--; continue; }
@@ -1339,12 +1347,13 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                     s.target=WORLD_SKILL_BASIS(s,damage.damageRoute>=2 || damage.damageRoute==1 ? 0 : f.target);
                     WORLD_SKILL_SCOPE_BEGIN(s) frames[depth].healthPrevious=damage.damageNormal!=0 ? damageValue(s,damage.owner,f.healthValue,f.time,true,s.combat!=0 ? s.coreDamageBonus[damage.owner] : s.coreBonus,damage.damageFlags,ONE,(s.attackContext[damage.owner]&1)!=0) : damageValue(s,damage.owner,f.healthValue,f.time,false,s.coreBonus,damage.damageFlags); WORLD_SKILL_SCOPE_END(s)
                     uint order=0;frames[depth].repeatRow=(damage.periodicFlags&1)!=0 ? periodicDamageMask(s,uint(f.argument),order) : 0xffffffff;
+                    frames[depth].skillCritRate=s.lastDamageCritRate;
                     frames[depth].repeatPassive=order;frames[depth].healthNext=s.enemyEpoch;
                 }
                 if (s.error!=0) break;
                 enqueueLanding(s,uint(f.argument),f.target,frames[depth].repeatRow,frames[depth].repeatPassive,frames[depth].healthPrevious,f.time,f.cursor+1,damage.damageHits,uint(depth+1),uint(frames[depth].healthNext));
                 frames[depth].cursor++;frames[depth].value++;
-                if (s.error==0) pushFrame(s,frames,depth,0,49,damage.owner,int(damage.name),f.time);
+                if (s.error==0) pushSkillHit(s,frames,depth,damage,frames[depth].skillCritRate,f.time);
                 continue;
             }
             uint packedOrder; uint mask = (damage.periodicFlags & 1) != 0 ? periodicDamageMask(s,uint(f.argument),packedOrder) : enemyDamageMask(s,damage,f.target,packedOrder);
@@ -1368,7 +1377,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             { uint encoded = (packedOrder >> (pass*4)) & 15; if (encoded == 0) break; WORLD_SKILL_BEGIN(s,damage.owner,encoded-1,share) land(s,damage.owner,encoded-1,share); WORLD_GATE_END }
             frames[depth].cursor++; frames[depth].value++;
             logDamagePacket(s,damage,uint(f.argument),mask,basis,f.cursor+1,share,weighted,packedOrder,f.time,uint(depth+1),output);
-            if (s.error == 0) pushFrame(s,frames,depth,0,49,damage.owner,int(damage.name),f.time);
+            if (s.error == 0) pushSkillHit(s,frames,depth,damage,s.lastDamageCritRate,f.time);
             continue;
         }
         if (f.mode == 11)
@@ -1632,7 +1641,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 uint j = frames[depth].cursor++; Definition d = readDefinition(s.inputBase,j);
                 if (f.mode == 2)
                 {
-                    if ((commands[s.inputBase+P_FORCE_BASE+uint(f.argument)*P_MASK_WORDS+j/32] & (1U << (j%32))) != 0) { row = j; break; }
+                    if ((commands[s.inputBase+P_FORCE_BASE+uint(f.argument)*P_MASK_WORDS+j/32] & (1U << (j%32))) != 0 && activationConditions(s,j,f.time)) { row = j; break; }
                     continue;
                 }
                 if (f.event != 26 && d.owner != f.owner) continue;
@@ -1929,7 +1938,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (d.kind == 1 && (s.healthMask&32)==0) syncHealth(s,f.time);
 #endif
     }
-    COUNTER_FIELDS_WORK_RECORD(s,work) WORLD_TEAM_END(s) COUNTER_CONTEXT_END(s) WORLD_STATE_DISPATCH_END(s) s.target = entryTarget;
+    COUNTER_FIELDS_WORK_RECORD(s,work) WORLD_TEAM_END(s) COUNTER_CONTEXT_END(s) WORLD_STATE_DISPATCH_END(s) s.target = entryTarget;s.triggerHitCrit=previousHitCrit;
 }
 
 void timerPass(inout Runtime s, uint64_t when, bool damagePass, uint output)
@@ -2177,6 +2186,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     PROJECTILE_ADMIT_STAGE(s,22) if (!initializeSources(s)) { results[output]=64; return; }
     PROJECTILE_ADMIT_STAGE(s,23) if(!initializeStaged(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,24) if (!initializeLandings(s)) { results[output]=64;return; }
+    initializeSkillCritical(s);
     for(uint word=0;word<P_PROBABILITY_STATE_WORDS;word++) results[output+P_PROBABILITY_STATE_BASE+word]=0;
     if(commands[input+P_ENEMY_TARGET_META_BASE]!=0) mtSeed(output+P_ENEMY_RNG_BASE,uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+1])|(uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+2])<<32));
     initializeHPWatches(s);

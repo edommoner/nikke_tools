@@ -1,0 +1,24 @@
+{
+  "package_id": "c002f644e310685f620748e1bb77a0bb7eff94733fc602ca110ad4cc599f279d",
+  "sources": [
+    {
+      "source": "nikke-trigger-reduction-clock-corrected-metal",
+      "retained_inputs": 287,
+      "all_input_words_equal": true,
+      "all_output_words_equal": true,
+      "native_fingerprints_equal": true,
+      "original_failure_preserved": false
+    },
+    {
+      "source": "nikke-skill-critical-regression-metal",
+      "retained_inputs": 316,
+      "all_input_words_equal": true,
+      "all_output_words_equal": true,
+      "native_fingerprints_equal": true,
+      "original_failure_preserved": true
+    }
+  ],
+  "gpu_calls": 0,
+  "original_captures_modified": false,
+  "sets_overlap": true
+}

@@ -27,3 +27,9 @@
 3. その変更がcompile working setを減らすという具体的な仮説を持てた場合だけ、既存の60秒・2GiB以内でcompiler-only比較を1回行う。成功してもCUDAの数値一致は別検証とする。
 
 大きな機能を5種類外してWindowsで一括試行する案は採用しません。まず上記の観測を使い、必要な短い比較だけを行います。
+
+## 現ソースの字句上の呼出関係
+
+共通CLIのcompiler-stats --caller weaponFrameBody_0で、最新の保存生成byteを証拠SHAへ照合しました。rootから最大3段、noinline境界で止まる探索は64関数を訪問し、打切りなしでした。直接のeffectiveChargeに加え、startChargeControl／waitChargeControlから同じhelperへの経路があり、その先のrawEffectiveChargeはnoinline未指定です。生成CUDA上の同関数は約125行です。実際のcompiler inliningやメモリ原因とは区別します。
+
+次の候補はrawEffectiveCharge一箇所の共通noinline境界とします。変更前の数値基準はsealed Metal327で、同一入力・全rawを確認してからWindowsの必要なcompiler-only1回を検討します。古いv105 PTXと最新コードは別sourceなので、PTXのvirtual register数の因果比較へ直結させません。呼出関係はresearch/portable-weapon-query-call-graph.jsonを参照してください。

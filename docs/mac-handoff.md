@@ -1037,3 +1037,11 @@ Windows v110はCPU20件成功後、修正argvでO1 compilerを1回だけ実行�
 `docs/portable-trigger-reduction.md`と`research/portable-trigger-reduction-development-checkpoint.json`を参照してください。buff版trigger_count_reduceはcanonical REDUCER_MASKの転置を使い、caster・生timingの一致と、resident順の固定値合計→整数化→閾値最小1を共通Slangで処理します。スタック／受益者／runtime条件による再フィルターを入れません。非武器MODEのtagged unionを使いstrideは維持、既存status／stack metadataとの共存も検査しています。
 
 最初の287で見つけたフルチャージ2入力の時計不整合は、native静的正規化へ入力各3wordを合わせて修正しました。native全指紋・計算本体・比較器は不変、元失敗は保持。修正版287（native232＋拒否55）がMetal全件一致し、旧235と原失敗中の成功285は入力・全raw・native同一です。新goldenを明示sealし、現在の通常CLI入口はregression287です。新しい2キャラの全定義実編成を各3／30秒で追加。CPU665成功・Windows専用1skip、静的189/266・base132/203・分類114、通常CPU・全キャラ認定0。今回はWindows実行0で、CUDA数値一致は未確認です。次はtrigger_hit_crit等と、projectile_dmg_pctのCPU基準にも欠ける意味定義、および保存PTXに基づく共通関数境界のコンパイル診断を進めます。
+
+## 名前付き命中context・強制スキル使用・regression327
+
+`docs/portable-skill-critical.md`と`research/portable-skill-critical-development-checkpoint.json`を参照してください。predicate28は期待値のcaster/name別skill critical累積と、通知ごとのFrame contextへ接続しました。多段の率snapshot、入れ子・兄弟からの復帰、通常攻撃式、deferred B3の通知なし経路を区別します。nativeの実際のrng_acc辞書も比較します。
+
+最初の320ではユリア愛用品1・2段階の計4実編成が拒否され、1件の診断でkind33 force_skill_useのactor-pool受付不足を確認。既存共通強制使用を受付へ接続し、maskの範囲／caster／自己参照と、強制先の条件を検査しました。every時計はresetしません。元の失敗と診断は保持。修正版327（native262＋拒否65）はMetal全件一致、旧287と元失敗中の成功316はinput／全raw／native同一。明示seal済みの通常CLI入口はregression327です。CPU671件（1skip）失敗0、静的191/266・base132/203・分類113、通常CPU・全キャラ認定0です。
+
+保存生成コードを使うcompiler-statsに--callerを追加し、最大3段・noinlineで止まる字句上の呼出関係を出せます。現ソースでもeffectiveCharge→rawEffectiveChargeの未注釈境界を確認し、次のCUDA改善候補はrawEffectiveCharge一箇所です。共通境界変更をMetal327で数値・全raw検証してから、必要な60秒／2GiB compiler-only検証1回を検討します。現在は新版CUDA数値一致未確認、今回Windows0で、同じ冷コンパイルを再試行していません。
