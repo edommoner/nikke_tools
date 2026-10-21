@@ -65,6 +65,9 @@ def observe(case):
    if case.get('observe_target_counters'):
     from world_target_counter_battle_native import before_finish as counter_before_finish
     capture['target_counters']=counter_before_finish(capture['bm'],capture,NAMES)
+   if case.get('observe_enemy_attack_fields'):
+    from world_actor_pool_native import actor_bindings
+    capture['enemy_attack_fields']=[dict(kind=int(b.kind),identity=b.identity,flat=capture['bm'].enemy_atk_down_flat('__enemy__' if int(b.kind)==1 else b.label,t)) for b in actor_bindings(self)]
    if case.get('observe_enemy_fields'):
     from world_actor_fields_native import observe_before_finish
     capture['enemy_fields']=observe_before_finish(case,self,capture['bm'],NAMES,t)
@@ -123,6 +126,7 @@ def observe(case):
   for out,run in zip(answer['world_nodes'],capture['boss']._runs):out.update(dispelled=run.dispelled,dispels=sum(x.event=='dispel' and x.pattern==run.p.id for x in result.boss_log))
  if case.get('observe_charge_hold'):
   answer['charge_hold']=[dict(owner=i,charging=capture['characters'][n]._charge_phase=='charging',full_time=capture['characters'][n]._charge_full_t,deadline=capture['characters'][n]._vanish_charge_hold_until) for i,n in enumerate(NAMES) if n=='스노우 화이트 : 헤비암즈']
+ if case.get('observe_enemy_attack_fields'):answer['enemy_attack_fields']=capture['enemy_attack_fields']
  if case.get('observe_enemy_fields'):answer['enemy_fields']=capture['enemy_fields']
  if case.get('observe_target_counters'):answer['target_counters']=capture['target_counters']
  if case.get('observe_named_state'):

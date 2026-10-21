@@ -137,7 +137,7 @@ bool actorFieldCommand(inout Runtime s,uint at,uint op,uint64_t when)
             if(gen==0) { for(uint i=0;i<12;i++) results[out+i]=0;results[out]=2; }
             else { actorFieldRead(s,who,commands[b],commands[b+1],gen,scratch,when);for(uint i=0;i<12;i++) results[out+i]=results[scratch+i]; }
         }
-        results[actorFieldHead(s)+2]=actorPoolCount(s);
+        WORLD_ENEMY_ATTACK_SNAPSHOT(s,when) results[actorFieldHead(s)+2]=actorPoolCount(s);
     }
     return true;
 }
