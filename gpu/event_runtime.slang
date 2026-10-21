@@ -133,12 +133,19 @@ struct Runtime
 #define WORLD_RELOAD_FINAL(s)
 #endif
 #ifdef PORTABLE_WORLD_CHARGE_CONTROL
-#ifdef PORTABLE_WORLD_RELOAD
+#ifdef PORTABLE_WORLD_ROSTER
+#define WORLD_CONTROL_WIRE_MODE 23
+#elif defined(PORTABLE_WORLD_RELOAD)
 #define WORLD_CONTROL_WIRE_MODE 22
 #else
 #define WORLD_CONTROL_WIRE_MODE 21
 #endif
+#ifdef PORTABLE_WORLD_ROSTER
+// Admit proven shared scalar health/cooldown operators and ordinary conditions.
+#define WORLD_CONTROL_ORIGIN(input,row,legacy) true
+#else
 #define WORLD_CONTROL_ORIGIN(input,row,legacy) WORLD_RELOAD_ORIGIN(input,row,((legacy)||controlDefinition(input,row)))
+#endif
 #define WORLD_CONTROL_AMMO(input,row,kind) ((kind==13||kind==14)&&controlDefinition(input,row))
 #define WORLD_CONTROL_CONDITION_KIND(kind,legacy) ((kind==C_CHARGING)||(legacy))
 #define WORLD_CONTROL_CONDITION_VALID(at,kind,arg,legacy) (kind==C_CHARGING ? commands[at+1]==0&&f64Zero(arg) : (legacy))
