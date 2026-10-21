@@ -1,3 +1,19 @@
+<!-- world-projectile-v104 -->
+## 2026-10-21 散弾数・貫通/爆発範囲と実編成の資源条件を共通実行器へ接続
+
+private ABI0x5045568d/mode24でpellet_count/pellet_count_fixed/pierce_range/explosion_range、frame開始時has_parts、元CPUの部隊弾薬通知indexを共通Slang本体へ接続しました。binary64の順序付き合計とties-to-even、最低1/上限4096、係数と総口数の区別、100−1e−9の到達閾値を検証しました。gauge条件/消費と名前付き解除は既存の共通演算子を利用し、self/enemy解除の未使用recipient予約語だけをprivate packerで修正。canonical engine/compiler/referenceは変更していません。
+
+Metalは共通63（native52＋拒否11）と新規11実プロファイル×3/30秒＝22戦闘で、全効果・状態・物理射撃の時刻/ペレット/総口数/範囲/damageが元CPUと完全一致。最終63は保存62の不変61ブロックと修正後delta2の集約で、集約GPU0、対応表・元raw・厳密生成一致を監査しています。通常生成コードは1421ea2と一致し、診断専用入口だけを分離。計8実GPU呼出し（診断1を含む）、同一source/input retry0、失敗原報告を保持。CPU549、旧21入口CUDA/MSL厳密一致、旧65入力bytes保持、5戦闘35資源最終値のnative直接照合が成功しました。
+
+全266プロファイルの静的入力変換は152→163、base108→116、未対応103です。入力変換はGPU admission/全キャラ戦闘認証ではありません。全203＋お気に入り、未接続buff/selector・操作・復活・source攻撃/interrupt・組合せ/長時間/容量と効率化が残ります。通常画面CPU、public world false、full_character_verified=0、full_goal_complete=false、legacy Metal14c8e2e OPENを維持。詳細はportable-world-projectiles.mdとportable-world-projectile-validation.json。
+
+Windows v104は固定def167197c840d63457ce139f5f6131ce78dc491（codex/cuda-world-v104-source、26ファイル390810bytes）で共通63入力だけをBelowNormal/JobObject/start gate/180秒＋cleanup5秒で1回実行し、127.617560秒で成功しました。事前CPU27検査、native52、全input/output/generated指紋、API50段階、PID107896のpre所属1/post空・残留0/retry0を保存3JSON404357bytesのSHA一致と独立監査で確認しました。実22・旧65/1063・通常4682の再実行は0です。
+
+実行中のモデル容量エラー後も既存OSコマンドは終了0で完了しました。結果だけを取得する後続turnはGPU/build0です。ただし終了後snapshotはJob終了から401.9489005秒遅れ、GPU直前から約529.973秒の観測窓で既存28件の欠落を確認しています。欠落は検証Job外の既存プロセスですが、GPU実行中の終了もGPUとの因果も証明できません。原因unknown、サービス識別unverified、calculation_verified=true、preservation_verified=false、総合passed=falseを保持します。別のCPUのみ約37秒の対照観測では、自身のvenv観測launcher1件だけが欠落しMCP欠落0でした。過去の7/14件の原因も解消扱いにしません。次回の短いWindows検証では、外部bounded wrapperのfinally内でwait直後に完全なafter snapshotを採取し、モデルの次turnを待たない方式が必要です。今回の観測改善目的のGPU再実行は行いません。詳細はportable-world-v104-cuda-validation.json、portable-world-v104-collection-finding.json、seal-world-v104-cuda.py。
+
+GitHub共有は現在のゴール達成まで利用者許可済みです。
+<!-- /world-projectile-v104 -->
+
 <!-- world-real-roster-v103 -->
 ## 2026-10-21 実編成の全効果を共通world入力へ接続、Metal10実証
 

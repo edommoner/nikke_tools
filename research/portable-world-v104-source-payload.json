@@ -1,0 +1,147 @@
+{
+  "source_commit": "def167197c840d63457ce139f5f6131ce78dc491",
+  "branch": "codex/cuda-world-v104-source",
+  "base": "767f4f4274b5840da44cc48687572580f030d07a",
+  "file_count": 26,
+  "files": [
+    {
+      "path": "app/portable_damage_specs.py",
+      "bytes": 3247,
+      "sha256": "882ceffd8d48686907a949db8422b8ccb88123f9d096ed94e8722aaa1ff5df67"
+    },
+    {
+      "path": "app/portable_projectile_roster_input.py",
+      "bytes": 563,
+      "sha256": "893ecb7ad7096fa3b1f930c079f5b54b1083205c5bfb6dee7f89ee2366e72b7e"
+    },
+    {
+      "path": "app/portable_projectile_specs.py",
+      "bytes": 1714,
+      "sha256": "00d99d9101ba6941b418544895113b506dca2a994f0879448abee43f49376271"
+    },
+    {
+      "path": "app/portable_runtime.py",
+      "bytes": 65521,
+      "sha256": "d8af4d9c44a1f2a3379f5b5e74f4033bc1671cd696e4462617ec64348e95a2f2"
+    },
+    {
+      "path": "app/portable_specs.py",
+      "bytes": 21704,
+      "sha256": "9e98f6a28457bf79056c9e34198998638687eb3db68f197497d0788ed2fb5b31"
+    },
+    {
+      "path": "app/portable_target_counter_program.py",
+      "bytes": 2987,
+      "sha256": "08ec8d344f98240b652ebd2e63f2c27b7e3b37517367f8c08e55c8320a10ba1f"
+    },
+    {
+      "path": "gpu/admission_runtime.slang",
+      "bytes": 12757,
+      "sha256": "1d9ea204857bdcefc99844faf6bc33e4e584cbef2834b336d7a02a5c1ea48f2e"
+    },
+    {
+      "path": "gpu/combat_runtime.slang",
+      "bytes": 26089,
+      "sha256": "9109259fa88f3195b4b657c627ca6d651c2eea13123cc64800987d503e53d6b3"
+    },
+    {
+      "path": "gpu/counter_landing_runtime.slang",
+      "bytes": 6831,
+      "sha256": "3453777ef02f8e686a796de18494ee2e88e042c979bd7d99364518c4e66b40b4"
+    },
+    {
+      "path": "gpu/event_runtime.slang",
+      "bytes": 145618,
+      "sha256": "e2684a08d5fa2bf0fddc8cadbe234b559678911b81bf890ef5755898d8e21c88"
+    },
+    {
+      "path": "gpu/portable_schema.slang",
+      "bytes": 24272,
+      "sha256": "27d05c10b0d7d1d4ae04593caca271a8bb381fe92fbcc7f63cae5efb5d71dc46"
+    },
+    {
+      "path": "gpu/world_frame_runtime.slang",
+      "bytes": 3295,
+      "sha256": "6be913eee371dd3652b47229813b9e0751d08ae8b82d81aa0b85cf82a545ff2c"
+    },
+    {
+      "path": "gpu/world_projectile_admission_entry.slang",
+      "bytes": 85,
+      "sha256": "04a02493065931681804f038072dcdf7c3047b950333ed86d05fc7725d1a5984"
+    },
+    {
+      "path": "gpu/world_projectile_entry.slang",
+      "bytes": 70,
+      "sha256": "a78c90523a37f973207265c83c7d62c2cabdf1c99023f9e36f8a30e0c1cb3c65"
+    },
+    {
+      "path": "gpu/world_projectile_runtime.slang",
+      "bytes": 3099,
+      "sha256": "3d3d498386038746f671007d5522ece05c7b82dd09d9d6fee9704aeff0af9e18"
+    },
+    {
+      "path": "gpu/world_team_runtime.slang",
+      "bytes": 5122,
+      "sha256": "f42d80f2b42140510b4026c9f135b34439cd89c6c1764a88d4190b091600bd8f"
+    },
+    {
+      "path": "tests/test_portable_cuda_preservation.py",
+      "bytes": 6914,
+      "sha256": "80e4e77084373012868ef9a1e0d32db17027b15629d9a4c0a82a7e702dc55b6c"
+    },
+    {
+      "path": "tests/test_portable_projectiles.py",
+      "bytes": 6336,
+      "sha256": "f940eb1c0cc1f55240cd4f051afc008c9fb84c0a5bec70e99a406943ee623ec4"
+    },
+    {
+      "path": "tests/test_portable_real_binding_proof.py",
+      "bytes": 1561,
+      "sha256": "fc601e9f0418463d755ae046f2812711ec8e62ad7d4878db076eaea9ad1a3f13"
+    },
+    {
+      "path": "research/verify-world-projectile.py",
+      "bytes": 5836,
+      "sha256": "d0c27aa7d0adb30a1ff582df5769d905d9e5576bc9cac5cbd7bded9e83ddba18"
+    },
+    {
+      "path": "research/verify-world-projectile-input-fix.py",
+      "bytes": 2442,
+      "sha256": "fcf0d0c290e7d1a6f168c11f07543e1976b4402d04f4798a26cd9c3536a3821f"
+    },
+    {
+      "path": "research/verify-world-projectile-short.py",
+      "bytes": 5652,
+      "sha256": "58573bee84c8f7b32899cac97b45b82712d2e486817afdcf3cb428f1b2e72c2e"
+    },
+    {
+      "path": "research/portable-world-projectile-short-expected.json",
+      "bytes": 31283,
+      "sha256": "280a63ea2dea802dc1c876110809b8d050eadbe3d3fbdc61d28cb2a5e88439e8"
+    },
+    {
+      "path": "research/world_projectile_cases.py",
+      "bytes": 5766,
+      "sha256": "a8075137e48e1554be3e62e4b619840a24596c8192a21cddd8cd1fe209bf3722"
+    },
+    {
+      "path": "research/world_projectile_native.py",
+      "bytes": 1201,
+      "sha256": "acf117831ebd14ca5a8076c462306d562c8de7db057d96894ab5c7706d9a2f2e"
+    },
+    {
+      "path": "research/world_real_binding_proof.py",
+      "bytes": 845,
+      "sha256": "acf1fd91ee5c238db31edb46bc27be8173db5b31e83d5e17652d3eb2510875c4"
+    }
+  ],
+  "bytes": 390810,
+  "private_settings": false,
+  "raw": false,
+  "large_reports": false,
+  "authorization": "User permits GitHub sharing until current goal achieved",
+  "windows_input_count": 63,
+  "windows_native_oracles": 52,
+  "old1063_reexecutions": 0,
+  "old_reload65_reexecutions": 0
+}
