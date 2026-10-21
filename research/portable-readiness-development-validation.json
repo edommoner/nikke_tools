@@ -1,5 +1,5 @@
 {
-  "passed": true,
+  "passed": false,
   "scope": "Shared priority GPU development milestone; full catalog/effects certification remains open",
   "cli_commands": [
     "inventory",
@@ -284,8 +284,16 @@
     "module_load_time_reduction_unproven": true
   },
   "windows": {
-    "status": "not dispatched",
-    "gpu_runs": 0
+    "version": 105,
+    "status": "timeout_in_ptx_module_load",
+    "cuda_attempts": 1,
+    "kernel_launches": 0,
+    "retries": 0,
+    "calculation_verified": false,
+    "containment_verified": false,
+    "preservation_verified": false,
+    "sanitized_report": "research/portable-world-v105-cuda-sanitized.json",
+    "original_details_retained_on_windows": true
   },
   "canonical_reference_modified": false,
   "canonical_world_admission": false,
@@ -296,5 +304,6 @@
     "passed": true,
     "count": 584,
     "command": ".venv/bin/python -m unittest discover -s tests -p 'test_portable*.py'"
-  }
+  },
+  "metal_passed": true
 }

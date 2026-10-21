@@ -64,13 +64,14 @@ def observe(backend, journal):
         return journal.invoke('slang_build', original_build, *args, **kwargs)
     with contextlib.ExitStack() as stack:
         stack.enter_context(patch.object(backend, 'build', build))
-        if hasattr(backend,'compile_cuda_ptx'):
-            original_compile=backend.compile_cuda_ptx
+        compile_name='compile_cuda_artifact' if hasattr(backend,'compile_cuda_artifact') else 'compile_cuda_ptx'
+        if hasattr(backend,compile_name):
+            original_compile=getattr(backend,compile_name)
             def compile_ptx(*args,**kwargs):
                 artifact,receipt=journal.invoke('cuda_compile_artifact',original_compile,*args,**kwargs)
                 journal.emit('cuda_compile_cache','verified',receipt=receipt)
                 return artifact,receipt
-            stack.enter_context(patch.object(backend,'compile_cuda_ptx',compile_ptx))
+            stack.enter_context(patch.object(backend,compile_name,compile_ptx))
         if os.name == 'nt':
             original_dll = ctypes.WinDLL
             def library(*args, **kwargs):

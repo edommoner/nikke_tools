@@ -64,6 +64,37 @@ class PacketTests(unittest.TestCase):
                 with self.assertRaises(ValueError):cli.import_results(root/'bad.zip',root/'dest')
                 self.assertFalse((root/'dest').exists())
 
+    def test_unpack_unknown_suite_is_transfer_only_and_never_executes_payload(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);raw=b'raise AssertionError("Must never execute during unpack")'
+            row=dict(path='scripts/future.py',bytes=len(raw),sha256=cli.sha(raw))
+            m=dict(schema=cli.SCHEMA,suite='future-suite',files=[row],golden={})
+            m['package_id']=cli.package_id(m)
+            with zipfile.ZipFile(root/'future.zip','w') as z:
+                z.writestr('gpu-package.json',json.dumps(m));z.writestr(row['path'],raw)
+            self.assertEqual(cli.unpack(root/'future.zip',root/'dest'),m['package_id'])
+            self.assertEqual((root/'dest/scripts/future.py').read_bytes(),raw)
+            with self.assertRaises(ValueError):cli.verify_package(root/'dest')
+
+    def test_unknown_schema_is_rejected_before_creating_destination(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);m=dict(schema=cli.SCHEMA+1,suite='future',files=[])
+            m['package_id']=cli.package_id(m)
+            with zipfile.ZipFile(root/'future.zip','w') as z:z.writestr('gpu-package.json',json.dumps(m))
+            with self.assertRaises(ValueError):cli.unpack(root/'future.zip',root/'dest')
+            self.assertFalse((root/'dest').exists())
+
+    def test_partial_failure_capture_preserves_generated_and_binary_artifacts(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);capture=root/'capture';capture.mkdir()
+            build=root/'research/portable-build';build.mkdir(parents=True)
+            (build/'world_projectile_entry.cu').write_bytes(b'cuda source')
+            (build/'world_projectile_entry.cubin').write_bytes(b'\x7fELF\x00binary')
+            with patch.object(cli,'ROOT',root):cli.copy_generated(capture,'readiness',partial=True)
+            self.assertEqual((capture/'compiled.cubin').read_bytes(),b'\x7fELF\x00binary')
+            self.assertEqual((capture/'generated.cu').read_bytes(),b'cuda source')
+            self.assertFalse((capture/'generated.metal').exists())
+
     def test_file_records_rejects_symlink(self):
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder);(root/'a').write_text('{}')

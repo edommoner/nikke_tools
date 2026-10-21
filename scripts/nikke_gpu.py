@@ -25,9 +25,9 @@ SUITES = {
                        source='gpu/world_projectile_entry.slang', inputs=63, native=52,
                        tests=['test_portable_projectiles.py', 'test_portable_real_binding_proof.py','test_portable_readiness.py','test_portable_compile_cache.py']),
     'readiness':dict(script='research/verify-world-readiness-short.py',
-                       golden='research/portable-world-readiness-v2-short-expected.json',
+                       golden='research/portable-world-readiness-v3-short-expected.json',
                        source='gpu/world_projectile_entry.slang',inputs=75,native=60,
-                       tests=['test_portable_readiness.py','test_portable_compile_cache.py','test_portable_gpu_cli.py']),
+                       tests=['test_portable_readiness.py','test_portable_compile_cache.py','test_portable_gpu_cli.py','test_portable_cuda_artifact.py','test_portable_phase_audit.py']),
     'lost-hp-roster':dict(script='research/verify-world-lost-hp-rosters-short.py',
                        golden='research/portable-world-projectile-short-expected.json',
                        source='gpu/world_projectile_entry.slang',inputs=8,native=8,development_only=True,
@@ -158,6 +158,11 @@ def unpack(archive, destination):
         for name in names:
             safe_name(name)
         m = json.loads(z.read('gpu-package.json'))
+        if m.get('schema')!=SCHEMA or not isinstance(m.get('suite'),str) or not m['suite']:
+            raise ValueError('Unsupported package schema or missing suite identity')
+        listed=[row['path'] for row in m['files']]
+        if len(listed)!=len(set(listed)):
+            raise ValueError('Duplicate package artifact records')
         if m['package_id'] != package_id(m) or set(names) != {'gpu-package.json', *(r['path'] for r in m['files'])}:
             raise ValueError('Unlisted package members or identity mismatch')
         for row in m['files']:
@@ -167,7 +172,10 @@ def unpack(archive, destination):
         destination.mkdir(parents=True, exist_ok=False)
         for name in names:
             p = destination/name; p.parent.mkdir(parents=True, exist_ok=True); p.write_bytes(z.read(name))
-    return verify_package(destination)['package_id']
+    # Transfer integrity is independent of this bootstrap CLI's suite registry.
+    # The extracted package's own CLI performs semantic preflight before run.
+    check_records(destination,m['files'])
+    return m['package_id']
 
 
 def module(path):
@@ -280,9 +288,6 @@ def child(capture, backend, smoke=False):
     # Raw/evidence are durable before any comparison, so failures remain inspectable.
     (capture/'readback.bin').write_bytes(raw); write(capture/'evidence.json',evidence)
     copy_generated(capture,m['suite'])
-    if backend=='cuda':
-        stem=Path(SUITES[m['suite']]['source']).stem
-        (capture/'compiled.ptx').write_bytes((ROOT/'research/portable-build'/(stem+'.ptx')).read_bytes())
     result = journal.invoke('shared_native_compare',compare_readback,m,capture,adapter=adapter)
     write(capture/'comparison.json',result)
     if not result['calculation_verified']:
@@ -302,11 +307,14 @@ def compare_readback(m, capture, adapter=None):
         if evidence['source_sha256']!=m['golden']['source_sha256'] or not evidence['gpu_execution_verified']:
             raise ValueError('Wrong/unverified GPU source')
         if evidence['backend']=='cuda' and 'compile_artifact' in evidence['transport']:
-            receipt=evidence['transport']['compile_artifact'];artifact=(capture/'compiled.ptx').read_bytes()
+            receipt=evidence['transport']['compile_artifact'];kind=receipt['identity']['artifact']
+            if kind not in ('ptx','cubin'):raise ValueError('Unknown compiled CUDA artifact')
+            artifact=(capture/('compiled.'+kind)).read_bytes()
             identity_key=sha(json.dumps(receipt['identity'],sort_keys=True,separators=(',',':')).encode())
-            if receipt['key']!=identity_key or receipt['identity']['artifact']!='ptx' or receipt['identity']['schema']!=1:
+            if receipt['key']!=identity_key or receipt['identity']['artifact'] not in ('ptx','cubin') or receipt['identity']['schema']!=1:
                 raise ValueError('Invalid CUDA compile cache key/schema')
-            if receipt['identity']['options']!=['--std=c++17','--gpu-architecture=compute_86','--fmad=false']:
+            from portable_backend import cuda_compile_options
+            if receipt['identity']['options']!=cuda_compile_options(kind):
                 raise ValueError('CUDA compiler options changed')
             if sha(artifact)!=receipt['artifact_sha256'] or len(artifact)!=receipt['artifact_bytes']:
                 raise ValueError('Compiled CUDA artifact mismatch')
@@ -348,22 +356,34 @@ def check_compile_cache(capture, output):
     if load(capture/'run.json')['package_id']!=m['package_id']:
         raise ValueError('Capture belongs to another package')
     check_records(capture,load(capture/'artifacts.json')['files'])
-    evidence=load(capture/'evidence.json')
-    if evidence['backend']!='cuda':raise ValueError('CUDA artifact required')
+    if load(capture/'run.json')['backend']!='cuda':raise ValueError('CUDA artifact required')
+    evidence=load(capture/'evidence.json') if (capture/'evidence.json').exists() else None
     from portable_compile_cache import get_or_compile,quoted_headers
     directory=os.environ.get('NIKKE_CUDA_COMPILE_CACHE')
     if not directory:raise ValueError('NIKKE_CUDA_COMPILE_CACHE is required')
     cuda_bin=Path(os.environ.get('CUDA_PATH',r'C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.3'))/'bin'
-    receipt=evidence['transport']['compile_artifact']
+    if evidence is not None:receipt=evidence['transport']['compile_artifact']
+    else:
+        receipts=[]
+        lines=(capture/'phases.jsonl').read_text().splitlines()
+        for i,line in enumerate(lines):
+            try:row=json.loads(line)
+            except json.JSONDecodeError:
+                if i!=len(lines)-1:raise
+                continue
+            if row['stage']=='cuda_compile_cache' and row['state']=='verified':receipts.append(row['receipt'])
+        if len(receipts)!=1:raise ValueError('No unique successful compiler artifact')
+        receipt=receipts[0]
     def forbidden():raise RuntimeError('Cache miss; NVRTC compilation forbidden in cache-check')
     started=time.perf_counter()
     artifact,hit=get_or_compile((capture/'generated.cu').read_bytes(),receipt['identity']['options'],
                                list(cuda_bin.glob('nvrtc*.dll')),forbidden,directory,
-                               header_files=quoted_headers((capture/'generated.cu').read_bytes()))
-    if not hit['hit'] or hit['key']!=receipt['key'] or artifact!=(capture/'compiled.ptx').read_bytes():
+                               header_files=quoted_headers((capture/'generated.cu').read_bytes()),
+                               artifact_kind=receipt['identity']['artifact'])
+    if not hit['hit'] or hit['key']!=receipt['key'] or artifact!=(capture/('compiled.'+receipt['identity']['artifact'])).read_bytes():
         raise ValueError('Warm CUDA artifact does not match captured compiler output')
     result=dict(passed=True,cache=hit,elapsed_seconds=time.perf_counter()-started,
-                gpu_calls=0,nvrtc_compile_calls=0,package_id=m['package_id'])
+                gpu_calls=0,nvrtc_compile_calls=0,calculation_verified=False,package_id=m['package_id'])
     with output.open('x',encoding='utf-8') as stream:
         json.dump(result,stream,indent=2);stream.write('\n')
     return result
@@ -396,10 +416,15 @@ print(json.dumps(dict(golden=g,package_id=p['package_id'],audit=a)))
                 input_count=len(result['golden']['entries']),golden=str(output.resolve()))
 
 
-def copy_generated(capture, suite):
+def copy_generated(capture, suite, *, partial=False):
     stem=Path(SUITES[suite]['source']).stem
     for suffix in ('cu','metal'):
-        (capture/('generated.'+suffix)).write_bytes((ROOT/'research/portable-build'/(stem+'.'+suffix)).read_bytes())
+        source=ROOT/'research/portable-build'/(stem+'.'+suffix)
+        if source.exists():(capture/('generated.'+suffix)).write_bytes(source.read_bytes())
+        elif not partial:raise ValueError('Missing generated source: '+suffix)
+    for kind in ('ptx','cubin'):
+        source=ROOT/'research/portable-build'/(stem+'.'+kind)
+        if source.exists():(capture/('compiled.'+kind)).write_bytes(source.read_bytes())
 
 
 def bounded_module():
@@ -413,7 +438,7 @@ def run_job(capture,backend,timeout,original_workspace=None,smoke=False):
     interpreter=getattr(sys,'_base_executable',sys.executable) if os.name=='nt' else sys.executable
     command=[interpreter,str(Path(__file__).resolve()),'_child','--capture',str(capture),'--backend',backend]
     if smoke:command.append('--smoke')
-    write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),slang_root=os.environ.get('NIKKE_SLANG_ROOT'),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
+    write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),slang_root=os.environ.get('NIKKE_SLANG_ROOT'),cuda_artifact_kind=os.environ.get('NIKKE_CUDA_ARTIFACT','cubin') if backend=='cuda' else None,compile_cache_enabled=bool(os.environ.get('NIKKE_CUDA_COMPILE_CACHE')),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
     observation={}
     if os.name=='nt':
         from windows_validation_observer import capture_snapshot,observe_job,compare_snapshots
@@ -461,6 +486,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
             facts=run_job(capture,backend,timeout,original_workspace,smoke)
             if not smoke:
                 # Child publishes generated files before comparing; failed compilation may lack them.
+                copy_generated(capture,m['suite'],partial=True)
                 result=audit_capture(capture,verify_artifacts=False)
             else:
                 marker=load(capture/'smoke.json') if (capture/'smoke.json').exists() else {}

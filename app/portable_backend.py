@@ -35,6 +35,7 @@ def source_hashes(source):
 
 def build(source, entry):
     compiler_root = Path(os.environ.get('NIKKE_SLANG_ROOT', ROOT/f'.tools/slang-2026.20-{platform.system()}-{platform.machine()}'))
+    compiler_root=compiler_root.resolve()
     compiler = compiler_root/'bin'/('slangc.exe' if os.name == 'nt' else 'slangc')
     hashes = source_hashes(source)
     directory = ROOT/'research/portable-build'
@@ -43,7 +44,7 @@ def build(source, entry):
     for target, suffix in [('cuda', 'cu'), ('metal', 'metal')]:
         output = directory/f'{Path(source).stem}.{suffix}'
         process = subprocess.run([str(compiler), str(ROOT/source), '-entry', entry,
-                                  '-target', target, '-fp-mode', 'precise'], capture_output=True, timeout=90)
+                                  '-target', target, '-fp-mode', 'precise', '-line-directive-mode', 'none'], capture_output=True, timeout=90)
         if process.returncode:
             raise RuntimeError(process.stderr.decode('utf-8', 'replace'))
         # Multiple application requests may build the same immutable shader.
@@ -181,22 +182,24 @@ def execute_cuda_batches(source, entry, batches, output_sizes, counts):
         raise RuntimeError('This CUDA NVRTC adapter currently requires Windows')
     cuda_bin = Path(os.environ.get('CUDA_PATH', r'C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.3'))/'bin'
     with os.add_dll_directory(str(cuda_bin)):
+        artifact_kind=cuda_artifact_kind()
         lib = C.WinDLL(str(next(cuda_bin.glob('nvrtc64_*.dll'))))
         signatures = dict(nvrtcCreateProgram=[C.POINTER(C.c_void_p),C.c_char_p,C.c_char_p,C.c_int,C.c_void_p,C.c_void_p],
                           nvrtcCompileProgram=[C.c_void_p,C.c_int,C.POINTER(C.c_char_p)],
                           nvrtcGetProgramLogSize=[C.c_void_p,C.POINTER(C.c_size_t)], nvrtcGetPTXSize=[C.c_void_p,C.POINTER(C.c_size_t)],
                           nvrtcGetProgramLog=[C.c_void_p,C.c_void_p], nvrtcGetPTX=[C.c_void_p,C.c_void_p],
                           nvrtcDestroyProgram=[C.POINTER(C.c_void_p)])
+        if artifact_kind=='cubin':
+            signatures.update(nvrtcGetCUBINSize=[C.c_void_p,C.POINTER(C.c_size_t)],nvrtcGetCUBIN=[C.c_void_p,C.c_void_p])
         for name, signature in signatures.items():
             getattr(lib,name).argtypes=signature; getattr(lib,name).restype=C.c_int
-        def check(code):
-            if code: raise RuntimeError(f'NVRTC error {code}')
-        ptx_bytes,compile_receipt=compile_cuda_ptx(lib,source.read_bytes(),list(cuda_bin.glob('nvrtc*.dll')))
-        ptx=C.create_string_buffer(ptx_bytes)
+        artifact_bytes,compile_receipt=compile_cuda_artifact(lib,source.read_bytes(),list(cuda_bin.glob('nvrtc*.dll')),artifact_kind=artifact_kind)
+        artifact_buffer=C.create_string_buffer(artifact_bytes)
         # Capture exact compiled bytes for independent local audits, including hits.
-        source.with_suffix('.ptx').write_bytes(ptx_bytes)
+        source.with_suffix('.'+artifact_kind).write_bytes(artifact_bytes)
     driver=C.WinDLL('nvcuda.dll')
     signatures=dict(cuInit=[C.c_uint],cuDeviceGet=[C.POINTER(C.c_int),C.c_int],cuDeviceGetName=[C.c_char_p,C.c_int,C.c_int],
+        cuDeviceComputeCapability=[C.POINTER(C.c_int),C.POINTER(C.c_int),C.c_int],
         cuCtxCreate_v2=[C.POINTER(C.c_void_p),C.c_uint,C.c_int],cuCtxDestroy_v2=[C.c_void_p],
         cuModuleLoadData=[C.POINTER(C.c_void_p),C.c_void_p],cuModuleGetFunction=[C.POINTER(C.c_void_p),C.c_void_p,C.c_char_p],
         cuModuleGetGlobal_v2=[C.POINTER(C.c_uint64),C.POINTER(C.c_size_t),C.c_void_p,C.c_char_p],
@@ -210,10 +213,13 @@ def execute_cuda_batches(source, entry, batches, output_sizes, counts):
         if code:raise RuntimeError(f'{name}: CUDA error {code}')
     context=C.c_void_p()
     call('cuInit',0);device=C.c_int();call('cuDeviceGet',C.byref(device),0)
+    if artifact_kind=='cubin':
+        major=C.c_int();minor=C.c_int();call('cuDeviceComputeCapability',C.byref(major),C.byref(minor),device)
+        if (major.value,minor.value)!=(8,6):raise RuntimeError('The native CUDA artifact requires SM86')
     name=C.create_string_buffer(256);call('cuDeviceGetName',name,256,device)
     try:
         call('cuCtxCreate_v2',C.byref(context),0,device)
-        module=C.c_void_p();function=C.c_void_p();call('cuModuleLoadData',C.byref(module),C.cast(ptx,C.c_void_p))
+        module=C.c_void_p();function=C.c_void_p();call('cuModuleLoadData',C.byref(module),C.cast(artifact_buffer,C.c_void_p))
         call('cuModuleGetFunction',C.byref(function),module,entry.encode())
         inp=C.c_uint64();out=C.c_uint64()
         call('cuMemAlloc_v2',C.byref(inp),max(map(len,batches)));call('cuMemAlloc_v2',C.byref(out),max(output_sizes))
@@ -235,9 +241,21 @@ def execute_cuda_batches(source, entry, batches, output_sizes, counts):
         if context:call('cuCtxDestroy_v2',context)
 
 
-def compile_cuda_ptx(lib, source, compiler_files):
+def cuda_artifact_kind():
+    kind=os.environ.get('NIKKE_CUDA_ARTIFACT','cubin')
+    if kind not in ('ptx','cubin'):raise ValueError('NIKKE_CUDA_ARTIFACT must be cubin or ptx')
+    return kind
+
+
+def cuda_compile_options(kind):
+    if kind not in ('ptx','cubin'):raise ValueError('Invalid CUDA artifact kind')
+    return ['--std=c++17','--gpu-architecture='+('sm_86' if kind=='cubin' else 'compute_86'),'--fmad=false']
+
+
+def compile_cuda_artifact(lib, source, compiler_files, *, artifact_kind=None):
     from portable_compile_cache import get_or_compile,quoted_headers
-    options = ['--std=c++17','--gpu-architecture=compute_86','--fmad=false']
+    artifact_kind=cuda_artifact_kind() if artifact_kind is None else artifact_kind
+    options = cuda_compile_options(artifact_kind)
     def compile_now():
         def check(code):
             if code: raise RuntimeError(f'NVRTC error {code}')
@@ -249,9 +267,15 @@ def compile_cuda_ptx(lib, source, compiler_files):
             size=C.c_size_t();check(lib.nvrtcGetProgramLogSize(program,C.byref(size)))
             log=C.create_string_buffer(size.value);check(lib.nvrtcGetProgramLog(program,log))
             if code: raise RuntimeError(log.value.decode('utf-8','replace'))
-            check(lib.nvrtcGetPTXSize(program,C.byref(size)))
-            ptx=C.create_string_buffer(size.value);check(lib.nvrtcGetPTX(program,ptx))
-            return ptx.raw
+            get_size=getattr(lib,'nvrtcGetCUBINSize' if artifact_kind=='cubin' else 'nvrtcGetPTXSize')
+            get_data=getattr(lib,'nvrtcGetCUBIN' if artifact_kind=='cubin' else 'nvrtcGetPTX')
+            check(get_size(program,C.byref(size)))
+            if size.value==0:raise RuntimeError('NVRTC returned an empty '+artifact_kind+' artifact')
+            artifact=C.create_string_buffer(size.value);check(get_data(program,artifact))
+            return artifact.raw
         finally:
             if program: lib.nvrtcDestroyProgram(C.byref(program))
-    return get_or_compile(source,options,compiler_files,compile_now,os.environ.get('NIKKE_CUDA_COMPILE_CACHE'),header_files=quoted_headers(source))
+    artifact,receipt=get_or_compile(source,options,compiler_files,compile_now,os.environ.get('NIKKE_CUDA_COMPILE_CACHE') or None,header_files=quoted_headers(source),artifact_kind=artifact_kind)
+    if artifact_kind=='cubin' and not artifact.startswith(b'\x7fELF'):
+        raise RuntimeError('NVRTC CUBIN artifact is not a native ELF binary')
+    return artifact,receipt

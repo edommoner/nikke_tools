@@ -26,9 +26,10 @@ def quoted_headers(source):
     return list(found)
 
 
-def get_or_compile(source, options, compiler_files, compile_fn, directory=None, *, header_files=()):
+def get_or_compile(source, options, compiler_files, compile_fn, directory=None, *, header_files=(), artifact_kind='ptx'):
+    if artifact_kind not in ('ptx','cubin'):raise ValueError('Unsupported CUDA artifact kind')
     compiler_files=list(map(Path,compiler_files));header_files=list(map(Path,header_files))
-    identity = dict(schema=1, artifact='ptx', source_sha256=sha(source),
+    identity = dict(schema=1, artifact=artifact_kind, source_sha256=sha(source),
                     options=list(options),
                     headers={str(p.resolve()):sha(p.read_bytes()) for p in sorted(map(Path,header_files))},
                     compiler_files={p.name:sha(p.read_bytes()) for p in sorted(map(Path,compiler_files))})

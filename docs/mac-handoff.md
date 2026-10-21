@@ -7,7 +7,9 @@
 
 共通Slangへlost_hp_pct防御を接続。直接HP/防御helperと通常buff照会のruntime predicate規約を分け、型付き敵対象の挑発を既存receiver集合へ接続。実編成では敵パターン有無から遮蔽物HP同期を選びます。保護されたCPU/compiler/referenceは変更していません。途中の拒否・差分・診断captureは保持しています。全キャラ/変種/容量/長時間の戦闘認証ではなく、public world=false、通常UI=CPU、full_goal_complete=falseを維持します。
 
-CUDAはopt-in PTXキャッシュ、原byte＋NVRTC DLL＋引用header＋flagsのidentity、破損拒否、compiled.ptx/phase監査、GPU/NVRTC0のcache-checkを追加。新規展開先の#lineパスが変わるとmissなので、展開先を跨ぐhit率とモジュールload約83秒の改善は未完了です。WindowsはMacの最終検査後、readiness75だけを180秒上限で1回検証し、warm確認はGPU0で行います。結果は計算/containment/環境保持を分けて監査します。
+Windows v105は共通75/native60とCPU検査・smokeが成功しましたが、NVRTC44.609秒後のPTX module load中に180秒で停止、kernel launch0、retry0です。missing0、後続残留0、元HEAD/status保持も、失敗したcontainment/サービス識別未確定を成功に変えません。個人情報を除いた集計はportable-world-v105-cuda-sanitized.json、詳細原本はWindowsローカルです。
+
+修正版はSM86 CUBIN直接生成と形式別の原byte cacheへ変更。DLL/header/flags/sourceをkeyにし、破損拒否・途中失敗時artifact回収・GPU/NVRTC0のcache-checkを共通化しました。Slangのline directiveを生成時に無効化し、2展開先のCUDA/MSL全byte一致をCPUで確認。改行配置が変わるためnormalizerは維持し、Metal75を再実証・v3 goldenへseal、旧75全出力指紋を保持しました。CUBINのWindows実機確認はこれからで、180秒上限の修正版1回だけを使います。API能力はNVRTC11.3/GetCUBIN有りをCPUだけで確認済みです。
 
 詳細：docs/gpu-development-cli.md、research/portable-readiness-development-validation.json。全ゴールと未対応項目は継続中です。
 <!-- /readiness-cli-development -->

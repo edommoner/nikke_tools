@@ -102,12 +102,18 @@ importは原byte・サイズ・SHAを確認し、新規宛先だけへ展開し�
 
 ## CUDAコンパイルキャッシュ
 
-Windowsで`NIKKE_CUDA_COMPILE_CACHE`に専用ローカルディレクトリを指定した場合だけ、NVRTCのPTX生成物を再利用します。キーは生成CUDAの**原byte**、全コンパイルオプション、`nvrtc*.dll`と引用includeされたSlang prelude/headerの原byte SHAです。厳密normalizerはキー作成に使いません。破損・identity不一致は再コンパイルで隠さず失敗させます。無指定なら従来どおり毎回コンパイルします。
+Windowsの既定はSM86向けCUBINです。NVRTCへ`--gpu-architecture=sm_86`・`--fmad=false`を渡し、`nvrtcGetCUBINSize`/`nvrtcGetCUBIN`でバイナリーを取得します。実行時にdeviceのcompute capabilityを照合します。APIは[NVIDIA NVRTC 11.3公式文書](https://docs.nvidia.com/cuda/archive/11.3.0/nvrtc/index.html)に基づき、Windowsの11.3 DLLでもexportをCPU0-GPUの能力検査で確認しました。`NIKKE_CUDA_ARTIFACT=ptx`は診断用の明示選択です。API不在やSM不一致からの自動切替はありません。数値・効果のSlang本体は共通です。
 
-キャッシュhitはNVRTC実行成功として記録せず、独立した`cuda_compile_cache`観測に記録します。`compiled.ptx`をcaptureに残し、generated CUDA・キー・出力byte・phase receiptを監査します。CUDA launch/synchronize/readbackとnativeの検査はhitでも必須です。PTXは結果ZIPやGitHub共有payloadに含めません。この変更で削減できる候補はNVRTC区間です。モジュール読み込みの約83秒の削減や、Windows実測での高速化は未証明です。
+`NIKKE_CUDA_COMPILE_CACHE`を専用ローカルディレクトリへ指定した場合だけ、生成物を保存・再利用します。キーは形式(cubin/ptx)、生成CUDAの原byte、全オプション、NVRTC DLLと引用includeされたSlang prelude/headerの原byte SHAです。破損・identity不一致は失敗させ、normalizerはキーに使用しません。hitでもCUDA launch/synchronize/readback・CPU比較は必須です。`cuda_compile_cache`の観測と、`compiled.cubin`または`compiled.ptx`をcaptureに残します。rawバイナリーは結果ZIP・GitHub payloadへ含めません。
 
-`cases --suite readiness`はCPU静的梱包だけで入力名を一覧にします。開発成功後は`seal --package-root /tmp/nikke-development --capture /tmp/nikke-development-metal --out /tmp/new-golden.json`で、元パッケージの独立プロセスによるGPU禁止監査とnative再比較を行い、明示的にgoldenを作成できます。失敗・非Metal・非development・現行GPUソース不一致は拒否し、既存ファイルは上書きしません。作成物を対応するsuiteへ登録してから、通常のsealed packageでCUDAを検証します。`readiness`は今回の累積75入力（native60＋拒否15）の正式スイートです。`lost-hp-roster`は実編成検証用、`lost-hp-diagnostic`は既存の診断専用入口を使うもので、いずれもdevelopment限定です。
+Slangは`-fp-mode precise -line-directive-mode none`で生成し、コンパイラールートをresolveします。Macで独立した2ルートのCUDA/MSL全byte一致を確認しました。改行配置も変わるため、既存normalizerを維持して新たにMetal75を実行・sealし、旧75の全input/output/native指紋との一致を確認しました。`readiness`が累積75(native60＋拒否15)の正式suiteです。
 
-CUDAのcold検証後、同じパッケージの`cache-check --capture <cold-capture> --out <new-report.json>`で、保存compiled.ptxと同じキャッシュへhitすることをGPU/NVRTCコンパイル0で検査できます。`NIKKE_CUDA_COMPILE_CACHE`と`CUDA_PATH`をcold時と同じ場所へ設定します。キー不一致・missはコンパイルせず拒否します。これは暖機後のGPU所要時間測定ではありません。
+`cases --suite readiness`は入力名をCPUで一覧にします。開発成功後は`seal --package-root /tmp/nikke-development --capture /tmp/nikke-development-metal --out /tmp/new-golden.json`で、元パッケージの独立プロセスによるGPU禁止監査・native再比較からgoldenを明示作成できます。失敗・非Metal・非development・現行GPUソース不一致を拒否し、既存ファイルを上書きしません。作成物をsuiteへ登録してからsealed packageでCUDAを検証します。`lost-hp-roster`は実編成用、`lost-hp-diagnostic`は既存診断入口用で、どちらもdevelopment限定です。
 
-キャッシュキーは`#line`のパスも含む原byteです。別の展開先で生成パスが変わるとmissになります。同じ生成物の再利用は確認できますが、展開先を跨ぐhit率の改善は今後の作業です。既存normalizerでパスを除外したSHAを、コンパイルキャッシュのキーへ流用しません。
+CUDAのcold実行後は、同じpackageの`cache-check --capture <cold-capture> --out <new-report.json>`で、保存バイナリーと同じcacheへのhitをGPU/NVRTCコンパイル0で確認します。`NIKKE_CUDA_COMPILE_CACHE`と`CUDA_PATH`をcold時と同じ場所へ設定します。コンパイル成功後のmodule load失敗でも、回収された生成物とphase receiptが揃えば検査できます。これはキャッシュ検査であり、計算成功・暖機後のGPU時間測定ではありません。`calculation_verified=false`を明記します。
+
+v105のPTX方式は、コンパイル44.609秒後にmodule loadが返らず180秒で終了しました。kernel launch0、同条件retry0です。missing0/後続残留0/元HEAD・status保持も、失敗したcontainment・サービス識別未確定を成功へ変えません。詳細原本はWindowsローカルに保持し、Macには個人情報を除いた集計を取得しました。CUBIN実機の速度・数値一致は、修正版の短いWindows検証で確認します。
+
+### 新スイートの受け渡し
+
+v105で、旧CLIが未知のsuiteを展開後に拒否するbootstrap問題を確認しました。現在の`unpack`はschema・member一覧・重複・原byte SHAを検査して転送し、suite登録の照合は展開先CLIの`verify_package`/`run`で行います。展開中にpayloadのPythonは実行しません。未知schemaは宛先作成前に拒否します。旧CLIの場合は、ZIP全体のSHAとmanifestを確認して取り出した現行CLIで、新しい宛先へunpackしてください。途中の展開失敗はGPU実行とは数えず、元の失敗記録を残します。

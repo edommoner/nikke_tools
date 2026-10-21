@@ -61,11 +61,11 @@ class CacheCheckCLITests(unittest.TestCase):
             cache=root/'cache';source=b'generated';options=['--fmad=false']
             artifact,receipt=get_or_compile(source,options,[dll],lambda:b'ptx',cache)
             (capture/'generated.cu').write_bytes(source);(capture/'compiled.ptx').write_bytes(artifact)
-            cli.write(capture/'run.json',dict(package_id='fixture'))
+            cli.write(capture/'run.json',dict(package_id='fixture',backend='cuda'))
             cli.write(capture/'evidence.json',dict(backend='cuda',transport=dict(compile_artifact=receipt)))
             records=cli.file_records(capture,['generated.cu','compiled.ptx','run.json','evidence.json'])
             cli.write(capture/'artifacts.json',dict(files=records))
-            with patch.object(cli,'verify_package',return_value=dict(package_id='fixture')),patch.dict(os.environ,{'CUDA_PATH':str(cuda),'NIKKE_CUDA_COMPILE_CACHE':str(cache)}):
+            with patch.object(cli,'verify_package',return_value=dict(package_id='fixture',backend='cuda')),patch.dict(os.environ,{'CUDA_PATH':str(cuda),'NIKKE_CUDA_COMPILE_CACHE':str(cache)}):
                 report=cli.check_compile_cache(capture,root/'warm.json')
                 self.assertTrue(report['passed']);self.assertEqual(report['gpu_calls'],0)
                 self.assertEqual(report['nvrtc_compile_calls'],0)
@@ -88,5 +88,32 @@ class HeaderIdentityTests(unittest.TestCase):
             (root/'nested.h').write_text('second')
             _,b=get_or_compile(source,[],[],lambda:b'ptx',header_files=quoted_headers(source))
             self.assertNotEqual(a['key'],b['key'])
+
+
+class FailedModuleCaptureTests(unittest.TestCase):
+    def test_successful_compiler_artifact_can_be_checked_after_module_timeout(self):
+        import importlib.util,os
+        from unittest.mock import patch
+        spec=importlib.util.spec_from_file_location('failed_cache_cli',ROOT/'scripts/nikke_gpu.py')
+        cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);capture=root/'capture';capture.mkdir()
+            cuda=root/'cuda';(cuda/'bin').mkdir(parents=True);dll=cuda/'bin/nvrtc.dll';dll.write_bytes(b'compiler')
+            cache=root/'cache';source=b'generated'
+            artifact,receipt=get_or_compile(source,[],[dll],lambda:b'cubin',cache,artifact_kind='cubin')
+            (capture/'generated.cu').write_bytes(source);(capture/'compiled.cubin').write_bytes(artifact)
+            cli.write(capture/'run.json',dict(package_id='fixture',backend='cuda'))
+            line=json.dumps(dict(stage='cuda_compile_cache',state='verified',receipt=receipt))+'\n'
+            (capture/'phases.jsonl').write_text(line)
+            names=['generated.cu','compiled.cubin','run.json','phases.jsonl']
+            cli.write(capture/'artifacts.json',dict(files=cli.file_records(capture,names)))
+            with patch.object(cli,'verify_package',return_value=dict(package_id='fixture')),patch.dict(os.environ,{'CUDA_PATH':str(cuda),'NIKKE_CUDA_COMPILE_CACHE':str(cache)}):
+                report=cli.check_compile_cache(capture,root/'warm.json')
+                self.assertTrue(report['passed']);self.assertFalse(report['calculation_verified'])
+                self.assertEqual(report['gpu_calls'],0);self.assertEqual(report['nvrtc_compile_calls'],0)
+                (capture/'phases.jsonl').write_text('{\n'+line)
+                cli.write(capture/'artifacts.json',dict(files=cli.file_records(capture,names)))
+                with self.assertRaises(json.JSONDecodeError):cli.check_compile_cache(capture,root/'bad.json')
+                self.assertFalse((root/'bad.json').exists())
 
 if __name__=='__main__':unittest.main()
