@@ -1,0 +1,17 @@
+# 同一CUDAキャッシュキーのコンパイル競合防止
+
+既存cacheはartifactの公開をatomic replaceしていましたが、同じ未生成キーへの同時要求は、それぞれNVRTCを開始できました。巨大な本体の重複coldコンパイルを防ぐため、cache missのときだけキー別の排他的な`.claim`を取得します。競合要求は待機・再試行・NVRTCロードをせず、直ちにエラーになります。
+
+claim取得後にもcacheを再検査します。最初のlookupと取得の間に前のpublisherが完了した場合は、そのartifactを検証してhitとして返し、重複コンパイルしません。正常終了・捕捉した失敗では自分のclaimだけを解放します。claimにはkey／PID／一意tokenを残し、所有byteが変わっていれば消しません。元のcompiler例外もcleanup例外で隠しません。
+
+プロセスが異常終了して残ったclaimを、PIDが存在しないという理由だけで自動的に奪いません。失敗した専用captureとcacheの状態を確認する必要があります。これは協調するcache利用者間の競合防止であり、送信元認証や第三者によるファイル改変へのsecurity boundaryではありません。
+
+hitは従来どおり正確なsource／option／compiler DLL／引用headerのbyte identityとartifact SHAを検査します。cache key、receipt schema、過去artifactの互換性、破損時の拒否、required missでNVRTCを起動しない規約は変更していません。成功artifactが既に存在するhitにclaim取得は不要です。cache無効時の従来の挙動も維持します。
+
+## 検証範囲
+
+MacのCPUテストでは、実際の別プロセスをgateで保持して同時missを作り、第二のcompiler callbackが0回であること、第一の終了後はhitになることを確認しました。異常終了した実プロセスのclaimを保持する検査、捕捉済み失敗の解放、他ownerの記録を残したまま元エラーを維持する検査、lookup→claim間のpublication、既存の厳密identity／破損／cache-check／NVRTC禁止検査も含みます。compile-cache12、CUDA artifact10が成功し、全CPU回帰708も失敗0（Windows専用1skip）でした。
+
+テストのcompilerはfake callbackで、NVRTC／GPUは使用していません。共通CLIの`run --smoke`へcacheとartifactのCPU群も追加し、制御／cacheだけを同じ短い検証経路で確認できるようにしました。必要なtest fileが存在しなければ、0件のdiscoverを成功として進めず、Job起動前に拒否します。現在のsmokeはcleanup4＋CLI27＋cache12＋artifact10の53件で、全編成のnative preflightは呼びません。
+
+Windows実機のclaim経路と、coldコンパイルの速度・peak memory改善は未確認です。v115でMemory allocation failureになった本体のコンパイル成功を、この競合防止の成功から主張しません。

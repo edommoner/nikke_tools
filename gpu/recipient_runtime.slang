@@ -2,8 +2,9 @@ bool validRecipientLeaf(uint at, bool enemy = false)
 {
     uint kind = commands[at], count = commands[at+1], mask = commands[at+2];
     if (enemy) return kind == 4 && count == 0 && mask == 0 && commands[at+3] == 0 && commands[at+4] == 0 && commands[at+5] == 0 && commands[at+6] < P_DEFINITIONS && (commands[at+7] & ~7U) == 0;
-    if (kind > 21 || kind >= 17 && kind <= 20 || kind == 4 || kind == 14 || count > 5 || mask > 31 || commands[at+3] > (kind == 12 || kind == 13 ? 2 : 1)) return false;
+    if (kind > 21 || (kind == 17 || kind == 19 || kind == 20) || kind == 4 || kind == 14 || count > 5 || mask > 31 || commands[at+3] > (kind == 12 || kind == 13 ? 2 : 1)) return false;
     if ((kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16 || kind == 21) && count == 0) return false;
+    if(kind==18 && (count!=0 || commands[at+3]!=0 || commands[at+4]!=0 || commands[at+5]!=0 || (commands[at+7]>>4)!=0)) return false;
     uint order = commands[at+4], seen = 0; bool ended = false;
     if (order >> 15 != 0 || commands[at+6] >= P_DEFINITIONS || (commands[at+7] & 8) != 0 || (commands[at+7] >> 4) > P_DEFINITIONS) return false;
     for (uint i = 0; i < 5; i++)
@@ -55,7 +56,12 @@ uint selectRecipientLeaf(inout Runtime s, uint row, uint at, uint64_t when, out 
     }
     else
     {
-        uint pool = kind == 8 || kind == 15 || kind == 16 ? candidates : 31;
+        uint pool = kind == 8 || kind == 15 || kind == 16 || kind == 18 ? candidates : 31;
+        if(kind==18)
+        {
+            pool &= ~(1U<<d.owner);
+            for(uint who=0;who<5;who++) if(!statusPersona(s,who)) pool &= ~(1U<<who);
+        }
         if (kind == 9 || kind == 11) pool &= s.castMask;
         if (kind == 10) pool &= ~s.castMask;
         if (kind == 11) pool &= candidates;

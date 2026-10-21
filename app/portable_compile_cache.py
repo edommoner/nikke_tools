@@ -1,11 +1,13 @@
 """Opt-in exact-byte NVRTC artifact cache. No generated-source normalization."""
 import base64
+from contextlib import contextmanager
 import hashlib
 import json
 import os
 import re
 from pathlib import Path
 import tempfile
+import uuid
 
 
 def sha(data):
@@ -26,6 +28,44 @@ def quoted_headers(source):
     return list(found)
 
 
+@contextmanager
+def compile_claim(path, key):
+    """Fail fast on concurrent misses; never steal an abandoned claim by PID."""
+    if path is None:
+        yield
+        return
+    path.parent.mkdir(parents=True,exist_ok=True)
+    claim=path.with_suffix('.claim')
+    owner=json.dumps(dict(schema=1,key=key,pid=os.getpid(),token=uuid.uuid4().hex),sort_keys=True).encode()
+    try:
+        with claim.open('xb') as stream:
+            stream.write(owner);stream.flush();os.fsync(stream.fileno())
+    except FileExistsError as error:
+        raise RuntimeError('CUDA compilation already claimed; inspect before retry: '+str(claim)) from error
+    def release():
+        if claim.read_bytes()!=owner:
+            raise RuntimeError('CUDA compile claim ownership changed; claim preserved: '+str(claim))
+        claim.unlink()
+    try:
+        yield
+    except BaseException as error:
+        try:release()
+        except BaseException as cleanup:
+            if hasattr(error,'add_note'):error.add_note('CUDA compile claim cleanup: '+str(cleanup))
+        raise
+    else:
+        release()
+
+
+def read_artifact(path, identity):
+    value=json.loads(path.read_bytes())
+    if value['identity']!=identity:raise ValueError('CUDA compile cache identity mismatch')
+    artifact=base64.b64decode(value['artifact_base64'],validate=True)
+    if sha(artifact)!=value['artifact_sha256'] or len(artifact)!=value['artifact_bytes']:
+        raise ValueError('CUDA compile cache artifact integrity failure')
+    return artifact
+
+
 def get_or_compile(source, options, compiler_files, compile_fn, directory=None, *, header_files=(), artifact_kind='ptx'):
     if artifact_kind not in ('ptx','cubin'):raise ValueError('Unsupported CUDA artifact kind')
     compiler_files=list(map(Path,compiler_files));header_files=list(map(Path,header_files))
@@ -39,26 +79,27 @@ def get_or_compile(source, options, compiler_files, compile_fn, directory=None, 
         raise ValueError('CUDA cache requires compiler binary identities')
     hit = bool(path and path.exists())
     if hit:
-        value = json.loads(path.read_bytes())
-        if value['identity'] != identity: raise ValueError('CUDA compile cache identity mismatch')
-        artifact = base64.b64decode(value['artifact_base64'],validate=True)
-        if sha(artifact) != value['artifact_sha256'] or len(artifact)!=value['artifact_bytes']:
-            raise ValueError('CUDA compile cache artifact integrity failure')
+        artifact=read_artifact(path,identity)
     else:
-        artifact = compile_fn()
-        if {str(p.resolve()):sha(p.read_bytes()) for p in sorted(map(Path,header_files))} != identity['headers']:
-            raise ValueError('CUDA headers changed during compilation')
-        if {p.name:sha(p.read_bytes()) for p in sorted(map(Path,compiler_files))} != identity['compiler_files']:
-            raise ValueError('CUDA compiler changed during compilation')
-        if not isinstance(artifact,bytes) or not artifact: raise ValueError('Empty/invalid compiler artifact')
-        if path:
-            path.parent.mkdir(parents=True,exist_ok=True)
-            value = dict(identity=identity, artifact_base64=base64.b64encode(artifact).decode(),
-                         artifact_sha256=sha(artifact),artifact_bytes=len(artifact))
-            with tempfile.NamedTemporaryFile(dir=path.parent,delete=False) as stream:
-                temporary=Path(stream.name)
-                stream.write(json.dumps(value,sort_keys=True).encode());stream.flush();os.fsync(stream.fileno())
-            try: temporary.replace(path)
-            finally: temporary.unlink(missing_ok=True)
+        with compile_claim(path,key):
+            # A publisher may have finished between the first lookup and claim.
+            hit=bool(path and path.exists())
+            if hit:
+                artifact=read_artifact(path,identity)
+            else:
+                artifact = compile_fn()
+                if {str(p.resolve()):sha(p.read_bytes()) for p in sorted(map(Path,header_files))} != identity['headers']:
+                    raise ValueError('CUDA headers changed during compilation')
+                if {p.name:sha(p.read_bytes()) for p in sorted(map(Path,compiler_files))} != identity['compiler_files']:
+                    raise ValueError('CUDA compiler changed during compilation')
+                if not isinstance(artifact,bytes) or not artifact: raise ValueError('Empty/invalid compiler artifact')
+                if path:
+                    value = dict(identity=identity, artifact_base64=base64.b64encode(artifact).decode(),
+                                 artifact_sha256=sha(artifact),artifact_bytes=len(artifact))
+                    with tempfile.NamedTemporaryFile(dir=path.parent,delete=False) as stream:
+                        temporary=Path(stream.name)
+                        stream.write(json.dumps(value,sort_keys=True).encode());stream.flush();os.fsync(stream.fileno())
+                    try: temporary.replace(path)
+                    finally: temporary.unlink(missing_ok=True)
     return artifact,dict(enabled=path is not None,hit=hit,key=key,identity=identity,
                          artifact_sha256=sha(artifact),artifact_bytes=len(artifact))

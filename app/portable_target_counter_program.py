@@ -29,6 +29,15 @@ def patch_program(words, metadata, chars, effects):
     from portable_target_state_specs import compiler_effect, allocate_names
     original = detail_gpu.compile_effects(chars, [(compiler_effect(e), owner) for e, owner in effects])
     allocate_names(effects, original['states'])
+    # Portable code IDs include the literal enemy code even when no condition
+    # references that exact spelling. Rebuild the same immutable symbol table;
+    # do not weaken the exact namespace comparison to a subset test.
+    from portable_code_specs import code_names
+    world=L['WORLD_META_BASE'];code=words[world]
+    names=[name for name,index in metadata['states'].items() if index+1==code]
+    if code!=0 and len(names)!=1:raise ValueError('Private counter enemy code identity changed')
+    expected=code_names(effects,names[0] if code else None,original['states'],L['DEFINITIONS'])
+    if expected!=(code,words[world+1]):raise ValueError('Private counter enemy code descriptor changed')
     if original['states'] != metadata['states']:
         raise ValueError('Private counter compiler name symbols changed')
     from portable_team_hit_specs import bound_effects

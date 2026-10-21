@@ -10,6 +10,103 @@ from portable_compile_cache import get_or_compile
 from portable_phase_audit import verify_cuda_trace
 
 class CompileCacheTests(unittest.TestCase):
+    def test_handled_failure_releases_only_owned_claim_without_caching_failure(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);dll=root/'nvrtc.dll';dll.write_bytes(b'compiler');cache=root/'cache'
+            compile=Mock(side_effect=ValueError('original compile failure'))
+            with self.assertRaisesRegex(ValueError,'original compile failure'):
+                get_or_compile(b'cuda',[],[dll],compile,cache)
+            self.assertEqual(list(cache.iterdir()),[]);compile.assert_called_once()
+
+    def test_foreign_claim_is_preserved_and_original_error_is_not_hidden(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);dll=root/'nvrtc.dll';dll.write_bytes(b'compiler');cache=root/'cache'
+            def compile():
+                claim=next(cache.glob('*.claim'));claim.write_bytes(b'other owner')
+                raise ValueError('original compile failure')
+            with self.assertRaisesRegex(ValueError,'original compile failure') as caught:
+                get_or_compile(b'cuda',[],[dll],compile,cache)
+            self.assertEqual(next(cache.glob('*.claim')).read_bytes(),b'other owner')
+            self.assertIn('ownership changed',' '.join(caught.exception.__notes__))
+            self.assertEqual(list(cache.glob('*.json')),[])
+
+    def test_publication_between_lookup_and_claim_is_a_hit_without_compile(self):
+        from contextlib import contextmanager
+        from unittest.mock import patch
+        import portable_compile_cache as module
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);dll=root/'nvrtc.dll';dll.write_bytes(b'compiler')
+            _,receipt=get_or_compile(b'cuda',[],[dll],lambda:b'cubin',root/'seed')
+            raw=(root/'seed'/(receipt['key']+'.json')).read_bytes()
+            @contextmanager
+            def published(path,key):
+                path.parent.mkdir();path.write_bytes(raw);yield
+            compile=Mock(side_effect=AssertionError('Duplicate compiler'))
+            with patch.object(module,'compile_claim',published):
+                artifact,hit=get_or_compile(b'cuda',[],[dll],compile,root/'cache')
+            self.assertEqual(artifact,b'cubin');self.assertTrue(hit['hit']);compile.assert_not_called()
+
+    def test_real_competing_process_fails_before_compiler_and_then_reuses_artifact(self):
+        import subprocess,time
+        script='''import sys,time,json
+from pathlib import Path
+sys.path.insert(0,sys.argv[1])
+from portable_compile_cache import get_or_compile
+dll,cache,started,release,output=map(Path,sys.argv[2:])
+def compile():
+ started.write_text('compiler entered')
+ deadline=time.monotonic()+5
+ while not release.exists():
+  if time.monotonic()>deadline:raise RuntimeError('test gate timeout')
+  time.sleep(.01)
+ return b'cubin'
+artifact,receipt=get_or_compile(b'cuda',[],[dll],compile,cache)
+output.write_text(json.dumps(receipt))
+'''
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);dll=root/'nvrtc.dll';dll.write_bytes(b'compiler');cache=root/'cache'
+            started=root/'started';release=root/'release';output=root/'output.json'
+            child=subprocess.Popen([sys.executable,'-c',script,str(ROOT/'app'),str(dll),str(cache),str(started),str(release),str(output)],stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+            try:
+                deadline=time.monotonic()+5
+                while not started.exists():
+                    if child.poll() is not None or time.monotonic()>deadline:self.fail('Compiler child did not enter gate')
+                    time.sleep(.01)
+                claim=next(cache.glob('*.claim'));owner=claim.read_bytes()
+                self.assertEqual(json.loads(owner)['pid'],child.pid)
+                compile=Mock(side_effect=AssertionError('Duplicate compiler'))
+                with self.assertRaisesRegex(RuntimeError,'already claimed'):
+                    get_or_compile(b'cuda',[],[dll],compile,cache)
+                compile.assert_not_called();self.assertEqual(claim.read_bytes(),owner)
+                release.write_bytes(b'go');stdout,stderr=child.communicate(timeout=5)
+                self.assertEqual(child.returncode,0,stderr.decode());self.assertFalse(claim.exists())
+                artifact,receipt=get_or_compile(b'cuda',[],[dll],compile,cache)
+                self.assertEqual(artifact,b'cubin');self.assertTrue(receipt['hit'])
+                self.assertEqual(receipt['key'],json.loads(output.read_text())['key']);compile.assert_not_called()
+            finally:
+                if child.poll() is None:child.kill();child.communicate()
+
+    def test_crashed_process_claim_is_not_stolen_from_pid_liveness(self):
+        import subprocess
+        script='''import sys,os
+from pathlib import Path
+sys.path.insert(0,sys.argv[1])
+from portable_compile_cache import compile_claim
+with compile_claim(Path(sys.argv[2]),sys.argv[3]):os._exit(17)
+'''
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);dll=root/'nvrtc.dll';dll.write_bytes(b'compiler')
+            # Obtain the exact key independently; leave the real cache empty.
+            _,receipt=get_or_compile(b'cuda',[],[dll],lambda:b'cubin',root/'seed')
+            path=root/'cache'/(receipt['key']+'.json')
+            result=subprocess.run([sys.executable,'-c',script,str(ROOT/'app'),str(path),receipt['key']],capture_output=True,timeout=5)
+            self.assertEqual(result.returncode,17)
+            claim=path.with_suffix('.claim');before=claim.read_bytes()
+            compile=Mock(side_effect=AssertionError('Compiler after crash'))
+            with self.assertRaisesRegex(RuntimeError,'already claimed'):
+                get_or_compile(b'cuda',[],[dll],compile,path.parent)
+            self.assertEqual(claim.read_bytes(),before);self.assertFalse(path.exists());compile.assert_not_called()
+
     def test_hit_requires_exact_source_flags_and_compiler_bytes(self):
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder);dll=root/'nvrtc.dll';dll.write_bytes(b'compiler')

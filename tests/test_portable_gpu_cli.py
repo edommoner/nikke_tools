@@ -59,6 +59,18 @@ class PacketTests(unittest.TestCase):
             self.assertTrue(result['smoke_verified']);self.assertFalse(result['calculation_verified'])
             self.assertEqual([c.args[0][-1] for c in tests.call_args_list],cli.SMOKE_TESTS)
             self.assertEqual(cli.load(capture/'cpu.json')['native_oracles'],0)
+            self.assertIn('test_portable_compile_cache.py',cli.SMOKE_TESTS)
+            self.assertIn('test_portable_cuda_artifact.py',cli.SMOKE_TESTS)
+
+    def test_missing_smoke_test_cannot_silently_pass_with_zero_discovered_tests(self):
+        with tempfile.TemporaryDirectory() as folder:
+            with patch.object(cli,'verify_package',return_value=dict(suite='regression',purpose='sealed',package_id='missing-test')),\
+                 patch.object(cli,'SMOKE_TESTS',['missing-required-test.py']),\
+                 patch.object(cli,'cpu_preflight',side_effect=AssertionError('Native battle forbidden')),\
+                 patch.object(cli.subprocess,'run') as tests,patch.object(cli,'run_job') as job:
+                with self.assertRaisesRegex(ValueError,'CPU test file missing'):
+                    cli.run_capture(Path(folder)/'capture','cuda',30,smoke=True)
+            tests.assert_not_called();job.assert_not_called()
 
     def test_windows_temporary_environment_reaches_child_without_changing_parent(self):
         from types import SimpleNamespace

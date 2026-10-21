@@ -25,6 +25,7 @@ PROFILES += [('율리아',1), ('율리아',2)]
 PROFILES += [('이사벨',0)]
 PROFILES += [('에이다',0)]
 PROFILES += [('길티',0), ('신',0), ('퀀시',0)]
+PROFILES += [('퀸(마코토)',0), ('유키코',0), ('아이기스',0)]
 DURATIONS = (3,30)
 suite = SimpleNamespace(INPUT=real.INPUT_WORDS, OUTPUT=real.OUTPUT_WORDS,
                         inspect_native=lambda case: real.native_reference(case['body']))
@@ -43,6 +44,14 @@ def prepare():
             case = dict(character=character,favorite_stage=stage,duration=duration,body=body)
             entries.append((f'real/{character}/favorite-{stage}/{duration}s',words,
                             (case,prepared,words,metadata)))
+    # Exercise the selector with all three real persona characters together,
+    # retaining their complete definitions, equipment and support characters.
+    for duration in DURATIONS:
+        body=dict(real.body_for(['리타','크라운','퀸(마코토)','유키코','아이기스'],duration),burst_gauge_mode='accumulate')
+        prepared=real.engine_worker.evaluate(dict(body,_portable_static_inputs=True))
+        words,metadata=real.compile_projectile_battle(prepared)
+        case=dict(character='persona-triad',favorite_stage=0,duration=duration,body=body)
+        entries.append((f'real/persona-triad/favorite-0/{duration}s',words,(case,prepared,words,metadata)))
     packed = array.array('I',[len(entries)])
     for _,words,_ in entries: packed.extend(words)
     if sys.byteorder != 'little': packed.byteswap()

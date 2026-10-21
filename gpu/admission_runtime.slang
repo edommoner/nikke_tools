@@ -49,6 +49,16 @@ void admitDefinitions(inout Runtime s,uint input)
             s.quantityMask|=2048;
 #endif
         }
+        if((d.quantityFlags&1)!=0)
+        {
+#ifndef PORTABLE_WORLD_PROJECTILE
+            s.error=64;break;
+#else
+            if(d.kind!=4 || s.combat==0 || d.stat!=0 || (d.quantityFlags&~32U)!=1 || d.enemyBuff!=0 ||
+               d.alliedFlags!=0 || d.healthScaling!=0 || d.damageFlags!=0 || !f64Finite(d.value)) { s.error=64;break; }
+            s.quantityMask|=16384;
+#endif
+        }
         if(d.kind==22 && (s.combat==0 || d.stat!=0 || d.enemyBuff!=0 || !f64Finite(d.value))) { s.error=64;break; }
         PROJECTILE_ADMIT_STAGE(s,4001) if(d.stat==S_stun)
         { if(d.kind!=0 || s.combat==0 || !f64Equal(d.value,ONE)) { s.error=64;break; }s.incomingMask|=8; }

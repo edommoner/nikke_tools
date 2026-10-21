@@ -1,3 +1,15 @@
+<!-- persona-current -->
+## ペルソナ状態・B3対象とMetal530
+
+現在の通常CLIはregression530（native412／拒否118）、goldenはportable-world-persona-regression-short-expected.jsonです。persona_state存在マーカーと本来のB3味方対象（selector18）を共通Slangへ接続し、独立41入力とクイーン／ユキコ／アイギスの実編成・3人同時編成を追加しました。Metal530全件一致、旧481・独立33・原522の成功518の全input／raw／native保持、全530のlazy scratchゼロ、GPU禁止sealを確認済みです。CPU708成功・Windows専用1skip・失敗0。
+
+原522でクイーン／ユキコ4入力が拒否された失敗は保持しています。診断でTARGET_CODE44のactor-field追加条件受付漏れを特定し、既存共通評価器へ接続。不一致／不正codeと名前表の完全一致も検査します。物理履歴の2048件上限によりユキコ30秒32件・3人同時30秒2123件を省略しており、記録prefixと省略数・全戦闘状態の一致までの確認です。省略packet個別一致ではありません。詳細portable-persona.md、portable-persona-retention.json、portable-persona-development-checkpoint.json。
+
+CUDA cacheは同一keyのmiss時に排他的claimを取得し、競合を即時拒否・取得後のhit再検査・自ownerのみ解放・異常終了claim保持を実装しました。実プロセスを使うCPU検査もfake compilerであり、NVRTC実行やcoldコンパイル改善の証明ではありません。共通CLIのsmokeはcleanup4＋CLI27＋cache12＋artifact10の53件とfresh Jobだけです。必要test欠落はJob前に拒否します。Windows実機の新claim経路はまだ未確認で、必要ならこのCPU smokeだけを短く行います。本体cold compiler v115の失敗は未解決・同条件再試行しません。詳細portable-cuda-cache-claims.md。
+
+静的packing199/266・base140/203・106分類、通常画面CPU・全キャラGPU認定0・新版CUDA数値一致未確認・最終目標未完了を維持します。以下は履歴です。
+<!-- /persona-current -->
+
 <!-- base-copy-current -->
 ## 基礎ATK／HPコピーと集約481
 

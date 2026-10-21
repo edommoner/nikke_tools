@@ -40,6 +40,9 @@ def double_words(value):
 
 
 def validate_effect(eff, *, combat=None, world_frame=False):
+    from portable_persona_specs import validate as validate_persona
+    try:validate_persona(eff,combat=combat,world_frame=world_frame)
+    except ValueError as error:raise UnsupportedPortable(str(error),reason='effect' if eff.get('stat')=='persona_state' else 'recipient') from error
     from portable_base_copy_specs import validate as validate_base_copy,enabled as base_copy
     try:validate_base_copy(eff,combat=combat,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason="effect") from error
@@ -143,7 +146,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     if 'event_scope' in eff and eff['event_scope'] not in ('squad','recipients'):
         raise UnsupportedPortable('Invalid named event audience',reason='event_scope')
     if kind=='buff':
-        if stat not in BUFFS and stat not in (None,'','stack_change_immune','stun_immune','trigger_count_reduce','effect_interval','skill_cooldown') and not immunity(eff) and not protection and stack is None and resource_op not in (4,5) and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat)):
+        if stat not in BUFFS and stat not in (None,'','stack_change_immune','stun_immune','persona_state','trigger_count_reduce','effect_interval','skill_cooldown') and not immunity(eff) and not protection and stack is None and resource_op not in (4,5) and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat)):
             raise UnsupportedPortable('Unported buff stat', reason='effect')
         if not (recipient_admitted(target) or enemy_buff_plan(eff) is not None or stack is not None):
             raise UnsupportedPortable('Unported buff recipient selector', reason='recipient')
