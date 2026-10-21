@@ -4,8 +4,8 @@ bool worldSkillsEnabled(inout Runtime s)
 { return targetCountersEnabled(s)&&(commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==7||worldPendingEnabled(s)); }
 bool validWorldSkillDefinition(inout Runtime s,uint row,Definition d)
 {
-    if(d.enemyBuff!=0||d.damageRoute>9||d.damageCount==0||d.damageCount>128||d.damageHits>256||d.damagePending!=0&&!worldPendingEnabled(s)||d.periodicFlags!=0||!f64Zero(d.interval)||d.healthScaling!=0||referenceScaleMode(s,row)!=0&&!(worldPendingEnabled(s)&&d.damagePending!=0&&referenceScaleMode(s,row)==1)) return false;
-    if((d.damageFlags&~uint(1|2|4|8|16|32|64|128|256|512|1024|2048|4096|8192|16384|65536))!=0||(d.damageFlags&(H_DOT|H_PART|65536U))!=0||d.damageNormal>1) return false;
+    if(d.enemyBuff!=0||d.damageRoute>9||d.damageCount==0||d.damageCount>128||d.damageHits>256||d.damagePending!=0&&!worldPendingEnabled(s)||(d.periodicFlags!=0||!f64Zero(d.interval))&&!worldPeriodicClock(s,d)||d.healthScaling!=0||referenceScaleMode(s,row)!=0&&!(worldPendingEnabled(s)&&d.damagePending!=0&&referenceScaleMode(s,row)==1)&&!(worldPeriodicClock(s,d)&&referenceScaleMode(s,row)==3)) return false;
+    if((d.damageFlags&~uint(1|2|4|8|16|32|64|128|256|512|1024|2048|4096|8192|16384|65536))!=0||(d.damageFlags&(H_PART|65536U))!=0||(d.damageFlags&H_DOT)!=0&&!worldPeriodicClock(s,d)||d.damageNormal>1) return false;
     // Reached part/interrupt packets need their own explicit receipt metadata.
     if((d.damageFlags&(H_PIERCE|H_EXPLOSION))!=0||d.damageNormal!=0&&(s.attackContext[d.owner]&4)!=0)
         for(uint slot=1;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]==1) return false;
@@ -16,24 +16,24 @@ bool validWorldSkillDefinition(inout Runtime s,uint row,Definition d)
 bool validWorldSkillReceipt(inout Runtime s,LandingReceipt r,bool legacy)
 {
     if(!worldSkillsEnabled(s)) return legacy;
-    return r.row<s.count&&definition_kind(s.inputBase,r.row)==3&&r.mask==0xffffffffU&&r.hit>=1&&r.hit<=256&&r.hits>=r.hit&&r.hits<=256&&r.depth>=1&&r.depth<=P_DEPTH&&r.epoch<=0x7fffffff&&f64Finite(r.amount)&&!f64Less(r.amount,0)&&f64Finite(r.when);
+    return r.row<s.count&&definition_kind(s.inputBase,r.row)==3&&WORLD_PERIODIC_VALID(s,r,r.mask==0xffffffffU)&&r.hit>=1&&r.hit<=256&&r.hits>=r.hit&&r.hits<=256&&r.depth>=1&&r.depth<=P_DEPTH&&r.epoch<=0x7fffffff&&f64Finite(r.amount)&&!f64Less(r.amount,0)&&f64Finite(r.when);
 }
 void storeWorldSkillReceipt(inout Runtime s,uint at,LandingReceipt r)
 {
     if(!worldSkillsEnabled(s)) { storeLandingReceipt(at,r);return; }
     results[at]=r.row;results[at+1]=r.hit|(r.hits<<9)|(r.depth<<18);
-    storeNumber(at+2,r.amount);storeNumber(at+4,r.when);results[at+6]=r.epoch;results[at+7]=0;
+    storeNumber(at+2,r.amount);storeNumber(at+4,r.when);results[at+6]=r.epoch;results[at+7]=0;WORLD_PERIODIC_STORE(s,at,r)
 }
 LandingReceipt loadWorldSkillReceipt(uint at)
 {
     LandingReceipt r={};uint counts=results[at+1];r.row=results[at];r.mask=0xffffffffU;
-    r.hit=counts&511;r.hits=(counts>>9)&511;r.depth=counts>>18;r.amount=actorNumber(at+2);r.when=actorNumber(at+4);r.epoch=results[at+6];return r;
+    r.hit=counts&511;r.hits=(counts>>9)&511;r.depth=counts>>18;r.amount=actorNumber(at+2);r.when=actorNumber(at+4);r.epoch=results[at+6];WORLD_PERIODIC_LOAD(r,at) return r;
 }
 uint worldSkillHead(inout Runtime s) { return s.resourceOutput+P_WORLD_SKILL_HEAD_BASE; }
 void initializeWorldSkills(inout Runtime s)
 {
     if(!worldSkillsEnabled(s)) return;
-    for(uint i=P_WORLD_SKILL_HEAD_BASE;i<P_WORLD_SKILL_TRACE_BASE+128*48;i++) results[s.resourceOutput+i]=0;
+    WORLD_PERIODIC_INIT(s) for(uint i=P_WORLD_SKILL_HEAD_BASE;i<P_WORLD_SKILL_TRACE_BASE+128*48;i++) results[s.resourceOutput+i]=0;
     results[worldSkillHead(s)]=0x57534b31;
 }
 void logWorldSkill(inout Runtime s,LandingReceipt r,uint set,uint64_t share,uint64_t when)
@@ -55,7 +55,7 @@ bool landWorldSkillReceipt(inout Runtime s,LandingReceipt r,uint64_t when,uint o
     Definition d=readDefinition(s.inputBase,r.row);
     uint index=0;while(index<P_WORLD_ACTOR_SETS&&results[actorPoolSet(s,index)+5]!=0) index++;
     if(index==P_WORLD_ACTOR_SETS) { s.error=64;return false; }
-    actorSetCapture(s,33,index,d.damageRoute,d.damageCount,0,d.owner);if(s.error!=0) return false;
+    WORLD_PERIODIC_CAPTURE_PACKET(s,r,index,actorSetCapture(s,33,index,d.damageRoute,d.damageCount,0,d.owner);)if(s.error!=0) return false;
     uint set=actorPoolSet(s,index),n=results[set];uint64_t share=r.amount;
     if((d.damageFlags&H_SPLIT)!=0&&n>1)
     {
@@ -76,7 +76,7 @@ bool landWorldSkillReceipt(inout Runtime s,LandingReceipt r,uint64_t when,uint o
             uint previous=results[counterHead(s)+11];// Canonical core_damage tags are WEAPON; normal_attack overrides them
             // with normal_skill, which is SKILL. The normalized descriptor
             // carries both facts without backend-specific string routing.
-            results[counterHead(s)+11]=((d.damageFlags&H_CORE)!=0&&d.damageNormal==0) ? 0 : 1;
+            results[counterHead(s)+11]=WORLD_PERIODIC_FAMILY(s,d,((d.damageFlags&H_CORE)!=0&&d.damageNormal==0) ? 0 : 1);
             counterPhysicalPacket(s,d.owner,slot,generation,amount,results[receipt+1]!=0,when,output);
             results[counterHead(s)+11]=previous;
             if((s.healthMask&64)!=0&&s.error==0) dispatch(s,17,0,d.owner,0,when,output,share);
@@ -109,4 +109,10 @@ void landWorldPending(inout Runtime s,Definition d,uint row,uint index,uint hit,
     LandingReceipt r={};r.row=row;r.mask=0xffffffffU;r.hit=hit+1;r.hits=d.damageHits;r.depth=1;r.amount=s.pendingAmount[index];r.when=when;r.epoch=s.enemyEpoch;
     uint saved=s.target;landWorldSkillReceipt(s,r,when,output);s.target=saved;
 }
+#endif
+
+#ifdef PORTABLE_WORLD_PERIODIC
+#include "world_periodic_runtime.slang"
+#else
+bool worldPeriodicClock(inout Runtime s,Definition d) { return false; }
 #endif

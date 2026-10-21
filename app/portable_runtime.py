@@ -313,7 +313,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         lifetime=int(row[62]) if effects[index][0].get('type')=='buff' and stack is None else -1
         words[bullet:bullet+2]=[lifetime if lifetime>0 else 0,int(row[63]) if lifetime>0 else 0]
         periodic_at=L['PERIODIC_DEFINITION_BASE']+index*2
-        words[periodic_at:periodic_at+2]=[periodic_flags(effects[index][0],periodic.get(index,0)),periodic.get(index,0)]
+        words[periodic_at:periodic_at+2]=[periodic_flags(effects[index][0],periodic.get(index,0),world_frame=world_frame),periodic.get(index,0)]
         compact=[0]*L['DEFINITION_WORDS']
         fields={'OWNER':int(row[0]),'KIND':4 if row[1]==12 else int(row[1]),'STAT':int(row[2]),'NAME':int(row[3]),
                 'MAX_STACK':int(row[9]),'BUDGET':int(row[57]),'IMMEDIATE':int(row[60]),

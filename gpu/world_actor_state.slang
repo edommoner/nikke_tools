@@ -30,7 +30,7 @@ uint64_t actorNamedTargetStack(inout Runtime s,int name,out bool present)
         uint row=s.orderedRows[pass];
         // Presence follows the resident list;numeric modifier queries separately
         // filter end time. A post-frame query must not run an invented tick.
-        if(s.alive[row]==0 || int(definition_name(s.inputBase,s.carrierDefinition[row]))!=name || definition_enemyBuff(s.inputBase,s.carrierDefinition[row])==0 || !actorFieldMember(s,row,target==0?0:ACTOR_REF|target)) continue;
+        WORLD_PERIODIC_NAMED(s,row,target,count,present,name) if(s.alive[row]==0 || int(definition_name(s.inputBase,s.carrierDefinition[row]))!=name || definition_enemyBuff(s.inputBase,s.carrierDefinition[row])==0 || !actorFieldMember(s,row,target==0?0:ACTOR_REF|target)) continue;
         present=true;count=larger(count,carrierStackValue(s,row));
     }
     return count;

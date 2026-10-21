@@ -2,7 +2,9 @@
 #if defined(PORTABLE_WORLD_FRAME) && defined(PORTABLE_WIDE_LANDINGS)
 #error World and wide-landing diagnostic layouts cannot be combined.
 #endif
-#ifdef PORTABLE_WORLD_PENDING_SKILLS
+#ifdef PORTABLE_WORLD_PERIODIC
+static const uint PORTABLE_ABI = 1346721412U;
+#elif defined(PORTABLE_WORLD_PENDING_SKILLS)
 static const uint PORTABLE_ABI = 1346721411U;
 #elif defined(PORTABLE_WORLD_SKILLS)
 static const uint PORTABLE_ABI = 1346721410U;
@@ -208,7 +210,9 @@ static const uint P_PROTECTION_MAP_BASE = 108224U;
 static const uint P_PROTECTION_SELECTION_BASE = 108736U;
 static const uint P_PROTECTION_OBJECT_BASE = 109248U;
 static const uint P_PROTECTION_BUILD_BASE = 133824U;
-#ifdef PORTABLE_WORLD_ACTOR_RECIPIENTS
+#ifdef PORTABLE_WORLD_PERIODIC
+static const uint P_OUTPUT_WORDS = 655360U;
+#elif defined(PORTABLE_WORLD_ACTOR_RECIPIENTS)
 static const uint P_OUTPUT_WORDS = 524288U;
 #elif defined(PORTABLE_WORLD_ACTOR_FIELDS)
 static const uint P_OUTPUT_WORDS = 262144U;
@@ -265,6 +269,11 @@ static const uint P_WORLD_ACTOR_QUERY_BASE = 217224U;
 static const uint P_WORLD_ACTOR_STATE_WORDS = 1544U;
 static const uint P_WORLD_SKILL_ABI = 1346721410U;
 static const uint P_WORLD_PENDING_ABI = 1346721411U;
+static const uint P_WORLD_PERIODIC_ABI = 1346721412U;
+static const uint P_WORLD_PERIODIC_OUTPUT_WORDS = 655360U;
+static const uint P_WORLD_PERIODIC_DEFINITION_BASE = 524288U;
+static const uint P_WORLD_PERIODIC_PACKET_BASE = 534016U;
+static const uint P_WORLD_PERIODIC_HEAD_BASE = 611840U;
 static const uint P_WORLD_SKILL_HEAD_BASE = 512184U;
 static const uint P_WORLD_SKILL_TRACE_BASE = 512192U;
 static const uint P_COUNTER_FIELD_ABI = 1346721409U;
