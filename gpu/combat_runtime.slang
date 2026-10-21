@@ -10,6 +10,9 @@ static const uint64_t TEN = uint64_t(0x40240000) << 32;
 [noinline]
 void initializeCombat(inout Runtime s, uint input)
 {
+#ifdef PORTABLE_ENTRY_RELOAD_DIAGNOSTIC
+    for(uint j=0;j<488;j++) results[s.resourceOutput+P_MODE_ENTRY_STATE_BASE+10+j]=0;
+#endif
     s.automaticAddAim = commands[input+P_AIM_POLICY_BASE];
     if (s.automaticAddAim > 31) { s.error = 64; return; }
     s.enemyEpoch = 1; for (uint target = 0; target < 8; target++) s.enemyBirth[target] = 1;
@@ -42,7 +45,7 @@ void initializeCombat(inout Runtime s, uint input)
         s.minCycle[who] = loadNumber(extra+22); s.gaugeMultiplier[who] = f64Div(loadNumber(extra+24),HUNDRED);
         uint64_t coreMult = loadNumber(extra+26);
         s.coreDamageBonus[who] = f64Less(coreMult,0) ? s.coreBonus : f64Div(f64Add(coreMult,HUNDRED ^ F64_SIGN),HUNDRED);
-        s.lastFire[who] = f64FromI64(uint64_t(-999)); s.postReloadUntil[who] = F64_SIGN | ONE; s.modeEntryUntil[who] = F64_SIGN | ONE;
+        s.lastFire[who] = f64FromI64(uint64_t(-999)); s.postReloadUntil[who] = F64_SIGN | ONE; s.modeEntryUntil[who] = F64_SIGN | ONE; s.modeEntryPhase[who] = 0;
 
     }
     for (uint j = 0; j < s.targetCount; j++)
@@ -128,9 +131,8 @@ void selectWeapon(inout Runtime s,uint who,uint64_t when,out Weapon w)
         s.appliedEpoch[who] = s.modeEpoch[who]; s.physicalModeIndex[who] = index; s.modeShots[who] = 0; s.pendingAutoReload[who] = 0;
         // CharState resets its pre-entry capacity memo when the mode is entered.
         s.modeCapacityEpoch[who] = 0;
-        uint64_t entryDelay=index>=0 ? loadNumber(s.inputBase+P_MODE_BASE+uint(index)*P_MODE_WORDS+28) : 0;
         bool hasEntry=index>=0 && commands[s.inputBase+P_MODE_BASE+uint(index)*P_MODE_WORDS+30]!=0;
-        s.modeEntryUntil[who]=hasEntry ? f64Add(when,entryDelay) : F64_SIGN | ONE;
+        s.modeEntryUntil[who]=F64_SIGN | ONE; s.modeEntryPhase[who]=hasEntry ? 1 : 0;
         if(!hasEntry)
         {
             w.capacity = w.sentinelMode != 0 ? 999999 : ammoInstantCapacity(s,who,when); s.modeMagazine[who] = w.capacity;
@@ -138,21 +140,13 @@ void selectWeapon(inout Runtime s,uint who,uint64_t when,out Weapon w)
         }
         WORLD_MODE_CHARGE_CANCEL(s,who) s.nextShot[who] = when; s.charging[who] = 0; s.reloadUntil[who] = F64_SIGN | ONE; s.postReloadUntil[who] = F64_SIGN | ONE;
     }
-    if(index>=0 && !f64Less(s.modeEntryUntil[who],0) && !f64Less(when,s.modeEntryUntil[who]))
-    {
-        s.modeEntryUntil[who]=F64_SIGN | ONE;
-        // Native samples the magazine after entry wait. A prior instant may
-        // already have captured its capacity;do not invalidate that capture.
-        w.capacity=w.sentinelMode!=0 ? 999999 : ammoInstantCapacity(s,who,when);s.modeMagazine[who]=w.capacity;
-        s.ammo[who]=w.capacity;if(w.mode!=1) s.nextShot[who]=when;s.charging[who]=0;s.chargeStartedAt[who]=when;
-    }
     if (index >= 0) w.capacity = s.modeMagazine[who];
     else w.capacity = fullCapacity(s,who,s.capacity[who],true,when);
-    if (index >= 0 && w.sentinelMode == 0 && w.shotLimit >= 0 && uint(w.shotLimit) == commands[s.inputBase+P_MODE_BASE+uint(index)*P_MODE_WORDS+1]) w.shotLimit = int(w.capacity);
     if (s.weaponInitialized[who] == 0) { s.weaponInitialized[who] = 1; s.ammo[who] = w.capacity; }
     return;
 }
 #include "weapon_runtime.slang"
+#include "mode_entry_runtime.slang"
 #ifdef PORTABLE_WORLD_RELOAD
 #include "world_reload_runtime.slang"
 #endif
@@ -260,7 +254,8 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     uint target = aimedTarget(s,who); if (target == 0xffffffff) return;
     s.target = target; Weapon w;selectWeapon(s,who,when,w);
     if (s.error != 0) return; WORLD_CONTROL_TICK(s,who,when,output)
-    if(s.modeIndex[who]>=0 && !f64Less(s.modeEntryUntil[who],0)) return;
+    if(advanceModeEntry(s,w,who,when)) return;
+    if(s.modeIndex[who]>=0 && w.sentinelMode==0 && w.shotLimit>=0 && uint(w.shotLimit)==commands[s.inputBase+P_MODE_BASE+uint(s.modeIndex[who])*P_MODE_WORDS+1]) w.shotLimit=int(w.capacity);
     if (s.modeIndex[who] < 0 && f64Less(0,s.reloadUntil[who]) && hasInfiniteAmmo(s,who,when))
     { s.reloadUntil[who] = F64_SIGN | ONE; s.nextShot[who] = larger(s.nextShot[who],when); }
     if (s.modeIndex[who] < 0 && f64Less(s.reloadUntil[who],0)) s.ammo[who] = min(s.ammo[who],int(w.capacity));

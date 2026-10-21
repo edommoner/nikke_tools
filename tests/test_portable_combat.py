@@ -42,7 +42,7 @@ class CombatBoundaryTests(unittest.TestCase):
 
     def test_unported_mode_mechanics_fail_before_gpu(self):
         base=next(c for c in v.fixtures() if c['name']=='mode-duration-restores-base')
-        for patch in (dict(full_charge_mult=float('nan')),dict(fire_rate_max=8),dict(entry_reload=True),
+        for patch in (dict(full_charge_mult=float('nan')),dict(fire_rate_max=8),
                       dict(tick_interval=.1)):
             c=copy.deepcopy(base);c['effects'][1].update(patch)
             with self.subTest(patch=patch),self.assertRaises(ValueError):v.compile_case(c)

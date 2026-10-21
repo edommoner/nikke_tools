@@ -1,3 +1,5 @@
+現在のGPU接続範囲は[portable-entry-reload-gpu.md](portable-entry-reload-gpu.md)を参照してください。以下は接続前のCPU35契約の記録です。カバー操作4件の依存は未対応として残っています。
+
 # entry_reloadのCPU正本契約
 
 武器変更のentry_reloadは未対応です。既存のentry_delay実行器へ接続する前に、pinned CPUの照会順序を確認しました。GPU計算・packingは追加していません。

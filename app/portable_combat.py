@@ -102,8 +102,8 @@ def pack_combat(words, config, double_words):
 
 def pack_mode(words,index,row,double_words):
     """Reuse legacy compiler's mechanics; reject every discarded behavior."""
-    if int(row[224]) not in (1,2,3) or int(row[224])!=2 and row[24]!=row[28] or row[239] or row[234]!=-1 or row[235]:
-        raise ValueError('Unported entry reload, dynamic magazine or skill-mode policy')
+    if int(row[224]) not in (1,2,3) or int(row[224])!=2 and row[24]!=row[28] or row[234]!=-1 or row[235]:
+        raise ValueError('Unported dynamic magazine or skill-mode policy')
     if not 0<=row[42]<=180:raise ValueError('Invalid mode entry delay')
     capacity=int(row[27]);pellets=int(row[25]);muzzles=int(row[29]);limit=int(row[232])
     if capacity!=-1 and not 1<=capacity<=10000 or not 1<=pellets<=64 or not 1<=muzzles<=8 or limit < -1 or limit>10000:
@@ -119,7 +119,7 @@ def pack_mode(words,index,row,double_words):
     words[at+20:at+24]=[limit & 0xffffffff,int(capacity==-1),int(row[238]),int(row[233])]
     words[at+24:at+26]=double_words(row[226]);words[at+26]=int(bool(row[30]));words[at+27]=int(bool(row[231]))
     # Measured entry delay has an explicit presence flag,including zero.
-    if row[240]:words[at+28:at+32]=[*double_words(row[42]),1,0]
+    if row[240]:words[at+28:at+32]=[*double_words(row[42]),2 if row[239] else 1,0]
     if not 0<row[28]<=row[24]<=1e6 or not 0<row[40]<=1e6 or not 0<row[41]<=180:raise ValueError('Invalid mode warmup curve')
     at=L['MODE_TIMING_BASE']+index*L['MODE_TIMING_WORDS']
     for offset,value in [(0,row[28]),(2,row[24]),(4,row[40]),(6,row[41])]:words[at+offset:at+offset+2]=double_words(value)

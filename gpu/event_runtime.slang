@@ -90,6 +90,7 @@ struct Runtime
     uint modeEpoch[5], appliedEpoch[5], modeShots[5], pendingReentry[5], reentrySlot, reentryDone, casts[5], burstTraceCount;
     uint pellets[5], muzzles[5], inputBase;
     uint64_t modeEnd[5], reentryDelay, modeEntryUntil[5];
+    uint modeEntryPhase[5]; // 0=done/no wait,1=first physical tick,2=waiting
     uint automaticAddAim, enemyAttackOrder, enemySpawnOrder, combatStarted, combat, targetCount, target, aim[5], targetAlive[8], targetGeneration[8], targetHits[8];
     uint64_t targetHP[8], targetMaxHP[8], targetDamage[8], targetDefense[8];
     uint64_t scoredDamage[5], addScoredDamage[5], addOverkill[5], targetScoredDamage[8], targetDealt[8];
@@ -1121,7 +1122,7 @@ void writeDamageAccounting(inout Runtime s, uint output, bool targets = false)
 // End the old session before callbacks. A child may install a new session.
 void clearMode(inout Runtime s, uint who, uint64_t when)
 {
-    s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who]; s.modeShots[who] = 0; s.modeEntryUntil[who] = F64_SIGN | ONE;
+    s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who]; s.modeShots[who] = 0; s.modeEntryUntil[who] = F64_SIGN | ONE; s.modeEntryPhase[who]=0;
     // A logical mode cancelled before any physical entry never replaced the gun.
     if (s.physicalModeIndex[who] < 0) return;
     // End callbacks operate on the restored base magazine, not the capacity

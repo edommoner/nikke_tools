@@ -111,7 +111,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     try:validate_revival(eff,combat=combat,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason='effect') from error
     if 'persist_on_revive' in eff:allowed |= {'persist_on_revive'}
-    effect_allowed=allowed | ({'scaling'} if eff.get('stat') in ('heal_hp_pct','cover_heal_pct','cover_hp_pct','shield_heal_pct','decoy_heal_pct') or eff.get('type')=='damage' and eff.get('stat')=='dot_damage' else set()) | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','cover_during_delay','first_damage_coeff','max_ammo_buff_applies','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
+    effect_allowed=allowed | ({'scaling'} if eff.get('stat') in ('heal_hp_pct','cover_heal_pct','cover_hp_pct','shield_heal_pct','decoy_heal_pct') or eff.get('type')=='damage' and eff.get('stat')=='dot_damage' else set()) | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','cover_during_delay','first_damage_coeff','max_ammo_buff_applies','burst_energy','core_dmg_mult','entry_reload'} if eff.get('type')=='weapon_change' else set())
     if set(eff)-effect_allowed:
         fields=sorted(set(eff)-effect_allowed)
         raise UnsupportedPortable('Unported effect fields: '+', '.join(fields),reason='fields',fields=fields)
@@ -178,6 +178,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
         elif target!='self' and not (stat=='burst_reentry' and target=='all_allies'):
             raise UnsupportedPortable('Unported instant recipient selector', reason='recipient')
     elif kind=='weapon_change':
+        if 'entry_reload' in eff and type(eff['entry_reload']) is not bool:raise UnsupportedPortable('entry_reload must be boolean')
         if combat is None or target!='self':raise UnsupportedPortable('Weapon mode requires combat and self recipient')
         if eff.get('tick_interval'):raise UnsupportedPortable('Periodic weapon-mode activation is not ported')
     else:raise UnsupportedPortable('Unported effect kind')

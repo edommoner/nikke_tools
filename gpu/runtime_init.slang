@@ -223,6 +223,7 @@ void initializeRuntime(inout Runtime s)
         s.muzzles[index] = 0;
         s.modeEnd[index] = 0;
         s.modeEntryUntil[index] = 0;
+        s.modeEntryPhase[index] = 0;
         s.aim[index] = 0;
         s.scoredDamage[index] = 0;
         s.addScoredDamage[index] = 0;
