@@ -997,3 +997,7 @@ Windows PCは他作業に影響が出ているため、常時のCUDAテストや
 Windows v105はPTX生成後のmodule load、v106はCUBIN生成前のNVRTCで180秒に到達し、どちらもkernel0です。v106のmissing14の原因は不明で、元の失敗判定は変更しません。終了監査はJobを明示終了→子/子孫終了を5秒以内で待機→post観測→handle closeへ修正し、ピークメモリを記録します。Macの故障注入は成功していますが、実WindowsのGPU0 timeout/smoke検査が次です。追加の重いCUDAコンパイルは先行させません。CUBINはELF確認前にキャッシュへ書かないよう修正しました。coldコンパイルと実機キャッシュ効果は未解決です。
 
 次は短いWindows制御検査、CUDA coldコンパイルの資源/設定切り分け、stun/target_stunned等の未対応効果、対応済み実編成の通常結果への接続です。全面的な実行器再実装や、時間枠を増やしたWindows再試行は行いません。
+
+### Windows制御検査v108
+
+v107はCPU81/native60の後、テスト用の子起動直後に失敗し、smoke未到達でした。原失敗を保持しています。テスト起動をCLIと同じbase Python・launcher環境除去へ合わせ、wrapper診断を残したv108は単独3件とCLIのCPU69件が成功しました。実Windowsの子孫付き2秒timeout検査と外側smokeで、終了後の空Job・peak memory取得を確認しました。smoke4.841秒、missing0、元HEAD/status保持、NVRTC/driver load/GPU0です。サービス識別unverifiedのため環境保持全体は未認定です。新機能のCUDA計算・coldコンパイル・速度は未検証のままで、次は資源と生成/最適化設定の切り分けです。詳細は`research/portable-world-v107-control-sanitized.json`、`research/portable-world-v108-control-sanitized.json`を参照してください。

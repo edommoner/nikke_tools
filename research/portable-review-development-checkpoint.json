@@ -3,7 +3,7 @@
   "passed": false,
   "metal_verified": true,
   "cuda_verified": false,
-  "windows_control_fix_verified_on_windows": false,
+  "windows_control_fix_verified_on_windows": true,
   "metal_readiness": {
     "package_id": "d2cde2415a29d7aff241447c3a3121d77c041838245dfdd913c19a5ae23320d5",
     "calculation_verified": true,
@@ -90,7 +90,7 @@
     "total": 610,
     "seconds": 24.573,
     "log_sha256": "194f2b3374cf179e13ee9b32699d94f871924b8a2d7a45dacef512b22c90fa94",
-    "windows_only_timeout_test": "added afterwards; Mac skipped; actual Windows verification pending"
+    "windows_only_timeout_test": "v108 actual Windows integration passed; standalone3 then CLI69; Mac skips Windows-specific test"
   },
   "saved_failures": {
     "original_recipient_decoder_failure_retained": true,
@@ -108,10 +108,22 @@
   "full_character_verified": 0,
   "full_goal_complete": false,
   "remaining": [
-    "Windows CPU-only Job timeout/smoke validation",
     "CUDA cold compiler bottleneck and bounded resource investigation",
     "CUDA common result comparison for new features",
     "Remaining unsupported effects and real-world certification",
     "Production shared world execution connection"
-  ]
+  ],
+  "windows_control": {
+    "report": "research/portable-world-v108-control-sanitized.json",
+    "package_id": "acc2a43157c22d79188c89309898dc93d466e4379cb2c549ab9596b40c728275",
+    "cpu_tests": 69,
+    "smoke_seconds": 4.840763200074434,
+    "gpu_calls": 0,
+    "nvrtc_compile_calls": 0,
+    "driver_load_calls": 0,
+    "missing_count": 0,
+    "service_preservation_verified": false,
+    "calculation_verified": false,
+    "original_v107_failure_retained": true
+  }
 }
