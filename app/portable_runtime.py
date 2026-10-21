@@ -299,7 +299,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             named=None if staged[index] is not None else resolve_named_attack(eff,owner,effects)
             pending_hits=named.deferred_bonus_hits if pending and named is not None else 1
             if pending_hits>256:raise UnsupportedPortable('Pending named attack count exceeds 256')
-            words[at:at+8]=[route,count,hits,int(eff['stat'].split(':')[0]=='auto_damage' or world_frame and eff.get('damage_formula')=='normal_attack'),*double_words(override),int(pending),pending_hits if pending else 0]
+            words[at:at+8]=[route,count,hits,int(eff.get('damage_formula')=='normal_attack' if world_frame else eff['stat'].split(':')[0]=='auto_damage'),*double_words(override),int(pending),pending_hits if pending else 0]
             if pending:
                 later_names={e.get('name') for e,n in effects[index+1:] if n==owner and e.get('type')=='buff' and 'burst_cast' in e.get('trigger',{}).get('timing',[]) and e.get('name')}
                 mask=L['PENDING_EXCLUDE_BASE']+index*L['MASK_WORDS']
