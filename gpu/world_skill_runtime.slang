@@ -80,7 +80,10 @@ void drainWorldSkills(inout Runtime s,uint64_t when,uint output)
             if(results[receipt]!=0&&s.error==0)
             {
                 uint64_t amount=commands[actorBinding(s,slot)]==5 ? actorNumber(receipt+2) : share;
-                uint previous=results[counterHead(s)+11];results[counterHead(s)+11]=1;
+                uint previous=results[counterHead(s)+11];// Canonical core_damage tags are WEAPON; normal_attack overrides them
+                // with normal_skill, which is SKILL. The normalized descriptor
+                // carries both facts without backend-specific string routing.
+                results[counterHead(s)+11]=((d.damageFlags&H_CORE)!=0&&d.damageNormal==0) ? 0 : 1;
                 counterPhysicalPacket(s,d.owner,slot,generation,amount,results[receipt+1]!=0,when,output);
                 results[counterHead(s)+11]=previous;
                 if((s.healthMask&64)!=0&&s.error==0) dispatch(s,17,0,d.owner,0,when,output,share);

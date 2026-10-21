@@ -1,7 +1,6 @@
 """Read actual native _land arguments and native routing; never replay on GPU."""
 import sys
 from unittest.mock import patch
-from impact_specs import HitFamily,classify_hit
 from world_actor_pool_native import actor_bindings
 from world_frame_native import observe
 def inspect(case):
@@ -10,7 +9,7 @@ def inspect(case):
  def profile(frame,event,arg):
   if frame.f_code.co_name!='_land':return
   ev=frame.f_locals.get('ev')
-  if ev is None or ev.skill_name not in names or classify_hit(ev.hit_tag)!=HitFamily.SKILL:return
+  if ev is None or ev.skill_name not in names:return
   if event=='call':
    row=dict(row=names[ev.skill_name],created=ev.t,landed=frame.f_locals['t'],amount=ev.damage,share=ev.damage,recipients=[0])
    records.append(row);active.append(row)

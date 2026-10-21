@@ -65,6 +65,9 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     if source_spec:allowed |= {'periodic_source','feather_id','feather_slots','feather_interval_base','feather_interval_step_pct'}
     if resource_op:allowed |= {'gauge_id','gauge_max'}
     if eff.get('type')=='damage':
+        if world_frame and 'damage_formula' in eff:
+            if eff['damage_formula']!='normal_attack':raise UnsupportedPortable('Unknown world skill damage formula')
+            allowed |= {'damage_formula'}
         allowed |= {'hit_count_gauge_ref'}
         if eff.get('scaling')=='stack_count' and eff.get('stat','').split(':')[0]!='dot_damage':allowed |= {'scaling','scaling_ref'}
         from portable_reference_specs import hit_reference
