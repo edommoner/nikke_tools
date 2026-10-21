@@ -100,8 +100,30 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_WORLD_ENEMY_ATTACK
+bool worldEnemyAttackEnabled(inout Runtime s) { return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==13; }
+#define WORLD_ENEMY_ATTACK_INVALID(s,d,legacy) ((legacy)&&!(worldEnemyAttackEnabled(s)&&(d.stat==S_atk_pct||d.stat==S_atk_caster_based_pct)))
+#define WORLD_ENEMY_ATTACK_ADMIT(s,d,at,kind,arg) if(worldEnemyAttackEnabled(s)&&d.enemyBuff!=0&&(d.stat==S_atk_pct||d.stat==S_atk_caster_based_pct)&&(kind==C_HP_ABOVE||kind==C_HP_BELOW||kind==C_HP_MAX)) { if(commands[at+1]!=0||!f64Finite(arg)||kind==C_HP_MAX&&!f64Zero(arg)) return false;continue; }
+#define WORLD_ENEMY_ATTACK_DAMAGE_MEMBER(s,row,who,when,legacy) ((legacy)||worldEnemyAttackDamageMember(s,row,who,when))
+#define WORLD_ENEMY_ATTACK_STAT(s,d,legacy) ((legacy)||(worldEnemyAttackEnabled(s)&&(d.stat==S_atk_pct||d.stat==S_atk_caster_based_pct)))
+#define WORLD_ENEMY_ATTACK_CAPTURE(s,frames,depth,f) if(f.mode==8&&f.cursor==0&&scheduledArgument(uint(f.argument))&&worldEnemyAttackEnabled(s)) frames[depth].gaugeFlat=larger(0,f64Add(loadNumber(incomingDamageAddress(s,uint(f.argument))),collectWorldEnemyAttackFlat(s,0,f.time)));
+#define WORLD_ENEMY_ATTACK_VALUE(s,frames,depth,f,legacy) (worldEnemyAttackEnabled(s)&&scheduledArgument(uint(f.argument)) ? frames[depth].gaugeFlat : (legacy))
+#define WORLD_ENEMY_ATTACK_SNAPSHOT(s,when) if(worldEnemyAttackEnabled(s)) for(uint slot=0;slot<actorPoolCount(s);slot++) storeNumber(s.resourceOutput+P_WORLD_ENEMY_ATTACK_BASE+slot*2,collectWorldEnemyAttackFlat(s,slot==0?0:ACTOR_REF|slot,when));
+#define WORLD_ENEMY_ATTACK_SKIP(d) if(d.stat==S_atk_pct||d.stat==S_atk_caster_based_pct) continue;
+#define WORLD_ENEMY_ATTACK_MODE(s) worldEnemyAttackEnabled(s)
+#else
+#define WORLD_ENEMY_ATTACK_INVALID(s,d,legacy) legacy
+#define WORLD_ENEMY_ATTACK_ADMIT(s,d,at,kind,arg)
+#define WORLD_ENEMY_ATTACK_DAMAGE_MEMBER(s,row,who,when,legacy) legacy
+#define WORLD_ENEMY_ATTACK_STAT(s,d,legacy) legacy
+#define WORLD_ENEMY_ATTACK_CAPTURE(s,frames,depth,f)
+#define WORLD_ENEMY_ATTACK_VALUE(s,frames,depth,f,legacy) legacy
+#define WORLD_ENEMY_ATTACK_SNAPSHOT(s,when)
+#define WORLD_ENEMY_ATTACK_SKIP(d)
+#define WORLD_ENEMY_ATTACK_MODE(s) false
+#endif
 #ifdef PORTABLE_WORLD_PERIODIC
-#define WORLD_PERIODIC_ENABLED(s) (targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==11)
+#define WORLD_PERIODIC_ENABLED(s) (targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==11||WORLD_ENEMY_ATTACK_MODE(s))
 #define WORLD_PERIODIC_RETAINED(s,d,legacy) ((legacy)||worldPeriodicClock(s,d))
 #define WORLD_PERIODIC_MASK(s,row,packed,legacy) if(worldPeriodicClock(s,readDefinition(s.inputBase,row))) { packed=0;return worldPeriodicAnyLive(s,row)?0xffffffffU:0; } legacy
 #define WORLD_PERIODIC_CAPTURE(s,row,source,append,a,b,c) if(worldPeriodicClock(s,readDefinition(s.inputBase,row))) { captureWorldPeriodicDefinition(s,row,source,append);return; } a,b,c
@@ -666,6 +688,9 @@ bool excludedDamageBuff(inout Runtime s, uint resident, uint who)
 #include "rank_runtime.slang"
 #include "lazy_runtime.slang"
 #include "enemy_buff_runtime.slang"
+#ifdef PORTABLE_WORLD_ENEMY_ATTACK
+#include "world_enemy_attack_runtime.slang"
+#endif
 #include "carrier_runtime.slang"
 #include "quantity_runtime.slang"
 #include "health_runtime.slang"
@@ -700,7 +725,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
 #endif
         if((s.quantityMask & 256)!=0 && d.stat==S_atk_caster_based_pct) continue;
         if (d.alliedFlags != 0 || d.kind != 0 || d.stat >= 64 || d.stat == S_infinite_ammo || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
-            !queryRecipient(s,selected,who,when)) continue;
+            !WORLD_ENEMY_ATTACK_DAMAGE_MEMBER(s,selected,who,when,queryRecipient(s,selected,who,when))) continue;
         // Native boolean flags ignore their numeric value and stack scaling.
         // Reuse their existing slots in the64-value vector, with no new query.
         if(d.stat==S_pierce_enabled || d.stat==S_armor_break_enabled)
@@ -1225,7 +1250,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             {
                 // Selection is part of this event frame:sourceTime and HP edges
                 // are current before choosing the frozen,ordered victim list.
-                if(f.mode==8 && commands[at]==32 && f.cursor==0)
+                WORLD_ENEMY_ATTACK_CAPTURE(s,frames,depth,f) if(f.mode==8 && commands[at]==32 && f.cursor==0)
                 {
                     chooseEnemyVictims(s,uint(f.argument),f.time);
                     if(s.error!=0) break;
@@ -1251,7 +1276,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 }
                 frames[depth].owner=who;
                 uint input = incomingDamageAddress(s,uint(f.argument));
-                frames[depth].healthValue = incomingBodyDamage(s,who,loadNumber(input),loadNumber(input+2),f.time);
+                frames[depth].healthValue = incomingBodyDamage(s,who,WORLD_ENEMY_ATTACK_VALUE(s,frames,depth,f,loadNumber(input)),loadNumber(input+2),f.time);
                 frames[depth].event = 1;
                 if((commands[at]==31 || commands[at]==32))
                 {
