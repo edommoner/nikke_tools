@@ -3,11 +3,11 @@
   "catalog_characters": 203,
   "base_and_favorite_profiles": 266,
   "all_favorite_item_characters": 21,
-  "base_own_effect_preflight_passed": 105,
-  "all_profile_own_effect_preflight_passed": 145,
+  "base_own_effect_preflight_passed": 107,
+  "all_profile_own_effect_preflight_passed": 148,
   "issues": {
-    "Unported buff or recipient selector": 114,
-    "Unported instant or recipient selector": 22,
+    "Unported buff or recipient selector": 110,
+    "Unported instant or recipient selector": 19,
     "Unported enemy damage selector": 16,
     "Unported effect fields: scaling": 6,
     "Unported trigger timing: non_full_charge_fire_count:3": 4,
@@ -39501,7 +39501,7 @@
       "character": "밀크 : 블루밍 바니",
       "favorite_stage": 0,
       "own_effect_count": 24,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "부끄러움 참기",
@@ -39604,8 +39604,8 @@
             "not_self_state:부끄러움",
             "not_self_state:구경났냐 짜식들아!!"
           ],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "부끄러움 5",
@@ -39628,8 +39628,8 @@
             "not_self_state:부끄러움",
             "not_self_state:구경났냐 짜식들아!!"
           ],
-          "preflight_passed": false,
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "부끄러움 6",
@@ -54955,7 +54955,7 @@
       "character": "엑시아",
       "favorite_stage": 3,
       "own_effect_count": 22,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "인베이젼",
@@ -55037,8 +55037,8 @@
             "full_burst_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "해킹 코드 수집",
@@ -101477,8 +101477,8 @@
             "event:full_reload"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "변경 준비 해제",
@@ -118762,8 +118762,8 @@
             "event:state_end:섬멸 태세"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "긴급 수복 4",
@@ -119988,7 +119988,7 @@
       "character": "질",
       "favorite_stage": 0,
       "own_effect_count": 21,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "매그넘탄",
@@ -120170,8 +120170,8 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "슈퍼 캅 2",
@@ -120215,8 +120215,8 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported instant or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "슈퍼 캅 4",
@@ -125066,14 +125066,14 @@
     "app/portable_actor_pool_specs.py": "4a45848374667faedeb6bfde5e25e6e2a5b304457e4b742ad61af0778523b7a7",
     "app/portable_actor_specs.py": "321f1a4824bca6f9d8ed5d2a32d64def622f0c6b2fc6e2b130ffdc7d4e03b387",
     "app/portable_actor_state_specs.py": "20e3b7e155c911cb33a0873d30d461ba4c303e07a1395a2ba26b779d453480a1",
-    "app/portable_backend.py": "ee374c4efde97548d7be6a58b1722750bc4d88e786fdc1e502352a8d16e937c6",
+    "app/portable_backend.py": "d3f395be17d657ec00d70dca904559f7ecbd34499bc02516033e7d635de25a97",
     "app/portable_burst_charge_specs.py": "e0a845ee4e494c726c49ff3dd366ed105d2d1e144d2f1a2352d158703c3c6bd1",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
     "app/portable_charge_clock_specs.py": "1e0362d9f0d0d92ad998587c21a8e277f995c40f942ba7d05791cbe0dc430857",
     "app/portable_charge_control_specs.py": "3e7ac3c2e96c7eb3f93017bee2a37cfb55220d285297d2bf9bb539e06ec422da",
     "app/portable_code_specs.py": "b53cd9cee83bf1cf6442c72db6a1fd65cc4408f2471c9fd504de54cb42cd86ab",
     "app/portable_combat.py": "a45776909229a03a8a7e50132507e4f6dc7bd6970cffbe28d0a84bbc515302b1",
-    "app/portable_damage_specs.py": "d969bbf4e827e098b07df8a7813f6a9804d7f578a1009bc15b9849f730ab9546",
+    "app/portable_damage_specs.py": "4fa00fb8dd2eb903dd7fc139eb787c2261563b8d6ad802b2b01685f362423076",
     "app/portable_duration_extend_specs.py": "f3909d1ce0a448090fd853a8fbb44f64bf6acdbb1803742812a2fb84bd42f9a8",
     "app/portable_element_specs.py": "b46475dbf9ba590a8b031814b2f008224a9079aad87caff93b2ec49eab1c0af8",
     "app/portable_enemy_specs.py": "fef4a6623720ad7885837522e8958e29350f2eecb5bd2ed1c82d2873d9d091f0",
@@ -125086,14 +125086,15 @@
     "app/portable_protection_specs.py": "9fee0cc9f4fcdd8383545db69c9e1e9dc43f97ea2a5865c6f45353b052a3b4af",
     "app/portable_recipient_specs.py": "6bd29a3e5bab623bdd3a49706395864fe9bdf0fb9e1e78dd2060487d75f9d8fd",
     "app/portable_reference_specs.py": "e0ce11eef8ee6dff7726f1dfc58798daa42003a9889a414d26ecfdac6aa4fdde",
+    "app/portable_reload_specs.py": "5f51bb5b2bf8dd5db10d1917ba8e677630b299ef5384bcf95762a3920fede954",
     "app/portable_removal_specs.py": "65eeea6e89b54a4215ec93c6658d26231f4c8a656d3ac8b2ddd52ef5bcec0fcf",
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
     "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
     "app/portable_roster_input.py": "cf569da9faababe07f9c1c16111da2f64936d5da562b123ea0ed67b7847bd024",
-    "app/portable_runtime.py": "2dd2255191c3ceb83564d2ecbc536d96dd13c9e310d65a9b037a079111f6c777",
+    "app/portable_runtime.py": "2939e0604323e5e14f3ddc20280879d3e58a5becf9ed0b79fa862479965665b6",
     "app/portable_runtime_layout.py": "1516111fffd0db13875d88ed6fa5e835c7e79b04915803b518037a12575d1601",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "1ec63e73389a8f5e37e8d826620b37a44affcb71834aee315236191cc9013c0d",
+    "app/portable_specs.py": "c31140733798ed4cc2b6356a6c8fd490c38336e8a21b4ba1fb02a92c3df32b61",
     "app/portable_stack_specs.py": "c2aae86773e268fbd375217028f140af335bb8d4704c8567881464e650c7bc32",
     "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
     "app/portable_status_specs.py": "387618cb8e46f8db81be2b9f83e7a70c167abc877868aefa21d0ebccb5d2fc2a",
