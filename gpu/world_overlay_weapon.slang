@@ -5,7 +5,7 @@ bool worldPauseWeapon(inout Runtime s,Weapon w,uint who,uint64_t when)
 {
     if(!worldOverlayEnabled(s)) return false;
     uint at=s.resourceOutput+P_WORLD_OVERLAY_PAUSE_BASE+who*8;
-    if(!worldVanish(s) || w.mode==1 || (commands[s.inputBase+WO_IN+1]&(1U<<who))!=0)
+    if(!worldVanish(s) || w.mode==1 || (WORLD_CONTROL_CAMERA(s,commands[s.inputBase+WO_IN+1])&(1U<<who))!=0)
     { results[at+6]=0;return false; }
     if(w.mode==2)
     {

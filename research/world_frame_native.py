@@ -121,7 +121,14 @@ def observe(case):
    if uid not in ids:ids[uid]=len(ids)+1
  with counter_observer,spawn_observer,fractional_observer,patch.dict(timeline._NIKKE,metadata),patch.dict(buff_manager._NIKKE,metadata),patch.object(timeline,'calc_base_stats',stats),patch.object(buff_manager.BuffManager,'_register_all',register),patch.object(timeline,'CharState',Character),patch.object(timeline,'BurstController',Controller),patch.object(timeline,'BossScript',Boss),patch.object(timeline.random,'Random',ObservedRNG),patch.dict(timeline._DELAYS['_exceptions'],{},clear=True),patch.dict(timeline._DELAYS['_defaults_by_weapon_type'],{'AR':{'post_reload_delay':0}},clear=True):
   if case.get('observe_periodic_skills'):sys.setprofile(periodic_profile)
-  try:result=timeline.simulate([dict(name=n,skill_levels={'1':10,'2':10,'3':10}) for n in NAMES],config=dict(duration=case['duration'],rng_mode='expected',burst_gauge_mode='accumulate',cover_hp=1000,camera_mode=case.get('camera_mode','single'),camera=case.get('camera',[])),enemy=enemy,seed=19)
+  squad=[dict(name=n,skill_levels={'1':10,'2':10,'3':10}) for n in NAMES]
+  if 'controls' in case:
+   if len(case['controls'])!=5:raise ValueError('Five authored controls required')
+   for char,control in zip(squad,case['controls']):char['control']=copy.deepcopy(control)
+  config=dict(duration=case['duration'],rng_mode='expected',burst_gauge_mode='accumulate',cover_hp=1000,camera_mode=case.get('camera_mode','single'),camera=case.get('camera',[]))
+  for key in ('control_mode','sequence'):
+   if key in case:config[key]=copy.deepcopy(case[key])
+  try:result=timeline.simulate(squad,config=config,enemy=enemy,seed=19)
   finally:
    if case.get('observe_periodic_skills'):sys.setprofile(previous_profile)
  state=capture['state'];bm=capture['bm'];rng=capture['boss']._rng

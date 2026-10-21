@@ -2,7 +2,9 @@
 #if defined(PORTABLE_WORLD_FRAME) && defined(PORTABLE_WIDE_LANDINGS)
 #error World and wide-landing diagnostic layouts cannot be combined.
 #endif
-#ifdef PORTABLE_WORLD_TEAM
+#ifdef PORTABLE_WORLD_CHARGE_CONTROL
+static const uint PORTABLE_ABI = 1346721418U;
+#elif defined(PORTABLE_WORLD_TEAM)
 static const uint PORTABLE_ABI = 1346721417U;
 #elif defined(PORTABLE_WORLD_FRACTION)
 static const uint PORTABLE_ABI = 1346721416U;
@@ -135,7 +137,9 @@ static const uint P_LANDING_META_BASE = 77792U;
 static const uint P_STATUS_META_BASE = 77800U;
 static const uint P_PROTECTION_META_BASE = 77808U;
 static const uint P_PROTECTION_DEFINITION_BASE = 77816U;
-#ifdef PORTABLE_WORLD_TEAM
+#ifdef PORTABLE_WORLD_CHARGE_CONTROL
+static const uint P_INPUT_WORDS = 104136U;
+#elif defined(PORTABLE_WORLD_TEAM)
 static const uint P_INPUT_WORDS = 98000U;
 #elif defined(PORTABLE_WORLD_FRACTION)
 static const uint P_INPUT_WORDS = 97480U;
@@ -285,6 +289,15 @@ static const uint P_WORLD_PERIODIC_ABI = 1346721412U;
 static const uint P_WORLD_ENEMY_ATTACK_ABI = 1346721413U;
 static const uint P_WORLD_SPAWN_ABI = 1346721414U;
 static const uint P_WORLD_FRACTION_ABI = 1346721416U;
+static const uint P_WORLD_CONTROL_ABI = 1346721418U;
+static const uint P_WORLD_CONTROL_INPUT_BASE = 98000U;
+static const uint P_WORLD_CONTROL_INPUT_WORDS = 104136U;
+static const uint P_WORLD_CONTROL_STATE_BASE = 653160U;
+static const uint P_WORLD_CONTROL_HEAD_BASE = 653320U;
+static const uint P_WORLD_CONTROL_FIRED_BASE = 653336U;
+static const uint P_WORLD_CONTROL_HISTORY_BASE = 653376U;
+static const uint P_WORLD_CONTROL_TRACE_BASE = 653536U;
+static const uint P_WORLD_CONTROL_TRACE_COUNT = 220U;
 static const uint P_WORLD_TEAM_ABI = 1346721417U;
 static const uint P_WORLD_TEAM_INPUT_BASE = 97480U;
 static const uint P_WORLD_TEAM_INPUT_WORDS = 98000U;

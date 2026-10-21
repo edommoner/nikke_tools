@@ -38,7 +38,9 @@ def validate_input(eff,*,world_frame=False):
         if not isinstance(timing,str):raise ValueError('Invalid timing')
         if timing.startswith('event:'):
             from detail_gpu import EVENT
-            if timing in EVENT and EVENT[timing] not in (EVENTS|frozenset((5,22,23,33,34,35,44,45)) if world_frame else EVENTS):raise ValueError('Unported trigger timing: '+timing)
+            if timing in EVENT and EVENT[timing] not in (EVENTS|frozenset((5,22,23,33,34,35,39,44,45)) if world_frame else EVENTS):raise ValueError('Unported trigger timing: '+timing)
+        from portable_charge_control_specs import parse_hold
+        if world_frame and parse_hold(timing) is not None:continue
         if timing.startswith('every:'):
             if not timing.endswith('s'):raise ValueError('Periodic timing requires native seconds suffix')
             try:period=float(timing[6:].removesuffix('s'))
@@ -54,7 +56,7 @@ def pack_descriptors(words,index,row,L,F,double_words,*,effect=None,states=None,
     if not 1<=n<=8 or not 0<=nc<=3:raise ValueError('Descriptor capacity exceeded')
     for slot in range(n):
         event,threshold,mode,tag,value,passive,stage=row[145+slot*7:152+slot*7]
-        if event not in (EVENTS|frozenset((5,22,23,33,34,35,44,45)) if world_frame else EVENTS) or mode not in (0,1,2,3):raise ValueError('Unported compiled trigger')
+        if event not in (EVENTS|frozenset((5,22,23,33,34,35,39,44,45)) if world_frame else EVENTS) or mode not in (0,1,2,3):raise ValueError('Unported compiled trigger')
         if event!=6 and (threshold!=int(threshold) or not 0<=threshold<=2**31-1):raise ValueError('Invalid discrete trigger threshold')
         if (mode or event in (7,8,30)) and threshold<=0:raise ValueError('Trigger threshold must be positive')
         if event==6 and (not math.isfinite(threshold) or threshold<=0):raise ValueError('Invalid compiled period')
@@ -62,7 +64,7 @@ def pack_descriptors(words,index,row,L,F,double_words,*,effect=None,states=None,
         at=L['EVENT_BASE']+index*L['EVENT_WORDS']+slot*8
         edge=stage in (-11,-12,-13,-14)
         if edge and (event not in (31,48) or not math.isfinite(value)):raise ValueError('Invalid compiled HP edge')
-        payload=double_words(value) if edge else [int(value)&0xffffffff,int(passive)]
+        payload=double_words(value) if edge or event==39 else [int(value)&0xffffffff,int(passive)]
         words[at:at+8]=[int(event),*double_words(threshold),int(mode),int(tag)&0xffffffff,*payload,int(stage)&0xffffffff]
     for slot in range(nc):
         kind,name,arg=row[15+slot*3:18+slot*3]

@@ -103,10 +103,51 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_WORLD_CHARGE_CONTROL
+#define WORLD_CONTROL_WIRE_MODE 21
+#define WORLD_CONTROL_ORIGIN(input,row,legacy) ((legacy)||controlDefinition(input,row))
+#define WORLD_CONTROL_CONDITION_KIND(kind,legacy) ((kind==C_CHARGING)||(legacy))
+#define WORLD_CONTROL_CONDITION_VALID(at,kind,arg,legacy) (kind==C_CHARGING ? commands[at+1]==0&&f64Zero(arg) : (legacy))
+#define WORLD_CONTROL_NAMED(event,legacy) ((event==39)||(legacy))
+#define WORLD_CONTROL_INIT(s) initializeChargeControl(s);
+#define WORLD_CONTROL_TICK(s,who,when,output) advanceChargeControl(s,who,when);
+#define WORLD_CONTROL_ARBITRATE(s,when,output) arbitrateChargeControl(s,when);
+#define WORLD_CONTROL_CAMERA(s,legacy) results[s.resourceOutput+P_WORLD_CONTROL_HEAD_BASE+3]
+#define WORLD_CONTROL_GAIN(s,w,who) if(w.mode==1) w.gaugeMultiplier=(results[s.resourceOutput+P_WORLD_CONTROL_HEAD_BASE+3]&(1U<<who))!=0?w.fullChargeMult:ONE;
+#define WORLD_CONTROL_WAIT(s,who,charge,when) if(waitChargeControl(s,who,charge,when)) return;
+#define WORLD_CONTROL_START(s,who,charge,when) startChargeControl(s,who,charge,when);
+#define WORLD_CONTROL_READY(s,who,when,output) if(readyChargeControl(s,who,when,output)) return;
+#define WORLD_CONTROL_HEAVY(s,who,legacy) (f64Less(actorNumber(controlState(s,who)+6),0) ? (legacy) : false)
+#define WORLD_CONTROL_FINISH(s,who) if(w.mode==1&&!changedWeaponSession(s,who,epoch,mode)) finishChargeControl(s,who);
+#define WORLD_CONTROL_CANCEL(s,who) cancelChargeControl(s,who,false);
+#define WORLD_CONTROL_RELOAD(s,who) cancelChargeControl(s,who,true);
+#define WORLD_CONTROL_CYCLE(s) for(uint controlStage=0;controlStage<3;controlStage++) results[s.resourceOutput+P_WORLD_CONTROL_HEAD_BASE+10+controlStage]=0;
+#define WORLD_CONTROL_CAST(s,stage,who) results[s.resourceOutput+P_WORLD_CONTROL_HEAD_BASE+9+stage]|=1U<<who;
+#else
+#define WORLD_CONTROL_WIRE_MODE 19
+#define WORLD_CONTROL_ORIGIN(input,row,legacy) legacy
+#define WORLD_CONTROL_CONDITION_KIND(kind,legacy) legacy
+#define WORLD_CONTROL_CONDITION_VALID(at,kind,arg,legacy) legacy
+#define WORLD_CONTROL_NAMED(event,legacy) legacy
+#define WORLD_CONTROL_INIT(s)
+#define WORLD_CONTROL_TICK(s,who,when,output)
+#define WORLD_CONTROL_ARBITRATE(s,when,output)
+#define WORLD_CONTROL_CAMERA(s,legacy) legacy
+#define WORLD_CONTROL_GAIN(s,w,who)
+#define WORLD_CONTROL_WAIT(s,who,charge,when)
+#define WORLD_CONTROL_START(s,who,charge,when)
+#define WORLD_CONTROL_READY(s,who,when,output)
+#define WORLD_CONTROL_HEAVY(s,who,legacy) legacy
+#define WORLD_CONTROL_FINISH(s,who)
+#define WORLD_CONTROL_CANCEL(s,who)
+#define WORLD_CONTROL_RELOAD(s,who)
+#define WORLD_CONTROL_CYCLE(s)
+#define WORLD_CONTROL_CAST(s,stage,who)
+#endif
 #ifdef PORTABLE_WORLD_TEAM
 // This private ABI admits only mode19; portableEvents validates its marker first.
 bool worldTeamEnabled(inout Runtime s) { return true; }
-#define WORLD_TEAM_INPUT(input,output) if(commands[input+P_TARGET_COUNTER_INPUT_BASE]!=0x57433031||commands[input+P_TARGET_COUNTER_INPUT_BASE+6]!=19) { results[output]=64;return; }
+#define WORLD_TEAM_INPUT(input,output) if(commands[input+P_TARGET_COUNTER_INPUT_BASE]!=0x57433031||commands[input+P_TARGET_COUNTER_INPUT_BASE+6]!=WORLD_CONTROL_WIRE_MODE) { results[output]=64;return; }
 #define WORLD_TEAM_MODE(s) worldTeamEnabled(s)
 #define WORLD_TEAM_INIT(s) initializeWorldTeam(s);
 #define WORLD_TEAM_BUDGET(s,row) teamBudgetRow(s.inputBase,row)
@@ -120,8 +161,8 @@ bool worldTeamEnabled(inout Runtime s) { return true; }
 #define WORLD_TEAM_PELLET(s,w,who,when,output) if(worldTeamEnabled(s)&&w.mode!=1) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_CHARGE(s,w,who,count,when,output) if(worldTeamEnabled(s)&&w.mode==1) for(uint teamHit=0;teamHit<count;teamHit++) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_VALIDATE(s,d,input,j) for(uint teamSlot=0;teamSlot<d.triggerCount;teamSlot++) { uint teamEvent=commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+teamSlot*8];if((teamEvent==44||teamEvent==45)&&!worldTeamEnabled(s)) { s.error=64;break; } } if(s.error!=0) break;
-#define WORLD_TEAM_KIND(s,d,legacy) (worldTeamEnabled(s)&&teamBindingOwner(s.inputBase,row)!=0&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8) ? false : (legacy))
-#define WORLD_TEAM_CONDITION(s,d,at,kind,arg) if(worldTeamEnabled(s)&&teamBindingOwner(s.inputBase,row)!=0&&teamAdditionalCondition(kind)) { if(!validTeamAdditionalCondition(at,kind,arg)) return false;continue; }
+#define WORLD_TEAM_KIND(s,d,legacy) (worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8) ? false : (legacy))
+#define WORLD_TEAM_CONDITION(s,d,at,kind,arg) if(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&WORLD_CONTROL_CONDITION_KIND(kind,teamAdditionalCondition(kind))) { if(!WORLD_CONTROL_CONDITION_VALID(at,kind,arg,validTeamAdditionalCondition(at,kind,arg))) return false;continue; }
 #else
 #define WORLD_TEAM_INPUT(input,output)
 #define WORLD_TEAM_MODE(s) false
@@ -375,10 +416,10 @@ bool worldPendingEnabled(inout Runtime s) { return WORLD_PENDING_ENABLED(s); }
 #define WORLD_NORMAL_ONLY(s,who) if(!worldPhysicalSkill(s,who))
 #define WORLD_PACKET_FLAGS(s,who,value) ((value) | (worldPhysicalSkill(s,who) ? 32768U : 0U))
 #define WORLD_MODE_CORE(s,who,flags,accuracy) ((flags & 32768U)!=0 ? normalProbability(s,who,accuracy) : 0)
-#define WORLD_MODE_CHARGE_CANCEL(s,who) worldChargeCancel(s,who);
+#define WORLD_MODE_CHARGE_CANCEL(s,who) worldChargeCancel(s,who); WORLD_CONTROL_CANCEL(s,who)
 #define WORLD_CHARGE_START(s,who) worldChargeReset(s,who);
-#define WORLD_CHARGE_HOLD(s,w,who,when) if(worldChargeHold(s,w,who,when)) return;
-#define WORLD_CHARGE_FINISH(s,w,who) if(w.mode==1) worldChargeReset(s,who);
+#define WORLD_CHARGE_HOLD(s,w,who,when) WORLD_CONTROL_READY(s,who,when,output) if(WORLD_CONTROL_HEAVY(s,who,worldChargeHold(s,w,who,when))) return;
+#define WORLD_CHARGE_FINISH(s,w,who) if(w.mode==1) worldChargeReset(s,who); WORLD_CONTROL_FINISH(s,who)
 #define WORLD_MODE_GAUGE(s,w,who,index) if(index>=0 && w.mode==1) w.gaugeMultiplier=(commands[s.inputBase+WO_IN+1]&(1U<<who))!=0 ? w.fullChargeMult : ONE;
 #else
 #define WORLD_OVERLAY_INIT(s,output)
@@ -1503,7 +1544,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                     uint event = commands[at], mode = commands[at+3]; int tag = int(commands[at+4]), stage = int(commands[at+7]);
                     if (event != f.event) continue;
                     if (event == 4 && stage != f.argument || event == 6 && int(j) != f.argument) continue;
-                    if (COUNTER_NAMED(s,event,(event == 9 || event == 29 || event == 30 || event == 31 || event == 48 || event == 49 || event == 59)) && tag != f.argument) continue;
+                    if (COUNTER_NAMED(s,event,WORLD_CONTROL_NAMED(event,(event == 9 || event == 29 || event == 30 || event == 31 || event == 48 || event == 49 || event == 59))) && tag != f.argument) continue;
                     if (event == 9 && commands[at+5] != f.value) continue;
                     multiplicity++; bool ok = event != 30 || resourceModulo(f.healthValue,uint(f64ToPositiveStep(loadNumber(at+1)))) == 0;
                     if (mode != 0 || event == 7 || event == 8)

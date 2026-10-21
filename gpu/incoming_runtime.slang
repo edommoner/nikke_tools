@@ -54,7 +54,7 @@ void knockDown(inout Runtime s, uint who, uint64_t when)
         }
     }
     s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who]; s.modeEntryUntil[who] = F64_SIGN | ONE;
-    s.charging[who] = 0; s.reloadUntil[who] = F64_SIGN | ONE; s.postReloadUntil[who] = F64_SIGN | ONE; s.pendingAutoReload[who] = 0;
+    s.charging[who] = 0; s.reloadUntil[who] = F64_SIGN | ONE; s.postReloadUntil[who] = F64_SIGN | ONE; s.pendingAutoReload[who] = 0; WORLD_CONTROL_RELOAD(s,who)
     syncHealth(s,when);
 }
 void writeIncoming(inout Runtime s, uint output)

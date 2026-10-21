@@ -12,6 +12,13 @@ def runtime_initializer():
     source=(ROOT/'gpu/event_runtime.slang').read_text()
     body=source.split('struct Runtime\n{',1)[1].split('};',1)[0]
     body=re.sub(r'//[^\n]*','',body)
+    # Optional wire variants initialize their own scoped state. Keep the common
+    # initializer identical; never silently skip an unknown declaration/guard.
+    private = '#ifdef PORTABLE_WORLD_TEAM\n    uint teamEvent;\n#endif'
+    if body.count(private) != 1:
+        raise ValueError('Unknown private Runtime declaration')
+    body=body.replace(private,'')
+    if '#' in body:raise ValueError('Unknown Runtime preprocessor directive')
     scalars=[];arrays=defaultdict(list)
     for declaration in body.split(';'):
         if not declaration.strip():continue
