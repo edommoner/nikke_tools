@@ -110,6 +110,10 @@ struct Runtime
     uint64_t due[P_DEFINITIONS], expiry[P_DEFINITIONS], end[P_CARRIERS], total[5], baseAttack[5];
     uint64_t defense, probability, coreBonus, baseCrit, baseCritDamage;
 };
+#ifdef PORTABLE_RESIDENT_RUNTIME
+RWStructuredBuffer<Runtime> runtimeStates;
+#endif
+
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
 #include "enemy_route_runtime.slang"
@@ -2208,16 +2212,25 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "portable_mt19937.slang"
 #include "enemy_target_runtime.slang"
 
+#ifdef PORTABLE_RESIDENT_RUNTIME
+[noinline]
+void executePortableEvents(inout Runtime s, uint3 id)
+#else
 [shader("compute")]
 [numthreads(1,1,1)]
 void portableEvents(uint3 id : SV_DispatchThreadID)
+#endif
 {
     if (id.x >= commands[0]) return;
     uint input = 1 + id.x*P_INPUT_WORDS, output = id.x*P_OUTPUT_WORDS; WORLD_TEAM_INPUT(input,output)
+#ifdef PORTABLE_RESIDENT_RUNTIME
+    initializeRuntime(s);
+#else
     #ifdef PORTABLE_AGGREGATE_INIT_REFERENCE
     Runtime s = {};
 #else
     Runtime s; initializeRuntime(s);
+#endif
 #endif
     s.resourceOutput = output;
     LAZY_BANK_INIT(output)
@@ -2452,3 +2465,13 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     results[output] = s.error; results[output+1] = queries; results[output+2] = s.traceCount; results[output+3] = s.maxDepth; results[output+4] = s.burstTraceCount; results[output+6] = s.traceTotal;
     results[output+7] = s.burstTraceTotal; results[output+8] = s.frameCount; WORLD_RELOAD_FINAL(s) LAZY_BANK_FINISH(output)
 }
+
+#ifdef PORTABLE_RESIDENT_RUNTIME
+[shader("compute")]
+[numthreads(1,1,1)]
+void portableEvents(uint3 id : SV_DispatchThreadID)
+{
+    if(id.x>=commands[0]) return;
+    executePortableEvents(runtimeStates[id.x],id);
+}
+#endif

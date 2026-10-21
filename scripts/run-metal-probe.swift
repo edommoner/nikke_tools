@@ -14,7 +14,7 @@ struct ProbeError: Error, CustomStringConvertible {
 // Serialize pipeline creation across worker processes. A concurrent cold
 // compile of the same large kernel can stall in the Metal compiler service.
 // Release before buffer encoding/dispatch; GPU work is not held by this lock.
-func compilePipeline(device: MTLDevice, source: String, entry: String, lockURL: URL) throws
+func compilePipeline(device: MTLDevice, source: String, entry: String, lockURL: URL, residentStride: Int = 0) throws
     -> (pipeline: MTLComputePipelineState, librarySeconds: Double, pipelineSeconds: Double, lockWaitSeconds: Double) {
     let descriptor = open(lockURL.path, O_CREAT | O_RDWR, 0o600)
     guard descriptor >= 0 else { throw ProbeError("Cannot open Metal pipeline lock") }
@@ -38,16 +38,26 @@ func compilePipeline(device: MTLDevice, source: String, entry: String, lockURL: 
     let pipelineDescriptor = MTLComputePipelineDescriptor()
     pipelineDescriptor.computeFunction = function
     pipelineDescriptor.maxTotalThreadsPerThreadgroup = portableThreadsPerThreadgroup
-    let pipeline = try device.makeComputePipelineState(descriptor: pipelineDescriptor, options: [], reflection: nil)
+    var reflection: MTLComputePipelineReflection?
+    let pipelineOptions: MTLPipelineOption = residentStride > 0 ? [.argumentInfo, .bufferTypeInfo] : []
+    let pipeline = try device.makeComputePipelineState(descriptor: pipelineDescriptor, options: pipelineOptions, reflection: &reflection)
+    if residentStride > 0 {
+        guard let state = reflection?.arguments.first(where: { $0.type == .buffer && $0.index == 2 }),
+              state.bufferDataSize == residentStride else {
+            throw ProbeError("Resident Runtime physical Metal layout differs from Slang reflection")
+        }
+    }
     let pipelineSeconds = Date().timeIntervalSinceReferenceDate - pipelineStart
     return (pipeline, librarySeconds, pipelineSeconds, lockWaitSeconds)
 }
 
 func run() throws {
-    guard [4, 7].contains(CommandLine.arguments.count) else { throw ProbeError("Expected: shader.metal input.bin output.bin [entry inputWords outputWords]") }
-    let entry = CommandLine.arguments.count == 7 ? CommandLine.arguments[4] : "portableProbe"
-    let inputWords = CommandLine.arguments.count == 7 ? Int(CommandLine.arguments[5]) ?? 0 : 97
-    let outputWords = CommandLine.arguments.count == 7 ? Int(CommandLine.arguments[6]) ?? 0 : 7
+    guard [4, 7, 8].contains(CommandLine.arguments.count) else { throw ProbeError("Expected: shader.metal input.bin output.bin [entry inputWords outputWords]") }
+    let entry = CommandLine.arguments.count >= 7 ? CommandLine.arguments[4] : "portableProbe"
+    let inputWords = CommandLine.arguments.count >= 7 ? Int(CommandLine.arguments[5]) ?? 0 : 97
+    let outputWords = CommandLine.arguments.count >= 7 ? Int(CommandLine.arguments[6]) ?? 0 : 7
+    let residentStride = CommandLine.arguments.count == 8 ? Int(CommandLine.arguments[7]) ?? 0 : 0
+    guard CommandLine.arguments.count != 8 || (residentStride > 0 && residentStride <= 1048576 && residentStride % 8 == 0) else { throw ProbeError("Invalid resident stride") }
     guard inputWords > 0 && inputWords <= 131072 && outputWords > 0 && (outputWords <= 524288 || outputWords == 655360 || outputWords == 786432) else { throw ProbeError("Invalid wire layout") }
     guard let device = MTLCreateSystemDefaultDevice() else { throw ProbeError("No Metal device") }
     let sequence = CommandLine.arguments[3] == "--batches"
@@ -68,18 +78,22 @@ func run() throws {
         guard inputData.count <= device.maxBufferLength && outputSize <= device.maxBufferLength else { throw ProbeError("Wire buffer exceeds device limit") }
         return (inputData, Int(count), outputSize)
     }
-    var maxInput = 0, maxOutput = 0
+    var maxInput = 0, maxOutput = 0, maxCount = 0
     for path in paths {
-        let (data, _, size) = try readInput(path)
-        maxInput = max(maxInput, data.count); maxOutput = max(maxOutput, size)
+        let (data, count, size) = try readInput(path)
+        maxInput = max(maxInput, data.count); maxOutput = max(maxOutput, size); maxCount = max(maxCount, count)
     }
     guard let input = device.makeBuffer(length: maxInput, options: .storageModeShared),
           let output = device.makeBuffer(length: maxOutput, options: .storageModeShared),
           let queue = device.makeCommandQueue() else { throw ProbeError("Metal allocation failed") }
+    let runtimeBytes = residentStride * maxCount
+    guard runtimeBytes <= device.maxBufferLength else { throw ProbeError("Resident buffer exceeds device limit") }
+    let runtime: MTLBuffer? = residentStride > 0 ? device.makeBuffer(length: runtimeBytes, options: .storageModePrivate) : nil
+    guard residentStride == 0 || runtime != nil else { throw ProbeError("Resident allocation failed") }
     let source = try String(contentsOfFile: CommandLine.arguments[1], encoding: .utf8)
     let shaderURL = URL(fileURLWithPath: CommandLine.arguments[1])
     let lockURL = shaderURL.deletingLastPathComponent().appendingPathComponent("metal-pipeline.lock")
-    let compiled = try compilePipeline(device: device, source: source, entry: entry, lockURL: lockURL)
+    let compiled = try compilePipeline(device: device, source: source, entry: entry, lockURL: lockURL, residentStride: residentStride)
     let pipeline = compiled.pipeline
     var statuses: [[String: Any]] = []
     for path in paths {
@@ -90,6 +104,7 @@ func run() throws {
         encoder.setComputePipelineState(pipeline)
         encoder.setBuffer(input, offset: 0, index: 0)
         encoder.setBuffer(output, offset: 0, index: 1)
+        if let state = runtime { encoder.setBuffer(state, offset: 0, index: 2) }
         encoder.dispatchThreadgroups(MTLSize(width: Int(count), height: 1, depth: 1), threadsPerThreadgroup: MTLSize(width: portableThreadsPerThreadgroup, height: 1, depth: 1))
         encoder.endEncoding()
         FileHandle.standardError.write(Data("portable_stage=gpu_dispatch\n".utf8))
@@ -97,7 +112,7 @@ func run() throws {
         command.waitUntilCompleted()
         guard command.status == .completed else { throw ProbeError(command.error?.localizedDescription ?? "Metal execution failed") }
         try Data(bytes: output.contents(), count: outputSize).write(to: URL(fileURLWithPath: path["output"]!), options: .atomic)
-        let status: [String: Any] = ["backend": "metal", "device": device.name, "cases": count,
+        var status: [String: Any] = ["backend": "metal", "device": device.name, "cases": count,
             "command_status": "completed", "registry_id": String(device.registryID),
             "gpu_seconds": command.gpuEndTime - command.gpuStartTime,
             "configured_max_threads_per_threadgroup": portableThreadsPerThreadgroup,
@@ -106,9 +121,15 @@ func run() throws {
             "library_compile_seconds": compiled.librarySeconds, "pipeline_compile_seconds": compiled.pipelineSeconds,
             "pipeline_lock_wait_seconds": compiled.lockWaitSeconds,
             "input_bytes": inputData.count, "output_bytes": outputSize]
+        if residentStride > 0 {
+            status["runtime_stride_bytes"] = residentStride
+            status["runtime_buffer_bytes"] = runtimeBytes
+            status["runtime_element_capacity"] = maxCount
+            status["runtime_physical_stride_verified"] = true
+        }
         statuses.append(status)
     }
-    let result: [String: Any] = sequence ? ["batches": statuses, "pipeline_instances": 1, "buffer_allocations": 2] : statuses[0]
+    let result: [String: Any] = sequence ? ["batches": statuses, "pipeline_instances": 1, "buffer_allocations": residentStride > 0 ? 3 : 2] : statuses[0]
     print(String(data: try JSONSerialization.data(withJSONObject: result, options: [.sortedKeys]), encoding: .utf8)!)
 }
 

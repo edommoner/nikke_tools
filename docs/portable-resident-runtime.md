@@ -1,0 +1,27 @@
+# GPU常駐Runtimeの共通実行器候補
+
+候補は隔離branch codex/runtime-residentにあります。主checkoutで進んでいるstorage作業は変更していません。通常UIはCPUです。全キャラ認定0、entry_reloadはCPU契約まででGPU未対応、全目標は未完了です。
+
+## 共通コードとABI
+
+PORTABLE_RESIDENT_RUNTIME時だけ、既存entry本体をinout Runtimeの共有helperへ渡します。全計算・効果・実行順・serializerは同じ本文です。通常entryのCUDA／Metal生成byteは変更前と同一でした。候補は巨大なRuntimeのlocal宣言を生成せず、RWStructuredBufferの要素を使います。FrameのDFS等のprivate状態は残ります。宣言上のsizeofだけをcompiler peakへ換算しません。
+
+追加scratchはGPU所有で、CPUは状態・時刻・対象を計算せず既存initializeRuntimeで初期化します。Slang reflectionの246 field、offset／stride／scalar・array型、commands/results/runtimeStatesのbindingを両targetで照合します。strideは138,928byte、alignment8です。CUDAには実sizeof／alignofのstatic_assertを生成物へ付け、constant symbolの実48byteもdriverで検査します。assertも生成SHAと厳密normalizerの対象で、除外は追加しません。CUDAで実compile済みという意味ではありません。
+
+Metalはpipeline reflectionの実bufferDataSizeとstrideを照合してからdispatchします。各batchの最大program数分を1つのscratchとして確保し、既存2 buffersは維持します。CUDA host ABIも3 buffers／48byteへ対応し、CPU driver doublesでallocation・可変batch容量・parameter block・fail-before-launchを確認しました。
+
+## 小さい実機検査と本体759
+
+共通CLIのresident-bindingは4要素をGPU上でpoisonし、既存initializerで0へ戻してuint32／uint64を格納し、全要素を書いた後にも保持されることを確認します。これは逐次要素のbinding／初期化／保持検査で、戦闘や並列性の認定ではありません。残りの全readback wordも0を検査し、全4件一致・GPU0 sealです。
+
+regression-residentは同じ759入力（native602／拒否157）を既存の全比較器で実行し、Metal全件一致・独立GPU0 sealを確認しました。復元した元759の全input／native／raw word・lazy bankゼロも保持しました。出力2,387,607,552byteのSHAは従来と同じe9284ab0b1afb99a3d9969ec8ee2ff43d8e333608a59240ab446c323d1bc0481です。比較項目や許容誤差は変えていません。元archive／失敗／captureは保持しています。
+
+本体のruntime scratchは105,446,352byte、Metalの物理stride検査も成功。今回のGPU観測は13.810秒、library1.130秒・pipeline8.857秒ですが単発cold検証であり、性能改善率の測定ではありません。全CPU752件中751成功・Windows専用1skipです。原MetalのGPU実行は再試行していません。
+
+固定package、seal、復元、retentionの記録はresearch/portable-resident-runtime-checkpoint.jsonです。raw・compiler distributionはGitHubへ含めません。
+
+## 次の境界
+
+Windowsはこの候補をNVRTC12.4.127／CUBIN O1・60秒／2GiB・fresh BelowNormal Jobで必要な1回だけcompiler-only検証します。成功してもCUDA計算一致ではありません。cache-checkは成功artifactがある場合だけCPUで行います。失敗時の同条件retryや上限拡大は行いません。
+
+通常のregressionの旧goldenは保持しています。候補は明示suite regression-resident、bindingはresident-bindingです。通常entryは同じ生成byteでもsource hashが変わったため、旧goldenを無検証で更新しません。主checkoutの通常CLIへ移す判断はCUDA側の成立を確認してから行います。

@@ -39,13 +39,15 @@ def build(source, entry):
     compiler_root=compiler_root.resolve()
     compiler = compiler_root/'bin'/('slangc.exe' if os.name == 'nt' else 'slangc')
     hashes = source_hashes(source)
+    resident=any(re.search(rb'^\s*#define\s+PORTABLE_RESIDENT_RUNTIME(?:\s|$)',(ROOT/name).read_bytes(),re.M) for name in hashes)
     directory = ROOT/'research/portable-build'
     directory.mkdir(parents=True, exist_ok=True)
     outputs = {}
     for target, suffix in [('cuda', 'cu'), ('metal', 'metal')]:
         output = directory/f'{Path(source).stem}.{suffix}'
         process = subprocess.run([str(compiler), str(ROOT/source), '-entry', entry,
-                                  '-target', target, '-fp-mode', 'precise', '-line-directive-mode', 'none'], capture_output=True, timeout=90)
+                                  '-target', target, '-fp-mode', 'precise', '-line-directive-mode', 'none',
+                                  *(['-reflection-json',str(output)+'.reflection.json'] if resident else [])], capture_output=True, timeout=90)
         if process.returncode:
             raise RuntimeError(process.stderr.decode('utf-8', 'replace'))
         # Multiple application requests may build the same immutable shader.
@@ -54,6 +56,13 @@ def build(source, entry):
             temporary.write(process.stdout);temporary_path=Path(temporary.name)
         temporary_path.replace(output)
         outputs[target] = output
+    if resident:
+        from portable_resident_layout import reflection_plan,cuda_layout_assertions
+        plan=reflection_plan(outputs,entry)
+        raw=cuda_layout_assertions(outputs['cuda'].read_bytes(),plan)
+        with tempfile.NamedTemporaryFile(dir=directory,delete=False) as temporary:
+            temporary.write(raw);temporary_path=Path(temporary.name)
+        temporary_path.replace(outputs['cuda'])
     if source_hashes(source) != hashes:
         raise RuntimeError('GPU sources changed during build; discard generated outputs')
     return outputs, hashes
@@ -92,6 +101,12 @@ def run_metal_command(command, *, compile_timeout=300, gpu_timeout=120):
     return subprocess.CompletedProcess(command,code,chunks['stdout'].decode('utf-8','replace'),chunks['stderr'].decode('utf-8','replace'))
 
 
+def resident_plan(source,entry,outputs):
+    if not any(re.search(rb'^\s*#define\s+PORTABLE_RESIDENT_RUNTIME(?:\s|$)',(ROOT/name).read_bytes(),re.M) for name in source_hashes(source)):return None
+    from portable_resident_layout import reflection_plan
+    return reflection_plan(outputs,entry)
+
+
 def execute(source, entry, packed, input_words, output_words, backend='metal'):
     if backend not in ('metal', 'cuda'):
         raise ValueError('Explicit metal or cuda backend required; no CPU fallback')
@@ -101,6 +116,7 @@ def execute(source, entry, packed, input_words, output_words, backend='metal'):
     if not 1 <= count <= 65536 or 1+count*input_words>0xffffffff or count*output_words>0xffffffff or len(packed) != (1+count*input_words)*4:
         raise ValueError('Invalid portable wire dimensions')
     outputs, hashes = build(source, entry)
+    resident=resident_plan(source,entry,outputs)
     directory = ROOT/'research/portable-build'
     with tempfile.TemporaryDirectory(prefix='dispatch-', dir=directory) as tmp:
         input_path, output_path = Path(tmp)/'input.bin', Path(tmp)/'output.bin'
@@ -110,16 +126,16 @@ def execute(source, entry, packed, input_words, output_words, backend='metal'):
                 raise RuntimeError('Metal requires macOS')
             process = run_metal_command(['swift', str(ROOT/'scripts/run-metal-probe.swift'),
                                          str(outputs['metal']), str(input_path), str(output_path),
-                                         entry, str(input_words), str(output_words)])
+                                         entry, str(input_words), str(output_words),*([str(resident["stride"])] if resident else [])])
             if process.returncode:
                 raise RuntimeError(process.stderr or process.stdout)
             raw, transport = output_path.read_bytes(), json.loads(process.stdout)
             transport.update(compile_timeout_seconds=300,gpu_timeout_seconds=120)
         else:
-            raw, transport = execute_cuda(outputs['cuda'], entry, packed, count*output_words*4, count)
+            raw, transport = execute_cuda(outputs['cuda'], entry, packed, count*output_words*4, count,**({'resident':resident} if resident else {}))
     if len(raw) != count*output_words*4 or hashes != source_hashes(source):
         raise RuntimeError('Invalid GPU output or source changed during execution')
-    return raw, dict(transport=transport, source_sha256=hashes,
+    return raw, dict(**(dict(resident_runtime=resident) if resident else {}),transport=transport, source_sha256=hashes,
                     generated_sha256={k:hashlib.sha256(p.read_bytes()).hexdigest() for k,p in outputs.items()},
                     input_sha256=hashlib.sha256(packed).hexdigest(), output_sha256=hashlib.sha256(raw).hexdigest(),
                     gpu_execution_verified=True, backend=backend)
@@ -142,8 +158,9 @@ def execute_batches(source, entry, batches, input_words, output_words, backend='
         if not 1<=count<=65536 or 1+count*input_words>0xffffffff or count*output_words>0xffffffff or len(packed)!=(1+count*input_words)*4:raise ValueError('Invalid portable wire dimensions')
         counts.append(count)
     outputs,hashes=build(source,entry)
+    resident=resident_plan(source,entry,outputs)
     if backend=='cuda':
-        raw,transports=execute_cuda_batches(outputs['cuda'],entry,batches,[n*output_words*4 for n in counts],counts)
+        raw,transports=execute_cuda_batches(outputs['cuda'],entry,batches,[n*output_words*4 for n in counts],counts,**({'resident':resident} if resident else {}))
     else:
         if platform.system()!='Darwin':raise RuntimeError('Metal requires macOS')
         with tempfile.TemporaryDirectory(prefix='sequence-',dir=ROOT/'research/portable-build') as tmp:
@@ -152,7 +169,7 @@ def execute_batches(source, entry, batches, input_words, output_words, backend='
                 inp,out=Path(tmp)/f'{i}.in',Path(tmp)/f'{i}.out';inp.write_bytes(packed)
                 paths.append(dict(input=str(inp),output=str(out)))
             manifest=Path(tmp)/'batches.json';manifest.write_text(json.dumps(paths))
-            process=run_metal_command(['swift',str(ROOT/'scripts/run-metal-probe.swift'),str(outputs['metal']),str(manifest),'--batches',entry,str(input_words),str(output_words)])
+            process=run_metal_command(['swift',str(ROOT/'scripts/run-metal-probe.swift'),str(outputs['metal']),str(manifest),'--batches',entry,str(input_words),str(output_words),*([str(resident['stride'])] if resident else [])])
             if process.returncode:raise RuntimeError(process.stderr or process.stdout)
             status=json.loads(process.stdout);transports=status['batches'];raw=[Path(p['output']).read_bytes() for p in paths]
             for t in transports:t.update(compile_timeout_seconds=300,gpu_timeout_seconds=120)
@@ -161,13 +178,13 @@ def execute_batches(source, entry, batches, input_words, output_words, backend='
     results=[]
     for i,(packed,output,transport,count) in enumerate(zip(batches,raw,transports,counts)):
         if len(output)!=count*output_words*4 or transport['cases']!=count or transport['command_status']!='completed':raise RuntimeError('Invalid GPU output stride or transport')
-        transport.update(session_dispatches=len(batches),session_dispatch_index=i,pipeline_instances=1,buffer_allocations=2)
-        results.append((output,dict(transport=transport,source_sha256=hashes,generated_sha256=generated,input_sha256=hashlib.sha256(packed).hexdigest(),output_sha256=hashlib.sha256(output).hexdigest(),gpu_execution_verified=True,backend=backend)))
+        transport.update(session_dispatches=len(batches),session_dispatch_index=i,pipeline_instances=1,buffer_allocations=3 if resident else 2)
+        results.append((output,dict(**(dict(resident_runtime=resident) if resident else {}),transport=transport,source_sha256=hashes,generated_sha256=generated,input_sha256=hashlib.sha256(packed).hexdigest(),output_sha256=hashlib.sha256(output).hexdigest(),gpu_execution_verified=True,backend=backend)))
     return results
 
 
-def execute_cuda(source, entry, packed, output_size, count):
-    raw,transports=execute_cuda_batches(source,entry,[packed],[output_size],[count])
+def execute_cuda(source, entry, packed, output_size, count,*,resident=None):
+    raw,transports=execute_cuda_batches(source,entry,[packed],[output_size],[count],**({'resident':resident} if resident else {}))
     return raw[0],transports[0]
 
 
@@ -207,7 +224,7 @@ def compile_cuda_source(source, *, artifact_kind=None):
     return artifact_bytes,compile_receipt
 
 
-def execute_cuda_batches(source, entry, batches, output_sizes, counts):
+def execute_cuda_batches(source, entry, batches, output_sizes, counts,*,resident=None):
     """Opt-in sequential dispatches sharing one NVRTC build and CUDA context.
     The pinned Slang StructuredBuffer ABI is pointer + size_t; validate the
     actual constant-symbol size before copying. No numeric/game logic here.
@@ -217,6 +234,9 @@ def execute_cuda_batches(source, entry, batches, output_sizes, counts):
         if type(count) is not int or not 1<=count<=65536 or type(size) is not int or size<=0 or len(packed)<4 or struct.unpack_from('<I',packed)[0]!=count:raise ValueError('Invalid CUDA dispatch dimensions')
     if os.name != 'nt':
         raise RuntimeError('This CUDA NVRTC adapter currently requires Windows')
+    if resident:
+        from portable_resident_layout import verify_cuda_layout_assertions
+        verify_cuda_layout_assertions(source,resident)
     artifact_kind=cuda_artifact_kind()
     artifact_bytes,compile_receipt=compile_cuda_source(source,artifact_kind=artifact_kind)
     artifact_buffer=C.create_string_buffer(artifact_bytes)
@@ -246,19 +266,23 @@ def execute_cuda_batches(source, entry, batches, output_sizes, counts):
         call('cuModuleGetFunction',C.byref(function),module,entry.encode())
         inp=C.c_uint64();out=C.c_uint64()
         call('cuMemAlloc_v2',C.byref(inp),max(map(len,batches)));call('cuMemAlloc_v2',C.byref(out),max(output_sizes))
+        scratch=C.c_uint64();scratch_bytes=resident['stride']*max(counts) if resident else 0
+        if resident:call('cuMemAlloc_v2',C.byref(scratch),scratch_bytes)
         global_ptr=C.c_uint64();global_size=C.c_size_t()
         call('cuModuleGetGlobal_v2',C.byref(global_ptr),C.byref(global_size),module,b'SLANG_globalParams')
-        if global_size.value!=32:raise RuntimeError('Unexpected Slang CUDA constant buffer ABI')
+        if global_size.value!=(48 if resident else 32):raise RuntimeError('Unexpected Slang CUDA constant buffer ABI')
         results=[];transports=[]
         for packed,output_size,count in zip(batches,output_sizes,counts):
             call('cuMemcpyHtoD_v2',inp,C.cast(C.c_char_p(packed),C.c_void_p),len(packed))
             zero=C.create_string_buffer(output_size);call('cuMemcpyHtoD_v2',out,C.cast(zero,C.c_void_p),output_size)
-            params=struct.pack('<QQQQ',inp.value,len(packed)//4,out.value,output_size//4)
+            params=struct.pack('<'+'Q'*(6 if resident else 4),inp.value,len(packed)//4,out.value,output_size//4,*([scratch.value,max(counts)] if resident else []))
             call('cuMemcpyHtoD_v2',global_ptr,C.cast(C.c_char_p(params),C.c_void_p),len(params))
             started=time.perf_counter();call('cuLaunchKernel',function,count,1,1,1,1,1,0,None,None,None);call('cuCtxSynchronize')
             elapsed=time.perf_counter()-started
             output=C.create_string_buffer(output_size);call('cuMemcpyDtoH_v2',output,out,output_size)
             results.append(output.raw);transports.append(dict(backend='cuda',device=name.value.decode(),cases=count,command_status='completed',host_dispatch_seconds=elapsed,compile_artifact=compile_receipt))
+        if resident:
+            for transport in transports:transport.update(runtime_stride_bytes=resident['stride'],runtime_buffer_bytes=scratch_bytes,runtime_element_capacity=max(counts))
         return results,transports
     finally:
         if context:
