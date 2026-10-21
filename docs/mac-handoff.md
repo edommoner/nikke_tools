@@ -1023,3 +1023,9 @@ Windows v109はCPU19件と実Jobメモリ上限検査に成功し、本体compil
 `regression`149は既存readiness81・stun46・実編成22を元の比較器のまま集約します。全149入力がMetal/native一致し、旧145入力は入力・全raw出力とも完全一致、追加センチ4入力も成功しました。現在のsealed suiteはskill-cooldown25とregression149で、古い個別goldenは履歴としてsource staleを保持します。CPU645件成功（Windows専用1件skip）、静的182/266、base127/203、通常CPU・全キャラ認定0です。
 
 Windows v110はCPU20件成功後、修正argvでO1 compilerを1回だけ実行し、全体41.20秒／NVRTC30.11秒、ptxas Memory allocation failureで終了しました。Job2GiB、post空、missing0、driver/context/kernel0、artifact0、再試行0です。サービス識別とメモリ上限との因果は未確定です。次はMac上の生成CUDA／保存PTXの構造とcompile資源の診断、残りのheal_overcharge_store・trigger_count_reduce・trigger_hit_crit等へ進みます。Windowsで同じ巨大compileを繰り返したり、メモリ上限や時間枠を自動で拡大しません。
+
+## 回復貯蔵・実編成受付・保存コンパイル解析
+
+`docs/portable-healing-storage.md`と`research/portable-healing-storage-development-checkpoint.json`を参照してください。共通stat74／protection kind9の回復貯蔵を追加し、既存の身体回復・lifesteal・被ダメージ・HP drainへ接続しました。maxHP付与は回復と区別します。初回実編成184のAnchor／Sora4拒否は原記録を保持し、C_STATIC条件と状態解除の受付接続を修正しました。拡張regression235（native188＋拒否47）はMetal全件一致、旧210の入力・全raw・nativeも一致、明示seal済みです。個別suiteの古いgoldenは自動追従させず、現在の通常入口はregression235です。CPU659件成功（Windows専用1skip）、静的187/266・base130/203、通常画面CPU・全キャラ認定0です。
+
+共通CLIに`compiler-stats`と`ptx-stats`を追加しました。保存byte／既存receiptを検査するCPU解析で、NVRTC・GPU0。PTXの仮想register／local宣言を実レジスタ数やcompilerメモリ原因へ換算しません。旧Windows解析器が拒否した`%`なしregister名を含む正負例をCPU検査しました。原解析失敗は別JSONへ保持しています。新版CUDAの数値一致は未確認で、同じ巨大compileは再実行していません。次の未対応上位はprojectile_dmg_pct・trigger_count_reduce・trigger_hit_critです。

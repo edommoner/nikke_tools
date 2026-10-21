@@ -157,6 +157,7 @@ bool initializeTargetCounters(inout Runtime s)
     for(uint row=0;row<s.count;row++)
     {
         Definition d=readDefinition(s.inputBase,row);
+        PROJECTILE_COUNTER_ROW(s,row,d)
         if(COUNTER_DEFINITION_INVALID(s,row,d,d.kind!=0&&d.kind!=4||d.conditionCount!=0||d.enemyBuff!=0&&commands[counterPolicy(s,row)]==0)) return false;
     }
     uint64_t previous=0;

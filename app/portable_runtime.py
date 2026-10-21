@@ -94,6 +94,8 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     try:validate_input(eff,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason=getattr(error,'reason',None),operator=getattr(error,'operator',None)) from error
     kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
+    if stat=='heal_overcharge_store' and (combat is None or not world_frame):
+        raise UnsupportedPortable('Overheal storage requires a private combat world',reason='effect')
     if stat=='skill_cooldown_reduce_pct' and (kind!='instant' or combat is None or not world_frame):
         raise UnsupportedPortable('Remaining skill cooldown reduction requires a private combat world instant',reason='effect')
     if stat in ('stun','stun_immune') and (combat is None or not world_frame):
@@ -528,6 +530,14 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     from portable_trigger_specs import pack_event_candidates
     pack_event_candidates(words,L)
     from portable_probability_specs import definitions as probability_definitions
+    # A negative drain may intentionally leave native HP above its maximum.
+    # Preserve that only when the native static synchronization policy is off.
+    # No runtime HP or CPU battle state is supplied to this descriptor.
+    if any(row[1]==8 and row[6]<0 for row in program['effects']):
+        from types import SimpleNamespace
+        from reference_health_runtime import enabled as reference_health_sync
+        if not reference_health_sync(SimpleNamespace(_effects=effects)):
+            words[L['HP_UNCLAMP_POLICY']]=1
     return words,dict(**binding_metadata,enemy_targeting=target_metadata,mode_entry_enabled=any(words[L['MODE_BASE']+j*L['MODE_WORDS']+30] for j in range(len(effects))),probability_definitions=probability_definitions(effects),ordered_recipients=bool(nodes),protection_enabled=bool(words[L['PROTECTION_META_BASE']] or any(c[1] in (31,32) for c in script)),status_policy=words[L['STATUS_META_BASE']],status_names=program['states'],stack_operators=any(stack_operation(e) for e,_ in effects),enemy_buff_definitions=[enemy_buff_plan(e) is not None for e,_ in effects],native_landing=native_landing,source_definitions=[dict(name=next((k for k,v in program['states'].items() if v==int(row[304])),None),owner=int(row[0]),legacy=bool(row[137])) if int(row[1])==35 else None for row in program['effects']],source_query_indices=source_query_indices,resource_names=list(resource_keys),resource_query_indices=sorted(resource_query_indices),states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
 
 

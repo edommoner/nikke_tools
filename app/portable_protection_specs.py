@@ -1,5 +1,5 @@
 """Shared static protection metadata; amounts and absorption remain GPU-owned."""
-KINDS={'shield_from_max_hp_pct':1,'shared_shield_from_max_hp_pct':1,'decoy':2,'next_shield_hp_pct':3,'shield_invincible':4,'shield_heal_pct':5,'decoy_heal_pct':6,'cover_disabled':7,'received_dmg_split_even':8}
+KINDS={'shield_from_max_hp_pct':1,'shared_shield_from_max_hp_pct':1,'decoy':2,'next_shield_hp_pct':3,'shield_invincible':4,'shield_heal_pct':5,'decoy_heal_pct':6,'cover_disabled':7,'received_dmg_split_even':8,'heal_overcharge_store':9}
 
 def policy(effect):
  stat=effect.get('stat');kind=KINDS.get(stat,0) if isinstance(stat,str) else 0
@@ -20,4 +20,4 @@ def pack(words,index,effect,L):
  value=policy(effect);words[L['PROTECTION_DEFINITION_BASE']+index]=value
  if value:
   kind=value&255
-  words[L['PROTECTION_META_BASE']]|=1|(2 if kind==4 else 4 if kind==7 else 8 if kind==3 else 16 if kind==8 else 0)
+  words[L['PROTECTION_META_BASE']]|=1|(2 if kind==4 else 4 if kind==7 else 8 if kind==3 else 16 if kind==8 else 32 if kind==9 else 0)

@@ -266,14 +266,16 @@ void writeProtection(inout Runtime s,uint output)
 [noinline]
 bool validProtection(inout Runtime s)
 {
-    uint enabled=0;
+    uint enabled=0;bool negativeDrain=false;
     for(uint row=0;row<s.count;row++)
     {
         uint policy=protectionPolicy(s,row),kind=policy&255;Definition d=readDefinition(s.inputBase,row);
-        if(kind==0) { if(policy!=0 || d.kind==27 || d.kind==31 || d.kind==0 && (d.stat==45 || d.stat==72 || d.stat==71 || d.stat==69)) return false;continue; }
-        enabled|=1U|(kind==4 ? 2U : 0U)|(kind==7 ? 4U : 0U)|(kind==3 ? 8U : 0U)|(kind==8 ? 16U : 0U);
+        if(d.kind==8 && f64Less(d.value,0)) negativeDrain=true;
+        if(kind==0) { if(policy!=0 || d.kind==27 || d.kind==31 || d.kind==0 && (d.stat==45 || d.stat==72 || d.stat==71 || d.stat==69 || d.stat==S_heal_overcharge_store)) return false;continue; }
+        enabled|=1U|(kind==4 ? 2U : 0U)|(kind==7 ? 4U : 0U)|(kind==3 ? 8U : 0U)|(kind==8 ? 16U : 0U)|(kind==9 ? 32U : 0U);
         if(d.quantityFlags!=(kind==4 ? 4U : 0U) || (d.flags&120U)!=0) return false;
-        if(kind>8 || (policy&~511U)!=0 || (policy&256)!=0 && kind!=1 || !f64Finite(d.value) || d.enemyBuff!=0) return false;
+        if(kind>9 || (policy&~511U)!=0 || (policy&256)!=0 && kind!=1 || !f64Finite(d.value) || d.enemyBuff!=0) return false;
+        if(kind==9 && (s.combat==0 || d.kind!=0 || d.stat!=S_heal_overcharge_store)) return false;
         if(kind==8 && (d.kind!=0 || d.stat!=69) || kind==1 && (d.kind!=0 || d.stat!=45) || kind==2 && (d.kind!=0 || d.stat!=72) || (kind==3 || kind==4) && (d.kind!=4 || d.stat!=0) || kind==7 && (d.kind!=0 || d.stat!=71) || kind==5 && d.kind!=27 || kind==6 && d.kind!=31) return false;
         if(!validRecipientPlan(s.inputBase+P_RECIPIENT_BASE+row*8,false,s.inputBase)) return false;
     }
@@ -284,7 +286,9 @@ bool validProtection(inout Runtime s)
         if(d.kind==0 && (d.stat>=S_max_hp_pct && d.stat<=S_max_hp_only_pct || d.stat==S_max_hp_from_max_hp_pct))
             for(uint i=0;i<d.conditionCount;i++) if(commands[s.inputBase+P_CONDITION_BASE+row*P_CONDITION_WORDS+i*4]==C_SHIELD) s.healthMask|=32;
     }
-    for(uint word=1;word<8;word++) if(commands[s.inputBase+P_PROTECTION_META_BASE+word]!=0) return false;
+    uint hpPolicy=commands[s.inputBase+P_HP_UNCLAMP_POLICY];
+    if(hpPolicy>1 || hpPolicy!=0 && !negativeDrain) return false;
+    for(uint word=2;word<8;word++) if(commands[s.inputBase+P_PROTECTION_META_BASE+word]!=0) return false;
     return commands[s.inputBase+P_PROTECTION_META_BASE]==enabled;
 }
 

@@ -16,6 +16,8 @@ ADAPTERS={
     'readiness':module('regression_readiness','research/verify-world-readiness-short.py'),
     'stun':module('regression_stun','research/verify-world-stun-short.py'),
     'roster':module('regression_roster','research/verify-world-roster-regression-short.py'),
+    'skill-cooldown':module('regression_skill_clock','research/verify-world-skill-cooldown-short.py'),
+    'healing-storage':module('regression_healing_storage','research/verify-world-healing-storage-short.py'),
 }
 cross=ADAPTERS['readiness'].cross
 suite=SimpleNamespace(INPUT=104400,OUTPUT=786432)

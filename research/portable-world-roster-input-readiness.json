@@ -11,25 +11,6 @@
         "phase": "effect",
         "category": "effect",
         "kind": "buff",
-        "stat": "heal_overcharge_store",
-        "target": "all_allies",
-        "scaling": null,
-        "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"heal_overcharge_store\", \"target\": \"all_allies\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      },
-      "messages": [
-        "Unported buff stat"
-      ],
-      "affected_profiles": 5,
-      "blocked_definitions": 5,
-      "single_observed_category_profiles": 5
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "effect",
-        "kind": "buff",
         "stat": "projectile_dmg_pct",
         "target": "all_allies",
         "scaling": null,
@@ -3397,78 +3378,40 @@
     {
       "character": "센티",
       "favorite_stage": 2,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 2,
-          "owner": "센티",
-          "name": "자재 비축",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "heal_overcharge_store",
-            "target": "all_allies",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"heal_overcharge_store\", \"target\": \"all_allies\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "5036494f52aa36d78c00d76ccde9ddb274798ae9db32193e97102710230a2514",
+      "squad": [
+        "센티",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported buff stat",
-      "program_issue": {
-        "phase": "program",
-        "category": "effect",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "reason": "Unported buff stat",
-        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported buff stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      }
+      "prepared_effects": 76,
+      "bound_effects": 76,
+      "input_words": 104400
     },
     {
       "character": "센티",
       "favorite_stage": 3,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 2,
-          "owner": "센티",
-          "name": "자재 비축",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "heal_overcharge_store",
-            "target": "all_allies",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"heal_overcharge_store\", \"target\": \"all_allies\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "9d84b51741417b3093f37063db4cf89b4514ed5d6d9eb6d157c63781773995a1",
+      "squad": [
+        "센티",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported buff stat",
-      "program_issue": {
-        "phase": "program",
-        "category": "effect",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "reason": "Unported buff stat",
-        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported buff stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      }
+      "prepared_effects": 77,
+      "bound_effects": 77,
+      "input_words": 104400
     },
     {
       "character": "리타",
@@ -6728,40 +6671,21 @@
     {
       "character": "마르차나",
       "favorite_stage": 0,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 2,
-          "owner": "마르차나",
-          "name": "저장",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "heal_overcharge_store",
-            "target": "all_allies",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"heal_overcharge_store\", \"target\": \"all_allies\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "88f1bb46c5515718ffe523cdf06dee3de2673ccbc442ff3052b9224fae80719b",
+      "squad": [
+        "마르차나",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported buff stat",
-      "program_issue": {
-        "phase": "program",
-        "category": "effect",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "reason": "Unported buff stat",
-        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported buff stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      }
+      "prepared_effects": 68,
+      "bound_effects": 68,
+      "input_words": 104400
     },
     {
       "character": "마르차나 : 마린 스터디",
@@ -7064,40 +6988,21 @@
     {
       "character": "앵커 : 이노센트 메이드",
       "favorite_stage": 0,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 7,
-          "owner": "앵커 : 이노센트 메이드",
-          "name": "저장",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "heal_overcharge_store",
-            "target": "all_allies",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"heal_overcharge_store\", \"target\": \"all_allies\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "a5f5785b5e8156b0530838fc8e7f456d645d9cc28000744d0753fe2c7ca42504",
+      "squad": [
+        "앵커 : 이노센트 메이드",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported buff stat",
-      "program_issue": {
-        "phase": "program",
-        "category": "effect",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "reason": "Unported buff stat",
-        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported buff stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      }
+      "prepared_effects": 73,
+      "bound_effects": 73,
+      "input_words": 104400
     },
     {
       "character": "킬로",
@@ -8670,40 +8575,21 @@
     {
       "character": "소라",
       "favorite_stage": 0,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 1,
-          "owner": "소라",
-          "name": "저장",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "heal_overcharge_store",
-            "target": "all_allies",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"heal_overcharge_store\", \"target\": \"all_allies\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "398eb660e6ff429d6293b80467caf74d11532f1246d75fc28ce0380568dcb52e",
+      "squad": [
+        "소라",
+        "도라",
+        "드레이크",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported buff stat",
-      "program_issue": {
-        "phase": "program",
-        "category": "effect",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "reason": "Unported buff stat",
-        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported buff stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      }
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
     },
     {
       "character": "베이",
@@ -10311,10 +10197,10 @@
   ],
   "profile_count": 266,
   "base_count": 203,
-  "packed_profiles": 182,
-  "packed_base": 127,
+  "packed_profiles": 187,
+  "packed_base": 130,
   "issues": {
-    "Unported buff stat": 36,
+    "Unported buff stat": 31,
     "Unported enemy damage selector": 8,
     "Unported buff recipient selector": 6,
     "Unported predicate: trigger_hit_crit": 3,

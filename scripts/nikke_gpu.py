@@ -52,17 +52,26 @@ SUITES['stun']=dict(script='research/verify-world-stun-short.py',golden='researc
 SUITES['burst-recipients-diagnostic']=dict(SUITES['burst-recipients'],source='gpu/world_projectile_admission_entry.slang',development_only=True)
 SUITES['roster-regression']=dict(script='research/verify-world-roster-regression-short.py',
     golden='research/portable-world-roster-regression-short-expected.json',
-    source='gpu/world_projectile_entry.slang',inputs=22,native=22,
+    source='gpu/world_projectile_entry.slang',inputs=32,native=32,
     tests=['test_portable_roster_regression.py','test_portable_real_binding_proof.py'])
 SUITES['skill-cooldown']=dict(script='research/verify-world-skill-cooldown-short.py',
     golden='research/portable-world-skill-cooldown-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=25,native=21,
     tests=['test_portable_skill_cooldown.py','test_portable_typed_recipient_delegation.py'])
 SUITES['regression']=dict(script='research/verify-world-regression-short.py',
-    golden='research/portable-world-regression-short-expected.json',
-    source='gpu/world_projectile_entry.slang',inputs=149,native=118,
+    golden='research/portable-world-storage-regression-short-expected.json',
+    source='gpu/world_projectile_entry.slang',inputs=235,native=188,
     tests=['test_portable_regression_adapter.py','test_portable_roster_regression.py',
-           'test_portable_readiness.py','test_portable_stun.py','test_portable_typed_recipient_delegation.py'])
+           'test_portable_readiness.py','test_portable_stun.py','test_portable_typed_recipient_delegation.py',
+           'test_portable_skill_cooldown.py','test_portable_healing_storage.py'])
+SUITES['healing-storage']=dict(script='research/verify-world-healing-storage-short.py',
+    golden='research/portable-world-healing-storage-short-expected.json',
+    source='gpu/world_projectile_entry.slang',inputs=51,native=39,development_only=True,
+    tests=['test_portable_healing_storage.py'])
+SUITES['roster-admission-diagnostic']=dict(script='research/verify-world-roster-regression-short.py',
+    golden='research/portable-world-roster-regression-short-expected.json',
+    source='gpu/world_projectile_admission_entry.slang',inputs=32,native=32,development_only=True,
+    tests=['test_portable_real_binding_proof.py'])
 
 SCHEMA = 1
 
@@ -457,6 +466,39 @@ def replay_capture(capture, source_package, source_capture):
     return result
 
 
+def compiler_statistics(capture,output,*,top=12):
+    """Inspect a saved generated source with the existing artifact verifier."""
+    if output.exists():raise ValueError('Compiler statistics output already exists')
+    records=load(capture/'artifacts.json')['files']
+    source=[r for r in records if r['path']=='generated.cu']
+    if len(source)>1:raise ValueError('Duplicate generated CUDA source records')
+    if source:check_records(capture,source)
+    raw=(capture/'generated.cu').read_bytes()
+    from portable_compiler_stats import cuda_statistics
+    result=cuda_statistics(raw,top=top)
+    anchored=bool(source)
+    for name in ('evidence.json','compiler.json'):
+        if (capture/name).is_file():
+            record=[r for r in records if r['path']==name]
+            if len(record)!=1:raise ValueError('Source evidence record missing')
+            check_records(capture,record)
+            if load(capture/name)['generated_sha256']['cuda']!=result['source_sha256']:
+                raise ValueError('Generated CUDA does not match source evidence')
+            anchored=True
+    if not anchored:raise ValueError('Saved generated-source hash evidence required')
+    result.update(source_integrity_verified=True,analysis_complete=True,
+                  calculation_verified=False,compiler_verified=False,
+                  gpu_calls=0,nvrtc_compile_calls=0)
+    write(output,result);return result
+
+
+def ptx_statistics(cache_entry,phases,output,*,top=8):
+    if output.exists():raise ValueError('PTX statistics output already exists')
+    from portable_ptx_stats import saved_ptx_statistics
+    result=saved_ptx_statistics(cache_entry,phases,top=top)
+    write(output,result);return result
+
+
 def check_compile_cache(capture, output):
     """Verify warm artifact reuse using file reads only: NVRTC/GPU forbidden."""
     m=verify_package(ROOT)
@@ -816,6 +858,8 @@ def main(argv=None):
     sub.add_parser('list')
     a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True)
     a=sub.add_parser('cache-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12)
+    a=sub.add_parser('ptx-stats');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=8)
     a=sub.add_parser('compile');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--artifact-kind',choices=('cubin','ptx'),default='cubin')
     a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--memory-limit-mb',type=int,default=2048);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path)
@@ -847,6 +891,8 @@ def main(argv=None):
             result[name]=dict(config,golden_source_ready=not stale,stale_source_files=stale)
     elif a.command=='replay':result=replay_capture(a.capture,a.source_package,a.source_capture)
     elif a.command=='cache-check':result=check_compile_cache(a.capture,a.out)
+    elif a.command=='compiler-stats':result=compiler_statistics(a.capture,a.out,top=a.top)
+    elif a.command=='ptx-stats':result=ptx_statistics(a.cache_entry,a.phases,a.out,top=a.top)
     elif a.command=='compile':
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
         if a.compile_cache:os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())

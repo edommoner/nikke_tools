@@ -168,6 +168,7 @@ static const uint P_INPUT_WORDS = 86016U;
 #endif
 static const uint P_RECIPIENT_META_BASE = 81920U;
 static const uint P_RECIPIENT_NODE_BASE = 81928U;
+static const uint P_HP_UNCLAMP_POLICY = 77809U;
 static const uint P_WORLD_META_BASE = 51913U;
 static const uint P_WORLD_META_WORDS = 7U;
 static const uint P_GEOMETRY_BASE = 83976U;
@@ -526,6 +527,7 @@ static const uint S_pellet_count_fixed = 48U;
 static const uint S_pierce_range = 63U;
 static const uint S_explosion_range = 64U;
 static const uint S_stun = 28U;
+static const uint S_heal_overcharge_store = 74U;
 static const uint H_BURST = 1U;
 static const uint H_SEQUENTIAL = 2U;
 static const uint H_ATTACHMENT = 4U;

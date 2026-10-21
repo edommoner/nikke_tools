@@ -104,10 +104,13 @@ struct Runtime
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
 #ifdef PORTABLE_WORLD_PROJECTILE_DIAGNOSTIC
-#define PROJECTILE_ADMIT_ROW(s,row,d) { uint diagnostic=s.resourceOutput+786416;results[diagnostic]=0x57504144;results[diagnostic+1]=4;results[diagnostic+2]=row+1;results[diagnostic+3]=d.kind;results[diagnostic+4]=d.stat; }
+#define PROJECTILE_DIAGNOSTIC_FIELDS(s,row,d,stage) { uint diagnostic=s.resourceOutput+786416;results[diagnostic]=0x57504144;results[diagnostic+1]=stage;results[diagnostic+2]=row+1;results[diagnostic+3]=d.kind;results[diagnostic+4]=d.stat;results[diagnostic+5]=d.quantityFlags;results[diagnostic+6]=d.owner;results[diagnostic+7]=d.triggerCount;results[diagnostic+8]=d.conditionCount;results[diagnostic+9]=d.damageFlags;results[diagnostic+10]=d.healthScaling;results[diagnostic+11]=d.alliedFlags;results[diagnostic+12]=uint(d.value);results[diagnostic+13]=uint(d.value>>32);results[diagnostic+14]=uint(d.duration);results[diagnostic+15]=uint(d.duration>>32); }
+#define PROJECTILE_ADMIT_ROW(s,row,d) PROJECTILE_DIAGNOSTIC_FIELDS(s,row,d,4)
+#define PROJECTILE_COUNTER_ROW(s,row,d) PROJECTILE_DIAGNOSTIC_FIELDS(s,row,d,11)
 #define PROJECTILE_ADMIT_STAGE(s,value) results[s.resourceOutput+786416]=0x57504144;results[s.resourceOutput+786417]=value;
 #else
 #define PROJECTILE_ADMIT_ROW(s,row,d)
+#define PROJECTILE_COUNTER_ROW(s,row,d)
 #define PROJECTILE_ADMIT_STAGE(s,value)
 #endif
 #ifdef PORTABLE_WORLD_PROJECTILE
@@ -1129,6 +1132,7 @@ void worldCleanseResidents(inout Runtime s,uint row,uint scope,uint64_t when)
 #include "pending_burst_runtime.slang"
 #include "incoming_descriptor_runtime.slang"
 #include "protection_runtime.slang"
+#include "healing_storage_runtime.slang"
 
 [noinline]
 uint packedRecipientMask(uint64_t order)
@@ -1200,10 +1204,12 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
             rechargeImmunity(s,f.cursor-1,packedRecipientMask(buff.enemyBuff!=0 ? 0 : f.value)|(buff.enemyBuff!=0 ? uint(f.value>>16) : 0));
             depth--;
             uint protection=protectionPolicy(s,f.repeatRow)&255;
-            if((protection==1 || protection==2) && buff.lazyGroup==0 && f.value!=0 && s.alive[slot]!=0 && s.entryOrder[slot]==f.repeatPassive && s.carrierDefinition[slot]==f.repeatRow)
+            if((protection==1 || protection==2 || protection==9) && buff.lazyGroup==0 && f.value!=0 && s.alive[slot]!=0 && s.entryOrder[slot]==f.repeatPassive && s.carrierDefinition[slot]==f.repeatRow)
             {
                 if(f.repeatLeft!=0) captureBuffReference(s,slot,f.repeatRow);
-                uint64_t order=buildProtection(s,slot,f.time);
+                uint64_t order=0;
+                if(protection==9) buildHealingStorage(s,slot,f.time);
+                else order=buildProtection(s,slot,f.time);
                 if(order!=0 && s.error==0) pushFrame(s,frames,depth,21,0,buff.owner,0,f.time,order);
                 return;
             }
@@ -1504,6 +1510,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (f.event == 1)
             {
                 uint64_t amount = liveMarker(s,f.owner,S_invincible,f.time) ? 0 : f.healthValue;
+                amount=transferHealingStorage(s,f.owner,amount,f.time,false);
                 if (!f64Zero(amount) && !f64Less(amount,s.hp[f.owner]) && liveMarker(s,f.owner,S_undying,f.time)) amount = larger(0,f64Add(s.hp[f.owner],ONE ^ F64_SIGN));
                 frames[depth].healthValue = amount; frames[depth].event = 2;
                 if (!f64Zero(amount) && !f64Less(amount,s.hp[f.owner])) pushFrame(s,frames,depth,0,37,f.owner,0,f.time);
@@ -1574,7 +1581,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             frames[depth].cursor = index+1; uint who = encoded-1;
             if ((s.downMask & (1U << who)) != 0) continue;
             if (f.mode == 5) s.hp[who] = smaller(f64Add(s.hp[who],f.healthValue),effectiveMaxHP(s,who,f.time));
-            else s.hp[who] = larger(0,f64Mul(s.hp[who],f64Add(ONE,f64Div(health.value,HUNDRED) ^ F64_SIGN)));
+            else s.hp[who] = storageBodyReduce(s,who,health.value,f.time);
             syncHealthActor(s,who,f.time); continue;
         }
         if (f.mode == 17)
@@ -1592,7 +1599,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             uint64_t amount = f64Mul(f64Div(f64Mul(base,heal.value),HUNDRED),healMultiplier(s,f.owner,heal.owner,f.time));
             if (!f64Finite(amount)) { s.error = 16; break; }
             uint64_t before = s.hp[f.owner];
-            s.hp[f.owner] = smaller(f64Add(before,amount),effectiveMaxHP(s,f.owner,f.time));
+            s.hp[f.owner] = storageBodyHeal(s,f.owner,amount,f.time);
             s.healing[f.owner] = f64Add(s.healing[f.owner],larger(0,f64Add(s.hp[f.owner],before ^ F64_SIGN)));
             syncHealthActor(s,f.owner,f.time);
             pushFrame(s,frames,depth,0,16,f.owner,int(heal.owner),f.time); continue;
@@ -1740,6 +1747,11 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (s.error!=0) break;
             WORLD_FIELDS_BIND(s,row,d,f) s.alive[row] = 1; s.activated[row] = f.time;
             s.end[row] = f64Less(duration,0) ? F64_INF : f64Add(f.time,duration);
+            if(activationLazy && d.stat==S_heal_overcharge_store)
+            {
+                uint object=protectionObject(s,row);
+                if(object!=PROTECTION_NONE) results[protectionAddress(s,object)+22]|=STORAGE_PENDING;
+            }
             COUNTER_PREPARE(s,row,f.time) if (d.enemyBuff != 0) s.enemyCaptureGeneration[row] = capturedGeneration;
             if (d.bulletDuration != 0) prepareBulletActivation(s,row,recipientMask,live,activationLazy,previousStack);
             bool namedCandidate = (d.buffEvent & 1) != 0 && (!live || d.maxStack != 1) && s.namedEventOwners != 0;
@@ -1751,7 +1763,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             bool namedNotice = namedCandidate && (s.namedEventOwners & packedRecipientMask(audienceOrder)) != 0;
             bool stackNotice = (d.buffEvent & 1) != 0 && previousStack != s.stacks[row] && (s.stackEventOwners & (1U << d.owner)) != 0;
             if (live && !namedNotice && !stackNotice) captureBuffReference(s,row,sourceRow);
-            if (namedNotice || stackNotice || (d.buffEvent >> 2) != 0 || immunityPolicy(s.inputBase,sourceRow)==3 || (protectionPolicy(s,sourceRow)&255)==1 || (protectionPolicy(s,sourceRow)&255)==2)
+            if (namedNotice || stackNotice || (d.buffEvent >> 2) != 0 || immunityPolicy(s.inputBase,sourceRow)==3 || (protectionPolicy(s,sourceRow)&255)==1 || (protectionPolicy(s,sourceRow)&255)==2 || (protectionPolicy(s,sourceRow)&255)==9)
             {
                 pushFrame(s,frames,depth,13,0,d.owner,int(row),f.time,d.enemyBuff!=0 ? uint64_t(recipientMask&~31U)<<16 : recipientOrder);
                 if (s.error == 0)
@@ -1807,7 +1819,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             else
             {
                 for (uint who = 0; who < 5; who++) if ((recipientMask & (1U << who)) != 0)
-                    s.hp[who] = larger(0,f64Mul(s.hp[who],f64Add(ONE,f64Div(d.value,HUNDRED) ^ F64_SIGN)));
+                    s.hp[who] = storageBodyReduce(s,who,d.value,f.time);
                 syncHealth(s,f.time);
             }
         }

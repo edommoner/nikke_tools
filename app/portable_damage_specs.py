@@ -49,3 +49,7 @@ STATS.update(PROJECTILE_STATS)
 # Presence is read by the common status executor, not a damage multiplier.
 BUFFS=BUFFS | {'stun'}
 STATS['stun']={**DETAIL_STAT,**EXTRA_STAT}['stun']
+
+# A typed overheal object, never a numeric damage-vector entry.
+BUFFS=BUFFS | {'heal_overcharge_store'}
+STATS['heal_overcharge_store']=EXTRA_STAT['heal_overcharge_store']

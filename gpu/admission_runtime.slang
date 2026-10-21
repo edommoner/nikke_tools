@@ -25,18 +25,19 @@ void admitDefinitions(inout Runtime s,uint input)
     for (uint j = 0; j < s.count; j++)
     {
         Definition d;loadDefinition(input,j,d); PROJECTILE_ADMIT_ROW(s,j,d)
+        PROJECTILE_ADMIT_STAGE(s,4000)
         if(d.kind==22 && (s.combat==0 || d.stat!=0 || d.enemyBuff!=0 || !f64Finite(d.value))) { s.error=64;break; }
-        if(d.stat==S_stun)
+        PROJECTILE_ADMIT_STAGE(s,4001) if(d.stat==S_stun)
         { if(d.kind!=0 || s.combat==0 || !f64Equal(d.value,ONE)) { s.error=64;break; }s.incomingMask|=8; }
-        if((d.quantityFlags&2)!=0)
+        PROJECTILE_ADMIT_STAGE(s,4002) if((d.quantityFlags&2)!=0)
         { if(d.kind!=4 || s.combat==0 || d.stat!=0 || d.quantityFlags!=2 || !f64Finite(d.value)) { s.error=64;break; }s.incomingMask|=16; }
-        if(d.kind==25)
+        PROJECTILE_ADMIT_STAGE(s,4003) if(d.kind==25)
         {
             uint plan=input+P_RECIPIENT_BASE+j*8;
             if(s.combat==0 || d.stat!=0 || d.enemyBuff!=0 || !f64Finite(d.value) || f64Zero(d.value) ||
                commands[plan]>1 || !validRecipientPlan(plan,false,input)) { s.error=64;break; }
         }
-        if(d.stat==S_pierce_enabled || d.stat==S_armor_break_enabled || d.stat==S_burst_charge_speed_pct)
+        PROJECTILE_ADMIT_STAGE(s,4004) if(d.stat==S_pierce_enabled || d.stat==S_armor_break_enabled || d.stat==S_burst_charge_speed_pct)
         {
             if(d.kind!=0 || d.enemyBuff!=0 || !f64Finite(d.value) || d.damageFlags!=0) { s.error=64;break; }
             for(uint word=0;word<P_DAMAGE_DEFINITION_WORDS;word++)
@@ -45,7 +46,7 @@ void admitDefinitions(inout Runtime s,uint input)
             if(d.stat==S_burst_charge_speed_pct)
             { if(commands[refs]!=1) { s.error=64;break; } s.quantityMask|=128; }
         }
-        if(d.stat==S_atk_from_hp_pct)
+        PROJECTILE_ADMIT_STAGE(s,4005) if(d.stat==S_atk_from_hp_pct)
         {
             if(d.kind!=0 || d.enemyBuff!=0 || d.alliedFlags!=0 || d.healthScaling!=0 || d.queryResolve!=0 || !f64Finite(d.value) || d.damageFlags!=0) { s.error=64;break; }
             for(uint word=0;word<P_DAMAGE_DEFINITION_WORDS;word++)

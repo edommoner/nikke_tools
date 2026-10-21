@@ -16,7 +16,9 @@ void resetCounterPartExtra(inout Runtime s,uint slot)
 bool counterLandingDefinitionInvalid(inout Runtime s,uint row,Definition d,bool legacy)
 {
     if(!counterLandingsEnabled(s)) return legacy;
-    if(WORLD_SKILL_DEFINITION(s,row,d,COUNTER_CONTEXT_CONDITIONS(s,row,d,d.conditionCount!=0)||d.kind!=0&&d.kind!=4&&d.kind!=2&&d.kind!=8)) return true;
+    // Reuse the actor-field status admission contract; execution and the raw
+    // status/scope validators remain common to both transports.
+    if(WORLD_SKILL_DEFINITION(s,row,d,COUNTER_CONTEXT_CONDITIONS(s,row,d,d.conditionCount!=0)||WORLD_STATUS_KIND(s,d,d.kind!=0&&d.kind!=4&&d.kind!=2&&d.kind!=8))) return true;
     if(d.enemyBuff!=0)
     {
         uint p=counterPolicy(s,row);
