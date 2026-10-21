@@ -51,6 +51,10 @@ class ProjectileContracts(unittest.TestCase):
   spec=importlib.util.spec_from_file_location('projectile_input_contract',ROOT/'research/verify-world-projectile.py');suite=importlib.util.module_from_spec(spec);spec.loader.exec_module(suite)
   w,m,b=suite.compile_case(copy.deepcopy(self.rows['resource-modulo-pellets-and-named-removal']))
   self.assertEqual(w[L['RECIPIENT_BASE']+2*8:L['RECIPIENT_BASE']+3*8],[0]*8)
+ def test_delta_verifier_imports_without_gpu_execution(self):
+  spec=importlib.util.spec_from_file_location('projectile_delta_import',ROOT/'research/verify-world-projectile-input-fix.py');module=importlib.util.module_from_spec(spec)
+  with patch.object(portable_backend,'build',side_effect=AssertionError('No build')),patch.object(portable_backend,'execute',side_effect=AssertionError('No GPU')):spec.loader.exec_module(module)
+  self.assertTrue(callable(module.main))
  def test_dynamic_parts_route_team_notifications_per_frame(self):
   native=observe(copy.deepcopy(self.rows['parts-overlay-delayed-open-close']))[0]
   first=[r for r in native['team_hits'] if r['owner']==0]

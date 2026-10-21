@@ -2,7 +2,7 @@
 import array,datetime,importlib.util,json,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
-s=importlib.util.spec_from_file_location('projectile_delta_suite',ROOT/'research/verify-world-projectile.py');suite=importlib.util.module_from_spec(s);s.loader.exec_module(s)
+s=importlib.util.spec_from_file_location('projectile_delta_suite',ROOT/'research/verify-world-projectile.py');suite=importlib.util.module_from_spec(s);s.loader.exec_module(suite)
 def main():
  bridge=json.loads((ROOT/'research/portable-world-projectile-diagnostic-preservation.json').read_text());assert bridge['passed'] and not bridge['normalization_extended']
  rows,programs,bad=suite.prepare();case=rows[-1];w,m,b=programs[-1];assert case['name']=='projectile-resource-modulo-pellets-and-named-removal' and bad[-1][0]=='self-removal-unused-recipient-key'
