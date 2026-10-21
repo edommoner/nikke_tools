@@ -1,0 +1,25 @@
+{
+  "package_id": "eb1137e976294f6f6000710cbf0849281af910d89f7499a25ac1e5fe4c8bb977",
+  "files": 1791,
+  "bytes": 4578689,
+  "archive_sha256": "bdca21b62be31fbc19f62ed09c1b5f10f9805be61235e0aae392ce2ee8eb2dad",
+  "source_commit": "f103e50a0c33735077f67e84c593c96c9e59188d",
+  "bootstrap_bytes": 66680,
+  "bootstrap_sha256": "dd036a9525b6b23f9b83f47e95fd632a63fa2d31c1dc0b5471c529f49e977055",
+  "purpose": "CPU-only common CLI smoke:53 controller/cache/artifact tests plus fresh Job marker. No full native preflight or real compiler.",
+  "outer_timeout_seconds": 120,
+  "job_timeout_seconds": 30,
+  "cleanup_seconds": 5,
+  "gpu_calls_allowed": 0,
+  "nvrtc_calls_allowed": 0,
+  "slang_calls_allowed": 0,
+  "attempt_limit": 1,
+  "smoke_tests": 53,
+  "test_patterns": [
+    "test_portable_windows_cleanup.py",
+    "test_portable_gpu_cli.py",
+    "test_portable_compile_cache.py",
+    "test_portable_cuda_artifact.py"
+  ],
+  "ref": "refs/heads/codex/cuda-cache-v116-source"
+}
