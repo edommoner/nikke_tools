@@ -1,0 +1,33 @@
+{
+  "version": 109,
+  "purpose": "CPU guards then one GPU0 bounded CUBIN O1 compilation; no CUDA driver or kernel",
+  "checkpoint": "18b93b8136500345ffa5f9f1106f6a4baf14e9f9",
+  "archive_path": "research/packets/nikke-cuda-compiler-v109.zip",
+  "archive_bytes": 4400092,
+  "archive_sha256": "d3112596da03f3e60e4322d517cb8fcbda6f96ff61bb35777b7bd87f9126c8e9",
+  "package_id": "adce7d335be977f1e828f478768df9a1eb647b0b4840040b09e7781f8af5d7a8",
+  "bootstrap_sha256": "68b837ac11af772f6a74c940be0563f06c559e3ea05e4cab4bbcbcfc584a291a",
+  "mac_cpu_preflight_passed": true,
+  "sealed_metal_inputs": 81,
+  "metal_stun_inputs": 46,
+  "windows_cpu_tests_first": [
+    "test_portable_windows_cleanup.py",
+    "test_portable_compile_cli.py",
+    "test_portable_cuda_artifact.py"
+  ],
+  "ptxas_level": 1,
+  "artifact_kind": "cubin",
+  "compile_max_seconds": 60,
+  "cleanup_seconds": 5,
+  "job_memory_mib": 2048,
+  "gpu_dispatch_calls_allowed": 0,
+  "driver_load_calls_allowed": 0,
+  "compile_attempts_allowed": 1,
+  "retries_allowed": 0,
+  "stop_on_cpu_test_failure": true,
+  "stop_after_compile_failure": true,
+  "cache_check_after_completed_compile_only": true,
+  "original_records_retained": true,
+  "services_operated": false,
+  "report_privately_as_sanitized_json": true
+}

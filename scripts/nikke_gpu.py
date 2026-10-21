@@ -25,9 +25,9 @@ SUITES = {
                        source='gpu/world_projectile_entry.slang', inputs=63, native=52,
                        tests=['test_portable_projectiles.py', 'test_portable_real_binding_proof.py','test_portable_readiness.py','test_portable_compile_cache.py']),
     'readiness':dict(script='research/verify-world-readiness-short.py',
-                       golden='research/portable-world-readiness-v4-short-expected.json',
+                       golden='research/portable-world-readiness-v5-short-expected.json',
                        source='gpu/world_projectile_entry.slang',inputs=81,native=60,
-                       tests=['test_portable_readiness.py','test_portable_burst_recipients.py','test_portable_compile_cache.py','test_portable_gpu_cli.py','test_portable_cuda_artifact.py','test_portable_phase_audit.py','test_portable_windows_cleanup.py','test_portable_windows_observer.py']),
+                       tests=['test_portable_readiness.py','test_portable_burst_recipients.py','test_portable_compile_cache.py','test_portable_gpu_cli.py','test_portable_compile_cli.py','test_portable_cuda_artifact.py','test_portable_phase_audit.py','test_portable_windows_cleanup.py','test_portable_windows_observer.py']),
     'recipients':dict(script='research/verify-world-recipients-short.py',
                        golden='research/portable-world-recipients-short-expected.json',
                        source='gpu/world_projectile_entry.slang',inputs=6,native=6,
@@ -46,6 +46,9 @@ SUITES = {
                    tests=['test_portable_world_reload.py']),
 }
 SUITES['lost-hp-diagnostic']=dict(SUITES['lost-hp-roster'],source='gpu/world_projectile_admission_entry.slang')
+SUITES['stun']=dict(script='research/verify-world-stun-short.py',golden='research/portable-world-stun-short-expected.json',
+                   source='gpu/world_projectile_entry.slang',inputs=46,native=36,
+                   tests=['test_portable_stun.py'])
 SUITES['burst-recipients-diagnostic']=dict(SUITES['burst-recipients'],source='gpu/world_projectile_admission_entry.slang',development_only=True)
 
 SCHEMA = 1
@@ -273,15 +276,18 @@ def cpu_preflight(m):
                 input_sha256=sha(data), gpu_calls=calls, elapsed_seconds=time.perf_counter()-started)
 
 
-def child(capture, backend, smoke=False):
+def child(capture, backend, smoke=False, compile_only=False):
     deadline = time.monotonic()+60
     while not (capture/'start.json').exists():
         if time.monotonic() >= deadline:
             raise RuntimeError('Containment gate not released; GPU not started')
         time.sleep(.02)
     if smoke:
+        if compile_only:raise ValueError('Compile and smoke modes are exclusive')
         write(capture/'smoke.json',dict(pid=os.getpid(),ppid=os.getppid(),gpu_calls=0)); return
     m = verify_package(ROOT)
+    if compile_only:
+        compile_child(m,capture,backend);return
     adapter = open_suite(m)
     entries, data = prepare_entries(adapter, m)
     if sha(data) != m['golden']['input_sha256']:
@@ -324,7 +330,9 @@ def compare_readback(m, capture, adapter=None):
             if receipt['key']!=identity_key or receipt['identity']['artifact'] not in ('ptx','cubin') or receipt['identity']['schema']!=1:
                 raise ValueError('Invalid CUDA compile cache key/schema')
             from portable_backend import cuda_compile_options
-            if receipt['identity']['options']!=cuda_compile_options(kind):
+            allowed=[cuda_compile_options(kind)]
+            if kind=='cubin':allowed += [cuda_compile_options(kind,level) for level in range(4)]
+            if receipt['identity']['options'] not in allowed:
                 raise ValueError('CUDA compiler options changed')
             if sha(artifact)!=receipt['artifact_sha256'] or len(artifact)!=receipt['artifact_bytes']:
                 raise ValueError('Compiled CUDA artifact mismatch')
@@ -515,14 +523,15 @@ def bounded_module():
     return module(ROOT/'research/run-world-bounded.py')
 
 
-def run_job(capture,backend,timeout,original_workspace=None,smoke=False):
+def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_only=False):
     bounded=bounded_module()
     env=os.environ.copy();env.pop('__PYVENV_LAUNCHER__',None)
     env['PYTHONPATH']=os.pathsep.join([*site.getsitepackages(),env.get('PYTHONPATH','')])
     interpreter=getattr(sys,'_base_executable',sys.executable) if os.name=='nt' else sys.executable
     command=[interpreter,str(Path(__file__).resolve()),'_child','--capture',str(capture),'--backend',backend]
     if smoke:command.append('--smoke')
-    write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),slang_root=os.environ.get('NIKKE_SLANG_ROOT'),cuda_artifact_kind=os.environ.get('NIKKE_CUDA_ARTIFACT','cubin') if backend=='cuda' else None,compile_cache_enabled=bool(os.environ.get('NIKKE_CUDA_COMPILE_CACHE')),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
+    if compile_only:command.append('--compile-only')
+    write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),slang_root=os.environ.get('NIKKE_SLANG_ROOT'),cuda_artifact_kind=os.environ.get('NIKKE_CUDA_ARTIFACT','cubin') if backend=='cuda' else None,compile_cache_enabled=bool(os.environ.get('NIKKE_CUDA_COMPILE_CACHE')),compile_only=compile_only,ptxas_optimization_level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL'),cache_required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0'),job_memory_limit_mb=os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB'),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
     observation={}
     if os.name=='nt':
         from windows_validation_observer import capture_snapshot,observe_job,compare_snapshots
@@ -590,10 +599,139 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
     return load(capture/'result.json')
 
 
+def job_contained(capture,rows,*,memory_limit_bytes=None):
+    if not (capture/'job.json').exists() or not rows:return False,None
+    records=load(capture/'job.json')['records']
+    if len(records)!=1:return False,None
+    r=records[0];pre=r['pre_gate'];post=r['post_wait'];pid=r['child_pid']
+    good=bool(r['pre_gate_verified'] and not r['inspection_error'] and pre and post
+        and pre['child_pid']==post['child_pid']==pid
+        and pre['child_ppid']==post['child_ppid']==r['wrapper_pid']
+        and pre['job_members']==[pid] and post['job_members']==[]
+        and bool(pre['child_creation_filetime_ticks'])
+        and pre['child_creation_filetime_ticks']==post['child_creation_filetime_ticks']
+        and all(row.get('pid')==pid for row in rows)
+        and all(a['monotonic_ns']<=b['monotonic_ns'] for a,b in zip(rows,rows[1:]))
+        and pre['observed_unix_ns']<=rows[0]['wall_time_ns']<=rows[-1]['wall_time_ns']<=post['observed_unix_ns'])
+    if memory_limit_bytes is not None:
+        good &= pre.get('job_memory_limit_bytes')==post.get('job_memory_limit_bytes')==memory_limit_bytes
+    return bool(good),pid
+
+
+def compile_child(m,capture,backend):
+    """Same compiler/cache as execution, with no CUDA driver admission."""
+    if backend!='cuda' or is_development(m):raise ValueError('Compile-only requires a sealed CUDA package')
+    import portable_backend
+    from portable_phase_audit import Journal,observe
+    journal=Journal(capture/'phases.jsonl')
+    loader=getattr(portable_backend.C,'WinDLL',None)
+    def guarded_library(name,*args,**kwargs):
+        basename=str(name).replace('\\','/').rsplit('/',1)[-1].lower()
+        if not basename.startswith('nvrtc') or not basename.endswith('.dll'):
+            journal.emit('cuda_driver_load_forbidden','rejected');raise RuntimeError('Only the NVRTC compiler library is allowed')
+        journal.emit('cuda_compiler_library','loaded',name=basename)
+        return loader(name,*args,**kwargs)
+    def forbidden(*a,**k):raise RuntimeError('GPU dispatch forbidden in compile-only mode')
+    with patch.object(portable_backend.C,'WinDLL',guarded_library,create=True),patch.object(portable_backend,'execute',forbidden),patch.object(portable_backend,'execute_batches',forbidden),observe(portable_backend,journal):
+        outputs,hashes=portable_backend.build(SUITES[m['suite']]['source'],'portableEvents')
+        normalized=module(ROOT/'research/summarize-portable-cross-gpu.py').normalized
+        generated={k:normalized(p.read_bytes()) for k,p in outputs.items()}
+        if hashes!=m['golden']['source_sha256'] or generated!=m['golden']['generated_normalized']:
+            raise ValueError('Generated compiler inputs differ from the sealed Metal proof')
+        artifact,receipt=journal.invoke('shared_cuda_compile_only',portable_backend.compile_cuda_source,outputs['cuda'])
+    copy_generated(capture,m['suite'])
+    write(capture/'compiler.json',dict(source_sha256=hashes,generated_sha256={k:sha(p.read_bytes()) for k,p in outputs.items()},
+        generated_normalized=generated,compile_artifact=receipt,gpu_calls=0,driver_load_calls=0,calculation_verified=False))
+
+
+def audit_compile_capture(m,capture,*,verify_artifacts=True):
+    run=load(capture/'run.json')
+    if run.get('mode')!='compile-only' or run['package_id']!=m['package_id'] or run['backend']!='cuda':raise ValueError('Wrong compiler capture')
+    if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
+    facts=load(capture/'execution.json')
+    if is_development(m) or type(facts['timeout_seconds']) is not int or not 1<=facts['timeout_seconds']<=60 or type(run['memory_limit_mb']) is not int or not 64<=run['memory_limit_mb']<=4096:raise ValueError('Compiler proof exceeds its bounded policy')
+    rows=[];phase_error=None
+    if (capture/'phases.jsonl').exists():
+        for line in (capture/'phases.jsonl').read_text().splitlines():
+            try:rows.append(json.loads(line))
+            except json.JSONDecodeError:phase_error='Malformed or incomplete compiler phase journal';break
+    complete=phase_error is None and [r['state'] for r in rows if r['stage']=='shared_cuda_compile_only']==['entered','returned']
+    no_gpu=not any((r['stage'].startswith('cu') and len(r['stage'])>2 and r['stage'][2].isupper()) or r['stage'] in ('shared_gpu_execute','cuda_driver_load_forbidden') for r in rows)
+    compiler=False;error=phase_error
+    if (capture/'compiler.json').exists():
+        try:
+            c=load(capture/'compiler.json');receipt=c['compile_artifact'];kind=receipt['identity']['artifact']
+            if kind!=run['artifact_kind']:raise ValueError('Compiler artifact kind mismatch')
+            from portable_backend import cuda_compile_options
+            if receipt['identity']['options']!=cuda_compile_options(kind,run['ptxas_level']):raise ValueError('Compiler options mismatch')
+            if c['source_sha256']!=m['golden']['source_sha256'] or c['generated_normalized']!=m['golden']['generated_normalized']:raise ValueError('Compiler source baseline mismatch')
+            normalized=module(ROOT/'research/summarize-portable-cross-gpu.py').normalized
+            for backend,suffix in [('cuda','cu'),('metal','metal')]:
+                raw=(capture/('generated.'+suffix)).read_bytes()
+                if sha(raw)!=c['generated_sha256'][backend] or normalized(raw)!=c['generated_normalized'][backend]:raise ValueError('Compiler generated bytes mismatch')
+            artifact=(capture/('compiled.'+kind)).read_bytes()
+            if sha(artifact)!=receipt['artifact_sha256'] or len(artifact)!=receipt['artifact_bytes']:raise ValueError('Compiler output mismatch')
+            if kind=='cubin' and not artifact.startswith(b'\x7fELF'):raise ValueError('Compiler output is not ELF')
+            if receipt['identity']['source_sha256']!=c['generated_sha256']['cuda']:raise ValueError('Compiler input mismatch')
+            if receipt['key']!=sha(json.dumps(receipt['identity'],sort_keys=True,separators=(',',':')).encode()):raise ValueError('Compiler identity key mismatch')
+            if [r['receipt'] for r in rows if r['stage']=='cuda_compile_cache' and r['state']=='verified']!=[receipt]:raise ValueError('Compiler receipt phase mismatch')
+            compiler=True
+        except (ValueError,KeyError,OSError) as exc:error=str(exc)
+    containment,pid=job_contained(capture,rows,memory_limit_bytes=run['memory_limit_mb']*1024*1024)
+    from portable_phase_audit import summarize
+    phase=summarize(capture/'phases.jsonl')
+    compiler=bool(compiler and facts['passed'] and complete and no_gpu and containment and (phase['nvrtc_compile_returned_success'] or phase['cuda_compile_cache_hit_verified']))
+    preservation=environment_preserved(capture,facts)
+    return dict(mode='compile-only',compiler_verified=compiler,passed=compiler and preservation is True,
+        containment_verified=containment,preservation_verified=preservation,calculation_verified=False,
+        gpu_calls=0 if no_gpu else None,driver_load_calls=0 if no_gpu else None,phase=phase,error=error,gpu_retry_count=0)
+
+
+def compile_capture(capture,timeout,original_workspace,artifact_kind='cubin',ptxas_level=None,memory_limit_mb=2048):
+    if os.name!='nt':raise ValueError('Compile-only requires Windows')
+    if type(timeout) is not int or not 1<=timeout<=60:raise ValueError('Compile-only budget must be1..60 seconds')
+    if type(memory_limit_mb) is not int or not 64<=memory_limit_mb<=4096:raise ValueError('Compile-only memory must be64..4096 MiB')
+    from portable_backend import cuda_compile_options
+    cuda_compile_options(artifact_kind,ptxas_level)
+    if not original_workspace or not os.environ.get('NIKKE_CUDA_COMPILE_CACHE'):raise ValueError('Original workspace and dedicated compiler cache required')
+    m=verify_package(ROOT)
+    if is_development(m):raise ValueError('Compile-only requires a sealed Metal package')
+    capture.mkdir(parents=True,exist_ok=False)
+    write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode='compile-only',status='compiling',artifact_kind=artifact_kind,ptxas_level=ptxas_level,memory_limit_mb=memory_limit_mb,gpu_retry_count=0))
+    try:
+        with (ROOT/'compile-claimed-cuda.json').open('x',encoding='utf-8') as stream:
+            json.dump(dict(package_id=m['package_id'],capture=str(capture),artifact_kind=artifact_kind,ptxas_level=ptxas_level),stream)
+        environment=dict(NIKKE_CUDA_ARTIFACT=artifact_kind,NIKKE_CUDA_PTXAS_OPT_LEVEL='' if ptxas_level is None else str(ptxas_level),NIKKE_VALIDATION_JOB_MEMORY_MB=str(memory_limit_mb))
+        with patch.dict(os.environ,environment):run_job(capture,'cuda',timeout,original_workspace,compile_only=True)
+        copy_generated(capture,m['suite'],partial=True)
+        result=audit_compile_capture(m,capture,verify_artifacts=False);write(capture/'result.json',result)
+        run=load(capture/'run.json');run['status']='finished';write(capture/'run.json',run)
+    except BaseException as exc:
+        write(capture/'failure.json',dict(error=type(exc).__name__+': '+str(exc),gpu_calls=0))
+        run=load(capture/'run.json');run['status']='failed';write(capture/'run.json',run);raise
+    finally:collect(capture,capture/'artifacts.json')
+    return result
+
+
+def environment_preserved(capture,facts,backend='cuda'):
+    preservation=None if backend!='cuda' else False
+    if (capture/'observation.json').exists():
+        from windows_validation_observer import compare_snapshots
+        o=load(capture/'observation.json')
+        if 'before' in o and 'after' in o:
+            comparison=compare_snapshots(o['before'],o['after'])
+            if o.get('comparison')!=comparison:raise ValueError('Process comparison mismatch')
+            immediate=0 <= o['after']['observed_unix_ns']-facts['wait_completed_unix_ns'] <= 30_000_000_000
+            preservation=bool(immediate and not facts['observation_error'] and comparison['all_monitored_processes_preserved'] and comparison['identified_nikke_service_preservation_verified'])
+    return preservation
+
+
 def audit_capture(capture,verify_artifacts=True):
     m=verify_package(ROOT)
     if load(capture/'run.json')['package_id']!=m['package_id']:raise ValueError('Capture belongs to another package')
     if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
+    if load(capture/'run.json').get('mode')=='compile-only':
+        return audit_compile_capture(m,capture,verify_artifacts=verify_artifacts)
     if load(capture/'run.json').get('mode')=='replay':
         return audit_replay_capture(m,capture,verify_artifacts=verify_artifacts)
     facts=load(capture/'execution.json')
@@ -613,27 +751,12 @@ def audit_capture(capture,verify_artifacts=True):
     if backend=='cuda':
         transport_ok &= (phases['nvrtc_compile_returned_success'] or phases['cuda_compile_cache_hit_verified']) and all(phases[k] for k in ('cuda_launch_returned_success','cuda_synchronize_returned_success','cuda_readback_returned_success'))
     preservation=None if backend!='cuda' else False
-    if (capture/'observation.json').exists():
-        from windows_validation_observer import compare_snapshots
-        o=load(capture/'observation.json')
-        if 'before' in o and 'after' in o:
-            comparison=compare_snapshots(o['before'],o['after'])
-            if o.get('comparison')!=comparison:raise ValueError('Process comparison mismatch')
-            immediate=0 <= o['after']['observed_unix_ns']-facts['wait_completed_unix_ns'] <= 30_000_000_000
-            preservation=bool(immediate and not facts['observation_error'] and comparison['all_monitored_processes_preserved'] and comparison['identified_nikke_service_preservation_verified'])
+    preservation=environment_preserved(capture,facts,backend)
     containment=True if backend!='cuda' else False
-    if backend=='cuda' and (capture/'job.json').exists():
-        records=load(capture/'job.json')['records']
-        if len(records)==1:
-            row=records[0];pre=row['pre_gate'];post=row['post_wait']
-            phase_rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()] if (capture/'phases.jsonl').exists() else []
-            containment=bool(row['pre_gate_verified'] and not row['inspection_error'] and post
-                             and pre['child_pid']==post['child_pid']==row['child_pid']
-                             and pre['child_ppid']==post['child_ppid']==row['wrapper_pid']
-                             and pre['job_members']==[row['child_pid']] and post['job_members']==[]
-                             and pre['child_creation_filetime_ticks']==post['child_creation_filetime_ticks']
-                             and verify_cuda_trace(phase_rows,pid=row['child_pid'])
-                             and pre['observed_unix_ns']<=phase_rows[0]['wall_time_ns']<=phase_rows[-1]['wall_time_ns']<=post['observed_unix_ns'])
+    if backend=='cuda':
+        phase_rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()] if (capture/'phases.jsonl').exists() else []
+        containment,pid=job_contained(capture,phase_rows)
+        containment &= verify_cuda_trace(phase_rows,pid=pid) if containment else False
     return dict(sealed=not is_development(m),purpose=m.get('purpose','sealed'),
                 calculation_verified=bool(calc and transport_ok and containment),preservation_verified=preservation,
                 passed=bool(calc and transport_ok and containment and (backend!='cuda' or preservation is True)),
@@ -678,6 +801,9 @@ def main(argv=None):
     sub.add_parser('list')
     a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True)
     a=sub.add_parser('cache-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('compile');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
+    a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--artifact-kind',choices=('cubin','ptx'),default='cubin')
+    a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--memory-limit-mb',type=int,default=2048);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path)
     a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
@@ -687,6 +813,8 @@ def main(argv=None):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--smoke',action='store_true')
         if name=='run':
             a.add_argument('--cpu-only',action='store_true');a.add_argument('--timeout',type=int,default=180);a.add_argument('--original-workspace',type=Path);a.add_argument('--slang-root',type=Path)
+            a.add_argument('--require-cache',action='store_true');a.add_argument('--compile-cache',type=Path);a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--artifact-kind',choices=('cubin','ptx'))
+        else:a.add_argument('--compile-only',action='store_true')
     for name in ('status','audit','collect','export'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True)
         if name in ('collect','export'):a.add_argument('--out',type=Path,required=True)
@@ -704,6 +832,10 @@ def main(argv=None):
             result[name]=dict(config,golden_source_ready=not stale,stale_source_files=stale)
     elif a.command=='replay':result=replay_capture(a.capture,a.source_package,a.source_capture)
     elif a.command=='cache-check':result=check_compile_cache(a.capture,a.out)
+    elif a.command=='compile':
+        if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
+        if a.compile_cache:os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())
+        result=compile_capture(a.capture,a.timeout,a.original_workspace,a.artifact_kind,a.ptxas_level,a.memory_limit_mb)
     elif a.command=='seal':result=seal_development(a.package_root,a.capture,a.out)
     elif a.command=='cases':
         with forbid_gpu():
@@ -717,11 +849,16 @@ def main(argv=None):
     elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case)
     elif a.command=='unpack':result=dict(package_id=unpack(a.archive,a.dest))
     elif a.command=='run':
+        if a.backend!='cuda' and (a.require_cache or a.compile_cache or a.ptxas_level is not None or a.artifact_kind):raise ValueError('CUDA compiler settings require CUDA backend')
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
+        if a.compile_cache:os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())
+        if a.require_cache:os.environ['NIKKE_CUDA_CACHE_REQUIRED']='1'
+        if a.ptxas_level is not None:os.environ['NIKKE_CUDA_PTXAS_OPT_LEVEL']=str(a.ptxas_level)
+        if a.artifact_kind:os.environ['NIKKE_CUDA_ARTIFACT']=a.artifact_kind
         result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only)
     elif a.command=='_child':
         # Generated source copies are captured before comparison, including a mismatch.
-        child(a.capture,a.backend,a.smoke);return
+        child(a.capture,a.backend,a.smoke,a.compile_only);return
     elif a.command=='audit':result=audit_capture(a.capture)
     elif a.command=='status':result=dict(run=load(a.capture/'run.json'),result=load(a.capture/'result.json') if (a.capture/'result.json').exists() else None)
     elif a.command=='collect':result=collect(a.capture,a.out)
@@ -731,6 +868,10 @@ def main(argv=None):
         # Historical fixed reports remain supported by their existing sealers.
         runpy.run_path(str(ROOT/f'research/seal-world-v{a.version}-cuda.py'),run_name='__main__');return
     print(json.dumps(result,ensure_ascii=False,indent=2))
+    if a.command=='compile' or result.get('mode')=='compile-only':
+        if not result.get('compiler_verified'):raise SystemExit(1)
+        if result.get('preservation_verified') is False:raise SystemExit(2)
+        return
     if a.command in ('run','audit','replay'):
         if result.get('cpu_verified') or result.get('smoke_verified'):return
         if not result.get('calculation_verified'):raise SystemExit(1)
