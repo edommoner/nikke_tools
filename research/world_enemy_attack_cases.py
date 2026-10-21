@@ -6,7 +6,7 @@ s=importlib.util.spec_from_file_location('enemy_attack_fields_suite',ROOT/'resea
 def field(stat='atk_caster_based_pct',value=-10,target='boss',name='enemy-attack',timing='battle_start',duration=-1,condition=(),**kw):
  return dict(name=name,source='스킬1',type='buff',stat=stat,fixed_value=value,target=target,duration=duration,trigger=dict(timing=[timing],condition=list(condition)),**kw)
 def fixtures():
- base=copy.deepcopy(suite.fixtures()[0]);base.update(duration=.45,observe_enemy_fields=True,observe_enemy_attack_fields=True,observe_named_state=True,allow_shared_enemy_fields=True,observe_counter_field_memberships=True)
+ base=copy.deepcopy(suite.fixtures()[0]);base.update(duration=.45,observe_enemy_fields=True,observe_enemy_attack_fields=True,observe_named_state=True,allow_shared_enemy_fields=True,observe_counter_field_memberships=True,observe_actor_status=True)
  for a in base['environment']['allies']:a['base_hp']=10000
  base['patterns']=[dict(id='attack',kind='attack',delay=.05,spec=dict(atk=300,coeff=100,target='all',hits=4,interval=.1))]
  rows=[]

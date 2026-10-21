@@ -9,6 +9,8 @@ class EnemyAttackContracts(unittest.TestCase):
  def hits(self,n):return [h['damage'] for h in self.native[n]['hits']]
  def test_percent_state_does_not_invent_a_native_damage_multiplier(self):
   for target in ('boss','target','all_enemies'):self.assertEqual(self.hits('atk_pct-'+target),self.hits('enemy-attack-baseline'))
+ def test_native_enemy_percent_also_affects_outgoing_get_buffs_query(self):
+  self.assertTrue(all(x<y for x,y in zip(self.native['atk_pct-boss']['damage'],self.native['enemy-attack-baseline']['damage'])))
  def test_caster_based_field_reads_base_attack_and_preserves_sign(self):
   b=self.hits('enemy-attack-baseline');self.assertEqual(self.hits('atk_caster_based_pct-boss'),[x-100 for x in b]);self.assertEqual(self.hits('caster-flat-positive'),[x+100 for x in b]);self.assertEqual(self.hits('caster-flat-uses-base-not-buffed-caster'),[x-100 for x in b])
  def test_negative_attack_is_clamped_before_defense_and_minimum_damage(self):self.assertEqual(set(self.hits('caster-flat-clamped-below-zero')),{1})

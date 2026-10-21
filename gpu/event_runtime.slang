@@ -103,6 +103,8 @@ struct Runtime
 #ifdef PORTABLE_WORLD_ENEMY_ATTACK
 bool worldEnemyAttackEnabled(inout Runtime s) { return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==13; }
 #define WORLD_ENEMY_ATTACK_INVALID(s,d,legacy) ((legacy)&&!(worldEnemyAttackEnabled(s)&&(d.stat==S_atk_pct||d.stat==S_atk_caster_based_pct)))
+#define WORLD_ENEMY_ATTACK_ADMIT(s,d,at,kind,arg) if(worldEnemyAttackEnabled(s)&&d.enemyBuff!=0&&(d.stat==S_atk_pct||d.stat==S_atk_caster_based_pct)&&(kind==C_HP_ABOVE||kind==C_HP_BELOW||kind==C_HP_MAX)) { if(commands[at+1]!=0||!f64Finite(arg)||kind==C_HP_MAX&&!f64Zero(arg)) return false;continue; }
+#define WORLD_ENEMY_ATTACK_DAMAGE_MEMBER(s,row,who,when,legacy) ((legacy)||worldEnemyAttackDamageMember(s,row,who,when))
 #define WORLD_ENEMY_ATTACK_STAT(s,d,legacy) ((legacy)||(worldEnemyAttackEnabled(s)&&(d.stat==S_atk_pct||d.stat==S_atk_caster_based_pct)))
 #define WORLD_ENEMY_ATTACK_CAPTURE(s,frames,depth,f) if(f.mode==8&&f.cursor==0&&scheduledArgument(uint(f.argument))&&worldEnemyAttackEnabled(s)) frames[depth].gaugeFlat=larger(0,f64Add(loadNumber(incomingDamageAddress(s,uint(f.argument))),collectWorldEnemyAttackFlat(s,0,f.time)));
 #define WORLD_ENEMY_ATTACK_VALUE(s,frames,depth,f,legacy) (worldEnemyAttackEnabled(s)&&scheduledArgument(uint(f.argument)) ? frames[depth].gaugeFlat : (legacy))
@@ -111,6 +113,8 @@ bool worldEnemyAttackEnabled(inout Runtime s) { return targetCountersEnabled(s)&
 #define WORLD_ENEMY_ATTACK_MODE(s) worldEnemyAttackEnabled(s)
 #else
 #define WORLD_ENEMY_ATTACK_INVALID(s,d,legacy) legacy
+#define WORLD_ENEMY_ATTACK_ADMIT(s,d,at,kind,arg)
+#define WORLD_ENEMY_ATTACK_DAMAGE_MEMBER(s,row,who,when,legacy) legacy
 #define WORLD_ENEMY_ATTACK_STAT(s,d,legacy) legacy
 #define WORLD_ENEMY_ATTACK_CAPTURE(s,frames,depth,f)
 #define WORLD_ENEMY_ATTACK_VALUE(s,frames,depth,f,legacy) legacy
@@ -721,7 +725,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
 #endif
         if((s.quantityMask & 256)!=0 && d.stat==S_atk_caster_based_pct) continue;
         if (d.alliedFlags != 0 || d.kind != 0 || d.stat >= 64 || d.stat == S_infinite_ammo || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
-            !queryRecipient(s,selected,who,when)) continue;
+            !WORLD_ENEMY_ATTACK_DAMAGE_MEMBER(s,selected,who,when,queryRecipient(s,selected,who,when))) continue;
         // Native boolean flags ignore their numeric value and stack scaling.
         // Reuse their existing slots in the64-value vector, with no new query.
         if(d.stat==S_pierce_enabled || d.stat==S_armor_break_enabled)

@@ -156,6 +156,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -2053,7 +2054,8 @@
           "carriers": [],
           "explicit_queries": [],
           "owned_snapshots": 0,
-          "recipient_memberships": []
+          "recipient_memberships": [],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -2287,6 +2289,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -4205,7 +4208,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -4430,6 +4434,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -6348,7 +6353,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -6573,6 +6579,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -8491,7 +8498,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -8716,6 +8724,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -10634,7 +10643,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -10859,6 +10869,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -12777,7 +12788,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -13002,6 +13014,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -14920,7 +14933,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -15145,6 +15159,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -17063,7 +17078,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -17288,6 +17304,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -19206,7 +19223,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -19431,6 +19449,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -21328,7 +21347,8 @@
           "carriers": [],
           "explicit_queries": [],
           "owned_snapshots": 0,
-          "recipient_memberships": []
+          "recipient_memberships": [],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -21552,6 +21572,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -23470,7 +23491,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -23711,6 +23733,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -25648,7 +25671,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -25890,6 +25914,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -27808,7 +27833,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -28049,6 +28075,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -29967,7 +29994,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -30205,6 +30233,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -32123,7 +32152,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -32350,6 +32380,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -34247,7 +34278,8 @@
           "carriers": [],
           "explicit_queries": [],
           "owned_snapshots": 0,
-          "recipient_memberships": []
+          "recipient_memberships": [],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -34472,6 +34504,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -36369,7 +36402,8 @@
           "carriers": [],
           "explicit_queries": [],
           "owned_snapshots": 0,
-          "recipient_memberships": []
+          "recipient_memberships": [],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -36594,6 +36628,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -38491,7 +38526,8 @@
           "carriers": [],
           "explicit_queries": [],
           "owned_snapshots": 0,
-          "recipient_memberships": []
+          "recipient_memberships": [],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -38723,6 +38759,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -40739,7 +40776,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -41028,6 +41066,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -43044,7 +43083,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -43333,6 +43373,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -45349,7 +45390,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -45638,6 +45680,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -47654,7 +47697,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -47943,6 +47987,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -49959,7 +50004,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -50248,6 +50294,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -52264,7 +52311,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -52553,6 +52601,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -54569,7 +54618,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -54857,6 +54907,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -61623,7 +61674,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -64270,6 +64322,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -66229,7 +66282,8 @@
                 1
               ]
             ]
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -66488,6 +66542,7 @@
         "observe_named_state": true,
         "allow_shared_enemy_fields": true,
         "observe_counter_field_memberships": true,
+        "observe_actor_status": true,
         "state_queries": [
           [
             0,
@@ -68532,7 +68587,8 @@
               ]
             ],
             []
-          ]
+          ],
+          "nonzero_immunity_used": []
         },
         "named_state": {
           "queries": [
@@ -68627,7 +68683,7 @@
   "gpu_executions": 0,
   "enemy_attack_gpu_connected": false,
   "source_sha256": {
-    "research/world_enemy_attack_cases.py": "f95d3e92fca14609108ead7f2238665faf454e69aacc86921dbc34c9df1f5cba",
+    "research/world_enemy_attack_cases.py": "63ec12d1604faa37c6206e8b4f023b9e366b333381dcb86e5234c91f0708be7c",
     "research/world_frame_native.py": "f0168c51c028b351a37619ca9912ebe01d388f570ec07646add7ee26af80f6a3",
     "research/characterize-world-enemy-attack.py": "be77cbb9d3c67f58ec518237431a6726fd2d274bb7bd1630fbde5a6b9c31f7e4",
     "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",

@@ -1,6 +1,7 @@
 // Native enemy attack flat query. Resident activation, expiry, ordering, stacks,
 // reference values, recipient membership and conditions stay in common code.
-// Enemy atk_pct is a named state; native incoming damage does not consume it.
+// Native incoming damage does not consume enemy atk_pct. Native get_buffs
+// nevertheless includes it in the attacking ally's outgoing numeric query.
 [noinline]
 uint64_t collectWorldEnemyAttackFlat(inout Runtime s,uint target,uint64_t when)
 {
@@ -14,4 +15,12 @@ uint64_t collectWorldEnemyAttackFlat(inout Runtime s,uint target,uint64_t when)
         if(!f64Finite(value)||!f64Finite(total)) { s.error=16;return 0; }
     }
     return total;
+}
+
+// Keep the native get_buffs target branch inside the existing ordered scalar
+// accumulator. Do not apply enemy fields to ally rank/base-stat helpers.
+bool worldEnemyAttackDamageMember(inout Runtime s,uint row,uint who,uint64_t when)
+{
+    Definition d=residentDefinition(s,row);
+    return worldEnemyAttackEnabled(s)&&d.enemyBuff!=0&&d.stat==S_atk_pct&&!excludedDamageBuff(s,row,who)&&actorFieldMember(s,row,s.target)&&actorFieldConditions(s,row,s.target,when);
 }

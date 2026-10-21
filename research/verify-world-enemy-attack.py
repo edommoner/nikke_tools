@@ -17,6 +17,8 @@ def prepare():
  rows=fixtures();programs=[compile_case(c) for c in rows];seed=programs[1][0];bad=[];d=L['DEFINITION_BASE']
  for name,at,value in [('enemy-attack-old-mode11',L['TARGET_COUNTER_INPUT_BASE']+6,11),('enemy-attack-unknown-mode14',L['TARGET_COUNTER_INPUT_BASE']+6,14),('enemy-attack-stat-overflow',d+F['STAT'],100),('enemy-attack-recipient-overflow',L['DAMAGE_DEFINITION_BASE']+1,257),('enemy-attack-route-overflow',L['DAMAGE_DEFINITION_BASE'],10),('enemy-attack-without-landings',L['LANDING_META_BASE'],0),('enemy-attack-with-bullet-duration',L['BULLET_DEFINITION_BASE'],1)]:
   w=list(seed);w[at]=value;bad.append((name,w))
+ w=list(programs[14][0]);w[L['CONDITION_BASE']+3]=0x7ff80000;bad.append(('enemy-attack-nan-hp-condition',w))
+ w=list(programs[14][0]);w[L['CONDITION_BASE']+1]=1;bad.append(('enemy-attack-hp-condition-reserved-name',w))
  return rows,programs,bad
 def sha(b):return hashlib.sha256(b).hexdigest()
 def main():
