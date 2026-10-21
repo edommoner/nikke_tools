@@ -94,6 +94,8 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     try:validate_input(eff,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason=getattr(error,'reason',None),operator=getattr(error,'operator',None)) from error
     kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
+    if stat=='skill_cooldown_reduce_pct' and (kind!='instant' or combat is None or not world_frame):
+        raise UnsupportedPortable('Remaining skill cooldown reduction requires a private combat world instant',reason='effect')
     if stat in ('stun','stun_immune') and (combat is None or not world_frame):
         raise UnsupportedPortable('Stun state requires private combat-owned status', reason='effect')
     if set(eff.get('trigger',{}).get('condition',[])) & {'target_stunned','self_stun_immune'} and (combat is None or not world_frame):
@@ -139,7 +141,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
         except ValueError as error:raise UnsupportedPortable(str(error)) from error
     elif kind=='instant':
         if protection or cleansing is not None or stack is not None or removal is not None or extension is not None or source_spec or resource_op in (1,2,3):pass
-        elif stat in ('force_reload','ammo_charge_pct','ammo_charge_flat','heal_hp_pct','cover_heal_pct','cover_revive','current_hp_reduce','burst_cooldown_reduce','burst_charge_pct'):
+        elif stat in ('skill_cooldown_reduce_pct','force_reload','ammo_charge_pct','ammo_charge_flat','heal_hp_pct','cover_heal_pct','cover_revive','current_hp_reduce','burst_cooldown_reduce','burst_charge_pct'):
             if not recipient_admitted(target,instant=True):raise UnsupportedPortable('Unported health recipient selector')
             if eff.get('scaling') not in (None,'max_hp') or stat not in ('heal_hp_pct','cover_heal_pct','current_hp_reduce') and eff.get('scaling') is not None:raise UnsupportedPortable('Unported healing basis')
         elif stat not in ('remove_named_buff','force_skill_use','burst_reentry'):
@@ -309,7 +311,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         if removal is not None and removal[0]==1:pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],False,0)
         if removal is not None and removal[0]==2:
             packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS'];words[packet:packet+8]=[*removal[1],0,0,0,0,0,0]
-        if row[1] in (0,4,5,6,7,8,12,13,14,23,24,27,30,31):pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],target_key(effects[index][0].get('target'))),0) if effects[index][0].get('type')=='buff' else 0)
+        if row[1] in (0,4,5,6,7,8,12,13,14,22,23,24,27,30,31):pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],target_key(effects[index][0].get('target'))),0) if effects[index][0].get('type')=='buff' else 0)
         if effects[index][0].get('type')=='damage':
             route,count,hits=damage_plan(effects[index][0])
             from portable_reference_specs import hit_reference

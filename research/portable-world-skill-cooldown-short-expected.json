@@ -1,0 +1,254 @@
+{
+  "input_sha256": "c4ab70ce875eb370e6bd7ee6f4fd44880fa52aa70e8840965dbe345aa4432b8d",
+  "output_sha256": "62c1c42ab07541546b257a007139f399060f910cb1dce6d3c627c5dae23c5d78",
+  "source_sha256": {
+    "gpu/world_projectile_entry.slang": "a78c90523a37f973207265c83c7d62c2cabdf1c99023f9e36f8a30e0c1cb3c65",
+    "gpu/world_roster_entry.slang": "7d78135536c330b19acf05b458748e3236450d1281a9c5ac81fb8351c57dbbf4",
+    "gpu/world_reload_entry.slang": "fd7e2e3d64811ee2aecb5e3e517870898104712b4bb719d0b4f543e2d70085f8",
+    "gpu/world_charge_control_entry.slang": "50291edf53d64bfb866c54dfe23e454b6cb45422f4961f56d20c18d125021316",
+    "gpu/world_team_entry.slang": "8ff8496183d9e146d6fb69a8b4e39ebc696e6ced1a72cb2e3e8bacf39e7c1951",
+    "gpu/world_fraction_entry.slang": "d5837bd9edd180433d29aaba476e953d10809b86d6e6850e825d907f9f6f1b76",
+    "gpu/world_spawn_entry.slang": "1b433e98fd906fa7c9af0f100175535e0d669301a174c9df06c2d87f8b644caf",
+    "gpu/world_enemy_attack_entry.slang": "4f86e4b5e616e8149cc47245c5aa31492bcd9f3a739a49501fd7a548bd75740a",
+    "gpu/world_periodic_entry.slang": "87abe82e2142dcd58c4ebab9109efe738800200eae04ed4b72e37f375c0ec7a0",
+    "gpu/world_pending_entry.slang": "d1043328c670ac3a4837414eeb871edf94a1afac2de95d42b646b0d358ba931c",
+    "gpu/world_skill_entry.slang": "433216610c518f8c2c3f122eb1aa886ae53e197d72b4307ded1cb90dfa278a98",
+    "gpu/counter_field_entry.slang": "1147bde65aa343ceb5d3473efb43f86f0a0f0225c6ae3ffa118b62d11ec14745",
+    "gpu/counter_context_entry.slang": "7387fc06a72bc9b984f8b29d46655a549ab56e154cd9f0924dc0533b9f787073",
+    "gpu/counter_landing_entry.slang": "695560a33534df60e9f31359622f6a197d14d2eb4b072371520955c9eacde7bf",
+    "gpu/target_counter_entry.slang": "af78f0f0cc55734578c0a86f48d5cd36750dd3ae4589be405d81d962293a4666",
+    "gpu/event_runtime.slang": "c1cb67ecd0b1f44efd2c551ce857fa0544a316856995a24b00bd6d94a261abc7",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+    "gpu/portable_schema.slang": "95935e82841eaf2c1ae30f99a50ea0f4f4f53cd37ea1561e78bf79e67fc1b86d",
+    "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
+    "gpu/runtime_init.slang": "54ad60a47e8c25a48c9e3640d7610e34d5dc968b2136a4944a753d676423a123",
+    "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
+    "gpu/world_overlay_runtime.slang": "c212ded55ab5047ffbb7c30b2e6195c467482eb82109b37373b7f483a3fcac6b",
+    "gpu/geometry_runtime.slang": "8e8018af3959fde2f794c147aff2387464d4f486be17088cf260da41d48f8ef5",
+    "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+    "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+    "gpu/reference_runtime.slang": "319105218c669bc9147ed809fa9ba35d2d536404c37beb050db721d56b51c0c4",
+    "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+    "gpu/bullet_runtime.slang": "2cda4cfed0e7ffd31076ea48050b7be71cd8312779483b13d7c150c4ccd5d23a",
+    "gpu/rank_runtime.slang": "6862c849997a111e228286b553b9043a6035fbf150b9c831130da6171d271526",
+    "gpu/lazy_runtime.slang": "b85b0adbd024b0284e9d87528e353456cb02edcc92ee2b39fb0f50193bd21310",
+    "gpu/enemy_buff_runtime.slang": "7411bf1897ccd937e579ab3cf893e30d5f6d83fdfb2ff557d704faa5f249e0a6",
+    "gpu/world_enemy_attack_runtime.slang": "c4e8223169c1ae6f88903d05ebd271d2622c329283f029fed24e05d6d64ba09e",
+    "gpu/carrier_runtime.slang": "d9c747c32c02bc1cd4acce3a1fdc648dc1060f9edc16607146e06ae7b279da09",
+    "gpu/quantity_runtime.slang": "2d95001be90de56d6c69647dbfed97e3c895b6bb89344ef06c9f497198380625",
+    "gpu/health_runtime.slang": "bc7df12214ad8960e2b15f63142d885b8122e1c5a1992a5c8c657288b13074ac",
+    "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
+    "gpu/cover_runtime.slang": "eb1b4a4e7c9683b615a160f3010e0e50a5da9d9a7f0425b471c83b1d625dffe6",
+    "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+    "gpu/hp_attack_runtime.slang": "2bb2bdcca7a86353ad8cff2de5908037fd344e4091e07eb92abcaac9093e1a21",
+    "gpu/recipient_runtime.slang": "c9a5acde13e4a7f43dcb3b5ebebdafdce5c6b730e848eeb49e26e35d1cb051bf",
+    "gpu/skill_clock_runtime.slang": "b7bfcd4457d9e1ac2f11650fe47fabe8c3f196fb7ca2c7dadff3c0d77e0684e4",
+    "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+    "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+    "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
+    "gpu/damage_runtime.slang": "920b8ab6d275b71c28441dfff6aa8881c29edf534cf4985ab87ebc9abe8872ee",
+    "gpu/incoming_runtime.slang": "8ec389c1a9ed4b487620cfe3345673c5272f2f3e5d735028041a51bf35a22b65",
+    "gpu/burst_runtime.slang": "0f924f0b48008d41979119ae61e5a3cb9432f8e862ff84532990d6b86d5301f4",
+    "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+    "gpu/enemy_damage_runtime.slang": "94110711ef4f94cf0590b3ac097daaa6f3a8cc5a16ddfc92607a37234b95f82d",
+    "gpu/landing_runtime.slang": "36a22364895381973fb9910b0ebd947c333bc936006e6817dd1d8406a8b8323e",
+    "gpu/periodic_runtime.slang": "7ad1d6961cea83521702000a050ba70f73b57673bf2ae40837a57dce0f36d278",
+    "gpu/removal_runtime.slang": "3ceef53de6428a10ac764a5d65e6f3ea9f9fdee12003a0f4d7a9a4189d73381b",
+    "gpu/duration_extend_runtime.slang": "028445e661b12f54a8dc48da3b3438b0c4df7b1da833a4b63a54c84ac18a1081",
+    "gpu/stack_runtime.slang": "6fc751bf2eed141b8ef99beb1e38d923a3e2f29dd0c33320ab9857c9cdcd5fc0",
+    "gpu/status_runtime.slang": "aca9ad04e3328aeecd4eb7a2add070a93f76ae0cc429611319e9e10ecee4daf7",
+    "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+    "gpu/pending_burst_runtime.slang": "123a5cc65a66f4e18cda0fc36b3aa1a95c832c7c157c6a8ecb63d55290ec6fcd",
+    "gpu/incoming_descriptor_runtime.slang": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
+    "gpu/world_frame_addresses.slang": "d1606c64d97393118479cb0c4e75edb84d0a79c37e6f7dbbbdb80107915ec6ae",
+    "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+    "gpu/protection_runtime.slang": "768eefaec94ee16a561a471c0400506f2b9c13ac3b8756693be1bbbcafc4bdd2",
+    "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+    "gpu/world_actor_pools.slang": "d27c86b85e3f54f8f5f2bb1582d1d879de90898b611b7fd7cc8b864bce0bb60e",
+    "gpu/world_actor_fields.slang": "b5b144327d5f44d333d8be4dcf58bf88c358e1b5aa6bbdde7028d234785ab3a1",
+    "gpu/world_actor_state.slang": "ee5a0c960c6e7892a76ad4608a520ba5cc194f7b484bcb3588f816ca43358414",
+    "gpu/world_actor_mutation.slang": "e866d0145e275dffd0ec17577d04177471c2d360bed0d493f6c93a2d9c12151c",
+    "gpu/world_actor_recipients.slang": "f7eb33cbe737cd6e6c729f6ca8c15d015256c2844f9d9a44fd1f6c646e34cab7",
+    "gpu/world_actor_status.slang": "aeaa6071bd08762c2445ca4d1798bfe98870bd19cdd00a6079ba3126115975ed",
+    "gpu/world_actor_stacks.slang": "38864ac1f81c3f9591f8273b318e37ee31b76a5ddf2de8a2c2a711db29323e8f",
+    "gpu/target_counter_runtime.slang": "a094433ece42c29e4b9accfd00fd104a120237196a80ee8cf3b0cf986409dcf9",
+    "gpu/world_projectile_runtime.slang": "3d3d498386038746f671007d5522ece05c7b82dd09d9d6fee9704aeff0af9e18",
+    "gpu/counter_landing_runtime.slang": "3453777ef02f8e686a796de18494ee2e88e042c979bd7d99364518c4e66b40b4",
+    "gpu/counter_context_runtime.slang": "aa3e9cf52e85feb2146467496954fcb6dd4f4eac8ebf9c1cdacdcaf38b1ea21b",
+    "gpu/counter_field_runtime.slang": "d972af3f7f9fd596a4c3732c79e344ce547532471374066c72dfeba3012153aa",
+    "gpu/world_skill_runtime.slang": "3a7f25fe45e0c34499b2805d9b4f2f0b511a65c57a5c85efd8ac01aa8fa7146f",
+    "gpu/world_periodic_runtime.slang": "0754b7da78ebb303f4e2f911aa95e0b6421ceea6d94ebc96c8e99652d8978d1b",
+    "gpu/world_spawn_runtime.slang": "6da41aa26d47d47ebb54b6d742f62592f2fbcae50ea2e38a3a7d571771b7a8c3",
+    "gpu/world_fraction_runtime.slang": "6ee8371cee6f0ab559cbfb4c7fe2feb07b126270be9a87339893ea0f55bb3644",
+    "gpu/world_team_runtime.slang": "0dd45ea836b504404e7d3c31c7b03d8d335bc9852c53d77a1d5c10570403fa47",
+    "gpu/world_charge_control_runtime.slang": "2c9339c35e4a48eecf16fb4168ed99d829f0bbc11e187cf1e26396c564f48b99",
+    "gpu/world_actor_registry.slang": "f803ee00db756eed3edd48586e3fcc94b4f750f0990f97c9ff8732da07f08477",
+    "gpu/world_frame_runtime.slang": "6be913eee371dd3652b47229813b9e0751d08ae8b82d81aa0b85cf82a545ff2c",
+    "gpu/combat_runtime.slang": "c7c6b3f139f939b326e84e4d8619a849962f8323a818a8719b709ef6aeb18642",
+    "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+    "gpu/weapon_runtime.slang": "10f77c5be03282ff8e6ea89f50cc49db90fc29ab902b815ae45cc30e0ccf0fe8",
+    "gpu/world_reload_runtime.slang": "335c78cb91c0cc319a0fdfba1736281ebee733de4758b01036e90feefb68664c",
+    "gpu/world_overlay_weapon.slang": "f9f33dcafbdd8f8dbea5acede13461b19a08e7084b7e5aa8f1f14c1959b4d370",
+    "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+    "gpu/admission_runtime.slang": "3632776d3a7d6a89c12db50bec540f4b91a5240f1b8040cd5725c09dac24a7f7",
+    "gpu/portable_mt19937.slang": "116f6a7ee3cf8e069db171aace0c06a1b160c3d25b0975451125929b68dd3b61",
+    "gpu/enemy_target_runtime.slang": "830fd22f28d105ea6b4e0ad4d334e774e36eebab698c1096a163cfdb712d9d1f"
+  },
+  "entries": [
+    {
+      "name": "skill-cooldown-value-0",
+      "input_sha256": "d79fd1506441352749848fe2d60e497f912d05a32878dea8678e75f7f1e14e4f",
+      "output_sha256": "8d65994925a7a401d1de3877d51bf404aa0431b98c1bc91d4683e98ba95732d6",
+      "native_sha256": "5bdef2531628c24fa9557880ac4ec0d5881891d1ff0440b8a156a9069614ed84"
+    },
+    {
+      "name": "skill-cooldown-value-50",
+      "input_sha256": "aa8f2705ac0af19d353a6d21012880b96b51644f24beaac00bc804d810f040d6",
+      "output_sha256": "0bed8c1dfcf4a6a31cad54abb77c674887c00756349457555c38e17b6b4cd65d",
+      "native_sha256": "7f5d79c3fd848a2e33de8f4c6715508530eaaf4161b6ae66991b3b6483724ed7"
+    },
+    {
+      "name": "skill-cooldown-value-100",
+      "input_sha256": "f245705356ee74c8ad84be8564225db70e1531c35c7337945fa4e6e7368a89ff",
+      "output_sha256": "6cb2427fad5dbedfcea3ea1fd0bee5e742b52fbd9dc3c53b6aff85c1f9197763",
+      "native_sha256": "c38870fa0a32b060739ab29a0a5e1b49da723751693b3649c086c4b6b36ee586"
+    },
+    {
+      "name": "skill-cooldown-value-150",
+      "input_sha256": "a86a4d1a1b711467f2fefc2d76d2092fcf6897e33464b11987f2d13ed621a449",
+      "output_sha256": "6cb2427fad5dbedfcea3ea1fd0bee5e742b52fbd9dc3c53b6aff85c1f9197763",
+      "native_sha256": "c38870fa0a32b060739ab29a0a5e1b49da723751693b3649c086c4b6b36ee586"
+    },
+    {
+      "name": "skill-cooldown-value--50",
+      "input_sha256": "38beb574153d8c05a1b1d4a27f4572cf1e6622e61a73607bce0a3d932aeee3f8",
+      "output_sha256": "eced64be0de79784df189c92be7b176f9c27602b46020101a519cbacf8c61c71",
+      "native_sha256": "b1f32d2cd1cddb6c4ddbcf456fd77f3c74ec2ffdc2513f4f9623a2c370644a29"
+    },
+    {
+      "name": "skill-cooldown-before-first-clock-init",
+      "input_sha256": "e746662732268c02da2083a7610008683da52e52bd5fcfcad0de120210103ef6",
+      "output_sha256": "1b80bc78d03bc727c514e851fbfad7c0d8ed6db197d2f7275ec1401a75273df8",
+      "native_sha256": "5bdef2531628c24fa9557880ac4ec0d5881891d1ff0440b8a156a9069614ed84"
+    },
+    {
+      "name": "skill-cooldown-periodic-reduction-includes-own-clock",
+      "input_sha256": "35b05181481fd8f9ea3099b8e27cf4119c51456b52a37bd5989a73c0bceda629",
+      "output_sha256": "0fce026edf5a2b25aaec9ba10ef90de9c1e3136c4d2c891275a315679a345c60",
+      "native_sha256": "f00ba082ffdcc532c267a3eeaa9db6346b10de183d3984f9d12b40e690625270"
+    },
+    {
+      "name": "skill-cooldown-duplicate-targets-are-one-set",
+      "input_sha256": "54cf60a4da01ec46f702331e9db7a30dea3ce782acb5a4b36b63f6a42d28b28d",
+      "output_sha256": "0bed8c1dfcf4a6a31cad54abb77c674887c00756349457555c38e17b6b4cd65d",
+      "native_sha256": "7f5d79c3fd848a2e33de8f4c6715508530eaaf4161b6ae66991b3b6483724ed7"
+    },
+    {
+      "name": "skill-cooldown-allied-clocks",
+      "input_sha256": "d9e89508a4c40794c07b684eed9fd6f75c3a5995c7163dbdfc3b00798b0b1588",
+      "output_sha256": "aa38ebd4c6b9e251937a68cfdf0e4fc8d6639da4bfe2fde8270b50f379427876",
+      "native_sha256": "75e8d9d4e2652fe30a24322bffb6f29a5e307ca4fbcb11fb3812d20f55b18cac"
+    },
+    {
+      "name": "skill-cooldown-literal-other-owner",
+      "input_sha256": "84373211b153420fe45552880ad5850b1c59766f3471bbef249454ae51295bc7",
+      "output_sha256": "06706d470b8085010f521d370938b2670dabc892c39a4de12127d8a9132c67da",
+      "native_sha256": "89da05fc0ee3e9fa533ef04d31958830a741fb094220244efa0c905dee1a7952"
+    },
+    {
+      "name": "skill-cooldown-ranked-owner",
+      "input_sha256": "108a525719718171a766252f4fcda0c298c8a7f9540ec1ba222d33e431294d13",
+      "output_sha256": "eff71bad4f67a91bc38a021e1892af3aefe0a0f73f033d62b98707756c108731",
+      "native_sha256": "9b9a699fd0cb947c52efa5505f3763eeb3400108704bf8e12d1c58f2b64dccdf"
+    },
+    {
+      "name": "skill-cooldown-absent-owner",
+      "input_sha256": "3f1f5dd97661c89516ce8d014e4825839f325eb6cf0f62197b39810576cb974e",
+      "output_sha256": "8d65994925a7a401d1de3877d51bf404aa0431b98c1bc91d4683e98ba95732d6",
+      "native_sha256": "5bdef2531628c24fa9557880ac4ec0d5881891d1ff0440b8a156a9069614ed84"
+    },
+    {
+      "name": "skill-cooldown-condition-false-clock-still-advances",
+      "input_sha256": "01ba0747a6ebb20871b039fd1e043cb9dba3e3368de3d00ff23f06d18daf0956",
+      "output_sha256": "d7b370b51704117510353ee5c9a8fda3e2649e7cac14d4181f614dacbeca0d51",
+      "native_sha256": "8e8a3bdb9aa425ee021259838bb2238913ea854dae606ddcd25c950cf51240e6"
+    },
+    {
+      "name": "skill-cooldown-target-effect-is-not-a-filter",
+      "input_sha256": "aa8f2705ac0af19d353a6d21012880b96b51644f24beaac00bc804d810f040d6",
+      "output_sha256": "0bed8c1dfcf4a6a31cad54abb77c674887c00756349457555c38e17b6b4cd65d",
+      "native_sha256": "7f5d79c3fd848a2e33de8f4c6715508530eaaf4161b6ae66991b3b6483724ed7"
+    },
+    {
+      "name": "skill-cooldown-one-shot-preserves-later-interval",
+      "input_sha256": "5174cb1a22e83fdd92f8068a5001dd760e94c109c96f79f98d66b2fc6856911c",
+      "output_sha256": "07934d674ea812e697ded8a33b8e2b31921380c8b670b7d3bdba4a1ded622c27",
+      "native_sha256": "1666868311068d36f852d28dae5938fbf6f84ef4d94ed75df9a54a8036a3314c"
+    },
+    {
+      "name": "skill-cooldown-reduction-before-due-clock",
+      "input_sha256": "692811c99b17c7889cc443a9f7739946ce803035e50e8e65cdf506ffde66ceb8",
+      "output_sha256": "20dd46064742520d6e78e5c2c712c5a5f2cbe8907c48482248a919d21fb5cecb",
+      "native_sha256": "fb069bf9ba43c6b0e6c8d148067ba62f7aa50df84d65d314ae9bb4d8c7a37878"
+    },
+    {
+      "name": "skill-cooldown-reduction-after-due-clock",
+      "input_sha256": "8c031aa9cf117e64148d33531ed871a85e86b5a668a45a8d8f238a2eacc133fc",
+      "output_sha256": "58a298d04932e4395c6c9e417ee0d669357581abdc94cf6d9572ad2bc3c3b336",
+      "native_sha256": "d3010a7e059daa2eca4e931591058ae18a490405190f8f8a7932d63c8fc32f32"
+    },
+    {
+      "name": "skill-cooldown-huge-positive-clamps-factor",
+      "input_sha256": "908f3bbfd83add60ef728f8d51c4a724cc915e0e38eed5461afd1a82952516be",
+      "output_sha256": "6cb2427fad5dbedfcea3ea1fd0bee5e742b52fbd9dc3c53b6aff85c1f9197763",
+      "native_sha256": "c38870fa0a32b060739ab29a0a5e1b49da723751693b3649c086c4b6b36ee586"
+    },
+    {
+      "name": "skill-cooldown-huge-negative-defers-clock",
+      "input_sha256": "a3501836627581ea54682f9a739e9284849cb3b727a0faff06c1523a828749c2",
+      "output_sha256": "88077cdfcb1047d989f390754646894b5835d75a4df5cbd3a00cfb0f77faa6c4",
+      "native_sha256": "8e8a3bdb9aa425ee021259838bb2238913ea854dae606ddcd25c950cf51240e6"
+    },
+    {
+      "name": "skill-cooldown-overflow-then-zero-factor-is-unordered",
+      "input_sha256": "4c11e1229026fbf0c47754bdcde32541b2947799b44b2e3f40e776232d9f87ef",
+      "output_sha256": "80886ec9a07560a0e44ef0bcff88ad6553ddbfba8ddec4dac6bb5c3764eb5bcb",
+      "native_sha256": "8e8a3bdb9aa425ee021259838bb2238913ea854dae606ddcd25c950cf51240e6"
+    },
+    {
+      "name": "skill-cooldown-unordered-clock-recovers",
+      "input_sha256": "5a721dd53ebd0d18faeeb17d587671210398009b92369a65134de6fb74b9e463",
+      "output_sha256": "bd8b841562e842e87659728d13e327ed55ca0a0af07f90c154de5dbe4336380a",
+      "native_sha256": "ba2d251f493451ed6cf8d8693e0e2eecfdb1c9bce2521321708013a6ec88c966"
+    },
+    {
+      "name": "reject/skill-cooldown-no-combat",
+      "input_sha256": "071bdafff1312c73426cabe2756bec2a021c39cd79588efd33412d121a714042",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/skill-cooldown-nonzero-stat",
+      "input_sha256": "275dca70098e9964becb82c825d0ecab33f495751e3fcd987befe6119d4a15ef",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/skill-cooldown-nan-value",
+      "input_sha256": "46784e8d7bd610c2976348efdd6b4b7e1dec3f3344aff311dc76676a780403e0",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/skill-cooldown-bad-recipient",
+      "input_sha256": "f3adf4e073fdff2726612cfc2cedb06743cbe6e0aba337ad3cb305cb98b29a9a",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "generated_normalized": {
+    "cuda": "046068f7d30baf34c91bec2a2f8b0bcabf832fd323d075ad72aa66c568e1b450",
+    "metal": "e736f443926cc5d193253748465f82b14cccd37463c497f3d3815ddc4f12bcf2"
+  }
+}

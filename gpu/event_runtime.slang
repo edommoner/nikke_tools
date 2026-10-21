@@ -242,7 +242,7 @@ bool worldTeamEnabled(inout Runtime s) { return true; }
 #define WORLD_TEAM_PELLET(s,w,who,when,output) if(worldTeamEnabled(s)&&w.mode!=1) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_CHARGE(s,w,who,count,when,output) if(worldTeamEnabled(s)&&w.mode==1) for(uint teamHit=0;teamHit<count;teamHit++) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_VALIDATE(s,d,input,j) for(uint teamSlot=0;teamSlot<d.triggerCount;teamSlot++) { uint teamEvent=commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+teamSlot*8];if((teamEvent==44||teamEvent==45)&&!worldTeamEnabled(s)) { s.error=64;break; } } if(s.error!=0) break;
-#define WORLD_TEAM_KIND(s,d,legacy) (worldTeamEnabled(s)&&d.kind==25 ? false : WORLD_PROJECTILE_KIND(d,WORLD_RELOAD_KIND(d,(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8||WORLD_CONTROL_AMMO(s.inputBase,row,d.kind)) ? false : (legacy)))))
+#define WORLD_TEAM_KIND(s,d,legacy) (worldTeamEnabled(s)&&(d.kind==25||d.kind==22) ? false : WORLD_PROJECTILE_KIND(d,WORLD_RELOAD_KIND(d,(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8||WORLD_CONTROL_AMMO(s.inputBase,row,d.kind)) ? false : (legacy)))))
 #define WORLD_TEAM_CONDITION(s,d,at,kind,arg) WORLD_PROJECTILE_CONDITION(s,at,kind,arg) if(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&WORLD_CONTROL_CONDITION_KIND(kind,teamAdditionalCondition(kind))) { if(!WORLD_CONTROL_CONDITION_VALID(at,kind,arg,validTeamAdditionalCondition(at,kind,arg))) return false;continue; }
 #else
 #define WORLD_TEAM_INPUT(input,output)
@@ -968,6 +968,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
     if (query) s.queryActive = 0; WORLD_STATE_SCOPE_END(s)
 }
 #include "recipient_runtime.slang"
+#include "skill_clock_runtime.slang"
 
 [noinline]
 uint64_t readStat(inout Runtime s, uint who, uint key, uint64_t when)
@@ -1668,6 +1669,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if((f.event!=28 || (d.flags&1)!=0 && s.alive[row]==0) && d.budget>=0 && !stackLazySelector(s,row) && stackSelectedRecipients(s,row,f.target,f.time,true,order)==0) continue;
             recipientMask=d.kind>=19 ? stackSelectedRecipients(s,row,f.target,f.time,false,order) : 0;
         }
+        if (f.mode!=19 && d.kind==22)
+            recipientMask=f64Zero(d.value) ? 0 : selectRecipients(s,row,f.time,recipientOrder);
         if (f.mode!=19 && (WORLD_RELOAD_FORCE_KIND(d.kind) || d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 27 || d.kind == 31 || d.kind == 30 || d.kind==15 || d.kind==26))
         {
             if(d.kind==15 && d.budget<0 && !hasDurationExtensionMembers(s,row)) recipientMask=0;
@@ -1809,6 +1812,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             }
         }
         else if (d.kind == 5) reduceBurstReady(s,recipientMask,d.value,f.time);
+        else if (d.kind == 22) reduceSkillCooldown(s,recipientMask,d.value,f.time);
         else if (d.kind == 24) { if (recipientMask != 0) addBurstGauge(s,d.value); }
         WORLD_RELOAD_DISPATCH(s,d,recipientOrder,f.time) else if (d.kind == 13 || d.kind == 14)
         {
@@ -2034,7 +2038,7 @@ void tick(inout Runtime s, uint64_t when, uint output)
             if (s.periodInitialized[j] != 0 && !f64Equal(interval,s.periodPrevious[j]))
                 next = f64Add(when,f64Mul(larger(0,f64Add(next,when ^ F64_SIGN)),f64Div(interval,s.periodPrevious[j])));
             s.periodInitialized[j] = 1; s.periodDue[j] = next; s.periodPrevious[j] = interval;
-            if (!f64Less(when,next))
+            if (f64Less(next,when) || f64Equal(when,next))
             { dispatch(s,0,6,definition_owner(s.inputBase,j),int(j),when,output); s.periodDue[j] = f64Add(next,interval); }
         }
     timerPass(s,when,false,output); syncHealth(s,when); syncCovers(s,when);

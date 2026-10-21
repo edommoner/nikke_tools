@@ -1015,3 +1015,11 @@ v107はCPU81/native60の後、テスト用の子起動直後に失敗し、smoke
 共通CLIの`roster-regression`は実編成18入力を全定義のままMetal/native比較し、完全一致後にsealしました。初回のsandboxによるSwift module cache拒否はGPU起動前の原失敗として保持し、transport修正後の別package/captureで検証しています。通常画面CPU・全キャラ認定0は維持します。
 
 Windows v109はCPU19件と実Jobメモリ上限検査に成功し、本体compilerは結合形式の`--ptxas-options=-O1`を受け付けず約9.95秒で終了、kernel0でした。実DLLの`nvrtcVersion`は11.3です。その後、tiny kernelで別文字列の長名/短名2構文を各1回だけ確認し、約4.74秒、driver/context/kernel0、missing0で成功しました。共通compilerは`["--ptxas-options","-O1"]`へ修正しました。本体O1の速度・CUDA数値一致は未確認です。CUDA context破棄失敗は、本来の実行失敗へnoteとして付け、原因を隠さないようにしました。詳細は`docs/claude-architecture-review-2026-10-21.md`と`research/portable-review-followup-checkpoint.json`を参照してください。
+
+## 残りskill cooldownと集約回帰
+
+`docs/portable-skill-cooldown.md`、`research/portable-skill-cooldown-development-checkpoint.json`を参照してください。共通kind22は残り時間だけを調整し、元のperiodを保持します。初回23の巨大負値反復で見つけた時計境界を修正し、Inf/NaNの非発火と復帰を含む25入力がMetal/native一致しました。ソフトウェアbinary64やnormalizerを緩めていません。GPU前のCPU参照で見つけた配列targetのhash検索例外は、`enemy_recipient_runtime`でnative resolverへの委譲を維持する型guardへ修正し、独立テストで確認しています。protected4ファイルとupstreamは変更していません。
+
+`regression`149は既存readiness81・stun46・実編成22を元の比較器のまま集約します。全149入力がMetal/native一致し、旧145入力は入力・全raw出力とも完全一致、追加センチ4入力も成功しました。現在のsealed suiteはskill-cooldown25とregression149で、古い個別goldenは履歴としてsource staleを保持します。CPU645件成功（Windows専用1件skip）、静的182/266、base127/203、通常CPU・全キャラ認定0です。
+
+Windows v110はCPU20件成功後、修正argvでO1 compilerを1回だけ実行し、全体41.20秒／NVRTC30.11秒、ptxas Memory allocation failureで終了しました。Job2GiB、post空、missing0、driver/context/kernel0、artifact0、再試行0です。サービス識別とメモリ上限との因果は未確定です。次はMac上の生成CUDA／保存PTXの構造とcompile資源の診断、残りのheal_overcharge_store・trigger_count_reduce・trigger_hit_crit等へ進みます。Windowsで同じ巨大compileを繰り返したり、メモリ上限や時間枠を自動で拡大しません。

@@ -23,26 +23,7 @@
       ],
       "affected_profiles": 5,
       "blocked_definitions": 5,
-      "single_observed_category_profiles": 3
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "effect",
-        "kind": "instant",
-        "stat": "skill_cooldown_reduce_pct",
-        "target": "self",
-        "scaling": null,
-        "code": "{\"category\": \"effect\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"skill_cooldown_reduce_pct\", \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported instant stat"
-      },
-      "messages": [
-        "Unported instant stat"
-      ],
-      "affected_profiles": 4,
-      "blocked_definitions": 4,
-      "single_observed_category_profiles": 2
+      "single_observed_category_profiles": 5
     },
     {
       "issue": {
@@ -3378,78 +3359,40 @@
     {
       "character": "센티",
       "favorite_stage": 0,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 0,
-          "owner": "센티",
-          "name": "보수공사",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "instant",
-            "stat": "skill_cooldown_reduce_pct",
-            "target": "self",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"skill_cooldown_reduce_pct\", \"target\": \"self\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported instant stat"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "1f607c0e3b9d487a29a22b22bef57a645cb4bf1ca4b4f9df3750cfbac4f9c6af",
+      "squad": [
+        "센티",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported instant stat",
-      "program_issue": {
-        "phase": "program",
-        "category": "effect",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "reason": "Unported instant stat",
-        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported instant stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported instant stat"
-      }
+      "prepared_effects": 67,
+      "bound_effects": 67,
+      "input_words": 104400
     },
     {
       "character": "센티",
       "favorite_stage": 1,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 0,
-          "owner": "센티",
-          "name": "보수공사",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "instant",
-            "stat": "skill_cooldown_reduce_pct",
-            "target": "self",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"skill_cooldown_reduce_pct\", \"target\": \"self\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported instant stat"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "44c7dd482ba8239848a639effb77940e71b1904fbe2f66f5f69255283a627ac5",
+      "squad": [
+        "센티",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported instant stat",
-      "program_issue": {
-        "phase": "program",
-        "category": "effect",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "reason": "Unported instant stat",
-        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported instant stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported instant stat"
-      }
+      "prepared_effects": 72,
+      "bound_effects": 72,
+      "input_words": 104400
     },
     {
       "character": "센티",
@@ -3458,22 +3401,6 @@
       "gpu_admission_verified": false,
       "full_character_verified": false,
       "effect_blockers": [
-        {
-          "index": 0,
-          "owner": "센티",
-          "name": "보수공사",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "instant",
-            "stat": "skill_cooldown_reduce_pct",
-            "target": "self",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"skill_cooldown_reduce_pct\", \"target\": \"self\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported instant stat"
-          }
-        },
         {
           "index": 2,
           "owner": "센티",
@@ -3491,7 +3418,7 @@
           }
         }
       ],
-      "error": "Unported instant stat",
+      "error": "Unported buff stat",
       "program_issue": {
         "phase": "program",
         "category": "effect",
@@ -3499,10 +3426,10 @@
         "stat": null,
         "target": "self",
         "scaling": null,
-        "reason": "Unported instant stat",
-        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported instant stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "reason": "Unported buff stat",
+        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported buff stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
-        "message": "Unported instant stat"
+        "message": "Unported buff stat"
       }
     },
     {
@@ -3513,22 +3440,6 @@
       "full_character_verified": false,
       "effect_blockers": [
         {
-          "index": 0,
-          "owner": "센티",
-          "name": "보수공사",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "instant",
-            "stat": "skill_cooldown_reduce_pct",
-            "target": "self",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"skill_cooldown_reduce_pct\", \"target\": \"self\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported instant stat"
-          }
-        },
-        {
           "index": 2,
           "owner": "센티",
           "name": "자재 비축",
@@ -3545,7 +3456,7 @@
           }
         }
       ],
-      "error": "Unported instant stat",
+      "error": "Unported buff stat",
       "program_issue": {
         "phase": "program",
         "category": "effect",
@@ -3553,10 +3464,10 @@
         "stat": null,
         "target": "self",
         "scaling": null,
-        "reason": "Unported instant stat",
-        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported instant stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "reason": "Unported buff stat",
+        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported buff stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
-        "message": "Unported instant stat"
+        "message": "Unported buff stat"
       }
     },
     {
@@ -10400,14 +10311,14 @@
   ],
   "profile_count": 266,
   "base_count": 203,
-  "packed_profiles": 180,
-  "packed_base": 126,
+  "packed_profiles": 182,
+  "packed_base": 127,
   "issues": {
-    "Unported buff stat": 34,
+    "Unported buff stat": 36,
     "Unported enemy damage selector": 8,
-    "Unported instant stat": 7,
     "Unported buff recipient selector": 6,
     "Unported predicate: trigger_hit_crit": 3,
+    "Unported instant stat": 3,
     "Unported effect fields: copy_from": 3,
     "Unported effect fields: hits_parts": 2,
     "Unported effect fields: scaling, scaling_hp_pct": 2,

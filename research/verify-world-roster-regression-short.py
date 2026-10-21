@@ -17,7 +17,8 @@ spec.loader.exec_module(cross)
 # Newly packable stun profiles plus existing burst and live-HP controls. All
 # definitions are retained; selection is of complete public character profiles.
 PROFILES = [('D',0), *[('프리바티',stage) for stage in range(4)],
-            ('마스트 : 로망틱 메이드',0), ('타키나',0), ('목단',3), ('미란다',0)]
+            ('마스트 : 로망틱 메이드',0), ('타키나',0), ('목단',3), ('미란다',0),
+            ('센티',0), ('센티',1)]
 DURATIONS = (3,30)
 suite = SimpleNamespace(INPUT=real.INPUT_WORDS, OUTPUT=real.OUTPUT_WORDS,
                         inspect_native=lambda case: real.native_reference(case['body']))

@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "retained_cases": 145,
+  "new_real_cases": 4,
+  "groups": [
+    {
+      "suite": "readiness",
+      "inputs": 81,
+      "prior_inputs_byte_identical": true,
+      "prior_outputs_byte_identical": true
+    },
+    {
+      "suite": "stun",
+      "inputs": 46,
+      "prior_inputs_byte_identical": true,
+      "prior_outputs_byte_identical": true
+    },
+    {
+      "suite": "real",
+      "inputs": 18,
+      "prior_inputs_byte_identical": true,
+      "prior_outputs_byte_identical": true
+    }
+  ],
+  "gpu_calls": 0
+}

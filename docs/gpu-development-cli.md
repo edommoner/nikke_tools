@@ -1,6 +1,6 @@
 # 共通GPU検証CLI
 
-`python scripts/nikke_gpu.py --help`。Python標準ライブラリで制御し、既存のshort検証器の`prepare`/native/`compare`、`portable_typed_cuda_proof_audit.verify_cpu_gpu_calls`、厳密な生成コードnormalizer、`portable_phase_audit`、`run-world-bounded.WindowsJob`、`windows_validation_observer`を再利用します。projectile/reload、readiness、recipient、burst-recipientとdevelopment専用の実編成・診断suiteを登録しています。`list`はgolden_source_readyも表示します。過去goldenとGPU source hashが異なるsuiteのpackageは拒否します。検証済みソースのcheckoutで使うか、保存実証から厳密生成一致を確認してgoldenを明示更新してから利用します。期待値を自動追従させません。別のスイートは同じadapter契約で登録します。全効果の自動対応やテスト範囲の自動推論は行いません。
+`python scripts/nikke_gpu.py --help`。Python標準ライブラリで制御し、既存のshort検証器の`prepare`/native/`compare`、`portable_typed_cuda_proof_audit.verify_cpu_gpu_calls`、厳密な生成コードnormalizer、`portable_phase_audit`、`run-world-bounded.WindowsJob`、`windows_validation_observer`を再利用します。現在のソースに対するsealed suiteは`skill-cooldown`25と`regression`149です。旧projectile/readiness/stun/roster等のgoldenはその時点の履歴として残し、sourceの違うpackageは拒否します。`list`はgolden_source_readyも表示します。新しいsourceは`--develop`でnative比較後に明示sealします。期待値を自動追従させません。別のスイートは同じadapter契約で登録します。全効果の自動対応やテスト範囲の自動推論は行いません。
 
 ## パッケージ作成とCPU検証
 
@@ -8,9 +8,9 @@
 
 ```sh
 .venv/bin/python scripts/nikke_gpu.py list
-.venv/bin/python scripts/nikke_gpu.py package --suite projectile --out /tmp/nikke-projectile.zip
-.venv/bin/python scripts/nikke_gpu.py unpack --archive /tmp/nikke-projectile.zip --dest /tmp/nikke-projectile
-.venv/bin/python /tmp/nikke-projectile/scripts/nikke_gpu.py run --backend metal --cpu-only --capture /tmp/nikke-projectile-cpu
+.venv/bin/python scripts/nikke_gpu.py package --suite regression --out /tmp/nikke-regression.zip
+.venv/bin/python scripts/nikke_gpu.py unpack --archive /tmp/nikke-regression.zip --dest /tmp/nikke-regression
+.venv/bin/python /tmp/nikke-regression/scripts/nikke_gpu.py run --backend metal --cpu-only --capture /tmp/nikke-regression-cpu
 ```
 
 パッケージはGit追跡済みのPython/Slang/Swift、公開data JSON、選択したgoldenと、ローカルpinned upstreamのcalculator/runner/scraper/dataのPython/JSON・LICENSEを含みます。dirtyな開発コードも実byteで固定し、基準HEADとdirty flagを記録します。設定・session・既存巨大レポート・raw・コンパイラ・venvは含みません。全byte/サイズ/SHAとgoldenを`gpu-package.json`に記録し、GPU sourceとgoldenの不一致は作成時に拒否します。アーカイブSHAは転送前後で照合してください。ハッシュは署名や送信元認証ではありません。
@@ -20,9 +20,9 @@
 ## Metal実行
 
 ```sh
-.venv/bin/python /tmp/nikke-projectile/scripts/nikke_gpu.py run --backend metal \
+.venv/bin/python /tmp/nikke-regression/scripts/nikke_gpu.py run --backend metal \
   --slang-root /absolute/path/to/.tools/slang-2026.20-Darwin-arm64 \
-  --capture /tmp/nikke-projectile-metal
+  --capture /tmp/nikke-regression-metal
 ```
 
 `--slang-root`はbin/slangcを含むインストール済みSlangルートです。指定しない場合は従来のcheckout内`.tools`配置を使います。共通transportはCUDA/Metal双方を生成し、既存の厳密normalizerで両生成物を照合します。ゲート前観測と検証子のコンパイル/実行には共通の最大180秒予算を使い、後始末は5秒、終了後観測は別枠で最大20秒です。CPU事前検査はこの予算の前に実行します。timeoutを増やして短時間検証の制約を回避しません。
@@ -79,7 +79,7 @@ importは原byte・サイズ・SHAを確認し、新規宛先だけへ展開し�
 
 ## 拡張と時間計測
 
-登録先は`SUITES`。現在のadapter契約は`prepare() -> (entries, packed)`、`suite.INPUT`、`suite.inspect_native(case)`、`compare(block, domain)`、`cross.digest/normalized`です。source/golden/入力数/native数/限定CPUテストを登録します。契約が異なるスイートは薄いadapterを用意し、計算本体やnative oracleを複製しません。
+登録先は`SUITES`。現在のadapter契約は`prepare() -> (entries, packed)`、`suite.INPUT`、`suite.inspect_native(case)`、`compare(block, domain)`、`cross.digest/normalized`です。複合domainを持つadapterは`native_reference(domain)`を明示でき、同じnative値全体を返します。`regression`はこの契約でreadiness81・stun46・全定義の実編成22をまとめ、各スイートの元の比較器へ委譲します。入力headerと各rowのstride/byte一致を合成前に検査し、一つのshader起動で149入力を処理します。計算本体やnative oracleを複製しません。
 
 `cpu.json`、`cpu-tests.json`、`execution.json`、`phases.jsonl`、`evidence.json`に時間を分けて残します。executionのelapsedはゲート前観測と終了後観測も含みます。API phase/transport時間からコンパイルとGPU処理を区別します。パッケージ作成・転送時間の自動集計、全PC共通の結果キャッシュ、変更ファイルからの検証範囲自動選択は今後の拡張です。
 
@@ -183,6 +183,10 @@ v109の実NVRTC11.3は結合形式`--ptxas-options=-O1`をreturn5で拒否しま
 ```
 
 18入力はMetal/native完全一致後に明示sealしました。別ソースへ進んだ場合は、従来どおりstale goldenを拒否します。この代表編成群は全キャラ・全装備・全操作・全敵世界の認定ではなく、通常画面もCPUです。
+
+後続のskill cooldown対応ではセンチの2profile×2期間を追加し、実編成は22入力です。現在は`regression`149の一部としてMetal/native一致を確認しました。旧145入力（readiness81/stun46/実編成18）は入力・全raw出力ともbyte一致です。新機能25入力と149入力は同じ新Slang sourceで検証し、それぞれ明示sealしました。個別の古いgoldenを集約結果で書き換えず、履歴と現行suiteを区別します。
+
+v110の修正版argvは実NVRTCで受け付けられましたが、本体O1コンパイルは約41.20秒（NVRTC約30.11秒）で失敗し、保存stderrの先頭に`ptxas fatal: Memory allocation failure`がありました。Jobは2GiB、終了後空、missing0、GPU0、完成artifact0です。サービス識別はunverifiedで、上限との因果も未確定です。期限延長・メモリ増量・O0への自動再試行は行っていません。キャッシュの実機性能と新機能のCUDA数値検証は未完了です。
 
 成功artifactがある場合のcache hitは、同じpackageの`cache-check`でNVRTC/GPU0の検査をします。cacheディレクトリはcold時と同じ`NIKKE_CUDA_COMPILE_CACHE`へ設定してください。
 
