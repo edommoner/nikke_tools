@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "stage": "metal_sealed_cpu_verified_windows_not_run",
+  "stage": "metal_and_cpu_verified_ptx_compiler_and_cache_verified_cuda_execution_pending",
   "baseline_commit": "de1d3f3d471925c0964b56df0868d3abb98b40d3",
   "development_package": {
     "package_id": "6c90d0bd4db5d9d95fdba4f8f9157eafc2f5716cf6cf896674cfdd5c10d0ffe3",
@@ -130,9 +130,19 @@
     }
   ],
   "windows": {
-    "status": "not_run",
+    "status": "v124_cubin_memory_allocation_failure",
+    "report": "research/portable-world-v124-compiler-sanitized.json",
+    "source_commit": "1c4908e9f322a5b9f73a2801bdc18de4027d78cd",
+    "cpu_tests_passed": 73,
     "compiler_improvement_verified": false,
-    "calculation_verified": false
+    "calculation_verified": false,
+    "compile_attempts": 1,
+    "nvrtc_compile_seconds": 28.921,
+    "elapsed_seconds": 40.05562529992312,
+    "cubin_bytes": 0,
+    "cache_check_executed": false,
+    "job_peak_bytes": 2148511744,
+    "gpu_calls": 0
   },
   "normal_ui": "CPU",
   "full_character_verified": 0,
@@ -146,5 +156,26 @@
     "log_sha256": "63b04bc577484c4eb4c7472063a34f572811fb870a622e04e303a832a4c05ed7",
     "pattern": "test_portable*.py",
     "immutable_package_id": "4433550d44aed242df113b581a02f2f0cc66d7fd4149f3ca58953ccd4752848f"
-  }
+  },
+  "next_diagnostic": {
+    "artifact_kind": "ptx",
+    "source_same_as": "1c4908e9f322a5b9f73a2801bdc18de4027d78cd",
+    "reason": "Separate PTX generation from CUBIN assembly; not a same-option retry",
+    "budget_seconds": 60,
+    "memory_limit_mb": 2048,
+    "gpu_calls_authorized": 0,
+    "status": "v125_ptx_generation_and_cache_readback_succeeded",
+    "report": "research/portable-world-v125-ptx-sanitized.json",
+    "nvrtc_compile_seconds": 20.047,
+    "elapsed_seconds": 31.263954099733382,
+    "job_peak_bytes": 501993472,
+    "artifact_bytes": 8754074,
+    "artifact_sha256": "7eb573023cf2a525ea119b72703e8e82c0ed28b055dcbcfb69a7d1c6fa31e4ee",
+    "cache_key": "b59ad6c3873b40f774fa9ab2357f86771979d6bc8847f8481e09b7ded0a36f1b",
+    "cache_readback_compile_calls": 0,
+    "cache_readback_gpu_calls": 0,
+    "calculation_verified": false,
+    "cubin_verified": false
+  },
+  "next_action": "Add a bounded cache-required PTX module/JIT-only check before allocating battle buffers or launching kernels; no NVRTC recompile. Actual CUDA calculation parity remains unverified."
 }

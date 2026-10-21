@@ -40,3 +40,17 @@ python -m unittest discover -s tests -p 'test_portable*.py' -v
 ## Windowsの検証境界
 
 固定packageでCPU事前検査と生成指紋照合を行い、必要なCUBIN O1 compiler-onlyを60秒／2GiB・fresh BelowNormal Jobで1回だけ実行します。成功時だけ必須cacheのCPU読取を確認します。driver／context／kernelは禁止し、同条件retry・上限拡大・fallbackはしません。CUBIN成立とCUDA計算一致は別の判定です。
+
+v124は固定1c4908e／package7026b44d、全1,935ファイルとgolden一致・CPU73検査成功後に1回実行しました。NVRTC28.921秒、全体40.056秒でptxas Memory allocation failureへ終了し、CUBIN0・cache-check未実行・driver／context／kernel0。Job peak2,148,511,744byte、post空、既存process欠落0、サービスは未識別です。構造分割によるcompiler資源改善を実証できていません。原失敗と構造化Windows報告portable-world-v124-compiler-sanitized.jsonを保持し、Macで原artifactを独立監査した記録とは区別します。
+
+v124後は同じコードのPTX-only（compute_86、ptxas optionなし）を、別の固定診断条件として1回だけ測りました。[NVIDIA NVRTC12.4.1の仕様](https://docs.nvidia.com/cuda/archive/12.4.1/nvrtc/index.html)ではvirtual architectureにCUBIN出力はありません。PTX生成と組立てを分けることで、前者が既定上限内で成立するかを確認する仮説です。v124のcapture／cache／claimは変更せず、同じsourceのCPU73検査は指紋を確認して再利用しました。成功してもCUBIN生成・driver JIT・CUDA計算一致の認定にはしません。メモリ上限と時間枠は維持します。
+
+## v125のPTX生成とcache確認
+
+同じ固定コードでCPU73検査の保存ログとソース指紋を確認して再利用し、テストを再実行せずPTX-onlyを1回行いました。NVRTC20.047秒、全体31.264秒、Job peak501,993,472byteで成功し、8,754,074byteのPTXを得ました。driver／context／kernel0、post空、既存process欠落0です。サービスは未識別なので環境保持を成功とはせず、CLI終了コード2とcompiler_verified=trueを区別します。
+
+続くcache-checkは保存PTXとサイズ・SHAが一致し、cache hit、NVRTC compile0・GPU0でした。cache keyはb59ad6c3873b40f774fa9ab2357f86771979d6bc8847f8481e09b7ded0a36f1bです。PTX／cache本体はWindowsに保持し、構造化報告portable-world-v125-ptx-sanitized.jsonだけを共有します。Macで原artifactを独立監査したものとは区別します。
+
+保存PTXの共通解析は215関数を観測しました。entryはlocal宣言0byte・virtual register19、dispatchはlocal宣言8,976byte・virtual register4,832です。weaponFrameBodyは38,938行・virtual register23,336という観測もあります。これらは仮想宣言であり、実register、実stack消費、ptxas失敗原因の証明ではありません。PTX解析の上位50件にentryが入らず、同じ宣言パーサでentryだけ追加参照したことも報告へ残しています。再コンパイルはしていません。
+
+CUBINの単一Job生成は未成立ですが、PTX生成と専用cacheの読み取りは既定上限内で実証できました。次はこのPTXを必須cacheから使い、戦闘buffer確保やkernel実行に進む前に、driverのmodule load／JITだけを短いJobで確認する経路を整えます。PTX成功からCUDA計算一致を主張せず、NVRTCの再コンパイルも行いません。
