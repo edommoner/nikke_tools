@@ -1,0 +1,131 @@
+{
+  "source_commit": "9c34a5f1a4542811385ac3f6160087c3ef39b29e",
+  "branch": "codex/cuda-world-v93-source",
+  "base": "9152a2a52b89cb8d3b77a94a619101a31d6942e8",
+  "file_count": 23,
+  "files": [
+    {
+      "path": "app/enemy_recipient_runtime.py",
+      "bytes": 15896,
+      "sha256": "2fed5285830bd151d939ad6e7ba98b6435435ab46cd916f6fdcd873f6afcf6b2"
+    },
+    {
+      "path": "app/portable_runtime.py",
+      "bytes": 64556,
+      "sha256": "d5f99fae86635af6f67f6dd78dfb3f9c87e7dd2930639ce404f654f3577e80d9"
+    },
+    {
+      "path": "app/portable_specs.py",
+      "bytes": 17731,
+      "sha256": "1d55649c21c3139b25883a9ff42f56a8842db0cdb5fb21f01741a9d6b51059a5"
+    },
+    {
+      "path": "app/portable_target_counter_specs.py",
+      "bytes": 7538,
+      "sha256": "1ac50a166b634999faad967ca04f56b1b538f5708d0b5131aa6626455c796e6b"
+    },
+    {
+      "path": "gpu/counter_context_runtime.slang",
+      "bytes": 2782,
+      "sha256": "aa3e9cf52e85feb2146467496954fcb6dd4f4eac8ebf9c1cdacdcaf38b1ea21b"
+    },
+    {
+      "path": "gpu/counter_field_runtime.slang",
+      "bytes": 1455,
+      "sha256": "d972af3f7f9fd596a4c3732c79e344ce547532471374066c72dfeba3012153aa"
+    },
+    {
+      "path": "gpu/counter_landing_runtime.slang",
+      "bytes": 6788,
+      "sha256": "67b6865c3e72beb2861c85493778e5a9a628f303e39d652b05c0e9754ff7bcbe"
+    },
+    {
+      "path": "gpu/event_runtime.slang",
+      "bytes": 124979,
+      "sha256": "5be2c4692ea45c57b68cc9d43eb55694d661c0b61674025647e8ed520143e977"
+    },
+    {
+      "path": "gpu/landing_runtime.slang",
+      "bytes": 6065,
+      "sha256": "36a22364895381973fb9910b0ebd947c333bc936006e6817dd1d8406a8b8323e"
+    },
+    {
+      "path": "gpu/portable_schema.slang",
+      "bytes": 20396,
+      "sha256": "7b4737a2e1f06f40ae3ad2bdd215321e86520f7a1a9890fb8aa682df0f3cb967"
+    },
+    {
+      "path": "gpu/target_counter_runtime.slang",
+      "bytes": 12850,
+      "sha256": "333fb70b70f3009948221887075a873ea844b20ea1a0d53977f61272cee5a92f"
+    },
+    {
+      "path": "gpu/world_actor_fields.slang",
+      "bytes": 9267,
+      "sha256": "57486d1c8b30ec31ab1e1dfb066cc3a739210516eef3020b37f6f808f974b8ef"
+    },
+    {
+      "path": "gpu/world_skill_entry.slang",
+      "bytes": 67,
+      "sha256": "433216610c518f8c2c3f122eb1aa886ae53e197d72b4307ded1cb90dfa278a98"
+    },
+    {
+      "path": "gpu/world_skill_runtime.slang",
+      "bytes": 6109,
+      "sha256": "3fed4f0b3c05069778e6f972e0b582e449a54246c8b462943a797448b8230fbb"
+    },
+    {
+      "path": "tests/test_portable_enemy_query_scope.py",
+      "bytes": 3081,
+      "sha256": "f428941dbf525fb8c07a44786977ff0c8b48961451c5cbfb28eb3a4ba0805c0b"
+    },
+    {
+      "path": "tests/test_portable_world_skills.py",
+      "bytes": 4053,
+      "sha256": "4b26d5f220df85ab0b59730b4cf10a189f48fc01b41b5958c74cf2139f6b705a"
+    },
+    {
+      "path": "research/compile-world-target-counter-battles.py",
+      "bytes": 1805,
+      "sha256": "96f528cceea9d4a1dd48de4e06020f69f470630790e03851da6246a654928c14"
+    },
+    {
+      "path": "research/characterize-world-counter-damage-queue.py",
+      "bytes": 7135,
+      "sha256": "ed6dfcd1919b57a3fca646ad51f1c30b6b5d10df77ace0010d28d9818f9d5b3b"
+    },
+    {
+      "path": "research/world_skill_cases.py",
+      "bytes": 4862,
+      "sha256": "92dab65e0189b5756cfc03e0afa40dbce2f86af19ce9507f133345a08d0628c1"
+    },
+    {
+      "path": "research/world_skill_native.py",
+      "bytes": 1763,
+      "sha256": "8c32231d48310d601aa7ce4b5de5d7f2be8b33d27ce8ecd76c096e9f66ec6e74"
+    },
+    {
+      "path": "research/verify-world-skills.py",
+      "bytes": 6769,
+      "sha256": "f73d66d9cf1ed0988661e7f49aa71f7eca3f6fda2fabb68591a250d8ef15ab30"
+    },
+    {
+      "path": "research/verify-world-skill-short.py",
+      "bytes": 5686,
+      "sha256": "992d8516d29111d874aacb8eb3fe76dd4931a59a051500310d06a46e5ba8603a"
+    },
+    {
+      "path": "research/portable-world-skill-short-expected.json",
+      "bytes": 25284,
+      "sha256": "3da42dd558fb67c119ea175c19f866d06bb4a7b729b01f889146c831adc14531"
+    }
+  ],
+  "bytes": 356917,
+  "private_settings": false,
+  "raw": false,
+  "large_reports": false,
+  "authorization": "User permits GitHub sharing until current goal achieved",
+  "windows_input_count": 50,
+  "windows_native_oracles": 40,
+  "old783_reexecutions": 0
+}

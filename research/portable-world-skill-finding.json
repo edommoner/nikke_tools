@@ -1,0 +1,31 @@
+{
+  "initial_source": "4efa2af23645f893aab9a05250c04fbca2ea2260",
+  "formula_admission_source": "541a6f36f5dab538f40aac91936ff7b63119090f",
+  "corrected_source": "761e362",
+  "findings": [
+    {
+      "case": "direct-family-core_damage",
+      "observed": "Damage totals agreed; skill-only counter completed incorrectly and native trace omitted the authored queued packet",
+      "cause": "Canonical CPU classifies core_damage as WEAPON while normal_skill is SKILL; GPU used a constant skill family and observer excluded non-SKILL queues",
+      "repair": "Derive family from common normalized H_CORE and damageNormal; observe all authored queued damage names"
+    },
+    {
+      "case": "core-damage-normal-formula-is-skill",
+      "observed": "Native40 case had status64 at input admission; other39 native cases,10 invalid and783 previous outputs held",
+      "cause": "Direct-skill admitted flag mask omitted normalized normal-attack flag256",
+      "repair": "Accept flag256 in private mode7; world-only authored normal_attack admission with explicit rejection of other values"
+    },
+    {
+      "case": "core-damage-normal-formula-is-skill",
+      "observed": "Status0 and amount matched but skill-only proof counter remained unfinished; other39 native and783 previous outputs held",
+      "cause": "World input packer only marked auto_damage as damageNormal, dropping explicit damage_formula despite compiler flag256",
+      "repair": "Carry explicit world normal_attack formula into damageNormal; assert packed word and use a normal_atk_dmg_pct50 native fixture",
+      "failed_source": "ea6808e",
+      "gpu_shader_unchanged_but_authored_input_changed": true
+    }
+  ],
+  "all_failed_inputs_and_readbacks_preserved": true,
+  "same_source_input_gpu_retries": 0,
+  "public_world_admission": false,
+  "full_character_verified": 0
+}
