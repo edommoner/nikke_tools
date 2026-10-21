@@ -43,6 +43,17 @@ class PreservationProof(unittest.TestCase):
   def blob(command,**kwargs):
    self.assertEqual(command[:2],['git','show']);return self.blobs[command[2].removeprefix('fixture:')]
   with patch.object(proof,'ROOT',self.root),patch.object(proof.subprocess,'check_output',side_effect=blob):return proof.audit(**self.kw,preservation_diagnostic=diagnostic)
+ def test_scalar_cpu_call_receipt_requires_explicit_format_and_exact_integer_zero(self):
+  self.receipt['cpu_preflight']['cpu_short_report']['gpu_calls']=0
+  with self.assertRaises(AssertionError):self.run_proof(True)
+  self.kw['cpu_gpu_calls_format']='scalar'
+  self.assertTrue(self.run_proof(True)['calculation_verified'])
+  for value in (False,1,None,{'build':0,'execute':0}):
+   self.receipt['cpu_preflight']['cpu_short_report']['gpu_calls']=value
+   with self.subTest(value=value),self.assertRaises(AssertionError):self.run_proof(True)
+ def test_unknown_cpu_call_receipt_format_rejected(self):
+  self.kw['cpu_gpu_calls_format']='guess'
+  with self.assertRaises(ValueError):self.run_proof(True)
  def test_strict_audit_rejects_calculation_success_with_missing_processes(self):
   with self.assertRaises(AssertionError):self.run_proof()
  def test_diagnostic_keeps_overall_failure_and_reports_calculation_separately(self):

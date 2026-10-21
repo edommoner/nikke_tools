@@ -105,6 +105,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
         if bullets!=-1 and combat is None:raise UnsupportedPortable('Bullet lifetime requires combat-owned physical shots')
     if combat is None and isinstance(target,str) and ('burst_casted' in target or target=='all_allies_burst_not_casted'):
         raise UnsupportedPortable('Recipient selector requires combat-owned burst state')
+    if stat in ('pellet_count','pellet_count_fixed','pierce_range','explosion_range') and (combat is None or not world_frame):raise UnsupportedPortable('Projectile modifiers require the private combat world adapter')
     if stat in ('force_reload','reload_time_fixed') and (combat is None or not world_frame):raise UnsupportedPortable('Reload control requires the private combat world adapter')
     if combat is None and stat in ('ammo_charge_pct','ammo_charge_flat','fullburst_duration','burst_cooldown','burst_cooldown_reduce','burst_charge_pct','attack_speed_pct','mg_warmup_speed_pct','reload_speed_pct','reload_ratio_pct','accuracy_pct','max_ammo_pct','max_ammo_flat','charge_speed_pct','charge_speed_caster_based_pct','charge_time_flat','charge_time_fixed','charge_speed_buff_immune','charge_speed_debuff_immune','charge_speed_overflow_conversion_pct'):
         raise UnsupportedPortable('Weapon/burst modifier requires combat mechanics')

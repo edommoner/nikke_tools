@@ -103,6 +103,34 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_WORLD_PROJECTILE_DIAGNOSTIC
+#define PROJECTILE_ADMIT_ROW(s,row,d) { uint diagnostic=s.resourceOutput+786416;results[diagnostic]=0x57504144;results[diagnostic+1]=4;results[diagnostic+2]=row+1;results[diagnostic+3]=d.kind;results[diagnostic+4]=d.stat; }
+#define PROJECTILE_ADMIT_STAGE(s,value) results[s.resourceOutput+786416]=0x57504144;results[s.resourceOutput+786417]=value;
+#else
+#define PROJECTILE_ADMIT_ROW(s,row,d)
+#define PROJECTILE_ADMIT_STAGE(s,value)
+#endif
+#ifdef PORTABLE_WORLD_PROJECTILE
+#define WORLD_PROJECTILE_INIT(s) initializeProjectiles(s);
+#define WORLD_PROJECTILE_KIND(d,legacy) (d.kind==1||d.kind==9||d.kind==10 ? false : (legacy))
+#define WORLD_PROJECTILE_CONDITION(s,at,kind,arg) if(kind>=C_GAUGE_ABOVE&&kind<=C_GAUGE_MOD) { if(!validProjectileResourceCondition(s,at,kind,arg)) return false;continue; }
+#define WORLD_PROJECTILE_SKIP_SLOT(event,stage) if(event==26&&stage==2) continue;
+#define WORLD_PROJECTILE_FRAME(s) if(s.error==0) snapshotProjectileParts(s);
+#define WORLD_PROJECTILE_PARTS(s,legacy) results[s.resourceOutput+720912+3]
+#define WORLD_PROJECTILE_SAMPLE(s,w,who,when) sampleProjectilePellets(s,who,when,w.pellets);if(s.error!=0) return;
+#define WORLD_PROJECTILE_REACH(s,who,flags,when,legacy) projectileReach(s,who,flags,when,legacy)
+#define WORLD_PROJECTILE_RECORD(s,w,who,when,amount) recordProjectileShot(s,who,w.mode,w.pellets,w.muzzles,when,amount);
+#else
+#define WORLD_PROJECTILE_INIT(s)
+#define WORLD_PROJECTILE_KIND(d,legacy) legacy
+#define WORLD_PROJECTILE_CONDITION(s,at,kind,arg)
+#define WORLD_PROJECTILE_SKIP_SLOT(event,stage)
+#define WORLD_PROJECTILE_FRAME(s)
+#define WORLD_PROJECTILE_PARTS(s,legacy) legacy
+#define WORLD_PROJECTILE_SAMPLE(s,w,who,when)
+#define WORLD_PROJECTILE_REACH(s,who,flags,when,legacy) legacy
+#define WORLD_PROJECTILE_RECORD(s,w,who,when,amount)
+#endif
 #ifdef PORTABLE_WORLD_ROSTER
 // Diagnostic omission is explicit; never skip accumulation or dispatch.
 #define WORLD_ROSTER_TRACE_BEGIN(s,head,count,limit,slot) if(count>=limit) results[head+slot]++;else {
@@ -115,7 +143,7 @@ struct Runtime
 #define WORLD_RELOAD_FORCE_KIND(kind) (kind==23)
 #define WORLD_RELOAD_KIND(d,legacy) (d.kind==23||d.kind==13||d.kind==14 ? false : (legacy))
 #define WORLD_RELOAD_ORIGIN(input,row,legacy) ((legacy)||definition_kind(input,row)==23||definition_kind(input,row)==13||definition_kind(input,row)==14||definition_stat(input,row)==S_reload_time_fixed)
-#define WORLD_RELOAD_INIT(s) initializeWorldReload(s);
+#define WORLD_RELOAD_INIT(s) initializeWorldReload(s); WORLD_PROJECTILE_INIT(s)
 #define WORLD_RELOAD_DURATION(s,w,who,when) uint64_t reloadFixed;if(fixedReloadDuration(s,who,when,reloadFixed)) return reloadFixed;
 #define WORLD_RELOAD_RECORD(s,who,when,kind) recordWorldReload(s,who,when,kind);
 #define WORLD_RELOAD_ACTIVE(s,who,legacy) f64Less(0,s.reloadUntil[who])
@@ -141,7 +169,9 @@ struct Runtime
 #define WORLD_RELOAD_FINAL(s)
 #endif
 #ifdef PORTABLE_WORLD_CHARGE_CONTROL
-#ifdef PORTABLE_WORLD_ROSTER
+#ifdef PORTABLE_WORLD_PROJECTILE
+#define WORLD_CONTROL_WIRE_MODE 24
+#elif defined(PORTABLE_WORLD_ROSTER)
 #define WORLD_CONTROL_WIRE_MODE 23
 #elif defined(PORTABLE_WORLD_RELOAD)
 #define WORLD_CONTROL_WIRE_MODE 22
@@ -211,8 +241,8 @@ bool worldTeamEnabled(inout Runtime s) { return true; }
 #define WORLD_TEAM_PELLET(s,w,who,when,output) if(worldTeamEnabled(s)&&w.mode!=1) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_CHARGE(s,w,who,count,when,output) if(worldTeamEnabled(s)&&w.mode==1) for(uint teamHit=0;teamHit<count;teamHit++) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_VALIDATE(s,d,input,j) for(uint teamSlot=0;teamSlot<d.triggerCount;teamSlot++) { uint teamEvent=commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+teamSlot*8];if((teamEvent==44||teamEvent==45)&&!worldTeamEnabled(s)) { s.error=64;break; } } if(s.error!=0) break;
-#define WORLD_TEAM_KIND(s,d,legacy) WORLD_RELOAD_KIND(d,(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8||WORLD_CONTROL_AMMO(s.inputBase,row,d.kind)) ? false : (legacy)))
-#define WORLD_TEAM_CONDITION(s,d,at,kind,arg) if(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&WORLD_CONTROL_CONDITION_KIND(kind,teamAdditionalCondition(kind))) { if(!WORLD_CONTROL_CONDITION_VALID(at,kind,arg,validTeamAdditionalCondition(at,kind,arg))) return false;continue; }
+#define WORLD_TEAM_KIND(s,d,legacy) WORLD_PROJECTILE_KIND(d,WORLD_RELOAD_KIND(d,(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8||WORLD_CONTROL_AMMO(s.inputBase,row,d.kind)) ? false : (legacy))))
+#define WORLD_TEAM_CONDITION(s,d,at,kind,arg) WORLD_PROJECTILE_CONDITION(s,at,kind,arg) if(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&WORLD_CONTROL_CONDITION_KIND(kind,teamAdditionalCondition(kind))) { if(!WORLD_CONTROL_CONDITION_VALID(at,kind,arg,validTeamAdditionalCondition(at,kind,arg))) return false;continue; }
 #else
 #define WORLD_TEAM_INPUT(input,output)
 #define WORLD_TEAM_MODE(s) false
@@ -1595,7 +1625,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                     if (event != f.event) continue;
                     if (event == 4 && stage != f.argument || event == 6 && int(j) != f.argument) continue;
                     if (COUNTER_NAMED(s,event,WORLD_CONTROL_NAMED(event,(event == 9 || event == 29 || event == 30 || event == 31 || event == 48 || event == 49 || event == 59))) && tag != f.argument) continue;
-                    if (event == 9 && commands[at+5] != f.value) continue;
+                    if (event == 9 && commands[at+5] != f.value) continue; WORLD_PROJECTILE_SKIP_SLOT(event,stage)
                     multiplicity++; bool ok = event != 30 || resourceModulo(f.healthValue,uint(f64ToPositiveStep(loadNumber(at+1)))) == 0;
                     if (mode != 0 || event == 7 || event == 8)
                     {
@@ -2018,6 +2048,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "world_actor_stacks.slang"
 #ifdef PORTABLE_TARGET_COUNTERS
 #include "target_counter_runtime.slang"
+#ifdef PORTABLE_WORLD_PROJECTILE
+#include "world_projectile_runtime.slang"
+#endif
 #ifdef PORTABLE_COUNTER_LANDINGS
 #include "counter_landing_runtime.slang"
 #ifdef PORTABLE_COUNTER_CONTEXT
@@ -2101,9 +2134,9 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     uint numericStatus; s.probability = coreProbability(loadNumber(input+20),numericStatus);
     if (numericStatus != 0) { results[output] = 128; return; }
     if(!validGeometry(s)) { results[output]=64;return; }
-    admitDefinitions(s,input);
+    PROJECTILE_ADMIT_STAGE(s,4) admitDefinitions(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
-    if(!initializeWorldFrame(s)) { results[output]=64;return; } WORLD_OVERLAY_INIT(s,output) WORLD_ACTORS_INIT(s,output) WORLD_POOL_INIT(s,output) WORLD_FIELDS_INIT(s,output) WORLD_STATE_INIT(s,output) COUNTER_INIT(s,output)
+    PROJECTILE_ADMIT_STAGE(s,5) if(!initializeWorldFrame(s)) { results[output]=64;return; } WORLD_OVERLAY_INIT(s,output) WORLD_ACTORS_INIT(s,output) WORLD_POOL_INIT(s,output) WORLD_FIELDS_INIT(s,output) WORLD_STATE_INIT(s,output) COUNTER_INIT(s,output)
     if(!validEnemyTargeting(s)) { results[output]=64;return; }
     if(!validProtection(s)) { results[output]=64;return; }
     if (!validStatusDefinitions(s)) { results[output]=64;return; }

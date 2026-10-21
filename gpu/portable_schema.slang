@@ -2,7 +2,9 @@
 #if defined(PORTABLE_WORLD_FRAME) && defined(PORTABLE_WIDE_LANDINGS)
 #error World and wide-landing diagnostic layouts cannot be combined.
 #endif
-#ifdef PORTABLE_WORLD_ROSTER
+#ifdef PORTABLE_WORLD_PROJECTILE
+static const uint PORTABLE_ABI = 1346721421U;
+#elif defined(PORTABLE_WORLD_ROSTER)
 static const uint PORTABLE_ABI = 1346721420U;
 #elif defined(PORTABLE_WORLD_RELOAD)
 static const uint PORTABLE_ABI = 1346721419U;
@@ -517,6 +519,10 @@ static const uint S_atk_from_hp_pct = 89U;
 static const uint S_stealth = 65U;
 static const uint S_taunt = 66U;
 static const uint S_reload_time_fixed = 90U;
+static const uint S_pellet_count = 47U;
+static const uint S_pellet_count_fixed = 48U;
+static const uint S_pierce_range = 63U;
+static const uint S_explosion_range = 64U;
 static const uint H_BURST = 1U;
 static const uint H_SEQUENTIAL = 2U;
 static const uint H_ATTACHMENT = 4U;

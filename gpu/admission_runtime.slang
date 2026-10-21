@@ -24,7 +24,7 @@ void admitDefinitions(inout Runtime s,uint input)
     }
     for (uint j = 0; j < s.count; j++)
     {
-        Definition d=readDefinition(input,j);
+        Definition d=readDefinition(input,j); PROJECTILE_ADMIT_ROW(s,j,d)
         if(d.stat==S_pierce_enabled || d.stat==S_armor_break_enabled || d.stat==S_burst_charge_speed_pct)
         {
             if(d.kind!=0 || d.enemyBuff!=0 || !f64Finite(d.value) || d.damageFlags!=0) { s.error=64;break; }
