@@ -299,7 +299,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             named=None if staged[index] is not None else resolve_named_attack(eff,owner,effects)
             pending_hits=named.deferred_bonus_hits if pending and named is not None else 1
             if pending_hits>256:raise UnsupportedPortable('Pending named attack count exceeds 256')
-            words[at:at+8]=[route,count,hits,int(eff.get('damage_formula')=='normal_attack' if world_frame else eff['stat'].split(':')[0]=='auto_damage'),*double_words(override),int(pending),pending_hits if pending else 0]
+            words[at:at+8]=[route,count,hits,int(eff.get('damage_formula')=='normal_attack' and not pending if world_frame else eff['stat'].split(':')[0]=='auto_damage'),*double_words(override),int(pending),pending_hits if pending else 0]
             if pending:
                 later_names={e.get('name') for e,n in effects[index+1:] if n==owner and e.get('type')=='buff' and 'burst_cast' in e.get('trigger',{}).get('timing',[]) and e.get('name')}
                 mask=L['PENDING_EXCLUDE_BASE']+index*L['MASK_WORDS']
@@ -323,6 +323,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
                 'FORCE_MASK':int(row[legacy.B3_MASK]),'RECIPIENTS':31 if row[4]==1 else 1<<int(row[0]),
                 'TARGET':cleansing[0] if cleansing is not None else stack[1] if stack is not None else extension[0] if extension is not None else removal[0] if removal is not None else int(bool(effects[index][0].get('name'))) if row[1] in (2,13) else int(effects[index][0].get('target')=='boss'), 'STAGE_ARG':int(row[151]),
                 'STAGE_OVERRIDE':int(row[252]),'REENTRY':int(row[253]),'TOGGLE':int(bool(int(row[213]) & 128)), 'DAMAGE_FLAGS':int(row[39])}
+        if world_frame and eff.get('type')=='damage' and words[L['DAMAGE_DEFINITION_BASE']+index*8+6]!=0:fields['DAMAGE_FLAGS'] &= ~256
         if element_override(eff):fields.update(KIND=0,STAT=ELEMENT_OVERRIDE_STAT)
         if hp_attack(eff):fields.update(KIND=0,STAT=HP_ATTACK_STAT)
         for key,value in fields.items():compact[F[key]]=value & 0xffffffff

@@ -33,7 +33,17 @@ def observe(case):
  class Character(original_char):
   def tick(self,*args,**kwargs):
    hits=super().tick(*args,**kwargs);counts[self.name]+=int(bool(hits));capture.setdefault('characters',{})[self.name]=self;return hits
+ class PendingList(list):
+  def append(self,value):
+   capture['pending_enqueued']=capture.get('pending_enqueued',0)+1;return super().append(value)
  class Controller(original_burst):
+  def __init__(self,*args,**kwargs):
+   super().__init__(*args,**kwargs)
+   if case.get('observe_pending_skills'):
+    capture['burst_controller']=self;self._pending_burst_dmg=PendingList(self._pending_burst_dmg)
+  def _fire_pending_burst_dmg(self,t,bm):
+   if case.get('observe_pending_skills'):capture['pending_fired']=capture.get('pending_fired',0)+len(self._pending_burst_dmg)
+   return super()._fire_pending_burst_dmg(t,bm)
   def tick(self,t,bm,state):capture.update(bm=bm,state=state,time=t);return super().tick(t,bm,state)
  class Boss(original_boss):
   def __init__(self,*args,**kwargs):super().__init__(*args,**kwargs);capture['boss']=self;capture['actor_notices']=[0]*4;capture['actor_deaths']=0
@@ -63,6 +73,10 @@ def observe(case):
    super()._close(run,t,outcome,events);ends.append([run.p.idx,{'cleared':1,'expired':2,'followed':3,'end':4}[outcome],*bits(t)])
  def register(bm):
   bm._effects=copy.deepcopy(effects);bm._build_notify_index()
+  if case.get('observe_authored_effect_lookup'):
+   # The authored roster replaces registration, so native ordered lookups
+   # must see that same literal catalog rather than original character data.
+   bm._char_effects_cache={name:[e for e,owner in bm._effects if owner==name] for name in NAMES}
   if case.get('observe_target_counters'):
    from world_target_counter_battle_native import initialize
    initialize(bm,capture)
@@ -82,6 +96,8 @@ def observe(case):
  hits=[dict(time=h.t,pattern=h.pattern,owner=NAMES.index(h.target),damage=h.damage,pierce=h.pierce,shield=h.shield,cover=h.cover,decoy=h.decoy,hp=h.hp,hp_after=h.hp_after,down=h.down) for h in result.squad_hits]
  graph_states=[[int(r.active),r.opens,*bits(r.start_t),r.fired,0,0,0,*r.consumed_after,*([0]*(8-len(r.consumed_after))),*r.consumed_until,*([0]*(8-len(r.consumed_until)))] for r in capture['boss']._runs];graph_states.extend([[0]*24 for _ in range(32-len(graph_states))])
  answer=dict(graph_states=graph_states,graph_history=[[32,0,*bits(capture['boss']._ends['start'][0][0])],*ends],damage=[result.char_total.get(n,0) for n in NAMES],allies=[dict(hp=state['hp'][n],max_hp=bm.effective_max_hp(n),hp_pct=state['hp_pct'][n],defense=bm._effective_def(n),down=n in state['down'],received_damage=sum(h['hp'] for h in hits if h['owner']==i),received_hits=sum(h['owner']==i for h in hits)) for i,n in enumerate(NAMES)],covers=[dict(hp=state['cover_hp'][n],max_hp=state['cover_max_hp'][n],effective_max_hp=bm.cover_max_hp(n,capture['time'])) for n in NAMES],shots=[counts[n] for n in NAMES],ammo=[capture['characters'][n].ammo for n in NAMES],hits=hits,boss_log=[dict(time=x.t,pattern=x.pattern,event=x.event,outcome=x.outcome) for x in result.boss_log],rng=dict(index=rng.getstate()[1][-1],state=list(rng.getstate()[1][:-1]),draws=rng.draws,rejects=rng.rejects,samples=rng.samples),scope='Actual full native simulate;only authored effects,base stats and weapon metadata are replaced. Scheduler,target selector,layered landing,weapon tick and frame loop are native.')
+ if case.get('observe_pending_skills'):
+  answer['pending_burst']=dict(count=len(capture['burst_controller']._pending_burst_dmg),enqueued=capture.get('pending_enqueued',0),fired=capture.get('pending_fired',0))
  if case.get('observe_overlay'):
   answer.update(gauge=state.get('burst_gauge',0.0),world_nodes=[dict(blocked=r.blocked,opens=r.opens) for r in capture['boss']._runs])
  if case.get('observe_cleanse'):

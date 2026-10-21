@@ -31,6 +31,11 @@ def inspect(case):
  counts={}
  for row in records:
   effect=case['effects'][row['row']];tail=effect['stat'].split(':')[1:];hits=int(tail[0]) if tail and tail[0].isdigit() else 1
+  owner=case['owners'][row['row']]
+  if effect['stat']=='bonus_damage' and 'burst_cast' in effect.get('trigger',{}).get('timing',[]) and str(case['combat']['weapons'][owner].get('stage',0))=='3':
+   from named_target_specs import resolve_named_attack
+   named=resolve_named_attack(effect,owner,list(zip(case['effects'],case['owners'])))
+   if named is not None:hits=named.deferred_bonus_hits
   key=(row['row'],row['created']);hit=counts.get(key,0)%hits+1;counts[key]=counts.get(key,0)+1
   row.update(hit=hit,hits=hits)
  native['target_counters'].pop('events');return native,records
