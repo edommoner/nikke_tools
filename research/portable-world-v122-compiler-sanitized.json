@@ -1,0 +1,115 @@
+{
+  "version": 122,
+  "source_commit": "5040857600b1dd1097031a7a53a26da47298ca84",
+  "package_id": "485880504f7090bb21d1b82297eaeebbe4d33bc059e6764d8ebf302061ecda7c",
+  "manifest_files": 1833,
+  "manifest_and_golden_verified": true,
+  "cpu_tests": [
+    {
+      "suite": "windows_cleanup",
+      "count": 4,
+      "exit": 0
+    },
+    {
+      "suite": "compile_cli",
+      "count": 8,
+      "exit": 0
+    },
+    {
+      "suite": "cuda_artifact",
+      "count": 12,
+      "exit": 0
+    },
+    {
+      "suite": "resident_layout",
+      "count": 3,
+      "exit": 0
+    },
+    {
+      "suite": "resident_transport",
+      "count": 3,
+      "exit": 0
+    },
+    {
+      "suite": "resident_build",
+      "count": 4,
+      "exit": 0
+    }
+  ],
+  "cpu_total": 34,
+  "fresh_reflection": {
+    "files": 2,
+    "cuda_bytes": 421461,
+    "metal_bytes": 420996,
+    "layouts_match": true,
+    "stride": 138928,
+    "alignment": 8,
+    "fields": 246,
+    "cuda_layout_assertions_present": true,
+    "abi_assert_failure_reported": false
+  },
+  "nvrtc": {
+    "wheel_version": "12.4.127",
+    "primary_loaded": true,
+    "builtins_loaded": true,
+    "create_program_return": 0,
+    "compile_calls": 1,
+    "compile_seconds": 31.719,
+    "compile_return": 6,
+    "failure": "ptxas fatal: Memory allocation failure"
+  },
+  "compiler_only": {
+    "attempts": 1,
+    "retries": 0,
+    "budget_seconds": 60,
+    "elapsed_seconds": 44.62730709975585,
+    "timed_out": false,
+    "child_exit": 1
+  },
+  "artifact": {
+    "kind": "cubin",
+    "completed": false,
+    "bytes": 0,
+    "sha256": null
+  },
+  "cache": {
+    "hit": false,
+    "receipt": null,
+    "check_executed": false
+  },
+  "job": {
+    "cap_bytes": 2147483648,
+    "peak_bytes": 2147856384,
+    "pre_single_verified": true,
+    "post_empty_verified": true,
+    "cleanup_error": null,
+    "inspection_error": null,
+    "observation_error": null,
+    "below_normal": true
+  },
+  "environment": {
+    "missing_count": 0,
+    "service_before": "unverified",
+    "service_after": "unverified",
+    "service_preservation_verified": false,
+    "original_head_status_preserved": true,
+    "parent_environment_preserved": true
+  },
+  "compiler_verified": false,
+  "containment_verified": true,
+  "preservation_verified": false,
+  "calculation_verified": false,
+  "audit_exit": 1,
+  "collect_exit": 0,
+  "driver_calls": 0,
+  "context_calls": 0,
+  "kernel_calls": 0,
+  "gpu_calls": 0,
+  "v121_original_preserved": true,
+  "saved_report": {
+    "bytes": 4734,
+    "sha256": "f20813274da25d88d53ffb534582cea57c021bebfd5c2f8ea07d1e287986fcec"
+  },
+  "github_push": false,
+  "evidence_scope": "Derived Windows structured chat report; original artifacts not independently audited on Mac."
+}

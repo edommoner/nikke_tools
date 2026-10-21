@@ -156,15 +156,21 @@
     "private_runtime_declaration_in_candidate_generated_code": false
   },
   "windows": {
-    "status": "v121_stopped_before_nvrtc",
-    "report": "research/portable-world-v121-compiler-sanitized.json",
+    "status": "v122_nvrtc_memory_allocation_failure",
+    "report": "research/portable-world-v122-compiler-sanitized.json",
     "compiler_improvement_verified": false,
     "calculation_verified": false,
-    "cpu_tests_passed": 30,
-    "nvrtc_calls": 0,
+    "cpu_tests_passed": 34,
+    "nvrtc_calls": 1,
     "gpu_calls": 0,
-    "next": "Fresh compiler-only package with validated OS-temp staging; no GPU retry",
-    "write_diagnostics": "research/portable-resident-windows-write-diagnostics.json"
+    "next": "Inspect shared dispatch/entry boundaries; no identical compiler retry or limit increase",
+    "write_diagnostics": "research/portable-resident-windows-write-diagnostics.json",
+    "reflection_generation_fixed": true,
+    "compiler_seconds": 31.719,
+    "elapsed_seconds": 44.62730709975585,
+    "job_peak_bytes": 2147856384,
+    "cubin_bytes": 0,
+    "cache_check_executed": false
   },
   "full_character_verified": 0,
   "full_goal_complete": false,
@@ -189,5 +195,7 @@
     "gpu_calls": 0,
     "generated_retention": "research/portable-resident-build-retention.json",
     "scope": "Targeted CPU checks for fresh paired output publication; not a new GPU proof"
-  }
+  },
+  "entry_reload_reference_retention": "research/portable-entry-reload-resident-build-retention.json",
+  "compiler_structure": "research/portable-resident-compiler-structure.json"
 }

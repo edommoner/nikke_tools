@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "source_bytes": 1664805,
+  "source_sha256": "728a9f9237209b3c4f6b6166129e47fc1d5e69932c5c4d140987787fae566521",
+  "functions": 1075,
+  "noinline_functions": 205,
+  "largest_functions": [
+    {
+      "name": "dispatch_0",
+      "line": 43888,
+      "bytes": 163801,
+      "lines": 4404,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 583
+    },
+    {
+      "name": "executePortableEvents_0",
+      "line": 58048,
+      "bytes": 106435,
+      "lines": 1945,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 241
+    },
+    {
+      "name": "admitDefinitions_0",
+      "line": 7842,
+      "bytes": 73200,
+      "lines": 2993,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 411
+    },
+    {
+      "name": "coreProbability_0",
+      "line": 1000,
+      "bytes": 45822,
+      "lines": 1597,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 187
+    },
+    {
+      "name": "basicConditions_0",
+      "line": 25691,
+      "bytes": 25126,
+      "lines": 1072,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 143
+    },
+    {
+      "name": "initializeChargeControl_0",
+      "line": 15922,
+      "bytes": 22208,
+      "lines": 863,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 114
+    },
+    {
+      "name": "weaponFrameBody_0",
+      "line": 54371,
+      "bytes": 21492,
+      "lines": 831,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 123
+    },
+    {
+      "name": "actorFieldsDefinitionValid_0",
+      "line": 13336,
+      "bytes": 19558,
+      "lines": 816,
+      "noinline": false,
+      "global_entry": false,
+      "branches": 108
+    },
+    {
+      "name": "initializeTargetCounters_0",
+      "line": 17675,
+      "bytes": 17343,
+      "lines": 734,
+      "noinline": false,
+      "global_entry": false,
+      "branches": 94
+    },
+    {
+      "name": "initializeWorldFrame_0",
+      "line": 10995,
+      "bytes": 13747,
+      "lines": 604,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 85
+    }
+  ],
+  "scope": "Lexical generated-CUDA spans only; not compiler time, memory attribution, performance or correctness proof",
+  "source_integrity_verified": true,
+  "analysis_complete": true,
+  "calculation_verified": false,
+  "compiler_verified": false,
+  "gpu_calls": 0,
+  "nvrtc_compile_calls": 0,
+  "call_graph_summary": {
+    "root": "executePortableEvents_0",
+    "max_depth": 3,
+    "visited_functions": 69,
+    "truncated": false,
+    "scope": "Known lexical calls; stop at noinline or depth3. No claim about actual compiler inlining or memory cost"
+  },
+  "next_hypothesis": "Shared phase/function boundaries in dispatch and entry; lexical size is not memory attribution. No new Windows run justified until a bounded candidate and Metal parity proof exist."
+}
