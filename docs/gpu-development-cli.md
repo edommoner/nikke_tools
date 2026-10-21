@@ -1,3 +1,17 @@
+<!-- enemy-selection-current -->
+## 共通random／code対象・DoT終了契約とMetal664
+
+現在のsealed CLIはregression664（native526／拒否138）、goldenはportable-world-enemy-selection-regression-short-expected.jsonです。共通MT19937のrandom選択、codeの正本body規約、budget probe、DoT refresh／最終tick、敵stack／解除／期間延長を共有実行器へ接続しました。独立60入力は61正例を51 GPU入力へまとめ、各aliasの正本比較と9拒否stageを保持しています。新規8プロファイルの全定義実編成を各3秒／30秒で追加しました。
+
+Actor側のnamed解除にDoT clockの終了漏れがあり、従来経路と同じretireNamedCarrierへ統合しました。0.27秒再付与の境界とミハラ30秒の全51スキルも正本一致。途中62／68／58／662の失敗を保持し、最終664全件一致、旧588の全input／raw／native、途中662の成功661の全raw、独立60の診断tail以外の全raw、全664のlazy bankゼロを確認してGPU0の独立sealを行いました。CPU719成功・Windows専用1skip・失敗0です。
+
+新規ミハラ30秒の物理履歴は2048記録＋32省略で、prefix・省略数・全戦闘状態の一致までです。新規の他15実編成は省略0。過去persona等の省略制約も残ります。診断専用のowner0スキル51件と、通常の物理履歴の省略は別の範囲です。
+
+共通CLIにarchive-raw／restore-raw（GPU0）を追加しました。固定evidenceの元サイズ／SHAと全展開byteを検査し、明示remove-original時だけ非圧縮コピーを除きます。実capture約2.08GBを約5.85MBへ無損失退避し、既存の失敗JSONは保持。監査前には復元してください。生成CUDAのRuntime宣言は138,928byteで据え置き、actorSetCaptureのnoinlineも復帰を確認しました。compiler peak／速度改善は未証明です。
+
+静的packing209/266・base149/203・87分類、通常UI CPU・全キャラGPU認定0・新版CUDA数値一致未確認・最終目標未完了。Windows追加実行0です。v117 CPU53のcache/controller確認とv115 cold compiler allocation failureは区別し、同条件の再実行や上限拡大はしません。次候補は参照consumerを確認できるatk_buff_mag_pct（79）。projectile_dmg_pct／shield_dmg_pctはconsumer未確認のため無効果受付しません。詳細portable-enemy-selection.md、development checkpoint、retention、compiler-deltaを参照してください。以下は履歴です。
+<!-- /enemy-selection-current -->
+
 # 共通GPU検証CLI
 
 現在のsealed入口は`regression`588（native459＋拒否129）、goldenは`portable-world-named-magnitude-regression-short-expected.json`です。名前付き係数／被ダメージ倍率の独立54入力と、全定義の実編成4入力を追加し、旧530の全input／raw／native保持を確認しました。保留カウンタ観測は既存read関数へ共通化し、比較項目を省いていません。`docs/portable-named-magnitude.md`を参照してください。以下は以前の接続時の履歴です。
@@ -225,3 +239,18 @@ v110の修正版argvは実NVRTCで受け付けられましたが、本体O1コ�
 ## 名前付き周期秒数補正と制御smoke
 
 通常regressionは420入力（native334＋拒否86）。effect_interval／skill_cooldownの57入力を、既存の時計・trace比較器で統合します。詳細はportable-skill-interval-flat.md。Windowsの子プロセスはcapture/temporaryを専用TEMP／TMP／TMPDIRへ使います。`run --smoke`はpackage検査後、制御CPU29件とfresh Jobだけを実行し、native全編成とnumeric test群を省きます。GPU／NVRTC／driverは0です。通常GPU実行・CPU-onlyのnative照合とnumeric test群は維持します。
+
+## readbackの無損失退避と復元（GPU0）
+
+`archive-raw`は既存artifacts/evidenceに固定されたreadbackのサイズ・SHAを検査し、gzipへ保存して全展開byteを再検査します。receiptと圧縮archiveはcapture外へ保存します。既定は原ファイルを保持し、明示`--remove-original`の場合だけ検証後に非圧縮コピーを除きます。captureの既存JSON／失敗記録は変更しません。計算成功を認定するコマンドではありません。
+
+```sh
+.venv/bin/python scripts/nikke_gpu.py archive-raw --capture /tmp/old-capture \
+  --archive /tmp/old-readback.bin.gz --remove-original
+.venv/bin/python scripts/nikke_gpu.py restore-raw --capture /tmp/old-capture \
+  --archive /tmp/old-readback.bin.gz
+```
+
+復元は既存readbackを上書きせず、receipt・圧縮byte・元evidence・展開後のサイズ／SHAをすべて確認してから公開します。原byteの退避先は`.gz`と隣接`.gz.json`の組です。非圧縮ファイルがない状態では従来の監査器は実行できないため、監査前に復元します。Linux／Macは除去前にarchive親directoryもfsyncし、Windowsはそのdirectory fsyncを行いません。停電耐性の認定ではありません。
+
+Macの実capture2,082,471,936byteは5,849,675byteへ圧縮でき、全展開byteの元SHA一致を確認しました。復元・破損拒否・出力上書き拒否・検証失敗時の原ファイル保持はCPU4テストで検査します。rawや圧縮rawをGitHubへ含めません。

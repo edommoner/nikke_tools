@@ -112,6 +112,7 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#include "enemy_route_runtime.slang"
 #include "lazy_bank_storage.slang"
 #ifdef PORTABLE_WORLD_PROJECTILE_DIAGNOSTIC
 #define PROJECTILE_DIAGNOSTIC_FIELDS(s,row,d,stage) { uint diagnostic=s.resourceOutput+786416;results[diagnostic]=0x57504144;results[diagnostic+1]=stage;results[diagnostic+2]=row+1;results[diagnostic+3]=d.kind;results[diagnostic+4]=d.stat;results[diagnostic+5]=d.quantityFlags;results[diagnostic+6]=d.owner;results[diagnostic+7]=d.triggerCount;results[diagnostic+8]=d.conditionCount;results[diagnostic+9]=d.damageFlags;results[diagnostic+10]=d.healthScaling;results[diagnostic+11]=d.alliedFlags;results[diagnostic+12]=uint(d.value);results[diagnostic+13]=uint(d.value>>32);results[diagnostic+14]=uint(d.duration);results[diagnostic+15]=uint(d.duration>>32); }
@@ -255,7 +256,7 @@ bool worldTeamEnabled(inout Runtime s) { return true; }
 #define WORLD_TEAM_PELLET(s,w,who,when,output) if(worldTeamEnabled(s)&&w.mode!=1) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_CHARGE(s,w,who,count,when,output) if(worldTeamEnabled(s)&&w.mode==1) for(uint teamHit=0;teamHit<count;teamHit++) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_VALIDATE(s,d,input,j) for(uint teamSlot=0;teamSlot<d.triggerCount;teamSlot++) { uint teamEvent=commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+teamSlot*8];if((teamEvent==44||teamEvent==45)&&!worldTeamEnabled(s)) { s.error=64;break; } } if(s.error!=0) break;
-#define WORLD_TEAM_KIND(s,row,d,legacy) (worldTeamEnabled(s)&&(d.kind==25||d.kind==22) ? false : WORLD_PROJECTILE_KIND(d,WORLD_RELOAD_KIND(d,(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8||d.kind==33||WORLD_CONTROL_AMMO(s.inputBase,row,d.kind)) ? false : (legacy)))))
+#define WORLD_TEAM_KIND(s,row,d,legacy) (worldTeamEnabled(s)&&(d.kind==25||d.kind==22) ? false : WORLD_PROJECTILE_KIND(d,WORLD_RELOAD_KIND(d,(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8||d.kind==33||d.kind==35||WORLD_CONTROL_AMMO(s.inputBase,row,d.kind)) ? false : (legacy)))))
 #define WORLD_TEAM_CONDITION(s,row,d,at,kind,arg) WORLD_PROJECTILE_CONDITION(s,at,kind,arg) if(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&WORLD_CONTROL_CONDITION_KIND(kind,teamAdditionalCondition(kind))) { if(!WORLD_CONTROL_CONDITION_VALID(at,kind,arg,validTeamAdditionalCondition(at,kind,arg))) return false;continue; }
 #else
 #define WORLD_TEAM_INPUT(input,output)
@@ -337,6 +338,7 @@ bool worldEnemyAttackEnabled(inout Runtime s) { return targetCountersEnabled(s)&
 #define WORLD_PERIODIC_RETAINED(s,d,legacy) ((legacy)||worldPeriodicClock(s,d))
 #define WORLD_PERIODIC_MASK(s,row,packed,legacy) if(worldPeriodicClock(s,readDefinition(s.inputBase,row))) { packed=0;return worldPeriodicAnyLive(s,row)?0xffffffffU:0; } legacy
 #define WORLD_PERIODIC_CAPTURE(s,row,source,append,a,b,c) if(worldPeriodicClock(s,readDefinition(s.inputBase,row))) { captureWorldPeriodicDefinition(s,row,source,append);return; } a,b,c
+#define WORLD_RANDOM_DISCARD(s,row) discardWorldRandomTargets(s,row);
 #define WORLD_PERIODIC_STATUS(s,d,legacy) ((legacy)&&!worldPeriodicClock(s,d))
 #define WORLD_PERIODIC_VALID(s,r,legacy) ((legacy)||(worldPeriodicClock(s,readDefinition(s.inputBase,r.row))&&r.mask==0))
 #define WORLD_PERIODIC_STORE(s,at,r) storeWorldPeriodicPacket(s,at,r);
@@ -350,6 +352,7 @@ bool worldEnemyAttackEnabled(inout Runtime s) { return targetCountersEnabled(s)&
 #define WORLD_PERIODIC_RETAINED(s,d,legacy) legacy
 #define WORLD_PERIODIC_MASK(s,row,packed,legacy) legacy
 #define WORLD_PERIODIC_CAPTURE(s,row,source,append,a,b,c) a,b,c
+#define WORLD_RANDOM_DISCARD(s,row)
 #define WORLD_PERIODIC_STATUS(s,d,legacy) legacy
 #define WORLD_PERIODIC_VALID(s,r,legacy) legacy
 #define WORLD_PERIODIC_STORE(s,at,r)
@@ -552,6 +555,12 @@ bool worldPendingEnabled(inout Runtime s) { return WORLD_PENDING_ENABLED(s); }
 #endif
 #ifdef PORTABLE_WORLD_ACTOR_FIELDS
 #define WORLD_FIELDS_ENEMY_SELECT(s,d,target,order) if(actorFieldsEnabled(s)&&d.enemyBuff!=0) { order=1;return 1; }
+#define WORLD_STACK_SELECT(s,d,order) if(actorFieldsEnabled(s)&&d.target==2&&d.damageRoute==10) { order=1;return 32; }
+#define WORLD_DURATION_KIND(s,d,legacy) ((legacy)&&!(actorFieldsEnabled(s)&&d.kind==15))
+#define WORLD_DURATION_SCOPE_BEGIN(s,row,scope) uint durationSet=P_WORLD_ACTOR_SETS;ActorBits durationScope=actorBitsEmpty();bool durationWide=actorFieldsEnabled(s)&&definition_target(s.inputBase,row)==2;if(durationWide) { durationSet=actorFieldScope(s,row,durationScope);if(s.error!=0) return; }
+#define WORLD_DURATION_SCOPE_EMPTY(scope) (!durationWide && scope==0)
+#define WORLD_DURATION_SCOPE_MISS(s,slot,scope,legacy) (durationWide ? !worldDurationAffected(s,slot,durationScope) : (legacy))
+#define WORLD_DURATION_SCOPE_END(s) if(durationSet<P_WORLD_ACTOR_SETS) { results[actorPoolSet(s,durationSet)+5]=0;results[actorPoolHead(s)+7]--; }
 #define WORLD_FIELDS_SAME(s,slot,recipients,gen) if(actorFieldsEnabled(s)) return actorFieldSame(s,slot,gen);
 #define WORLD_FIELDS_QUERY_DEAD(s,target,legacy) (actorFieldsEnabled(s) ? !actorFieldQueryLive(s,target) : (legacy))
 #define WORLD_FIELDS_MEMBER_INVALID(s,row,target,legacy) (actorFieldsEnabled(s) ? !actorFieldMember(s,row,target) : (legacy))
@@ -565,6 +574,12 @@ bool worldPendingEnabled(inout Runtime s) { return WORLD_PENDING_ENABLED(s); }
 #define WORLD_FIELDS_COMMAND(s,at) else if(op==39||op==40) { if(!actorFieldCommand(s,at,op,when)) { s.error=64;break; } }
 #else
 #define WORLD_FIELDS_ENEMY_SELECT(s,d,target,order)
+#define WORLD_STACK_SELECT(s,d,order)
+#define WORLD_DURATION_KIND(s,d,legacy) legacy
+#define WORLD_DURATION_SCOPE_BEGIN(s,row,scope)
+#define WORLD_DURATION_SCOPE_EMPTY(scope) (scope==0)
+#define WORLD_DURATION_SCOPE_MISS(s,slot,scope,legacy) legacy
+#define WORLD_DURATION_SCOPE_END(s)
 #define WORLD_FIELDS_SAME(s,slot,recipients,gen)
 #define WORLD_FIELDS_QUERY_DEAD(s,target,legacy) legacy
 #define WORLD_FIELDS_MEMBER_INVALID(s,row,target,legacy) legacy
@@ -1706,6 +1721,14 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (f.mode == 2)
         { pushFrame(s,frames,depth,1,47,d.owner,int(row),f.time); continue; }
         if (f.mode == 0 && !activationConditions(s,row,f.time) && !(f.event == 0 && f64Less(d.duration,0) && passive != 0)) continue;
+        if(d.damageRoute==10 && f.mode!=19 && d.budget>=0 &&
+           (f.event!=28 || (d.flags&1)!=0 && ((s.stagedEnabled==0 || !isStaged(s,row)) || s.alive[row]==0)))
+        {
+            // Native checks exhaustion before resolving the budget's recipient
+            // probe. Its sampled targets are discarded before actual execution.
+            if(s.activations[WORLD_TEAM_BUDGET(s,row)]>=uint(d.budget)) continue;
+            WORLD_RANDOM_DISCARD(s,row) if(s.error!=0) break;
+        }
         if(d.kind==15 && f.event!=28 && d.budget>=0 && s.activations[WORLD_TEAM_BUDGET(s,row)]>=uint(d.budget)) continue;
         uint64_t recipientOrder=0;uint recipientMask=f.mode==19 ? uint(f.value) : d.recipients,enemyOrder=0;
         if(stackOperation(d.kind))

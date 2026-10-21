@@ -12,8 +12,8 @@ void extendNamedResidents(inout Runtime s,uint row,uint scope,uint64_t when)
 {
     uint membership=s.inputBase+P_FORCE_BASE+row*P_MASK_WORDS;
     uint any=0;for(uint word=0;word<P_MASK_WORDS;word++) any|=commands[membership+word];
-    if(any==0) return;
-    if(scope==0) return;
+    WORLD_DURATION_SCOPE_BEGIN(s,row,scope)
+    if(any==0 || WORLD_DURATION_SCOPE_EMPTY(scope)) { WORLD_DURATION_SCOPE_END(s) return; }
     uint64_t amount=definition_value(s.inputBase,row);
     for(uint pass=0;pass<s.orderedCount;pass++)
     {
@@ -21,10 +21,11 @@ void extendNamedResidents(inout Runtime s,uint row,uint scope,uint64_t when)
         if(s.alive[slot]==0 || s.lazyPending[slot]!=0) continue;
         if((commands[membership+definition/32]&(1U<<(definition%32)))==0) continue;
         if(s.end[slot]==F64_INF) continue;
-        if((removalMembers(s,slot)&scope)==0) continue;
+        if(WORLD_DURATION_SCOPE_MISS(s,slot,scope,(removalMembers(s,slot)&scope)==0)) continue;
         s.end[slot]=f64Add(s.end[slot],amount);
         if(definition_kind(s.inputBase,definition)==3 && s.timerActive[definition]!=0) s.expiry[definition]=s.end[slot];
     }
+    WORLD_DURATION_SCOPE_END(s)
 }
 [noinline]
 bool validDurationExtension(uint input,uint count,uint combat,uint row)
@@ -39,7 +40,7 @@ bool validDurationExtension(uint input,uint count,uint combat,uint row)
     uint packet=input+P_DAMAGE_DEFINITION_BASE+row*P_DAMAGE_DEFINITION_WORDS;
     if(policy==2)
     {
-        if(combat==0 || commands[packet]>9 || commands[packet+1]==0 || commands[packet+1]>256) return false;
+        if(combat==0 || !validEnemyRoute(input,commands[packet]) || commands[packet+1]==0 || commands[packet+1]>256) return false;
         for(uint i=2;i<8;i++) if(commands[packet+i]!=0) return false;
     }
     else for(uint i=0;i<8;i++) if(commands[packet+i]!=0) return false;

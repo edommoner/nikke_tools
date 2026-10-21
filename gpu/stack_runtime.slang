@@ -10,6 +10,7 @@ uint stackSelectedRecipients(inout Runtime s,uint row,uint target,uint64_t when,
 {
     Definition d=readDefinition(s.inputBase,row);
     if(d.target==1) return selectRecipients(s,row,when,order);
+    WORLD_STACK_SELECT(s,d,order)
     if(budget && d.kind!=19 && d.damageRoute==0) d.damageRoute=6;
     uint enemyOrder;uint mask=enemyDamageMask(s,d,target,enemyOrder)<<5;order=enemyOrder;return mask;
 }
@@ -176,7 +177,7 @@ bool validStackDefinitions(inout Runtime s)
         uint packet=s.inputBase+P_DAMAGE_DEFINITION_BASE+row*P_DAMAGE_DEFINITION_WORDS;
         if(d.target==2)
         {
-            if(s.combat==0 || d.damageRoute>9 || d.damageCount==0 || d.damageCount>256) return false;
+            if(s.combat==0 || !validEnemyRoute(s.inputBase,d.damageRoute) || d.damageCount==0 || d.damageCount>256) return false;
             for(uint field=2;field<8;field++) if(commands[packet+field]!=0) return false;
         }
         else for(uint field=0;field<8;field++) if(commands[packet+field]!=0) return false;

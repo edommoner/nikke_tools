@@ -61,3 +61,36 @@ uint mtSampleFive(uint base,uint population,uint requested,out uint mask)
     }
     return order;
 }
+
+// CPython3.12 sample uses a shrinking pool or selected-index set depending
+// on n/k. Both branches consume the same MT/_randbelow stream as Python.
+// Input is a GPU-built unique Actor slot list in0..127. Reuse that list as
+// the shrinking pool, and return chosen slot IDs; caller restores birth order.
+void mtSampleSlots128(uint base,inout uint order[128],inout uint population,uint requested)
+{
+    uint size=population,k=min(requested,size),setSize=21;
+    if(k>5)
+    {
+        uint power=1;while(power<3*k) power*=4;
+        setSize+=power;
+    }
+    uint selected[4];for(uint i=0;i<4;i++) selected[i]=0;
+    results[base+2]++;
+    if(size<=setSize)
+    {
+        for(uint i=0;i<k;i++)
+        {
+            uint j=mtBelow(base,size-i),who=order[j];
+            order[j]=order[size-i-1];selected[who/32]|=1U<<(who%32);
+        }
+    }
+    else for(uint i=0;i<k;i++)
+    {
+        uint who=order[mtBelow(base,size)];
+        while((selected[who/32]&(1U<<(who%32)))!=0) who=order[mtBelow(base,size)];
+        selected[who/32]|=1U<<(who%32);
+    }
+    uint count=0;
+    for(uint slot=0;slot<128;slot++) if((selected[slot/32]&(1U<<(slot%32)))!=0) order[count++]=slot;
+    population=count;
+}

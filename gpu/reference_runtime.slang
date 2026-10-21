@@ -89,7 +89,9 @@ bool registerDotReference(inout Runtime s, uint row, bool resident)
 uint64_t activationDamageCoefficient(inout Runtime s, uint row)
 {
     Definition d=readDefinition(s.inputBase,row); uint64_t scale=referenceScaleMode(s,row)==3 ? carrierStackValue(s,row) : f64FromI64((d.periodicFlags&2)!=0 ? s.stacks[row] : 1);
-    if(commands[s.inputBase+P_STATUS_META_BASE]!=0 && d.kind==3 && !f64Zero(d.interval) && (d.periodicFlags&2)!=0)
+    // Native reads the first active same-name carrier on every DoT tick. Named
+    // removal can retire it even without a cleanse/status policy in this input.
+    if(d.kind==3 && !f64Zero(d.interval) && (d.periodicFlags&2)!=0)
     {
         bool present=false;scale=0;
         for(uint pass=0;pass<s.orderedCount;pass++)

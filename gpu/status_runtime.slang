@@ -157,7 +157,7 @@ bool validStatusDefinitions(inout Runtime s)
         uint packet=s.inputBase+P_DAMAGE_DEFINITION_BASE+row*P_DAMAGE_DEFINITION_WORDS;
         if(d.target==2)
         {
-            if(s.combat==0 || d.damageRoute>9 || d.damageCount==0 || d.damageCount>256) return false;
+            if(s.combat==0 || !validEnemyRoute(s.inputBase,d.damageRoute) || d.damageCount==0 || d.damageCount>256) return false;
             for(uint word=2;word<8;word++) if(commands[packet+word]!=0) return false;
         }
         else for(uint word=0;word<8;word++) if(commands[packet+word]!=0) return false;

@@ -4,7 +4,7 @@ bool worldSkillsEnabled(inout Runtime s)
 { return targetCountersEnabled(s)&&(commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==7||worldPendingEnabled(s)); }
 bool validWorldSkillDefinition(inout Runtime s,uint row,Definition d)
 {
-    if(d.enemyBuff!=0||d.damageRoute>9||d.damageCount==0||d.damageCount>128||d.damageHits>256||d.damagePending!=0&&!worldPendingEnabled(s)||(d.periodicFlags!=0||!f64Zero(d.interval))&&!worldPeriodicClock(s,d)||d.healthScaling!=0||referenceScaleMode(s,row)!=0&&!(worldPendingEnabled(s)&&d.damagePending!=0&&referenceScaleMode(s,row)==1)&&!(worldPeriodicClock(s,d)&&referenceScaleMode(s,row)==3)) return false;
+    if(d.enemyBuff!=0||!validEnemyRoute(s.inputBase,d.damageRoute)||d.damageCount==0||d.damageCount>128||d.damageHits>256||d.damagePending!=0&&!worldPendingEnabled(s)||(d.periodicFlags!=0||!f64Zero(d.interval))&&!worldPeriodicClock(s,d)||d.healthScaling!=0||referenceScaleMode(s,row)!=0&&!(worldPendingEnabled(s)&&d.damagePending!=0&&referenceScaleMode(s,row)==1)&&!(worldPeriodicClock(s,d)&&referenceScaleMode(s,row)==3)) return false;
     if((d.damageFlags&~uint(1|2|4|8|16|32|64|128|256|512|1024|2048|4096|8192|16384|65536|H_NAMED_SKILL))!=0||(d.damageFlags&(H_PART|65536U))!=0||(d.damageFlags&H_DOT)!=0&&!worldPeriodicClock(s,d)||d.damageNormal>1) return false;
     // Reached part/interrupt packets need their own explicit receipt metadata.
     if((d.damageFlags&(H_PIERCE|H_EXPLOSION))!=0||d.damageNormal!=0&&(s.attackContext[d.owner]&4)!=0)
@@ -40,7 +40,14 @@ void logWorldSkill(inout Runtime s,LandingReceipt r,uint set,uint64_t share,uint
 {
     uint h=worldSkillHead(s),n=results[set];results[h+2]=max(results[h+2],n);
     if(s.traceTotal==0x7fffffff) { s.error=2;return; }s.traceTotal++;
-    if(s.traceMode!=1) return;
+    if(s.traceMode!=1)
+    {
+#ifdef PORTABLE_WORLD_PROJECTILE_SKILL_DIAGNOSTIC
+        if(definition_owner(s.inputBase,r.row)!=0) return;
+#else
+        return;
+#endif
+    }
     uint index=results[h+1];if(index==128) { s.error=8;return; }results[h+1]++;
     uint at=s.resourceOutput+P_WORLD_SKILL_TRACE_BASE+index*48;
     results[at]=r.row;results[at+1]=r.hit;results[at+2]=r.hits;results[at+3]=n;

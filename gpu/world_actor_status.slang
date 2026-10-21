@@ -37,10 +37,7 @@ bool actorStatusVisible(inout Runtime s,uint row,uint who)
 }
 uint actorStatusScope(inout Runtime s,uint row,out ActorBits bits)
 {
-    bits=actorBitsEmpty();uint index=0;while(index<P_WORLD_ACTOR_SETS&&results[actorPoolSet(s,index)+5]!=0) index++;
-    if(index==P_WORLD_ACTOR_SETS) { s.error=64;return index; }
-    Definition d=readDefinition(s.inputBase,row);actorSetCapture(s,33,index,d.damageRoute,d.damageCount,s.target,d.owner);
-    if(s.error==0) for(uint i=0;i<4;i++) bits.words[i]=results[actorPoolSet(s,index)+1+i];return index;
+    return actorFieldScope(s,row,bits);
 }
 uint actorStatusCleanseMembers(inout Runtime s,uint row,uint who,uint bit)
 {

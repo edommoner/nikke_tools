@@ -1,0 +1,43 @@
+{
+  "candidate_package_id": "a0a6fd6a6b4f3e08362ad57ccf20993b3b2052fd882fc1beb9c8b0974c887b97",
+  "calculation_verified": false,
+  "original_failures": [
+    {
+      "index": 191,
+      "name": "roster/real/미하라 : 본딩 체인/favorite-0/3s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 192,
+      "name": "roster/real/미하라 : 본딩 체인/favorite-0/30s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 195,
+      "name": "roster/real/마르차나 : 마린 스터디/favorite-0/3s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 196,
+      "name": "roster/real/마르차나 : 마린 스터디/favorite-0/30s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 199,
+      "name": "roster/real/아인/favorite-0/3s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 200,
+      "name": "roster/real/아인/favorite-0/30s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    }
+  ],
+  "baseline_package_id": "2dd84fd94f5d3eedb33034a650062149ec093736ec1da8ea06558c0ef5f4d494",
+  "old_inputs_all_raw_and_native_equal": 588,
+  "lazy_bank_zero_inputs": 662,
+  "output_sha_reread_verified": true,
+  "gpu_calls": 0,
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

@@ -18,7 +18,7 @@ bool counterLandingDefinitionInvalid(inout Runtime s,uint row,Definition d,bool 
     if(!counterLandingsEnabled(s)) return legacy;
     // Reuse the actor-field status admission contract; execution and the raw
     // status/scope validators remain common to both transports.
-    if(WORLD_SKILL_DEFINITION(s,row,d,COUNTER_CONTEXT_CONDITIONS(s,row,d,d.conditionCount!=0)||WORLD_STATUS_KIND(s,d,d.kind!=0&&d.kind!=4&&d.kind!=2&&d.kind!=8))) return true;
+    if(WORLD_SKILL_DEFINITION(s,row,d,COUNTER_CONTEXT_CONDITIONS(s,row,d,d.conditionCount!=0)||WORLD_DURATION_KIND(s,d,WORLD_STATUS_KIND(s,d,d.kind!=0&&d.kind!=4&&d.kind!=2&&d.kind!=8)))) return true;
     if(d.enemyBuff!=0)
     {
         uint p=counterPolicy(s,row);

@@ -51,10 +51,13 @@ def patch_program(words, metadata, chars, effects):
         if specification(effect) is not None:
             words[at + F['KIND']] = 4
             words[at + F['STAT']] = 0
-        # Self/enemy named removal has no allied recipient plan: all eight
-        # words are reserved and must remain zero. A stat key is meaningful
-        # only for the allied-scope removal policy (target1).
-        if words[at + F['KIND']] != 1 or words[at + F['TARGET']] == 1:
+        # Non-allied removal and enemy instant mutations reserve all eight
+        # words. Enemy buff-stack carriers instead own an actual recipient plan.
+        kind=words[at + F['KIND']]
+        reserved_recipient = (kind==1 and words[at + F['TARGET']]!=1 or
+                              kind in (15,16,17,18,19,20,21,26) and words[at + F['TARGET']]==2 and
+                              words[L['HEALTH_DEFINITION_BASE']+i*L['HEALTH_DEFINITION_WORDS']+3]==0)
+        if not reserved_recipient:
             words[L['RECIPIENT_BASE'] + i * 8 + 6] = stat_keys[identity(effect)]
         for slot in range(int(row[144])):
             base = 145 + slot * 7

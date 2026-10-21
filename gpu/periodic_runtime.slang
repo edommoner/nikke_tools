@@ -83,6 +83,9 @@ void registerTimer(inout Runtime s, uint source, uint64_t when)
         s.timerOrder[row] = ++s.timerClock;
     }
     if (retained && (!resident || source != row)) capturePeriodicTargets(s,row,source,resident);
+    // Native resolves the canonical definition even on refresh, then retains
+    // the old targets. Alias union resolution above precedes this discarded draw.
+    if(retained && resident) { WORLD_RANDOM_DISCARD(s,row) }
     s.timerActive[row] = 1;
     s.expiry[row] = f64Less(grant.duration,0) ? F64_INF : f64Add(when,grant.duration);
     if (d.kind == 3)

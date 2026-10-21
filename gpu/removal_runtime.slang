@@ -30,6 +30,13 @@ uint removalMembers(inout Runtime s,uint slot)
 }
 // All old instances are changed before any state_end callback runs. This
 // preserves callbacks that recycle a slot or register a new same-name clock.
+void retireNamedCarrier(inout Runtime s,uint slot,uint notices)
+{
+    uint definition=s.carrierDefinition[slot];queueCarrierEnd(s,slot,notices);
+    // A removed DoT loses its clock as well as its resident. Re-registration
+    // starts a fresh phase; other instant/mode clocks have no such resident.
+    if(definition_kind(s.inputBase,definition)==3) s.timerActive[definition]=0;
+}
 [noinline]
 void removeNamedResidents(inout Runtime s,uint row,uint target,uint64_t when)
 {
@@ -66,10 +73,7 @@ void removeNamedResidents(inout Runtime s,uint row,uint target,uint64_t when)
             }
             else if(remaining!=0) continue;
         }
-        queueCarrierEnd(s,slot,notices);
-        // Only periodic damage has both a resident and its definition clock.
-        // Instant clocks have no resident, and never reach this retirement.
-        if(definition_kind(s.inputBase,definition)==3) s.timerActive[definition]=0;
+        retireNamedCarrier(s,slot,notices);
     }
 }
 [noinline]
@@ -85,7 +89,7 @@ bool validRemovalDefinition(uint input,uint combat,uint row)
     uint packet=input+P_DAMAGE_DEFINITION_BASE+row*P_DAMAGE_DEFINITION_WORDS;
     if(policy==2)
     {
-        if(combat==0 || commands[packet]>9 || commands[packet+1]==0 || commands[packet+1]>256) return false;
+        if(combat==0 || !validEnemyRoute(input,commands[packet]) || commands[packet+1]==0 || commands[packet+1]>256) return false;
         for(uint i=2;i<8;i++) if(commands[packet+i]!=0) return false;
     }
     else for(uint i=0;i<8;i++) if(commands[packet+i]!=0) return false;

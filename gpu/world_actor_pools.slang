@@ -195,6 +195,19 @@ void actorPoolsSpawnNotice(inout Runtime s,uint node,uint64_t when,uint output)
     for(uint i=0;i<commands[s.inputBase+P_WORLD_ACTOR_NODE_BASE+node*4+1] && s.error==0;i++) { results[actorPoolHead(s)+6]++;worldFrameNotice(s,5,when,output); }
 }
 [noinline]
+// Stable Actor sequence: body first, then add birth order within each add run.
+void actorSortSpawnOrder(inout Runtime s,inout uint order[128],uint count)
+{
+    for(uint i=1;i<count;i++)
+    {
+        uint slot=order[i],insert=i;
+        if(commands[actorBinding(s,slot)]!=5) continue;
+        while(insert>0 && commands[actorBinding(s,order[insert-1])]==5 && results[actorPoolAt(s,slot)+10]<results[actorPoolAt(s,order[insert-1])+10])
+        { order[insert]=order[insert-1];insert--; }
+        order[insert]=slot;
+    }
+}
+[noinline]
 void actorSetCapture(inout Runtime s,uint kindMask,uint index,uint route=2,uint limit=128,uint inherited=0,uint who=0)
 {
     uint at=actorPoolSet(s,index),head=actorPoolHead(s);
@@ -204,10 +217,9 @@ void actorSetCapture(inout Runtime s,uint kindMask,uint index,uint route=2,uint 
     for(uint slot=0;slot<actorPoolCount(s);slot++)
     {
         uint kind=commands[actorBinding(s,slot)];if((kindMask&(1U<<kind))==0 || results[actorPoolAt(s,slot)+1]==0) continue;
-        uint insert=count++;
-        if(kind==5) while(insert>0 && commands[actorBinding(s,order[insert-1])]==5 && results[actorPoolAt(s,slot)+10]<results[actorPoolAt(s,order[insert-1])+10]) { order[insert]=order[insert-1];insert--; }
-        order[insert]=slot;
+        order[count++]=slot;
     }
+    actorSortSpawnOrder(s,order,count);
 #ifdef PORTABLE_WORLD_ACTOR_FIELDS
     actorFieldSelectOrder(s,order,count,route,limit,inherited,who);
 #endif

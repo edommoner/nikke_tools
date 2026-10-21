@@ -1,6 +1,19 @@
 // Typed enemy recipients bind to the existing resident/stack/event executor.
 // No duplicate activation,expiry,scalar arithmetic or carrier-name merge loop.
 bool actorFieldsEnabled(inout Runtime s) { return actorPoolsEnabled(s); }
+uint actorFieldScope(inout Runtime s,uint row,out ActorBits bits)
+{
+    bits=actorBitsEmpty();uint index=0;while(index<P_WORLD_ACTOR_SETS&&results[actorPoolSet(s,index)+5]!=0) index++;
+    if(index==P_WORLD_ACTOR_SETS) { s.error=64;return index; }
+    Definition d=readDefinition(s.inputBase,row);actorSetCapture(s,33,index,d.damageRoute,d.damageCount,s.target,d.owner);
+    if(s.error==0) for(uint i=0;i<4;i++) bits.words[i]=results[actorPoolSet(s,index)+1+i];return index;
+}
+bool worldDurationAffected(inout Runtime s,uint row,ActorBits scope)
+{
+    for(uint target=0;target<actorPoolCount(s);target++)
+        if(actorBitsHas(scope,target)&&actorFieldMember(s,row,target==0?0:ACTOR_REF|target)) return true;
+    return false;
+}
 uint actorFieldKey(inout Runtime s,uint row) { return s.resourceOutput+P_WORLD_ACTOR_FIELD_KEY_BASE+row*4; }
 uint actorFieldHead(inout Runtime s) { return s.resourceOutput+P_WORLD_ACTOR_FIELDS_BASE; }
 void actorFieldReset(inout Runtime s,uint row)
@@ -26,7 +39,7 @@ bool actorFieldTargetMismatch(inout Runtime s,uint who,uint kind)
 { return kind==C_TARGET_BOSS && actorFieldContextAdd(s,who) || kind==C_TARGET_ADD && !actorFieldContextAdd(s,who); }
 bool actorFieldsDefinitionValid(inout Runtime s,uint row,Definition d)
 {
-    WORLD_STATE_HEALTH_GUARD(s,d) if(WORLD_SKILL_KIND(s,row,d,COUNTER_FIELD_KIND(s,d,WORLD_MUTATION_KIND_INVALID(s,d,d.kind!=0&&d.kind!=2&&d.kind!=4)))) return false;
+    WORLD_STATE_HEALTH_GUARD(s,d) if(WORLD_DURATION_KIND(s,d,WORLD_SKILL_KIND(s,row,d,COUNTER_FIELD_KIND(s,d,WORLD_MUTATION_KIND_INVALID(s,d,d.kind!=0&&d.kind!=2&&d.kind!=4))))) return false;
     for(uint i=0;i<d.conditionCount;i++)
     {
         uint at=s.inputBase+P_CONDITION_BASE+row*P_CONDITION_WORDS+i*4,kind=commands[at];uint64_t arg=loadNumber(at+2);
@@ -38,7 +51,7 @@ bool actorFieldsDefinitionValid(inout Runtime s,uint row,Definition d)
     }
     WORLD_STATUS_FIELD_GUARD(s,d) if(d.enemyBuff==0) return true;
     if(WORLD_STATUS_FIELD_INVALID(s,d,d.kind!=0 || d.stat!=S_enemy_def_down_pct&&d.stat!=S_def_caster_based_pct&&d.stat!=S_received_dmg_pct&&!namedMagnitudeStat(d.stat)) || d.bulletDuration!=0 || !f64Zero(d.interval) || d.lazyGroup!=0 || referenceScaleMode(s,row)!=0) return false;
-    if(d.damageRoute>9 || d.damageCount==0 || d.damageCount>256 || (d.buffEvent&2)!=0) return false;
+    if(!validEnemyRoute(s.inputBase,d.damageRoute) || d.damageCount==0 || d.damageCount>256 || (d.buffEvent&2)!=0) return false;
     if(d.damageRoute==3) for(uint slot=1;slot<actorPoolCount(s);slot++)
         if(commands[actorBinding(s,slot)]==5 && commands[actorPoolDef(s,slot)]==3) return false; // Native max-HP rank has no HP for hit-only actors.
     return true;
@@ -60,6 +73,14 @@ uint64_t actorFieldRank(inout Runtime s,uint slot,uint route)
 void actorFieldSelectOrder(inout Runtime s,inout uint order[128],inout uint count,uint route,uint limit,uint inherited,uint who)
 {
     if(route==2) { count=min(count,limit);return; }
+    if(route==10)
+    {
+        // Native does not sample when no add is alive, even for singleton body.
+        if(count>1)
+        { mtSampleSlots128(s.resourceOutput+P_ENEMY_RNG_BASE,order,count,limit);actorSortSpawnOrder(s,order,count); }
+        else count=min(count,limit);
+        return;
+    }
     if(route==1) { order[0]=0;count=1;return; }
     uint first=COUNTER_FIELDS_FIRST(s,route,(inherited&ACTOR_REF)!=0 ? actorFieldLogicalSlot(s,inherited) : actorPhysicalTarget(s,who,0)&127U);
     if(route==0) { order[0]=first;count=first<128 ? 1 : 0;return; }

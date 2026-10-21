@@ -40,6 +40,9 @@ def double_words(value):
 
 
 def validate_effect(eff, *, combat=None, world_frame=False):
+    target=eff.get('target')
+    if isinstance(target,str) and (target=='enemies_random' or target.startswith(('enemies_random:','enemies_code:','enemies_lowest_hp_code:'))) and (combat is None or not world_frame):
+        raise UnsupportedPortable('Random/code enemy selectors require a private combat world',reason='recipient')
     from portable_named_magnitude_specs import validate as validate_named_magnitude
     try:validate_named_magnitude(eff,combat=combat,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason='effect') from error

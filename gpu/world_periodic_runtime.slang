@@ -30,6 +30,16 @@ void savePeriodicSnapshot(inout Runtime s,uint at,uint order[128],uint count)
     }
 }
 [noinline]
+void discardWorldRandomTargets(inout Runtime s,uint row)
+{
+    Definition d=readDefinition(s.inputBase,row);if(d.damageRoute!=10) return;
+    uint index=0;while(index<P_WORLD_ACTOR_SETS&&results[actorPoolSet(s,index)+5]!=0) index++;
+    if(index==P_WORLD_ACTOR_SETS) { s.error=64;return; }
+    actorSetCapture(s,33,index,d.damageRoute,d.damageCount,0,d.owner);
+    if(s.error!=0) return;
+    results[actorPoolSet(s,index)+5]=0;results[actorPoolHead(s)+7]--;
+}
+[noinline]
 void captureWorldPeriodicDefinition(inout Runtime s,uint row,uint source,bool append)
 {
     uint at=periodicDefinitionSnapshot(s,row),order[128],count=0;
@@ -66,6 +76,9 @@ bool worldPeriodicAnyLive(inout Runtime s,uint row)
 void storeWorldPeriodicPacket(inout Runtime s,uint at,LandingReceipt r)
 {
     if(!worldPeriodicClock(s,readDefinition(s.inputBase,r.row))) return;
+    // Native's final tick may run after its active carrier was retired. There
+    // is then no frozen target tuple, so landing resolves the random rule anew.
+    if(definition_damageRoute(s.inputBase,r.row)==10 && s.alive[r.row]==0) { results[at+7]=0;return; }
     uint index=(at-s.resourceOutput-P_LANDING_STATE_BASE)/P_LANDING_WORDS;
     if(index>=P_LANDINGS) { s.error=64;return; }
     uint from=periodicDefinitionSnapshot(s,r.row),to=periodicPacketSnapshot(s,index);
@@ -74,6 +87,8 @@ void storeWorldPeriodicPacket(inout Runtime s,uint at,LandingReceipt r)
 }
 void captureWorldPeriodicPacket(inout Runtime s,LandingReceipt r,uint index)
 {
+    if(r.target==0 && definition_damageRoute(s.inputBase,r.row)==10)
+    { Definition d=readDefinition(s.inputBase,r.row);actorSetCapture(s,33,index,d.damageRoute,d.damageCount,0,d.owner);return; }
     if(r.target==0||r.target>P_LANDINGS) { s.error=64;return; }
     uint from=periodicPacketSnapshot(s,r.target-1),at=actorPoolSet(s,index),count=0;
     if(results[from]>128) { s.error=64;return; }

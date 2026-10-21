@@ -26,6 +26,7 @@ ADAPTERS={
     'base-copy':module('regression_base_copy','research/verify-world-base-copy-short.py'),
     'persona':module('regression_persona','research/verify-world-persona-short.py'),
     'named-magnitude':module('regression_named_magnitude','research/verify-world-named-magnitude-short.py'),
+    'enemy-selection':module('regression_enemy_selection','research/verify-world-enemy-selection-short.py'),
 }
 cross=ADAPTERS['readiness'].cross
 suite=SimpleNamespace(INPUT=104400,OUTPUT=786432)
@@ -57,6 +58,7 @@ def prepare():return combine(ADAPTERS)
 
 def native_reference(domain):
     name,inner=domain
+    if hasattr(ADAPTERS[name],'native_reference'):return ADAPTERS[name].native_reference(inner)
     return dict(zip(('battle','skill_trace'),ADAPTERS[name].suite.inspect_native(inner[0])))
 
 

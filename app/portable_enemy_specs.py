@@ -2,7 +2,7 @@
 import re
 from portable_damage_specs import DAMAGE_FAMILIES
 
-ROUTES=dict(INHERITED=0,BODY=1,ALL=2,MAX_HP=3,CURRENT_HP=4,LOW_HP=5,NEAREST=6,TOP_DEF=7,LOW_DEF=8,TOP_ATK=9)
+ROUTES=dict(INHERITED=0,BODY=1,ALL=2,MAX_HP=3,CURRENT_HP=4,LOW_HP=5,NEAREST=6,TOP_DEF=7,LOW_DEF=8,TOP_ATK=9,RANDOM=10)
 
 
 def damage_plan(effect):
@@ -17,6 +17,17 @@ def damage_plan(effect):
             if not re.fullmatch(r'(?:0|[1-9][0-9]*)',parts[1]) or not 0<=int(parts[1])<=256:raise ValueError('Damage hit count must be an integer in 0..256')
             hits=int(parts[1])
     target=effect.get('target','target');count=1
+    if target=='enemies_random' or isinstance(target,str) and target.startswith('enemies_random:'):
+        raw=target.partition(':')[2]
+        if raw and (not re.fullmatch(r'[1-9][0-9]*',raw) or int(raw)>256):raise ValueError('Random enemy count must be1..256')
+        if target.endswith(':'):raise ValueError('Missing random enemy count')
+        return ROUTES['RANDOM'],min(int(raw or 1),128),hits
+    if isinstance(target,str) and target.startswith(('enemies_code:','enemies_lowest_hp_code:')):
+        parts=target.split(':')
+        if len(parts) not in (2,3) or not parts[1] or len(parts)==3 and (not re.fullmatch(r'[1-9][0-9]*',parts[2]) or int(parts[2])>256):
+            raise ValueError('Malformed enemy code selector')
+        # Native has no add element codes and intentionally returns boss only.
+        return ROUTES['BODY'],1,hits
     if target=='target':route=ROUTES['INHERITED']
     elif target in ('enemy','target_body','same_target','enemies_nearest_in_range') or isinstance(target,str) and target.startswith('same_target:') and bool(target.split(':',1)[1]):route=ROUTES['NEAREST']
     elif target=='boss':route=ROUTES['BODY']

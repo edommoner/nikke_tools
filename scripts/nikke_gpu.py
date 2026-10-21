@@ -52,18 +52,18 @@ SUITES['stun']=dict(script='research/verify-world-stun-short.py',golden='researc
 SUITES['burst-recipients-diagnostic']=dict(SUITES['burst-recipients'],source='gpu/world_projectile_admission_entry.slang',development_only=True)
 SUITES['roster-regression']=dict(script='research/verify-world-roster-regression-short.py',
     golden='research/portable-world-roster-regression-short-expected.json',
-    source='gpu/world_projectile_entry.slang',inputs=62,native=62,
+    source='gpu/world_projectile_entry.slang',inputs=78,native=78,
     tests=['test_portable_roster_regression.py','test_portable_real_binding_proof.py'])
 SUITES['skill-cooldown']=dict(script='research/verify-world-skill-cooldown-short.py',
     golden='research/portable-world-skill-cooldown-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=25,native=21,
     tests=['test_portable_skill_cooldown.py','test_portable_typed_recipient_delegation.py'])
 SUITES['regression']=dict(script='research/verify-world-regression-short.py',
-    golden='research/portable-world-named-magnitude-regression-short-expected.json',
-    source='gpu/world_projectile_entry.slang',inputs=588,native=459,
+    golden='research/portable-world-enemy-selection-regression-short-expected.json',
+    source='gpu/world_projectile_entry.slang',inputs=664,native=526,
     tests=['test_portable_regression_adapter.py','test_portable_roster_regression.py',
            'test_portable_readiness.py','test_portable_stun.py','test_portable_typed_recipient_delegation.py',
-           'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py','test_portable_skill_interval.py','test_portable_skill_interval_flat.py','test_portable_lazy_bank.py','test_portable_compiler_stats.py','test_portable_base_copy.py','test_portable_seal.py','test_portable_persona.py','test_portable_compile_cache.py','test_portable_named_magnitude.py'])
+           'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py','test_portable_skill_interval.py','test_portable_skill_interval_flat.py','test_portable_lazy_bank.py','test_portable_compiler_stats.py','test_portable_base_copy.py','test_portable_seal.py','test_portable_persona.py','test_portable_compile_cache.py','test_portable_named_magnitude.py','test_portable_enemy_selection.py','test_portable_capture_storage.py'])
 SUITES['healing-storage']=dict(script='research/verify-world-healing-storage-short.py',
     golden='research/portable-world-healing-storage-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=51,native=39,development_only=True,
@@ -105,6 +105,14 @@ SUITES['named-magnitude']=dict(script='research/verify-world-named-magnitude-sho
     golden='research/portable-world-named-magnitude-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=54,native=43,development_only=True,
     tests=['test_portable_named_magnitude.py','test_portable_readiness.py'])
+
+SUITES['enemy-selection']=dict(script='research/verify-world-enemy-selection-short.py',
+    golden='research/portable-world-enemy-selection-short-expected.json',
+    source='gpu/world_projectile_entry.slang',inputs=60,native=51,development_only=True,
+    tests=['test_portable_enemy_selection.py','test_portable_readiness.py'])
+
+SUITES['enemy-selection-diagnostic']=dict(SUITES['enemy-selection'],source='gpu/world_projectile_admission_entry.slang',require_rejection_stage=True)
+SUITES['roster-skill-diagnostic']=dict(SUITES['roster-admission-diagnostic'],source='gpu/world_projectile_skill_diagnostic_entry.slang')
 
 SCHEMA = 1
 # Controller validation has no numeric program to execute. Keep its CPU work
@@ -410,6 +418,7 @@ def compare_readback(m, capture, adapter=None):
                 if domain is None:
                     if block[0]!=64:raise ValueError('Expected rejection status64')
                     if hasattr(adapter,'validate_rejection'):adapter.validate_rejection(block,name)
+                    if SUITES[m['suite']].get('require_rejection_stage'):adapter.validate_rejection_stage(block,name)
                     native=dict(status=64)
                 else:
                     if block[0]!=0:raise ValueError('Expected GPU success status0; got status'+str(block[0]))
@@ -932,6 +941,9 @@ def main(argv=None):
     a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
+    for storage_command in ('archive-raw','restore-raw'):
+        a=sub.add_parser(storage_command);a.add_argument('--capture',type=Path,required=True);a.add_argument('--archive',type=Path,required=True)
+        if storage_command=='archive-raw':a.add_argument('--remove-original',action='store_true')
     a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True)
     for name in ('run','_child'):
@@ -973,6 +985,12 @@ def main(argv=None):
         inventory=module(ROOT/'research/audit-world-roster-input.py').main(destination=str(a.out.resolve()),quiet=True)
         result={k:inventory[k] for k in ('profile_count','packed_profiles','packed_base','forbidden_calls','classification')}
         result['report']=str(a.out.resolve());result['priority_categories']=len(inventory['priorities'])
+    elif a.command=='archive-raw':
+        from portable_capture_storage import archive_raw
+        result=archive_raw(a.capture,a.archive,check_records,remove_original=a.remove_original)
+    elif a.command=='restore-raw':
+        from portable_capture_storage import restore_raw
+        result=restore_raw(a.capture,a.archive,check_records)
     elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case)
     elif a.command=='unpack':result=dict(package_id=unpack(a.archive,a.dest))
     elif a.command=='run':

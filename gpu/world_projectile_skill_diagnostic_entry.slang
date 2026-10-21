@@ -1,0 +1,3 @@
+#define PORTABLE_WORLD_PROJECTILE_DIAGNOSTIC
+#define PORTABLE_WORLD_PROJECTILE_SKILL_DIAGNOSTIC
+#include "world_projectile_entry.slang"

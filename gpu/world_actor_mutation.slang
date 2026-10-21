@@ -33,7 +33,7 @@ void actorMutationRemoveNamed(inout Runtime s,uint row,uint target,uint64_t when
             storeCarrierOrder(s,slot,filterRemovalOrder(carrierOrder(s,slot),remaining&31,3,21));
             if(remaining!=0) continue;
         }
-        queueCarrierEnd(s,slot,1);
+        retireNamedCarrier(s,slot,1);
     }
     if(index<P_WORLD_ACTOR_SETS) { results[actorPoolSet(s,index)+5]=0;results[actorPoolHead(s)+7]--; }
 }
