@@ -44,4 +44,9 @@ def fixtures():
  c=add('last-part-death-keeps-current-frame-parts',[buff('pierce_enabled',1,'pierce'),witness()]);c['patterns']=[dict(id='parts',kind='parts',targets=[dict(name='part',hp=1,reach=1)])]
  c=add('static-parts-base-retained',[buff('pierce_range',100),witness()]);c['enemy']['has_parts']=True
  c=add('static-parts-base-retained-after-part-death',[buff('pierce_enabled',1,'pierce'),witness()]);c['enemy']['has_parts']=True;c['patterns']=[dict(id='parts',kind='parts',targets=[dict(name='part',hp=1,reach=1)])]
+ c=add('resource-modulo-pellets-and-named-removal',[
+  dict(name='gauge',source='스킬1',type='instant',stat='gauge_charge',gauge_id='counter',gauge_max=100,fixed_value=1,target='self',trigger=dict(timing=['on_attack'],condition=[])),
+  buff('pellet_count',2,'gated','on_attack',condition=['gauge_mod:counter:3:0'],max_stack=3),
+  dict(name='remove',source='스킬1',type='instant',stat='remove_named_buff',target='self',target_effect='gated',trigger=dict(timing=['on_attack_count:4'],condition=[])),
+  dict(name='consume',source='스킬1',type='instant',stat='gauge_consume',gauge_id='counter',fixed_value=3,target='self',trigger=dict(timing=['on_attack_count:5'],condition=[])),witness()])
  return rows

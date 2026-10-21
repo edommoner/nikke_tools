@@ -45,6 +45,8 @@ class ProjectileContracts(unittest.TestCase):
    value=100-1e-9;below=math.nextafter(value,-math.inf)
    self.assertEqual(self.shots('range-'+family+'-'+below.hex())[0]['reach'],low)
    self.assertEqual(self.shots('range-'+family+'-'+value.hex())[0]['reach'],high)
+ def test_resource_modulo_and_named_removal_share_native_weapon_path(self):
+  self.assertEqual([x['pellets'] for x in self.shots('resource-modulo-pellets-and-named-removal')],[3,3,3,5,3,3])
  def test_dynamic_parts_route_team_notifications_per_frame(self):
   native=observe(copy.deepcopy(self.rows['parts-overlay-delayed-open-close']))[0]
   first=[r for r in native['team_hits'] if r['owner']==0]

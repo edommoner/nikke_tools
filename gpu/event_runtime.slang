@@ -105,6 +105,8 @@ struct Runtime
 #include "definition_runtime.slang"
 #ifdef PORTABLE_WORLD_PROJECTILE
 #define WORLD_PROJECTILE_INIT(s) initializeProjectiles(s);
+#define WORLD_PROJECTILE_KIND(d,legacy) (d.kind==1||d.kind==9||d.kind==10 ? false : (legacy))
+#define WORLD_PROJECTILE_CONDITION(s,at,kind,arg) if(kind>=C_GAUGE_ABOVE&&kind<=C_GAUGE_MOD) { if(!validProjectileResourceCondition(s,at,kind,arg)) return false;continue; }
 #define WORLD_PROJECTILE_SKIP_SLOT(event,stage) if(event==26&&stage==2) continue;
 #define WORLD_PROJECTILE_FRAME(s) if(s.error==0) snapshotProjectileParts(s);
 #define WORLD_PROJECTILE_PARTS(s,legacy) results[s.resourceOutput+720912+3]
@@ -113,6 +115,8 @@ struct Runtime
 #define WORLD_PROJECTILE_RECORD(s,w,who,when,amount) recordProjectileShot(s,who,w.mode,w.pellets,w.muzzles,when,amount);
 #else
 #define WORLD_PROJECTILE_INIT(s)
+#define WORLD_PROJECTILE_KIND(d,legacy) legacy
+#define WORLD_PROJECTILE_CONDITION(s,at,kind,arg)
 #define WORLD_PROJECTILE_SKIP_SLOT(event,stage)
 #define WORLD_PROJECTILE_FRAME(s)
 #define WORLD_PROJECTILE_PARTS(s,legacy) legacy
@@ -230,8 +234,8 @@ bool worldTeamEnabled(inout Runtime s) { return true; }
 #define WORLD_TEAM_PELLET(s,w,who,when,output) if(worldTeamEnabled(s)&&w.mode!=1) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_CHARGE(s,w,who,count,when,output) if(worldTeamEnabled(s)&&w.mode==1) for(uint teamHit=0;teamHit<count;teamHit++) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_VALIDATE(s,d,input,j) for(uint teamSlot=0;teamSlot<d.triggerCount;teamSlot++) { uint teamEvent=commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+teamSlot*8];if((teamEvent==44||teamEvent==45)&&!worldTeamEnabled(s)) { s.error=64;break; } } if(s.error!=0) break;
-#define WORLD_TEAM_KIND(s,d,legacy) WORLD_RELOAD_KIND(d,(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8||WORLD_CONTROL_AMMO(s.inputBase,row,d.kind)) ? false : (legacy)))
-#define WORLD_TEAM_CONDITION(s,d,at,kind,arg) if(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&WORLD_CONTROL_CONDITION_KIND(kind,teamAdditionalCondition(kind))) { if(!WORLD_CONTROL_CONDITION_VALID(at,kind,arg,validTeamAdditionalCondition(at,kind,arg))) return false;continue; }
+#define WORLD_TEAM_KIND(s,d,legacy) WORLD_PROJECTILE_KIND(d,WORLD_RELOAD_KIND(d,(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8||WORLD_CONTROL_AMMO(s.inputBase,row,d.kind)) ? false : (legacy))))
+#define WORLD_TEAM_CONDITION(s,d,at,kind,arg) WORLD_PROJECTILE_CONDITION(s,at,kind,arg) if(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&WORLD_CONTROL_CONDITION_KIND(kind,teamAdditionalCondition(kind))) { if(!WORLD_CONTROL_CONDITION_VALID(at,kind,arg,validTeamAdditionalCondition(at,kind,arg))) return false;continue; }
 #else
 #define WORLD_TEAM_INPUT(input,output)
 #define WORLD_TEAM_MODE(s) false

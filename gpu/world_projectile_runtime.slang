@@ -18,6 +18,12 @@ void snapshotProjectileParts(inout Runtime s)
         if(commands[actorBinding(s,slot)]==1&&results[actorPoolAt(s,slot)+1]!=0) parts=1;
     results[s.resourceOutput+720912+3]=parts;
 }
+bool validProjectileResourceCondition(inout Runtime s,uint at,uint kind,uint64_t arg)
+{
+    if(commands[at+1]>=s.resourceCount||!f64Finite(arg)) return false;
+    if(kind!=C_GAUGE_MOD) return true;
+    uint step=f64ToPositiveStep(arg);return step!=0&&f64Equal(f64FromI64(step),arg);
+}
 void sampleProjectilePellets(inout Runtime s,uint who,uint64_t when,inout uint pellets)
 {
     uint64_t fixed=plainQuantity(s,who,S_pellet_count_fixed,when);
