@@ -1,3 +1,21 @@
+## 2026-10-21 DoT・一般周期ダメージをMetal923・CUDA45で実証
+
+計算source1f059919037de30f722b121064cd4be819cc87e1・private ABI84/mode11で、DoT/一般周期ダメージを既存timer・stack・reference・binary64数量計算・共通Actor着弾へ接続しました。256定義と2048着弾パケットそれぞれに、128対象の順序/bitset/捕捉birth ordinalを38wordで保存します。既存のchecked monotonic add birth ordinalを使い、後から生まれた同slotの世代へ再結合しません。aliasによる対象unionでも、作成済みパケットは不変です。通常timer更新→queue drain→burst/射撃の順序を保持し、即時DoTを別の早着弾経路にしていません。
+
+Metal923＝native32実戦＋不正13＋旧878が成功しました。全数量/着弾traceに加え、実際のnative timer・carrier・named predicate状態を一致検査しました。128対象、7rank、同名alias、再出現世代、own stack/refresh、参照stack、通常式、一般周期3hit、DOT credit/counter子、致死/生存addからの登録・回復を含みます。CPU408検査、旧11入口CUDA/MSL生成物厳密一致、保存raw/Git source/nativeのGPU禁止監査に成功。legacy UIの全キャラ対応を意味しません。
+
+新入口だけ出力655360wordへ拡張し、不変snapshot領域を追加しました。従来の524288word prefixを旧878入力すべてで完全保持し、追加tailは0です。従来入口の出力幅は変更していません。共通backend/Metal transportは従来の範囲と新655360だけを許可し、未検証524289などはbuild前に拒否します。2GiB未満の互いに重ならない700件＋223件の2バッチで、各input/readback/evidenceを即保存しました。source2種・Metal計4 dispatch（初回2＋修正版2）、同一source/input retry0です。
+
+初回7fffac4の全数量・packet traceと旧878 prefixは一致しました。finish後pool aliveでbefore_finishの捕捉membershipを削った観測差2件と、prepare hookを通らない実native periodic ActiveBuff UIDを数えなかったordinal差1件を、保存readbackのCPU再監査だけで解消し32実戦一致を確認しました。観測項目を無視・丸めてはいません。残るNaN intervalのstatus0は、共通周期判定を正の有限binary64 intervalへ修正し、NaN/Infinity/負値を実GPUで拒否しました。初回raw/observer-replay/findingを保持しています。portable-world-periodic-validation.json、seal-world-periodic-metal.pyを参照。
+
+Windows v96は固定4554b0b61ce98375deee8aedeb262729915e3e0f（21ファイル346136bytes）で新45入力/native32だけを検証しました。CPU65検査・GPU禁止45入力・source SHA76照合後、BelowNormal/JobObject/start gate/180秒/cleanup5秒でCUDA1回、111.904949秒・exit0。保存3JSON計70803bytesだけを取得し、全input/output/native/trace/generated fingerprint、API50phase、元HEAD/status/service保持、残存0、retry0、旧878以下/通常4682再実行0を共通監査器で照合済みです。portable-world-v96-cuda-validation.json、seal-world-v96-cuda.py。turn01a15c1c-6a59-7803-bb5e-a9787bfd22fdはcompleted、cursor167、idle。再実行依頼は不要です。
+
+実データを全203キャラ＋お気に入り21キャラの段階1/2/3、計266プロファイルで静的監査しました。own定義のPython事前検査通過はbase85/203、全プロファイル121/266です。全定義を実owned/growth準備から取得し、除外や架空効果を使っていません。CPU battle/GPU build/executeを禁止して呼出し0を実測しました。これはGPU kind admission・capacity・policy wiring・戦闘認証ではありません。portable-world-catalog-definition-readiness.jsonに全target/field/trigger/conditionと不受理理由を保存しています。
+
+次はこの実キャラ一覧から、敵atk_pct/atk_caster_based_pct等の未接続numeric field・selector、event:enemy_spawn等の通知、charge/part/crit判定、source攻撃/interrupt・追加part到達、revive/controlへ進みます。DoTのmid-frame gone/expiry/dispelを含む全効果組合せとreal roster/world入力接続も引き続き認証が必要です。
+
+通常画面CPU・public world false・全203変種の戦闘認証0、legacy unexplained Metal14c8e2e OPENを維持し、全ゴール未完了です。nativeの永続条件付き味方HP/防御とhit-only max-HP rankの不整合、容量/長時間/全変種認証も残ります。計算処理の効率化は必要な検証後。GitHub共有はゴール達成まで利用者許可済みです。
+
 ## 2026-10-21 pendingを共通Actor着弾へ接続しMetal878・CUDA37で実証
 
 計算source6bd7ab48095984d76ebdd5b291f56e0c99a5032e・private ABI83/mode9で、B3 pendingを128Actorの共通着弾helperへ接続しました。通常skillとpendingは同じ選択・世代検査・HP/counter/lifestealを使い、既存のソフトウェアbinary64・reference・後続buff除外・全数量を先に捕捉する二段階を保持します。pendingだけ同フレームで着弾し、full_burst_startやcounter子が作った通常skillは次フレームまで通常queueに残ります。明示normal_attack式よりB3 plain bonus pendingが優先するnative契約を共通packerへ反映しました。

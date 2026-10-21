@@ -1,0 +1,121 @@
+{
+  "source_commit": "4554b0b61ce98375deee8aedeb262729915e3e0f",
+  "branch": "codex/cuda-world-v96-source",
+  "base": "ea1eccc0e23d22f7cfede3437fd76dedf6dec0fe",
+  "file_count": 21,
+  "files": [
+    {
+      "path": "app/portable_backend.py",
+      "bytes": 15499,
+      "sha256": "ee374c4efde97548d7be6a58b1722750bc4d88e786fdc1e502352a8d16e937c6"
+    },
+    {
+      "path": "app/portable_periodic_specs.py",
+      "bytes": 929,
+      "sha256": "33644c1dc4c33fbb8740fc0d00228e0fcbe2f8694868f2fcd10e4cbf613a68bd"
+    },
+    {
+      "path": "app/portable_runtime.py",
+      "bytes": 64733,
+      "sha256": "a87b6c8139e42099706827cabdc1375ef5bb89de833658a57882eab01ca90988"
+    },
+    {
+      "path": "app/portable_specs.py",
+      "bytes": 18470,
+      "sha256": "191b9de25c10556fb647e69d1698ea7d73e919a7634a8a201fd62bef9ca3ac50"
+    },
+    {
+      "path": "gpu/event_runtime.slang",
+      "bytes": 128191,
+      "sha256": "b8b2d11cebf740dbc4752991ae1225656418acf98921cbc13ef26382dc9c45e3"
+    },
+    {
+      "path": "gpu/periodic_runtime.slang",
+      "bytes": 6462,
+      "sha256": "7ad1d6961cea83521702000a050ba70f73b57673bf2ae40837a57dce0f36d278"
+    },
+    {
+      "path": "gpu/portable_schema.slang",
+      "bytes": 20997,
+      "sha256": "5c1e5d92ecd6d81943223bc7598866a6116e409e4aaacb0d35e7302d9692e6d6"
+    },
+    {
+      "path": "gpu/world_actor_state.slang",
+      "bytes": 6695,
+      "sha256": "7ab9258d995bb0d813b76ba3b00aad47a5707a1cd7a12466997c2f15f0e7e87a"
+    },
+    {
+      "path": "gpu/world_periodic_entry.slang",
+      "bytes": 69,
+      "sha256": "87abe82e2142dcd58c4ebab9109efe738800200eae04ed4b72e37f375c0ec7a0"
+    },
+    {
+      "path": "gpu/world_periodic_runtime.slang",
+      "bytes": 4636,
+      "sha256": "a814563cf13826d5129baf0befd531d9c67a8c56f4d8591a5d1b3895c8656f05"
+    },
+    {
+      "path": "gpu/world_skill_runtime.slang",
+      "bytes": 7257,
+      "sha256": "eb1ad39cfdd9abc01f37ceca461cedb892d7017c218c987eb8335586551051b5"
+    },
+    {
+      "path": "scripts/run-metal-probe.swift",
+      "bytes": 7996,
+      "sha256": "3148cbce681519b41f78c15cab736fdfbffd5a7ba3b33e96f86c0e26f724c198"
+    },
+    {
+      "path": "tests/test_portable_world_periodic.py",
+      "bytes": 2888,
+      "sha256": "595f0a3fc005631bf6df4849d0dc8e63f216c00f735bb76c7165bbb21f12aa63"
+    },
+    {
+      "path": "research/world_frame_native.py",
+      "bytes": 10969,
+      "sha256": "696479fc43abf63297313f2336f290833029b7936a3f9bb8f9f9157588966223"
+    },
+    {
+      "path": "research/world_skill_native.py",
+      "bytes": 2667,
+      "sha256": "113f8d89ebcf9fae0eaf1e4439a527a86f84c0d1eb8471a5dbb8099a1eab4a24"
+    },
+    {
+      "path": "research/characterize-world-dot-skills.py",
+      "bytes": 4614,
+      "sha256": "37feb0c637ad11dd2fe9c5b4357561a0ce396c73b852d2e93df9467d0b94cd6e"
+    },
+    {
+      "path": "research/world_periodic_native.py",
+      "bytes": 892,
+      "sha256": "1ae7e17213a2a116f3b623b21da78c096876a77423673a52769c8dc2aa3bf31e"
+    },
+    {
+      "path": "research/world_periodic_cases.py",
+      "bytes": 4455,
+      "sha256": "c2e39aa38678ca21671a6802114afa29ea2a36d99c31780d0ba58d2f4755106f"
+    },
+    {
+      "path": "research/verify-world-periodic.py",
+      "bytes": 8401,
+      "sha256": "760f0b234e9bd35d555333fa8daed3c73641836e5aca060bca709d07ddeb6622"
+    },
+    {
+      "path": "research/verify-world-periodic-short.py",
+      "bytes": 5759,
+      "sha256": "1eadcf03cf32d9bb74eeccc4d2152399fab323f6433be16c7ca1a86ed32b4179"
+    },
+    {
+      "path": "research/portable-world-periodic-short-expected.json",
+      "bytes": 23557,
+      "sha256": "a471a09ee9d3032009b1c36783cb3ae8bf249e683a1ce78c2eb1834501ae147e"
+    }
+  ],
+  "bytes": 346136,
+  "private_settings": false,
+  "raw": false,
+  "large_reports": false,
+  "authorization": "User permits GitHub sharing until current goal achieved",
+  "windows_input_count": 45,
+  "windows_native_oracles": 32,
+  "old878_reexecutions": 0
+}
