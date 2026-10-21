@@ -35,6 +35,7 @@ class WorldSkillContracts(unittest.TestCase):
   from world_skill_native import inspect
   for name,family in [('direct-family-core_damage',0),('core-damage-normal-formula-is-skill',1)]:
    c=self.cases[name];native,trace=inspect(c);self.assertEqual(len(trace),1)
+   w,_,_=cases.compile_case(physical,c);row=next(i for i,e in enumerate(c['effects']) if e.get('type')=='damage');self.assertEqual(w[L['DAMAGE_DEFINITION_BASE']+row*8+3],family)
    r=self.observe(name);packets=[e['packet'] for e in r['target_counters']['events'] if e['event']=='impact_before' and e['packet']['damage']==trace[0]['amount']]
    self.assertTrue(packets);self.assertTrue(all(p['family']==family for p in packets))
    proof=[v for v in native['target_counters']['completions'] if v['name']=='skill-proof'];self.assertEqual(bool(proof),bool(family))

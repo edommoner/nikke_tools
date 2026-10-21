@@ -17,7 +17,7 @@ def fixtures(physical):
  rows=copy.deepcopy(queue.fixtures());base=copy.deepcopy(rows[0]);base['duration']=.05
  for family in ('damage','bonus_damage','burst_damage','split_damage','auto_damage','armor_break_damage','armor_break_burst_damage','sequential_damage','projectile_attachment_damage','projectile_explosion_damage','pierce_damage','core_damage'):
   c=copy.deepcopy(base);c['name']='direct-family-'+family;c['effects'][-1]['stat']=family;c['effects'][-1]['target']='boss';rows.append(c)
- c=copy.deepcopy(rows[-1]);c['name']='core-damage-normal-formula-is-skill';c['effects'][-1]['damage_formula']='normal_attack';rows.append(c)
+ c=copy.deepcopy(rows[-1]);c['name']='core-damage-normal-formula-is-skill';c['effects'][-1]['damage_formula']='normal_attack';c['effects'].append(dict(name='normal-formula-modifier',source='스킬1',type='buff',stat='normal_atk_dmg_pct',fixed_value=50,target='self',duration=-1,trigger=dict(timing=['battle_start'],condition=[])));c['owners'].append(0);rows.append(c)
  add=copy.deepcopy(queue.fixtures()[5]);add['duration']=.05
  for target in ('enemies_top_hp:2','enemies_highest_hp:2','enemies_lowest_hp:2','enemies_nearest:2','enemies_top_def:2','enemies_lowest_def:2','enemies_top_atk:2'):
   c=copy.deepcopy(add);c['name']='late-skill-rank-'+target;c['patterns'][0]['spec'].update(count=3,hp=1300,atk=114345);c['effects'][-1].update(target=target,fixed_value=100);rows.append(c)

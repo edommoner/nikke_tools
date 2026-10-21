@@ -39773,7 +39773,7 @@
     },
     {
       "name": "core-damage-normal-formula-is-skill",
-      "input_sha256": "77bfaa4ea664f499b43e9c0cd2a48894be768e6aa53bf1ea077ab6a0565ea04e",
+      "input_sha256": "b7dc69bd0d1a3a17e70cff1cab6506e02af5275c38093b235b3d60dafe0f029d",
       "native": {
         "graph_states": [
           [
@@ -40624,7 +40624,7 @@
           ]
         ],
         "damage": [
-          1435,
+          2151,
           1,
           1,
           1,
@@ -40632,9 +40632,9 @@
         ],
         "allies": [
           {
-            "hp": 643.5,
+            "hp": 715.1,
             "max_hp": 1000.0,
-            "hp_pct": 64.35,
+            "hp_pct": 71.51,
             "defense": 30.0,
             "down": false,
             "received_damage": 0,
@@ -41396,7 +41396,7 @@
                 },
                 "family": 0,
                 "outcome": 2,
-                "damage": 968,
+                "damage": 1451,
                 "credit": 1,
                 "attack_id": 0
               },
@@ -41423,11 +41423,11 @@
                 },
                 "family": 1,
                 "outcome": 2,
-                "damage": 467,
+                "damage": 700,
                 "credit": 1,
                 "attack_id": 0
               },
-              "entry_ordinal": 3,
+              "entry_ordinal": 4,
               "time": 0.016666666666666666
             }
           ],
@@ -41443,9 +41443,9 @@
               0,
               6,
               0,
-              1083603968,
+              1084282368,
               0,
-              1083603968,
+              1084282368,
               0,
               0,
               0,
@@ -41481,8 +41481,8 @@
           "row": 3,
           "created": 0.0,
           "landed": 0.016666666666666666,
-          "amount": 467,
-          "share": 467,
+          "amount": 700,
+          "share": 700,
           "recipients": [
             0
           ],
