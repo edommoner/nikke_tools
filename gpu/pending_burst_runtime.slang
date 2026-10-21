@@ -71,7 +71,7 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
             if(f64Zero(coefficient)) { s.pendingAmount[index]=0;continue; }
         }
         uint target = s.target; s.target = 0; s.damageExclusion = row+1;
-        s.pendingAmount[index] = damageValue(s,d.owner,coefficient,when,false,s.coreBonus);
+        WORLD_PENDING_SCOPE_BEGIN(s) s.pendingAmount[index] = damageValue(s,d.owner,coefficient,when,false,s.coreBonus); WORLD_PENDING_SCOPE_END(s)
         s.damageExclusion = 0; s.target = target;
     }
     for (uint index = 0; index < count && s.error == 0; index++)
@@ -79,7 +79,7 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
         uint row = s.pendingRow[index]; Definition d = readDefinition(s.inputBase,row); d.damageHits = s.pendingHits[index];
         for (uint hit = 0; hit < d.damageHits && s.error == 0 && !f64Zero(s.pendingAmount[index]); hit++)
         {
-            uint packedOrder; uint inherited = aimedTarget(s,d.owner);
+            WORLD_PENDING_LAND(s,d,row,index,hit,when,output) uint packedOrder; uint inherited = aimedTarget(s,d.owner);
             uint mask = enemyDamageMask(s,d,inherited,packedOrder);
             if (mask == 0) break;
             bool recovery=(s.healthMask&64)!=0;

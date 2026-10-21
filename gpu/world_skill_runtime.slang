@@ -1,10 +1,10 @@
 // Codec and late recipient binding only. Effect quantities, binary64 damage,
 // hit multiplicity, gauge, Actor HP, counter completion and healing are shared.
 bool worldSkillsEnabled(inout Runtime s)
-{ return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==7; }
+{ return targetCountersEnabled(s)&&(commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==7||worldPendingEnabled(s)); }
 bool validWorldSkillDefinition(inout Runtime s,uint row,Definition d)
 {
-    if(d.enemyBuff!=0||d.damageRoute>9||d.damageCount==0||d.damageCount>128||d.damageHits>256||d.damagePending!=0||d.periodicFlags!=0||!f64Zero(d.interval)||d.healthScaling!=0||referenceScaleMode(s,row)!=0) return false;
+    if(d.enemyBuff!=0||d.damageRoute>9||d.damageCount==0||d.damageCount>128||d.damageHits>256||d.damagePending!=0&&!worldPendingEnabled(s)||d.periodicFlags!=0||!f64Zero(d.interval)||d.healthScaling!=0||referenceScaleMode(s,row)!=0&&!(worldPendingEnabled(s)&&d.damagePending!=0&&referenceScaleMode(s,row)==1)) return false;
     if((d.damageFlags&~uint(1|2|4|8|16|32|64|128|256|512|1024|2048|4096|8192|16384|65536))!=0||(d.damageFlags&(H_DOT|H_PART|65536U))!=0||d.damageNormal>1) return false;
     // Reached part/interrupt packets need their own explicit receipt metadata.
     if((d.damageFlags&(H_PIERCE|H_EXPLOSION))!=0||d.damageNormal!=0&&(s.attackContext[d.owner]&4)!=0)
@@ -48,6 +48,44 @@ void logWorldSkill(inout Runtime s,LandingReceipt r,uint set,uint64_t share,uint
     for(uint i=0;i<4;i++) results[at+12+i]=results[set+1+i];
     for(uint i=0;i<n;i++) { uint slot=results[set+8+i*4];results[at+16+i/4]|=(slot+1)<<((i%4)*8); }
 }
+// One Actor landing lifecycle for queued direct skills and immediate pending packets.
+[noinline]
+bool landWorldSkillReceipt(inout Runtime s,LandingReceipt r,uint64_t when,uint output)
+{
+    Definition d=readDefinition(s.inputBase,r.row);
+    uint index=0;while(index<P_WORLD_ACTOR_SETS&&results[actorPoolSet(s,index)+5]!=0) index++;
+    if(index==P_WORLD_ACTOR_SETS) { s.error=64;return false; }
+    actorSetCapture(s,33,index,d.damageRoute,d.damageCount,0,d.owner);if(s.error!=0) return false;
+    uint set=actorPoolSet(s,index),n=results[set];uint64_t share=r.amount;
+    if((d.damageFlags&H_SPLIT)!=0&&n>1)
+    {
+        uint status;uint64_t weighted=f64Mul(r.amount,f64Div(ONE,f64FromI64(n)));
+        uint64_t rounded=f64ToI64(weighted,0,status);if(status!=0) { s.error=16;return false; }share=f64FromI64(rounded);
+    }
+    logWorldSkill(s,r,set,share,when);
+    for(uint i=0;i<n&&s.error==0;i++)
+    {
+        uint entry=set+8+i*4,slot=results[entry],generation=results[entry+1];
+        if(results[actorPoolAt(s,slot)]!=generation||results[actorPoolAt(s,slot)+1]==0) continue;
+        if(slot==0&&!worldOverlayLand(s,d.owner,0,share,false)) continue;
+        storeNumber(actorPoolHead(s)+2,when);s.target=0;land(s,d.owner,ACTOR_REF|slot,share);
+        uint receipt=actorPoolHead(s)+18;
+        if(results[receipt]!=0&&s.error==0)
+        {
+            uint64_t amount=commands[actorBinding(s,slot)]==5 ? actorNumber(receipt+2) : share;
+            uint previous=results[counterHead(s)+11];// Canonical core_damage tags are WEAPON; normal_attack overrides them
+            // with normal_skill, which is SKILL. The normalized descriptor
+            // carries both facts without backend-specific string routing.
+            results[counterHead(s)+11]=((d.damageFlags&H_CORE)!=0&&d.damageNormal==0) ? 0 : 1;
+            counterPhysicalPacket(s,d.owner,slot,generation,amount,results[receipt+1]!=0,when,output);
+            results[counterHead(s)+11]=previous;
+            if((s.healthMask&64)!=0&&s.error==0) dispatch(s,17,0,d.owner,0,when,output,share);
+            uint out=worldSkillHead(s);if(results[out+3]==0x7fffffff) { s.error=2;break; }results[out+3]++;
+        }
+    }
+    results[set+5]=0;results[actorPoolHead(s)+7]--;
+    return s.error==0;
+}
 [noinline]
 void drainWorldSkills(inout Runtime s,uint64_t when,uint output)
 {
@@ -59,39 +97,16 @@ void drainWorldSkills(inout Runtime s,uint64_t when,uint output)
         if(++work>4096) { s.error=4;break; }
         LandingReceipt r=loadWorldSkillReceipt(landingAddress(s,results[h+1]++));
         if(!validWorldSkillReceipt(s,r,false)) { s.error=64;break; }
-        Definition d=readDefinition(s.inputBase,r.row);
-        uint index=0;while(index<P_WORLD_ACTOR_SETS&&results[actorPoolSet(s,index)+5]!=0) index++;
-        if(index==P_WORLD_ACTOR_SETS) { s.error=64;break; }
-        actorSetCapture(s,33,index,d.damageRoute,d.damageCount,0,d.owner);if(s.error!=0) break;
-        uint set=actorPoolSet(s,index),n=results[set];uint64_t share=r.amount;
-        if((d.damageFlags&H_SPLIT)!=0&&n>1)
-        {
-            uint status;uint64_t weighted=f64Mul(r.amount,f64Div(ONE,f64FromI64(n)));
-            uint64_t rounded=f64ToI64(weighted,0,status);if(status!=0) { s.error=16;break; }share=f64FromI64(rounded);
-        }
-        logWorldSkill(s,r,set,share,when);
-        for(uint i=0;i<n&&s.error==0;i++)
-        {
-            uint entry=set+8+i*4,slot=results[entry],generation=results[entry+1];
-            if(results[actorPoolAt(s,slot)]!=generation||results[actorPoolAt(s,slot)+1]==0) continue;
-            if(slot==0&&!worldOverlayLand(s,d.owner,0,share,false)) continue;
-            storeNumber(actorPoolHead(s)+2,when);s.target=0;land(s,d.owner,ACTOR_REF|slot,share);
-            uint receipt=actorPoolHead(s)+18;
-            if(results[receipt]!=0&&s.error==0)
-            {
-                uint64_t amount=commands[actorBinding(s,slot)]==5 ? actorNumber(receipt+2) : share;
-                uint previous=results[counterHead(s)+11];// Canonical core_damage tags are WEAPON; normal_attack overrides them
-                // with normal_skill, which is SKILL. The normalized descriptor
-                // carries both facts without backend-specific string routing.
-                results[counterHead(s)+11]=((d.damageFlags&H_CORE)!=0&&d.damageNormal==0) ? 0 : 1;
-                counterPhysicalPacket(s,d.owner,slot,generation,amount,results[receipt+1]!=0,when,output);
-                results[counterHead(s)+11]=previous;
-                if((s.healthMask&64)!=0&&s.error==0) dispatch(s,17,0,d.owner,0,when,output,share);
-                uint out=worldSkillHead(s);if(results[out+3]==0x7fffffff) { s.error=2;break; }results[out+3]++;
-            }
-        }
-        results[set+5]=0;results[actorPoolHead(s)+7]--;
+        if(!landWorldSkillReceipt(s,r,when,output)) break;
         if(results[h+3]==0x7fffffff) { s.error=2;break; }results[h+3]++;
     }
     if(s.error==0) { results[h]=0;results[h+1]=0; }s.target=saved;
 }
+
+#ifdef PORTABLE_WORLD_PENDING_SKILLS
+void landWorldPending(inout Runtime s,Definition d,uint row,uint index,uint hit,uint64_t when,uint output)
+{
+    LandingReceipt r={};r.row=row;r.mask=0xffffffffU;r.hit=hit+1;r.hits=d.damageHits;r.depth=1;r.amount=s.pendingAmount[index];r.when=when;r.epoch=s.enemyEpoch;
+    uint saved=s.target;landWorldSkillReceipt(s,r,when,output);s.target=saved;
+}
+#endif

@@ -100,10 +100,24 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_WORLD_PENDING_SKILLS
+#define WORLD_PENDING_ENABLED(s) (targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==9)
+#define WORLD_PENDING_KIND(s,d) (worldPendingEnabled(s)&&(d.kind==24||d.kind==9))
+#define WORLD_PENDING_SCOPE_BEGIN(s) uint pendingQueryScope=0;if(worldPendingEnabled(s)) pendingQueryScope=actorStatePushQuery(s,0);
+#define WORLD_PENDING_SCOPE_END(s) if(worldPendingEnabled(s)) actorStatePopQuery(s,pendingQueryScope);
+#define WORLD_PENDING_LAND(s,d,row,index,hit,when,output) if(worldPendingEnabled(s)) { landWorldPending(s,d,row,index,hit,when,output);continue; }
+#else
+#define WORLD_PENDING_ENABLED(s) false
+#define WORLD_PENDING_KIND(s,d) false
+#define WORLD_PENDING_SCOPE_BEGIN(s)
+#define WORLD_PENDING_SCOPE_END(s)
+#define WORLD_PENDING_LAND(s,d,row,index,hit,when,output)
+#endif
+bool worldPendingEnabled(inout Runtime s) { return WORLD_PENDING_ENABLED(s); }
 #ifdef PORTABLE_WORLD_SKILLS
 #define WORLD_SKILL_FIELDS(s,legacy) ((legacy)||worldSkillsEnabled(s))
-#define WORLD_SKILL_KIND(s,d,legacy) ((legacy)&&!(worldSkillsEnabled(s)&&d.kind==3))
-#define WORLD_SKILL_DEFINITION(s,row,d,legacy) (worldSkillsEnabled(s)&&d.kind==3 ? !validWorldSkillDefinition(s,row,d) : (legacy))
+#define WORLD_SKILL_KIND(s,d,legacy) ((legacy)&&!(worldSkillsEnabled(s)&&d.kind==3)&&!WORLD_PENDING_KIND(s,d))
+#define WORLD_SKILL_DEFINITION(s,row,d,legacy) (worldSkillsEnabled(s)&&d.kind==3 ? !validWorldSkillDefinition(s,row,d) : WORLD_PENDING_KIND(s,d) ? false : (legacy))
 #define WORLD_SKILL_INHERITS(s,event,legacy) ((legacy)||(worldSkillsEnabled(s)&&event==49))
 #define WORLD_SKILL_BASIS(s,legacy) (worldSkillsEnabled(s) ? 0U : (legacy))
 #define WORLD_SKILL_SCOPE_BEGIN(s) uint skillQueryScope=0;if(worldSkillsEnabled(s)) skillQueryScope=actorStatePushQuery(s,0);
