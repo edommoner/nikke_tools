@@ -1,3 +1,31 @@
+// Presence reads the already-resolved carrier membership, without consuming a
+// lazy selector or rechecking conditions/expiry ahead of the shared lifecycle.
+// This is native _has_immune/is_stunned, distinct from numeric buff queries.
+bool statusStunImmune(inout Runtime s,uint who)
+{
+    if(who>=133 || (s.incomingMask&16)==0) return false;
+    for(uint pass=0;pass<s.orderedCount;pass++)
+    {
+        uint slot=s.orderedRows[pass],definition=s.carrierDefinition[slot];
+        if(s.alive[slot]!=0 && s.lazyPending[slot]==0 && definition_kind(s.inputBase,definition)==4 &&
+           (definition_quantityFlags(s.inputBase,definition)&2)!=0 &&
+           !WORLD_STATUS_MEMBER_INVALID(s,slot,who,(s.activeRecipients[slot]&(1U<<who))==0)) return true;
+    }
+    return false;
+}
+bool statusStunned(inout Runtime s,uint who)
+{
+    if(who>=133 || (s.incomingMask&8)==0 || statusStunImmune(s,who)) return false;
+    for(uint pass=0;pass<s.orderedCount;pass++)
+    {
+        uint slot=s.orderedRows[pass],definition=s.carrierDefinition[slot];
+        if(s.alive[slot]!=0 && s.lazyPending[slot]==0 && definition_kind(s.inputBase,definition)==0 &&
+           definition_stat(s.inputBase,definition)==S_stun &&
+           !WORLD_STATUS_MEMBER_INVALID(s,slot,who,(s.activeRecipients[slot]&(1U<<who))==0)) return true;
+    }
+    return false;
+}
+
 // Status counters live in the shared output buffer, never private arrays.
 uint immunityPolicy(uint input,uint row) { return (definition_flags(input,row)>>4)&3; }
 uint64_t statusNumber(uint at) { return uint64_t(results[at])|(uint64_t(results[at+1])<<32); }

@@ -11,22 +11,6 @@
         "phase": "effect",
         "category": "effect",
         "kind": "buff",
-        "stat": "stun",
-        "target": "all_enemies",
-        "scaling": null,
-        "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"all_enemies\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      },
-      "affected_profiles": 6,
-      "blocked_definitions": 6,
-      "single_observed_category_profiles": 3
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "effect",
-        "kind": "buff",
         "stat": "heal_overcharge_store",
         "target": "all_allies",
         "scaling": null,
@@ -37,22 +21,6 @@
       "affected_profiles": 5,
       "blocked_definitions": 5,
       "single_observed_category_profiles": 3
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "trigger",
-        "kind": "damage",
-        "stat": "bonus_damage",
-        "target": "same_target",
-        "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"same_target\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported predicate: target_stunned"
-      },
-      "affected_profiles": 5,
-      "blocked_definitions": 5,
-      "single_observed_category_profiles": 2
     },
     {
       "issue": {
@@ -105,6 +73,22 @@
     {
       "issue": {
         "phase": "effect",
+        "category": "trigger",
+        "kind": "damage",
+        "stat": "bonus_damage",
+        "target": "same_target",
+        "scaling": null,
+        "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"same_target\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported predicate: trigger_hit_crit"
+      },
+      "affected_profiles": 3,
+      "blocked_definitions": 3,
+      "single_observed_category_profiles": 2
+    },
+    {
+      "issue": {
+        "phase": "effect",
         "category": "effect",
         "kind": "buff",
         "stat": "shield_dmg_pct",
@@ -129,6 +113,22 @@
         "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"shield_dmg_pct\", \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
+      },
+      "affected_profiles": 2,
+      "blocked_definitions": 2,
+      "single_observed_category_profiles": 2
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "effect",
+        "kind": "instant",
+        "stat": "revive",
+        "target": "allies_down_top_atk_excl:1",
+        "scaling": null,
+        "code": "{\"category\": \"effect\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"revive\", \"target\": \"allies_down_top_atk_excl:1\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported instant stat"
       },
       "affected_profiles": 2,
       "blocked_definitions": 2,
@@ -228,22 +228,6 @@
         "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"heal_split\", \"target\": \"all_allies\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
-      },
-      "affected_profiles": 2,
-      "blocked_definitions": 2,
-      "single_observed_category_profiles": 1
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "effect",
-        "kind": "instant",
-        "stat": "revive",
-        "target": "allies_down_top_atk_excl:1",
-        "scaling": null,
-        "code": "{\"category\": \"effect\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"revive\", \"target\": \"allies_down_top_atk_excl:1\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported instant stat"
       },
       "affected_profiles": 2,
       "blocked_definitions": 2,
@@ -354,22 +338,6 @@
         "target": "이사벨",
         "scaling": null,
         "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"skill_cooldown_pct\", \"target\": \"이사벨\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      },
-      "affected_profiles": 1,
-      "blocked_definitions": 1,
-      "single_observed_category_profiles": 1
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "effect",
-        "kind": "buff",
-        "stat": "stun",
-        "target": "self",
-        "scaling": null,
-        "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
@@ -1034,54 +1002,6 @@
       "issue": {
         "phase": "effect",
         "category": "effect",
-        "kind": "buff",
-        "stat": "stun",
-        "target": "enemies_random:2",
-        "scaling": null,
-        "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"enemies_random:2\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      },
-      "affected_profiles": 1,
-      "blocked_definitions": 1,
-      "single_observed_category_profiles": 0
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "effect",
-        "kind": "buff",
-        "stat": "stun",
-        "target": "target",
-        "scaling": null,
-        "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"target\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      },
-      "affected_profiles": 1,
-      "blocked_definitions": 1,
-      "single_observed_category_profiles": 0
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "effect",
-        "kind": "buff",
-        "stat": "stun_immune",
-        "target": "all_allies",
-        "scaling": null,
-        "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun_immune\", \"target\": \"all_allies\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      },
-      "affected_profiles": 1,
-      "blocked_definitions": 1,
-      "single_observed_category_profiles": 0
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "effect",
         "kind": "damage",
         "stat": "accum_split_damage",
         "target": "all_enemies",
@@ -1528,6 +1448,22 @@
         "phase": "effect",
         "category": "recipient",
         "kind": "buff",
+        "stat": "stun",
+        "target": "enemies_random:2",
+        "scaling": null,
+        "code": "{\"category\": \"recipient\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"enemies_random:2\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported buff recipient selector"
+      },
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 0
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "recipient",
+        "kind": "buff",
         "stat": "target_hit_counter",
         "target": "enemies_random:1",
         "scaling": null,
@@ -1790,22 +1726,6 @@
         "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"focus_fire\", \"target\": \"all_allies\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported predicate: focusing"
-      },
-      "affected_profiles": 1,
-      "blocked_definitions": 1,
-      "single_observed_category_profiles": 0
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "trigger",
-        "kind": "buff",
-        "stat": "fullburst_duration",
-        "target": "all_allies",
-        "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"fullburst_duration\", \"target\": \"all_allies\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported predicate: self_stun_immune"
       },
       "affected_profiles": 1,
       "blocked_definitions": 1,
@@ -2505,56 +2425,21 @@
     {
       "character": "D",
       "favorite_stage": 0,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 4,
-          "owner": "D",
-          "name": "기습 2",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "stun_immune",
-            "target": "all_allies",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun_immune\", \"target\": \"all_allies\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
-          }
-        },
-        {
-          "index": 8,
-          "owner": "D",
-          "name": "처단 3",
-          "issue": {
-            "phase": "effect",
-            "category": "trigger",
-            "kind": "buff",
-            "stat": "fullburst_duration",
-            "target": "all_allies",
-            "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"fullburst_duration\", \"target\": \"all_allies\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported predicate: self_stun_immune"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "297c6f08eb4461862b71effc21399503aba2cfb23cd590e9794666c682b9c77b",
+      "squad": [
+        "D",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported buff stat",
-      "program_issue": {
-        "phase": "program",
-        "category": "effect",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "reason": "Unported buff stat",
-        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported buff stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      }
+      "prepared_effects": 75,
+      "bound_effects": 75,
+      "input_words": 104400
     },
     {
       "character": "K",
@@ -4399,186 +4284,78 @@
     {
       "character": "프리바티",
       "favorite_stage": 0,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 4,
-          "owner": "프리바티",
-          "name": "LD 어설트 3",
-          "issue": {
-            "phase": "effect",
-            "category": "trigger",
-            "kind": "damage",
-            "stat": "bonus_damage",
-            "target": "same_target",
-            "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"same_target\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported predicate: target_stunned"
-          }
-        },
-        {
-          "index": 6,
-          "owner": "프리바티",
-          "name": "AK 미사일 3",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "stun",
-            "target": "all_enemies",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"all_enemies\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "ccc0a55fd7466930eda28b9ebb96a657d3b23a8836072b70e11da0a5319880ce",
+      "squad": [
+        "프리바티",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported predicate: target_stunned",
-      "program_issue": {
-        "phase": "program",
-        "category": "trigger",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "reason": "Unported predicate: target_stunned",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported predicate: target_stunned\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported predicate: target_stunned"
-      }
+      "prepared_effects": 73,
+      "bound_effects": 73,
+      "input_words": 104400
     },
     {
       "character": "프리바티",
       "favorite_stage": 1,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 4,
-          "owner": "프리바티",
-          "name": "LD 어설트 3",
-          "issue": {
-            "phase": "effect",
-            "category": "trigger",
-            "kind": "damage",
-            "stat": "bonus_damage",
-            "target": "same_target",
-            "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"same_target\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported predicate: target_stunned"
-          }
-        },
-        {
-          "index": 7,
-          "owner": "프리바티",
-          "name": "AK 미사일 3",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "stun",
-            "target": "all_enemies",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"all_enemies\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "d5f34a3fcaff2ccf9d1dd6945067a4f92b6d518ec0ba0cf2f5e34f06b00e6693",
+      "squad": [
+        "프리바티",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported predicate: target_stunned",
-      "program_issue": {
-        "phase": "program",
-        "category": "trigger",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "reason": "Unported predicate: target_stunned",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported predicate: target_stunned\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported predicate: target_stunned"
-      }
+      "prepared_effects": 79,
+      "bound_effects": 79,
+      "input_words": 104400
     },
     {
       "character": "프리바티",
       "favorite_stage": 2,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 8,
-          "owner": "프리바티",
-          "name": "AK 미사일 3",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "stun",
-            "target": "all_enemies",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"all_enemies\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "ed8f8f38a3eeea788c4de1b261dbfed219c44770516535f9848ef2f60a03ac7b",
+      "squad": [
+        "프리바티",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported buff stat",
-      "program_issue": {
-        "phase": "program",
-        "category": "effect",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "reason": "Unported buff stat",
-        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported buff stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      }
+      "prepared_effects": 80,
+      "bound_effects": 80,
+      "input_words": 104400
     },
     {
       "character": "프리바티",
       "favorite_stage": 3,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 9,
-          "owner": "프리바티",
-          "name": "AK 미사일 3",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "stun",
-            "target": "all_enemies",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"all_enemies\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "0a641ed2b4c7d899c0c5d88ee8b1c6dd5206664676170a633caf02e28c614047",
+      "squad": [
+        "프리바티",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported buff stat",
-      "program_issue": {
-        "phase": "program",
-        "category": "effect",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "reason": "Unported buff stat",
-        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported buff stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      }
+      "prepared_effects": 81,
+      "bound_effects": 81,
+      "input_words": 104400
     },
     {
       "character": "율하",
@@ -5179,22 +4956,6 @@
             "code": "{\"category\": \"effect\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"revive\", \"target\": \"allies_down_top_atk_excl:1\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported instant stat"
-          }
-        },
-        {
-          "index": 5,
-          "owner": "라푼젤",
-          "name": "가든 오브 샹그릴라 3",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "stun",
-            "target": "all_enemies",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"all_enemies\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
           }
         }
       ],
@@ -6315,14 +6076,14 @@
           "name": "대청소 메이드 2",
           "issue": {
             "phase": "effect",
-            "category": "effect",
+            "category": "recipient",
             "kind": "buff",
             "stat": "stun",
             "target": "enemies_random:2",
             "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"enemies_random:2\"}",
+            "code": "{\"category\": \"recipient\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"enemies_random:2\"}",
             "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
+            "message": "Unported buff recipient selector"
           }
         }
       ],
@@ -6774,40 +6535,21 @@
     {
       "character": "마스트 : 로망틱 메이드",
       "favorite_stage": 0,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 5,
-          "owner": "마스트 : 로망틱 메이드",
-          "name": "숙취",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "stun",
-            "target": "self",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"self\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "d5eb2473b6ceb01fc5591e5cb2474732ab39be5276c331bb236fa324d2301be9",
+      "squad": [
+        "마스트 : 로망틱 메이드",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported buff stat",
-      "program_issue": {
-        "phase": "program",
-        "category": "effect",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "reason": "Unported buff stat",
-        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported buff stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      }
+      "prepared_effects": 73,
+      "bound_effects": 73,
+      "input_words": 104400
     },
     {
       "character": "앵커 : 이노센트 메이드",
@@ -8094,22 +7836,6 @@
             "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"focus_fire\", \"target\": \"all_allies\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported predicate: focusing"
-          }
-        },
-        {
-          "index": 6,
-          "owner": "리틀 머메이드",
-          "name": "터진 거품 2",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "stun",
-            "target": "target",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"target\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
           }
         },
         {
@@ -9807,40 +9533,21 @@
     {
       "character": "타키나",
       "favorite_stage": 0,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 3,
-          "owner": "타키나",
-          "name": "전장 통제 2",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "stun",
-            "target": "all_enemies",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"all_enemies\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "945780b126a986ceb5fd4be17de1c360841433d3fa7d1011a596601caaaeb7b3",
+      "squad": [
+        "타키나",
+        "미란다",
+        "드레이크",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported buff stat",
-      "program_issue": {
-        "phase": "program",
-        "category": "effect",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "reason": "Unported buff stat",
-        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported buff stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      }
+      "prepared_effects": 71,
+      "bound_effects": 71,
+      "input_words": 104400
     },
     {
       "character": "쿠루미",
@@ -10010,17 +9717,16 @@
   ],
   "profile_count": 266,
   "base_count": 203,
-  "packed_profiles": 173,
-  "packed_base": 122,
+  "packed_profiles": 180,
+  "packed_base": 126,
   "issues": {
-    "Unported buff stat": 39,
+    "Unported buff stat": 34,
     "Unported enemy damage selector": 8,
     "Unported instant stat": 7,
     "Unported buff recipient selector": 6,
     "Unported predicate: trigger_hit_crit": 3,
     "Unported effect fields: copy_from": 3,
     "Unported effect fields: hits_parts": 2,
-    "Unported predicate: target_stunned": 2,
     "Unported effect fields: scaling, scaling_hp_pct": 2,
     "Unported health recipient selector": 2,
     "Unported effect fields: weapon_type": 1,

@@ -170,19 +170,12 @@ def execute_cuda(source, entry, packed, output_size, count):
     return raw[0],transports[0]
 
 
-def execute_cuda_batches(source, entry, batches, output_sizes, counts):
-    """Opt-in sequential dispatches sharing one NVRTC build and CUDA context.
-    The pinned Slang StructuredBuffer ABI is pointer + size_t; validate the
-    actual constant-symbol size before copying. No numeric/game logic here.
-    """
-    if not batches or len(batches)!=len(output_sizes) or len(batches)!=len(counts):raise ValueError('Invalid CUDA dispatch sequence')
-    for packed,size,count in zip(batches,output_sizes,counts):
-        if type(count) is not int or not 1<=count<=65536 or type(size) is not int or size<=0 or len(packed)<4 or struct.unpack_from('<I',packed)[0]!=count:raise ValueError('Invalid CUDA dispatch dimensions')
-    if os.name != 'nt':
-        raise RuntimeError('This CUDA NVRTC adapter currently requires Windows')
+def compile_cuda_source(source, *, artifact_kind=None):
+    """CPU-only compiler/cache path; never loads nvcuda or creates a context."""
+    if os.name != 'nt':raise RuntimeError('CUDA compiler requires Windows')
+    artifact_kind=cuda_artifact_kind() if artifact_kind is None else artifact_kind
     cuda_bin = Path(os.environ.get('CUDA_PATH', r'C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.3'))/'bin'
     with os.add_dll_directory(str(cuda_bin)):
-        artifact_kind=cuda_artifact_kind()
         lib = C.WinDLL(str(next(cuda_bin.glob('nvrtc64_*.dll'))))
         signatures = dict(nvrtcCreateProgram=[C.POINTER(C.c_void_p),C.c_char_p,C.c_char_p,C.c_int,C.c_void_p,C.c_void_p],
                           nvrtcCompileProgram=[C.c_void_p,C.c_int,C.POINTER(C.c_char_p)],
@@ -194,9 +187,24 @@ def execute_cuda_batches(source, entry, batches, output_sizes, counts):
         for name, signature in signatures.items():
             getattr(lib,name).argtypes=signature; getattr(lib,name).restype=C.c_int
         artifact_bytes,compile_receipt=compile_cuda_artifact(lib,source.read_bytes(),list(cuda_bin.glob('nvrtc*.dll')),artifact_kind=artifact_kind)
-        artifact_buffer=C.create_string_buffer(artifact_bytes)
         # Capture exact compiled bytes for independent local audits, including hits.
         source.with_suffix('.'+artifact_kind).write_bytes(artifact_bytes)
+    return artifact_bytes,compile_receipt
+
+
+def execute_cuda_batches(source, entry, batches, output_sizes, counts):
+    """Opt-in sequential dispatches sharing one NVRTC build and CUDA context.
+    The pinned Slang StructuredBuffer ABI is pointer + size_t; validate the
+    actual constant-symbol size before copying. No numeric/game logic here.
+    """
+    if not batches or len(batches)!=len(output_sizes) or len(batches)!=len(counts):raise ValueError('Invalid CUDA dispatch sequence')
+    for packed,size,count in zip(batches,output_sizes,counts):
+        if type(count) is not int or not 1<=count<=65536 or type(size) is not int or size<=0 or len(packed)<4 or struct.unpack_from('<I',packed)[0]!=count:raise ValueError('Invalid CUDA dispatch dimensions')
+    if os.name != 'nt':
+        raise RuntimeError('This CUDA NVRTC adapter currently requires Windows')
+    artifact_kind=cuda_artifact_kind()
+    artifact_bytes,compile_receipt=compile_cuda_source(source,artifact_kind=artifact_kind)
+    artifact_buffer=C.create_string_buffer(artifact_bytes)
     driver=C.WinDLL('nvcuda.dll')
     signatures=dict(cuInit=[C.c_uint],cuDeviceGet=[C.POINTER(C.c_int),C.c_int],cuDeviceGetName=[C.c_char_p,C.c_int,C.c_int],
         cuDeviceComputeCapability=[C.POINTER(C.c_int),C.POINTER(C.c_int),C.c_int],
@@ -247,16 +255,27 @@ def cuda_artifact_kind():
     return kind
 
 
-def cuda_compile_options(kind):
+def cuda_compile_options(kind, ptxas_level=None):
     if kind not in ('ptx','cubin'):raise ValueError('Invalid CUDA artifact kind')
-    return ['--std=c++17','--gpu-architecture='+('sm_86' if kind=='cubin' else 'compute_86'),'--fmad=false']
+    if ptxas_level is not None and (kind!='cubin' or type(ptxas_level) is not int or ptxas_level not in range(4)):
+        raise ValueError('ptxas optimization level requires CUBIN and integer0..3')
+    options=['--std=c++17','--gpu-architecture='+('sm_86' if kind=='cubin' else 'compute_86'),'--fmad=false']
+    if ptxas_level is not None:options.append('--ptxas-options=-O'+str(ptxas_level))
+    return options
 
 
 def compile_cuda_artifact(lib, source, compiler_files, *, artifact_kind=None):
     from portable_compile_cache import get_or_compile,quoted_headers
     artifact_kind=cuda_artifact_kind() if artifact_kind is None else artifact_kind
-    options = cuda_compile_options(artifact_kind)
+    level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL')
+    if level not in (None,'','0','1','2','3'):raise ValueError('Invalid NIKKE_CUDA_PTXAS_OPT_LEVEL')
+    options = cuda_compile_options(artifact_kind,None if level in (None,'') else int(level))
+    required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0')
+    if required not in ('0','1'):raise ValueError('NIKKE_CUDA_CACHE_REQUIRED must be0 or1')
+    directory=os.environ.get('NIKKE_CUDA_COMPILE_CACHE') or None
+    if required=='1' and directory is None:raise ValueError('Required CUDA cache directory is missing')
     def compile_now():
+        if required=='1':raise RuntimeError('Cold CUDA compilation forbidden; required cache miss')
         def check(code):
             if code: raise RuntimeError(f'NVRTC error {code}')
         program=C.c_void_p()
@@ -277,7 +296,7 @@ def compile_cuda_artifact(lib, source, compiler_files, *, artifact_kind=None):
             return artifact.raw
         finally:
             if program: lib.nvrtcDestroyProgram(C.byref(program))
-    artifact,receipt=get_or_compile(source,options,compiler_files,compile_now,os.environ.get('NIKKE_CUDA_COMPILE_CACHE') or None,header_files=quoted_headers(source),artifact_kind=artifact_kind)
+    artifact,receipt=get_or_compile(source,options,compiler_files,compile_now,directory,header_files=quoted_headers(source),artifact_kind=artifact_kind)
     if artifact_kind=='cubin' and not artifact.startswith(b'\x7fELF'):
         raise RuntimeError('NVRTC CUBIN artifact is not a native ELF binary')
     return artifact,receipt

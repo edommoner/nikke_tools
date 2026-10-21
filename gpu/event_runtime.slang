@@ -233,6 +233,7 @@ bool worldTeamEnabled(inout Runtime s) { return true; }
 #define WORLD_TEAM_BUDGET(s,row) teamBudgetRow(s.inputBase,row)
 #define WORLD_TEAM_OWNER(s,row,runtime,legacy) teamConditionOwner(s.inputBase,row,runtime,s.teamEvent,legacy)
 #define WORLD_TEAM_TARGET(s,row,runtime,name,when,present,legacy) (teamActivationContext(s.inputBase,row,runtime,s.teamEvent) ? teamConditionTarget(s,row,name,present) : (legacy))
+#define WORLD_TEAM_STUN_TARGET(s,row,runtime,legacy) (teamActivationContext(s.inputBase,row,runtime,s.teamEvent) ? 5U+actorFieldLogicalSlot(s,actorPhysicalTarget(s,teamBindingOwner(s.inputBase,row)-1,0)) : (legacy))
 #define WORLD_TEAM_COUNTER(s,event,counter) ((worldTeamEnabled(s)&&(event==44||event==45)) ? results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE+2+event-44] : ++s.counters[counter])
 #define WORLD_TEAM_FRAME(s,f) if(worldTeamEnabled(s)) s.teamEvent=f.mode==0&&(f.event==44||f.event==45) ? f.event : 0;
 #define WORLD_TEAM_BEGIN(s) uint savedTeamEvent=worldTeamEnabled(s)?s.teamEvent:0;
@@ -250,6 +251,7 @@ bool worldTeamEnabled(inout Runtime s) { return true; }
 #define WORLD_TEAM_BUDGET(s,row) row
 #define WORLD_TEAM_OWNER(s,row,runtime,legacy) legacy
 #define WORLD_TEAM_TARGET(s,row,runtime,name,when,present,legacy) legacy
+#define WORLD_TEAM_STUN_TARGET(s,row,runtime,legacy) legacy
 #define WORLD_TEAM_COUNTER(s,event,counter) ++s.counters[counter]
 #define WORLD_TEAM_FRAME(s,f)
 #define WORLD_TEAM_BEGIN(s)
@@ -658,6 +660,7 @@ bool worldPendingEnabled(inout Runtime s) { return WORLD_PENDING_ENABLED(s); }
 #endif
 #ifdef PORTABLE_WORLD_ACTOR_STATE
 #define WORLD_STATE_TARGET_STACK(s,name,when,present,legacy) (actorStateEnabled(s) ? actorNamedTargetStack(s,name,present) : (legacy))
+#define WORLD_STATE_STUN_TARGET(s,legacy) (actorStateEnabled(s) ? 5U+actorStateCurrentTarget(s) : (legacy))
 #define WORLD_STATE_SELF_STACK(s,owner,name,arg) if(kind==C_SELF_STACK&&actorStateEnabled(s)) { if(f64Less(actorNamedSelfStack(s,owner,name),arg)) return false;continue; }
 #define WORLD_STATE_SCOPE_BEGIN(s,target) uint actorStateScope=actorStatePushQuery(s,target);
 #define WORLD_STATE_SCOPE_END(s) actorStatePopQuery(s,actorStateScope);
@@ -677,6 +680,7 @@ bool worldPendingEnabled(inout Runtime s) { return WORLD_PENDING_ENABLED(s); }
 #define WORLD_STATE_COMMAND(s,at) else if(op==41) { if(!actorNamedQueryCommand(s,at,step,when)) { s.error=64;break; } }
 #else
 #define WORLD_STATE_TARGET_STACK(s,name,when,present,legacy) legacy
+#define WORLD_STATE_STUN_TARGET(s,legacy) legacy
 #define WORLD_STATE_SELF_STACK(s,owner,name,arg)
 #define WORLD_STATE_SCOPE_BEGIN(s,target)
 #define WORLD_STATE_SCOPE_END(s)
@@ -698,6 +702,8 @@ bool worldPendingEnabled(inout Runtime s) { return WORLD_PENDING_ENABLED(s); }
 #include "geometry_runtime.slang"
 
 bool hasProtection(inout Runtime s,uint who,uint kind);
+bool statusStunImmune(inout Runtime s,uint who);
+bool statusStunned(inout Runtime s,uint who);
 void chooseEnemyVictims(inout Runtime s,uint step,uint64_t when);
 
 [ForceInline]
@@ -788,6 +794,8 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
         if (runtime && kind != C_GAUGE_ABOVE && kind != C_GAUGE_BELOW && kind != C_FULL && kind != C_NOT_FULL && kind != C_SELF_STATE && kind != C_NOT_SELF_STATE && kind != C_SELF_STACK && kind != C_CAST && kind != C_NOT_CAST && kind != C_CHARGING && kind != C_ENEMIES_ABOVE && kind != C_ENEMIES_BELOW && kind != C_HP_ABOVE && kind != C_HP_BELOW && kind != C_HP_MAX && kind != C_ALLY_HP_BELOW && kind != C_COVER_ALIVE && kind != C_COVER_BROKEN && kind != C_SHIELD && kind != C_TARGET_CODE) continue;
         if (kind >= C_GAUGE_ABOVE && kind <= C_GAUGE_MOD && !resourceCondition(s,owner,kind,uint(name),arg,int(commands[s.inputBase+P_RESOURCE_CONDITION_BASE+definition*3+i]))) return false;
         if (kind == C_CORE && !geometryCore(s)) return false;
+        if (kind == C_TARGET_STUNNED && !statusStunned(s,WORLD_TEAM_STUN_TARGET(s,definition,runtime,WORLD_STATE_STUN_TARGET(s,5U+s.target)))) return false;
+        if (kind == C_SELF_STUN_IMMUNE && !statusStunImmune(s,owner)) return false;
         if (kind == C_TARGET_CODE)
         {
             uint code=commands[s.inputBase+P_WORLD_META_BASE];
@@ -919,6 +927,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
         uint selected = s.orderedRows[pass]; Definition d = residentDefinition(s,selected);
 #endif
         if((s.quantityMask & 256)!=0 && d.stat==S_atk_caster_based_pct) continue;
+        if(d.stat==S_stun) continue; // Presence must not consume a pending rank as a numeric buff.
         if (d.alliedFlags != 0 || d.kind != 0 || d.stat >= 64 || d.stat == S_infinite_ammo || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
             !WORLD_ENEMY_ATTACK_DAMAGE_MEMBER(s,selected,who,when,queryRecipient(s,selected,who,when))) continue;
         // Native boolean flags ignore their numeric value and stack scaling.
@@ -963,6 +972,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
 [noinline]
 uint64_t readStat(inout Runtime s, uint who, uint key, uint64_t when)
 {
+    if(key==S_stun) return statusStunned(s,who) ? ONE : 0;
     uint64_t values[64]; collectStats(s,who,when,values); return values[key];
 }
 

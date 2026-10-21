@@ -6,6 +6,9 @@ import sys
 import tempfile
 import unittest
 from unittest.mock import patch
+from unittest.mock import Mock
+import contextlib
+import types
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'app'))
 from portable_backend import compile_cuda_artifact,cuda_compile_options
 
@@ -22,6 +25,39 @@ class NVRTC:
     def nvrtcDestroyProgram(self,p):self.calls.append('destroy');return 0
 
 class ArtifactTests(unittest.TestCase):
+    def test_shared_source_compiler_loads_only_nvrtc_and_publishes_native_bytes(self):
+        import portable_backend as backend
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);(root/'bin').mkdir();dll=root/'bin/nvrtc64_dummy.dll';dll.write_bytes(b'compiler')
+            source=root/'generated.cu';source.write_bytes(b'cuda');native=NVRTC()
+            library=types.SimpleNamespace(**{name:Mock(wraps=getattr(native,name)) for name in dir(native) if name.startswith('nvrtc')})
+            env=dict(CUDA_PATH=str(root),NIKKE_CUDA_COMPILE_CACHE='',NIKKE_CUDA_CACHE_REQUIRED='0')
+            fake_os=types.SimpleNamespace(name='nt',environ=env,add_dll_directory=lambda path:contextlib.nullcontext())
+            with patch.object(backend,'os',fake_os),patch.object(C,'WinDLL',return_value=library,create=True) as loader:
+                artifact,receipt=backend.compile_cuda_source(source,artifact_kind='cubin')
+            loader.assert_called_once_with(str(dll));self.assertEqual(source.with_suffix('.cubin').read_bytes(),native.payload)
+            self.assertEqual(artifact,native.payload);self.assertFalse(receipt['hit'])
+
+    def test_required_cache_miss_never_creates_a_compiler_program(self):
+        with tempfile.TemporaryDirectory() as folder,patch.dict(os.environ,{'NIKKE_CUDA_COMPILE_CACHE':folder,'NIKKE_CUDA_CACHE_REQUIRED':'1'}):
+            dll=Path(folder)/'nvrtc.dll';dll.write_bytes(b'compiler');lib=NVRTC()
+            with self.assertRaisesRegex(RuntimeError,'required cache miss'):
+                compile_cuda_artifact(lib,b'cuda',[dll],artifact_kind='cubin')
+            self.assertEqual(lib.calls,[])
+
+    def test_explicit_ptxas_level_has_a_distinct_key_and_required_hit_skips_compile(self):
+        with tempfile.TemporaryDirectory() as folder,patch.dict(os.environ,{'NIKKE_CUDA_COMPILE_CACHE':folder,'NIKKE_CUDA_CACHE_REQUIRED':'0','NIKKE_CUDA_PTXAS_OPT_LEVEL':''}):
+            dll=Path(folder)/'nvrtc.dll';dll.write_bytes(b'compiler');lib=NVRTC()
+            _,original=compile_cuda_artifact(lib,b'cuda',[dll],artifact_kind='cubin')
+            with patch.dict(os.environ,{'NIKKE_CUDA_PTXAS_OPT_LEVEL':'1'}):
+                a,lower=compile_cuda_artifact(lib,b'cuda',[dll],artifact_kind='cubin')
+                self.assertNotEqual(original['key'],lower['key']);self.assertIn(b'--ptxas-options=-O1',lib.options)
+                with patch.dict(os.environ,{'NIKKE_CUDA_CACHE_REQUIRED':'1'}):
+                    b,hit=compile_cuda_artifact(lib,b'cuda',[dll],artifact_kind='cubin')
+                    self.assertEqual(a,b);self.assertTrue(hit['hit']);self.assertEqual(lib.calls.count('compile'),2)
+            for kind,level in [('ptx',1),('cubin',-1),('cubin',4),('cubin',True)]:
+                with self.assertRaises(ValueError):cuda_compile_options(kind,level)
+
     def test_native_object_preserves_all_binary_bytes_and_warm_hit_skips_nvrtc(self):
         with tempfile.TemporaryDirectory() as folder,patch.dict(os.environ,{'NIKKE_CUDA_COMPILE_CACHE':folder}):
             dll=Path(folder)/'nvrtc.dll';dll.write_bytes(b'compiler');lib=NVRTC()

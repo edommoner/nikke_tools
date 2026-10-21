@@ -16,6 +16,14 @@ sys.path[:0] = [str(ROOT/'app'), str(ROOT/'research')]
 from portable_phase_audit import Journal, observe, summarize
 
 
+def job_memory_limit_bytes():
+    raw=os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB')
+    if raw in (None,''):return None
+    if not raw.isdecimal() or not 64<=int(raw)<=4096:
+        raise ValueError('Validation Job memory limit must be64..4096 MiB')
+    return int(raw)*1024*1024
+
+
 class WindowsJob:
     """Kill only this validation tree, including pipe-holding descendants."""
     def __init__(self, process):
@@ -50,6 +58,10 @@ class WindowsJob:
             raise C.WinError(C.get_last_error())
         try:
             limits = Extended(); limits.basic.flags = 0x2000  # KILL_ON_JOB_CLOSE
+            memory=job_memory_limit_bytes()
+            if memory is not None:
+                limits.basic.flags |= 0x200  # JOB_OBJECT_LIMIT_JOB_MEMORY
+                limits.job_mem = memory
             if not self.dll.SetInformationJobObject(self.handle, 9, C.byref(limits), C.sizeof(limits)):
                 raise C.WinError(C.get_last_error())
             handle = self.dll.OpenProcess(0x0101, False, process.pid)  # SET_QUOTA | TERMINATE

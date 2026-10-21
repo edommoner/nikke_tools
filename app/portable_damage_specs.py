@@ -45,3 +45,7 @@ STATS['reload_time_fixed']=RELOAD_FIXED_STAT
 from portable_projectile_specs import STATS as PROJECTILE_STATS
 BUFFS=BUFFS | PROJECTILE_STATS.keys()
 STATS.update(PROJECTILE_STATS)
+
+# Presence is read by the common status executor, not a damage multiplier.
+BUFFS=BUFFS | {'stun'}
+STATS['stun']={**DETAIL_STAT,**EXTRA_STAT}['stun']

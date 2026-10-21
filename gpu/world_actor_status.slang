@@ -4,7 +4,7 @@ bool actorStatusEnabled(inout Runtime s)
 { return WORLD_STACK_POLICY(s,actorFieldsEnabled(s)&&commands[s.inputBase+P_WORLD_ACTOR_POOL_INPUT_BASE+4]==0x57493031); }
 bool actorStatusFieldInvalid(inout Runtime s,Definition d)
 {
-    return d.kind!=0&&d.kind!=4 || d.kind==4&&d.stat!=0 || d.kind==0&&WORLD_ENEMY_ATTACK_INVALID(s,d,d.stat!=S_enemy_def_down_pct&&d.stat!=S_def_caster_based_pct&&d.stat!=S_received_dmg_pct && d.stat!=S_taunt);
+    return d.kind!=0&&d.kind!=4 || d.kind==4&&d.stat!=0 || d.kind==0&&WORLD_ENEMY_ATTACK_INVALID(s,d,d.stat!=S_enemy_def_down_pct&&d.stat!=S_def_caster_based_pct&&d.stat!=S_received_dmg_pct && d.stat!=S_taunt && d.stat!=S_stun);
 }
 bool actorStatusScopeValid(inout Runtime s,Definition d)
 {

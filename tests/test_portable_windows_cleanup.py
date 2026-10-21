@@ -9,6 +9,7 @@ import sys
 import tempfile
 import types
 import unittest
+from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('cleanup_bounded',ROOT/'research/run-world-bounded.py')
@@ -16,6 +17,11 @@ bounded=importlib.util.module_from_spec(spec);spec.loader.exec_module(bounded)
 
 
 class WindowsCleanupTests(unittest.TestCase):
+    def test_memory_budget_is_bounded_and_explicit(self):
+        with patch.dict(os.environ,{},clear=True):self.assertIsNone(bounded.job_memory_limit_bytes())
+        for value in ('63','4097','-1','1.5','unlimited'):
+            with patch.dict(os.environ,{'NIKKE_VALIDATION_JOB_MEMORY_MB':value}),self.assertRaises(ValueError):bounded.job_memory_limit_bytes()
+        with patch.dict(os.environ,{'NIKKE_VALIDATION_JOB_MEMORY_MB':'256'}):self.assertEqual(bounded.job_memory_limit_bytes(),256*1024*1024)
     def job(self, counts=(0,), wait_error=None):
         events=[];remaining=iter(counts)
         def terminate(handle,code):events.append('terminate');return True
@@ -55,7 +61,7 @@ child=subprocess.Popen([sys.executable,'-c','import time;time.sleep(30)'])
 (p/'descendant.pid').write_text(str(child.pid))
 time.sleep(30)
 """
-            with observe_job(bounded,root/'job.json'):
+            with patch.dict(os.environ,{'NIKKE_VALIDATION_JOB_MEMORY_MB':'256'}),observe_job(bounded,root/'job.json'):
                 interpreter=getattr(sys,'_base_executable',sys.executable)
                 env=os.environ.copy();env.pop('__PYVENV_LAUNCHER__',None)
                 facts=bounded.run_bounded([interpreter,'-c',code,str(root)],root,2,env=env)
@@ -68,6 +74,7 @@ time.sleep(30)
             self.assertEqual(row['post_wait']['job_members'],[])
             self.assertLessEqual(row['post_wait']['observed_unix_ns'],facts['wait_completed_unix_ns'])
             self.assertIsNotNone(row['post_wait']['job_peak_memory_bytes'])
+            self.assertEqual(row['post_wait']['job_memory_limit_bytes'],256*1024*1024)
 
 
 if __name__=='__main__':unittest.main()

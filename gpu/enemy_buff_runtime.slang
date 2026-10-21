@@ -43,7 +43,7 @@ void collectEnemyModifiers(inout Runtime s, uint who, uint target, uint64_t when
         if (d.enemyBuff == 0 || d.kind!=0 || s.alive[row] == 0 || !f64Less(when,s.end[row]) ||
             WORLD_FIELDS_MEMBER_INVALID(s,row,target,(s.activeRecipients[row] & (1U << (target+5))) == 0 || s.targetGeneration[target] != enemyCarrierGeneration(s,row,target)) ||
             excludedDamageBuff(s,row,who) || !WORLD_FIELDS_CONDITION(s,row,target,when,basicConditions(s,row,when,true,target+5))) continue;
-        WORLD_ENEMY_ATTACK_SKIP(d) if(d.stat==S_taunt) continue;
+        WORLD_ENEMY_ATTACK_SKIP(d) if(d.stat!=S_enemy_def_down_pct && d.stat!=S_def_caster_based_pct && d.stat!=S_received_dmg_pct) continue;
         uint64_t value = scalarValue(s,row,who); uint key = d.stat == S_enemy_def_down_pct ? 0 : d.stat == S_def_caster_based_pct ? 1 : 2;
         if (key == 1) value = f64Mul(s.baseDefense[d.owner],f64Div(value,HUNDRED));
         values[key] = f64Add(values[key],value);

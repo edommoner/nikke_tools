@@ -93,6 +93,10 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     try:validate_input(eff,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error)) from error
     kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
+    if stat in ('stun','stun_immune') and (combat is None or not world_frame):
+        raise UnsupportedPortable('Stun state requires private combat-owned status', reason='effect')
+    if set(eff.get('trigger',{}).get('condition',[])) & {'target_stunned','self_stun_immune'} and (combat is None or not world_frame):
+        raise UnsupportedPortable('Stun predicates require private combat-owned status', reason='trigger')
     if stat in ('taunt','stealth') and combat is None:raise UnsupportedPortable('Enemy target markers require combat-owned allied health and state')
     if stat=='burst_charge_speed_pct' and combat is None:
         raise UnsupportedPortable('Burst charge speed requires combat-owned normal-hit history')
@@ -120,7 +124,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     if 'event_scope' in eff and eff['event_scope'] not in ('squad','recipients'):
         raise UnsupportedPortable('Invalid named event audience')
     if kind=='buff':
-        if stat not in BUFFS and stat not in (None,'','stack_change_immune') and not immunity(eff) and not protection and stack is None and resource_op not in (4,5) and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat)):
+        if stat not in BUFFS and stat not in (None,'','stack_change_immune','stun_immune') and not immunity(eff) and not protection and stack is None and resource_op not in (4,5) and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat)):
             raise UnsupportedPortable('Unported buff stat', reason='effect')
         if not (recipient_admitted(target) or enemy_buff_plan(eff) is not None or stack is not None):
             raise UnsupportedPortable('Unported buff recipient selector', reason='recipient')

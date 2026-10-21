@@ -208,10 +208,10 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
     {
         uint picked = 5, candidates = 0; uint64_t earliest = FOREVER; s.cooldownWaitMask = 0;
         if (s.reentrySlot != 0) enterStage(s,s.phase,when,output);
-        for (uint who = 0; who < 5; who++) if ((s.downMask & (1U << who)) == 0 && (stages[who] == s.phase || stages[who] == 4))
+        for (uint who = 0; who < 5; who++) if (stages[who] == s.phase || stages[who] == 4)
         {
             candidates |= 1U << who; earliest = smaller(earliest,s.ready[who]);
-            if (reached(when,s.ready[who])) { picked = who; break; }
+            if ((s.downMask&(1U<<who))==0 && !statusStunned(s,who) && reached(when,s.ready[who])) { picked = who; break; }
             // Default automatic B1/B2 reserves the first candidate; reentry and B3 scan alternatives.
             if (s.phase < 3 && s.reentrySlot == 0) break;
         }
@@ -256,7 +256,7 @@ bool changedWeaponSession(inout Runtime s, uint who, uint epoch, int originalMod
 void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out uint64_t landedAmount, out uint landedCount, out uint landedTarget)
 {
     landedAmount=0;landedCount=0;landedTarget=0;
-    if (s.weaponEnabled[who] == 0 || (s.downMask & (1U << who)) != 0) return;
+    if (s.weaponEnabled[who] == 0 || (s.downMask & (1U << who)) != 0 || statusStunned(s,who)) return;
     uint target = aimedTarget(s,who); if (target == 0xffffffff) return;
     s.target = target; Weapon w;selectWeapon(s,who,when,w);
     if (s.error != 0) return; WORLD_CONTROL_TICK(s,who,when,output)

@@ -1001,3 +1001,9 @@ Windows v105はPTX生成後のmodule load、v106はCUBIN生成前のNVRTCで180�
 ### Windows制御検査v108
 
 v107はCPU81/native60の後、テスト用の子起動直後に失敗し、smoke未到達でした。原失敗を保持しています。テスト起動をCLIと同じbase Python・launcher環境除去へ合わせ、wrapper診断を残したv108は単独3件とCLIのCPU69件が成功しました。実Windowsの子孫付き2秒timeout検査と外側smokeで、終了後の空Job・peak memory取得を確認しました。smoke4.841秒、missing0、元HEAD/status保持、NVRTC/driver load/GPU0です。サービス識別unverifiedのため環境保持全体は未認定です。新機能のCUDA計算・coldコンパイル・速度は未検証のままで、次は資源と生成/最適化設定の切り分けです。詳細は`research/portable-world-v107-control-sanitized.json`、`research/portable-world-v108-control-sanitized.json`を参照してください。
+
+## 2026-10-21 stunとコンパイル専用CLI
+
+最新根拠は`research/portable-stun-cache-development-checkpoint.json`です。stun/免疫/対象条件の36正例＋拒否10は修正版Metalでnative完全一致。readiness v5の81も旧81と全input/native/output・raw一致です。CPU631件成功（Windows専用1件はMacでskip）。初回stun46ではrankの早期消費とenemy倍率への混入を発見し、原失敗を保持したまま、状態presenceを数値バフ集計から分離して解消しました。B1/B2の既定候補はstun中も保持して待機し、typed敵の条件は現在対象の文脈・世代を使います。既存canonical参照とbinary64/normalizerは変更していません。静的packing180/266、base126/203ですが通常CPU・全キャラ認定0です。
+
+新しい`compile` CLIは同じNVRTC/compiler cacheを使い、sealed sourceと生成指紋を検査後、driver/kernelを禁止して最大60秒・既定2GiBのJob上限で実行します。異なるptxasレベルはcache keyを分け、後続`run --require-cache`はmissでNVRTC program作成前に停止します。CUBIN速度・実CUDA数値は未検証です。次のWindows依頼は、メモリ上限の実WinAPI CPUテストとcompiler/CLIのCPU故障注入を先に行い、成功時だけO1のGPU0コンパイルを1回に限ります。以前のv105/106/107の失敗は変更せず、同条件retryやtimeout延長は行いません。

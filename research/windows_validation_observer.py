@@ -102,12 +102,13 @@ def inspect_job(job,process):
    members=sorted(int(v) for v in (C.c_size_t*count).from_buffer(buffer,8));break
   if C.get_last_error()!=234 or capacity>=4096:raise C.WinError(C.get_last_error())
   capacity=min(4096,max(capacity*2,assigned))
- peak=None
+ peak=None;memory_limit=None
  if hasattr(job,'limit_info_type'):
   limits=job.limit_info_type();returned=W.DWORD()
   if not dll.QueryInformationJobObject(job.handle,9,C.byref(limits),C.sizeof(limits),C.byref(returned)):raise C.WinError(C.get_last_error())
   peak=int(limits.peak_job)
- return dict(child_pid=process.pid,child_ppid=parent,parent_observation=parent_source,observed_unix_ns=time.time_ns(),wrapper_pid=os.getpid(),child_creation_filetime_ticks=str(created.value),job_members=members,job_peak_memory_bytes=peak)
+  memory_limit=int(limits.job_mem) if limits.basic.flags&0x200 else None
+ return dict(child_pid=process.pid,child_ppid=parent,parent_observation=parent_source,observed_unix_ns=time.time_ns(),wrapper_pid=os.getpid(),child_creation_filetime_ticks=str(created.value),job_members=members,job_peak_memory_bytes=peak,job_memory_limit_bytes=memory_limit)
 
 
 @contextlib.contextmanager

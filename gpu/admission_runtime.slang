@@ -25,6 +25,10 @@ void admitDefinitions(inout Runtime s,uint input)
     for (uint j = 0; j < s.count; j++)
     {
         Definition d;loadDefinition(input,j,d); PROJECTILE_ADMIT_ROW(s,j,d)
+        if(d.stat==S_stun)
+        { if(d.kind!=0 || s.combat==0 || !f64Equal(d.value,ONE)) { s.error=64;break; }s.incomingMask|=8; }
+        if((d.quantityFlags&2)!=0)
+        { if(d.kind!=4 || s.combat==0 || d.stat!=0 || d.quantityFlags!=2 || !f64Finite(d.value)) { s.error=64;break; }s.incomingMask|=16; }
         if(d.kind==25)
         {
             uint plan=input+P_RECIPIENT_BASE+j*8;
@@ -62,6 +66,8 @@ void admitDefinitions(inout Runtime s,uint input)
         for(uint slot=0;slot<d.conditionCount;slot++)
         {
             uint at=input+P_CONDITION_BASE+j*P_CONDITION_WORDS+slot*4;
+            if((commands[at]==C_TARGET_STUNNED || commands[at]==C_SELF_STUN_IMMUNE) &&
+               (s.combat==0 || commands[at+1]!=0 || !f64Zero(loadNumber(at+2)))) { s.error=64;break; }
             if(commands[at]==C_TARGET_STATE || commands[at]==C_NOT_TARGET_STATE || commands[at]==C_TARGET_STACK)
             {
                 uint64_t arg=loadNumber(at+2);uint conversionStatus;
@@ -110,7 +116,7 @@ void admitDefinitions(inout Runtime s,uint input)
         }
         uint periodic = input+P_PERIODIC_DEFINITION_BASE+j*2;
         if (d.enemyBuff != 0 && (d.enemyBuff != 1 || !(d.kind==0 || d.kind==4 && (d.flags&56)!=0 || d.kind==4 && d.stat==0 || d.kind==19) || s.combat == 0 || d.lazyGroup != 0 ||
-            !WORLD_ENEMY_ATTACK_STAT(s,d,(d.stat == S_enemy_def_down_pct || d.stat == S_def_caster_based_pct || d.stat == S_received_dmg_pct || d.stat == S_taunt || d.kind==4 && (d.flags&56)!=0 || d.kind==4 && d.stat==0 || d.kind==19)) ||
+            !WORLD_ENEMY_ATTACK_STAT(s,d,(d.stat == S_enemy_def_down_pct || d.stat == S_def_caster_based_pct || d.stat == S_received_dmg_pct || d.stat == S_taunt || d.stat == S_stun || d.kind==4 && (d.flags&56)!=0 || d.kind==4 && d.stat==0 || d.kind==19)) ||
             d.damageRoute > 9 || d.damageCount == 0 || d.damageCount > 256 || d.damageHits != 0 || d.damageNormal != 0 || !f64Zero(d.damageGauge) || d.damagePending != 0 || d.pendingHits != 0 ||
             commands[input+P_RECIPIENT_BASE+j*8] != 4)) { s.error = 64; break; }
         if (d.kind == 3 && (d.damageRoute > 9 || d.damageCount == 0 || d.damageCount > 256 || d.damageHits > 256 ||
