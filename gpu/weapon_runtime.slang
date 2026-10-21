@@ -28,7 +28,7 @@ uint64_t reloadDuration(inout Runtime s, Weapon w, uint who, uint64_t when)
 }
 void beginReload(inout Runtime s, Weapon w, uint who, uint64_t when)
 {
-    s.reloadUntil[who] = f64Add(when,reloadDuration(s,w,who,when)); s.charging[who] = 0;
+    s.reloadUntil[who] = f64Add(when,reloadDuration(s,w,who,when)); s.charging[who] = 0; WORLD_CONTROL_RELOAD(s,who)
 }
 bool completeReload(inout Runtime s, Weapon w, uint who, uint64_t when, uint output)
 {

@@ -51,7 +51,7 @@ void initializeWorldTeam(inout Runtime s)
         for(uint slot=0;slot<d.triggerCount*8;slot++) if(commands[s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS+slot]!=commands[s.inputBase+P_EVENT_BASE+first*P_EVENT_WORDS+slot]) { s.error=64;return; }
     }
     for(uint i=P_WORLD_TEAM_STATE_BASE;i<P_WORLD_TEAM_TRACE_BASE+P_WORLD_TEAM_TRACE_COUNT*8;i++) results[s.resourceOutput+i]=0;
-    results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE]=0x57544831;
+    results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE]=0x57544831; WORLD_CONTROL_INIT(s)
 }
 [noinline]
 void notifyWorldTeam(inout Runtime s,uint who,uint64_t when,uint output)

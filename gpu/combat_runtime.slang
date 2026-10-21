@@ -117,10 +117,10 @@ void selectWeapon(inout Runtime s,uint who,uint64_t when,out Weapon w)
         w.rawRate = 1; uint timing = s.inputBase+P_MODE_TIMING_BASE+uint(index)*P_MODE_TIMING_WORDS;
         w.rateMin = loadNumber(timing); w.rateMax = loadNumber(timing+2); w.warmLimit = loadNumber(timing+4); w.coolTime = loadNumber(timing+6);
     }
-    WORLD_MODE_GAUGE(s,w,who,index) if (w.pellets == 0 || w.pellets > 64 || w.muzzles == 0 || w.muzzles > 8) { s.error = 64; return; }
+    WORLD_MODE_GAUGE(s,w,who,index) WORLD_CONTROL_GAIN(s,w,who) if (w.pellets == 0 || w.pellets > 64 || w.muzzles == 0 || w.muzzles > 8) { s.error = 64; return; }
     if (index < 0 && s.physicalModeIndex[who] == -2)
     {
-        s.physicalModeIndex[who] = -1;
+        s.physicalModeIndex[who] = -1; WORLD_CONTROL_CANCEL(s,who)
         s.nextShot[who] = when;
     }
     if (s.appliedEpoch[who] != s.modeEpoch[who])
@@ -193,7 +193,7 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
     if (s.phase == 0 && reached(s.gauge,HUNDRED))
     {
         s.gauge = 0; s.phase = 1; s.action = when; s.reentryDone = 0; s.reentrySlot = 0;
-        logBurst(s,6,0xffffffff,when,output); enterStage(s,1,when,output);
+        logBurst(s,6,0xffffffff,when,output); WORLD_CONTROL_CYCLE(s) enterStage(s,1,when,output);
     }
     if (s.cooldownWaitMask != 0)
     {
@@ -215,7 +215,7 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
         if (picked == 5) { s.action = larger(s.action,earliest); s.cooldownWaitMask = candidates; }
         if (picked < 5)
         {
-            uint stage = s.phase; s.castMask |= 1U << picked; s.casts[picked]++;
+            uint stage = s.phase; s.castMask |= 1U << picked; s.casts[picked]++; WORLD_CONTROL_CAST(s,stage,picked)
             setBurstReady(s,picked,when);
             if (s.error != 0) return;
             uint target = s.target; s.target = 0;
@@ -256,7 +256,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     if (s.weaponEnabled[who] == 0 || (s.downMask & (1U << who)) != 0) return;
     uint target = aimedTarget(s,who); if (target == 0xffffffff) return;
     s.target = target; Weapon w;selectWeapon(s,who,when,w);
-    if (s.error != 0) return;
+    if (s.error != 0) return; WORLD_CONTROL_TICK(s,who,when,output)
     if(s.modeIndex[who]>=0 && !f64Less(s.modeEntryUntil[who],0)) return;
     if (s.modeIndex[who] < 0 && f64Less(0,s.reloadUntil[who]) && hasInfiniteAmmo(s,who,when))
     { s.reloadUntil[who] = F64_SIGN | ONE; s.nextShot[who] = larger(s.nextShot[who],when); }
@@ -296,7 +296,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     {
         if (s.charging[who] == 0)
         {
-            WORLD_CHARGE_START(s,who) s.charging[who] = 1; s.chargeStartedAt[who] = when;
+            WORLD_CONTROL_WAIT(s,who,w.chargeTime,when) WORLD_CHARGE_START(s,who) WORLD_CONTROL_START(s,who,w.chargeTime,when) s.charging[who] = 1; s.chargeStartedAt[who] = when;
             w.infinite = uint(hasInfiniteAmmo(s,who,when));
             if (w.infinite == 0 && s.ammo[who] == 1) dispatch(s,0,21,who,0,when,output);
             if (changedWeaponSession(s,who,epoch,mode)) return;
@@ -373,7 +373,7 @@ void squadFrame(inout Runtime s, uint64_t when, uint output)
 {
     drainLandings(s,when,output);
     if (s.error!=0) return;
-    burstFrame(s,when,output);
+    burstFrame(s,when,output); WORLD_CONTROL_ARBITRATE(s,when,output)
     for (uint who = 0; who < 5 && s.error == 0; who++) weaponFrame(s,who,when,output);
 }
 // Fixed clock generation belongs to the GPU, not to an authored shot schedule.

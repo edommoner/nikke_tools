@@ -119,6 +119,9 @@ void landWorldPending(inout Runtime s,Definition d,uint row,uint index,uint hit,
 #include "world_fraction_runtime.slang"
 #ifdef PORTABLE_WORLD_TEAM
 #include "world_team_runtime.slang"
+#ifdef PORTABLE_WORLD_CHARGE_CONTROL
+#include "world_charge_control_runtime.slang"
+#endif
 #endif
 #endif
 #endif
