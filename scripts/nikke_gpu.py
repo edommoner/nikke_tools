@@ -50,6 +50,10 @@ SUITES['stun']=dict(script='research/verify-world-stun-short.py',golden='researc
                    source='gpu/world_projectile_entry.slang',inputs=46,native=36,
                    tests=['test_portable_stun.py'])
 SUITES['burst-recipients-diagnostic']=dict(SUITES['burst-recipients'],source='gpu/world_projectile_admission_entry.slang',development_only=True)
+SUITES['roster-regression']=dict(script='research/verify-world-roster-regression-short.py',
+    golden='research/portable-world-roster-regression-short-expected.json',
+    source='gpu/world_projectile_entry.slang',inputs=18,native=18,
+    tests=['test_portable_roster_regression.py','test_portable_real_binding_proof.py'])
 
 SCHEMA = 1
 

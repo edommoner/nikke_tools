@@ -1,0 +1,37 @@
+{
+  "version": 110,
+  "purpose": "Corrected NVRTC11.3 split argv; CPU guards then one GPU0 CUBIN O1 compile",
+  "checkpoint": "88c10c8337f3c13f8811279578df09070da4940f",
+  "archive_path": "research/packets/nikke-cuda-compiler-v110.zip",
+  "archive_bytes": 4404373,
+  "archive_sha256": "5830c4052200774223d1e7c653c4924108d4ee1cf4f37eb2b7ca6c4e14de66aa",
+  "package_id": "75d2149bd0859850b1eec7356b655b9b98b2861fca77b53bef136ac730080767",
+  "bootstrap_sha256": "ad0116a0d474d9500c4d11b016cd1df23f6c5178cf8eedfcc6525a8a005a70a6",
+  "mac_cpu_preflight_passed": true,
+  "sealed_metal_inputs": 81,
+  "metal_stun_inputs": 46,
+  "windows_cpu_tests_first": [
+    "test_portable_windows_cleanup.py",
+    "test_portable_compile_cli.py",
+    "test_portable_cuda_artifact.py"
+  ],
+  "ptxas_level": 1,
+  "artifact_kind": "cubin",
+  "compile_max_seconds": 60,
+  "cleanup_seconds": 5,
+  "job_memory_mib": 2048,
+  "gpu_dispatch_calls_allowed": 0,
+  "driver_load_calls_allowed": 0,
+  "compile_attempts_allowed": 1,
+  "retries_allowed": 0,
+  "stop_on_cpu_test_failure": true,
+  "stop_after_compile_failure": true,
+  "cache_check_after_completed_compile_only": true,
+  "original_records_retained": true,
+  "services_operated": false,
+  "report_privately_as_sanitized_json": true,
+  "ptxas_arguments": [
+    "--ptxas-options",
+    "-O1"
+  ]
+}
