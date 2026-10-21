@@ -1,0 +1,20 @@
+{
+  "source_commit": "970aed0d7921de429c3808ec73a7115b0dcd2386",
+  "artifacts": [
+    {
+      "local_name": "windows-portable-world-v97-summary.json",
+      "bytes": 22794,
+      "sha256": "bf55737c73e63f4117f00f8ed2c0adea700b186a97718398b7432930a553b661"
+    },
+    {
+      "local_name": "portable-world-v97-execution.json",
+      "bytes": 904,
+      "sha256": "4c63c97a7229b2117f990cfc4bb0bd07a35129a7cb98f4eab008ab03b93fca4e"
+    },
+    {
+      "local_name": "portable-cross-v97-receipt.json",
+      "bytes": 43278,
+      "sha256": "d91459c2aaf6d3b1aaa89db677e80761734b66042e5d7b53a8d1bc4383b7d19e"
+    }
+  ]
+}

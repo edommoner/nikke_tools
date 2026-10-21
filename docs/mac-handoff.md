@@ -1,3 +1,21 @@
+## 2026-10-21 敵攻撃力fieldをMetal37・CUDA37で実証
+
+計算source0395cad4130cadf32d560efa0df5551d374f7f10・private ABI85/mode13で、敵へのatk_pct/atk_caster_based_pctを既存のresident・stack・期限・Actor recipient・名前付き状態へ接続しました。CUDA/Metalは同じSlang本体と28実戦・不正9入力を使います。出力幅655360wordは前段階のまま、periodic snapshotの後611856から128Actor×2wordの実GPU queryを保存します。CPU計算済みの敵攻撃力や被害量は入力しません。
+
+nativeのenemy_atk_down_flatは術者の基礎攻撃力×割合をresident順に合計し、ボス攻撃力へ加算して0以上に制限します。この値をtarget選択・5人への着弾より前に一発ごと捕捉し、途中のHP条件変化で残りの対象を再計算しません。敵へのatk_pctはnativeの被ダメージ式では読まれませんが、get_buffsの対象側分岐ではこちらの与ダメージのatk_pctに入るため、既存の順序付きcollectStatsへ接続しました。味方のrank/base-stat helperへは混ぜていません。nativeが召喚敵の発射元IDを復元できずflat補正を適用しない既知の制約も残ります。
+
+修正版Metal37＝native28実戦＋拒否9はすべて一致しました。M5 command completed、GPU0.139797秒、input14424676bytes/readback96993280bytesを保存済み。基礎ATKと味方buffの区別、正負・0clamp、expiry、stack/refresh、複数owner/alias、HP runtime条件と有限条件のlatch、7rank、128対象、遅延spawn/再世代、全battle/field/名前付き状態を照合。CPU418検査、旧14入口のCUDA/MSL厳密一致、保存raw/Git source/nativeのGPU禁止監査にも成功しました。
+
+初回22c8ca3の35入力は不一致を保持しています。既存status観測の有効化だけで保存出力をCPU再監査し22/28が一致、残るatk_pct与ダメージ3件とHP条件受付3件を共通処理へ修正しました。初回raw・initial-metal・observer-replay・findingを保持し、同一source/input GPU retry0です。今回のMetalは異なる固定source2種で計2回。旧入口は14生成物の厳密一致を確認して旧923以下と通常4682のGPU再実行をしていません。
+
+skill/pendingの古いshort goldenはこの変更前のa51ea7dでも現行生成物と異なりました。この2入口は追跡ファイルのcleanな固定a51ea7d worktreeから生成して比較し、今回の変更後も厳密一致を確認しました。normal等の旧11とperiodicも従来基準に一致。正規化規則を追加して差を隠していません。portable-world-enemy-attack-generation-baseline.jsonに両方の値と固定source SHAを保持しています。
+
+Windows v97は固定970aed0d7921de429c3808ec73a7115b0dcd2386、codex/cuda-world-v97-source（16ファイル252144bytes）で成功しました。指定CPU36検査・GPU禁止37入力/native28・source SHA78照合後、BelowNormal/JobObject/start gate/180秒＋cleanup5秒でCUDA1回・112.762323秒・exit0。保存3JSON計66976bytesを取得し、全input/output/native/generated fingerprint・API50phase・元HEAD/status/service保持・residual0・retry0・旧923以下/通常4682再実行0を共通監査器で照合済みです。portable-world-v97-cuda-validation.json、seal-world-v97-cuda.pyを参照。turn01a15c33-bbcf-75e1-b3d9-08c4d7753dceはcompleted、cursor174、idleで、再依頼は不要です。
+
+実203キャラ＋21お気に入り段階1/2/3＝266プロファイルを静的再監査し、own定義のPython事前検査通過がbase85→95、全121→133へ増えました。12の新規プロファイルをportable-world-enemy-attack-catalog-delta.jsonに保存。CPU battle/GPU build/executeは禁止して呼出し0です。これはGPU kind admission・容量・real roster/world配線・戦闘認証の証明ではありません。
+
+通常画面CPU・public world false・全キャラ戦闘認証0・legacy unexplained Metal14c8e2e OPEN・全ゴール未完了です。敵対象の他field/selector、enemy_spawn通知、charge/part/crit、source攻撃/interrupt・skill追加part到達、動的操作/復活、周期gone/expiry/dispelの全組合せ、永続条件付き味方HP/防御とhit-only max-HP rankのnative不整合、容量/長時間/全変種認証を進めます。効率化は必要な検証後。GitHub共有はゴール達成まで利用者許可済みです。
+
 ## 2026-10-21 DoT・一般周期ダメージをMetal923・CUDA45で実証
 
 計算source1f059919037de30f722b121064cd4be819cc87e1・private ABI84/mode11で、DoT/一般周期ダメージを既存timer・stack・reference・binary64数量計算・共通Actor着弾へ接続しました。256定義と2048着弾パケットそれぞれに、128対象の順序/bitset/捕捉birth ordinalを38wordで保存します。既存のchecked monotonic add birth ordinalを使い、後から生まれた同slotの世代へ再結合しません。aliasによる対象unionでも、作成済みパケットは不変です。通常timer更新→queue drain→burst/射撃の順序を保持し、即時DoTを別の早着弾経路にしていません。

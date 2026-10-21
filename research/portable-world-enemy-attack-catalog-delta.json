@@ -1,0 +1,59 @@
+{
+  "baseline_commit": "a51ea7d6718721ebd59f65fba2c570b6ee36d29d",
+  "before_base": 85,
+  "after_base": 95,
+  "before_profiles": 121,
+  "after_profiles": 133,
+  "newly_preflight_profiles": [
+    {
+      "character": "시그널",
+      "favorite_stage": 0
+    },
+    {
+      "character": "키리",
+      "favorite_stage": 0
+    },
+    {
+      "character": "크로우",
+      "favorite_stage": 0
+    },
+    {
+      "character": "자칼",
+      "favorite_stage": 0
+    },
+    {
+      "character": "페퍼",
+      "favorite_stage": 0
+    },
+    {
+      "character": "루드밀라",
+      "favorite_stage": 0
+    },
+    {
+      "character": "엑시아",
+      "favorite_stage": 0
+    },
+    {
+      "character": "엑시아",
+      "favorite_stage": 1
+    },
+    {
+      "character": "엑시아",
+      "favorite_stage": 2
+    },
+    {
+      "character": "노아",
+      "favorite_stage": 0
+    },
+    {
+      "character": "iDoll 플라워",
+      "favorite_stage": 0
+    },
+    {
+      "character": "람",
+      "favorite_stage": 0
+    }
+  ],
+  "gpu_battle_certifications": 0,
+  "full_goal_complete": false
+}

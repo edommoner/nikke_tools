@@ -3,10 +3,10 @@
   "catalog_characters": 203,
   "base_and_favorite_profiles": 266,
   "all_favorite_item_characters": 21,
-  "base_own_effect_preflight_passed": 85,
-  "all_profile_own_effect_preflight_passed": 121,
+  "base_own_effect_preflight_passed": 95,
+  "all_profile_own_effect_preflight_passed": 133,
   "issues": {
-    "Unported buff or recipient selector": 131,
+    "Unported buff or recipient selector": 112,
     "Unported instant or recipient selector": 21,
     "Unported trigger timing: event:enemy_spawn": 19,
     "Unported enemy damage selector": 15,
@@ -4416,7 +4416,7 @@
       "character": "시그널",
       "favorite_stage": 0,
       "own_effect_count": 14,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "어택 시그널",
@@ -4465,8 +4465,8 @@
             "hit_count:60"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "웨이팅 포 시그널",
@@ -9332,7 +9332,7 @@
       "character": "키리",
       "favorite_stage": 0,
       "own_effect_count": 14,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "곁눈질",
@@ -9357,8 +9357,8 @@
             "full_charge_hit"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "곁눈질 2",
@@ -28124,7 +28124,7 @@
       "character": "크로우",
       "favorite_stage": 0,
       "own_effect_count": 13,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "킬링타임",
@@ -28148,8 +28148,8 @@
             "full_burst_start"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "데어데블",
@@ -28455,7 +28455,7 @@
       "character": "자칼",
       "favorite_stage": 0,
       "own_effect_count": 15,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "해피 자칼",
@@ -28506,8 +28506,8 @@
             "received_hit_count:10"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "치얼업 자칼",
@@ -32716,7 +32716,7 @@
       "character": "페퍼",
       "favorite_stage": 0,
       "own_effect_count": 16,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "리프레쉬 하트 2",
@@ -32812,8 +32812,8 @@
             "every:10.0s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "페퍼 테라피",
@@ -43997,8 +43997,8 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "장비 옵션",
@@ -44579,8 +44579,8 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "장비 옵션",
@@ -45190,8 +45190,8 @@
             "burst_cast"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "장비 옵션",
@@ -48022,7 +48022,7 @@
       "character": "루드밀라",
       "favorite_stage": 0,
       "own_effect_count": 15,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "노블레스 오블리주",
@@ -48071,8 +48071,8 @@
             "last_bullet"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "주목",
@@ -53528,7 +53528,7 @@
       "character": "엑시아",
       "favorite_stage": 0,
       "own_effect_count": 15,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "인베이젼",
@@ -53554,8 +53554,8 @@
           "conditions": [
             "self_state:해킹 코드 수집"
           ],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "인베이젼 2",
@@ -53915,7 +53915,7 @@
       "character": "엑시아",
       "favorite_stage": 1,
       "own_effect_count": 20,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "인베이젼",
@@ -53941,8 +53941,8 @@
           "conditions": [
             "self_state:해킹 코드 수집"
           ],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "인베이젼 2",
@@ -54427,7 +54427,7 @@
       "character": "엑시아",
       "favorite_stage": 2,
       "own_effect_count": 21,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "인베이젼",
@@ -54453,8 +54453,8 @@
           "conditions": [
             "self_state:해킹 코드 수집"
           ],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "인베이젼 2",
@@ -54997,8 +54997,8 @@
           "conditions": [
             "self_state:해킹 코드 수집"
           ],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "인베이젼 2",
@@ -59879,7 +59879,7 @@
       "character": "노아",
       "favorite_stage": 0,
       "own_effect_count": 15,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "아파 보이네?",
@@ -59954,8 +59954,8 @@
             "full_charge_hit"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "주목",
@@ -73362,7 +73362,7 @@
       "character": "iDoll 플라워",
       "favorite_stage": 0,
       "own_effect_count": 13,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "플라워 리프",
@@ -73386,8 +73386,8 @@
             "last_bullet"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "플라워 컬러",
@@ -73412,8 +73412,8 @@
             "every:15.0s"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "플라워 퍼퓸",
@@ -75455,8 +75455,8 @@
           "conditions": [
             "self_stack_above:프로 케첩:15"
           ],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "장비 옵션",
@@ -78426,8 +78426,8 @@
           "conditions": [
             "burst_casted"
           ],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "경계 대상 지정 2",
@@ -116161,7 +116161,7 @@
       "character": "람",
       "favorite_stage": 0,
       "own_effect_count": 14,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "후라",
@@ -116185,8 +116185,8 @@
             "hit_count:5"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported buff or recipient selector"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "후라 2",
@@ -125089,7 +125089,7 @@
     "app/portable_damage_specs.py": "d969bbf4e827e098b07df8a7813f6a9804d7f578a1009bc15b9849f730ab9546",
     "app/portable_duration_extend_specs.py": "f3909d1ce0a448090fd853a8fbb44f64bf6acdbb1803742812a2fb84bd42f9a8",
     "app/portable_element_specs.py": "b46475dbf9ba590a8b031814b2f008224a9079aad87caff93b2ec49eab1c0af8",
-    "app/portable_enemy_specs.py": "8155ac37162d3790d86944696849e479ab8b7ddc8aad9db28e1f1c36d080c930",
+    "app/portable_enemy_specs.py": "fef4a6623720ad7885837522e8958e29350f2eecb5bd2ed1c82d2873d9d091f0",
     "app/portable_enemy_target_specs.py": "d0720e461f9b8bf2ce8a353c5da05a53d6b73f1aed9276c3124a0601b2a61b2e",
     "app/portable_geometry_specs.py": "58be59c7091a1ad2e29493e49d430f940810f57eba1c6dba539dc4efd4dee739",
     "app/portable_hp_attack_specs.py": "90b0e5c861eddbbce5fc51c91de9fe3208db1e19253c140e7ab133e1aa877b86",
@@ -125106,7 +125106,7 @@
     "app/portable_runtime.py": "a87b6c8139e42099706827cabdc1375ef5bb89de833658a57882eab01ca90988",
     "app/portable_runtime_layout.py": "1a882b22eef68f04633c2a0fcdc542b188669e50f283dc88bf241af33c7ca0f1",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "191b9de25c10556fb647e69d1698ea7d73e919a7634a8a201fd62bef9ca3ac50",
+    "app/portable_specs.py": "83eeb39726756cd0eb0f11c098bced0ce977626b674c3f001287182f6bec8068",
     "app/portable_stack_specs.py": "c2aae86773e268fbd375217028f140af335bb8d4704c8567881464e650c7bc32",
     "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
     "app/portable_status_specs.py": "387618cb8e46f8db81be2b9f83e7a70c167abc877868aefa21d0ebccb5d2fc2a",
