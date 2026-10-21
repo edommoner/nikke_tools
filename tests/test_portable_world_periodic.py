@@ -21,6 +21,8 @@ class PeriodicContracts(unittest.TestCase):
   _,t=self.inspect('non-dot-periodic-sequential_damage:3');self.assertEqual(len(t),9);self.assertEqual([r['hit'] for r in t],[1,2,3]*3)
  def test_runtime_target_condition_observes_the_dot_carrier(self):
   _,t=self.inspect('periodic-live-runtime-target-state');self.assertTrue(all(r['amount']==376 for r in t))
+ def test_counter_ordinal_includes_the_native_periodic_carrier(self):
+  n,_=self.inspect('periodic-dot-counter-before-child-damage');self.assertEqual(n['target_counters']['completions'][0]['entry_ordinal'],2)
  def test_gpu_input_uses_only_authored_programs(self):
   c=copy.deepcopy(self.rows['periodic-all128']);before=cases.compile_case(c)[0];c['native']={'targets':[0]*128,'damage':1e30};self.assertEqual(before,cases.compile_case(c)[0])
  def test_snapshots_cover_all_definitions_and_landing_slots_without_overlap(self):

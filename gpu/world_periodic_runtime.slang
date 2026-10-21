@@ -2,7 +2,7 @@
 // callbacks remain in the common executor. Slots are protected against a new
 // generation by the existing monotonic add birth ordinal, never truncated.
 bool worldPeriodicClock(inout Runtime s,Definition d)
-{ return worldPeriodicEnabled(s)&&d.kind==3&&!f64Zero(d.interval); }
+{ return worldPeriodicEnabled(s)&&d.kind==3&&f64Finite(d.interval)&&f64Less(0,d.interval); }
 uint periodicDefinitionSnapshot(inout Runtime s,uint row)
 { return s.resourceOutput+P_WORLD_PERIODIC_DEFINITION_BASE+row*38; }
 uint periodicPacketSnapshot(inout Runtime s,uint index)
