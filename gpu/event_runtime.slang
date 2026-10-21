@@ -1005,7 +1005,7 @@ void clearMode(inout Runtime s, uint who, uint64_t when)
     // restart cadence at its own sampling time, without refilling a second time.
     s.physicalModeIndex[who] = -2; s.pendingAutoReload[who] = 0;
     s.ammo[who] = fullCapacity(s,who,s.capacity[who],true,when); s.weaponInitialized[who] = 1; s.reloadUntil[who] = F64_SIGN | ONE;
-    s.charging[who] = 0; s.nextShot[who] = when; s.modeShots[who] = 0; s.postReloadUntil[who] = F64_SIGN | ONE; WORLD_CONTROL_CANCEL(s,who)
+    s.charging[who] = 0; s.nextShot[who] = when; s.modeShots[who] = 0; s.postReloadUntil[who] = F64_SIGN | ONE;
 }
 
 void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mode, uint event, uint owner, int argument, uint64_t when, uint64_t value = 0)
