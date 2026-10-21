@@ -153,6 +153,9 @@ void selectWeapon(inout Runtime s,uint who,uint64_t when,out Weapon w)
     return;
 }
 #include "weapon_runtime.slang"
+#ifdef PORTABLE_WORLD_RELOAD
+#include "world_reload_runtime.slang"
+#endif
 #ifdef PORTABLE_WORLD_OVERLAYS
 #include "world_overlay_weapon.slang"
 #endif
@@ -261,10 +264,10 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     if (s.modeIndex[who] < 0 && f64Less(0,s.reloadUntil[who]) && hasInfiniteAmmo(s,who,when))
     { s.reloadUntil[who] = F64_SIGN | ONE; s.nextShot[who] = larger(s.nextShot[who],when); }
     if (s.modeIndex[who] < 0 && f64Less(s.reloadUntil[who],0)) s.ammo[who] = min(s.ammo[who],int(w.capacity));
-    if (!f64Less(s.reloadUntil[who],0) && (s.modeIndex[who] < 0 || w.reloadAllowed != 0))
+    if (WORLD_RELOAD_ACTIVE(s,who,!f64Less(s.reloadUntil[who],0)) && (s.modeIndex[who] < 0 || w.reloadAllowed != 0))
     {
         if (f64Less(when,s.reloadUntil[who])) return;
-        if (!completeReload(s,w,who,when,output)) return;
+        if (!completeReload(s,w,who,when,output)) return; WORLD_RELOAD_AFTER_COMPLETE(s,who)
         selectWeapon(s,who,when,w); // A completion callback may change the mode.
     }
     if (s.modeIndex[who] < 0 && !f64Less(s.postReloadUntil[who],0))

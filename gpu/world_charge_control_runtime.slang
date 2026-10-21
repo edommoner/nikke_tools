@@ -73,7 +73,7 @@ void initializeChargeControl(inout Runtime s)
     for(uint who=0;who<5;who++)
     {
         uint a=controlState(s,who);for(uint j=2;j<=12;j+=2) storeNumber(a+j,ONE|F64_SIGN);results[a+14]=0xffffffff;
-    }
+    } WORLD_RELOAD_INIT(s)
 }
 bool controlWindow(inout Runtime s,uint who,uint row)
 {
