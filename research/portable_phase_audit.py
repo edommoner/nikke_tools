@@ -64,6 +64,13 @@ def observe(backend, journal):
         return journal.invoke('slang_build', original_build, *args, **kwargs)
     with contextlib.ExitStack() as stack:
         stack.enter_context(patch.object(backend, 'build', build))
+        if hasattr(backend,'compile_cuda_ptx'):
+            original_compile=backend.compile_cuda_ptx
+            def compile_ptx(*args,**kwargs):
+                artifact,receipt=journal.invoke('cuda_compile_artifact',original_compile,*args,**kwargs)
+                journal.emit('cuda_compile_cache','verified',receipt=receipt)
+                return artifact,receipt
+            stack.enter_context(patch.object(backend,'compile_cuda_ptx',compile_ptx))
         if os.name == 'nt':
             original_dll = ctypes.WinDLL
             def library(*args, **kwargs):
@@ -87,6 +94,7 @@ def summarize(path):
                                  and r.get('return_code') == 0 for r in rows)
     return dict(events=len(rows), last_event=rows[-1] if rows else None,
                 nvrtc_compile_returned_success=returned('nvrtcCompileProgram'),
+                cuda_compile_cache_hit_verified=any(valid_cache_hit(r) for r in rows),
                 cuda_launch_returned_success=returned('cuLaunchKernel'),
                 cuda_synchronize_returned_success=returned('cuCtxSynchronize'),
                 cuda_readback_returned_success=returned('cuMemcpyDtoH_v2'),
@@ -102,10 +110,24 @@ def verify_cuda_trace(rows, *, pid=None):
     if pid is not None and {row['pid'] for row in rows}!={pid}:
         return False
     previous=-1
-    for stage in ('nvrtcCompileProgram','cuLaunchKernel','cuCtxSynchronize','cuMemcpyDtoH_v2'):
+    stages=['nvrtcCompileProgram','cuLaunchKernel','cuCtxSynchronize','cuMemcpyDtoH_v2']
+    if not any(r['stage']=='nvrtcCompileProgram' for r in rows):
+        hits=[(i,r) for i,r in enumerate(rows) if valid_cache_hit(r)]
+        if len(hits)!=1:return False
+        previous=hits[0][0];stages=stages[1:]
+    for stage in stages:
         hits=[(i,r) for i,r in enumerate(rows) if r['stage']==stage]
         if (len(hits)!=2 or hits[0][1]['state']!='entered' or hits[1][1]['state']!='returned'
             or hits[1][1].get('return_code')!=0 or hits[0][0]<=previous):
             return False
         previous=hits[1][0]
     return True
+
+
+def valid_cache_hit(row):
+    receipt=row.get('receipt',{})
+    return (row.get('stage')=='cuda_compile_cache' and row.get('state')=='verified'
+            and receipt.get('enabled') is True and receipt.get('hit') is True
+            and isinstance(receipt.get('artifact_bytes'),int) and receipt['artifact_bytes']>0
+            and all(isinstance(receipt.get(k),str) and len(receipt[k])==64
+                    and all(c in '0123456789abcdef' for c in receipt[k]) for k in ('key','artifact_sha256')))

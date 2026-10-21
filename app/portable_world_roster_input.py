@@ -78,7 +78,7 @@ def compile_world_battle(prepared, *, trace='burst'):
               [duration,2,0,0,-1,0,0,0]]
     # Ordinary public query rows are compiled first; private finalizer40 follows.
     words, meta = compile_program(chars, compiled, script, attacks,
-        allies=prepared['allies'], cover_sync=False, native_landing=True,
+        allies=prepared['allies'], cover_sync=bool(enemy.get('patterns')), native_landing=True,
         enemy_code=enemy.get('code'), geometry=from_roster(chars, enemy), world_frame=True,
         world_notice_names=('target_spawn',) if target_spawn else (),
         combat=dict(weapons=weapons, targets=[dict(hp=1e30, defense=enemy['def'], attack=enemy.get('atk', DEFAULT_BOSS_ATK))],

@@ -191,17 +191,10 @@ def execute_cuda_batches(source, entry, batches, output_sizes, counts):
             getattr(lib,name).argtypes=signature; getattr(lib,name).restype=C.c_int
         def check(code):
             if code: raise RuntimeError(f'NVRTC error {code}')
-        program = C.c_void_p()
-        try:
-            check(lib.nvrtcCreateProgram(C.byref(program),source.read_bytes(),b'portable.cu',0,None,None))
-            options = [b'--std=c++17',b'--gpu-architecture=compute_86',b'--fmad=false']
-            code=lib.nvrtcCompileProgram(program,len(options),(C.c_char_p*len(options))(*options))
-            size=C.c_size_t(); check(lib.nvrtcGetProgramLogSize(program,C.byref(size)))
-            log=C.create_string_buffer(size.value);check(lib.nvrtcGetProgramLog(program,log))
-            if code: raise RuntimeError(log.value.decode('utf-8','replace'))
-            check(lib.nvrtcGetPTXSize(program,C.byref(size)));ptx=C.create_string_buffer(size.value);check(lib.nvrtcGetPTX(program,ptx))
-        finally:
-            if program: lib.nvrtcDestroyProgram(C.byref(program))
+        ptx_bytes,compile_receipt=compile_cuda_ptx(lib,source.read_bytes(),list(cuda_bin.glob('nvrtc*.dll')))
+        ptx=C.create_string_buffer(ptx_bytes)
+        # Capture exact compiled bytes for independent local audits, including hits.
+        source.with_suffix('.ptx').write_bytes(ptx_bytes)
     driver=C.WinDLL('nvcuda.dll')
     signatures=dict(cuInit=[C.c_uint],cuDeviceGet=[C.POINTER(C.c_int),C.c_int],cuDeviceGetName=[C.c_char_p,C.c_int,C.c_int],
         cuCtxCreate_v2=[C.POINTER(C.c_void_p),C.c_uint,C.c_int],cuCtxDestroy_v2=[C.c_void_p],
@@ -236,7 +229,29 @@ def execute_cuda_batches(source, entry, batches, output_sizes, counts):
             started=time.perf_counter();call('cuLaunchKernel',function,count,1,1,1,1,1,0,None,None,None);call('cuCtxSynchronize')
             elapsed=time.perf_counter()-started
             output=C.create_string_buffer(output_size);call('cuMemcpyDtoH_v2',output,out,output_size)
-            results.append(output.raw);transports.append(dict(backend='cuda',device=name.value.decode(),cases=count,command_status='completed',host_dispatch_seconds=elapsed))
+            results.append(output.raw);transports.append(dict(backend='cuda',device=name.value.decode(),cases=count,command_status='completed',host_dispatch_seconds=elapsed,compile_artifact=compile_receipt))
         return results,transports
     finally:
         if context:call('cuCtxDestroy_v2',context)
+
+
+def compile_cuda_ptx(lib, source, compiler_files):
+    from portable_compile_cache import get_or_compile,quoted_headers
+    options = ['--std=c++17','--gpu-architecture=compute_86','--fmad=false']
+    def compile_now():
+        def check(code):
+            if code: raise RuntimeError(f'NVRTC error {code}')
+        program=C.c_void_p()
+        try:
+            check(lib.nvrtcCreateProgram(C.byref(program),source,b'portable.cu',0,None,None))
+            encoded=[option.encode() for option in options]
+            code=lib.nvrtcCompileProgram(program,len(encoded),(C.c_char_p*len(encoded))(*encoded))
+            size=C.c_size_t();check(lib.nvrtcGetProgramLogSize(program,C.byref(size)))
+            log=C.create_string_buffer(size.value);check(lib.nvrtcGetProgramLog(program,log))
+            if code: raise RuntimeError(log.value.decode('utf-8','replace'))
+            check(lib.nvrtcGetPTXSize(program,C.byref(size)))
+            ptx=C.create_string_buffer(size.value);check(lib.nvrtcGetPTX(program,ptx))
+            return ptx.raw
+        finally:
+            if program: lib.nvrtcDestroyProgram(C.byref(program))
+    return get_or_compile(source,options,compiler_files,compile_now,os.environ.get('NIKKE_CUDA_COMPILE_CACHE'),header_files=quoted_headers(source))

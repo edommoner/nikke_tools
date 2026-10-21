@@ -13,6 +13,11 @@ uint currentTaunters(inout Runtime s,uint64_t when)
             bool member=false;
             for(uint enemy=0;enemy<s.targetCount;enemy++)
                 if((s.activeRecipients[row]&(1U<<(enemy+5)))!=0 && targetLive(s,enemy,enemyCarrierGeneration(s,row,enemy))) member=true;
+#ifdef PORTABLE_WORLD_ACTOR_RECIPIENTS
+            // Native taunters checks captured enemy labels, including deferred
+            // removal during synchronous notices, without rechecking conditions.
+            if(actorRecipientsEnabled(s)) member=actorRecipientAny(s,row);
+#endif
             if(member) mask|=1U<<definition_owner(s.inputBase,definition);
             // Native enemy branch never rechecks this carrier's runtime predicate.
             continue;

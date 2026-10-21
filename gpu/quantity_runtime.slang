@@ -6,6 +6,8 @@ bool liveRecipient(inout Runtime s, uint row, uint who, uint64_t when)
 uint64_t stackedValue(inout Runtime s, uint row, uint who, uint stack)
 {
     Definition d = residentDefinition(s,row); uint64_t value = d.value;
+    // Native lost-HP scaling reads the caster at query time and bypasses stacks.
+    if ((d.flags & 128U)!=0) return f64Mul(value,larger(0,f64Add(HUNDRED,s.hpPct[d.owner] ^ F64_SIGN)));
     if (d.stat == S_charge_speed_caster_based_pct && d.kind == 0)
     {
         uint64_t caster = s.rawCharge[d.owner], target = f64Zero(s.rawCharge[who]) ? caster : s.rawCharge[who];

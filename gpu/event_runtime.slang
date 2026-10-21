@@ -2136,19 +2136,19 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     if(!validGeometry(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,4) admitDefinitions(s,input);
     if (s.error != 0) { results[output] = s.error; return; }
-    PROJECTILE_ADMIT_STAGE(s,5) if(!initializeWorldFrame(s)) { results[output]=64;return; } WORLD_OVERLAY_INIT(s,output) WORLD_ACTORS_INIT(s,output) WORLD_POOL_INIT(s,output) WORLD_FIELDS_INIT(s,output) WORLD_STATE_INIT(s,output) COUNTER_INIT(s,output)
-    if(!validEnemyTargeting(s)) { results[output]=64;return; }
-    if(!validProtection(s)) { results[output]=64;return; }
-    if (!validStatusDefinitions(s)) { results[output]=64;return; }
-    if (!validStackDefinitions(s)) { results[output]=64;return; }
-    if (!validEventCandidates(s)) { results[output] = 64; return; }
-    for (uint row = 0; row < s.count; row++) if (!validPendingDefinition(s,row)) { results[output] = 64; return; }
-    if (!validateDurationGroups(s)) { results[output] = 64; return; }
-    if (!validatePeriodicDefinitions(s)) { results[output] = 64; return; }
-    if (!initializeResources(s) || !validateReferences(s)) { results[output] = 64; return; }
-    if (!initializeSources(s)) { results[output]=64; return; }
-    if(!initializeStaged(s)) { results[output]=64;return; }
-    if (!initializeLandings(s)) { results[output]=64;return; }
+    PROJECTILE_ADMIT_STAGE(s,5) if(!initializeWorldFrame(s)) { results[output]=64;return; } PROJECTILE_ADMIT_STAGE(s,6) WORLD_OVERLAY_INIT(s,output) PROJECTILE_ADMIT_STAGE(s,7) WORLD_ACTORS_INIT(s,output) PROJECTILE_ADMIT_STAGE(s,8) WORLD_POOL_INIT(s,output) PROJECTILE_ADMIT_STAGE(s,9) WORLD_FIELDS_INIT(s,output) PROJECTILE_ADMIT_STAGE(s,10) WORLD_STATE_INIT(s,output) PROJECTILE_ADMIT_STAGE(s,11) COUNTER_INIT(s,output)
+    PROJECTILE_ADMIT_STAGE(s,12) if(!validEnemyTargeting(s)) { results[output]=64;return; }
+    PROJECTILE_ADMIT_STAGE(s,13) if(!validProtection(s)) { results[output]=64;return; }
+    PROJECTILE_ADMIT_STAGE(s,14) if (!validStatusDefinitions(s)) { results[output]=64;return; }
+    PROJECTILE_ADMIT_STAGE(s,15) if (!validStackDefinitions(s)) { results[output]=64;return; }
+    PROJECTILE_ADMIT_STAGE(s,16) if (!validEventCandidates(s)) { results[output] = 64; return; }
+    PROJECTILE_ADMIT_STAGE(s,17) for (uint row = 0; row < s.count; row++) if (!validPendingDefinition(s,row)) { results[output] = 64; return; }
+    PROJECTILE_ADMIT_STAGE(s,18) if (!validateDurationGroups(s)) { results[output] = 64; return; }
+    PROJECTILE_ADMIT_STAGE(s,19) if (!validatePeriodicDefinitions(s)) { results[output] = 64; return; }
+    PROJECTILE_ADMIT_STAGE(s,20) if (!initializeResources(s) || !validateReferences(s)) { results[output] = 64; return; }
+    PROJECTILE_ADMIT_STAGE(s,22) if (!initializeSources(s)) { results[output]=64; return; }
+    PROJECTILE_ADMIT_STAGE(s,23) if(!initializeStaged(s)) { results[output]=64;return; }
+    PROJECTILE_ADMIT_STAGE(s,24) if (!initializeLandings(s)) { results[output]=64;return; }
     for(uint word=0;word<P_PROBABILITY_STATE_WORDS;word++) results[output+P_PROBABILITY_STATE_BASE+word]=0;
     if(commands[input+P_ENEMY_TARGET_META_BASE]!=0) mtSeed(output+P_ENEMY_RNG_BASE,uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+1])|(uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+2])<<32));
     initializeHPWatches(s);

@@ -23,12 +23,22 @@ SUITES = {
     'projectile': dict(script='research/verify-world-projectile-short.py',
                        golden='research/portable-world-projectile-short-expected.json',
                        source='gpu/world_projectile_entry.slang', inputs=63, native=52,
-                       tests=['test_portable_projectiles.py', 'test_portable_real_binding_proof.py']),
+                       tests=['test_portable_projectiles.py', 'test_portable_real_binding_proof.py','test_portable_readiness.py','test_portable_compile_cache.py']),
+    'readiness':dict(script='research/verify-world-readiness-short.py',
+                       golden='research/portable-world-readiness-v2-short-expected.json',
+                       source='gpu/world_projectile_entry.slang',inputs=75,native=60,
+                       tests=['test_portable_readiness.py','test_portable_compile_cache.py','test_portable_gpu_cli.py']),
+    'lost-hp-roster':dict(script='research/verify-world-lost-hp-rosters-short.py',
+                       golden='research/portable-world-projectile-short-expected.json',
+                       source='gpu/world_projectile_entry.slang',inputs=8,native=8,development_only=True,
+                       tests=['test_portable_readiness.py','test_portable_real_binding_proof.py']),
     'reload': dict(script='research/verify-world-reload-short.py',
                    golden='research/portable-world-reload-short-expected.json',
                    source='gpu/world_reload_entry.slang', inputs=65, native=46,
                    tests=['test_portable_world_reload.py']),
 }
+SUITES['lost-hp-diagnostic']=dict(SUITES['lost-hp-roster'],source='gpu/world_projectile_admission_entry.slang')
+
 SCHEMA = 1
 
 
@@ -84,15 +94,19 @@ def verify_package(root):
     m = load(root/'gpu-package.json')
     if m['schema'] != SCHEMA or m['package_id'] != package_id(m) or m['suite'] not in SUITES:
         raise ValueError('Invalid package identity/schema/suite')
+    if m.get('purpose','sealed') not in ('sealed','development') or (not is_development(m) and m.get('selected_cases')):
+        raise ValueError('Invalid package purpose/case selection')
     check_records(root, m['files'])
-    golden = load(root/SUITES[m['suite']]['golden'])
+    golden = m['golden'] if is_development(m) else load(root/SUITES[m['suite']]['golden'])
     if golden != m['golden']:
         raise ValueError('Package golden mismatch')
     return m
 
 
-def make_package(suite, output):
+def make_package(suite, output, *, develop=False, cases=()):
     """Whitelist code + required public data; never reports/raw/settings/tools."""
+    if SUITES[suite].get('development_only') and not develop:
+        raise ValueError('This suite requires --develop until an explicit Metal seal is registered')
     tracked = subprocess.check_output(['git','ls-files','-z'], cwd=ROOT).decode().split('\0')
     names = []
     for name in filter(None, tracked):
@@ -115,7 +129,9 @@ def make_package(suite, output):
         raise ValueError('Pinned upstream source/data must be installed first')
     names.append(license_path.relative_to(ROOT).as_posix())
     records = file_records(ROOT, names)
-    golden = load(ROOT/SUITES[suite]['golden'])
+    if cases and not develop:
+        raise ValueError('--case requires --develop')
+    golden = development_baseline(suite, cases) if develop else load(ROOT/SUITES[suite]['golden'])
     # Early stale-golden detection, without importing native engine or building.
     for name, digest in golden['source_sha256'].items():
         if sha((ROOT/name).read_bytes()) != digest:
@@ -123,7 +139,7 @@ def make_package(suite, output):
     m = dict(schema=SCHEMA, suite=suite,
              source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
              working_tree_dirty=bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip()),
-             files=records, golden=golden, runtime_requirements=['Python dependencies from the existing venv', 'Slang 2026.20', 'CUDA toolkit/driver on Windows or Swift/Metal on macOS'])
+             files=records, golden=golden, purpose='development' if develop else 'sealed', selected_cases=list(cases), runtime_requirements=['Python dependencies from the existing venv', 'Slang 2026.20', 'CUDA toolkit/driver on Windows or Swift/Metal on macOS'])
     m['package_id'] = package_id(m)
     with zipfile.ZipFile(output, 'x', compression=zipfile.ZIP_DEFLATED) as archive:
         archive.writestr('gpu-package.json', json.dumps(m, ensure_ascii=False, indent=2))
@@ -164,6 +180,43 @@ def open_suite(m):
     return module(ROOT/SUITES[m['suite']]['script'])
 
 
+def is_development(m):
+    return m.get('purpose', 'sealed') == 'development'
+
+
+def prepare_entries(adapter, m):
+    entries, data = adapter.prepare()
+    if is_development(m) and hasattr(adapter, 'development_entries'):
+        entries = entries + adapter.development_entries()
+        data = None
+    selected = m.get('selected_cases', [])
+    if not selected and data is not None:
+        return entries, data
+    names = [row[0] for row in entries]
+    if len(set(selected)) != len(selected) or not set(selected) <= set(names):
+        raise ValueError('Unknown or duplicate selected cases')
+    entries = [row for row in entries if not selected or row[0] in selected]
+    packed = array.array('I', [len(entries)])
+    for _, words, _ in entries:
+        packed.extend(words)
+    if sys.byteorder != 'little': packed.byteswap()
+    return entries, packed.tobytes()
+
+
+def development_baseline(suite, cases):
+    """Freeze inputs and native oracles without treating new GPU output as truth."""
+    with forbid_gpu():
+        m = dict(suite=suite, purpose='development', selected_cases=list(cases))
+        adapter = open_suite(m)
+        entries, data = prepare_entries(adapter, m)
+        from portable_backend import source_hashes
+        iw = adapter.suite.INPUT * 4
+        return dict(input_sha256=sha(data), source_sha256=source_hashes(SUITES[suite]['source']),
+                    entries=[dict(name=name, input_sha256=sha(data[4+i*iw:4+(i+1)*iw]),
+                                  native_sha256=native_hash(adapter, domain))
+                             for i,(name,words,domain) in enumerate(entries)])
+
+
 def native_hash(adapter, domain):
     if domain is None:
         value = dict(status=64)
@@ -187,7 +240,7 @@ def cpu_preflight(m):
     # Patch before importing the adapter, so its from-import aliases are blocked.
     with forbid_gpu():
         adapter = open_suite(m)
-        entries, data = adapter.prepare()
+        entries, data = prepare_entries(adapter, m)
         golden = m['golden']
         if sha(data) != golden['input_sha256'] or len(entries) != len(golden['entries']):
             raise ValueError('Input differs from golden')
@@ -199,7 +252,7 @@ def cpu_preflight(m):
                 raise ValueError('First CPU/input mismatch: '+name)
     from portable_typed_cuda_proof_audit import verify_cpu_gpu_calls
     calls = dict(build=0,execute=0); verify_cpu_gpu_calls(calls)
-    return dict(passed=True, input_count=len(entries), native_oracles=SUITES[m['suite']]['native'],
+    return dict(passed=True, input_count=len(entries), native_oracles=sum(domain is not None for _,_,domain in entries),
                 input_sha256=sha(data), gpu_calls=calls, elapsed_seconds=time.perf_counter()-started)
 
 
@@ -213,7 +266,7 @@ def child(capture, backend, smoke=False):
         write(capture/'smoke.json',dict(pid=os.getpid(),ppid=os.getppid(),gpu_calls=0)); return
     m = verify_package(ROOT)
     adapter = open_suite(m)
-    entries, data = adapter.prepare()
+    entries, data = prepare_entries(adapter, m)
     if sha(data) != m['golden']['input_sha256']:
         raise ValueError('Input changed after preflight')
     (capture/'input.bin').write_bytes(data)
@@ -227,6 +280,9 @@ def child(capture, backend, smoke=False):
     # Raw/evidence are durable before any comparison, so failures remain inspectable.
     (capture/'readback.bin').write_bytes(raw); write(capture/'evidence.json',evidence)
     copy_generated(capture,m['suite'])
+    if backend=='cuda':
+        stem=Path(SUITES[m['suite']]['source']).stem
+        (capture/'compiled.ptx').write_bytes((ROOT/'research/portable-build'/(stem+'.ptx')).read_bytes())
     result = journal.invoke('shared_native_compare',compare_readback,m,capture,adapter=adapter)
     write(capture/'comparison.json',result)
     if not result['calculation_verified']:
@@ -237,7 +293,7 @@ def compare_readback(m, capture, adapter=None):
     """Re-run existing native comparators; no GPU builds/executes allowed."""
     with forbid_gpu():
         adapter = adapter or open_suite(m)
-        entries,data = adapter.prepare()
+        entries,data = prepare_entries(adapter, m)
         raw=(capture/'readback.bin').read_bytes(); evidence=load(capture/'evidence.json')
         if (capture/'input.bin').read_bytes()!=data or sha(data)!=m['golden']['input_sha256']:
             raise ValueError('Saved input mismatch')
@@ -245,6 +301,20 @@ def compare_readback(m, capture, adapter=None):
             raise ValueError('Saved evidence/raw mismatch')
         if evidence['source_sha256']!=m['golden']['source_sha256'] or not evidence['gpu_execution_verified']:
             raise ValueError('Wrong/unverified GPU source')
+        if evidence['backend']=='cuda' and 'compile_artifact' in evidence['transport']:
+            receipt=evidence['transport']['compile_artifact'];artifact=(capture/'compiled.ptx').read_bytes()
+            identity_key=sha(json.dumps(receipt['identity'],sort_keys=True,separators=(',',':')).encode())
+            if receipt['key']!=identity_key or receipt['identity']['artifact']!='ptx' or receipt['identity']['schema']!=1:
+                raise ValueError('Invalid CUDA compile cache key/schema')
+            if receipt['identity']['options']!=['--std=c++17','--gpu-architecture=compute_86','--fmad=false']:
+                raise ValueError('CUDA compiler options changed')
+            if sha(artifact)!=receipt['artifact_sha256'] or len(artifact)!=receipt['artifact_bytes']:
+                raise ValueError('Compiled CUDA artifact mismatch')
+            if receipt['identity']['source_sha256']!=sha((capture/'generated.cu').read_bytes()):
+                raise ValueError('Compiled CUDA source identity mismatch')
+            phases=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
+            if [r['receipt'] for r in phases if r['stage']=='cuda_compile_cache' and r['state']=='verified']!=[receipt]:
+                raise ValueError('CUDA compiler artifact phase mismatch')
         results=[]; mismatches=[]; iw=adapter.suite.INPUT*4; ow=786432*4
         for i,(name,words,domain) in enumerate(entries):
             part=raw[i*ow:(i+1)*ow]; block=array.array('I'); block.frombytes(part)
@@ -255,7 +325,9 @@ def compare_readback(m, capture, adapter=None):
                     native=dict(status=64)
                 else:native=adapter.compare(block,domain)
                 row=dict(name=name,input_sha256=sha(data[4+i*iw:4+(i+1)*iw]),output_sha256=sha(part),native_sha256=adapter.cross.digest(native))
-                if row!=m['golden']['entries'][i]:mismatches.append(dict(index=i,name=name,reason='fingerprint mismatch'))
+                expected = m['golden']['entries'][i]
+                actual = {key:row[key] for key in expected} if is_development(m) else row
+                if actual!=expected:mismatches.append(dict(index=i,name=name,reason='fingerprint mismatch'))
                 results.append(row)
             except (AssertionError,ValueError,KeyError,IndexError) as error:
                 mismatches.append(dict(index=i,name=name,reason=type(error).__name__+': '+str(error)))
@@ -263,11 +335,65 @@ def compare_readback(m, capture, adapter=None):
         generated={}
         for backend,suffix in [('cuda','cu'),('metal','metal')]:
             generated[backend]=adapter.cross.normalized((capture/('generated.'+suffix)).read_bytes())
-        if generated!=m['golden']['generated_normalized']:mismatches.append(dict(reason='generated code mismatch'))
-        if sha(raw)!=m['golden']['output_sha256']:mismatches.append(dict(reason='full readback fingerprint mismatch'))
+        if not is_development(m) and generated!=m['golden']['generated_normalized']:mismatches.append(dict(reason='generated code mismatch'))
+        if not is_development(m) and sha(raw)!=m['golden']['output_sha256']:mismatches.append(dict(reason='full readback fingerprint mismatch'))
         return dict(calculation_verified=not mismatches, entries=results, mismatches=mismatches,
-                    input_count=len(entries), native_oracles=SUITES[m['suite']]['native'],
+                    input_count=len(entries), native_oracles=sum(domain is not None for _,_,domain in entries),
                     input_sha256=sha(data),output_sha256=sha(raw),generated_normalized=generated,audit_gpu_calls=0)
+
+
+def check_compile_cache(capture, output):
+    """Verify warm artifact reuse using file reads only: NVRTC/GPU forbidden."""
+    m=verify_package(ROOT)
+    if load(capture/'run.json')['package_id']!=m['package_id']:
+        raise ValueError('Capture belongs to another package')
+    check_records(capture,load(capture/'artifacts.json')['files'])
+    evidence=load(capture/'evidence.json')
+    if evidence['backend']!='cuda':raise ValueError('CUDA artifact required')
+    from portable_compile_cache import get_or_compile,quoted_headers
+    directory=os.environ.get('NIKKE_CUDA_COMPILE_CACHE')
+    if not directory:raise ValueError('NIKKE_CUDA_COMPILE_CACHE is required')
+    cuda_bin=Path(os.environ.get('CUDA_PATH',r'C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.3'))/'bin'
+    receipt=evidence['transport']['compile_artifact']
+    def forbidden():raise RuntimeError('Cache miss; NVRTC compilation forbidden in cache-check')
+    started=time.perf_counter()
+    artifact,hit=get_or_compile((capture/'generated.cu').read_bytes(),receipt['identity']['options'],
+                               list(cuda_bin.glob('nvrtc*.dll')),forbidden,directory,
+                               header_files=quoted_headers((capture/'generated.cu').read_bytes()))
+    if not hit['hit'] or hit['key']!=receipt['key'] or artifact!=(capture/'compiled.ptx').read_bytes():
+        raise ValueError('Warm CUDA artifact does not match captured compiler output')
+    result=dict(passed=True,cache=hit,elapsed_seconds=time.perf_counter()-started,
+                gpu_calls=0,nvrtc_compile_calls=0,package_id=m['package_id'])
+    with output.open('x',encoding='utf-8') as stream:
+        json.dump(result,stream,indent=2);stream.write('\n')
+    return result
+
+
+def seal_development(package_root, capture, output):
+    """Explicit GPU0 seal of a successful immutable Metal development capture."""
+    # Use the package's own imports and auditors in a fresh process. Its files
+    # are verified before native work; never patch a consumed package in place.
+    script = """import importlib.util,json,sys,pathlib
+root=pathlib.Path(sys.argv[1]);capture=pathlib.Path(sys.argv[2])
+s=importlib.util.spec_from_file_location('seal_cli',root/'scripts/nikke_gpu.py')
+m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
+p=m.verify_package(root)
+if not m.is_development(p) or m.load(capture/'run.json')['backend']!='metal':raise ValueError('Metal development capture required')
+a=m.audit_capture(capture)
+if not a['calculation_verified']:raise ValueError('Failed development capture cannot be sealed')
+r=m.compare_readback(p,capture)
+g=dict(input_sha256=r['input_sha256'],output_sha256=r['output_sha256'],source_sha256=p['golden']['source_sha256'],entries=r['entries'],generated_normalized=r['generated_normalized'])
+print(json.dumps(dict(golden=g,package_id=p['package_id'],audit=a)))
+"""
+    completed=subprocess.run([sys.executable,'-c',script,str(package_root.resolve()),str(capture.resolve())],
+                             capture_output=True,text=True,check=True,timeout=60)
+    result=json.loads(completed.stdout)
+    for name,digest in result['golden']['source_sha256'].items():
+        if sha((ROOT/name).read_bytes())!=digest:raise ValueError('Current source differs from verified Metal source')
+    with output.open('x',encoding='utf-8') as stream:
+        json.dump(result['golden'],stream,ensure_ascii=False,indent=2);stream.write('\n')
+    return dict(sealed=True,gpu_calls=0,package_id=result['package_id'],
+                input_count=len(result['golden']['entries']),golden=str(output.resolve()))
 
 
 def copy_generated(capture, suite):
@@ -307,6 +433,7 @@ def run_job(capture,backend,timeout,original_workspace=None,smoke=False):
 
 def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_only=False):
     m=verify_package(ROOT)
+    if is_development(m) and backend!='metal':raise ValueError('Development execution requires Metal; seal before CUDA verification')
     if not 1<=timeout<=180:raise ValueError('Timeout must be 1..180')
     if backend=='cuda' and os.name!='nt' and not smoke and not cpu_only:raise ValueError('CUDA transport requires Windows')
     capture.mkdir(parents=True,exist_ok=False)
@@ -367,12 +494,12 @@ def audit_capture(capture,verify_artifacts=True):
     backend=load(capture/'run.json')['backend']
     if (capture/'evidence.json').exists():
         e=load(capture/'evidence.json')
-        calc &= bool(e['backend']==backend and e['transport']['command_status']=='completed' and e['transport']['cases']==SUITES[m['suite']]['inputs'])
+        calc &= bool(e['backend']==backend and e['transport']['command_status']=='completed' and e['transport']['cases']==len(m['golden']['entries']))
     from portable_phase_audit import summarize,verify_cuda_trace
     phases=summarize(capture/'phases.jsonl')
     transport_ok=facts['passed']
     if backend=='cuda':
-        transport_ok &= all(phases[k] for k in ('nvrtc_compile_returned_success','cuda_launch_returned_success','cuda_synchronize_returned_success','cuda_readback_returned_success'))
+        transport_ok &= (phases['nvrtc_compile_returned_success'] or phases['cuda_compile_cache_hit_verified']) and all(phases[k] for k in ('cuda_launch_returned_success','cuda_synchronize_returned_success','cuda_readback_returned_success'))
     preservation=None if backend!='cuda' else False
     if (capture/'observation.json').exists():
         from windows_validation_observer import compare_snapshots
@@ -395,7 +522,8 @@ def audit_capture(capture,verify_artifacts=True):
                              and pre['child_creation_filetime_ticks']==post['child_creation_filetime_ticks']
                              and verify_cuda_trace(phase_rows,pid=row['child_pid'])
                              and pre['observed_unix_ns']<=phase_rows[0]['wall_time_ns']<=phase_rows[-1]['wall_time_ns']<=post['observed_unix_ns'])
-    return dict(calculation_verified=bool(calc and transport_ok and containment),preservation_verified=preservation,
+    return dict(sealed=not is_development(m),purpose=m.get('purpose','sealed'),
+                calculation_verified=bool(calc and transport_ok and containment),preservation_verified=preservation,
                 passed=bool(calc and transport_ok and containment and (backend!='cuda' or preservation is True)),
                 containment_verified=containment,comparison_error=error,first_difference=first_difference,phase=phases,gpu_retries=0,audit_gpu_calls=0)
 
@@ -436,7 +564,11 @@ def import_results(archive,destination):
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
     sub.add_parser('list')
-    a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('cache-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
+    a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True)
     for name in ('run','_child'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--smoke',action='store_true')
@@ -452,10 +584,23 @@ def main(argv=None):
     if a.command=='list':
         result={}
         for name,config in SUITES.items():
+            if not (ROOT/config['golden']).is_file():
+                result[name]=dict(config,golden_source_ready=False,reason='No sealed golden');continue
             golden=load(ROOT/config['golden'])
             stale=[f for f,h in golden['source_sha256'].items() if not (ROOT/f).is_file() or sha((ROOT/f).read_bytes())!=h]
             result[name]=dict(config,golden_source_ready=not stale,stale_source_files=stale)
-    elif a.command=='package':result=make_package(a.suite,a.out)
+    elif a.command=='cache-check':result=check_compile_cache(a.capture,a.out)
+    elif a.command=='seal':result=seal_development(a.package_root,a.capture,a.out)
+    elif a.command=='cases':
+        with forbid_gpu():
+            entries,_=prepare_entries(open_suite(dict(suite=a.suite)),dict(purpose='development'))
+        result=dict(suite=a.suite,cases=[row[0] for row in entries],gpu_calls=0)
+    elif a.command=='inventory':
+        if a.out.exists():raise ValueError('Inventory output already exists')
+        inventory=module(ROOT/'research/audit-world-roster-input.py').main(destination=str(a.out.resolve()),quiet=True)
+        result={k:inventory[k] for k in ('profile_count','packed_profiles','packed_base','forbidden_calls','classification')}
+        result['report']=str(a.out.resolve());result['priority_categories']=len(inventory['priorities'])
+    elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case)
     elif a.command=='unpack':result=dict(package_id=unpack(a.archive,a.dest))
     elif a.command=='run':
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())

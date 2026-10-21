@@ -1,3 +1,17 @@
+<!-- readiness-cli-development -->
+## 2026-10-21 レビュー反映：未対応分類・開発CLI・失HP防御
+
+`nikke_gpu.py inventory`で全266プロファイルの定義別拒否を分類し、全体packingも継続します。効果ごとに最初の失敗までの診断であり、未観測要件や対応完了予測ではありません。静的packingは163→167、base116→117。次は生成JSONのprioritiesを使い、未対応のstun、burst_reentry(all_allies)、heal_overcharge_store等を検討します。
+
+共通CLIにMetal限定のdevelopment package、case選択、cases一覧、GPU禁止sealを追加。入力/native/source/全payloadを固定し、出力の自動期待値化をしません。`readiness`が新しい正式suiteで、共通75(native60＋拒否15)をM5で確認し、旧63入力/output/native指紋は完全保持。実Peony通常＋favorite1/2/3の4プロファイル×3/30秒の8戦闘も、全効果・被弾・物理履歴まで元CPUと一致しました。
+
+共通Slangへlost_hp_pct防御を接続。直接HP/防御helperと通常buff照会のruntime predicate規約を分け、型付き敵対象の挑発を既存receiver集合へ接続。実編成では敵パターン有無から遮蔽物HP同期を選びます。保護されたCPU/compiler/referenceは変更していません。途中の拒否・差分・診断captureは保持しています。全キャラ/変種/容量/長時間の戦闘認証ではなく、public world=false、通常UI=CPU、full_goal_complete=falseを維持します。
+
+CUDAはopt-in PTXキャッシュ、原byte＋NVRTC DLL＋引用header＋flagsのidentity、破損拒否、compiled.ptx/phase監査、GPU/NVRTC0のcache-checkを追加。新規展開先の#lineパスが変わるとmissなので、展開先を跨ぐhit率とモジュールload約83秒の改善は未完了です。WindowsはMacの最終検査後、readiness75だけを180秒上限で1回検証し、warm確認はGPU0で行います。結果は計算/containment/環境保持を分けて監査します。
+
+詳細：docs/gpu-development-cli.md、research/portable-readiness-development-validation.json。全ゴールと未対応項目は継続中です。
+<!-- /readiness-cli-development -->
+
 <!-- shared-gpu-cli -->
 ## 2026-10-21 共通検証CLI・Windowsパッケージ・開発スキル
 

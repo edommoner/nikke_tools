@@ -177,7 +177,7 @@ class CaptureAuditTests(unittest.TestCase):
         cli.write(self.root/'observation.json',self.observation)
 
     def audit(self):
-        with patch.object(cli,'verify_package',return_value=dict(package_id='fixture',suite='projectile')),patch.object(cli,'compare_readback',return_value=dict(calculation_verified=True,mismatches=[])):
+        with patch.object(cli,'verify_package',return_value=dict(package_id='fixture',suite='projectile',golden=dict(entries=[{}]*63))),patch.object(cli,'compare_readback',return_value=dict(calculation_verified=True,mismatches=[])):
             return cli.audit_capture(self.root,verify_artifacts=False)
 
     def test_calculation_and_environment_success_remain_distinct(self):

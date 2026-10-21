@@ -112,7 +112,7 @@ bool actorStateHeaderInvalid(inout Runtime s,uint base,uint index)
 bool actorStateHealthContract(Definition d)
 {
     bool health=(d.alliedFlags&1)!=0||d.stat==S_def_caster_based_pct||(d.stat>=S_max_hp_pct&&d.stat<=S_max_hp_only_pct)||d.stat==S_max_hp_from_max_hp_pct;
-    // Native direct HP/defense helpers still ignore these runtime predicates.
-    // Keep this unresolved contract closed rather than changing either value.
-    return !(d.enemyBuff==0&&health&&(d.flags&2)!=0&&f64Less(d.duration,0));
+    // Explicitly packed direct-health policy preserves native helper semantics;
+    // ordinary stat/buff queries continue to evaluate their runtime predicates.
+    return (d.flags&256U)!=0 || !(d.enemyBuff==0&&health&&(d.flags&2)!=0&&f64Less(d.duration,0));
 }

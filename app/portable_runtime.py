@@ -72,6 +72,10 @@ def validate_effect(eff, *, combat=None, world_frame=False):
         if eff.get('scaling')=='stack_count' and eff.get('stat','').split(':')[0]!='dot_damage':allowed |= {'scaling','scaling_ref'}
         from portable_reference_specs import hit_reference
         hit_reference(eff)
+    if eff.get('type')=='buff' and eff.get('scaling')=='lost_hp_pct':
+        if eff.get('stat')!='def_pct' or eff.get('target','self')!='self' or combat is None:
+            raise UnsupportedPortable('Lost HP defense requires combat and self recipient')
+        allowed |= {'scaling'}
     if eff.get('type')=='buff' and eff.get('scaling')=='stack_count' or eff.get('type')=='damage' and eff.get('stat')=='dot_damage' and eff.get('scaling')=='stack_count' and eff.get('scaling_ref'):
         allowed |= {'scaling','scaling_ref'}
         from portable_reference_specs import scale_reference
@@ -347,6 +351,12 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         pack_protection(words,index,eff,L)
         from portable_trigger_specs import pack_descriptors
         pack_descriptors(words,index,row,L,F,double_words,effect=effects[index][0],states=program['states'],world_frame=world_frame)
+        if eff.get('scaling')=='lost_hp_pct':words[at+F['FLAGS']] |= 128
+        # Native world health helpers read active membership directly, whereas
+        # get_buffs rechecks infinite-duration runtime predicates. Keep both paths.
+        direct_health=eff.get('stat') in ('def_pct','def_caster_based_pct','max_hp_pct','max_hp_only_pct','hp_caster_based_pct','hp_only_caster_based_pct','max_hp_from_max_hp_pct')
+        if world_frame and eff.get('type')=='buff' and enemy_buff_plan(eff) is None and direct_health and words[at+F['FLAGS']]&2 and row[7]<0:
+            words[at+F['FLAGS']] |= 256
         if effects[index][0].get('stat')=='stack_change_immune':words[at+F['FLAGS']] |= 8
         policy=immunity(eff)
         if policy:

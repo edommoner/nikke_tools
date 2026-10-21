@@ -1,4 +1,9 @@
 // Allied body state and healing. All arithmetic uses shared software binary64.
+bool liveHealthRecipient(inout Runtime s,uint row,uint who,uint64_t when)
+{
+    return s.alive[row]!=0 && f64Less(when,s.end[row]) && (s.activeRecipients[row]&(1U<<who))!=0 &&
+           ((residentDefinition(s,row).flags&256U)!=0 || basicConditions(s,row,when,true,who));
+}
 [noinline]
 uint64_t effectiveMaxHP(inout Runtime s, uint who, uint64_t when)
 {
@@ -9,7 +14,7 @@ uint64_t effectiveMaxHP(inout Runtime s, uint who, uint64_t when)
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
         uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row);
-        if (d.kind != 0 || !liveRecipient(s,row,who,when)) continue;
+        if (d.kind != 0 || !liveHealthRecipient(s,row,who,when)) continue;
         uint64_t value = scalarValue(s,row,who);
         if (d.stat == S_max_hp_pct || d.stat == S_max_hp_only_pct) percent = f64Add(percent,value);
         else if (d.stat == S_hp_caster_based_pct || d.stat == S_hp_only_caster_based_pct)
@@ -30,7 +35,7 @@ uint64_t effectiveDefense(inout Runtime s, uint who, uint64_t when)
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
         uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row);
-        if (d.kind != 0 || !liveRecipient(s,row,who,when)) continue;
+        if (d.kind != 0 || !liveHealthRecipient(s,row,who,when)) continue;
         uint64_t value = scalarValue(s,row,who);
         if ((d.alliedFlags & 1) != 0) percent = f64Add(percent,value);
         else if (d.stat == S_def_caster_based_pct) flat = f64Add(flat,f64Mul(s.baseDefense[d.owner],f64Div(value,HUNDRED)));

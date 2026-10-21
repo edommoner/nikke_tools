@@ -82,3 +82,32 @@ importは原byte・サイズ・SHAを確認し、新規宛先だけへ展開し�
 登録先は`SUITES`。現在のadapter契約は`prepare() -> (entries, packed)`、`suite.INPUT`、`suite.inspect_native(case)`、`compare(block, domain)`、`cross.digest/normalized`です。source/golden/入力数/native数/限定CPUテストを登録します。契約が異なるスイートは薄いadapterを用意し、計算本体やnative oracleを複製しません。
 
 `cpu.json`、`cpu-tests.json`、`execution.json`、`phases.jsonl`、`evidence.json`に時間を分けて残します。executionのelapsedはゲート前観測と終了後観測も含みます。API phase/transport時間からコンパイルとGPU処理を区別します。パッケージ作成・転送時間の自動集計、全PC共通の結果キャッシュ、変更ファイルからの検証範囲自動選択は今後の拡張です。
+
+## 未対応分類と新機能の開発
+
+```sh
+.venv/bin/python scripts/nikke_gpu.py inventory --out /tmp/nikke-readiness.json
+.venv/bin/python scripts/nikke_gpu.py package --suite projectile --develop \
+  --out /tmp/nikke-development.zip
+# 必要な場合は --case development/lost-hp-defense-1-1--1 で入力を限定
+.venv/bin/python scripts/nikke_gpu.py unpack --archive /tmp/nikke-development.zip \
+  --dest /tmp/nikke-development
+.venv/bin/python /tmp/nikke-development/scripts/nikke_gpu.py run --backend metal \
+  --slang-root "$PWD/.tools/slang-2026.20-Darwin-arm64" --capture /tmp/nikke-development-metal
+```
+
+`inventory`は全266プロファイルを静的準備し、既存と同じlowering・効果validatorを各定義へ独立に適用します。`priorities`はカテゴリ・効果種別・stat・target・scaling・未対応フィールドで分類し、影響プロファイル数と「観測された分類が1つだけ」の件数を出します。効果内の最初の失敗より先は未検査なので、件数は対応完了予測ではありません。元定義を変更せず、全プログラムのpackingも別途実施します。packing・GPU受付・実戦一致の認定は分けたままです。
+
+`--develop`は出力goldenがない新機能向けです。入力・CPU基準・GPUソース・パッケージ全ファイルを固定し、同じbounded実行・native比較・全trace比較・保存結果監査を利用します。projectile adapterには新機能のdevelopment入力が追加されます。`--case`はこのパッケージだけに使用でき、未知・重複した名前は拒否します。開発パッケージの実行はMetal限定で、結果は`sealed: false`です。生成CUDA/MSLと全readbackの指紋は記録しますが、過去のgoldenの出力指紋を期待値にはしません。入力/native基準の変化は引き続き拒否します。正式goldenの自動更新やCUDAへの未確定入力送信は行いません。
+
+## CUDAコンパイルキャッシュ
+
+Windowsで`NIKKE_CUDA_COMPILE_CACHE`に専用ローカルディレクトリを指定した場合だけ、NVRTCのPTX生成物を再利用します。キーは生成CUDAの**原byte**、全コンパイルオプション、`nvrtc*.dll`と引用includeされたSlang prelude/headerの原byte SHAです。厳密normalizerはキー作成に使いません。破損・identity不一致は再コンパイルで隠さず失敗させます。無指定なら従来どおり毎回コンパイルします。
+
+キャッシュhitはNVRTC実行成功として記録せず、独立した`cuda_compile_cache`観測に記録します。`compiled.ptx`をcaptureに残し、generated CUDA・キー・出力byte・phase receiptを監査します。CUDA launch/synchronize/readbackとnativeの検査はhitでも必須です。PTXは結果ZIPやGitHub共有payloadに含めません。この変更で削減できる候補はNVRTC区間です。モジュール読み込みの約83秒の削減や、Windows実測での高速化は未証明です。
+
+`cases --suite readiness`はCPU静的梱包だけで入力名を一覧にします。開発成功後は`seal --package-root /tmp/nikke-development --capture /tmp/nikke-development-metal --out /tmp/new-golden.json`で、元パッケージの独立プロセスによるGPU禁止監査とnative再比較を行い、明示的にgoldenを作成できます。失敗・非Metal・非development・現行GPUソース不一致は拒否し、既存ファイルは上書きしません。作成物を対応するsuiteへ登録してから、通常のsealed packageでCUDAを検証します。`readiness`は今回の累積75入力（native60＋拒否15）の正式スイートです。`lost-hp-roster`は実編成検証用、`lost-hp-diagnostic`は既存の診断専用入口を使うもので、いずれもdevelopment限定です。
+
+CUDAのcold検証後、同じパッケージの`cache-check --capture <cold-capture> --out <new-report.json>`で、保存compiled.ptxと同じキャッシュへhitすることをGPU/NVRTCコンパイル0で検査できます。`NIKKE_CUDA_COMPILE_CACHE`と`CUDA_PATH`をcold時と同じ場所へ設定します。キー不一致・missはコンパイルせず拒否します。これは暖機後のGPU所要時間測定ではありません。
+
+キャッシュキーは`#line`のパスも含む原byteです。別の展開先で生成パスが変わるとmissになります。同じ生成物の再利用は確認できますが、展開先を跨ぐhit率の改善は今後の作業です。既存normalizerでパスを除外したSHAを、コンパイルキャッシュのキーへ流用しません。
