@@ -237,7 +237,8 @@ def install():
     @wraps(original_buffs)
     def buffs(self,caster,target,t,exclude_names=frozenset()):
         runtime=state(self)
-        if not runtime.resources.get('enemy_recipient_fields'):return original_buffs(self,caster,target,t,exclude_names)
+        # Explicit query targets also govern allied runtime target predicates.
+        # Their meaning cannot depend on whether an unrelated enemy field exists.
         actor=snapshot(self,target)
         if actor is None:return original_buffs(self,caster,target,t,exclude_names)
         if not hasattr(runtime,'enemy_query_stack'):runtime.enemy_query_stack=[]

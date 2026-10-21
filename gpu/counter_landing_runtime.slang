@@ -16,7 +16,7 @@ void resetCounterPartExtra(inout Runtime s,uint slot)
 bool counterLandingDefinitionInvalid(inout Runtime s,uint row,Definition d,bool legacy)
 {
     if(!counterLandingsEnabled(s)) return legacy;
-    if(COUNTER_CONTEXT_CONDITIONS(s,row,d,d.conditionCount!=0)||d.kind!=0&&d.kind!=4&&d.kind!=2&&d.kind!=8) return true;
+    if(WORLD_SKILL_DEFINITION(s,row,d,COUNTER_CONTEXT_CONDITIONS(s,row,d,d.conditionCount!=0)||d.kind!=0&&d.kind!=4&&d.kind!=2&&d.kind!=8)) return true;
     if(d.enemyBuff!=0)
     {
         uint p=counterPolicy(s,row);
@@ -40,7 +40,7 @@ bool validCounterLandingInput(inout Runtime s,uint base,uint step)
         { if(commands[at]!=1||commands[at+1]>5) return false;for(uint k=2;k<8;k++) if(commands[at+k]!=0) return false; }
         else for(uint k=0;k<8;k++) if(commands[at+k]!=0) return false;
     }
-    if(step==0) { COUNTER_FIELDS_WORK_INIT(s) COUNTER_CONTEXT_INIT(s) for(uint i=P_COUNTER_LANDING_PACKET_BASE;i<P_COUNTER_LANDING_EXTRA_BASE+128*4;i++) results[s.resourceOutput+i]=0; }
+    if(step==0) { WORLD_SKILL_INIT(s) COUNTER_FIELDS_WORK_INIT(s) COUNTER_CONTEXT_INIT(s) for(uint i=P_COUNTER_LANDING_PACKET_BASE;i<P_COUNTER_LANDING_EXTRA_BASE+128*4;i++) results[s.resourceOutput+i]=0; }
     return true;
 }
 void sampleCounterPartShot(inout Runtime s,uint who,uint64_t coefficient,bool normal,uint64_t coreBonus,uint flags,uint64_t charge,bool optimal,uint64_t when)
@@ -68,7 +68,7 @@ void counterPhysicalPacket(inout Runtime s,uint who,uint slot,uint generation,ui
     uint binding=actorBinding(s,slot);results[at+4]=commands[binding];results[at+5]=commands[binding+1];results[at+6]=generation;
     // All physical HitEvent tags (including skill-formula weapon modes) are
     // normal/core/pellet/full_charge. Canonical classify_hit maps these to0.
-    results[at+7]=0;results[at+8]=2;storeNumber(at+9,amount);storeNumber(at+11,ONE);
+    results[at+7]=WORLD_SKILL_FAMILY(s,0);results[at+8]=2;storeNumber(at+9,amount);storeNumber(at+11,ONE);
     uint owned=at|0x80000000U,start=collectTargetCounters(s,owned,when);
     if(s.error==0&&results[counterHead(s)+4]>start) dispatch(s,26,0,0,int(start),when,output);
     if(killed&&s.error==0)

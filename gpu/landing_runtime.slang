@@ -54,11 +54,11 @@ void enqueueLanding(inout Runtime s,uint row,uint target,uint mask,uint order,ui
 {
     LandingReceipt receipt;receipt.row=row;receipt.target=target;receipt.mask=mask;receipt.order=order;
     receipt.amount=amount;receipt.when=when;receipt.hit=hit;receipt.hits=hits;receipt.depth=depth;receipt.epoch=epoch;
-    if(!validLandingReceipt(receipt)) { s.error=64;return; }
+    if(!WORLD_SKILL_RECEIPT_VALID(s,receipt,validLandingReceipt(receipt))) { s.error=64;return; }
     uint header=landingHeader(s),count=results[header];
     if(count>=P_LANDINGS) { s.error=64;return; }
     if(results[header+2]==0x7fffffff) { s.error=2;return; }
-    storeLandingReceipt(landingAddress(s,count),receipt);
+    WORLD_SKILL_RECEIPT_STORE(s,landingAddress(s,count),receipt);
     results[header]=count+1;results[header+2]++;results[header+5]=max(results[header+5],count+1-results[header+1]);
 }
 // Called outside dispatch: child skills append receipts rather than recurse
@@ -66,7 +66,7 @@ void enqueueLanding(inout Runtime s,uint row,uint target,uint mask,uint order,ui
 [noinline]
 void drainLandings(inout Runtime s,uint64_t when,uint output)
 {
-    if(s.landingPolicy==0) return;
+    WORLD_SKILL_DRAIN(s,when,output,if(s.landingPolicy==0) return;)
     uint header=landingHeader(s);
     if(results[header]==results[header+1]) return;
     if(results[header+4]==0x7fffffff) { s.error=2;return; }

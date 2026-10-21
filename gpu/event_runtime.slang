@@ -100,6 +100,37 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_WORLD_SKILLS
+#define WORLD_SKILL_FIELDS(s,legacy) ((legacy)||worldSkillsEnabled(s))
+#define WORLD_SKILL_KIND(s,d,legacy) ((legacy)&&!(worldSkillsEnabled(s)&&d.kind==3))
+#define WORLD_SKILL_DEFINITION(s,row,d,legacy) (worldSkillsEnabled(s)&&d.kind==3 ? !validWorldSkillDefinition(s,row,d) : (legacy))
+#define WORLD_SKILL_INHERITS(s,event,legacy) ((legacy)||(worldSkillsEnabled(s)&&event==49))
+#define WORLD_SKILL_BASIS(s,legacy) (worldSkillsEnabled(s) ? 0U : (legacy))
+#define WORLD_SKILL_SCOPE_BEGIN(s) uint skillQueryScope=0;if(worldSkillsEnabled(s)) skillQueryScope=actorStatePushQuery(s,0);
+#define WORLD_SKILL_SCOPE_END(s) if(worldSkillsEnabled(s)) actorStatePopQuery(s,skillQueryScope);
+#define WORLD_SKILL_RECEIPT_VALID(s,r,legacy) validWorldSkillReceipt(s,r,legacy)
+#define WORLD_SKILL_RECEIPT_STORE(s,at,r) storeWorldSkillReceipt(s,at,r)
+#define WORLD_SKILL_DRAIN(s,when,output,legacy) if(worldSkillsEnabled(s)) { drainWorldSkills(s,when,output);return; } legacy
+#define WORLD_SKILL_FINAL(s,when,output) if(worldSkillsEnabled(s)&&f64Equal(when,loadNumber(s.inputBase+P_WORLD_FRAME_INPUT_BASE+6))) drainLandings(s,when,output);
+#define WORLD_SKILL_FAMILY(s,legacy) (worldSkillsEnabled(s) ? results[counterHead(s)+11] : (legacy))
+#define WORLD_SKILL_INIT(s) initializeWorldSkills(s);
+#define WORLD_SKILL_EMPTY_COUNTERS(s,legacy) ((legacy)&&!worldSkillsEnabled(s))
+#else
+#define WORLD_SKILL_FIELDS(s,legacy) legacy
+#define WORLD_SKILL_KIND(s,d,legacy) legacy
+#define WORLD_SKILL_DEFINITION(s,row,d,legacy) legacy
+#define WORLD_SKILL_INHERITS(s,event,legacy) legacy
+#define WORLD_SKILL_BASIS(s,legacy) legacy
+#define WORLD_SKILL_SCOPE_BEGIN(s)
+#define WORLD_SKILL_SCOPE_END(s)
+#define WORLD_SKILL_RECEIPT_VALID(s,r,legacy) legacy
+#define WORLD_SKILL_RECEIPT_STORE(s,at,r) storeLandingReceipt(at,r)
+#define WORLD_SKILL_DRAIN(s,when,output,legacy) legacy
+#define WORLD_SKILL_FINAL(s,when,output)
+#define WORLD_SKILL_FAMILY(s,legacy) legacy
+#define WORLD_SKILL_INIT(s)
+#define WORLD_SKILL_EMPTY_COUNTERS(s,legacy) legacy
+#endif
 #ifdef PORTABLE_COUNTER_FIELDS
 #define COUNTER_FIELDS_CONTEXT(s,legacy) ((legacy)||counterFieldsEnabled(s))
 #define COUNTER_FIELDS_DEFINITION(s,row,d,legacy) counterFieldDefinitionInvalid(s,row,d,legacy)
@@ -1025,8 +1056,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             {
                 if (f.cursor == 0)
                 {
-                    s.target=damage.damageRoute>=2 || damage.damageRoute==1 ? 0 : f.target;
-                    frames[depth].healthPrevious=damage.damageNormal!=0 ? damageValue(s,damage.owner,f.healthValue,f.time,true,s.combat!=0 ? s.coreDamageBonus[damage.owner] : s.coreBonus,damage.damageFlags,ONE,(s.attackContext[damage.owner]&1)!=0) : damageValue(s,damage.owner,f.healthValue,f.time,false,s.coreBonus,damage.damageFlags);
+                    s.target=WORLD_SKILL_BASIS(s,damage.damageRoute>=2 || damage.damageRoute==1 ? 0 : f.target);
+                    WORLD_SKILL_SCOPE_BEGIN(s) frames[depth].healthPrevious=damage.damageNormal!=0 ? damageValue(s,damage.owner,f.healthValue,f.time,true,s.combat!=0 ? s.coreDamageBonus[damage.owner] : s.coreBonus,damage.damageFlags,ONE,(s.attackContext[damage.owner]&1)!=0) : damageValue(s,damage.owner,f.healthValue,f.time,false,s.coreBonus,damage.damageFlags); WORLD_SKILL_SCOPE_END(s)
                     uint order=0;frames[depth].repeatRow=(damage.periodicFlags&1)!=0 ? periodicDamageMask(s,uint(f.argument),order) : 0xffffffff;
                     frames[depth].repeatPassive=order;frames[depth].healthNext=s.enemyEpoch;
                 }
@@ -1583,7 +1614,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         else if (d.kind==26) WORLD_CLEANSE(s,row,recipientMask,f.time);
         else if (d.kind == 33) pushFrame(s,frames,depth,2,0,d.owner,int(row),f.time);
         else if (d.kind == 3)
-        {
+        { WORLD_SKILL_SCOPE_BEGIN(s)
             if (f.event != 28) s.stacks[row] = 1;
             if (d.damagePending != 0) enqueuePendingBurst(s,row,f.time);
             else
@@ -1598,7 +1629,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                     // Unlike physical firing, later callbacks do not resample this gain.
                     if(hits!=0 && (s.quantityMask & 128)!=0) frames[depth].gaugeFlat=readStat(s,d.owner,S_burst_charge_speed_pct,f.time);
                 }
-            }
+            } WORLD_SKILL_SCOPE_END(s)
         }
         else s.error = 32;
 #ifdef PORTABLE_HEALTH_SCAN_REFERENCE
@@ -1761,6 +1792,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "counter_context_runtime.slang"
 #ifdef PORTABLE_COUNTER_FIELDS
 #include "counter_field_runtime.slang"
+#ifdef PORTABLE_WORLD_SKILLS
+#include "world_skill_runtime.slang"
+#endif
 #endif
 #endif
 #endif
@@ -1901,7 +1935,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
             dispatch(s,8,0,0,int(step),when,output);
         }
         else if (op == 25) dispatch(s,8,0,0,int(step),when,output);
-        else if (op == 24 && s.combat != 0) advanceCombat(s,when,output);
+        else if (op == 24 && s.combat != 0) { advanceCombat(s,when,output); WORLD_SKILL_FINAL(s,when,output) }
         else if ((op == 20 || op == 21 || op == 22 || op == 27) && s.combat != 0)
         {
             uint target = commands[at+5], who = commands[at+4];

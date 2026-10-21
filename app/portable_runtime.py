@@ -65,6 +65,9 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     if source_spec:allowed |= {'periodic_source','feather_id','feather_slots','feather_interval_base','feather_interval_step_pct'}
     if resource_op:allowed |= {'gauge_id','gauge_max'}
     if eff.get('type')=='damage':
+        if world_frame and 'damage_formula' in eff:
+            if eff['damage_formula']!='normal_attack':raise UnsupportedPortable('Unknown world skill damage formula')
+            allowed |= {'damage_formula'}
         allowed |= {'hit_count_gauge_ref'}
         if eff.get('scaling')=='stack_count' and eff.get('stat','').split(':')[0]!='dot_damage':allowed |= {'scaling','scaling_ref'}
         from portable_reference_specs import hit_reference
@@ -296,7 +299,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             named=None if staged[index] is not None else resolve_named_attack(eff,owner,effects)
             pending_hits=named.deferred_bonus_hits if pending and named is not None else 1
             if pending_hits>256:raise UnsupportedPortable('Pending named attack count exceeds 256')
-            words[at:at+8]=[route,count,hits,int(eff['stat'].split(':')[0]=='auto_damage'),*double_words(override),int(pending),pending_hits if pending else 0]
+            words[at:at+8]=[route,count,hits,int(eff['stat'].split(':')[0]=='auto_damage' or world_frame and eff.get('damage_formula')=='normal_attack'),*double_words(override),int(pending),pending_hits if pending else 0]
             if pending:
                 later_names={e.get('name') for e,n in effects[index+1:] if n==owner and e.get('type')=='buff' and 'burst_cast' in e.get('trigger',{}).get('timing',[]) and e.get('name')}
                 mask=L['PENDING_EXCLUDE_BASE']+index*L['MASK_WORDS']
