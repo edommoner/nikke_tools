@@ -1,0 +1,88 @@
+{
+  "version": 118,
+  "source_commit": "239c7421748c1351adb1929af14ce74eb7c20a07",
+  "package_id": "d1f6d0d2ea347d06957a119938e5198b261cec2ecbb8f20b1f9dec479256141f",
+  "package_matches_mac": true,
+  "manifest_files": 1818,
+  "manifest_and_golden_verified": true,
+  "windows_archive": {
+    "bytes": 4679940,
+    "sha256": "3a3a194628185886206fad7c63e481b2fdb85fe516125713163b7fb92de0ed07"
+  },
+  "cpu_tests": [
+    {
+      "suite": "windows_cleanup",
+      "count": 4,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "gpu_cli",
+      "count": 34,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "compile_cache",
+      "count": 12,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "cuda_artifact",
+      "count": 10,
+      "skip": 0,
+      "exit": 0
+    }
+  ],
+  "total_tests": 60,
+  "controller_only": true,
+  "input_count": 0,
+  "native_oracles": 0,
+  "smoke_verified": true,
+  "elapsed_seconds": 13.921303300186992,
+  "job": {
+    "pre_single_verified": true,
+    "post_empty_verified": true,
+    "creation_identity_stable": true,
+    "below_normal": true,
+    "start_gate_present": true,
+    "cleanup_error": null,
+    "inspection_error": null,
+    "observation_error": null,
+    "after_snapshot_delay_seconds": 2.2495474,
+    "saved_after_residual_count": 0
+  },
+  "environment": {
+    "missing_count": 0,
+    "termination_cause": null,
+    "service_before": "unverified",
+    "service_after": "unverified",
+    "service_preservation_verified": false,
+    "cli_preservation_verified": null,
+    "original_head_status_preserved": true,
+    "parent_TEMP_TMP_TMPDIR_preserved": true
+  },
+  "real_operation_counts": {
+    "slang": 0,
+    "nvrtc": 0,
+    "driver": 0,
+    "context": 0,
+    "kernel": 0,
+    "gpu": 0,
+    "native_battle": 0
+  },
+  "operation_evidence": "Controller-only path and fake compiler fixtures reviewed; comprehensive DLL guard and global runtime API tracing were not applied",
+  "cpu_tests_inside_fresh_smoke_job": false,
+  "run_attempts": 1,
+  "retries": 0,
+  "calculation_verified": false,
+  "prior_records_preserved": true,
+  "reported_saved_report": {
+    "bytes": 2809,
+    "sha256": "fc821619da240e0bdc85646bafe9a364b1089cd7dab598b77c4792c1b460d1ed"
+  },
+  "evidence_scope": "Derived from Windows completed structured chat report; original report/artifacts remain on Windows, not independently audited on Mac",
+  "windows_thread": "01a140bc-5f3b-7661-b720-50c945596eaa",
+  "windows_turn": "01a15ff9-8cbc-7811-b7dd-9ef4fb6d1404"
+}

@@ -16,7 +16,7 @@ Claudeの全体レビューを反映し、GPU子プロセスはinput／raw／evi
 
 元のchild内shared_native_compareは保存phase上48.189秒でした。この段階の比較を除きましたが、preflight・親の独立比較・明示sealは残るため、その時間全部を開発全体の短縮と見積もりません。CPU故障注入で子の比較0回、親の比較1回、古い成功JSONの無視、不一致／例外／raw欠落の失敗、元trace／raw保持を確認しました。cache12／artifact10／compile CLI7とseal3も成功しています。phase検査はsandboxのps拒否を保持し、許可された環境で5件成功しました。
 
-全CPU回帰とWindows制御smokeの確定結果はresearch/portable-parent-audit-checkpoint.jsonへ記録します。WindowsではCPUとfresh Jobのみを短く検証し、NVRTC／driver／kernelは呼びません。新版CUDAのcold compiler失敗・数値一致未確認は解消していません。
+Mac全CPU回帰738件中737成功・Windows専用1skip・失敗0。Windows v118は固定239c742と同一package IDを確認し、CPU60件とfresh BelowNormal Job／gate／post空を13.921秒で1回成功、retry0でした。CPU検査はJob開始前で、compilerはfake callbackです。既存process欠落0・元workspace／TEMP保持が報告されましたが、service before／after未識別のため環境保持成功ではありません。NVRTC／driver／kernel0は制御経路とfixtureの確認による報告で、包括DLL観測ではありません。Macが取得したのは構造化チャット報告で、原artifactの独立監査ではありません。確定結果はresearch/portable-parent-audit-checkpoint.jsonとportable-world-v118-controller-sanitized.jsonを参照してください。新版CUDAのcold compiler失敗・数値一致未確認は解消していません。
 
 ## 保存領域と次の優先順位
 

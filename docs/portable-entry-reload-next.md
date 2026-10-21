@@ -1,0 +1,13 @@
+# entry_reloadのCPU正本契約
+
+武器変更のentry_reloadは未対応です。既存のentry_delay実行器へ接続する前に、pinned CPUの照会順序を確認しました。GPU計算・packingは追加していません。
+
+calculator/timeline.pyの_tick_weapon_changeは、明示entry_delayがなければentry_reload有効時に_reload_durationを呼びます。この照会は新セッションの初回だけでなく、待機中・待機後の各モードtickでも実行されます。待機終了時刻自体は初回に確定し、後の照会値で再設定しません。後続照会を省略しても同等だと仮定せず、lazy buff等への影響をfull-native observerで確認する必要があります。
+
+_reload_durationを呼ぶ時点ではモード武器への一時差替え前なので、元武器のreload_timeを読みます。fixed reloadがあればそれを優先し、なければ元時間×max(0,1-reload_speed_pct/100)です。明示entry_delayは0でも優先し、このreload-duration照会を行いません。charge開始は待機終了後です。
+
+既存mode_entry_nativeとliteral factoryを再利用し、元武器0.5秒／モード0.9秒、明示delayなし／0／0.1秒をCPUで対照しました。0〜0.2秒の13tickで、delayなしは毎回0.5秒を読み、2回目以降も確定済み終了時刻0.5を観測しました。明示delayありは照会0回でした。小さな原probeはresearch/portable-entry-reload-native-probe.jsonです。
+
+再利用可能なCPU契約はtests/test_portable_entry_reload_reference.pyにあり、owner0／4・auto／charge・delay3種の12条件を検査します。portable packingとGPU build／executeは禁止しています。このobserverは単独CharStateの検査で、full-world比較やGPU対応の証明ではありません。
+
+次はfull-world nativeの実_reload_duration呼出を追加問い合わせなしで観測し、速度補正、fixed reload、途中失効、再入、既存charge／reload中のモード開始、対象・通知への影響を契約化します。GPU側は既存MODE entry policyを拡張する候補ですが、共有reload計算の再利用と正本の毎tick照会を両立できることを先に確認します。CPU時刻をGPU入力へ埋め込まず、未対応の動的magazine／skill-mode等の拒否は維持します。

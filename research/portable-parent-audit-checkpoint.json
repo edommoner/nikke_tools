@@ -75,9 +75,16 @@
     "artifact": 10
   },
   "windows": {
-    "status": "pending",
+    "status": "completed",
+    "report": "research/portable-world-v118-controller-sanitized.json",
+    "source_commit": "239c7421748c1351adb1929af14ce74eb7c20a07",
+    "tests": 60,
+    "smoke_verified": true,
+    "elapsed_seconds": 13.921303300186992,
     "compiler_calls": 0,
-    "gpu_calls": 0
+    "gpu_calls": 0,
+    "service_preservation_verified": false,
+    "evidence_scope": "Derived from Windows completed structured chat report; original report/artifacts remain on Windows, not independently audited on Mac"
   },
   "cuda_cold_compile_improved": false,
   "cuda_latest_calculation_verified": false,
@@ -86,5 +93,17 @@
   "next_priorities": [
     "CUDA compiler feasibility hypothesis from saved evidence",
     "entry_reload independent native contracts before Slang integration"
-  ]
+  ],
+  "additional_native_prerequisite": {
+    "feature": "weapon_change.entry_reload",
+    "classification": "unsupported GPU; standalone CPU query-order prerequisite verified, full-world contract pending",
+    "unittest_count": 1,
+    "literal_conditions": 12,
+    "passed": true,
+    "gpu_calls": 0,
+    "packing_calls": 0,
+    "test": "tests/test_portable_entry_reload_reference.py",
+    "test_sha256": "3df1f6e88f75e0f18dda11eb7ed458e4c9066278a906b79aac3afcf23c182f97",
+    "probe": "research/portable-entry-reload-native-probe.json"
+  }
 }
