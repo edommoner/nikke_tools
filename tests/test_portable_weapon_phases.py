@@ -2,7 +2,7 @@
 import sys,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'app'))
-from portable_weapon_phase_contract import verify
+from portable_weapon_phase_contract import verify,verify_land_macros
 
 class WeaponPhaseTests(unittest.TestCase):
     def test_original_statements_and_snapshot_exit_contract_are_retained(self):
@@ -16,6 +16,14 @@ class WeaponPhaseTests(unittest.TestCase):
     def test_lost_shared_state_reference_is_rejected(self):
         source=(ROOT/'gpu/weapon_frame_phases.slang').read_text().replace('inout Runtime s','Runtime s',1)
         with self.assertRaisesRegex(AssertionError,'signature'):verify(ROOT,phase_source=source)
+    def test_macro_early_return_is_rejected_in_any_definition_branch(self):
+        text=(ROOT/'gpu/event_runtime.slang').read_text()
+        changed=text.replace('notifyWorldTeam(s,who,when,output);','return;',1)
+        with self.assertRaisesRegex(AssertionError,'macro escape'):verify_land_macros(ROOT,event_source=changed)
+    def test_indirect_macro_escape_is_also_rejected(self):
+        text=(ROOT/'gpu/event_runtime.slang').read_text()
+        changed=text.replace('notifyWorldTeam(s,who,when,output);','ESCAPE_LAND;',1)+'\n#define ESCAPE_LAND return;\n'
+        with self.assertRaisesRegex(AssertionError,'macro escape'):verify_land_macros(ROOT,event_source=changed)
     def test_wrong_snapshot_argument_is_rejected(self):
         wrapper=(ROOT/'gpu/combat_runtime.slang').read_text().replace('when,output,target,modeShots,mode,epoch','when,output,target,s.modeShots[who],mode,epoch')
         with self.assertRaisesRegex(AssertionError,'exit contract'):verify(ROOT,wrapper_source=wrapper)

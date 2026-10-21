@@ -23,8 +23,33 @@ def body(source,name):
     return source[start:end-1]
 
 
+def verify_land_macros(root,*,event_source=None):
+    # Check every authored definition branch, including inactive wire variants.
+    # Expand macro dependencies lexically; ordinary function returns stay local
+    # to those functions and are not caller control-flow escapes.
+    definitions={}
+    for path in sorted((Path(root)/'gpu').glob('*.slang')):
+        text=event_source if event_source is not None and path.name=='event_runtime.slang' else path.read_text()
+        text=_NON_CODE.sub(lambda m:''.join('\n' if c=='\n' else ' ' for c in m[0]),text)
+        text=text.replace('\\\n',' ')
+        for name,value in re.findall(r'(?m)^\s*#define[ \t]+(\w+)(?:\([^\n)]*\))?[ \t]*([^\n]*)',text):
+            definitions.setdefault(name,[]).append(value)
+    roots=('WORLD_POOL_PHYSICAL_TARGET','WORLD_TEAM_PELLET','WORLD_FRACTION_AUTO')
+    pending=list(roots);seen=set()
+    while pending:
+        name=pending.pop()
+        if name in seen:continue
+        seen.add(name)
+        assert name in definitions,'Missing land macro: '+name
+        for value in definitions[name]:
+            words=tokens(value)
+            assert not set(words)&{'return','break','continue'},'Land macro escape: '+name
+            pending.extend(word for word in words if word in definitions and word not in seen)
+    return dict(roots=list(roots),definitions_checked=sum(len(definitions[name]) for name in seen),macro_names=sorted(seen))
+
+
 def verify(root,*,phase_source=None,wrapper_source=None):
-    root=Path(root);fixture=json.loads((root/'tests/fixtures/portable-weapon-frame-transplant.json').read_text())
+    root=Path(root);macro_contract=verify_land_macros(root);fixture=json.loads((root/'tests/fixtures/portable-weapon-frame-transplant.json').read_text())
     before=fixture['body'];assert hashlib.sha256(before.encode()).hexdigest()==fixture['body_sha256']
     source=phase_source if phase_source is not None else (root/'gpu/weapon_frame_phases.slang').read_text()
     wrapper=wrapper_source if wrapper_source is not None else (root/'gpu/combat_runtime.slang').read_text()
@@ -60,4 +85,4 @@ def verify(root,*,phase_source=None,wrapper_source=None):
     assert tokens(body(wrapper,'weaponFrameBody'))==tokens(expected),'Weapon phase call/argument/snapshot/exit contract changed'
     return dict(verified=True,gpu_calls=0,baseline_commit=fixture['baseline_commit'],phases=list(NAMES),
         token_count=len(tokens(before)),token_sha256=hashlib.sha256(json.dumps(tokens(before),separators=(',',':')).encode()).hexdigest(),
-        helper_signature_contract_verified=True,wrapper_exit_contract_verified=True,scope='Reconstructed original statements and explicit call/argument/ready ordering. Not runtime/compiler resource proof')
+        land_macro_contract=macro_contract,helper_signature_contract_verified=True,wrapper_exit_contract_verified=True,scope='Reconstructed original statements and explicit call/argument/ready ordering. Not runtime/compiler resource proof')

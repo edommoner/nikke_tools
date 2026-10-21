@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "status": "metadata_only_not_downloaded_or_executed",
+  "source": "https://pypi.org/pypi/nvidia-cuda-nvcc-cu12/12.4.131/json",
+  "project": "nvidia-cuda-nvcc-cu12",
+  "publisher": "NVIDIA CUDA Installer Team",
+  "version": "12.4.131",
+  "filename": "nvidia_cuda_nvcc_cu12-12.4.131-py3-none-win_amd64.whl",
+  "bytes": 16509606,
+  "sha256": "aadd9fb307352bbcd5bc89b5f98c10cd78000915094882d97321f5fe36441742",
+  "url": "https://files.pythonhosted.org/packages/00/d3/db7c4de2350f24139ecabf2c5a87bcdeb126784daae783ad18d8420f3636/nvidia_cuda_nvcc_cu12-12.4.131-py3-none-win_amd64.whl",
+  "intended_scope": "Only isolated component for saved PTX8.4 offline assembly; no SDK/PATH/driver changes",
+  "gpu_calls": 0,
+  "compilation_calls": 0,
+  "download_calls": 0
+}

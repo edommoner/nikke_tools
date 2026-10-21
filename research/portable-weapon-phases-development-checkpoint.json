@@ -198,8 +198,36 @@
   },
   "gpu_retries": 0,
   "windows": {
-    "status": "not_run",
-    "calculation_verified": false
+    "version": 128,
+    "status": "PTX_and_cache_verified_module_JIT1_failed",
+    "source_scope": "Derived from Windows final chat report and saved PTX CPU statistics; original capture not independently audited on Mac",
+    "fixed_commit": "976fb99b62614aad79b615d4c3e4a412df2c6e06",
+    "package_id": "8c6be624d7e5c57af34504198b49058c75540f58cb4abad8280b7d440639cd61",
+    "report": "research/portable-world-v128-weapon-phases-sanitized.json",
+    "compiler_verified": true,
+    "compile_seconds": 29.67254829965532,
+    "nvrtc_seconds": 19.25,
+    "compile_peak_bytes": 503848960,
+    "artifact": {
+      "bytes": 8757024,
+      "sha256": "39a1ba84c1c2f428853679796804e400c5ee899287838b7482ddbbbff10e8b09"
+    },
+    "cache_key": "14fce0065bd4729e69549300494e26e34e8e30255bc59f901335898c96e6bd69",
+    "cache_reread_verified": true,
+    "cache_module_hit": true,
+    "normalized_source_matches_metal_golden": true,
+    "module_verified": false,
+    "module_seconds": 18.632952500134706,
+    "module_peak_bytes": 2148397056,
+    "job_cap_bytes": 2147483648,
+    "context_destroy_return": 0,
+    "post_jobs_empty": true,
+    "missing_processes": 0,
+    "preservation_verified": false,
+    "entry_48byte_ABI_verified": false,
+    "kernel_calls": 0,
+    "calculation_verified": false,
+    "retries": 0
   },
   "normal_ui": "CPU",
   "full_character_verified": 0,
@@ -233,5 +261,31 @@
       "independent golden",
       "package manifest"
     ]
-  }
+  },
+  "host_capture_constraint": "research/portable-cuda-capture-memory-inspection.json",
+  "followup_review": {
+    "document": "docs/claude-cuda-followup-976fb99-2026-10-22.md",
+    "review_exit": 0,
+    "elapsed_seconds": 204.170756083,
+    "prompt_bytes": 101658,
+    "response_sha256": "efc56fecc120061c84587fd66da3573f2b1f70f3f8862b756fd83470aac1afe0",
+    "macro_contract_tests": 7,
+    "gpu_source_changed": false,
+    "windows_extra_gpu_calls": 0,
+    "next": "Offline assembler phase isolation with compatible isolated component; bounded streaming capture/audit; no more blind statement splits",
+    "macro_contract_log_sha256": "d2b3b85ba205fd5a19b0aebb5eaae5c43bfc91577440f706d49287d1847eb320",
+    "immutable_guard_package": {
+      "package_id": "9ba632d9fc160cc12bedcbdbe4e2551fc50b6dc837ca4acf84c8edbf29ca2da4",
+      "archive_sha256": "442b3a97a7b7c337df3362637e77db42385458a39e8b94d29ed1bc0e005a66d4",
+      "smoke_discovered": 93,
+      "passed": 92,
+      "windows_only_skip": 1,
+      "failed": 0,
+      "elapsed_seconds": 1.437,
+      "log_sha256": "c569a44d8bb55ed30fd92257f74a985ccb32a8260d2c090868e857514b784ac0",
+      "only_guard_tests_and_manifest_changed": true
+    }
+  },
+  "windows_tool_inventory": "research/portable-windows-assembler-inventory.json",
+  "offline_assembler_candidate": "research/portable-offline-assembler-component.json"
 }

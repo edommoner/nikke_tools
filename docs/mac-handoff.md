@@ -5,7 +5,7 @@
 
 Metal796全件一致、分割前796の全input／raw／native、全lazy bankゼロを確認し、GPU禁止の独立sealが成功。SHA b9cd45185fb37568494df918a71d4b115b7853e26e8eba0b1af5d307f6d30637、2,503,999,488byte。CPU788中787成功・Windows専用1skip、その後signature guard5件も成功。詳細portable-weapon-phases.md、development checkpoint、retention、compiler-structureを参照してください。
 
-通常UI CPU、全キャラ認定0、packing214/266は入力受付のみ、entry_reloadのcover4件・新版CUDA計算は未完了です。v126既定JITとv127明示JIT1は旧Runtime246のPTXに対するメモリ確保失敗でした。次の短いWindows確認はこの新sourceのPTX生成と、成功時だけ同じ専用cacheでのJIT1 module確認で、kernelは実行しません。条件を変えたsource検証であり、旧失敗の同条件retryではありません。以下は履歴です。
+通常UI CPU、全キャラ認定0、packing214/266は入力受付のみ、entry_reloadのcover4件・新版CUDA計算は未完了です。v126既定JITとv127明示JIT1は旧Runtime246のPTXに対するメモリ確保失敗でした。固定976fb99のWindows v128はsmoke91・PTX生成・新cache hit・normalized source一致まで成功しましたが、JIT1 moduleはCUDA218／メモリ確保失敗でした。context破棄0・post Job空・missing0・service未識別、kernel0／計算未確認。保存PTX最大virtual宣言はexecutePortableCommands10927、武器root70。単なるサイズ指標で原因とは扱いません。Claude限定レビューの指摘を実ソースへ照合し、追加GPU実行や盲目的な文分割を止め、offline assemblerの段階分離を優先候補にしました。既存Windows ptxasは11.3.58で、新PTX向けに12.4.131の隔離component metadataを選定済みですが、まだdownload／offline compileしていません。macro escape契約を7検査へ補強し、scratch memset推奨は初期化コードを確認して不採用にしました。詳細claude-cuda-followup-976fb99-2026-10-22.md。全796のCUDA転送には2.50GBの一括ホスト確保を抑える修正も必要です。以下は履歴です。
 <!-- /weapon-phases-current -->
 
 <!-- entry-reload-current -->
