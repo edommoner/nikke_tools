@@ -103,9 +103,42 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_WORLD_RELOAD
+#define WORLD_RELOAD_FORCE_KIND(kind) (kind==23)
+#define WORLD_RELOAD_KIND(d,legacy) (d.kind==23||d.kind==13||d.kind==14 ? false : (legacy))
+#define WORLD_RELOAD_ORIGIN(input,row,legacy) ((legacy)||definition_kind(input,row)==23||definition_kind(input,row)==13||definition_kind(input,row)==14||definition_stat(input,row)==S_reload_time_fixed)
+#define WORLD_RELOAD_INIT(s) initializeWorldReload(s);
+#define WORLD_RELOAD_DURATION(s,w,who,when) uint64_t reloadFixed;if(fixedReloadDuration(s,who,when,reloadFixed)) return reloadFixed;
+#define WORLD_RELOAD_RECORD(s,who,when,kind) recordWorldReload(s,who,when,kind);
+#define WORLD_RELOAD_ACTIVE(s,who,legacy) f64Less(0,s.reloadUntil[who])
+#define WORLD_RELOAD_PHASE_EXPIRE(s,who) (!f64Less(0,s.reloadUntil[who]))
+#define WORLD_RELOAD_AFTER_COMPLETE(s,who) if(f64Less(0,s.reloadUntil[who])) return;
+#define WORLD_RELOAD_ACTIVATE(s,d,when) if(d.kind==23) recordForcedReload(s,d,when);
+#define WORLD_RELOAD_DISPATCH(s,d,order,when) else if(d.kind==23) applyForcedReload(s,order,when);
+#define WORLD_RELOAD_ORDERED(s,d,member,when) else if(d.kind==23) applyForcedReload(s,uint64_t(member+1),when);
+#define WORLD_RELOAD_FINAL(s) for(uint reloadWho=0;reloadWho<5;reloadWho++) storeNumber(s.resourceOutput+P_WORLD_RELOAD_HEAD_BASE+4+reloadWho*2,s.reloadUntil[reloadWho]);
+#else
+#define WORLD_RELOAD_FORCE_KIND(kind) false
+#define WORLD_RELOAD_KIND(d,legacy) legacy
+#define WORLD_RELOAD_ORIGIN(input,row,legacy) legacy
+#define WORLD_RELOAD_INIT(s)
+#define WORLD_RELOAD_DURATION(s,w,who,when)
+#define WORLD_RELOAD_RECORD(s,who,when,kind)
+#define WORLD_RELOAD_ACTIVE(s,who,legacy) legacy
+#define WORLD_RELOAD_PHASE_EXPIRE(s,who) true
+#define WORLD_RELOAD_AFTER_COMPLETE(s,who)
+#define WORLD_RELOAD_ACTIVATE(s,d,when)
+#define WORLD_RELOAD_DISPATCH(s,d,order,when)
+#define WORLD_RELOAD_ORDERED(s,d,member,when)
+#define WORLD_RELOAD_FINAL(s)
+#endif
 #ifdef PORTABLE_WORLD_CHARGE_CONTROL
+#ifdef PORTABLE_WORLD_RELOAD
+#define WORLD_CONTROL_WIRE_MODE 22
+#else
 #define WORLD_CONTROL_WIRE_MODE 21
-#define WORLD_CONTROL_ORIGIN(input,row,legacy) ((legacy)||controlDefinition(input,row))
+#endif
+#define WORLD_CONTROL_ORIGIN(input,row,legacy) WORLD_RELOAD_ORIGIN(input,row,((legacy)||controlDefinition(input,row)))
 #define WORLD_CONTROL_AMMO(input,row,kind) ((kind==13||kind==14)&&controlDefinition(input,row))
 #define WORLD_CONTROL_CONDITION_KIND(kind,legacy) ((kind==C_CHARGING)||(legacy))
 #define WORLD_CONTROL_CONDITION_VALID(at,kind,arg,legacy) (kind==C_CHARGING ? commands[at+1]==0&&f64Zero(arg) : (legacy))
@@ -163,7 +196,7 @@ bool worldTeamEnabled(inout Runtime s) { return true; }
 #define WORLD_TEAM_PELLET(s,w,who,when,output) if(worldTeamEnabled(s)&&w.mode!=1) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_CHARGE(s,w,who,count,when,output) if(worldTeamEnabled(s)&&w.mode==1) for(uint teamHit=0;teamHit<count;teamHit++) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_VALIDATE(s,d,input,j) for(uint teamSlot=0;teamSlot<d.triggerCount;teamSlot++) { uint teamEvent=commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+teamSlot*8];if((teamEvent==44||teamEvent==45)&&!worldTeamEnabled(s)) { s.error=64;break; } } if(s.error!=0) break;
-#define WORLD_TEAM_KIND(s,d,legacy) (worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8||WORLD_CONTROL_AMMO(s.inputBase,row,d.kind)) ? false : (legacy))
+#define WORLD_TEAM_KIND(s,d,legacy) WORLD_RELOAD_KIND(d,(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8||WORLD_CONTROL_AMMO(s.inputBase,row,d.kind)) ? false : (legacy)))
 #define WORLD_TEAM_CONDITION(s,d,at,kind,arg) if(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&WORLD_CONTROL_CONDITION_KIND(kind,teamAdditionalCondition(kind))) { if(!WORLD_CONTROL_CONDITION_VALID(at,kind,arg,validTeamAdditionalCondition(at,kind,arg))) return false;continue; }
 #else
 #define WORLD_TEAM_INPUT(input,output)
@@ -1321,7 +1354,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             else if(instant.kind==7 || instant.kind==30) pushFrame(s,frames,depth,11,0,instant.owner,f.argument,f.time,encoded);
             else if(instant.kind==8) pushFrame(s,frames,depth,6,0,instant.owner,f.argument,f.time,encoded);
             else if(instant.kind==5) reduceBurstReady(s,1U<<member,instant.value,f.time);
-            else if(instant.kind==13 || instant.kind==14) applyAmmoInstant(s,instant,1U<<member,f.time);
+            WORLD_RELOAD_ORDERED(s,instant,member,f.time) else if(instant.kind==13 || instant.kind==14) applyAmmoInstant(s,instant,1U<<member,f.time);
             else if(instant.kind==27 || instant.kind==31)
             {
                 uint kind=instant.kind==27 ? 1 : 2;
@@ -1580,7 +1613,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if((f.event!=28 || (d.flags&1)!=0 && s.alive[row]==0) && d.budget>=0 && !stackLazySelector(s,row) && stackSelectedRecipients(s,row,f.target,f.time,true,order)==0) continue;
             recipientMask=d.kind>=19 ? stackSelectedRecipients(s,row,f.target,f.time,false,order) : 0;
         }
-        if (f.mode!=19 && (d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 27 || d.kind == 31 || d.kind == 30 || d.kind==15 || d.kind==26))
+        if (f.mode!=19 && (WORLD_RELOAD_FORCE_KIND(d.kind) || d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 27 || d.kind == 31 || d.kind == 30 || d.kind==15 || d.kind==26))
         {
             if(d.kind==15 && d.budget<0 && !hasDurationExtensionMembers(s,row)) recipientMask=0;
             else if (d.enemyBuff != 0 || (d.kind==15 || d.kind==26) && d.target==2)
@@ -1624,8 +1657,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             }
             continue;
         }
-        if (d.kind==35) { registerSource(s,row,f.time); continue; }
-        if((d.kind==5 || d.kind==6 || d.kind==7 || d.kind==8 || d.kind==13 || d.kind==14 || d.kind==27 || d.kind==30 || d.kind==31) && commands[s.inputBase+P_RECIPIENT_BASE+row*8]==17)
+        WORLD_RELOAD_ACTIVATE(s,d,f.time) if (d.kind==35) { registerSource(s,row,f.time); continue; }
+        if((WORLD_RELOAD_FORCE_KIND(d.kind) || d.kind==5 || d.kind==6 || d.kind==7 || d.kind==8 || d.kind==13 || d.kind==14 || d.kind==27 || d.kind==30 || d.kind==31) && commands[s.inputBase+P_RECIPIENT_BASE+row*8]==17)
         { pushFrame(s,frames,depth,24,0,d.owner,int(row),f.time,recipientOrder);continue; }
         if (d.kind == 0 || d.kind == 4)
         {
@@ -1722,7 +1755,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         }
         else if (d.kind == 5) reduceBurstReady(s,recipientMask,d.value,f.time);
         else if (d.kind == 24) { if (recipientMask != 0) addBurstGauge(s,d.value); }
-        else if (d.kind == 13 || d.kind == 14)
+        WORLD_RELOAD_DISPATCH(s,d,recipientOrder,f.time) else if (d.kind == 13 || d.kind == 14)
         {
             applyAmmoInstant(s,d,recipientMask,f.time);
             // The percentage form emits its named completion even with no recipients.
@@ -2246,5 +2279,5 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     results[output+10] = s.cacheCount; results[output+11] = s.cacheEvaluations; results[output+12] = s.cacheReuses; results[output+13] = s.lazyPendingCount; results[output+14] = s.lazyMappedPendingCount; results[output+15] = s.bulletCount;
     if((s.quantityMask & 512)!=0) for(uint who=0;who<5;who++) storeNumber(output+P_MODE_ENTRY_STATE_BASE+who*2,s.modeEntryUntil[who]);
     results[output] = s.error; results[output+1] = queries; results[output+2] = s.traceCount; results[output+3] = s.maxDepth; results[output+4] = s.burstTraceCount; results[output+6] = s.traceTotal;
-    results[output+7] = s.burstTraceTotal; results[output+8] = s.frameCount;
+    results[output+7] = s.burstTraceTotal; results[output+8] = s.frameCount; WORLD_RELOAD_FINAL(s)
 }

@@ -2,7 +2,9 @@
 #if defined(PORTABLE_WORLD_FRAME) && defined(PORTABLE_WIDE_LANDINGS)
 #error World and wide-landing diagnostic layouts cannot be combined.
 #endif
-#ifdef PORTABLE_WORLD_CHARGE_CONTROL
+#ifdef PORTABLE_WORLD_RELOAD
+static const uint PORTABLE_ABI = 1346721419U;
+#elif defined(PORTABLE_WORLD_CHARGE_CONTROL)
 static const uint PORTABLE_ABI = 1346721418U;
 #elif defined(PORTABLE_WORLD_TEAM)
 static const uint PORTABLE_ABI = 1346721417U;
@@ -137,7 +139,9 @@ static const uint P_LANDING_META_BASE = 77792U;
 static const uint P_STATUS_META_BASE = 77800U;
 static const uint P_PROTECTION_META_BASE = 77808U;
 static const uint P_PROTECTION_DEFINITION_BASE = 77816U;
-#ifdef PORTABLE_WORLD_CHARGE_CONTROL
+#ifdef PORTABLE_WORLD_RELOAD
+static const uint P_INPUT_WORDS = 104400U;
+#elif defined(PORTABLE_WORLD_CHARGE_CONTROL)
 static const uint P_INPUT_WORDS = 104136U;
 #elif defined(PORTABLE_WORLD_TEAM)
 static const uint P_INPUT_WORDS = 98000U;
@@ -226,7 +230,9 @@ static const uint P_PROTECTION_MAP_BASE = 108224U;
 static const uint P_PROTECTION_SELECTION_BASE = 108736U;
 static const uint P_PROTECTION_OBJECT_BASE = 109248U;
 static const uint P_PROTECTION_BUILD_BASE = 133824U;
-#ifdef PORTABLE_WORLD_PERIODIC
+#ifdef PORTABLE_WORLD_RELOAD
+static const uint P_OUTPUT_WORDS = 786432U;
+#elif defined(PORTABLE_WORLD_PERIODIC)
 static const uint P_OUTPUT_WORDS = 655360U;
 #elif defined(PORTABLE_WORLD_ACTOR_RECIPIENTS)
 static const uint P_OUTPUT_WORDS = 524288U;
@@ -289,6 +295,13 @@ static const uint P_WORLD_PERIODIC_ABI = 1346721412U;
 static const uint P_WORLD_ENEMY_ATTACK_ABI = 1346721413U;
 static const uint P_WORLD_SPAWN_ABI = 1346721414U;
 static const uint P_WORLD_FRACTION_ABI = 1346721416U;
+static const uint P_WORLD_RELOAD_ABI = 1346721419U;
+static const uint P_WORLD_RELOAD_INPUT_BASE = 104136U;
+static const uint P_WORLD_RELOAD_INPUT_WORDS = 104400U;
+static const uint P_WORLD_RELOAD_OUTPUT_WORDS = 786432U;
+static const uint P_WORLD_RELOAD_HEAD_BASE = 655360U;
+static const uint P_WORLD_RELOAD_TRACE_BASE = 655376U;
+static const uint P_WORLD_RELOAD_TRACE_COUNT = 4096U;
 static const uint P_WORLD_CONTROL_ABI = 1346721418U;
 static const uint P_WORLD_CONTROL_INPUT_BASE = 98000U;
 static const uint P_WORLD_CONTROL_INPUT_WORDS = 104136U;
@@ -501,6 +514,7 @@ static const uint S_element_code_override = 88U;
 static const uint S_atk_from_hp_pct = 89U;
 static const uint S_stealth = 65U;
 static const uint S_taunt = 66U;
+static const uint S_reload_time_fixed = 90U;
 static const uint H_BURST = 1U;
 static const uint H_SEQUENTIAL = 2U;
 static const uint H_ATTACHMENT = 4U;

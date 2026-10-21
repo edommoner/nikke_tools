@@ -73,7 +73,7 @@ void initializeChargeControl(inout Runtime s)
     for(uint who=0;who<5;who++)
     {
         uint a=controlState(s,who);for(uint j=2;j<=12;j+=2) storeNumber(a+j,ONE|F64_SIGN);results[a+14]=0xffffffff;
-    }
+    } WORLD_RELOAD_INIT(s)
 }
 bool controlWindow(inout Runtime s,uint who,uint row)
 {
@@ -198,7 +198,7 @@ void advanceChargeControl(inout Runtime s,uint who,uint64_t when)
         }
         results[a+1]=index;
     }
-    if(results[a+24]==2&&!f64Less(when,s.nextShot[who])) results[a+24]=0;
+    if(results[a+24]==2&&!f64Less(when,s.nextShot[who])&&WORLD_RELOAD_PHASE_EXPIRE(s,who)) results[a+24]=0;
 }
 bool waitChargeControl(inout Runtime s,uint who,uint64_t charge,uint64_t when)
 {

@@ -35,3 +35,8 @@ STATS['atk_from_hp_pct']=HP_ATTACK_STAT
 # Presence markers retain the canonical compiler identities outside64 numeric slots.
 BUFFS=BUFFS | {'taunt','stealth'}
 STATS.update({name:{**DETAIL_STAT,**EXTRA_STAT}[name] for name in ('stealth','taunt')})
+
+# Absolute reload-time values live outside the numeric damage vector.
+from portable_reload_specs import STAT as RELOAD_FIXED_STAT
+BUFFS=BUFFS | {'reload_time_fixed'}
+STATS['reload_time_fixed']=RELOAD_FIXED_STAT
