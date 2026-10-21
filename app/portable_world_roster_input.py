@@ -86,7 +86,8 @@ def compile_world_battle(prepared, *, trace='burst'):
     if len(words) != 86016:
         raise ValueError('World base wire dimensions changed')
     # The canonical counter view needs the overlay lowering but retains all identities.
-    patch_program(words, meta, chars, lowered)
+    if any(e.get('target_counter') is not None or any(t.startswith('event:target_counter_complete:') for t in e.get('trigger', {}).get('timing', [])) for e, _ in original):
+        patch_program(words, meta, chars, lowered)
     bound = bound_effects(original, meta, names)
     words.extend(graph)
     words.extend([0] * 512)

@@ -42,6 +42,8 @@ def run(backend='metal',replay=None,cpu_only=False):
   try:
    actual=decode(block[:159744],m);native=reference.native_reference(c['body']);diff=reference.compare_native_result(actual,p,native,program=(w,m));row.update(actual=actual,native=native,differences=diff,passed=block[0]==0 and not diff)
   except (AssertionError,ValueError,KeyError,IndexError) as error:row['error']=repr(error)
+  from portable_specs import LIMITS as L
+  row['diagnostic_history'] = {kind: dict(retained=block[L['WORLD_'+kind.upper()+'_HEAD_BASE']+1],omitted=block[L['WORLD_'+kind.upper()+'_HEAD_BASE']+offset]) for kind,offset in [('team',5),('fraction',3)]}
   rows.append(row)
  report=dict(passed=all(x['passed'] for x in rows),cases=rows,evidence=e,captured=str(folder),input_sha256=hashlib.sha256(data).hexdigest(),readback_sha256=hashlib.sha256(raw).hexdigest(),source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),full_character_verified=0,canonical_world_admission=False,normal_ui='CPU',full_goal_complete=False,cpu_trace_used_as_gpu_input=False,unchanged_gpu_retries=0,scope='Six complete real five-member simple-boss squads at 3/30/180 seconds including real growth/skill levels; no full catalog/variant certification')
  (ROOT/f'research/portable-world-roster-{backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');print([(x['name'],x['status'],x['passed'],len(x.get('differences',[])),x.get('error')) for x in rows]);assert report['passed']

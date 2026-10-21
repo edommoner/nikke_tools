@@ -30,9 +30,20 @@ void notifyWorldFraction(inout Runtime s,uint who,uint kind,uint64_t when,uint o
         if(!f64Less(value,ONE)) { value=f64Add(value,ONE^F64_SIGN);fired=true; }
         storeNumber(state+kind*2,value);
     }
-    uint count=results[head+1];if(count>=P_WORLD_FRACTION_TRACE_COUNT) { s.error=64;return; }
+    uint count=results[head+1];
+#ifdef PORTABLE_WORLD_ROSTER
+    // A bounded diagnostic history must not stop the real battle. Keep an
+    // explicit omitted count; all accumulators, counters and dispatch continue.
+    if(count>=P_WORLD_FRACTION_TRACE_COUNT) results[head+3]++;
+    else {
+#else
+    if(count>=P_WORLD_FRACTION_TRACE_COUNT) { s.error=64;return; }
+#endif
     uint at=s.resourceOutput+P_WORLD_FRACTION_TRACE_BASE+count*8;results[head+1]=count+1;
     results[at]=22+kind;results[at+1]=who|(uint(fired)<<3)|(((results[head+2]>>(who*2+kind))&1U)<<4);
     storeNumber(at+2,when);storeNumber(at+4,frac);storeNumber(at+6,value);
+#ifdef PORTABLE_WORLD_ROSTER
+    }
+#endif
     if(fired) dispatch(s,0,22+kind,who,0,when,output);
 }
