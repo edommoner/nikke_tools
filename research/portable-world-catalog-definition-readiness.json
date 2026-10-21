@@ -3,12 +3,11 @@
   "catalog_characters": 203,
   "base_and_favorite_profiles": 266,
   "all_favorite_item_characters": 21,
-  "base_own_effect_preflight_passed": 95,
-  "all_profile_own_effect_preflight_passed": 133,
+  "base_own_effect_preflight_passed": 97,
+  "all_profile_own_effect_preflight_passed": 137,
   "issues": {
-    "Unported buff or recipient selector": 112,
+    "Unported buff or recipient selector": 113,
     "Unported instant or recipient selector": 21,
-    "Unported trigger timing: event:enemy_spawn": 19,
     "Unported enemy damage selector": 15,
     "Unported trigger timing: charge_hold:1": 11,
     "Unported trigger timing: charge_hold:0.5": 6,
@@ -9796,8 +9795,8 @@
             "event:enemy_spawn"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "기습 2",
@@ -9822,7 +9821,7 @@
           ],
           "conditions": [],
           "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "기습 3",
@@ -9847,8 +9846,8 @@
             "event:enemy_spawn"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "처단",
@@ -20437,8 +20436,8 @@
           "conditions": [
             "not_self_state:포메이션 AS"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "포메이션 LT",
@@ -28851,7 +28850,7 @@
       "character": "바이퍼",
       "favorite_stage": 0,
       "own_effect_count": 17,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "스네이크 센스",
@@ -28877,8 +28876,8 @@
             "event:enemy_spawn"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "스네이크 센스 2",
@@ -28903,8 +28902,8 @@
             "event:enemy_spawn"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "스네이크 스케일",
@@ -29290,7 +29289,7 @@
       "character": "바이퍼",
       "favorite_stage": 1,
       "own_effect_count": 23,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "스네이크 스케일",
@@ -29465,8 +29464,8 @@
             "event:enemy_spawn"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "스네이크 센스 2",
@@ -29492,8 +29491,8 @@
             "event:enemy_spawn"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "스네이크 센스 3",
@@ -29883,7 +29882,7 @@
       "character": "바이퍼",
       "favorite_stage": 2,
       "own_effect_count": 24,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "스네이크 스케일",
@@ -30007,8 +30006,8 @@
             "event:enemy_spawn"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "스네이크 센스 2",
@@ -30034,8 +30033,8 @@
             "event:enemy_spawn"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "스네이크 센스 3",
@@ -30531,8 +30530,8 @@
             "event:enemy_spawn"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "스네이크 센스 2",
@@ -30558,8 +30557,8 @@
             "event:enemy_spawn"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "스네이크 센스 3",
@@ -68039,8 +68038,8 @@
             "event:enemy_spawn"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "여긴 내가 맡는다!",
@@ -68703,8 +68702,8 @@
             "event:enemy_spawn"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "여긴 내가 맡는다!",
@@ -69396,8 +69395,8 @@
             "event:enemy_spawn"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "여긴 내가 맡는다!",
@@ -78660,8 +78659,8 @@
           "conditions": [
             "enemy_count_below:5"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "펭군 스파이럴",
@@ -98323,8 +98322,8 @@
             "event:enemy_spawn"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "붐 인스톨 2",
@@ -100124,8 +100123,8 @@
             "event:enemy_spawn"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "터진 거품",
@@ -105961,7 +105960,7 @@
       "character": "아크레인저 블랙",
       "favorite_stage": 0,
       "own_effect_count": 23,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "변신! 아크레인저 블랙!",
@@ -106066,8 +106065,8 @@
           "conditions": [
             "self_state:변신"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: event:enemy_spawn"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "아크 블랙 코레더 해제",
@@ -125106,14 +125105,14 @@
     "app/portable_runtime.py": "a87b6c8139e42099706827cabdc1375ef5bb89de833658a57882eab01ca90988",
     "app/portable_runtime_layout.py": "1a882b22eef68f04633c2a0fcdc542b188669e50f283dc88bf241af33c7ca0f1",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "83eeb39726756cd0eb0f11c098bced0ce977626b674c3f001287182f6bec8068",
+    "app/portable_specs.py": "c83234b0ef5224ea674f96f5f71c03ad82aa26a4d50942563c9ed3dad3bea198",
     "app/portable_stack_specs.py": "c2aae86773e268fbd375217028f140af335bb8d4704c8567881464e650c7bc32",
     "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
     "app/portable_status_specs.py": "387618cb8e46f8db81be2b9f83e7a70c167abc877868aefa21d0ebccb5d2fc2a",
     "app/portable_target_counter_program.py": "156697da81a96bafc3ed72ba71df8bbc5f6e0c7bd9715c5ca2dbdc2025ca21a6",
     "app/portable_target_counter_specs.py": "1ac50a166b634999faad967ca04f56b1b538f5708d0b5131aa6626455c796e6b",
     "app/portable_target_state_specs.py": "b85bc65b10cd396b1c4ed19a095d3c657fd2862b395cd7be1172e5d89596adb1",
-    "app/portable_trigger_specs.py": "c421db6cd40d3c27843c8c2fd3f62f74090c987a07aa1caecb2cd299fda17387",
+    "app/portable_trigger_specs.py": "e7962175ce96da5fc2e2c361c97585f81b82170ac7067035c28425b1f1bfd037",
     "app/portable_weapon_input.py": "f5b6a332f60bde4382f7579eb32bbf8df2e93116de443c824b8826390136e43b",
     "app/portable_world_attack_specs.py": "8944e5278002603fd3fba2a7bc9a7623d0eda1a48bc2883b9257e45e6c1603fd",
     "app/portable_world_overlay_specs.py": "4fc34af16ca9c4c3f448284b34027874d99bca61f6b00d21b8f448d55af23085",

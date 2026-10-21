@@ -1,3 +1,19 @@
+## 2026-10-21 初期敵出現通知をMetal27・CUDA27で実証
+
+計算sourcecb4400977032fdac69621c9f1fa5a6dff34e8c31・private ABI86/mode15で、event:enemy_spawn（元のevent5）をworld定義の受付と共通startupへ接続しました。全員のbattle_start→全員の初期enemy_spawn→初期magazineの順で一度だけ実行し、召喚敵1体ごとの既存通知は同じdispatchを使います。CUDA/Metalに別のイベント実行器・数量計算・効果定義は追加していません。new入口のevent5定義は旧mode13では拒否します。
+
+Metal27＝native22実戦＋拒否5が初回成功しました。Apple M5 command completed、GPU0.063310秒、input10526116bytes/readback70778880bytesを保存。初期通知5回、即時/遅延2体、127体の計640通知とowner順序・binary64時刻、再出現、全5owner、別ownerのbattle_start状態、初期装弾、gauge、敵fieldのscope/stack、trigger budget、vanish、同フレームの敵攻撃、128対象への通常skill/DoTを完全nativeで照合しました。既存timer・queue・counter・Actor着弾順序を保持し、DoT初回は既存のt=0 timer passを使います。
+
+CPU429検査、旧15入口CUDA/MSL生成物厳密一致、保存raw/Git source/nativeのGPU禁止監査に成功しました。出力は既存655360wordのまま、612112に8word head、612120から4096件×4wordの通知観測をGPUが記録します。128Actorの敵攻撃力・periodic packet bankと重ならず、容量超過はstatus64です。旧入口の生成結果を保持し、旧923以下・通常4682を再実行していません。Metal GPU1回・source1種・同一source/input retry0。
+
+CPU初回の「0.2秒以上」という観測assertは、実native累積clockが0x1.9999999999999p-3だったため不正でした。浮動小数点sumのPython版による差も避け、nativeと同じ12回の逐次加算を厳密比較します。丸め/許容誤差は追加せず、初回native20件をportable-world-spawn-native-initial.jsonへ保持しました。旧生成物の空行1行差も空展開フックを既存行に置いて解消し、正規化規則は変更していません。失敗したCPU生成照合はportable-build/world-spawn-initial-generation.json/.logへ保持。
+
+Windows v98は固定a7f4b777845dee039f9d873df7eea272d4debf07（17ファイル280180bytes）、codex/cuda-world-v98-sourceで成功しました。CPU47検査・GPU禁止27入力/native22・source SHA80照合後、BelowNormal/JobObject/start gate/180秒＋cleanup5秒でCUDA1回・114.941192秒・exit0。保存3JSON計66029bytesを取得し、全input/output/native/generated fingerprint・API50phase・元HEAD/status/service保持・residual0・retry0・旧923以下/通常4682再実行0を共通監査器で照合済みです。portable-world-v98-cuda-validation.json、seal-world-v98-cuda.pyを参照。turn01a15c43-0306-7782-94cc-7e37a28380aeはcompleted、cursor182、idleで、再依頼は不要です。
+
+実203キャラ＋21お気に入りの段階1/2/3＝266プロファイルを静的再監査しました。own定義のPython事前検査通過はbase95→97、全133→137です。바이퍼（通常＋お気に入り1/2）と아크레인저 블랙の4プロファイルが増え、差分をportable-world-spawn-catalog-delta.jsonへ保存しました。CPU battle/GPU build/execute禁止・実呼出し0。GPU kind admission・容量・real roster/world配線・全キャラ戦闘認証を示す数字ではありません。
+
+通常画面CPU・public world false・全キャラ戦闘認証0・legacy unexplained Metal14c8e2e OPEN・全ゴール未完了です。次はcharge/part/crit判定、未接続buff/selector（explosion_range、effect_interval、trigger_count_reduce、stun等）、source攻撃/interrupt・skill追加part到達、動的操作/復活、周期gone/expiry/dispelを含む全組合せ、容量/長時間/全変種の認証を進めます。永続条件付き味方HP/防御とhit-only max-HP rankのnative不整合も残ります。効率化は必要な検証後。GitHub共有はゴール達成まで利用者許可済みです。
+
 ## 2026-10-21 敵攻撃力fieldをMetal37・CUDA37で実証
 
 計算source0395cad4130cadf32d560efa0df5551d374f7f10・private ABI85/mode13で、敵へのatk_pct/atk_caster_based_pctを既存のresident・stack・期限・Actor recipient・名前付き状態へ接続しました。CUDA/Metalは同じSlang本体と28実戦・不正9入力を使います。出力幅655360wordは前段階のまま、periodic snapshotの後611856から128Actor×2wordの実GPU queryを保存します。CPU計算済みの敵攻撃力や被害量は入力しません。
