@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "gpu_calls": 0,
+  "nvrtc_compile_calls": 0,
+  "before": {
+    "source_sha256": "ebbd6e23d94bf2288eb0cbffbffc8c84ae0115be170695e0d755d2252c44d857",
+    "functions": 638,
+    "noinline_functions": 206,
+    "largest_functions": [
+      {
+        "name": "dispatch_0",
+        "line": 43888,
+        "bytes": 163801,
+        "lines": 4404,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 583
+      },
+      {
+        "name": "executePortableEvents_0",
+        "line": 58048,
+        "bytes": 106435,
+        "lines": 1945,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 241
+      },
+      {
+        "name": "admitDefinitions_0",
+        "line": 7842,
+        "bytes": 73200,
+        "lines": 2993,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 411
+      }
+    ]
+  },
+  "after": {
+    "source_sha256": "13201e4c17e96fb79207e2efe3f55c88c8aa10ea0bd2bba717b51dd0673a2aa9",
+    "source_bytes": 1651457,
+    "functions": 646,
+    "noinline_functions": 214,
+    "largest_functions": [
+      {
+        "name": "admitDefinitions_0",
+        "line": 7842,
+        "bytes": 73200,
+        "lines": 2993,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 411
+      },
+      {
+        "name": "executePortableCommands_0",
+        "line": 58585,
+        "bytes": 65267,
+        "lines": 1023,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 131
+      },
+      {
+        "name": "applyDefinitionFrame_0",
+        "line": 45083,
+        "bytes": 55257,
+        "lines": 990,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 137
+      },
+      {
+        "name": "coreProbability_0",
+        "line": 1000,
+        "bytes": 45822,
+        "lines": 1597,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 187
+      },
+      {
+        "name": "advanceDefinitionFrame_0",
+        "line": 46075,
+        "bytes": 45704,
+        "lines": 1489,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 197
+      },
+      {
+        "name": "dispatch_0",
+        "line": 47636,
+        "bytes": 36086,
+        "lines": 1086,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 146
+      },
+      {
+        "name": "basicConditions_0",
+        "line": 26139,
+        "bytes": 25126,
+        "lines": 1072,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 143
+      },
+      {
+        "name": "initializeChargeControl_0",
+        "line": 15922,
+        "bytes": 22208,
+        "lines": 863,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 114
+      },
+      {
+        "name": "weaponFrameBody_0",
+        "line": 54801,
+        "bytes": 21492,
+        "lines": 831,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 123
+      },
+      {
+        "name": "actorFieldsDefinitionValid_0",
+        "line": 13336,
+        "bytes": 19558,
+        "lines": 816,
+        "noinline": false,
+        "global_entry": false,
+        "branches": 108
+      }
+    ]
+  },
+  "scope": "Lexical generated CUDA only; resource improvement requires bounded Windows compiler verification"
+}

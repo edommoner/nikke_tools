@@ -124,7 +124,7 @@ SUITES['revive']=dict(script='research/verify-world-revive-short.py',golden='res
 SUITES['revive-diagnostic']=dict(SUITES['revive'],source='gpu/world_projectile_admission_entry.slang',require_rejection_stage=True)
 
 SCHEMA = 1
-SUITES['regression-resident']=dict(SUITES['regression'],source='gpu/world_projectile_resident_entry.slang',golden='research/portable-world-push-frame-resident-regression-short-expected.json',development_only=False,tests=SUITES['regression']['tests']+['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py'])
+SUITES['regression-resident']=dict(SUITES['regression'],source='gpu/world_projectile_resident_entry.slang',golden='research/portable-world-phases-resident-regression-short-expected.json',development_only=False,tests=SUITES['regression']['tests']+['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py'])
 SUITES['resident-binding']=dict(script='research/verify-resident-binding-short.py',golden='research/portable-resident-binding-short-expected.json',source='gpu/resident_runtime_binding_probe.slang',inputs=4,native=4,development_only=False,tests=['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py'])
 
 # Controller validation has no numeric program to execute. Keep its CPU work
@@ -205,6 +205,11 @@ def verify_package(root):
     golden = m['golden'] if is_development(m) else load(root/SUITES[m['suite']]['golden'])
     if golden != m['golden']:
         raise ValueError('Package golden mismatch')
+    sources=golden['source_sha256'];records={r['path']:r['sha256'] for r in m['files']}
+    if not sources or SUITES[m['suite']]['source'] not in sources:raise ValueError('Package GPU source closure missing')
+    missing=set(sources)-set(records)
+    if missing:raise ValueError('GPU source missing from immutable payload: '+', '.join(sorted(missing)))
+    if any(records[name]!=digest for name,digest in sources.items()):raise ValueError('GPU source record differs from golden')
     return m
 
 
@@ -217,6 +222,10 @@ def make_package(suite, output, *, develop=False, cases=()):
     for name in filter(None, tracked):
         p = PurePosixPath(name)
         if ((p.parts[0] in ('app','gpu','scripts','research','tests') and p.suffix in ('.py','.slang','.swift'))
+            or (p.parts[0]=='app' and p.suffix=='.cu')
+            or (p.parts[:2]==('tests','fixtures') and p.suffix=='.json')
+            or name=='research/portable-mode-session-contract.json'
+            or name=='research/portable-world-counter-landing-short-expected.json'
             or (p.parts[0]=='data' and p.suffix=='.json') or name==SUITES[suite]['golden']):
             names.append(name)
     # Include this CLI even before its first commit during local development.
@@ -225,6 +234,10 @@ def make_package(suite, output, *, develop=False, cases=()):
     for pattern in SUITES[suite]['tests']:
         if 'tests/'+pattern not in names:
             raise ValueError('Required CPU test is missing from tracked payload: '+pattern)
+    from portable_backend import source_hashes
+    gpu_sources=source_hashes(SUITES[suite]['source'])
+    missing=set(gpu_sources)-set(names)
+    if missing:raise ValueError('GPU source missing from tracked payload: '+', '.join(sorted(missing)))
     upstream = ROOT/'research/upstream/nikke-calc-master'
     for folder in ('calculator','runner','scraper','data'):
         names.extend(p.relative_to(ROOT).as_posix() for p in (upstream/folder).rglob('*')
@@ -233,14 +246,25 @@ def make_package(suite, output, *, develop=False, cases=()):
     if not license_path.is_file() or not (upstream/'data/parsed_nikke.json').is_file():
         raise ValueError('Pinned upstream source/data must be installed first')
     names.append(license_path.relative_to(ROOT).as_posix())
+    contract_name='research/portable-mode-session-contract.json'
+    if contract_name in names:
+        contract=load(ROOT/contract_name)
+        for key,digest in [('primary_source','primary_source_sha256'),('pinned_cpu_source','pinned_cpu_sha256')]:
+            name=safe_name(contract[key])
+            if not name.startswith('research/upstream/nikke-calc-master/'):raise ValueError('CPU contract source must remain in pinned upstream')
+            if sha((ROOT/name).read_bytes())!=contract[digest]:raise ValueError('Pinned CPU contract source changed: '+name)
+            if name not in names:names.append(name)
     records = file_records(ROOT, names)
     if cases and not develop:
         raise ValueError('--case requires --develop')
     golden = development_baseline(suite, cases) if develop else load(ROOT/SUITES[suite]['golden'])
+    if golden['source_sha256']!=gpu_sources:raise ValueError('Golden GPU source closure is stale')
     # Early stale-golden detection, without importing native engine or building.
     for name, digest in golden['source_sha256'].items():
         if sha((ROOT/name).read_bytes()) != digest:
             raise ValueError('Golden GPU source is stale: '+name)
+    if file_records(ROOT,names)!=records:
+        raise ValueError('Package sources changed during native baseline preparation')
     m = dict(schema=SCHEMA, suite=suite,
              source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
              working_tree_dirty=bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip()),

@@ -114,7 +114,8 @@ def full_simulations():
   try:result=observe(case)
   except Exception as error:rows.append(dict(name=case['name'],passed=False,error=repr(error),case=case))
   else:rows.append(dict(name=case['name'],passed=True,case=case,actual=result))
- (ROOT/'research/portable-build/overlay-native-full-before-assert.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n')
+ debug=ROOT/'research/portable-build/overlay-native-full-before-assert.json';debug.parent.mkdir(parents=True,exist_ok=True)
+ debug.write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n')
  if all(r['passed'] for r in rows):
   original=rows[0]['actual']['damage']
   assert all(a<b for a,b in zip(rows[1]['actual']['damage'],original))

@@ -16,6 +16,51 @@ cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class PacketTests(unittest.TestCase):
+    def test_source_edit_during_native_baseline_cannot_publish_a_mixed_snapshot(self):
+        import portable_backend
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder).resolve()
+            for directory in ('gpu','app','scripts','research/upstream/nikke-calc-master/data'):(root/directory).mkdir(parents=True)
+            (root/'gpu/main.slang').write_text('// kernel\n');(root/'app/model.py').write_text('before')
+            (root/'scripts/nikke_gpu.py').write_text('# fixture CLI\n')
+            upstream=root/'research/upstream/nikke-calc-master';(upstream/'LICENSE').write_text('fixture license');(upstream/'data/parsed_nikke.json').write_text('{}')
+            def changed(*args):
+                (root/'app/model.py').write_text('after')
+                return dict(source_sha256={'gpu/main.slang':cli.sha((root/'gpu/main.slang').read_bytes())})
+            with patch.object(cli,'ROOT',root),patch.object(portable_backend,'ROOT',root),\
+                 patch.dict(cli.SUITES,fixture=dict(source='gpu/main.slang',golden='golden.json',tests=[])),\
+                 patch.object(cli.subprocess,'check_output',return_value=b'gpu/main.slang\0app/model.py\0scripts/nikke_gpu.py\0'),\
+                 patch.object(cli,'development_baseline',side_effect=changed),cli.forbid_gpu():
+                with self.assertRaisesRegex(ValueError,'sources changed during native baseline'):
+                    cli.make_package('fixture',root/'package.zip',develop=True)
+            self.assertFalse((root/'package.zip').exists())
+
+    def test_untracked_gpu_include_stops_packaging_before_native_baseline_or_archive(self):
+        import portable_backend
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder).resolve();(root/'gpu').mkdir();(root/'gpu/main.slang').write_text('#include "new.slang"\n')
+            (root/'gpu/new.slang').write_text('// new shared helper\n');out=root/'package.zip'
+            config=dict(source='gpu/main.slang',golden='golden.json',tests=[])
+            with patch.object(cli,'ROOT',root),patch.object(portable_backend,'ROOT',root),patch.dict(cli.SUITES,fixture=config),\
+                 patch.object(cli.subprocess,'check_output',return_value=b'gpu/main.slang\0'),\
+                 patch.object(cli,'development_baseline',side_effect=AssertionError('Native baseline must not start')) as native,cli.forbid_gpu():
+                with self.assertRaisesRegex(ValueError,'GPU source missing from tracked payload: gpu/new.slang'):
+                    cli.make_package('fixture',out,develop=True)
+            native.assert_not_called();self.assertFalse(out.exists())
+
+    def test_package_gpu_source_requires_manifest_membership_and_matching_golden_hash(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);(root/'gpu').mkdir();(root/'gpu/main.slang').write_text('#include "new.slang"\n');(root/'gpu/new.slang').write_text('// helper\n')
+            names=['gpu/main.slang','gpu/new.slang'];records=cli.file_records(root,names)
+            m=dict(schema=cli.SCHEMA,suite='fixture',purpose='development',files=records[:1],golden=dict(source_sha256={r['path']:r['sha256'] for r in records}))
+            def saved():m['package_id']=cli.package_id(m);cli.write(root/'gpu-package.json',m)
+            with patch.dict(cli.SUITES,fixture=dict(source='gpu/main.slang')),cli.forbid_gpu():
+                saved()
+                with self.assertRaisesRegex(ValueError,'GPU source missing from immutable payload'):cli.verify_package(root)
+                m['files']=records;saved();self.assertEqual(cli.verify_package(root)['package_id'],m['package_id'])
+                m['golden']['source_sha256']['gpu/new.slang']='0'*64;saved()
+                with self.assertRaisesRegex(ValueError,'GPU source record differs'):cli.verify_package(root)
+
     def test_status_shows_child_and_parent_journals_without_promoting_stale_run_status(self):
         with tempfile.TemporaryDirectory() as folder:
             capture=Path(folder);cli.write(capture/'run.json',dict(status='preflight'))
