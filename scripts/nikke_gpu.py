@@ -59,11 +59,11 @@ SUITES['skill-cooldown']=dict(script='research/verify-world-skill-cooldown-short
     source='gpu/world_projectile_entry.slang',inputs=25,native=21,
     tests=['test_portable_skill_cooldown.py','test_portable_typed_recipient_delegation.py'])
 SUITES['regression']=dict(script='research/verify-world-regression-short.py',
-    golden='research/portable-world-skill-flat-regression-short-expected.json',
-    source='gpu/world_projectile_entry.slang',inputs=420,native=334,
+    golden='research/portable-world-lazy-bank-regression-short-expected.json',
+    source='gpu/world_projectile_entry.slang',inputs=428,native=341,
     tests=['test_portable_regression_adapter.py','test_portable_roster_regression.py',
            'test_portable_readiness.py','test_portable_stun.py','test_portable_typed_recipient_delegation.py',
-           'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py','test_portable_skill_interval.py','test_portable_skill_interval_flat.py'])
+           'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py','test_portable_skill_interval.py','test_portable_skill_interval_flat.py','test_portable_lazy_bank.py','test_portable_compiler_stats.py'])
 SUITES['healing-storage']=dict(script='research/verify-world-healing-storage-short.py',
     golden='research/portable-world-healing-storage-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=51,native=39,development_only=True,
@@ -88,6 +88,10 @@ SUITES['skill-interval-flat']=dict(script='research/verify-world-skill-interval-
     golden='research/portable-world-skill-interval-flat-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=57,native=40,development_only=True,
     tests=['test_portable_skill_interval_flat.py'])
+SUITES['lazy-bank']=dict(script='research/verify-world-lazy-bank-short.py',
+    golden='research/portable-world-lazy-bank-short-expected.json',
+    source='gpu/world_projectile_entry.slang',inputs=8,native=7,development_only=True,
+    tests=['test_portable_lazy_bank.py','test_portable_compiler_stats.py'])
 
 SCHEMA = 1
 # Controller validation has no numeric program to execute. Keep its CPU work
@@ -391,6 +395,7 @@ def compare_readback(m, capture, adapter=None):
             try:
                 if domain is None:
                     if block[0]!=64:raise ValueError('Expected rejection status64')
+                    if hasattr(adapter,'validate_rejection'):adapter.validate_rejection(block,name)
                     native=dict(status=64)
                 else:
                     if block[0]!=0:raise ValueError('Expected GPU success status0; got status'+str(block[0]))
@@ -485,7 +490,7 @@ def replay_capture(capture, source_package, source_capture):
     return result
 
 
-def compiler_statistics(capture,output,*,top=12,caller=None):
+def compiler_statistics(capture,output,*,top=12,caller=None,runtime=None):
     """Inspect a saved generated source with the existing artifact verifier."""
     if output.exists():raise ValueError('Compiler statistics output already exists')
     records=load(capture/'artifacts.json')['files']
@@ -494,7 +499,7 @@ def compiler_statistics(capture,output,*,top=12,caller=None):
     if source:check_records(capture,source)
     raw=(capture/'generated.cu').read_bytes()
     from portable_compiler_stats import cuda_statistics
-    result=cuda_statistics(raw,top=top,caller=caller)
+    result=cuda_statistics(raw,top=top,caller=caller,runtime=runtime)
     anchored=bool(source)
     for name in ('evidence.json','compiler.json'):
         if (capture/name).is_file():
@@ -889,7 +894,7 @@ def main(argv=None):
     sub.add_parser('list')
     a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True)
     a=sub.add_parser('cache-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
-    a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller')
+    a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
     a=sub.add_parser('ptx-stats');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=8)
     a=sub.add_parser('compile');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--artifact-kind',choices=('cubin','ptx'),default='cubin')
@@ -922,7 +927,7 @@ def main(argv=None):
             result[name]=dict(config,golden_source_ready=not stale,stale_source_files=stale)
     elif a.command=='replay':result=replay_capture(a.capture,a.source_package,a.source_capture)
     elif a.command=='cache-check':result=check_compile_cache(a.capture,a.out)
-    elif a.command=='compiler-stats':result=compiler_statistics(a.capture,a.out,top=a.top,caller=a.caller)
+    elif a.command=='compiler-stats':result=compiler_statistics(a.capture,a.out,top=a.top,caller=a.caller,runtime=a.runtime)
     elif a.command=='ptx-stats':result=ptx_statistics(a.cache_entry,a.phases,a.out,top=a.top)
     elif a.command=='compile':
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())

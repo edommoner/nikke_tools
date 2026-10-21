@@ -12,6 +12,20 @@ cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class CompilerStatisticsTests(unittest.TestCase):
+    def test_runtime_payload_distinguishes_declared_bytes_from_abi_estimate(self):
+        raw=b'''// struct State { float fake; };
+struct State { uint first; FixedArray<ulonglong, 3> clocks; int last; };
+'''
+        result=cuda_statistics(raw,runtime='State')['runtime_storage']
+        self.assertEqual(result['declared_member_bytes'],32)
+        self.assertEqual(result['scalar_aligned_size_estimate_bytes'],40)
+        self.assertEqual(result['fields'][1]['scalar_alignment_estimate_offset'],8)
+        self.assertFalse(result['cuda_abi_verified'])
+        for bad in (b'struct State { float x; };',b'struct State { FixedArray<uint,0> x; };',
+                    b'struct State { uint x; int x; };',raw+raw):
+            with self.assertRaises(ValueError):cuda_statistics(bad,runtime='State')
+        with self.assertRaises(ValueError):cuda_statistics(raw,runtime='Other')
+
     def test_call_graph_is_lexical_bounded_and_stops_at_noinline(self):
         raw=b'''void leaf() {}
 void __noinline__ boundary() { leaf(); }

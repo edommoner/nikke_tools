@@ -1,0 +1,23 @@
+# 共通lazy cacheの作業領域
+
+projectile入口だけ、既存lazy cacheの5配列をprivate Runtimeから各入力の出力バッファー内の空き領域へ移しました。CUDA／Metalとも同じSlangのアルゴリズム・access macroを使います。値の計算、cache容量1024、共有キー、参照数、再利用順序は変更していません。他の入口は元の配列配置を維持します。
+
+bankは出力word `[757536,763680)`、6144word／24,576byteです。skill-critical状態の直後、診断tailの前に置き、entry開始時と主コマンド終了後に消去します。2wordの時刻は既存のbinary64 bit表現のまま読み書きします。早期の受付拒否はcache使用前、処理中の拒否は共通終了処理を通ります。
+
+allocatorは診断幅を除いた上限を検査し、projectileが継承するreload出力strideを明示的に照合します。CPUテストは唯一のbank entry・include経路・出力strideと小さすぎるstrideの拒否、領域の重複・整列・容量超過を検査します。全入力・出力領域を一般化したレジストリはまだ作っていません。
+
+## 検証
+
+- 固定development package `981e71beb7a30043f3a2c492aa351e5a26bb4f44b446c6115d9d45107887b6c9` のMetal428入力（native341＋拒否87）がApple M5で成功しました。GPU8.339458秒、library1.111963秒、pipeline9.732111秒、bounded53.365146秒。CPU preflight24.027972秒と13群の限定テストをGPU前に実行しています。
+- 旧420入力は保存baselineと入力・全raw出力・native指紋が同一です。追加7正例と1実行拒否も、変更前の同じfixtureの保存出力と同一です。全428入力のbank6144wordがゼロです。証拠は `research/portable-lazy-bank-retention.json`。
+- 追加fixtureは空cache、兄弟共有、caster分離、生selector分離、1024枠到達と再利用、複合selector、再利用時の兄弟参照、およびcache利用後の拒否を検査します。再利用負荷はcache1024・reuse164へ到達します。ゼロ値のself-list効果で既存の順序付き対象観測を有効にし、比較項目を落とさずnative全体へ照合します。
+- fixture準備中の3種類の失敗は別JSONと元package／rawへ保持しています。成功7件を含む失敗batch全体を成功へ変更せず、manifestの元indexで成功ケースを照合しました。元負例は受付で拒否されていたため、件数sidecarを保持して既存の最終actor-fieldコマンドを不正ownerへ変え、frame133・cache1024・reuse164の後にstatus64となる負例へ修正しました。
+- CUDA／Metal生成コードは旧event入口と旧roster入口の2種類で変更前の全byteと同一です。projectileのRuntimeは宣言251→246member、scalar alignment推定163504→138928byteです。生成コードの保存分析であり、実CUDA ABI、物理register、compiler peak memory、速度改善の証明ではありません。
+
+## CUDA検証の判断
+
+v112のCUBIN O1は60秒・2GiB内でptxas allocation failureとなりました。今回の変更は、命令の意味を変えずprivate状態を減らす単一の配置仮説です。Metal一致後に固定packageでcompiler-onlyを1回だけ行い、実際の成否・経過・peakを確認します。driver／context／kernelは使用せず、失敗時に上限拡大、O0 fallback、同条件retry、別配列の機械的な移動は行いません。
+
+過去v112と今回ではその後の機能追加も異なります。compilerの成功・失敗や時間差をbankだけの因果と断定しません。PTXの仮想register差だけをcompilerメモリ改善とも扱いません。コンパイル成功後のCUDA計算一致は、同じartifactのrequired-cache実行で別途確認します。
+
+通常画面CPU、全キャラGPU認定0、静的packing193/266・base134/203、最終目標未完了を維持します。

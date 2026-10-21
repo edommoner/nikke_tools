@@ -1,3 +1,12 @@
+<!-- lazy-bank-current -->
+## 2026-10-22 private lazy cacheの作業領域とMetal428
+
+現在の通常CLIはregression428（native341／拒否87）、goldenはportable-world-lazy-bank-regression-short-expected.jsonです。5配列24576byteをprojectile入口のprivate Runtimeから出力内scratchへ移し、共通アルゴリズムを保持。Metal428全件一致、旧420と追加8境界のinput／全raw／native同一、全bank語ゼロを確認して明示sealしました。原fixture失敗は保持しています。詳細はdocs/portable-lazy-bank-storage.mdとresearch/portable-lazy-bank-retention.json。
+
+旧event／rosterの2入口ではCUDA／Metal生成byte不変。projectileのRuntime推定163504→138928byteは生成宣言の測定であり、compiler改善・実CUDA ABIではありません。新版CUDA数値一致は未確認です。次は固定packageでCUBIN O1・60秒／2GiB・driver/context/kernel0のcompiler-onlyを必要な1回だけ行います。失敗時に上限拡大・再試行しません。通常画面CPU、全キャラGPU認定0、静的193/266・base134/203、最終目標未完了です。
+
+以下は過去の接続時の記録です。
+
 <!-- skill-flat-current -->
 ## 2026-10-21 名前付き周期秒数補正と制御smokeの効率化
 

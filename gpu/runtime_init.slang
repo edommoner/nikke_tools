@@ -154,6 +154,7 @@ void initializeRuntime(inout Runtime s)
         s.due[index] = 0;
         s.expiry[index] = 0;
     }
+#ifndef PORTABLE_WORLD_PROJECTILE
     [loop] for (uint index = 0; index < P_LAZY_CACHE; index++)
     {
         s.cacheGroup[index] = 0;
@@ -162,6 +163,7 @@ void initializeRuntime(inout Runtime s)
         s.cacheRefs[index] = 0;
         s.cacheTime[index] = 0;
     }
+#endif
     [loop] for (uint index = 0; index < 5; index++)
     {
         s.receivedHits[index] = 0;

@@ -22,6 +22,7 @@ ADAPTERS={
     'skill-critical':module('regression_skill_critical','research/verify-world-skill-critical-short.py'),
     'skill-interval':module('regression_skill_interval','research/verify-world-skill-interval-short.py'),
     'skill-interval-flat':module('regression_skill_interval_flat','research/verify-world-skill-interval-flat-short.py'),
+    'lazy-bank':module('regression_lazy_bank','research/verify-world-lazy-bank-short.py'),
 }
 cross=ADAPTERS['readiness'].cross
 suite=SimpleNamespace(INPUT=104400,OUTPUT=786432)
@@ -59,3 +60,8 @@ def native_reference(domain):
 def compare(block,domain):
     name,inner=domain
     return ADAPTERS[name].compare(block,inner)
+
+
+def validate_rejection(block,name):
+    family,label=name.split('/',1);adapter=ADAPTERS[family]
+    if hasattr(adapter,'validate_rejection'):adapter.validate_rejection(block,label)

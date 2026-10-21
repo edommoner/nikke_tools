@@ -7,7 +7,32 @@ _NON_CODE=re.compile(r'//[^\n]*|/\*.*?\*/|"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'
 _FUNCTION=re.compile(r'(?m)^[^\n{};]*\b([A-Za-z_]\w*)\s*\([^{};]*\)\s*\{')
 
 
-def cuda_statistics(raw,*,top=12,caller=None):
+def runtime_storage(raw,symbol):
+    """Declared scalar/FixedArray payload only; never physical register usage."""
+    if not isinstance(symbol,str) or not re.fullmatch(r'[A-Za-z_]\w*',symbol):raise ValueError('Invalid generated struct symbol')
+    code=_NON_CODE.sub('',raw.decode('utf-8'))
+    matches=list(re.finditer(r'\bstruct\s+'+re.escape(symbol)+r'\s*\{([^{}]*)\}\s*;',code,re.S))
+    if len(matches)!=1:raise ValueError('Generated runtime struct absent or ambiguous')
+    fields=[];names=set();offset=0;alignment=1
+    for declaration in matches[0][1].split(';'):
+        if not declaration.strip():continue
+        m=re.fullmatch(r'\s*(?:FixedArray<\s*(uint|int|ulonglong)\s*,\s*([0-9]+)\s*>\s+|(uint|int|ulonglong)\s+)([A-Za-z_]\w*)\s*',declaration)
+        if not m:raise ValueError('Unsupported runtime declaration: '+declaration.strip())
+        element,count,scalar,name=m.groups();count=int(count or 1)
+        if name in names or not 1<=count<=1048576:raise ValueError('Invalid runtime member/count')
+        names.add(name);width=8 if (element or scalar)=='ulonglong' else 4
+        offset=(offset+width-1)//width*width
+        fields.append(dict(name=name,scalar_type=element or scalar,count=count,declared_bytes=width*count,
+                           scalar_alignment_estimate_offset=offset))
+        offset+=width*count;alignment=max(alignment,width)
+    if not fields:raise ValueError('Empty runtime declaration')
+    return dict(symbol=symbol,members=len(fields),declared_member_bytes=sum(f['declared_bytes'] for f in fields),
+                scalar_aligned_size_estimate_bytes=(offset+alignment-1)//alignment*alignment,
+                fields=fields,cuda_abi_verified=False,
+                scope='Explicit uint/int32,ulonglong64 and FixedArray payloads. Alignment model is an estimate; not compiler memory, PTX local storage, registers or performance')
+
+
+def cuda_statistics(raw,*,top=12,caller=None,runtime=None):
     if type(top) is not int or not 1<=top<=50:raise ValueError('Function count must be1..50')
     source=raw.decode('utf-8')
     def mask(match):return ''.join('\n' if c=='\n' else ' ' for c in match.group())
@@ -30,6 +55,7 @@ def cuda_statistics(raw,*,top=12,caller=None):
                 functions=len(functions),noinline_functions=sum(f['noinline'] for f in functions),
                 largest_functions=sorted(functions,key=lambda f:(-f['bytes'],f['line']))[:top],
                 scope='Lexical generated-CUDA spans only; not compiler time, memory attribution, performance or correctness proof')
+    if runtime is not None:result['runtime_storage']=runtime_storage(raw,runtime)
     if caller is not None:
         if not isinstance(caller,str) or not caller:raise ValueError('Expected a generated caller symbol')
         by_name=defaultdict(list)

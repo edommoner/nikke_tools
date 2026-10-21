@@ -16,6 +16,32 @@ cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class PacketTests(unittest.TestCase):
+    def test_status64_alone_cannot_satisfy_a_suite_execution_rejection_contract(self):
+        import array
+        from types import SimpleNamespace
+        from unittest.mock import Mock
+        with tempfile.TemporaryDirectory() as folder:
+            capture=Path(folder);data=bytes.fromhex('0100000007000000')
+            words=array.array('I',[64]+[0]*786431)
+            if sys.byteorder!='little':words.byteswap()
+            raw=words.tobytes();native=dict(status=64)
+            digest=lambda value:cli.sha(json.dumps(value,sort_keys=True).encode())
+            reject=Mock(side_effect=ValueError('Cache was never warmed'))
+            adapter=SimpleNamespace(suite=SimpleNamespace(INPUT=1),
+                prepare=lambda:([('reject/late',[7],None)],data),validate_rejection=reject,
+                cross=SimpleNamespace(digest=digest,normalized=cli.sha))
+            golden=dict(input_sha256=cli.sha(data),source_sha256={},
+                entries=[dict(name='reject/late',input_sha256=cli.sha(data[4:]),native_sha256=digest(native))])
+            (capture/'input.bin').write_bytes(data);(capture/'readback.bin').write_bytes(raw)
+            cli.write(capture/'evidence.json',dict(input_sha256=cli.sha(data),output_sha256=cli.sha(raw),source_sha256={},gpu_execution_verified=True,backend='metal'))
+            for suffix in ('cu','metal'):(capture/('generated.'+suffix)).write_bytes(b'generated')
+            m=dict(purpose='development',suite='lazy-bank',golden=golden)
+            result=cli.compare_readback(m,capture,adapter)
+            self.assertFalse(result['calculation_verified']);self.assertIn('never warmed',result['mismatches'][0]['reason'])
+            reject.assert_called_once()
+            reject.side_effect=None
+            self.assertTrue(cli.compare_readback(m,capture,adapter)['calculation_verified'])
+
     def test_controller_smoke_never_prepares_native_battles_or_runs_numeric_groups(self):
         from types import SimpleNamespace
         with tempfile.TemporaryDirectory() as folder:

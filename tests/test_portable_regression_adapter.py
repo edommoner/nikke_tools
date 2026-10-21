@@ -23,6 +23,9 @@ class RegressionAdapterTests(unittest.TestCase):
             self.assertEqual(adapter.native_reference(entries[0][2]),dict(battle={'battle':1},skill_trace=['trace']))
             self.assertEqual(adapter.compare([0],entries[0][2]),{'complete':'native'})
             a.compare.assert_called_once_with([0],domain)
+            a.validate_rejection=Mock(side_effect=ValueError('Late error was never reached'))
+            with self.assertRaisesRegex(ValueError,'never reached'):adapter.validate_rejection([64],'test/negative')
+            a.validate_rejection.assert_called_once_with([64],'negative')
             a.suite.INPUT=99
             with self.assertRaisesRegex(ValueError,'wire strides'):adapter.prepare()
 

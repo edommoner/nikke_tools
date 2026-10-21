@@ -57,9 +57,14 @@ struct Runtime
     uint carrierCount, carrierDefinition[P_CARRIERS], multiCarrier[P_DEFINITIONS], removalCount;
     uint lazyPending[P_CARRIERS], lazyLink[P_CARRIERS], lazyPendingCount, lazyMappedPendingCount, lazyEnabled;
     uint cacheCount, cacheCursor, cacheEvaluations, cacheReuses;
+#ifndef PORTABLE_WORLD_PROJECTILE
     uint cacheGroup[P_LAZY_CACHE], cacheMask[P_LAZY_CACHE], cacheOrder[P_LAZY_CACHE], cacheRefs[P_LAZY_CACHE];
+#endif
     uint cacheNewest[P_DEFINITIONS], cacheSeen[P_DEFINITIONS], lazyGroupDefinition[P_DEFINITIONS];
-    uint64_t cacheTime[P_LAZY_CACHE], cacheNewestTime[P_DEFINITIONS], cacheRootTime, cacheFloor;
+#ifndef PORTABLE_WORLD_PROJECTILE
+    uint64_t cacheTime[P_LAZY_CACHE];
+#endif
+    uint64_t cacheNewestTime[P_DEFINITIONS], cacheRootTime, cacheFloor;
     uint queryActive, queryWho, queryAllowed[P_CARRIERS]; uint64_t queryWhen;
     uint incomingMask, downMask, activeRecipients[P_CARRIERS], carrierRecipientOrder[P_CARRIERS], receivedHits[5];
     uint64_t receivedDamage[5];
@@ -107,6 +112,7 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#include "lazy_bank_storage.slang"
 #ifdef PORTABLE_WORLD_PROJECTILE_DIAGNOSTIC
 #define PROJECTILE_DIAGNOSTIC_FIELDS(s,row,d,stage) { uint diagnostic=s.resourceOutput+786416;results[diagnostic]=0x57504144;results[diagnostic+1]=stage;results[diagnostic+2]=row+1;results[diagnostic+3]=d.kind;results[diagnostic+4]=d.stat;results[diagnostic+5]=d.quantityFlags;results[diagnostic+6]=d.owner;results[diagnostic+7]=d.triggerCount;results[diagnostic+8]=d.conditionCount;results[diagnostic+9]=d.damageFlags;results[diagnostic+10]=d.healthScaling;results[diagnostic+11]=d.alliedFlags;results[diagnostic+12]=uint(d.value);results[diagnostic+13]=uint(d.value>>32);results[diagnostic+14]=uint(d.duration);results[diagnostic+15]=uint(d.duration>>32); }
 #define PROJECTILE_ADMIT_ROW(s,row,d) PROJECTILE_DIAGNOSTIC_FIELDS(s,row,d,4)
@@ -2143,6 +2149,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     Runtime s; initializeRuntime(s);
 #endif
     s.resourceOutput = output;
+    LAZY_BANK_INIT(output)
     s.resourceCount = commands[input+P_RESOURCE_META_BASE];
     if (s.resourceCount > P_RESOURCE_KEYS) { results[output] = 64; return; }
     s.generation = 1; s.count = commands[input+1]; s.combat = commands[input+3]; s.inputBase = input; s.traceMode = commands[input+5];
@@ -2366,5 +2373,5 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     results[output+10] = s.cacheCount; results[output+11] = s.cacheEvaluations; results[output+12] = s.cacheReuses; results[output+13] = s.lazyPendingCount; results[output+14] = s.lazyMappedPendingCount; results[output+15] = s.bulletCount;
     if((s.quantityMask & 512)!=0) for(uint who=0;who<5;who++) storeNumber(output+P_MODE_ENTRY_STATE_BASE+who*2,s.modeEntryUntil[who]);
     results[output] = s.error; results[output+1] = queries; results[output+2] = s.traceCount; results[output+3] = s.maxDepth; results[output+4] = s.burstTraceCount; results[output+6] = s.traceTotal;
-    results[output+7] = s.burstTraceTotal; results[output+8] = s.frameCount; WORLD_RELOAD_FINAL(s)
+    results[output+7] = s.burstTraceTotal; results[output+8] = s.frameCount; WORLD_RELOAD_FINAL(s) LAZY_BANK_FINISH(output)
 }

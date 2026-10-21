@@ -9,6 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 
 def runtime_initializer():
+    from portable_lazy_bank_specs import BANKED_FIELDS,DECLARATIONS
     source=(ROOT/'gpu/event_runtime.slang').read_text()
     body=source.split('struct Runtime\n{',1)[1].split('};',1)[0]
     body=re.sub(r'//[^\n]*','',body)
@@ -18,6 +19,12 @@ def runtime_initializer():
     if body.count(private) != 1:
         raise ValueError('Unknown private Runtime declaration')
     body=body.replace(private,'')
+    bank_guard=re.compile(r'#ifndef PORTABLE_WORLD_PROJECTILE\n(.*?)\n#endif',re.S)
+    guarded=bank_guard.findall(body)
+    normalize=lambda text:re.sub(r'\s+','',text)
+    if sorted(map(normalize,guarded))!=sorted(map(normalize,DECLARATIONS)):
+        raise ValueError('Unknown private Runtime bank declarations')
+    body=bank_guard.sub(lambda m:m[1],body)
     if '#' in body:raise ValueError('Unknown Runtime preprocessor directive')
     scalars=[];arrays=defaultdict(list)
     for declaration in body.split(';'):
@@ -38,7 +45,11 @@ def runtime_initializer():
            '[noinline]','void initializeRuntime(inout Runtime s)','{']
     lines += [f'    s.{name} = 0;' for name in scalars]
     for size,names in arrays.items():
+        banked=all(name in BANKED_FIELDS for name in names)
+        if any(name in BANKED_FIELDS for name in names) and not banked:raise ValueError('Mixed Runtime bank array group')
+        if banked:lines+=['#ifndef PORTABLE_WORLD_PROJECTILE']
         lines += [f'    [loop] for (uint index = 0; index < {size}; index++)','    {']
         lines += [f'        s.{name}[index] = 0;' for name in names]
         lines += ['    }']
+        if banked:lines+=['#endif']
     return '\n'.join(lines+['}',''])
