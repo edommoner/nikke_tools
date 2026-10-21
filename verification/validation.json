@@ -1,0 +1,18 @@
+{
+  "package_id": "ac8a9ead788fd63efa331251851202f2834828fe45c609a27e408ce0be9118fb",
+  "files": 1780,
+  "bytes": 4539915,
+  "archive_sha256": "2a3b9278c115a91f7a1538a9da0cf4e65e36908835663e8346232103ac6526bb",
+  "source_commit": "43122872768e475fe201d3fc76eac0c058f64a4f",
+  "bootstrap_bytes": 65117,
+  "bootstrap_sha256": "6f1cf4b81b4aa2daea9c38617b030d0587528fa8ec0c86bcfa79f3d06bf6abe7",
+  "purpose": "One bounded CUBIN O1 compiler-only check after Metal428; no driver/context/kernel",
+  "compile_attempt_limit": 1,
+  "compile_timeout_seconds": 60,
+  "job_memory_mb": 2048,
+  "cleanup_seconds": 5,
+  "gpu_calls_allowed": 0,
+  "artifact_kind": "cubin",
+  "ptxas_level": 1,
+  "ref": "refs/heads/codex/cuda-lazy-bank-v115-source"
+}
