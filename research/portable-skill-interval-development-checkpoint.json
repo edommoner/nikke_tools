@@ -58,7 +58,12 @@
     "cold_compile_attempts_new_feature": 0,
     "gpu_dispatches_this_turn": 0,
     "cache_change": "Defer NVRTC DLL loading until a verified exact-identity cache miss is allowed to compile",
-    "cache_windows_speedup_verified": false
+    "cache_windows_speedup_verified": false,
+    "cache_windows_cpu_tests": 10,
+    "cache_windows_cpu_tests_passed": true,
+    "saved_cache_hit_verified": false,
+    "saved_cache_unverified_reason": "Original saved v105 generated.cu absent; no recreation or compilation",
+    "v113_report": "research/portable-world-v113-cache-loader-sanitized.json"
   },
   "unchanged": {
     "normalizer": true,

@@ -6,6 +6,8 @@
 分類へstructured reason／文言fallback件数を追加し、既知の境界・audience・scalingを明示分類。CUDA cacheはexact identityを維持し、hit／必須miss／破損でNVRTC DLLを読まないCPU経路へ改善しました。Windows実測の高速化は未確認です。
 
 依頼済みv112 compiler-onlyはallocation failure（NVRTC30.344秒、Job2GiB／60秒、kernel0／retry0）。保存結果だけを回収し再送0。noinlineの改善は未立証、環境保持もservice未識別でfalseを維持、新版CUDA数値一致は未確認です。次は保存結果からコンパイル仮説を絞る作業とflat周期変更等へ進みます。詳細portable-skill-interval.md、portable-skill-interval-development-checkpoint.json、portable-world-v112-compiler-sanitized.json。GitHub共有はゴール中利用者許可済みです。
+
+Windows v113は3ソースのSHA一致後、fake NVRTCのCPU10検査成功。専用TEMPを指定しない初回の権限失敗ログも保持。実cache hitは元v105 generated.cu不在で未確認、再生成／DLL／NVRTC／GPU0です。今後CPUテストも専用TEMP/TMPを指定します。
 <!-- /skill-interval-current -->
 
 <!-- readiness-cli-development -->

@@ -29,3 +29,7 @@
 CUDAキャッシュは原byte・option・DLL/header SHAの検査を維持し、成功hit／必須miss／破損時にNVRTC DLLを読まない経路へ変更。fake NVRTCによるCPU検査で確認した改善で、Windows実測の速度改善は未主張です。
 
 依頼済みv112の保存結果を取得しました。O1／60秒／Job2GiB、1回のみ、NVRTC30.344秒でallocation failure、artifact0／kernel0／retry0。Job最大2,148,286,464byteと上限との因果は未確定です。missing0・cleanup成功でもservice未識別なので環境保持falseを維持。noinlineの改善は未立証です。原captureはWindowsに保持し、Mac受領の構造化報告は独立raw監査ではありません。同条件再試行・上限拡大をせず次の仮説を先に定めます。
+
+## Windows CPU検証v113
+
+固定1b46b97の3ソース34,162byteを最小ブランチへ共有し、WindowsでCPU10件が0.435秒／BelowNormalで成功しました。初回はsandbox既定TEMP権限で7errorとなり、原ログを保持して専用TEMPへ修正後に確認。実DLL／NVRTC／driver／context／kernelは0、元HEAD/status保持です。保存v105のcacheとreceiptはありましたがgenerated.cuが不在だったため、実cache hitの照合は未確認で停止しました。再生成・compile・GPU再実行は0。報告はportable-world-v113-cache-loader-sanitized.jsonです。今後WindowsのCPUテストも専用TEMP/TMPを事前指定し、この環境起因の往復を避けます。
