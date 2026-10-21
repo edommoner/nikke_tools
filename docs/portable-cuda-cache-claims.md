@@ -27,3 +27,11 @@ Windows実機のclaim経路と、coldコンパイルの速度・peak memory改�
 固定f103e50のCPU smokeは9.131秒で失敗し、43件実行中42件成功・cacheの1件がPID一致assertionで停止しました。artifact群とfresh smoke Jobは未到達です。peerはcompiler/GPU0をソース経路から報告していますが、包括DLL guardによる直接観測ではありません。元workspace保持は報告され、process差分／残留／serviceは未観測・unverifiedです。原失敗を`portable-world-v116-controller-failure-sanitized.json`へ、peer報告からの派生記録として保持します。
 
 Windows venvのpython.exeにはworkerを起動するredirectorがあり、PopenのPIDとPython worker PIDが等しいというテスト前提は常に成立しません。v116の歴史的原因は未確定のまま、fake compiler childの起動を共通CLIと同じbase Pythonへ明示し、継承した`__PYVENV_LAUNCHER__`を除去しました。stdllibと明示app pathだけを使う子です。PID比較を緩めず、childが自己報告したPID／PPIDとclaim／Popenの一致も検査します。起動markerはatomic公開、親側の異常時にはgate解放と上限付きcleanupを行います。Macのcache12＋CLI27＋artifact10は成功。修正版のWindows確認は新しい固定packageでのみ行い、原v116は再実行しません。
+
+## 修正版Windows v117
+
+固定d5ccaf5／package e34c3158のCPU限定smokeは53件全成功、15.267639秒で終了しました。base Python直接起動、claim PID＝Popen PID＝子自己PID、子の自己PPID＝test親を厳密assertionで確認。fresh smoke Jobはpre単独所属・作成identity・BelowNormal・post空・cleanup errorなし、6.129195秒でした。CPU testsはこのfresh Jobの前に実行されています。
+
+peer報告ではcontroller-only／fake compiler経路でSlang／NVRTC／driver／GPU／native battle0です。包括DLL guard・API tracingの直接観測は行っていません。元HEAD/statusと親TEMP保持は報告されましたが、before/afterの既存process欠落7件・原因unknown、サービスbefore/after未識別のため、service preservationはfalseです。smoke成功を環境保持やCUDA数値一致の成功へ拡張しません。v116の歴史的原因も未確定です。
+
+`portable-world-v117-controller-smoke-sanitized.json`はpeer final message由来で、Macでraw独立監査した結果ではありません。原v116の失敗を保持し、各固定packageは1回だけ実行。追加のWindows本体コンパイル／GPU計算は不要です。

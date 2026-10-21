@@ -5,7 +5,9 @@
 
 原522でクイーン／ユキコ4入力が拒否された失敗は保持しています。診断でTARGET_CODE44のactor-field追加条件受付漏れを特定し、既存共通評価器へ接続。不一致／不正codeと名前表の完全一致も検査します。物理履歴の2048件上限によりユキコ30秒32件・3人同時30秒2123件を省略しており、記録prefixと省略数・全戦闘状態の一致までの確認です。省略packet個別一致ではありません。詳細portable-persona.md、portable-persona-retention.json、portable-persona-development-checkpoint.json。
 
-CUDA cacheは同一keyのmiss時に排他的claimを取得し、競合を即時拒否・取得後のhit再検査・自ownerのみ解放・異常終了claim保持を実装しました。実プロセスを使うCPU検査もfake compilerであり、NVRTC実行やcoldコンパイル改善の証明ではありません。共通CLIのsmokeはcleanup4＋CLI27＋cache12＋artifact10の53件とfresh Jobだけです。必要test欠落はJob前に拒否します。Windows v116はCPU43件中42成功・cache PID前提の1件失敗で停止、artifactとfresh smoke Jobは未到達。原失敗を保持し、テストchildをbase Pythonへ変更。Mac cache12＋CLI27＋artifact10が成功し、新固定packageでCPU smokeだけを確認予定です。本体cold compiler v115の失敗は未解決・同条件再試行しません。詳細portable-cuda-cache-claims.md。
+CUDA cacheは同一keyのmiss時に排他的claimを取得し、競合を即時拒否・取得後のhit再検査・自ownerのみ解放・異常終了claim保持を実装しました。実プロセスを使うCPU検査もfake compilerであり、NVRTC実行やcoldコンパイル改善の証明ではありません。共通CLIのsmokeはcleanup4＋CLI27＋cache12＋artifact10の53件とfresh Jobだけです。必要test欠落はJob前に拒否します。Windows v116はCPU43件中42成功・cache PID前提の1件失敗で停止、artifactとfresh smoke Jobは未到達。原失敗を保持し、テストchildをbase Pythonへ変更。Mac cache12＋CLI27＋artifact10成功後、固定d5ccaf5のWindows v117はCPU53件とfresh Job smoke成功（全体15.268秒／Job6.129秒、post空）。既存process欠落7・原因unknown・service未識別なので環境保持成功とはせず、新版CUDA数値一致も未確認です。原v116の原因は未確定のまま保持。本体cold compiler v115の失敗は未解決・同条件再試行しません。詳細portable-cuda-cache-claims.md。
+
+次候補の名前付き倍率78／80は参照consumerを確認し、GPU禁止のdamage projection6件が成功しました。GPU受付は未実装で、enemy named-state observerも本対応が必要です。docs/portable-named-magnitude-next.mdを参照してください。
 
 静的packing199/266・base140/203・106分類、通常画面CPU・全キャラGPU認定0・新版CUDA数値一致未確認・最終目標未完了を維持します。以下は履歴です。
 <!-- /persona-current -->

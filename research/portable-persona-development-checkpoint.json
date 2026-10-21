@@ -223,7 +223,7 @@
     },
     "report": "/tmp/nikke-persona-inventory.json"
   },
-  "windows_runs_for_this_change": 0,
+  "windows_runs_for_this_change": 2,
   "cuda_calculation_verified": false,
   "full_character_verified": 0,
   "full_goal_complete": false,
@@ -234,5 +234,15 @@
   "history_limit": "Physical packet snapshots retain prefix up to2048 and exact omitted count. Yukiko30s omitted32, persona-triad30s omitted2123; not verification of each omitted packet. Full battle state comparison retained.",
   "cache_scope": "Fake compiler CPU tests only; duplicate compilation prevention is not evidence of cold NVRTC improvement.",
   "compiler_statistics": "research/portable-persona-compiler-statistics.json",
-  "compiler_statistics_scope": "Verified saved generated CUDA only. Lexical size and estimated declared Runtime storage do not establish compiler-memory cause, performance, or CUDA correctness."
+  "compiler_statistics_scope": "Verified saved generated CUDA only. Lexical size and estimated declared Runtime storage do not establish compiler-memory cause, performance, or CUDA correctness.",
+  "windows_cpu_smoke": {
+    "v116": "research/portable-world-v116-controller-failure-sanitized.json",
+    "v117": "research/portable-world-v117-controller-smoke-sanitized.json",
+    "v117_source": "d5ccaf51b99e1a8337f9acf7062152fa64634e46",
+    "v117_tests": 53,
+    "v117_seconds": 15.267638599965721,
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "scope": "Peer structured reports; no raw independent Mac audit. CPU smoke, not CUDA calculation proof. Missing7 cause unknown and service unverified."
+  }
 }

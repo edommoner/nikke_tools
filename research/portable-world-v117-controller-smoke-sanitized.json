@@ -1,0 +1,104 @@
+{
+  "version": 117,
+  "payload_commit": "a3fcdde6018e3142fc748a0d4644f81c9e7aaf95",
+  "source_commit": "d5ccaf51b99e1a8337f9acf7062152fa64634e46",
+  "package_id": "e34c315879abfa22ef8e75a3ee59f6153ddcd99904c2f81dbf68a3781f041be8",
+  "archive_bootstrap_manifest_verified": true,
+  "elapsed_seconds": 15.267638599965721,
+  "exit": 0,
+  "cpu_tests": [
+    {
+      "suite": "windows_cleanup",
+      "count": 4,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "gpu_cli",
+      "count": 27,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "compile_cache",
+      "count": 12,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "cuda_artifact",
+      "count": 10,
+      "skip": 0,
+      "exit": 0
+    }
+  ],
+  "total_tests": 53,
+  "claim_identity": {
+    "base_python_direct_launch": true,
+    "claim_pid_equals_Popen_pid": true,
+    "child_self_pid_equals_Popen_pid": true,
+    "child_self_ppid_equals_test_parent": true,
+    "marker_atomic": true,
+    "evidence": "Strict assertions passed in fake compiler process test"
+  },
+  "cpu_json": {
+    "passed": true,
+    "controller_only": true,
+    "input_count": 0,
+    "native_oracles": 0,
+    "gpu_calls": 0
+  },
+  "smoke_verified": true,
+  "job": {
+    "pre_single_verified": true,
+    "post_empty_verified": true,
+    "creation_identity_stable": true,
+    "below_normal": true,
+    "elapsed_seconds": 6.129195199813694,
+    "cleanup_error": null,
+    "inspection_error": null,
+    "observation_error": null,
+    "after_snapshot_delay_seconds": 2.8708993,
+    "saved_after_residual_count": 0
+  },
+  "environment": {
+    "missing_count": 7,
+    "termination_cause": "unknown",
+    "service_before": "unverified",
+    "service_after": "unverified",
+    "service_preservation_verified": false,
+    "cli_preservation_verified": null,
+    "original_head_status_preserved": true
+  },
+  "parent_below_normal": true,
+  "parent_TEMP_TMP_TMPDIR_preserved": true,
+  "dedicated_parent_TEMP": true,
+  "outer_finally_cleanup_completed": true,
+  "cpu_tests_inside_fresh_smoke_job": false,
+  "real_operation_counts": {
+    "slang": 0,
+    "nvrtc": 0,
+    "driver": 0,
+    "context": 0,
+    "kernel": 0,
+    "gpu": 0,
+    "native_battle": 0
+  },
+  "operation_count_evidence": "Reviewed controller-only and fake compiler fixture paths; comprehensive DLL guard and runtime API tracing were not applied",
+  "run_attempts": 1,
+  "retries": 0,
+  "v116_original_preserved": true,
+  "v116_historical_cause": "unconfirmed",
+  "calculation_verified": false,
+  "saved_report": {
+    "bytes": 3147,
+    "sha256": "9ec39c50310450d1d9cd9507f9842f0b6ebb58cd27455be5ac218fa99eeea5d9"
+  },
+  "github_push": false,
+  "provenance": {
+    "type": "Derived from Windows peer structured final message; no independent raw/capture audit on Mac",
+    "thread_id": "01a140bc-5f3b-7661-b720-50c945596eaa",
+    "turn_id": "01a15f49-a114-79d2-b709-3e5254bcd5a2"
+  },
+  "full_goal_complete": false
+}
