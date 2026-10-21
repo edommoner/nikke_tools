@@ -106,6 +106,7 @@ struct Runtime
 #ifdef PORTABLE_WORLD_TEAM
 // This private ABI admits only mode19; portableEvents validates its marker first.
 bool worldTeamEnabled(inout Runtime s) { return true; }
+#define WORLD_TEAM_INPUT(input,output) if(commands[input+P_TARGET_COUNTER_INPUT_BASE]!=0x57433031||commands[input+P_TARGET_COUNTER_INPUT_BASE+6]!=19) { results[output]=64;return; }
 #define WORLD_TEAM_MODE(s) worldTeamEnabled(s)
 #define WORLD_TEAM_INIT(s) initializeWorldTeam(s);
 #define WORLD_TEAM_BUDGET(s,row) teamBudgetRow(s.inputBase,row)
@@ -122,6 +123,7 @@ bool worldTeamEnabled(inout Runtime s) { return true; }
 #define WORLD_TEAM_KIND(s,d,legacy) (worldTeamEnabled(s)&&teamBindingOwner(s.inputBase,row)!=0&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8) ? false : (legacy))
 #define WORLD_TEAM_CONDITION(s,d,at,kind,arg) if(worldTeamEnabled(s)&&teamBindingOwner(s.inputBase,row)!=0&&teamAdditionalCondition(kind)) { if(!validTeamAdditionalCondition(at,kind,arg)) return false;continue; }
 #else
+#define WORLD_TEAM_INPUT(input,output)
 #define WORLD_TEAM_MODE(s) false
 #define WORLD_TEAM_INIT(s)
 #define WORLD_TEAM_BUDGET(s,row) row
@@ -1972,10 +1974,7 @@ void tick(inout Runtime s, uint64_t when, uint output)
 void portableEvents(uint3 id : SV_DispatchThreadID)
 {
     if (id.x >= commands[0]) return;
-    uint input = 1 + id.x*P_INPUT_WORDS, output = id.x*P_OUTPUT_WORDS;
-#ifdef PORTABLE_WORLD_TEAM
-    if(commands[input+P_TARGET_COUNTER_INPUT_BASE]!=0x57433031||commands[input+P_TARGET_COUNTER_INPUT_BASE+6]!=19) { results[output]=64;return; }
-#endif
+    uint input = 1 + id.x*P_INPUT_WORDS, output = id.x*P_OUTPUT_WORDS; WORLD_TEAM_INPUT(input,output)
     #ifdef PORTABLE_AGGREGATE_INIT_REFERENCE
     Runtime s = {};
 #else
