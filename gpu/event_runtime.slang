@@ -106,6 +106,7 @@ struct Runtime
 #ifdef PORTABLE_WORLD_CHARGE_CONTROL
 #define WORLD_CONTROL_WIRE_MODE 21
 #define WORLD_CONTROL_ORIGIN(input,row,legacy) ((legacy)||controlDefinition(input,row))
+#define WORLD_CONTROL_AMMO(input,row,kind) ((kind==13||kind==14)&&controlDefinition(input,row))
 #define WORLD_CONTROL_CONDITION_KIND(kind,legacy) ((kind==C_CHARGING)||(legacy))
 #define WORLD_CONTROL_CONDITION_VALID(at,kind,arg,legacy) (kind==C_CHARGING ? commands[at+1]==0&&f64Zero(arg) : (legacy))
 #define WORLD_CONTROL_NAMED(event,legacy) ((event==39)||(legacy))
@@ -126,6 +127,7 @@ struct Runtime
 #else
 #define WORLD_CONTROL_WIRE_MODE 19
 #define WORLD_CONTROL_ORIGIN(input,row,legacy) legacy
+#define WORLD_CONTROL_AMMO(input,row,kind) false
 #define WORLD_CONTROL_CONDITION_KIND(kind,legacy) legacy
 #define WORLD_CONTROL_CONDITION_VALID(at,kind,arg,legacy) legacy
 #define WORLD_CONTROL_NAMED(event,legacy) legacy
@@ -161,7 +163,7 @@ bool worldTeamEnabled(inout Runtime s) { return true; }
 #define WORLD_TEAM_PELLET(s,w,who,when,output) if(worldTeamEnabled(s)&&w.mode!=1) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_CHARGE(s,w,who,count,when,output) if(worldTeamEnabled(s)&&w.mode==1) for(uint teamHit=0;teamHit<count;teamHit++) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_VALIDATE(s,d,input,j) for(uint teamSlot=0;teamSlot<d.triggerCount;teamSlot++) { uint teamEvent=commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+teamSlot*8];if((teamEvent==44||teamEvent==45)&&!worldTeamEnabled(s)) { s.error=64;break; } } if(s.error!=0) break;
-#define WORLD_TEAM_KIND(s,d,legacy) (worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8) ? false : (legacy))
+#define WORLD_TEAM_KIND(s,d,legacy) (worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8||WORLD_CONTROL_AMMO(s.inputBase,row,d.kind)) ? false : (legacy))
 #define WORLD_TEAM_CONDITION(s,d,at,kind,arg) if(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&WORLD_CONTROL_CONDITION_KIND(kind,teamAdditionalCondition(kind))) { if(!WORLD_CONTROL_CONDITION_VALID(at,kind,arg,validTeamAdditionalCondition(at,kind,arg))) return false;continue; }
 #else
 #define WORLD_TEAM_INPUT(input,output)
@@ -1003,7 +1005,7 @@ void clearMode(inout Runtime s, uint who, uint64_t when)
     // restart cadence at its own sampling time, without refilling a second time.
     s.physicalModeIndex[who] = -2; s.pendingAutoReload[who] = 0;
     s.ammo[who] = fullCapacity(s,who,s.capacity[who],true,when); s.weaponInitialized[who] = 1; s.reloadUntil[who] = F64_SIGN | ONE;
-    s.charging[who] = 0; s.nextShot[who] = when; s.modeShots[who] = 0; s.postReloadUntil[who] = F64_SIGN | ONE;
+    s.charging[who] = 0; s.nextShot[who] = when; s.modeShots[who] = 0; s.postReloadUntil[who] = F64_SIGN | ONE; WORLD_CONTROL_CANCEL(s,who)
 }
 
 void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mode, uint event, uint owner, int argument, uint64_t when, uint64_t value = 0)
