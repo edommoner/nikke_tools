@@ -71,8 +71,16 @@
     "new_feature_calculation_verified": false,
     "new_cold_compile_attempts": 0,
     "new_gpu_dispatches": 0,
-    "controller_smoke_windows_pending": true,
-    "compiler_allocation_failure_unresolved": true
+    "controller_smoke_windows_pending": false,
+    "compiler_allocation_failure_unresolved": true,
+    "controller_smoke_verified": true,
+    "controller_cpu_tests": 29,
+    "controller_outer_elapsed_seconds": 11.21935660019517,
+    "controller_native_battles": 0,
+    "controller_gpu_calls": 0,
+    "controller_slang_nvrtc_driver_calls": 0,
+    "controller_report": "research/portable-world-v114-controller-smoke-sanitized.json",
+    "environment_preservation_certified": false
   },
   "unchanged": {
     "normalizer": true,

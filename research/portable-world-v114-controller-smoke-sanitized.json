@@ -1,0 +1,89 @@
+{
+  "version": 114,
+  "payload_commit": "ddc9755351abec568b10e7f51af61fef72bb9df1",
+  "source_commit": "ee0756fb76bce0e3c5036c4ab1a027111e1449a5",
+  "package_id": "077415fb4aa2720300720db1c5503f9e48fc0ccf1d9eeff69f36a2194c148e23",
+  "archive_sha256": "bf9299943b4454fe2c2afbf061b2c4bf18c255827096676a13e1ca90936ff0b9",
+  "archive_bootstrap_and_manifest_verified": true,
+  "cpu_tests": [
+    {
+      "suite": "windows_cleanup",
+      "count": 4,
+      "skip": 0,
+      "exit": 0,
+      "elapsed_seconds": 2.4212265997193754
+    },
+    {
+      "suite": "gpu_cli",
+      "count": 25,
+      "skip": 0,
+      "exit": 0,
+      "elapsed_seconds": 2.6958029000088573
+    }
+  ],
+  "cpu_total": 29,
+  "cpu_json": {
+    "passed": true,
+    "controller_only": true,
+    "input_count": 0,
+    "native_oracles": 0,
+    "gpu_calls": 0
+  },
+  "temporary_environment": {
+    "dedicated_parent_temp": true,
+    "parent_TEMP_TMP_TMPDIR_preserved": true,
+    "child_TEMP_TMP_TMPDIR_configured_by_cli": true,
+    "child_temporary_directory_exists": true,
+    "child_environment_values_directly_recorded": false
+  },
+  "job": {
+    "child_pid": 60176,
+    "child_creation_filetime_ticks": "134370669089160747",
+    "creation_identity_stable": true,
+    "parent_identity_verified": true,
+    "pre_members": [
+      60176
+    ],
+    "post_members": [],
+    "start_gate_verified": true,
+    "below_normal": true,
+    "timeout_seconds": 30,
+    "elapsed_seconds": 5.1232639998197556,
+    "cleanup_budget_seconds": 5,
+    "cleanup_error": null,
+    "inspection_error": null,
+    "observation_error": null,
+    "after_snapshot_delay_seconds": 2.4336056,
+    "saved_after_residual_count": 0
+  },
+  "outer_command": {
+    "exit": 0,
+    "below_normal": true,
+    "timeout_seconds": 60,
+    "elapsed_seconds": 11.21935660019517
+  },
+  "smoke_verified": true,
+  "environment": {
+    "missing_count": 0,
+    "all_monitored_processes_preserved": true,
+    "termination_cause": null,
+    "service_before": "unverified",
+    "service_after": "unverified",
+    "service_preservation_verified": false,
+    "cli_preservation_verified": null,
+    "original_head_status_preserved": true
+  },
+  "slang_calls": 0,
+  "nvrtc_calls": 0,
+  "driver_calls": 0,
+  "context_calls": 0,
+  "kernel_calls": 0,
+  "gpu_calls": 0,
+  "native_battle_calls": 0,
+  "run_attempts": 1,
+  "retries": 0,
+  "calculation_verified": false,
+  "prior_records_preserved": true,
+  "github_push": false,
+  "evidence_scope": "Structured Windows controller-only report; no Mac independent raw audit; no numerical CUDA certification."
+}

@@ -36,3 +36,9 @@ WORLD_TEAM_KIND／WORLD_TEAM_CONDITION／WORLD_SKILL_KINDは、呼出側の自�
 Windowsの子テストとJobはcapture/temporaryをTEMP／TMP／TMPDIRへ設定します。親環境は変更しません。`run --smoke`は固定packageの全ファイルを検査した後、制御用CPU29検査とGPU0のfresh Jobだけを実行し、全編成のnative battleやnumeric suiteの再実行を省きます。通常GPU実行とCPU-only検証の全native preflightは維持します。
 
 制御テストでは「smokeからnative preflightを呼べない」「子プロセスが専用TEMPを実際に使う」を検査します。Windows実機の制御smokeはMac検証後の短いCPU確認として扱い、NVRTC／driver／kernelは起動しません。CUDA初回コンパイルのメモリ不足は別の未解決事項です。
+
+## Windows制御確認v114
+
+固定ee0756fのsealed packageは原ZIP・bootstrap・全manifestを照合後、WindowsでCPU29件（cleanup4＋CLI25）に成功しました。controller_only／input_count0／native_oracles0、BelowNormal、fresh Jobの子60176・作成時刻／親identity／pre所属[60176]／post空／start gate／cleanup成功を確認。Job部分5.123264秒、after遅延2.433606秒、コマンド全体11.219357秒、外側60秒／Job30秒の制限内です。
+
+親の専用TEMPを維持し、子の専用temporaryをCLIで設定して存在を確認。Job子の環境値そのものを直接記録した証拠とは区別します。Slang／NVRTC／driver／context／kernel／GPU／native battleは0、同条件retry0、元HEAD/status保持、観測missing0／残留0でした。serviceはunverifiedなので環境全体の保持認定はしません。原記録はWindows、Macのstructured reportは独立raw監査ではありません。
