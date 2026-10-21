@@ -59,3 +59,9 @@ PythonのAddDllDirectoryだけでは、NVRTC内部の名前による依存ロー
 既存のsource／compiler全DLL／header／flagsのbyte identity、cache schema/key、compile中のhash再検査は変えません。cache hit／required missではfactoryを呼ばず、DLL load0を保持します。欠落／複数候補はcache／DLL前、明示ロード失敗はnvrtcCreateProgram前に止まります。単一候補の検査だけで任意の2 libraryのversion互換性を証明したとは扱いません。
 
 全CPU745件中744成功・Windows専用1skip。DLL失敗をloadedと先に記録する既存journalも、entered→成功時loaded／失敗時raisedへ修正し、compiler CLI8・artifact12・cache12のCPU故障注入を確認しました。ここまでfake DLLであり、Windowsの実依存ロードは未確認です。次の固定packageだけを新しいloader条件で最大1回確認します。元v119を再実行・上書きせず、同じ上限・O1・compiler byteを維持します。
+
+## v120：依存ロードは成立、CUBINは未成立
+
+新loaderの固定3b0f227でprimary／builtins双方のentered→loadedとnvrtcCreateProgram return0を確認しました。CPU24件成功後の1回は、42.402秒／NVRTC30.859秒、return6／ptxas Memory allocation failure、2GiB Job peak2,148,052,992byte、artifact0、retry0です。driver／context／module／kernel／GPU0、post空、process欠落0との報告ですがservice未識別で環境保持false。原v119の失敗を保持し、cache-checkは行っていません。派生記録はportable-world-v120-compiler-sanitized.jsonです。
+
+版変更の巡回はここで止めます。Macで、RWStructuredBufferの構造体要素をinoutへ渡す小さなSlangプローブを生成し、CUDA／Metalでprivate構造体copyが出ないことを確認しました。本体のcompile改善ではありません。次の単一の構造仮説と必要な境界検証は[Runtime常駐参照の検討](portable-runtime-storage-next.md)に記録しています。

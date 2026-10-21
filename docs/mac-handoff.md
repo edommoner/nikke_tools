@@ -1,3 +1,7 @@
+<!-- entry-reference-nvrtc-current -->
+entry_reloadを共通CLIのreferenceへ接続し、full-world32契約と全戦闘／traceの観測透明性を確認。GPU対応は未実装です。NVRTC12.4のv119依存ロード失敗を共通loaderで修正し、v120は両DLLロード成功後にCUBINのptxas allocation failure（42.402秒／2GiB付近）で終了。Windows追加試行は止めました。次はGPU常駐Runtime参照の構造仮説をMacで検討します。小さいコード生成4件は成功していますが本体は未変更です。詳細は[CPU契約](portable-entry-reload-next.md)と[Runtime検討](portable-runtime-storage-next.md)。通常UI CPU・全キャラ認定0・最終目標未完了。
+<!-- /entry-reference-nvrtc-current -->
+
 <!-- parent-audit-current -->
 CLIのchild／親とreplayの重複CPU比較を整理しました。計算本体・goldenは変更せず、保存Metal759を新しい親監査器で再照合しています。詳細と検証記録は[親監査の変更](portable-parent-audit.md)を参照してください。次はCUDAのコンパイル成立の仮説とentry_reloadのCPU正本契約を優先します。
 <!-- /parent-audit-current -->
