@@ -14,7 +14,7 @@ def periodic_groups(effects):
     return groups
 
 
-def periodic_flags(effect,group):
+def periodic_flags(effect,group,*,world_frame=False):
     if effect.get('type')!='damage' or not effect.get('tick_interval'):return 0
-    retained=damage_plan(effect)[0]>=2 or group!=0
+    retained=world_frame or damage_plan(effect)[0]>=2 or group!=0
     return int(retained) | (int(effect.get('scaling')=='stack_count')<<1) | (int(bool(effect.get('name')))<<2)

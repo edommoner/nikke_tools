@@ -48,7 +48,7 @@ func run() throws {
     let entry = CommandLine.arguments.count == 7 ? CommandLine.arguments[4] : "portableProbe"
     let inputWords = CommandLine.arguments.count == 7 ? Int(CommandLine.arguments[5]) ?? 0 : 97
     let outputWords = CommandLine.arguments.count == 7 ? Int(CommandLine.arguments[6]) ?? 0 : 7
-    guard inputWords > 0 && inputWords <= 131072 && outputWords > 0 && outputWords <= 524288 else { throw ProbeError("Invalid wire layout") }
+    guard inputWords > 0 && inputWords <= 131072 && outputWords > 0 && (outputWords <= 524288 || outputWords == 655360) else { throw ProbeError("Invalid wire layout") }
     guard let device = MTLCreateSystemDefaultDevice() else { throw ProbeError("No Metal device") }
     let sequence = CommandLine.arguments[3] == "--batches"
     let paths: [[String: String]]

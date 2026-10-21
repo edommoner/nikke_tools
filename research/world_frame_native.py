@@ -59,6 +59,9 @@ def observe(case):
    if case.get('observe_actor_pools') and why!='퇴장':capture['actor_deaths']+=1
    return super()._retire(run,add,why,t,events,log)
   def finish(self,t):
+   if case.get('observe_periodic_skills'):
+    from world_periodic_native import before_finish as periodic_before_finish
+    capture['periodic_runtime']=periodic_before_finish(self,capture['bm'],NAMES)
    if case.get('observe_target_counters'):
     from world_target_counter_battle_native import before_finish as counter_before_finish
     capture['target_counters']=counter_before_finish(capture['bm'],capture,NAMES)
@@ -73,6 +76,8 @@ def observe(case):
    super()._close(run,t,outcome,events);ends.append([run.p.idx,{'cleared':1,'expired':2,'followed':3,'end':4}[outcome],*bits(t)])
  def register(bm):
   bm._effects=copy.deepcopy(effects);bm._build_notify_index()
+  if case.get('observe_periodic_skills'):
+   for index,(effect,_) in enumerate(bm._effects):effect['_portable_observer_row']=index
   if case.get('observe_authored_effect_lookup'):
    # The authored roster replaces registration, so native ordered lookups
    # must see that same literal catalog rather than original character data.
@@ -90,12 +95,26 @@ def observe(case):
  if case.get('observe_target_counters'):
   from world_target_counter_battle_native import observe_events
   counter_observer=observe_events(capture,NAMES)
+ previous_profile=sys.getprofile()
+ def periodic_profile(frame,event,arg):
+  if previous_profile is not None:previous_profile(frame,event,arg)
+  if event!='return' or frame.f_code.co_name!='__init__':return
+  carrier=frame.f_locals.get('self');ids=capture.get('counter_uid_order')
+  if ids is None or not isinstance(carrier,buff_manager.ActiveBuff):return
+  effect=getattr(carrier,'effect',{})
+  if effect.get('_portable_observer_row') is not None and effect.get('type')=='damage' and effect.get('tick_interval'):
+   uid=carrier.uid
+   if uid not in ids:ids[uid]=len(ids)+1
  with counter_observer,patch.dict(timeline._NIKKE,metadata),patch.dict(buff_manager._NIKKE,metadata),patch.object(timeline,'calc_base_stats',stats),patch.object(buff_manager.BuffManager,'_register_all',register),patch.object(timeline,'CharState',Character),patch.object(timeline,'BurstController',Controller),patch.object(timeline,'BossScript',Boss),patch.object(timeline.random,'Random',ObservedRNG),patch.dict(timeline._DELAYS['_exceptions'],{},clear=True),patch.dict(timeline._DELAYS['_defaults_by_weapon_type'],{'AR':{'post_reload_delay':0}},clear=True):
-  result=timeline.simulate([dict(name=n,skill_levels={'1':10,'2':10,'3':10}) for n in NAMES],config=dict(duration=case['duration'],rng_mode='expected',burst_gauge_mode='accumulate',cover_hp=1000,camera_mode=case.get('camera_mode','single'),camera=case.get('camera',[])),enemy=enemy,seed=19)
+  if case.get('observe_periodic_skills'):sys.setprofile(periodic_profile)
+  try:result=timeline.simulate([dict(name=n,skill_levels={'1':10,'2':10,'3':10}) for n in NAMES],config=dict(duration=case['duration'],rng_mode='expected',burst_gauge_mode='accumulate',cover_hp=1000,camera_mode=case.get('camera_mode','single'),camera=case.get('camera',[])),enemy=enemy,seed=19)
+  finally:
+   if case.get('observe_periodic_skills'):sys.setprofile(previous_profile)
  state=capture['state'];bm=capture['bm'];rng=capture['boss']._rng
  hits=[dict(time=h.t,pattern=h.pattern,owner=NAMES.index(h.target),damage=h.damage,pierce=h.pierce,shield=h.shield,cover=h.cover,decoy=h.decoy,hp=h.hp,hp_after=h.hp_after,down=h.down) for h in result.squad_hits]
  graph_states=[[int(r.active),r.opens,*bits(r.start_t),r.fired,0,0,0,*r.consumed_after,*([0]*(8-len(r.consumed_after))),*r.consumed_until,*([0]*(8-len(r.consumed_until)))] for r in capture['boss']._runs];graph_states.extend([[0]*24 for _ in range(32-len(graph_states))])
  answer=dict(graph_states=graph_states,graph_history=[[32,0,*bits(capture['boss']._ends['start'][0][0])],*ends],damage=[result.char_total.get(n,0) for n in NAMES],allies=[dict(hp=state['hp'][n],max_hp=bm.effective_max_hp(n),hp_pct=state['hp_pct'][n],defense=bm._effective_def(n),down=n in state['down'],received_damage=sum(h['hp'] for h in hits if h['owner']==i),received_hits=sum(h['owner']==i for h in hits)) for i,n in enumerate(NAMES)],covers=[dict(hp=state['cover_hp'][n],max_hp=state['cover_max_hp'][n],effective_max_hp=bm.cover_max_hp(n,capture['time'])) for n in NAMES],shots=[counts[n] for n in NAMES],ammo=[capture['characters'][n].ammo for n in NAMES],hits=hits,boss_log=[dict(time=x.t,pattern=x.pattern,event=x.event,outcome=x.outcome) for x in result.boss_log],rng=dict(index=rng.getstate()[1][-1],state=list(rng.getstate()[1][:-1]),draws=rng.draws,rejects=rng.rejects,samples=rng.samples),scope='Actual full native simulate;only authored effects,base stats and weapon metadata are replaced. Scheduler,target selector,layered landing,weapon tick and frame loop are native.')
+ if case.get('observe_periodic_skills'):answer['periodic_runtime']=capture['periodic_runtime']
  if case.get('observe_pending_skills'):
   answer['pending_burst']=dict(count=len(capture['burst_controller']._pending_burst_dmg),enqueued=capture.get('pending_enqueued',0),fired=capture.get('pending_fired',0))
  if case.get('observe_overlay'):

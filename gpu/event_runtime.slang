@@ -100,8 +100,36 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_WORLD_PERIODIC
+#define WORLD_PERIODIC_ENABLED(s) (targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==11)
+#define WORLD_PERIODIC_RETAINED(s,d,legacy) ((legacy)||worldPeriodicClock(s,d))
+#define WORLD_PERIODIC_MASK(s,row,packed,legacy) if(worldPeriodicClock(s,readDefinition(s.inputBase,row))) { packed=0;return worldPeriodicAnyLive(s,row)?0xffffffffU:0; } legacy
+#define WORLD_PERIODIC_CAPTURE(s,row,source,append,a,b,c) if(worldPeriodicClock(s,readDefinition(s.inputBase,row))) { captureWorldPeriodicDefinition(s,row,source,append);return; } a,b,c
+#define WORLD_PERIODIC_STATUS(s,d,legacy) ((legacy)&&!worldPeriodicClock(s,d))
+#define WORLD_PERIODIC_VALID(s,r,legacy) ((legacy)||(worldPeriodicClock(s,readDefinition(s.inputBase,r.row))&&r.mask==0))
+#define WORLD_PERIODIC_STORE(s,at,r) storeWorldPeriodicPacket(s,at,r);
+#define WORLD_PERIODIC_LOAD(r,at) r.target=results[at+7];
+#define WORLD_PERIODIC_CAPTURE_PACKET(s,r,index,legacy) if(worldPeriodicClock(s,readDefinition(s.inputBase,r.row))) captureWorldPeriodicPacket(s,r,index);else legacy
+#define WORLD_PERIODIC_FAMILY(s,d,legacy) (worldPeriodicClock(s,d)&&(d.damageFlags&H_DOT)!=0&&d.damageNormal==0?2U:(legacy))
+#define WORLD_PERIODIC_INIT(s) initializeWorldPeriodic(s);
+#define WORLD_PERIODIC_NAMED(s,row,target,count,present,name) if(s.alive[row]!=0&&int(definition_name(s.inputBase,s.carrierDefinition[row]))==name&&worldPeriodicNamedMember(s,row,target)) { present=true;count=larger(count,carrierStackValue(s,row));continue; }
+#else
+#define WORLD_PERIODIC_ENABLED(s) false
+#define WORLD_PERIODIC_RETAINED(s,d,legacy) legacy
+#define WORLD_PERIODIC_MASK(s,row,packed,legacy) legacy
+#define WORLD_PERIODIC_CAPTURE(s,row,source,append,a,b,c) a,b,c
+#define WORLD_PERIODIC_STATUS(s,d,legacy) legacy
+#define WORLD_PERIODIC_VALID(s,r,legacy) legacy
+#define WORLD_PERIODIC_STORE(s,at,r)
+#define WORLD_PERIODIC_LOAD(r,at)
+#define WORLD_PERIODIC_CAPTURE_PACKET(s,r,index,legacy) legacy
+#define WORLD_PERIODIC_FAMILY(s,d,legacy) legacy
+#define WORLD_PERIODIC_INIT(s)
+#define WORLD_PERIODIC_NAMED(s,row,target,count,present,name)
+#endif
+bool worldPeriodicEnabled(inout Runtime s) { return WORLD_PERIODIC_ENABLED(s); }
 #ifdef PORTABLE_WORLD_PENDING_SKILLS
-#define WORLD_PENDING_ENABLED(s) (targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==9)
+#define WORLD_PENDING_ENABLED(s) (targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==9||worldPeriodicEnabled(s))
 #define WORLD_PENDING_KIND(s,d) (worldPendingEnabled(s)&&(d.kind==24||d.kind==9))
 #define WORLD_PENDING_SCOPE_BEGIN(s) uint pendingQueryScope=0;if(worldPendingEnabled(s)) pendingQueryScope=actorStatePushQuery(s,0);
 #define WORLD_PENDING_SCOPE_END(s) if(worldPendingEnabled(s)) actorStatePopQuery(s,pendingQueryScope);

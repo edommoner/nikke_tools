@@ -5,15 +5,22 @@ from world_actor_pool_native import actor_bindings
 from world_frame_native import observe
 def inspect(case):
  from calculator.boss_pattern import BossScript
- names={e['name']:i for i,e in enumerate(case['effects']) if e.get('type')=='damage'};records=[];active=[];original=BossScript.route;previous=sys.getprofile()
+ names={e['name']:i for i,e in enumerate(case['effects']) if e.get('type')=='damage'};records=[];active=[];event_rows={};handler_starts={};original=BossScript.route;previous=sys.getprofile()
  def profile(frame,event,arg):
+  if case.get('observe_periodic_skills') and frame.f_code.co_name=='_handle_damage_eff':
+   eff=frame.f_locals.get('eff',{});row=eff.get('_portable_observer_row');events=frame.f_locals.get('_dot_events',[])
+   if row is not None:
+    if event=='call':handler_starts[id(frame)]=len(events)
+    elif event=='return':
+     for item in events[handler_starts.pop(id(frame),len(events)):]:event_rows.setdefault(id(item),row)
+   return
   if frame.f_code.co_name!='_land':return
   ev=frame.f_locals.get('ev')
   if ev is None or ev.skill_name not in names:return
   if event=='call':
-   row=dict(row=names[ev.skill_name],created=ev.t,landed=frame.f_locals['t'],amount=ev.damage,share=ev.damage,recipients=[0])
+   row=dict(row=event_rows.get(id(ev),names[ev.skill_name]),created=ev.t,landed=frame.f_locals['t'],amount=ev.damage,share=ev.damage,recipients=[0])
    records.append(row);active.append(row)
-  elif event=='return':active.pop()
+  elif event=='return':active.pop();event_rows.pop(id(ev),None)
  def route(boss,ev,*args,**kwargs):
   result=original(boss,ev,*args,**kwargs)
   if ev.skill_name in names and active:

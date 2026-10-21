@@ -3,7 +3,7 @@
 [noinline]
 uint periodicDamageMask(inout Runtime s, uint row, out uint packed)
 {
-    bool status=commands[s.inputBase+P_STATUS_META_BASE]!=0;
+    WORLD_PERIODIC_MASK(s,row,packed,bool status=commands[s.inputBase+P_STATUS_META_BASE]!=0;)
     if(status && s.alive[row]==0)
     {
         Definition selector=readDefinition(s.inputBase,row);if(selector.damageRoute==0) selector.damageRoute=6;
@@ -22,7 +22,7 @@ uint periodicDamageMask(inout Runtime s, uint row, out uint packed)
 [noinline]
 void capturePeriodicTargets(inout Runtime s, uint row, uint source, bool append)
 {
-    uint packed = 0, count = 0, mask = 0;
+    WORLD_PERIODIC_CAPTURE(s,row,source,append,uint packed = 0, count = 0, mask = 0;)
     if (append) { mask = periodicDamageMask(s,row,packed); count = enemyMaskCount(mask); }
     Definition selector = readDefinition(s.inputBase,source);
     // Native damage carrier registration resolves target by logical aim.
@@ -66,7 +66,7 @@ void registerTimer(inout Runtime s, uint source, uint64_t when)
     // Native _active retains a DoT until a tick explicitly retires it.
     bool resident = s.alive[row] != 0;
     uint target = d.target != 0 ? 0 : s.target;
-    bool retained = (d.periodicFlags & 1) != 0;
+    bool retained = WORLD_PERIODIC_RETAINED(s,d,(d.periodicFlags & 1) != 0);
     bool sameTarget = retained || s.combat == 0 || (s.timerTarget[row] == target && s.timerGeneration[row] == s.targetGeneration[target]);
     bool preserve = d.kind == 3 && d.preserve != 0 && was && sameTarget && !staged;
     if (!preserve)
@@ -87,7 +87,7 @@ void registerTimer(inout Runtime s, uint source, uint64_t when)
     s.expiry[row] = f64Less(grant.duration,0) ? F64_INF : f64Add(when,grant.duration);
     if (d.kind == 3)
     {
-        if(commands[s.inputBase+P_STATUS_META_BASE]!=0 && (!resident || source!=row))
+        if(WORLD_PERIODIC_STATUS(s,d,commands[s.inputBase+P_STATUS_META_BASE]!=0) && (!resident || source!=row))
         {
             Definition selector=readDefinition(s.inputBase,source);if(selector.damageRoute==0) selector.damageRoute=6;
             uint order;uint members=s.combat!=0 ? enemyDamageMask(s,selector,s.target,order)<<5 : 32;
@@ -106,7 +106,7 @@ bool validatePeriodicDefinitions(inout Runtime s)
     {
         Definition d = readDefinition(s.inputBase,row); bool damageClock = d.kind == 3 && !f64Zero(d.interval);
         if (d.periodicFlags > 7 || d.periodicGroup > s.count) return false;
-        bool retained = damageClock && (d.damageRoute >= 2 || d.periodicGroup != 0);
+        bool retained = damageClock && WORLD_PERIODIC_RETAINED(s,d,(d.damageRoute >= 2 || d.periodicGroup != 0));
         if ((d.periodicFlags & 1) != uint(retained) || retained && s.combat == 0) return false;
         if ((d.periodicFlags & 2) != 0 && (!damageClock || d.preserve != 1)) return false;
         if ((d.periodicFlags & 4) != 0 && !damageClock) return false;
