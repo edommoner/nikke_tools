@@ -105,6 +105,7 @@ struct Runtime
 #include "definition_runtime.slang"
 #ifdef PORTABLE_WORLD_PROJECTILE
 #define WORLD_PROJECTILE_INIT(s) initializeProjectiles(s);
+#define WORLD_PROJECTILE_SKIP_SLOT(event,stage) if(event==26&&stage==2) continue;
 #define WORLD_PROJECTILE_FRAME(s) if(s.error==0) snapshotProjectileParts(s);
 #define WORLD_PROJECTILE_PARTS(s,legacy) results[s.resourceOutput+720912+3]
 #define WORLD_PROJECTILE_SAMPLE(s,w,who,when) sampleProjectilePellets(s,who,when,w.pellets);if(s.error!=0) return;
@@ -112,6 +113,7 @@ struct Runtime
 #define WORLD_PROJECTILE_RECORD(s,w,who,when,amount) recordProjectileShot(s,who,w.mode,w.pellets,w.muzzles,when,amount);
 #else
 #define WORLD_PROJECTILE_INIT(s)
+#define WORLD_PROJECTILE_SKIP_SLOT(event,stage)
 #define WORLD_PROJECTILE_FRAME(s)
 #define WORLD_PROJECTILE_PARTS(s,legacy) legacy
 #define WORLD_PROJECTILE_SAMPLE(s,w,who,when)
@@ -1612,7 +1614,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                     if (event != f.event) continue;
                     if (event == 4 && stage != f.argument || event == 6 && int(j) != f.argument) continue;
                     if (COUNTER_NAMED(s,event,WORLD_CONTROL_NAMED(event,(event == 9 || event == 29 || event == 30 || event == 31 || event == 48 || event == 49 || event == 59))) && tag != f.argument) continue;
-                    if (event == 9 && commands[at+5] != f.value) continue;
+                    if (event == 9 && commands[at+5] != f.value) continue; WORLD_PROJECTILE_SKIP_SLOT(event,stage)
                     multiplicity++; bool ok = event != 30 || resourceModulo(f.healthValue,uint(f64ToPositiveStep(loadNumber(at+1)))) == 0;
                     if (mode != 0 || event == 7 || event == 8)
                     {

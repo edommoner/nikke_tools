@@ -40,4 +40,8 @@ def fixtures():
     c['combat']['weapons'][0].update(mode='charge',base_weapon_type='RL',charge=.1,interval=.315,min_cycle=.1,full_charge_mult=100,gauge_mult=100);c['post_fire_delays'][0]=.215
  c=add('range-expiry-next-shot',[buff('pierce_range',100,duration=.2),buff('pierce_enabled',1,'pierce'),witness()]);c['patterns']=[dict(id='parts',kind='parts',targets=[dict(name='part2',hp=1e8,reach=2)])]
  c=add('range-pellet-child-frozen',[buff('pierce_range',100,timing='pellet_hit_count:1'),buff('pierce_enabled',1,'pierce'),witness()]);c['patterns']=[dict(id='parts',kind='parts',targets=[dict(name='part2',hp=1e8,reach=2)])]
+ c=add('parts-overlay-delayed-open-close',[buff('pierce_range',100),buff('pierce_enabled',1,'pierce'),witness()]);c['patterns']=[dict(id='parts',kind='parts',delay=.15,until=dict(time=.25),targets=[dict(name='part2',hp=1e8,reach=2)])]
+ c=add('last-part-death-keeps-current-frame-parts',[buff('pierce_enabled',1,'pierce'),witness()]);c['patterns']=[dict(id='parts',kind='parts',targets=[dict(name='part',hp=1,reach=1)])]
+ c=add('static-parts-base-retained',[buff('pierce_range',100),witness()]);c['enemy']['has_parts']=True
+ c=add('static-parts-base-retained-after-part-death',[buff('pierce_enabled',1,'pierce'),witness()]);c['enemy']['has_parts']=True;c['patterns']=[dict(id='parts',kind='parts',targets=[dict(name='part',hp=1,reach=1)])]
  return rows

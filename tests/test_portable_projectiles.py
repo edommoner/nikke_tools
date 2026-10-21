@@ -45,6 +45,17 @@ class ProjectileContracts(unittest.TestCase):
    value=100-1e-9;below=math.nextafter(value,-math.inf)
    self.assertEqual(self.shots('range-'+family+'-'+below.hex())[0]['reach'],low)
    self.assertEqual(self.shots('range-'+family+'-'+value.hex())[0]['reach'],high)
+ def test_dynamic_parts_route_team_notifications_per_frame(self):
+  native=observe(copy.deepcopy(self.rows['parts-overlay-delayed-open-close']))[0]
+  first=[r for r in native['team_hits'] if r['owner']==0]
+  self.assertEqual(first[0]['event'],45)
+  self.assertIn(44,[r['event'] for r in first])
+  self.assertEqual(first[-1]['event'],45)
+  native=observe(copy.deepcopy(self.rows['last-part-death-keeps-current-frame-parts']))[0]
+  zero=[r for r in native['team_hits'] if r['time']==0]
+  later=[r for r in native['team_hits'] if r['time']>0]
+  self.assertTrue(all(r['event']==44 for r in zero))
+  self.assertTrue(all(r['event']==45 for r in later))
  def test_modifiers_require_combat_world(self):
   for stat in STATS:
    e=dict(name=stat,type='buff',stat=stat,fixed_value=1,target='self',trigger=dict(timing=['battle_start'],condition=[]))
