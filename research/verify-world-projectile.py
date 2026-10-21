@@ -29,6 +29,7 @@ def prepare():
   w=list(seed);pos=L['DEFINITION_BASE']+F['VALUE'];w[pos:pos+2]=list(struct.unpack('<II',struct.pack('<d',value)));bad.append((name,w))
  for name,kind,key,arg in [('resource-key-overflow',18,256,0),('resource-mod-zero',21,0,0),('resource-mod-fractional',21,0,2.5)]:
   w=list(seed);w[L['RESOURCE_META_BASE']]=1;w[L['DEFINITION_BASE']+F['CONDITION_COUNT']]=1;at=L['CONDITION_BASE'];w[at:at+4]=[kind,key,*struct.unpack('<II',struct.pack('<d',arg))];bad.append((name,w))
+ w=list(programs[-1][0]);w[L['RECIPIENT_BASE']+2*8+6]=1;bad.append(('self-removal-unused-recipient-key',w))
  return rows,programs,bad
 
 def main():

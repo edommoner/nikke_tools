@@ -42,7 +42,11 @@ def patch_program(words, metadata, chars, effects):
         if specification(effect) is not None:
             words[at + F['KIND']] = 4
             words[at + F['STAT']] = 0
-        words[L['RECIPIENT_BASE'] + i * 8 + 6] = stat_keys[identity(effect)]
+        # Self/enemy named removal has no allied recipient plan: all eight
+        # words are reserved and must remain zero. A stat key is meaningful
+        # only for the allied-scope removal policy (target1).
+        if words[at + F['KIND']] != 1 or words[at + F['TARGET']] == 1:
+            words[L['RECIPIENT_BASE'] + i * 8 + 6] = stat_keys[identity(effect)]
         for slot in range(int(row[144])):
             base = 145 + slot * 7
             if row[base] != 58:

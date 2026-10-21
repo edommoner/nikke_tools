@@ -47,6 +47,10 @@ class ProjectileContracts(unittest.TestCase):
    self.assertEqual(self.shots('range-'+family+'-'+value.hex())[0]['reach'],high)
  def test_resource_modulo_and_named_removal_share_native_weapon_path(self):
   self.assertEqual([x['pellets'] for x in self.shots('resource-modulo-pellets-and-named-removal')],[3,3,3,5,3,3])
+ def test_self_named_removal_wire_has_no_unused_allied_stat_key(self):
+  spec=importlib.util.spec_from_file_location('projectile_input_contract',ROOT/'research/verify-world-projectile.py');suite=importlib.util.module_from_spec(spec);spec.loader.exec_module(suite)
+  w,m,b=suite.compile_case(copy.deepcopy(self.rows['resource-modulo-pellets-and-named-removal']))
+  self.assertEqual(w[L['RECIPIENT_BASE']+2*8:L['RECIPIENT_BASE']+3*8],[0]*8)
  def test_dynamic_parts_route_team_notifications_per_frame(self):
   native=observe(copy.deepcopy(self.rows['parts-overlay-delayed-open-close']))[0]
   first=[r for r in native['team_hits'] if r['owner']==0]
