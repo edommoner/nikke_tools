@@ -15,3 +15,15 @@ MacのCPUテストでは、実際の別プロセスをgateで保持して同時m
 テストのcompilerはfake callbackで、NVRTC／GPUは使用していません。共通CLIの`run --smoke`へcacheとartifactのCPU群も追加し、制御／cacheだけを同じ短い検証経路で確認できるようにしました。必要なtest fileが存在しなければ、0件のdiscoverを成功として進めず、Job起動前に拒否します。現在のsmokeはcleanup4＋CLI27＋cache12＋artifact10の53件で、全編成のnative preflightは呼びません。
 
 Windows実機のclaim経路と、coldコンパイルの速度・peak memory改善は未確認です。v115でMemory allocation failureになった本体のコンパイル成功を、この競合防止の成功から主張しません。
+
+## 保存生成物の分析
+
+共通CLIの`compiler-stats`でMetal530 capture内のCUDA生成物を、保存artifact／evidenceのSHAと照合して分析しました。生成CUDAは1,588,159byte・973関数・noinline200関数、Runtime宣言のalignment推定138,928byteです。最大のdispatch_0は158,200byte、portableEventsは106,841byteです。これらは字句上の計測であり、各関数のcompilerメモリ負担やptxas allocation failureの原因ではありません。推定領域量が減ったことだけを根拠に、本体cold compileを繰り返しません。
+
+使用コマンドは`compiler-stats --capture <保存Metal530> --out <新規JSON> --caller weaponFrameBody_0 --runtime Runtime_0`です。生成後のsymbol名を明示するCLI契約のため、Slang元のRuntime／weaponFrameBodyという名前では拒否されます。この分析でNVRTC／GPUは0回です。記録は`research/portable-persona-compiler-statistics.json`を参照してください。
+
+## Windows v116の原失敗とテスト起動修正
+
+固定f103e50のCPU smokeは9.131秒で失敗し、43件実行中42件成功・cacheの1件がPID一致assertionで停止しました。artifact群とfresh smoke Jobは未到達です。peerはcompiler/GPU0をソース経路から報告していますが、包括DLL guardによる直接観測ではありません。元workspace保持は報告され、process差分／残留／serviceは未観測・unverifiedです。原失敗を`portable-world-v116-controller-failure-sanitized.json`へ、peer報告からの派生記録として保持します。
+
+Windows venvのpython.exeにはworkerを起動するredirectorがあり、PopenのPIDとPython worker PIDが等しいというテスト前提は常に成立しません。v116の歴史的原因は未確定のまま、fake compiler childの起動を共通CLIと同じbase Pythonへ明示し、継承した`__PYVENV_LAUNCHER__`を除去しました。stdllibと明示app pathだけを使う子です。PID比較を緩めず、childが自己報告したPID／PPIDとclaim／Popenの一致も検査します。起動markerはatomic公開、親側の異常時にはgate解放と上限付きcleanupを行います。Macのcache12＋CLI27＋artifact10は成功。修正版のWindows確認は新しい固定packageでのみ行い、原v116は再実行しません。

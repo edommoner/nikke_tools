@@ -232,5 +232,7 @@
     "research/portable-persona-roster-diagnostic.json"
   ],
   "history_limit": "Physical packet snapshots retain prefix up to2048 and exact omitted count. Yukiko30s omitted32, persona-triad30s omitted2123; not verification of each omitted packet. Full battle state comparison retained.",
-  "cache_scope": "Fake compiler CPU tests only; duplicate compilation prevention is not evidence of cold NVRTC improvement."
+  "cache_scope": "Fake compiler CPU tests only; duplicate compilation prevention is not evidence of cold NVRTC improvement.",
+  "compiler_statistics": "research/portable-persona-compiler-statistics.json",
+  "compiler_statistics_scope": "Verified saved generated CUDA only. Lexical size and estimated declared Runtime storage do not establish compiler-memory cause, performance, or CUDA correctness."
 }

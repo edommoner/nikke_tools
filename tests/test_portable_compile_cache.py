@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -8,6 +9,18 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/'app'),str(ROOT/'research')]
 from portable_compile_cache import get_or_compile
 from portable_phase_audit import verify_cuda_trace
+
+def compiler_child_command(script, *arguments):
+    # Windows venv python.exe may be a redirector with a different worker PID.
+    # Fake compiler children need only stdlib + the explicit app path.
+    interpreter=getattr(sys,'_base_executable',sys.executable) if os.name=='nt' else sys.executable
+    return [interpreter,'-c',script,*map(str,arguments)]
+
+
+def compiler_child_environment():
+    env=os.environ.copy();env.pop('__PYVENV_LAUNCHER__',None)
+    return env
+
 
 class CompileCacheTests(unittest.TestCase):
     def test_handled_failure_releases_only_owned_claim_without_caching_failure(self):
@@ -48,13 +61,15 @@ class CompileCacheTests(unittest.TestCase):
 
     def test_real_competing_process_fails_before_compiler_and_then_reuses_artifact(self):
         import subprocess,time
-        script='''import sys,time,json
+        script='''import sys,time,json,os
 from pathlib import Path
 sys.path.insert(0,sys.argv[1])
 from portable_compile_cache import get_or_compile
 dll,cache,started,release,output=map(Path,sys.argv[2:])
 def compile():
- started.write_text('compiler entered')
+ marker=started.with_suffix('.tmp')
+ marker.write_text(json.dumps(dict(pid=os.getpid(),ppid=os.getppid())))
+ marker.replace(started)
  deadline=time.monotonic()+5
  while not release.exists():
   if time.monotonic()>deadline:raise RuntimeError('test gate timeout')
@@ -66,7 +81,7 @@ output.write_text(json.dumps(receipt))
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder);dll=root/'nvrtc.dll';dll.write_bytes(b'compiler');cache=root/'cache'
             started=root/'started';release=root/'release';output=root/'output.json'
-            child=subprocess.Popen([sys.executable,'-c',script,str(ROOT/'app'),str(dll),str(cache),str(started),str(release),str(output)],stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+            child=subprocess.Popen(compiler_child_command(script,ROOT/'app',dll,cache,started,release,output),stdout=subprocess.PIPE,stderr=subprocess.PIPE,env=compiler_child_environment())
             try:
                 deadline=time.monotonic()+5
                 while not started.exists():
@@ -74,6 +89,7 @@ output.write_text(json.dumps(receipt))
                     time.sleep(.01)
                 claim=next(cache.glob('*.claim'));owner=claim.read_bytes()
                 self.assertEqual(json.loads(owner)['pid'],child.pid)
+                self.assertEqual(json.loads(started.read_text()),dict(pid=child.pid,ppid=os.getpid()))
                 compile=Mock(side_effect=AssertionError('Duplicate compiler'))
                 with self.assertRaisesRegex(RuntimeError,'already claimed'):
                     get_or_compile(b'cuda',[],[dll],compile,cache)
@@ -84,7 +100,11 @@ output.write_text(json.dumps(receipt))
                 self.assertEqual(artifact,b'cubin');self.assertTrue(receipt['hit'])
                 self.assertEqual(receipt['key'],json.loads(output.read_text())['key']);compile.assert_not_called()
             finally:
-                if child.poll() is None:child.kill();child.communicate()
+                if child.poll() is None:
+                    release.write_bytes(b'go')
+                    try:child.communicate(timeout=5)
+                    except subprocess.TimeoutExpired:
+                        child.kill();child.communicate(timeout=5)
 
     def test_crashed_process_claim_is_not_stolen_from_pid_liveness(self):
         import subprocess
@@ -99,9 +119,12 @@ with compile_claim(Path(sys.argv[2]),sys.argv[3]):os._exit(17)
             # Obtain the exact key independently; leave the real cache empty.
             _,receipt=get_or_compile(b'cuda',[],[dll],lambda:b'cubin',root/'seed')
             path=root/'cache'/(receipt['key']+'.json')
-            result=subprocess.run([sys.executable,'-c',script,str(ROOT/'app'),str(path),receipt['key']],capture_output=True,timeout=5)
-            self.assertEqual(result.returncode,17)
+            with subprocess.Popen(compiler_child_command(script,ROOT/'app',path,receipt['key']),stdout=subprocess.PIPE,stderr=subprocess.PIPE,env=compiler_child_environment()) as child:
+                stdout,stderr=child.communicate(timeout=5)
+                self.assertEqual(child.returncode,17,stderr.decode())
+                owner_pid=child.pid
             claim=path.with_suffix('.claim');before=claim.read_bytes()
+            self.assertEqual(json.loads(before)['pid'],owner_pid)
             compile=Mock(side_effect=AssertionError('Compiler after crash'))
             with self.assertRaisesRegex(RuntimeError,'already claimed'):
                 get_or_compile(b'cuda',[],[dll],compile,path.parent)
