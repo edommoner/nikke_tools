@@ -28,6 +28,11 @@ def fixtures():
    c['effects'].insert(0,dict(name='mode',source='스킬1',type='weapon_change',weapon_type='SR',damage_coeff=100,max_ammo=-1,fire_rate=5,fire_rate_max=5,charge=True,charge_time=.2,full_charge_mult=300,pellets=3,muzzles=1,post_fire_delay=0,burst_energy=0,core_dmg_mult=200,skill_damage=True,target='self',duration=2,trigger=dict(timing=['battle_start'],condition=[])));c['owners'].insert(0,0)
  c=add('team-body-rejects-parts-listener');c['enemy']['has_parts']=False
  c=add('team-no-recipient-keeps-budget');c['effects'][0].update(target='all_allies_burst_casted',max_trigger=1)
+ for predicate in ('target_state:team-mark','not_target_state:team-mark','target_stack_above:team-mark:1'):
+  c=add('team-source-owner-'+predicate);c['effects'][0]['trigger']['condition']=[predicate];c['effects'][0]['duration']=.3
+  c['effects'].insert(0,field('received_dmg_pct',0,'boss','team-mark','battle_start'));c['owners'].insert(0,0)
+  c['patterns'].append(dict(id='wave',kind='summon',spec=dict(count=1,hp=1300)))
+ c=add('team-duplicate-event-timings-native-index-multiplicity');c['effects'][0]['trigger']['timing']=['part_hit_count:1','part_hit_count:2']
  for c in rows:
   c['observe_fractional_hits']=True;c['observe_enemy_spawn']=True
   c['post_fire_delays']=[.215 if w.get('mode')=='charge' else 0 for w in c['combat']['weapons']]

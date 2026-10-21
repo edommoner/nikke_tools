@@ -106,7 +106,7 @@ bool worldTeamEnabled(inout Runtime s) { return targetCountersEnabled(s)&&comman
 #define WORLD_TEAM_INIT(s) initializeWorldTeam(s);
 #define WORLD_TEAM_BUDGET(s,row) teamBudgetRow(s,row)
 #define WORLD_TEAM_OWNER(s,row,runtime,legacy) teamConditionOwner(s,row,runtime,legacy)
-#define WORLD_TEAM_TARGET(s,row,runtime,name,when,present,legacy) teamConditionTarget(s,row,runtime,name,present,legacy)
+#define WORLD_TEAM_TARGET(s,row,runtime,name,when,present,legacy) (teamActivationContext(s,row,runtime) ? teamConditionTarget(s,row,name,present) : (legacy))
 #define WORLD_TEAM_COUNTER(s,event,counter) ((worldTeamEnabled(s)&&(event==44||event==45)) ? results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE+2+event-44] : ++s.counters[counter])
 #define WORLD_TEAM_FRAME(s,f) if(worldTeamEnabled(s)) results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE+6]=f.mode==0&&(f.event==44||f.event==45) ? f.event : 0;
 #define WORLD_TEAM_BEGIN(s) uint savedTeamEvent=worldTeamEnabled(s)?results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE+6]:0;

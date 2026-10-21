@@ -4,16 +4,17 @@ uint teamBindingOwner(inout Runtime s,uint row)
 { return worldTeamEnabled(s)&&row<s.count ? commands[s.inputBase+P_WORLD_TEAM_INPUT_BASE+8+row*2] : 0; }
 uint teamBudgetRow(inout Runtime s,uint row)
 { uint key=worldTeamEnabled(s)&&row<s.count ? commands[s.inputBase+P_WORLD_TEAM_INPUT_BASE+9+row*2] : 0;return key==0?row:key-1; }
-uint teamConditionOwner(inout Runtime s,uint row,bool runtime,uint fallback)
+bool teamActivationContext(inout Runtime s,uint row,bool runtime)
 {
-    uint origin=teamBindingOwner(s,row),event=worldTeamEnabled(s)?results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE+6]:0;
-    return !runtime&&origin!=0&&(event==44||event==45) ? origin-1 : fallback;
+    uint event=worldTeamEnabled(s)?results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE+6]:0;
+    return !runtime&&teamBindingOwner(s,row)!=0&&(event==44||event==45);
 }
-uint64_t teamConditionTarget(inout Runtime s,uint row,bool runtime,int name,inout bool present,uint64_t fallback)
+uint teamConditionOwner(inout Runtime s,uint row,bool runtime,uint fallback)
+{ return teamActivationContext(s,row,runtime)?teamBindingOwner(s,row)-1:fallback; }
+[noinline]
+uint64_t teamConditionTarget(inout Runtime s,uint row,int name,out bool present)
 {
-    uint origin=teamBindingOwner(s,row),event=worldTeamEnabled(s)?results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE+6]:0;
-    if(runtime||origin==0||event!=44&&event!=45) return fallback;
-    uint previous=actorStatePushQuery(s,actorPhysicalTarget(s,origin-1,0));uint64_t count=actorNamedTargetStack(s,name,present);actorStatePopQuery(s,previous);return count;
+    uint previous=actorStatePushQuery(s,actorPhysicalTarget(s,teamBindingOwner(s,row)-1,0));uint64_t count=actorNamedTargetStack(s,name,present);actorStatePopQuery(s,previous);return count;
 }
 bool teamAdditionalCondition(uint kind)
 { return kind==C_HP_ABOVE||kind==C_HP_BELOW||kind==C_HP_MAX||kind==C_PROB||kind==C_FULL||kind==C_NOT_FULL; }
@@ -24,6 +25,7 @@ bool validTeamAdditionalCondition(uint at,uint kind,uint64_t arg)
     if(kind==C_PROB) return !f64Less(arg,0)&&!f64Less(ONE,arg);
     return !f64Less(arg,0)&&!f64Less(HUNDRED,arg);
 }
+[noinline]
 void initializeWorldTeam(inout Runtime s)
 {
     if(!worldTeamEnabled(s)) return;
@@ -54,6 +56,7 @@ void initializeWorldTeam(inout Runtime s)
     for(uint i=P_WORLD_TEAM_STATE_BASE;i<P_WORLD_TEAM_TRACE_BASE+P_WORLD_TEAM_TRACE_COUNT*8;i++) results[s.resourceOutput+i]=0;
     results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE]=0x57544831;
 }
+[noinline]
 void notifyWorldTeam(inout Runtime s,uint who,uint64_t when,uint output)
 {
     uint kind=commands[s.inputBase+P_WORLD_TEAM_INPUT_BASE+3]==1?0:1;

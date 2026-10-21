@@ -43,6 +43,11 @@ class TeamContracts(unittest.TestCase):
   from portable_trigger_specs import pack_descriptors
   row=[0]*201;row[144]=1;row[145:152]=[44,1,1,-1,0,0,-1]
   with self.assertRaises(ValueError):pack_descriptors([],0,row,suite.L,{},lambda v:[0,0],world_frame=False)
+ def test_duplicate_timing_index_matches_native_multiplicity(self):
+  n=self.native['team-duplicate-event-timings-native-index-multiplicity'];self.assertEqual(sum(c['stack'] for c in n['named_state']['allied_carriers']),2*n['team_counts'][0])
+ def test_source_owner_target_predicate_handles_add_death(self):
+  present=self.native['team-source-owner-target_state:team-mark']['named_state']['allied_carriers'];absent=self.native['team-source-owner-not_target_state:team-mark']['named_state']['allied_carriers']
+  self.assertTrue(present);self.assertFalse(absent);self.assertEqual(sum(c['stack'] for c in present),18)
  def test_team_banks_follow_fraction_banks(self):
   L=suite.L;self.assertEqual(L['WORLD_TEAM_STATE_BASE'],L['WORLD_FRACTION_TRACE_BASE']+L['WORLD_FRACTION_TRACE_COUNT']*8);self.assertLessEqual(L['WORLD_TEAM_TRACE_BASE']+L['WORLD_TEAM_TRACE_COUNT']*8,L['WORLD_PERIODIC_OUTPUT_WORDS'])
 if __name__=='__main__':unittest.main()
