@@ -1,0 +1,25 @@
+{
+  "version": 105,
+  "source_commit": "f9581fdc27036c741278429684a1f9ef2c4d6eac",
+  "archive_path": "research/nikke-readiness-v105-package.zip",
+  "archive_bytes": 4372119,
+  "archive_sha256": "206bbb9e0b202b243591ba10a4c99f96e69ae615574fc63b2e68b942e3a98e00",
+  "package_id": "51c9cd3b1054e87058e9684e43dd798d74cb210b096244c5f2344bac05d25540",
+  "suite": "readiness",
+  "inputs": 75,
+  "native": 60,
+  "rejections": 15,
+  "input_sha256": "beb2648a35badfc16580e5cb9b1f36ca6743952913d6ad8298e1e660e90fc166",
+  "output_sha256": "0b9264727d9138bf2ca0068d543c4edd00606a0be703ff700ac9a89bdf613856",
+  "gpu_runs": 1,
+  "maximum_seconds": 180,
+  "cache_check_gpu_calls": 0,
+  "cache_check_nvrtc_calls": 0,
+  "source_payload_excludes": [
+    "personal settings",
+    "raw input/readback",
+    "PTX",
+    "compiler distributions",
+    "venv"
+  ]
+}
