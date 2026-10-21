@@ -9,7 +9,7 @@ Metal47＝native29実戦＋拒否18が成功しました。Apple M5 command comp
 
 入力98000word（従来fraction97480＋WTH1 header8＋256binding×2）、出力655360wordです。644936から5×4wordの部隊小数、644956に12word head、644968に1024×8word traceを置きます。bindingのsource owner/shared budget/実attacker順と未使用語をGPU検査します。mixed/periodic/weapon-change team listenerは既存コンパイラで拒否します。詳細はportable-world-team-hits.md、portable-world-team-validation.json、seal-world-team-metal.pyを参照。
 
-Windows v100へ固定a61136f1db638b7cd16f5174b08fa13dffbe0bb1（23ファイル387656bytes）、codex/cuda-world-v100-sourceの共通47入力だけを依頼中です。CPU78＋GPU禁止packing/oracle29に成功した場合だけ、BelowNormal/JobObject/start gate/180秒＋cleanup5秒でCUDA1回。旧958以下/通常4682は再実行しません。MacではCPU460・Metal47が成功済みですが、CUDA v100の結果はまだ認証していません。
+Windows v100は固定a61136f1db638b7cd16f5174b08fa13dffbe0bb1（23ファイル387656bytes）、codex/cuda-world-v100-sourceで成功しました。CPU78・GPU禁止47入力/native29・全source SHA照合後、BelowNormal/JobObject/start gate/180秒＋cleanup5秒でCUDA1回・111.208852秒。保存3JSON計108231bytesのinput/output/native/generated全fingerprint・API50段階・元HEAD/status/service保持・residual0/retry0・旧958以下/通常4682再実行0を共通監査済みです。portable-world-v100-cuda-validation.json、seal-world-v100-cuda.pyを参照。
 
 実203＋21お気に入り段階1/2/3＝266プロファイルのown定義Python事前検査はbase100→102、全140→142（D : 킬러 와이프、루마니）です。CPU battle/GPU build/execute禁止・呼出し0で、GPU kind admissionや全キャラ戦闘認証の数ではありません。通常画面CPU・public world false・全キャラ戦闘認証0・legacy unexplained Metal14c8e2e OPEN・全ゴール未完了です。charge_holdの手動control・充填latch・一度判定、他buff/selector、明示parts/interrupt/source攻撃、動的操作/復活、全組合せ/容量/長時間/全変種認証を続けます。GitHub共有はゴール達成まで利用者許可済みです。
 <!-- /world-team-v100 -->
