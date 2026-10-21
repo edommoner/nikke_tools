@@ -25,9 +25,17 @@ SUITES = {
                        source='gpu/world_projectile_entry.slang', inputs=63, native=52,
                        tests=['test_portable_projectiles.py', 'test_portable_real_binding_proof.py','test_portable_readiness.py','test_portable_compile_cache.py']),
     'readiness':dict(script='research/verify-world-readiness-short.py',
-                       golden='research/portable-world-readiness-v3-short-expected.json',
-                       source='gpu/world_projectile_entry.slang',inputs=75,native=60,
-                       tests=['test_portable_readiness.py','test_portable_compile_cache.py','test_portable_gpu_cli.py','test_portable_cuda_artifact.py','test_portable_phase_audit.py']),
+                       golden='research/portable-world-readiness-v4-short-expected.json',
+                       source='gpu/world_projectile_entry.slang',inputs=81,native=60,
+                       tests=['test_portable_readiness.py','test_portable_burst_recipients.py','test_portable_compile_cache.py','test_portable_gpu_cli.py','test_portable_cuda_artifact.py','test_portable_phase_audit.py','test_portable_windows_cleanup.py','test_portable_windows_observer.py']),
+    'recipients':dict(script='research/verify-world-recipients-short.py',
+                       golden='research/portable-world-recipients-short-expected.json',
+                       source='gpu/world_projectile_entry.slang',inputs=6,native=6,
+                       tests=['test_portable_recipient_extension.py']),
+    'burst-recipients':dict(script='research/verify-world-burst-recipients-short.py',
+                       golden='research/portable-world-burst-recipients-short-expected.json',
+                       source='gpu/world_projectile_entry.slang',inputs=13,native=13,
+                       tests=['test_portable_burst_recipients.py']),
     'lost-hp-roster':dict(script='research/verify-world-lost-hp-rosters-short.py',
                        golden='research/portable-world-projectile-short-expected.json',
                        source='gpu/world_projectile_entry.slang',inputs=8,native=8,development_only=True,
@@ -38,6 +46,7 @@ SUITES = {
                    tests=['test_portable_world_reload.py']),
 }
 SUITES['lost-hp-diagnostic']=dict(SUITES['lost-hp-roster'],source='gpu/world_projectile_admission_entry.slang')
+SUITES['burst-recipients-diagnostic']=dict(SUITES['burst-recipients'],source='gpu/world_projectile_admission_entry.slang',development_only=True)
 
 SCHEMA = 1
 
@@ -296,6 +305,7 @@ def child(capture, backend, smoke=False):
 
 def compare_readback(m, capture, adapter=None):
     """Re-run existing native comparators; no GPU builds/executes allowed."""
+    (ROOT/'research/portable-build').mkdir(parents=True, exist_ok=True)
     with forbid_gpu():
         adapter = adapter or open_suite(m)
         entries,data = prepare_entries(adapter, m)
@@ -331,7 +341,9 @@ def compare_readback(m, capture, adapter=None):
                 if domain is None:
                     if block[0]!=64:raise ValueError('Expected rejection status64')
                     native=dict(status=64)
-                else:native=adapter.compare(block,domain)
+                else:
+                    if block[0]!=0:raise ValueError('Expected GPU success status0; got status'+str(block[0]))
+                    native=adapter.compare(block,domain)
                 row=dict(name=name,input_sha256=sha(data[4+i*iw:4+(i+1)*iw]),output_sha256=sha(part),native_sha256=adapter.cross.digest(native))
                 expected = m['golden']['entries'][i]
                 actual = {key:row[key] for key in expected} if is_development(m) else row
@@ -348,6 +360,78 @@ def compare_readback(m, capture, adapter=None):
         return dict(calculation_verified=not mismatches, entries=results, mismatches=mismatches,
                     input_count=len(entries), native_oracles=sum(domain is not None for _,_,domain in entries),
                     input_sha256=sha(data),output_sha256=sha(raw),generated_normalized=generated,audit_gpu_calls=0)
+
+
+def replay_source(m, source_package, source_capture):
+    """Validate an immutable successful Metal dispatch, including failed decode."""
+    original=verify_package(source_package)
+    if not is_development(m) or not is_development(original) or m['suite']!=original['suite'] or m['golden']!=original['golden']:
+        raise ValueError('Replay requires identical development source/input/native baselines')
+    old={r['path']:r['sha256'] for r in original['files']};new={r['path']:r['sha256'] for r in m['files']}
+    critical={'app/portable_backend.py','app/portable_compile_cache.py','scripts/run-metal-probe.swift',
+              'research/portable_phase_audit.py','research/summarize-portable-cross-gpu.py',
+              'app/detail_gpu.py','app/engine_worker.py','app/effect_spec.py','app/engine_compat.py'}
+    critical |= {name for name in old.keys() | new.keys() if name.startswith(('gpu/','research/upstream/'))}
+    if any(name not in old or name not in new or old[name]!=new[name] for name in critical):
+        raise ValueError('GPU transport, source, normalizer or canonical reference changed')
+    run=load(source_capture/'run.json')
+    if run['package_id']!=original['package_id'] or run['backend']!='metal' or run.get('mode')!='gpu':
+        raise ValueError('Original Metal GPU capture required')
+    claim=load(source_package/'gpu-claimed-metal.json')
+    if claim['package_id']!=original['package_id'] or Path(claim['capture']).resolve()!=source_capture.resolve():
+        raise ValueError('Original GPU execution claim mismatch')
+    records=load(source_capture/'artifacts.json')['files']
+    required={'run.json','execution.json','evidence.json','phases.jsonl','comparison.json','result.json'}
+    if not required <= {r['path'] for r in records}:raise ValueError('Original capture proof set incomplete')
+    check_records(source_capture,records)
+    facts=load(source_capture/'execution.json');evidence=load(source_capture/'evidence.json')
+    if facts['timed_out'] or any(facts[k] is not None for k in ('error','cleanup_error','observation_error')):
+        raise ValueError('Timeout/control failure cannot be replayed as a completed dispatch')
+    if facts['final_child_exit_code'] not in (0,1):raise ValueError('Unexpected original child termination')
+    if evidence['backend']!='metal' or not evidence['gpu_execution_verified'] or evidence['transport']['command_status']!='completed':
+        raise ValueError('Original dispatch did not complete on Metal')
+    rows=[json.loads(line) for line in (source_capture/'phases.jsonl').read_text().splitlines()]
+    dispatch=[r['state'] for r in rows if r['stage']=='shared_gpu_execute']
+    if dispatch!=['entered','returned']:raise ValueError('Original GPU execution boundary incomplete')
+    for backend,suffix in [('cuda','cu'),('metal','metal')]:
+        if sha((source_capture/('generated.'+suffix)).read_bytes())!=evidence['generated_sha256'][backend]:
+            raise ValueError('Original generated bytes mismatch')
+    return original,facts,evidence
+
+
+def audit_replay_capture(m, capture, *, verify_artifacts=True):
+    run=load(capture/'run.json');origin=load(capture/'replay.json')
+    if run['package_id']!=m['package_id'] or run['backend']!='metal':raise ValueError('Wrong replay package/backend')
+    if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
+    original,facts,evidence=replay_source(m,Path(origin['source_package']),Path(origin['source_capture']))
+    if origin['source_package_id']!=original['package_id']:raise ValueError('Wrong original package')
+    source=Path(origin['source_capture'])
+    for name in ('input.bin','readback.bin','evidence.json','generated.cu','generated.metal'):
+        if (capture/name).read_bytes()!=(source/name).read_bytes():raise ValueError('Replay changed original bytes: '+name)
+    if (capture/'source-execution.json').read_bytes()!=(source/'execution.json').read_bytes():
+        raise ValueError('Replay changed original failure/control facts')
+    result=compare_readback(m,capture)
+    return dict(result,passed=result['calculation_verified'],preservation_verified=None,sealed=False,
+                mode='saved-metal-replay',source_package_id=original['package_id'],source_execution_passed=facts['passed'],
+                original_failure_preserved=True,gpu_calls=0,gpu_retry_count=0,source_gpu_dispatches=1)
+
+
+def replay_capture(capture, source_package, source_capture):
+    m=verify_package(ROOT);original,facts,evidence=replay_source(m,source_package,source_capture)
+    capture.mkdir(parents=True,exist_ok=False)
+    write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='metal',mode='replay',status='replaying',gpu_retry_count=0))
+    write(capture/'replay.json',dict(source_package=str(source_package.resolve()),source_capture=str(source_capture.resolve()),source_package_id=original['package_id']))
+    for name in ('input.bin','readback.bin','evidence.json','generated.cu','generated.metal'):
+        (capture/name).write_bytes((source_capture/name).read_bytes())
+    (capture/'source-execution.json').write_bytes((source_capture/'execution.json').read_bytes())
+    try:
+        result=audit_replay_capture(m,capture,verify_artifacts=False)
+        write(capture/'comparison.json',compare_readback(m,capture));write(capture/'result.json',result)
+        run=load(capture/'run.json');run['status']='finished';write(capture/'run.json',run)
+    except BaseException as error:
+        write(capture/'failure.json',dict(error=type(error).__name__+': '+str(error),gpu_calls=0));raise
+    finally:collect(capture,capture/'artifacts.json')
+    return result
 
 
 def check_compile_cache(capture, output):
@@ -510,6 +594,8 @@ def audit_capture(capture,verify_artifacts=True):
     m=verify_package(ROOT)
     if load(capture/'run.json')['package_id']!=m['package_id']:raise ValueError('Capture belongs to another package')
     if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
+    if load(capture/'run.json').get('mode')=='replay':
+        return audit_replay_capture(m,capture,verify_artifacts=verify_artifacts)
     facts=load(capture/'execution.json')
     calc=False;error=None;first_difference=None
     if (capture/'readback.bin').exists():
@@ -590,6 +676,7 @@ def import_results(archive,destination):
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
     sub.add_parser('list')
+    a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True)
     a=sub.add_parser('cache-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
@@ -615,6 +702,7 @@ def main(argv=None):
             golden=load(ROOT/config['golden'])
             stale=[f for f,h in golden['source_sha256'].items() if not (ROOT/f).is_file() or sha((ROOT/f).read_bytes())!=h]
             result[name]=dict(config,golden_source_ready=not stale,stale_source_files=stale)
+    elif a.command=='replay':result=replay_capture(a.capture,a.source_package,a.source_capture)
     elif a.command=='cache-check':result=check_compile_cache(a.capture,a.out)
     elif a.command=='seal':result=seal_development(a.package_root,a.capture,a.out)
     elif a.command=='cases':
@@ -643,7 +731,7 @@ def main(argv=None):
         # Historical fixed reports remain supported by their existing sealers.
         runpy.run_path(str(ROOT/f'research/seal-world-v{a.version}-cuda.py'),run_name='__main__');return
     print(json.dumps(result,ensure_ascii=False,indent=2))
-    if a.command in ('run','audit'):
+    if a.command in ('run','audit','replay'):
         if result.get('cpu_verified') or result.get('smoke_verified'):return
         if not result.get('calculation_verified'):raise SystemExit(1)
         if result.get('preservation_verified') is False:raise SystemExit(2)
